@@ -1,0 +1,10 @@
+include: openapi-to-typescript/.gitlab-ci/node.yaml
+stages:
+  - test
+  - publish
+test:
+  stage: test
+  extends: .test:package
+publish:
+  stage: publish
+  extends: .publish:npm

@@ -1,0 +1,22 @@
+include: .gitlab-ci/node.yaml
+stages:
+  - test
+  - publish
+test:
+  stage: test
+  extends: .test:package
+publish:
+  stage: publish
+  extends: .publish:npm
+test:project-base-up-to-date:
+  image: gitlab-registry.mittwald.it/coab-0x7e7/tools/go-dev-env
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  tags:
+    - dockermultistage
+  script:
+    - ${CI_PROJECT_DIR}/.scripts/project-base-update-recursive.sh
+    - git diff --exit-code
+  except:
+    - tags
+  allow_failure: true

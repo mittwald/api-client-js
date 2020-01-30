@@ -1,0 +1,15 @@
+{
+  "@mittwald/generator-projectbase": {
+    "promptValues": {
+      "projectType": "generic-monorepo-root",
+      "subProjectDir": "",
+      "git-ignore": true,
+      "readme": true,
+      "gitlab-ci": true
+    },
+    "git-hooks": true,
+    "git-ignore": true,
+    "readme": true,
+    "scripts": true
+  }
+}

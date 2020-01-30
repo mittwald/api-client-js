@@ -1,0 +1,22 @@
+{
+  "@mittwald/generator-projectbase": {
+    "promptValues": {
+      "projectType": "typescript-node-library",
+      "subProjectDir": "openapi-to-typescript",
+      "proto": false,
+      "debugger-logger": true,
+      "git-ignore": true,
+      "readme": true,
+      "gitlab-ci": true
+    },
+    "default-dependencies": true,
+    "git-hooks": true,
+    "npm-package": true,
+    "typescript": true,
+    "format": true,
+    "editor": true,
+    "lint": true,
+    "test": true,
+    "scripts": true
+  }
+}

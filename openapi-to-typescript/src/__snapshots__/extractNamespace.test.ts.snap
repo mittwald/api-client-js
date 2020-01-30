@@ -1,0 +1,1808 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`extractNamespace() works correct 1`] = `
+Object {
+  "namespace": "Test",
+  "subNamespaces": Array [
+    Object {
+      "namespace": "Components",
+      "subNamespaces": Array [
+        Object {
+          "namespace": "Parameters",
+          "subNamespaces": Array [],
+          "types": Object {
+            "APIVersion": Object {
+              "default": "2.13",
+              "type": "string",
+            },
+            "OriginatingIdentity": Object {
+              "type": "string",
+            },
+          },
+        },
+        Object {
+          "namespace": "Schemas",
+          "subNamespaces": Array [],
+          "types": Object {
+            "AsyncOperation": Object {
+              "properties": Object {
+                "operation": Object {
+                  "type": "string",
+                },
+              },
+              "type": "object",
+            },
+            "Catalog": Object {
+              "properties": Object {
+                "services": Object {
+                  "items": Object {
+                    "$ref": "#/components/schemas/Service",
+                  },
+                  "type": "array",
+                },
+              },
+              "type": "object",
+            },
+            "Context": Object {
+              "description": "See [Context Conventions](https://github.com/openservicebrokerapi/servicebroker/blob/master/profile.md#context-object) for more details.",
+              "type": "object",
+            },
+            "DashboardClient": Object {
+              "properties": Object {
+                "id": Object {
+                  "type": "string",
+                },
+                "redirect_uri": Object {
+                  "type": "string",
+                },
+                "secret": Object {
+                  "type": "string",
+                },
+              },
+              "type": "object",
+            },
+            "Error": Object {
+              "description": "See [Service Broker Errors](https://github.com/openservicebrokerapi/servicebroker/blob/master/spec.md#service-broker-errors) for more details.",
+              "properties": Object {
+                "description": Object {
+                  "type": "string",
+                },
+                "error": Object {
+                  "type": "string",
+                },
+                "instance_usable": Object {
+                  "type": "boolean",
+                },
+                "update_repeatable": Object {
+                  "type": "boolean",
+                },
+              },
+              "type": "object",
+            },
+            "LastOperationResource": Object {
+              "properties": Object {
+                "description": Object {
+                  "type": "string",
+                },
+                "instance_usable": Object {
+                  "type": "boolean",
+                },
+                "state": Object {
+                  "enum": Array [
+                    "in progress",
+                    "succeeded",
+                    "failed",
+                  ],
+                  "type": "string",
+                },
+                "update_repeatable": Object {
+                  "type": "boolean",
+                },
+              },
+              "required": Array [
+                "state",
+              ],
+              "type": "object",
+            },
+            "MaintenanceInfo": Object {
+              "properties": Object {
+                "description": Object {
+                  "type": "string",
+                },
+                "version": Object {
+                  "type": "string",
+                },
+              },
+              "required": Array [
+                "version",
+              ],
+              "type": "object",
+            },
+            "Metadata": Object {
+              "description": "See [Service Metadata Conventions](https://github.com/openservicebrokerapi/servicebroker/blob/master/profile.md#service-metadata) for more details.",
+              "type": "object",
+            },
+            "Object": Object {
+              "type": "object",
+            },
+            "Plan": Object {
+              "properties": Object {
+                "bindable": Object {
+                  "type": "boolean",
+                },
+                "description": Object {
+                  "type": "string",
+                },
+                "free": Object {
+                  "default": true,
+                  "type": "boolean",
+                },
+                "id": Object {
+                  "type": "string",
+                },
+                "maintenance_info": Object {
+                  "$ref": "#/components/schemas/MaintenanceInfo",
+                },
+                "metadata": Object {
+                  "$ref": "#/components/schemas/Metadata",
+                },
+                "name": Object {
+                  "type": "string",
+                },
+                "schemas": Object {
+                  "$ref": "#/components/schemas/Schemas",
+                },
+              },
+              "required": Array [
+                "id",
+                "name",
+                "description",
+              ],
+              "type": "object",
+            },
+            "SchemaParameters": Object {
+              "properties": Object {
+                "parameters": Object {
+                  "$ref": "#/components/schemas/JSONSchema",
+                },
+              },
+              "type": "object",
+            },
+            "Schemas": Object {
+              "properties": Object {
+                "service_binding": Object {
+                  "$ref": "#/components/schemas/ServiceBindingSchema",
+                },
+                "service_instance": Object {
+                  "$ref": "#/components/schemas/ServiceInstanceSchema",
+                },
+              },
+              "type": "object",
+            },
+            "Service": Object {
+              "properties": Object {
+                "bindable": Object {
+                  "type": "boolean",
+                },
+                "dashboard_client": Object {
+                  "$ref": "#/components/schemas/DashboardClient",
+                },
+                "description": Object {
+                  "type": "string",
+                },
+                "id": Object {
+                  "type": "string",
+                },
+                "metadata": Object {
+                  "$ref": "#/components/schemas/Metadata",
+                },
+                "name": Object {
+                  "type": "string",
+                },
+                "plan_updateable": Object {
+                  "type": "boolean",
+                },
+                "plans": Object {
+                  "items": Object {
+                    "$ref": "#/components/schemas/Plan",
+                  },
+                  "type": "array",
+                },
+                "requires": Object {
+                  "items": Object {
+                    "enum": Array [
+                      "syslog_drain",
+                      "route_forwarding",
+                      "volume_mount",
+                    ],
+                    "type": "string",
+                  },
+                  "type": "array",
+                },
+                "tags": Object {
+                  "items": Object {
+                    "type": "string",
+                  },
+                  "type": "array",
+                },
+              },
+              "required": Array [
+                "name",
+                "id",
+                "description",
+                "bindable",
+                "plans",
+              ],
+              "type": "object",
+            },
+            "ServiceBindingEndpoint": Object {
+              "properties": Object {
+                "host": Object {
+                  "type": "string",
+                },
+                "ports": Object {
+                  "items": Object {
+                    "type": "string",
+                  },
+                  "type": "array",
+                },
+                "protocol": Object {
+                  "default": "tcp",
+                  "enum": Array [
+                    "tcp",
+                    "udp",
+                    "all",
+                  ],
+                  "type": "string",
+                },
+              },
+              "required": Array [
+                "host",
+                "ports",
+              ],
+              "type": "object",
+            },
+            "ServiceBindingRequest": Object {
+              "properties": Object {
+                "app_guid": Object {
+                  "deprecated": true,
+                  "type": "string",
+                },
+                "bind_resource": Object {
+                  "$ref": "#/components/schemas/ServiceBindingResouceObject",
+                },
+                "context": Object {
+                  "$ref": "#/components/schemas/Context",
+                },
+                "parameters": Object {
+                  "$ref": "#/components/schemas/Object",
+                },
+                "plan_id": Object {
+                  "type": "string",
+                },
+                "service_id": Object {
+                  "type": "string",
+                },
+              },
+              "required": Array [
+                "service_id",
+                "plan_id",
+              ],
+              "type": "object",
+            },
+            "ServiceBindingResouceObject": Object {
+              "properties": Object {
+                "app_guid": Object {
+                  "type": "string",
+                },
+                "route": Object {
+                  "type": "string",
+                },
+              },
+              "type": "object",
+            },
+            "ServiceBindingResource": Object {
+              "properties": Object {
+                "credentials": Object {
+                  "$ref": "#/components/schemas/Object",
+                },
+                "endpoints": Object {
+                  "items": Object {
+                    "$ref": "#/components/schemas/ServiceBindingEndpoint",
+                  },
+                  "type": "array",
+                },
+                "parameters": Object {
+                  "$ref": "#/components/schemas/Object",
+                },
+                "route_service_url": Object {
+                  "type": "string",
+                },
+                "syslog_drain_url": Object {
+                  "type": "string",
+                },
+                "volume_mounts": Object {
+                  "items": Object {
+                    "$ref": "#/components/schemas/ServiceBindingVolumeMount",
+                  },
+                  "type": "array",
+                },
+              },
+              "type": "object",
+            },
+            "ServiceBindingResponse": Object {
+              "properties": Object {
+                "credentials": Object {
+                  "$ref": "#/components/schemas/Object",
+                },
+                "endpoints": Object {
+                  "items": Object {
+                    "$ref": "#/components/schemas/ServiceBindingEndpoint",
+                  },
+                  "type": "array",
+                },
+                "route_service_url": Object {
+                  "type": "string",
+                },
+                "syslog_drain_url": Object {
+                  "type": "string",
+                },
+                "volume_mounts": Object {
+                  "items": Object {
+                    "$ref": "#/components/schemas/ServiceBindingVolumeMount",
+                  },
+                  "type": "array",
+                },
+              },
+              "type": "object",
+            },
+            "ServiceBindingSchema": Object {
+              "properties": Object {
+                "create": Object {
+                  "$ref": "#/components/schemas/SchemaParameters",
+                },
+              },
+              "type": "object",
+            },
+            "ServiceBindingVolumeMount": Object {
+              "properties": Object {
+                "container_dir": Object {
+                  "type": "string",
+                },
+                "device": Object {
+                  "$ref": "#/components/schemas/ServiceBindingVolumeMountDevice",
+                },
+                "device_type": Object {
+                  "enum": Array [
+                    "shared",
+                  ],
+                  "type": "string",
+                },
+                "driver": Object {
+                  "type": "string",
+                },
+                "mode": Object {
+                  "enum": Array [
+                    "r",
+                    "rw",
+                  ],
+                  "type": "string",
+                },
+              },
+              "required": Array [
+                "driver",
+                "container_dir",
+                "mode",
+                "device_type",
+                "device",
+              ],
+              "type": "object",
+            },
+            "ServiceBindingVolumeMountDevice": Object {
+              "properties": Object {
+                "mount_config": Object {
+                  "$ref": "#/components/schemas/Object",
+                },
+                "volume_id": Object {
+                  "type": "string",
+                },
+              },
+              "required": Array [
+                "volume_id",
+              ],
+              "type": "object",
+            },
+            "ServiceInstanceAsyncOperation": Object {
+              "properties": Object {
+                "dashboard_url": Object {
+                  "type": "string",
+                },
+                "operation": Object {
+                  "type": "string",
+                },
+              },
+              "type": "object",
+            },
+            "ServiceInstancePreviousValues": Object {
+              "properties": Object {
+                "organization_id": Object {
+                  "deprecated": true,
+                  "type": "string",
+                },
+                "plan_id": Object {
+                  "type": "string",
+                },
+                "service_id": Object {
+                  "deprecated": true,
+                  "type": "string",
+                },
+                "space_id": Object {
+                  "deprecated": true,
+                  "type": "string",
+                },
+              },
+              "type": "object",
+            },
+            "ServiceInstanceProvisionRequest": Object {
+              "properties": Object {
+                "context": Object {
+                  "$ref": "#/components/schemas/Context",
+                },
+                "organization_guid": Object {
+                  "deprecated": true,
+                  "type": "string",
+                },
+                "parameters": Object {
+                  "$ref": "#/components/schemas/Object",
+                },
+                "plan_id": Object {
+                  "type": "string",
+                },
+                "service_id": Object {
+                  "type": "string",
+                },
+                "space_guid": Object {
+                  "deprecated": true,
+                  "type": "string",
+                },
+              },
+              "required": Array [
+                "service_id",
+                "plan_id",
+                "organization_guid",
+                "space_guid",
+              ],
+              "type": "object",
+            },
+            "ServiceInstanceProvisionResponse": Object {
+              "properties": Object {
+                "dashboard_url": Object {
+                  "type": "string",
+                },
+              },
+              "type": "object",
+            },
+            "ServiceInstanceResource": Object {
+              "properties": Object {
+                "dashboard_url": Object {
+                  "type": "string",
+                },
+                "parameters": Object {
+                  "$ref": "#/components/schemas/Object",
+                },
+                "plan_id": Object {
+                  "type": "string",
+                },
+                "service_id": Object {
+                  "type": "string",
+                },
+              },
+              "type": "object",
+            },
+            "ServiceInstanceSchema": Object {
+              "properties": Object {
+                "create": Object {
+                  "$ref": "#/components/schemas/SchemaParameters",
+                },
+                "update": Object {
+                  "$ref": "#/components/schemas/SchemaParameters",
+                },
+              },
+              "type": "object",
+            },
+            "ServiceInstanceUpdateRequest": Object {
+              "properties": Object {
+                "context": Object {
+                  "$ref": "#/components/schemas/Context",
+                },
+                "parameters": Object {
+                  "$ref": "#/components/schemas/Object",
+                },
+                "plan_id": Object {
+                  "type": "string",
+                },
+                "previous_values": Object {
+                  "$ref": "#/components/schemas/ServiceInstancePreviousValues",
+                },
+                "service_id": Object {
+                  "type": "string",
+                },
+              },
+              "required": Array [
+                "service_id",
+              ],
+              "type": "object",
+            },
+          },
+        },
+        Object {
+          "namespace": "SecuritySchemes",
+          "subNamespaces": Array [],
+          "types": Object {
+            "basicAuth": Object {
+              "scheme": "basic",
+              "type": "http",
+            },
+          },
+        },
+      ],
+      "types": Object {},
+    },
+    Object {
+      "namespace": "Paths",
+      "subNamespaces": Array [
+        Object {
+          "namespace": "V2_Catalog",
+          "subNamespaces": Array [
+            Object {
+              "namespace": "Get",
+              "subNamespaces": Array [
+                Object {
+                  "namespace": "Responses",
+                  "subNamespaces": Array [
+                    Object {
+                      "namespace": "$200",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/Catalog",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                  ],
+                  "types": Object {},
+                },
+              ],
+              "types": Object {
+                "Header": Object {
+                  "properties": Object {
+                    "X-Broker-API-Version": Object {
+                      "$ref": "#/components/parameters/APIVersion",
+                    },
+                  },
+                  "required": Array [
+                    "X-Broker-API-Version",
+                  ],
+                },
+              },
+            },
+          ],
+          "types": Object {},
+        },
+        Object {
+          "namespace": "V2_Service_Instances_Instance_Id",
+          "subNamespaces": Array [
+            Object {
+              "namespace": "Put",
+              "subNamespaces": Array [
+                Object {
+                  "namespace": "Parameters",
+                  "subNamespaces": Array [],
+                  "types": Object {
+                    "accepts_incomplete": Object {
+                      "type": "boolean",
+                    },
+                    "instance_id": Object {
+                      "type": "string",
+                    },
+                  },
+                },
+                Object {
+                  "namespace": "RequestBody",
+                  "subNamespaces": Array [
+                    Object {
+                      "namespace": "Content",
+                      "subNamespaces": Array [],
+                      "types": Object {
+                        "application/json": Object {
+                          "$ref": "#/components/schemas/ServiceInstanceProvisionRequest",
+                        },
+                      },
+                    },
+                  ],
+                  "types": Object {},
+                },
+                Object {
+                  "namespace": "Responses",
+                  "subNamespaces": Array [
+                    Object {
+                      "namespace": "$200",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/ServiceInstanceProvisionResponse",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$201",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/ServiceInstanceProvisionResponse",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$202",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/ServiceInstanceAsyncOperation",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$400",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/Error",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$409",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/Error",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$422",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/Error",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                  ],
+                  "types": Object {},
+                },
+              ],
+              "types": Object {
+                "Header": Object {
+                  "properties": Object {
+                    "X-Broker-API-Originating-Identity": Object {
+                      "$ref": "#/components/parameters/OriginatingIdentity",
+                    },
+                    "X-Broker-API-Version": Object {
+                      "$ref": "#/components/parameters/APIVersion",
+                    },
+                  },
+                  "required": Array [
+                    "X-Broker-API-Version",
+                  ],
+                },
+                "Path": Object {
+                  "properties": Object {
+                    "instance_id": Object {
+                      "type": "string",
+                    },
+                  },
+                  "required": Array [
+                    "instance_id",
+                  ],
+                },
+                "Query": Object {
+                  "properties": Object {
+                    "accepts_incomplete": Object {
+                      "type": "boolean",
+                    },
+                  },
+                  "required": Array [],
+                },
+              },
+            },
+            Object {
+              "namespace": "Patch",
+              "subNamespaces": Array [
+                Object {
+                  "namespace": "Parameters",
+                  "subNamespaces": Array [],
+                  "types": Object {
+                    "accepts_incomplete": Object {
+                      "type": "boolean",
+                    },
+                    "instance_id": Object {
+                      "type": "string",
+                    },
+                  },
+                },
+                Object {
+                  "namespace": "RequestBody",
+                  "subNamespaces": Array [
+                    Object {
+                      "namespace": "Content",
+                      "subNamespaces": Array [],
+                      "types": Object {
+                        "application/json": Object {
+                          "$ref": "#/components/schemas/ServiceInstanceUpdateRequest",
+                        },
+                      },
+                    },
+                  ],
+                  "types": Object {},
+                },
+                Object {
+                  "namespace": "Responses",
+                  "subNamespaces": Array [
+                    Object {
+                      "namespace": "$200",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/Object",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$202",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/ServiceInstanceAsyncOperation",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$400",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/Error",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$422",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/Error",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                  ],
+                  "types": Object {},
+                },
+              ],
+              "types": Object {
+                "Header": Object {
+                  "properties": Object {
+                    "X-Broker-API-Originating-Identity": Object {
+                      "$ref": "#/components/parameters/OriginatingIdentity",
+                    },
+                    "X-Broker-API-Version": Object {
+                      "$ref": "#/components/parameters/APIVersion",
+                    },
+                  },
+                  "required": Array [
+                    "X-Broker-API-Version",
+                  ],
+                },
+                "Path": Object {
+                  "properties": Object {
+                    "instance_id": Object {
+                      "type": "string",
+                    },
+                  },
+                  "required": Array [
+                    "instance_id",
+                  ],
+                },
+                "Query": Object {
+                  "properties": Object {
+                    "accepts_incomplete": Object {
+                      "type": "boolean",
+                    },
+                  },
+                  "required": Array [],
+                },
+              },
+            },
+            Object {
+              "namespace": "Delete",
+              "subNamespaces": Array [
+                Object {
+                  "namespace": "Parameters",
+                  "subNamespaces": Array [],
+                  "types": Object {
+                    "accepts_incomplete": Object {
+                      "type": "boolean",
+                    },
+                    "instance_id": Object {
+                      "type": "string",
+                    },
+                    "plan_id": Object {
+                      "type": "string",
+                    },
+                    "service_id": Object {
+                      "type": "string",
+                    },
+                  },
+                },
+                Object {
+                  "namespace": "Responses",
+                  "subNamespaces": Array [
+                    Object {
+                      "namespace": "$200",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/Object",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$202",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/AsyncOperation",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$400",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/Error",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$410",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/Error",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$422",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/Error",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                  ],
+                  "types": Object {},
+                },
+              ],
+              "types": Object {
+                "Header": Object {
+                  "properties": Object {
+                    "X-Broker-API-Originating-Identity": Object {
+                      "$ref": "#/components/parameters/OriginatingIdentity",
+                    },
+                    "X-Broker-API-Version": Object {
+                      "$ref": "#/components/parameters/APIVersion",
+                    },
+                  },
+                  "required": Array [
+                    "X-Broker-API-Version",
+                  ],
+                },
+                "Path": Object {
+                  "properties": Object {
+                    "instance_id": Object {
+                      "type": "string",
+                    },
+                  },
+                  "required": Array [
+                    "instance_id",
+                  ],
+                },
+                "Query": Object {
+                  "properties": Object {
+                    "accepts_incomplete": Object {
+                      "type": "boolean",
+                    },
+                    "plan_id": Object {
+                      "type": "string",
+                    },
+                    "service_id": Object {
+                      "type": "string",
+                    },
+                  },
+                  "required": Array [
+                    "service_id",
+                    "plan_id",
+                  ],
+                },
+              },
+            },
+            Object {
+              "namespace": "Get",
+              "subNamespaces": Array [
+                Object {
+                  "namespace": "Parameters",
+                  "subNamespaces": Array [],
+                  "types": Object {
+                    "instance_id": Object {
+                      "type": "string",
+                    },
+                    "plan_id": Object {
+                      "type": "string",
+                    },
+                    "service_id": Object {
+                      "type": "string",
+                    },
+                  },
+                },
+                Object {
+                  "namespace": "Responses",
+                  "subNamespaces": Array [
+                    Object {
+                      "namespace": "$200",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/ServiceInstanceResource",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$404",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/Error",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                  ],
+                  "types": Object {},
+                },
+              ],
+              "types": Object {
+                "Header": Object {
+                  "properties": Object {
+                    "X-Broker-API-Originating-Identity": Object {
+                      "$ref": "#/components/parameters/OriginatingIdentity",
+                    },
+                    "X-Broker-API-Version": Object {
+                      "$ref": "#/components/parameters/APIVersion",
+                    },
+                  },
+                  "required": Array [
+                    "X-Broker-API-Version",
+                  ],
+                },
+                "Path": Object {
+                  "properties": Object {
+                    "instance_id": Object {
+                      "type": "string",
+                    },
+                  },
+                  "required": Array [
+                    "instance_id",
+                  ],
+                },
+                "Query": Object {
+                  "properties": Object {
+                    "plan_id": Object {
+                      "type": "string",
+                    },
+                    "service_id": Object {
+                      "type": "string",
+                    },
+                  },
+                  "required": Array [],
+                },
+              },
+            },
+          ],
+          "types": Object {},
+        },
+        Object {
+          "namespace": "V2_Service_Instances_Instance_Id_Last_Operation",
+          "subNamespaces": Array [
+            Object {
+              "namespace": "Get",
+              "subNamespaces": Array [
+                Object {
+                  "namespace": "Parameters",
+                  "subNamespaces": Array [],
+                  "types": Object {
+                    "instance_id": Object {
+                      "type": "string",
+                    },
+                    "operation": Object {
+                      "type": "string",
+                    },
+                    "plan_id": Object {
+                      "type": "string",
+                    },
+                    "service_id": Object {
+                      "type": "string",
+                    },
+                  },
+                },
+                Object {
+                  "namespace": "Responses",
+                  "subNamespaces": Array [
+                    Object {
+                      "namespace": "$200",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/LastOperationResource",
+                            },
+                          },
+                        },
+                        Object {
+                          "namespace": "Headers",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "Retry-After": Object {
+                              "type": "string",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$400",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/Error",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$410",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/Error",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                  ],
+                  "types": Object {},
+                },
+              ],
+              "types": Object {
+                "Header": Object {
+                  "properties": Object {
+                    "X-Broker-API-Version": Object {
+                      "$ref": "#/components/parameters/APIVersion",
+                    },
+                  },
+                  "required": Array [
+                    "X-Broker-API-Version",
+                  ],
+                },
+                "Path": Object {
+                  "properties": Object {
+                    "instance_id": Object {
+                      "type": "string",
+                    },
+                  },
+                  "required": Array [
+                    "instance_id",
+                  ],
+                },
+                "Query": Object {
+                  "properties": Object {
+                    "operation": Object {
+                      "type": "string",
+                    },
+                    "plan_id": Object {
+                      "type": "string",
+                    },
+                    "service_id": Object {
+                      "type": "string",
+                    },
+                  },
+                  "required": Array [],
+                },
+              },
+            },
+          ],
+          "types": Object {},
+        },
+        Object {
+          "namespace": "V2_Service_Instances_Instance_Id_Service_Bindings_Binding_Id_Last_Operation",
+          "subNamespaces": Array [
+            Object {
+              "namespace": "Get",
+              "subNamespaces": Array [
+                Object {
+                  "namespace": "Parameters",
+                  "subNamespaces": Array [],
+                  "types": Object {
+                    "binding_id": Object {
+                      "type": "string",
+                    },
+                    "instance_id": Object {
+                      "type": "string",
+                    },
+                    "operation": Object {
+                      "type": "string",
+                    },
+                    "plan_id": Object {
+                      "type": "string",
+                    },
+                    "service_id": Object {
+                      "type": "string",
+                    },
+                  },
+                },
+                Object {
+                  "namespace": "Responses",
+                  "subNamespaces": Array [
+                    Object {
+                      "namespace": "$200",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/LastOperationResource",
+                            },
+                          },
+                        },
+                        Object {
+                          "namespace": "Headers",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "Retry-After": Object {
+                              "type": "string",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$400",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/Error",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$410",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/Error",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                  ],
+                  "types": Object {},
+                },
+              ],
+              "types": Object {
+                "Header": Object {
+                  "properties": Object {
+                    "X-Broker-API-Version": Object {
+                      "$ref": "#/components/parameters/APIVersion",
+                    },
+                  },
+                  "required": Array [
+                    "X-Broker-API-Version",
+                  ],
+                },
+                "Path": Object {
+                  "properties": Object {
+                    "binding_id": Object {
+                      "type": "string",
+                    },
+                    "instance_id": Object {
+                      "type": "string",
+                    },
+                  },
+                  "required": Array [
+                    "instance_id",
+                    "binding_id",
+                  ],
+                },
+                "Query": Object {
+                  "properties": Object {
+                    "operation": Object {
+                      "type": "string",
+                    },
+                    "plan_id": Object {
+                      "type": "string",
+                    },
+                    "service_id": Object {
+                      "type": "string",
+                    },
+                  },
+                  "required": Array [],
+                },
+              },
+            },
+          ],
+          "types": Object {},
+        },
+        Object {
+          "namespace": "V2_Service_Instances_Instance_Id_Service_Bindings_Binding_Id",
+          "subNamespaces": Array [
+            Object {
+              "namespace": "Put",
+              "subNamespaces": Array [
+                Object {
+                  "namespace": "Parameters",
+                  "subNamespaces": Array [],
+                  "types": Object {
+                    "accepts_incomplete": Object {
+                      "type": "boolean",
+                    },
+                    "binding_id": Object {
+                      "type": "string",
+                    },
+                    "instance_id": Object {
+                      "type": "string",
+                    },
+                  },
+                },
+                Object {
+                  "namespace": "RequestBody",
+                  "subNamespaces": Array [
+                    Object {
+                      "namespace": "Content",
+                      "subNamespaces": Array [],
+                      "types": Object {
+                        "application/json": Object {
+                          "$ref": "#/components/schemas/ServiceBindingRequest",
+                        },
+                      },
+                    },
+                  ],
+                  "types": Object {},
+                },
+                Object {
+                  "namespace": "Responses",
+                  "subNamespaces": Array [
+                    Object {
+                      "namespace": "$200",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/ServiceBindingResponse",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$201",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/ServiceBindingResponse",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$202",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/AsyncOperation",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$400",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/Error",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$409",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/Error",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$422",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/Error",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                  ],
+                  "types": Object {},
+                },
+              ],
+              "types": Object {
+                "Header": Object {
+                  "properties": Object {
+                    "X-Broker-API-Originating-Identity": Object {
+                      "$ref": "#/components/parameters/OriginatingIdentity",
+                    },
+                    "X-Broker-API-Version": Object {
+                      "$ref": "#/components/parameters/APIVersion",
+                    },
+                  },
+                  "required": Array [
+                    "X-Broker-API-Version",
+                  ],
+                },
+                "Path": Object {
+                  "properties": Object {
+                    "binding_id": Object {
+                      "type": "string",
+                    },
+                    "instance_id": Object {
+                      "type": "string",
+                    },
+                  },
+                  "required": Array [
+                    "instance_id",
+                    "binding_id",
+                  ],
+                },
+                "Query": Object {
+                  "properties": Object {
+                    "accepts_incomplete": Object {
+                      "type": "boolean",
+                    },
+                  },
+                  "required": Array [],
+                },
+              },
+            },
+            Object {
+              "namespace": "Delete",
+              "subNamespaces": Array [
+                Object {
+                  "namespace": "Parameters",
+                  "subNamespaces": Array [],
+                  "types": Object {
+                    "accepts_incomplete": Object {
+                      "type": "boolean",
+                    },
+                    "binding_id": Object {
+                      "type": "string",
+                    },
+                    "instance_id": Object {
+                      "type": "string",
+                    },
+                    "plan_id": Object {
+                      "type": "string",
+                    },
+                    "service_id": Object {
+                      "type": "string",
+                    },
+                  },
+                },
+                Object {
+                  "namespace": "Responses",
+                  "subNamespaces": Array [
+                    Object {
+                      "namespace": "$200",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/Object",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$202",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/AsyncOperation",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$400",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/Error",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$410",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/Error",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                  ],
+                  "types": Object {},
+                },
+              ],
+              "types": Object {
+                "Header": Object {
+                  "properties": Object {
+                    "X-Broker-API-Originating-Identity": Object {
+                      "$ref": "#/components/parameters/OriginatingIdentity",
+                    },
+                    "X-Broker-API-Version": Object {
+                      "$ref": "#/components/parameters/APIVersion",
+                    },
+                  },
+                  "required": Array [
+                    "X-Broker-API-Version",
+                  ],
+                },
+                "Path": Object {
+                  "properties": Object {
+                    "binding_id": Object {
+                      "type": "string",
+                    },
+                    "instance_id": Object {
+                      "type": "string",
+                    },
+                  },
+                  "required": Array [
+                    "instance_id",
+                    "binding_id",
+                  ],
+                },
+                "Query": Object {
+                  "properties": Object {
+                    "accepts_incomplete": Object {
+                      "type": "boolean",
+                    },
+                    "plan_id": Object {
+                      "type": "string",
+                    },
+                    "service_id": Object {
+                      "type": "string",
+                    },
+                  },
+                  "required": Array [
+                    "service_id",
+                    "plan_id",
+                  ],
+                },
+              },
+            },
+            Object {
+              "namespace": "Get",
+              "subNamespaces": Array [
+                Object {
+                  "namespace": "Parameters",
+                  "subNamespaces": Array [],
+                  "types": Object {
+                    "binding_id": Object {
+                      "type": "string",
+                    },
+                    "instance_id": Object {
+                      "type": "string",
+                    },
+                    "plan_id": Object {
+                      "type": "string",
+                    },
+                    "service_id": Object {
+                      "type": "string",
+                    },
+                  },
+                },
+                Object {
+                  "namespace": "Responses",
+                  "subNamespaces": Array [
+                    Object {
+                      "namespace": "$200",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/ServiceBindingResource",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                    Object {
+                      "namespace": "$404",
+                      "subNamespaces": Array [
+                        Object {
+                          "namespace": "Content",
+                          "subNamespaces": Array [],
+                          "types": Object {
+                            "application/json": Object {
+                              "$ref": "#/components/schemas/Error",
+                            },
+                          },
+                        },
+                      ],
+                      "types": Object {},
+                    },
+                  ],
+                  "types": Object {},
+                },
+              ],
+              "types": Object {
+                "Header": Object {
+                  "properties": Object {
+                    "X-Broker-API-Originating-Identity": Object {
+                      "$ref": "#/components/parameters/OriginatingIdentity",
+                    },
+                    "X-Broker-API-Version": Object {
+                      "$ref": "#/components/parameters/APIVersion",
+                    },
+                  },
+                  "required": Array [
+                    "X-Broker-API-Version",
+                  ],
+                },
+                "Path": Object {
+                  "properties": Object {
+                    "binding_id": Object {
+                      "type": "string",
+                    },
+                    "instance_id": Object {
+                      "type": "string",
+                    },
+                  },
+                  "required": Array [
+                    "instance_id",
+                    "binding_id",
+                  ],
+                },
+                "Query": Object {
+                  "properties": Object {
+                    "plan_id": Object {
+                      "type": "string",
+                    },
+                    "service_id": Object {
+                      "type": "string",
+                    },
+                  },
+                  "required": Array [],
+                },
+              },
+            },
+          ],
+          "types": Object {},
+        },
+      ],
+      "types": Object {},
+    },
+  ],
+  "types": Object {},
+}
+`;
