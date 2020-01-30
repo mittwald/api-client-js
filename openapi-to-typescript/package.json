@@ -1,8 +1,10 @@
 {
   "version": "1.0.0",
   "license": "UNLICENSED",
-  "author": {},
-  "name": "@mittwald/work",
+  "author": {
+    "name": "Marco Falkenberg, Marco Rieger"
+  },
+  "name": "@mittwald/openapi-to-typescript",
   "scripts": {
     "precommit:format": "run-s test:staged-formatted",
     "precommit": "run-s precommit:*",
