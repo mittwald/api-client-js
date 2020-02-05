@@ -1,958 +1,170 @@
-# This is the Open API interface for Open Service Broker API. Every attempt will
-# be made to make the Open API version of OSB API accurately represent the
-# written specification. If the spec and this document conflict, the spec is
-# the authority.
-
 openapi: "3.0.0"
-
 info:
-  title: Open Service Broker API
-  description: The Open Service Broker API defines an HTTP(S) interface between Platforms and Service Brokers.
+  version: 1.0.0
+  title: Swagger Petstore
+  description: A sample API that uses a petstore as an example to demonstrate features in the OpenAPI 3.0 specification
+  termsOfService: http://swagger.io/terms/
+  contact:
+    name: Swagger API Team
+    email: apiteam@swagger.io
+    url: http://swagger.io
   license:
     name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
-  contact:
-    name: Open Service Broker API
-    url: https://www.openservicebrokerapi.org/
-    email: open-service-broker-api@googlegroups.com
-  version: master - might contain changes that are not yet released
-
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
 servers:
-  - url: http://example.com
-    description: Broker Endpoint
-  - url: http://localhost:3000
-    description: OSB Checker - MockOSB
-
+  - url: http://petstore.swagger.io/api
 paths:
-  /v2/catalog:
+  /pets:
     get:
-      summary: get the catalog of services that the service broker offers
-      tags:
-        - Catalog
-      operationId: catalog.get
-      parameters:
-        - $ref: "#/components/parameters/APIVersion"
-      responses:
-        "200":
-          description: catalog response
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Catalog"
+      description: |
+        Returns all pets from the system that the user has access to
+        Nam sed condimentum est. Maecenas tempor sagittis sapien, nec rhoncus sem sagittis sit amet. Aenean at gravida augue, ac iaculis sem. Curabitur odio lorem, ornare eget elementum nec, cursus id lectus. Duis mi turpis, pulvinar ac eros ac, tincidunt varius justo. In hac habitasse platea dictumst. Integer at adipiscing ante, a sagittis ligula. Aenean pharetra tempor ante molestie imperdiet. Vivamus id aliquam diam. Cras quis velit non tortor eleifend sagittis. Praesent at enim pharetra urna volutpat venenatis eget eget mauris. In eleifend fermentum facilisis. Praesent enim enim, gravida ac sodales sed, placerat id erat. Suspendisse lacus dolor, consectetur non augue vel, vehicula interdum libero. Morbi euismod sagittis libero sed lacinia.
 
-  /v2/service_instances/{instance_id}:
-    put:
-      summary: provision a service instance
-      tags:
-        - ServiceInstances
-      operationId: serviceInstance.provision
+        Sed tempus felis lobortis leo pulvinar rutrum. Nam mattis velit nisl, eu condimentum ligula luctus nec. Phasellus semper velit eget aliquet faucibus. In a mattis elit. Phasellus vel urna viverra, condimentum lorem id, rhoncus nibh. Ut pellentesque posuere elementum. Sed a varius odio. Morbi rhoncus ligula libero, vel eleifend nunc tristique vitae. Fusce et sem dui. Aenean nec scelerisque tortor. Fusce malesuada accumsan magna vel tempus. Quisque mollis felis eu dolor tristique, sit amet auctor felis gravida. Sed libero lorem, molestie sed nisl in, accumsan tempor nisi. Fusce sollicitudin massa ut lacinia mattis. Sed vel eleifend lorem. Pellentesque vitae felis pretium, pulvinar elit eu, euismod sapien.
+      operationId: findPets
       parameters:
-        - $ref: "#/components/parameters/APIVersion"
-        - $ref: "#/components/parameters/OriginatingIdentity"
-        - name: instance_id
-          in: path
-          description: instance id of instance to provision
-          required: true
-          schema:
-            type: string
-        - name: accepts_incomplete
+        - name: tags
           in: query
-          description: asynchronous operations supported
+          description: tags to filter by
+          required: false
+          style: form
           schema:
-            type: boolean
+            type: array
+            items:
+              type: string
+        - name: limit
+          in: query
+          description: maximum number of results to return
+          required: false
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: pet response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Pet'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      description: Creates a new pet in the store. Duplicates are allowed
+      operationId: addPet
       requestBody:
-        description: parameters for the requested service instance provision
+        description: Pet to add to the store
         required: true
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ServiceInstanceProvisionRequest"
+              $ref: '#/components/schemas/NewPet'
       responses:
-        "200":
-          description: OK
+        '200':
+          description: pet response
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ServiceInstanceProvisionResponse"
-        "201":
-          description: Created
+                $ref: '#/components/schemas/Pet'
+        default:
+          description: unexpected error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ServiceInstanceProvisionResponse"
-        "202":
-          description: Accepted
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ServiceInstanceAsyncOperation"
-        "400":
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-        "409":
-          description: Conflict
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-        "422":
-          description: Unprocessable Entity
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-    patch:
-      summary: update a service instance
-      tags:
-        - ServiceInstances
-      operationId: serviceInstance.update
+                $ref: '#/components/schemas/Error'
+  /pets/{id}/{offset}:
+    get:
+      description: Returns a user based on a single ID, if the user does not have access to the pet
+      operationId: find pet by id
       parameters:
-        - $ref: "#/components/parameters/APIVersion"
-        - $ref: "#/components/parameters/OriginatingIdentity"
-        - name: instance_id
+        - name: id
           in: path
-          description: instance id of instance to update
+          description: ID of pet to fetch
           required: true
           schema:
-            type: string
-        - name: accepts_incomplete
-          in: query
-          description: asynchronous operations supported
-          schema:
-            type: boolean
-      requestBody:
-        description: parameters for the requested service instance update
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/ServiceInstanceUpdateRequest"
+            type: integer
+            format: int64
+        - $ref: '#/components/parameters/offsetParam'
       responses:
-        "200":
-          description: OK
+        '200':
+          description: pet response
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Object"
-        "202":
-          description: Accepted
+                $ref: '#/components/schemas/Pet'
+        default:
+          description: unexpected error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ServiceInstanceAsyncOperation"
-        "400":
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-        "422":
-          description: Unprocessable entity
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
+                $ref: '#/components/schemas/Error'
     delete:
-      summary: deprovision a service instance
-      tags:
-        - ServiceInstances
-      operationId: serviceInstance.deprovision
+      description: deletes a single pet based on the ID supplied
+      operationId: deletePet
       parameters:
-        - $ref: "#/components/parameters/APIVersion"
-        - $ref: "#/components/parameters/OriginatingIdentity"
-        - name: instance_id
+        - name: id
           in: path
-          description: id of instance being deleted
+          description: ID of pet to delete
           required: true
           schema:
-            type: string
-        - name: service_id
-          in: query
-          description: id of the service associated with the instance being deleted
-          required: true
-          schema:
-            type: string
-        - name: plan_id
-          in: query
-          description: id of the plan associated with the instance being deleted
-          required: true
-          schema:
-            type: string
-        - name: accepts_incomplete
-          in: query
-          description: asynchronous deprovision supported
-          schema:
-            type: boolean
+            type: integer
+            format: int64
       responses:
-        "200":
-          description: OK
+        '204':
+          description: pet deleted
+        default:
+          description: unexpected error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Object"
-        "202":
-          description: Accepted
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/AsyncOperation"
-        "400":
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-        "410":
-          description: Gone
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-        "422":
-          description: Unprocessable Entity
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-    get:
-      summary: get a service instance
-      tags:
-        - ServiceInstances
-      operationId: serviceInstance.get
-      parameters:
-        - $ref: "#/components/parameters/APIVersion"
-        - $ref: "#/components/parameters/OriginatingIdentity"
-        - name: instance_id
-          in: path
-          description: instance id of instance to fetch
-          required: true
-          schema:
-            type: string
-        - name: service_id
-          in: query
-          description: id of the service associated with the instance
-          schema:
-            type: string
-        - name: plan_id
-          in: query
-          description: id of the plan associated with the instance
-          schema:
-            type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ServiceInstanceResource"
-        "404":
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-
-  /v2/service_instances/{instance_id}/last_operation:
-    get:
-      summary: get the last requested operation state for service instance
-      tags:
-        - ServiceInstances
-      operationId: serviceInstance.lastOperation.get
-      parameters:
-        - $ref: "#/components/parameters/APIVersion"
-        - name: instance_id
-          in: path
-          description: instance id of instance to find last operation applied to it
-          required: true
-          schema:
-            type: string
-        - name: service_id
-          in: query
-          description: id of the service associated with the instance
-          schema:
-            type: string
-        - name: plan_id
-          in: query
-          description: id of the plan associated with the instance
-          schema:
-            type: string
-        - name: operation
-          in: query
-          description: a provided identifier for the operation
-          schema:
-            type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/LastOperationResource"
-          headers:
-            Retry-After:
-              description: Indicates when to retry the request
-              required: false
-              schema:
-                type: string
-        "400":
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-        "410":
-          description: Gone
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-
-  /v2/service_instances/{instance_id}/service_bindings/{binding_id}/last_operation:
-    get:
-      summary: get the last requested operation state for service binding
-      tags:
-        - ServiceBindings
-      operationId: serviceBinding.lastOperation.get
-      parameters:
-        - $ref: "#/components/parameters/APIVersion"
-        - name: instance_id
-          in: path
-          description: instance id of instance to find last operation applied to it
-          required: true
-          schema:
-            type: string
-        - name: binding_id
-          in: path
-          description: binding id of service binding to find last operation applied to it
-          required: true
-          schema:
-            type: string
-        - name: service_id
-          in: query
-          description: id of the service associated with the instance
-          schema:
-            type: string
-        - name: plan_id
-          in: query
-          description: id of the plan associated with the instance
-          schema:
-            type: string
-        - name: operation
-          in: query
-          description: a provided identifier for the operation
-          schema:
-            type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/LastOperationResource"
-          headers:
-            Retry-After:
-              description: Indicates when to retry the request
-              required: false
-              schema:
-                type: string
-        "400":
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-        "410":
-          description: Gone
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-
-  /v2/service_instances/{instance_id}/service_bindings/{binding_id}:
-    put:
-      summary: generate a service binding
-      tags:
-        - ServiceBindings
-      operationId: serviceBinding.binding
-      parameters:
-        - $ref: "#/components/parameters/APIVersion"
-        - $ref: "#/components/parameters/OriginatingIdentity"
-        - name: instance_id
-          in: path
-          description: instance id of instance to create a binding on
-          required: true
-          schema:
-            type: string
-        - name: binding_id
-          in: path
-          description: binding id of binding to create
-          required: true
-          schema:
-            type: string
-        - name: accepts_incomplete
-          in: query
-          description: asynchronous operations supported
-          schema:
-            type: boolean
-      requestBody:
-        description: parameters for the requested service binding
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/ServiceBindingRequest"
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ServiceBindingResponse"
-        "201":
-          description: Created
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ServiceBindingResponse"
-        "202":
-          description: Accepted
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/AsyncOperation"
-        "400":
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-        "409":
-          description: Conflict
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-        "422":
-          description: Unprocessable Entity
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-    delete:
-      summary: deprovision a service binding
-      tags:
-        - ServiceBindings
-      operationId: serviceBinding.unbinding
-      parameters:
-        - $ref: "#/components/parameters/APIVersion"
-        - $ref: "#/components/parameters/OriginatingIdentity"
-        - name: instance_id
-          in: path
-          description: id of the instance associated with the binding being deleted
-          required: true
-          schema:
-            type: string
-        - name: binding_id
-          in: path
-          description: id of the binding being deleted
-          required: true
-          schema:
-            type: string
-        - name: service_id
-          in: query
-          description: id of the service associated with the instance for which a binding is being deleted
-          required: true
-          schema:
-            type: string
-        - name: plan_id
-          in: query
-          description: id of the plan associated with the instance for which a binding is being deleted
-          required: true
-          schema:
-            type: string
-        - name: accepts_incomplete
-          in: query
-          description: asynchronous operations supported
-          schema:
-            type: boolean
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Object"
-        "202":
-          description: Accepted
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/AsyncOperation"
-        "400":
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-        "410":
-          description: Gone
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-    get:
-      summary: get a service binding
-      tags:
-        - ServiceBindings
-      operationId: serviceBinding.get
-      parameters:
-        - $ref: "#/components/parameters/APIVersion"
-        - $ref: "#/components/parameters/OriginatingIdentity"
-        - name: instance_id
-          in: path
-          description: instance id of instance associated with the binding
-          required: true
-          schema:
-            type: string
-        - name: binding_id
-          in: path
-          description: binding id of binding to fetch
-          required: true
-          schema:
-            type: string
-        - name: service_id
-          in: query
-          description: id of the service associated with the instance
-          schema:
-            type: string
-        - name: plan_id
-          in: query
-          description: id of the plan associated with the instance
-          schema:
-            type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ServiceBindingResource"
-        "404":
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-
+                $ref: '#/components/schemas/Error'
 components:
   parameters:
-    APIVersion:
-      name: X-Broker-API-Version
-      in: header
-      description: version number of the Service Broker API that the Platform will use
+    offsetParam:
+      name: offset
+      in: path
+      description: Number of items to skip before returning the results.
       required: true
       schema:
-        type: string
-        default: "2.13"
-
-    OriginatingIdentity:
-      name: X-Broker-API-Originating-Identity
-      in: header
-      description: identity of the user that initiated the request from the Platform
-      schema:
-        type: string
-
+        type: integer
+        format: int32
+        minimum: 0
+        default: 0
   schemas:
-    Catalog:
-      type: object
-      properties:
-        services:
-          type: array
-          items:
-            $ref: "#/components/schemas/Service"
+    Pet:
+      allOf:
+        - $ref: '#/components/schemas/NewPet'
+        - type: object
+          required:
+            - id
+          properties:
+            id:
+              type: integer
+              format: int64
 
-    Service:
+    NewPet:
       type: object
       required:
         - name
-        - id
-        - description
-        - bindable
-        - plans
       properties:
         name:
           type: string
-        id:
+        tag:
           type: string
-        description:
-          type: string
-        tags:
-          type: array
-          items:
-            type: string
-        requires:
-          type: array
-          items:
-            type: string
-            enum:
-              - syslog_drain
-              - route_forwarding
-              - volume_mount
-        bindable:
-          type: boolean
-        metadata:
-          $ref: "#/components/schemas/Metadata"
-        dashboard_client:
-          $ref: "#/components/schemas/DashboardClient"
-        plan_updateable:
-          type: boolean
-        plans:
-          type: array
-          items:
-            $ref: "#/components/schemas/Plan"
-
-    DashboardClient:
-      type: object
-      properties:
-        id:
-          type: string
-        secret:
-          type: string
-        redirect_uri:
-          type: string
-
-    Plan:
-      type: object
-      required:
-        - id
-        - name
-        - description
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        metadata:
-          $ref: "#/components/schemas/Metadata"
-        maintenance_info:
-          $ref: "#/components/schemas/MaintenanceInfo"
-        free:
-          type: boolean
-          default: true
-        bindable:
-          type: boolean
-        schemas:
-          $ref: "#/components/schemas/Schemas"
-
-    Schemas:
-      type: object
-      properties:
-        service_instance:
-          $ref: "#/components/schemas/ServiceInstanceSchema"
-        service_binding:
-          $ref: "#/components/schemas/ServiceBindingSchema"
-
-    ServiceInstanceSchema:
-      type: object
-      properties:
-        create:
-          $ref: "#/components/schemas/SchemaParameters"
-        update:
-          $ref: "#/components/schemas/SchemaParameters"
-
-    ServiceBindingSchema:
-      type: object
-      properties:
-        create:
-          $ref: "#/components/schemas/SchemaParameters"
-
-    SchemaParameters:
-      type: object
-      properties:
-        parameters:
-          $ref: "#/components/schemas/JSONSchema"
-
-    JSONSchema:
-      $ref: "http://json-schema.org/draft-04/schema"
-
-    ServiceInstanceResource:
-      type: object
-      properties:
-        service_id:
-          type: string
-        plan_id:
-          type: string
-        dashboard_url:
-          type: string
-        parameters:
-          $ref: "#/components/schemas/Object"
-
-    ServiceInstanceProvisionRequest:
-      type: object
-      required:
-        - service_id
-        - plan_id
-        - organization_guid
-        - space_guid
-      properties:
-        service_id:
-          type: string
-        plan_id:
-          type: string
-        context:
-          $ref: "#/components/schemas/Context"
-        organization_guid:
-          type: string
-          deprecated: true
-        space_guid:
-          type: string
-          deprecated: true
-        parameters:
-          $ref: "#/components/schemas/Object"
-
-    ServiceInstanceProvisionResponse:
-      type: object
-      properties:
-        dashboard_url:
-          type: string
-
-    ServiceInstanceAsyncOperation:
-      type: object
-      properties:
-        dashboard_url:
-          type: string
-        operation:
-          type: string # could be a link object to last operation
-
-    ServiceInstanceUpdateRequest:
-      type: object
-      required:
-        - service_id
-      properties:
-        context:
-          $ref: "#/components/schemas/Context"
-        service_id:
-          type: string
-        plan_id:
-          type: string
-        parameters:
-          $ref: "#/components/schemas/Object"
-        previous_values:
-          $ref: "#/components/schemas/ServiceInstancePreviousValues"
-
-    ServiceInstancePreviousValues:
-      type: object
-      properties:
-        service_id:
-          type: string
-          deprecated: true
-        plan_id:
-          type: string
-        organization_id:
-          type: string
-          deprecated: true
-        space_id:
-          type: string
-          deprecated: true
-
-    AsyncOperation:
-      type: object
-      properties:
-        operation:
-          type: string
-
-    LastOperationResource:
-      type: object
-      required:
-        - state
-      properties:
-        state:
-          type: string
-          enum:
-            - in progress
-            - succeeded
-            - failed
-        description:
-          type: string
-        instance_usable:
-          type: boolean
-        update_repeatable:
-          type: boolean
-
-    ServiceBindingResource:
-      type: object
-      properties:
-        credentials:
-          $ref: "#/components/schemas/Object"
-        syslog_drain_url:
-          type: string
-        route_service_url:
-          type: string
-        volume_mounts:
-          type: array
-          items:
-            $ref: "#/components/schemas/ServiceBindingVolumeMount"
-        endpoints:
-          type: array
-          items:
-            $ref: "#/components/schemas/ServiceBindingEndpoint"
-        parameters:
-          $ref: "#/components/schemas/Object"
-
-    ServiceBindingRequest:
-      type: object
-      required:
-        - service_id
-        - plan_id
-      properties:
-        context:
-          $ref: "#/components/schemas/Context"
-        service_id:
-          type: string
-        plan_id:
-          type: string
-        app_guid:
-          type: string
-          deprecated: true
-        bind_resource:
-          $ref: "#/components/schemas/ServiceBindingResouceObject"
-        parameters:
-          $ref: "#/components/schemas/Object"
-
-    ServiceBindingResouceObject:
-      type: object
-      properties:
-        app_guid:
-          type: string
-        route:
-          type: string
-
-    ServiceBindingResponse:
-      type: object
-      properties:
-        credentials:
-          $ref: "#/components/schemas/Object"
-        syslog_drain_url:
-          type: string
-        route_service_url:
-          type: string
-        volume_mounts:
-          type: array
-          items:
-            $ref: "#/components/schemas/ServiceBindingVolumeMount"
-        endpoints:
-          type: array
-          items:
-            $ref: "#/components/schemas/ServiceBindingEndpoint"
-
-    ServiceBindingEndpoint:
-      type: object
-      required:
-        - host
-        - ports
-      properties:
-        host:
-          type: string
-        ports:
-          type: array
-          items:
-            type: string
-        protocol:
-          type: string
-          enum:
-            - "tcp"
-            - "udp"
-            - "all"
-          default: "tcp"
-
-    ServiceBindingVolumeMount:
-      type: object
-      required:
-        - driver
-        - container_dir
-        - mode
-        - device_type
-        - device
-      properties:
-        driver:
-          type: string
-        container_dir:
-          type: string
-        mode:
-          type: string
-          enum:
-            - r
-            - rw
-        device_type:
-          type: string
-          enum:
-            - shared
-        device:
-          $ref: "#/components/schemas/ServiceBindingVolumeMountDevice"
-
-    ServiceBindingVolumeMountDevice:
-      type: object
-      required:
-        - volume_id
-      properties:
-        volume_id:
-          type: string
-        mount_config:
-          $ref: "#/components/schemas/Object"
-
-    Context:
-      description:
-        "See [Context Conventions](https://github.com/openservicebrokerapi/servicebroker/blob/master/profile.md#context-object) for more
-        details."
-      type: object
-
-    Metadata:
-      description:
-        "See [Service Metadata Conventions](https://github.com/openservicebrokerapi/servicebroker/blob/master/profile.md#service-metadata)
-        for more details."
-      type: object
-
-    MaintenanceInfo:
-      type: object
-      required:
-        - version
-      properties:
-        version:
-          type: string
-        description:
-          type: string
-
-    Object:
-      type: object
 
     Error:
-      description:
-        "See [Service Broker Errors](https://github.com/openservicebrokerapi/servicebroker/blob/master/spec.md#service-broker-errors) for
-        more details."
       type: object
+      required:
+        - code
+        - message
       properties:
-        error:
+        code:
+          type: integer
+          format: int32
+        message:
           type: string
-        description:
-          type: string
-        instance_usable:
-          type: boolean
-        update_repeatable:
-          type: boolean
-
-  securitySchemes:
-    basicAuth:
-      type: http
-      scheme: basic
-
-security:
-  - basicAuth: []
-
-externalDocs:
-  description: The offical Open Service Broker API specification
-  url: https://github.com/openservicebrokerapi/servicebroker/

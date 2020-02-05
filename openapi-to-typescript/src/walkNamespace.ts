@@ -1,5 +1,5 @@
 import { OpenAPIV3 } from "openapi-types";
-import { Namespace, TypeDefinition } from "./Namespace";
+import { Namespace, TypeDefinition } from "./namespace";
 import { transformNamespaceName } from "./transform";
 import { objectEntries } from "@mittwald/awesome-node-utils/object/entries";
 import debug from "./debug";
@@ -18,6 +18,11 @@ export function walkNamespace(parentNamespace: Namespace, name: string, subject:
 
     const schema: JSONSchema | undefined = subject.schema;
     const type: JSONSchemaType | undefined = subject.type;
+
+    if (name === "allOf") {
+        parentNamespace.types[name] = subject;
+        return;
+    }
 
     if (schema) {
         dbg("subject contains schema -> setting type to schema");

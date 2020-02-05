@@ -1,5 +1,5 @@
 import { OpenAPIV3 } from "openapi-types";
-import { Namespace } from "./Namespace";
+import { Namespace } from "./namespace";
 import { transformNamespaceName } from "./transform";
 import { makeResolveReference } from "./makeResolveReference";
 import Document = OpenAPIV3.Document;
