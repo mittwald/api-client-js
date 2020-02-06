@@ -5,7 +5,7 @@ import { Namespace } from "./namespace";
 import { referenceNameToInterfaceName, replaceRef } from "./replaceReferences";
 import uuid from "uuid";
 
-export type ResolveReference = (refName: string) => any;
+export type ResolveReference = <T>(refName: string) => NonNullable<T>;
 
 export const makeResolveReference = (document: Document): ResolveReference => (refName) => {
     if (!refName.startsWith("#/")) {
@@ -23,7 +23,7 @@ export const makeResolveReference = (document: Document): ResolveReference => (r
         throw new Error(`Could not resolve reference ${refName}`);
     }
 
-    return result;
+    return result as any;
 };
 
 export interface ReferenceHolder {
