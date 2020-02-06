@@ -7,7 +7,7 @@ import { JSONSchema, JSONSchemaType } from "json-schema-typed";
 import { ResolveReference } from "./makeResolveReference";
 import { Optional } from "@mittwald/awesome-node-utils/optional/optional";
 
-export function walkNamespace(parentNamespace: Namespace, name: string, subject: any, resolveNamespace: ResolveReference): void {
+export function walkNamespace(parentNamespace: Namespace, name: string, subject: any, resolve: ResolveReference): void {
     const dbg = debug.extend(name);
     dbg("filling namespace");
 
@@ -42,9 +42,8 @@ export function walkNamespace(parentNamespace: Namespace, name: string, subject:
 
             if ("$ref" in resolvedParameter) {
                 const ref = resolvedParameter.$ref;
-                const resolvedAny = resolveNamespace(ref);
-                // todo: maybe check it
-                resolvedParameter = resolvedAny as OpenAPIV3.ParameterObject;
+
+                resolvedParameter = resolve<OpenAPIV3.ParameterObject>(ref);
                 resolvedParameter.schema = {
                     $ref: ref,
                 };
@@ -90,12 +89,12 @@ export function walkNamespace(parentNamespace: Namespace, name: string, subject:
                 if (!name) {
                     continue;
                 }
-                walkNamespace(namespace, String(name), entry, resolveNamespace);
+                walkNamespace(namespace, String(name), entry, resolve);
             }
         }
     } else {
         for (const [key, value] of objectEntries(subject)) {
-            walkNamespace(namespace, String(key), value, resolveNamespace);
+            walkNamespace(namespace, String(key), value, resolve);
         }
     }
 
