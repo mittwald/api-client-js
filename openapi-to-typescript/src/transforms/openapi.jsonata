@@ -1,0 +1,111 @@
+(
+    $k := function($ctx)<o:s>{
+        $keys($ctx)[0]
+    };
+
+    $resolvePath := function($path)<a:o>{
+        $path ~> $reduce(
+            $lookup,
+            $$
+        )
+    };
+
+    $splitRef := function($ref)<s:a>{
+        $ref ~> $substring(2) ~> $split("/")
+    };
+
+    $resolveRef := function($ref)<s:o>{
+        $ref ~> $splitRef ~> $resolvePath
+    };
+
+
+    $resolveRefs := function($obj)<j:o>{
+        (
+            $recurseObj := function($obj){
+                $obj.$spread(){
+                    $k($): $resolveRefs(*)
+                }
+            };
+
+            $mergeInResolvedRef := function($obj){
+                $merge([$resolveRef($obj.`$ref`), ({"$ref": $obj.`$ref`})])
+            };
+
+            $resolveRefsInObj := function($obj){
+                $obj.`$ref` ?
+                    $mergeInResolvedRef($obj) :
+                    $recurseObj($obj)
+            };
+
+            $resolveRefsInArray := function($obj){
+                $map($obj, function($item){ $resolveRefs($item) })
+            };
+
+            $type($obj) = "object" ?
+            $resolveRefsInObj($obj) :
+            $type($obj) = "array" ?
+                $resolveRefsInArray($obj) :
+                $obj
+
+        )
+    };
+
+    $resolveRefs($$).(
+        $schemaWithRef := function($obj)<o:o>{
+            $obj.(
+                [schema, `$ref` ? {"$ref": `$ref`} : {}] ~> $merge
+            )
+        };
+
+        $constructParams := function($params)<a:o>{
+            $params{
+                in: {
+                    "type": "object",
+                    "required": [$[required=true].name],
+                    "properties": {
+                        name: $ ~> $schemaWithRef
+                    }
+                }
+            }
+        };
+
+        $constructResponses := function($responses)<o:a>{
+            $responses.$spread().(
+                $constructHeaders := function($headers)<o:o>{
+                    {
+                        "type": "object",
+                        "required": [$headers.$sift(function($h) {$h.required}).$keys()],
+                        "properties": $headers ? $headers.$spread(){
+                            $k($): *.schema ~> $schemaWithRef
+                        }
+                    }
+                };
+
+                {
+                    $k($): {
+                        "content": *.content.`application/json`.schema ~> $schemaWithRef,
+                        "headers": *.headers ? $constructHeaders(*.headers)
+                    }
+                }
+            )
+        };
+
+        {
+            "paths": paths.$spread(){
+                $k($): *.$spread(){
+                    $k($): *.{
+                        "operationId": operationId,
+                        "parameters": parameters ? $constructParams(parameters),
+                        "responses": responses ? $constructResponses(responses)
+                    }
+                }
+            },
+            "components": components{
+                "schemas": schemas,
+                "parameters": parameters.$spread(){
+                    $k($): *.schema ~> $schemaWithRef
+                }
+            }
+        }
+    )
+)

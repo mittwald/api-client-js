@@ -19,6 +19,8 @@ for f in "${GIT_HOOKS_SCRIPTS}/${CURRENT_HOOK}/"*.sh ; do
 done
 
 for d in $(find "${GIT_HOOKS}/.." -mindepth 2 -type d -iname .githooks) ; do
+    dn=$(basename $(dirname "${d}"))
+    echo -e "\n[${CURRENT_HOOK}] checking subproject \033[1m${dn}\033[0m"
     f="${d}/${CURRENT_HOOK}"
     [[ -x "${f}" ]] || continue
     bash "${f}" ${@}

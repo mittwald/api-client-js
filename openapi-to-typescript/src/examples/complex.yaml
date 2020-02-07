@@ -31,14 +31,14 @@ paths:
         - Catalog
       operationId: catalog.get
       parameters:
-        - $ref: '#/components/parameters/APIVersion'
+        - $ref: "#/components/parameters/APIVersion"
       responses:
-        '200':
+        "200":
           description: catalog response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Catalog'
+                $ref: "#/components/schemas/Catalog"
 
   /v2/service_instances/{instance_id}:
     put:
@@ -47,8 +47,8 @@ paths:
         - ServiceInstances
       operationId: serviceInstance.provision
       parameters:
-        - $ref: '#/components/parameters/APIVersion'
-        - $ref: '#/components/parameters/OriginatingIdentity'
+        - $ref: "#/components/parameters/APIVersion"
+        - $ref: "#/components/parameters/OriginatingIdentity"
         - name: instance_id
           in: path
           description: instance id of instance to provision
@@ -66,52 +66,52 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ServiceInstanceProvisionRequest'
+              $ref: "#/components/schemas/ServiceInstanceProvisionRequest"
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ServiceInstanceProvisionResponse'
-        '201':
+                $ref: "#/components/schemas/ServiceInstanceProvisionResponse"
+        "201":
           description: Created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ServiceInstanceProvisionResponse'
-        '202':
+                $ref: "#/components/schemas/ServiceInstanceProvisionResponse"
+        "202":
           description: Accepted
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ServiceInstanceAsyncOperation'
-        '400':
+                $ref: "#/components/schemas/ServiceInstanceAsyncOperation"
+        "400":
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
-        '409':
+                $ref: "#/components/schemas/Error"
+        "409":
           description: Conflict
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
-        '422':
+                $ref: "#/components/schemas/Error"
+        "422":
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
     patch:
       summary: update a service instance
       tags:
         - ServiceInstances
       operationId: serviceInstance.update
       parameters:
-        - $ref: '#/components/parameters/APIVersion'
-        - $ref: '#/components/parameters/OriginatingIdentity'
+        - $ref: "#/components/parameters/APIVersion"
+        - $ref: "#/components/parameters/OriginatingIdentity"
         - name: instance_id
           in: path
           description: instance id of instance to update
@@ -129,40 +129,40 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ServiceInstanceUpdateRequest'
+              $ref: "#/components/schemas/ServiceInstanceUpdateRequest"
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Object'
-        '202':
+                $ref: "#/components/schemas/Object"
+        "202":
           description: Accepted
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ServiceInstanceAsyncOperation'
-        '400':
+                $ref: "#/components/schemas/ServiceInstanceAsyncOperation"
+        "400":
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
-        '422':
+                $ref: "#/components/schemas/Error"
+        "422":
           description: Unprocessable entity
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
     delete:
       summary: deprovision a service instance
       tags:
         - ServiceInstances
       operationId: serviceInstance.deprovision
       parameters:
-        - $ref: '#/components/parameters/APIVersion'
-        - $ref: '#/components/parameters/OriginatingIdentity'
+        - $ref: "#/components/parameters/APIVersion"
+        - $ref: "#/components/parameters/OriginatingIdentity"
         - name: instance_id
           in: path
           description: id of instance being deleted
@@ -187,44 +187,44 @@ paths:
           schema:
             type: boolean
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Object'
-        '202':
+                $ref: "#/components/schemas/Object"
+        "202":
           description: Accepted
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AsyncOperation'
-        '400':
+                $ref: "#/components/schemas/AsyncOperation"
+        "400":
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
-        '410':
+                $ref: "#/components/schemas/Error"
+        "410":
           description: Gone
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
-        '422':
+                $ref: "#/components/schemas/Error"
+        "422":
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
     get:
       summary: get a service instance
       tags:
         - ServiceInstances
       operationId: serviceInstance.get
       parameters:
-        - $ref: '#/components/parameters/APIVersion'
-        - $ref: '#/components/parameters/OriginatingIdentity'
+        - $ref: "#/components/parameters/APIVersion"
+        - $ref: "#/components/parameters/OriginatingIdentity"
         - name: instance_id
           in: path
           description: instance id of instance to fetch
@@ -242,18 +242,18 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ServiceInstanceResource'
-        '404':
+                $ref: "#/components/schemas/ServiceInstanceResource"
+        "404":
           description: Not Found
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
 
   /v2/service_instances/{instance_id}/last_operation:
     get:
@@ -262,7 +262,7 @@ paths:
         - ServiceInstances
       operationId: serviceInstance.lastOperation.get
       parameters:
-        - $ref: '#/components/parameters/APIVersion'
+        - $ref: "#/components/parameters/APIVersion"
         - name: instance_id
           in: path
           description: instance id of instance to find last operation applied to it
@@ -285,30 +285,30 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LastOperationResource'
+                $ref: "#/components/schemas/LastOperationResource"
           headers:
             Retry-After:
               description: Indicates when to retry the request
               required: false
               schema:
                 type: string
-        '400':
+        "400":
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
-        '410':
+                $ref: "#/components/schemas/Error"
+        "410":
           description: Gone
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
 
   /v2/service_instances/{instance_id}/service_bindings/{binding_id}/last_operation:
     get:
@@ -317,7 +317,7 @@ paths:
         - ServiceBindings
       operationId: serviceBinding.lastOperation.get
       parameters:
-        - $ref: '#/components/parameters/APIVersion'
+        - $ref: "#/components/parameters/APIVersion"
         - name: instance_id
           in: path
           description: instance id of instance to find last operation applied to it
@@ -346,30 +346,30 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LastOperationResource'
+                $ref: "#/components/schemas/LastOperationResource"
           headers:
             Retry-After:
               description: Indicates when to retry the request
               required: false
               schema:
                 type: string
-        '400':
+        "400":
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
-        '410':
+                $ref: "#/components/schemas/Error"
+        "410":
           description: Gone
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
 
   /v2/service_instances/{instance_id}/service_bindings/{binding_id}:
     put:
@@ -378,8 +378,8 @@ paths:
         - ServiceBindings
       operationId: serviceBinding.binding
       parameters:
-        - $ref: '#/components/parameters/APIVersion'
-        - $ref: '#/components/parameters/OriginatingIdentity'
+        - $ref: "#/components/parameters/APIVersion"
+        - $ref: "#/components/parameters/OriginatingIdentity"
         - name: instance_id
           in: path
           description: instance id of instance to create a binding on
@@ -403,52 +403,52 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ServiceBindingRequest'
+              $ref: "#/components/schemas/ServiceBindingRequest"
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ServiceBindingResponse'
-        '201':
+                $ref: "#/components/schemas/ServiceBindingResponse"
+        "201":
           description: Created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ServiceBindingResponse'
-        '202':
+                $ref: "#/components/schemas/ServiceBindingResponse"
+        "202":
           description: Accepted
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AsyncOperation'
-        '400':
+                $ref: "#/components/schemas/AsyncOperation"
+        "400":
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
-        '409':
+                $ref: "#/components/schemas/Error"
+        "409":
           description: Conflict
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
-        '422':
+                $ref: "#/components/schemas/Error"
+        "422":
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
     delete:
       summary: deprovision a service binding
       tags:
         - ServiceBindings
       operationId: serviceBinding.unbinding
       parameters:
-        - $ref: '#/components/parameters/APIVersion'
-        - $ref: '#/components/parameters/OriginatingIdentity'
+        - $ref: "#/components/parameters/APIVersion"
+        - $ref: "#/components/parameters/OriginatingIdentity"
         - name: instance_id
           in: path
           description: id of the instance associated with the binding being deleted
@@ -479,38 +479,38 @@ paths:
           schema:
             type: boolean
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Object'
-        '202':
+                $ref: "#/components/schemas/Object"
+        "202":
           description: Accepted
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AsyncOperation'
-        '400':
+                $ref: "#/components/schemas/AsyncOperation"
+        "400":
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
-        '410':
+                $ref: "#/components/schemas/Error"
+        "410":
           description: Gone
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
     get:
       summary: get a service binding
       tags:
         - ServiceBindings
       operationId: serviceBinding.get
       parameters:
-        - $ref: '#/components/parameters/APIVersion'
-        - $ref: '#/components/parameters/OriginatingIdentity'
+        - $ref: "#/components/parameters/APIVersion"
+        - $ref: "#/components/parameters/OriginatingIdentity"
         - name: instance_id
           in: path
           description: instance id of instance associated with the binding
@@ -534,18 +534,18 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ServiceBindingResource'
-        '404':
+                $ref: "#/components/schemas/ServiceBindingResource"
+        "404":
           description: Not Found
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
 
 components:
   parameters:
@@ -556,7 +556,7 @@ components:
       required: true
       schema:
         type: string
-        default: '2.13'
+        default: "2.13"
 
     OriginatingIdentity:
       name: X-Broker-API-Originating-Identity
@@ -572,7 +572,7 @@ components:
         services:
           type: array
           items:
-            $ref: '#/components/schemas/Service'
+            $ref: "#/components/schemas/Service"
 
     Service:
       type: object
@@ -604,15 +604,15 @@ components:
         bindable:
           type: boolean
         metadata:
-          $ref: '#/components/schemas/Metadata'
+          $ref: "#/components/schemas/Metadata"
         dashboard_client:
-          $ref: '#/components/schemas/DashboardClient'
+          $ref: "#/components/schemas/DashboardClient"
         plan_updateable:
           type: boolean
         plans:
           type: array
           items:
-            $ref: '#/components/schemas/Plan'
+            $ref: "#/components/schemas/Plan"
 
     DashboardClient:
       type: object
@@ -638,47 +638,47 @@ components:
         description:
           type: string
         metadata:
-          $ref: '#/components/schemas/Metadata'
+          $ref: "#/components/schemas/Metadata"
         maintenance_info:
-          $ref: '#/components/schemas/MaintenanceInfo'
+          $ref: "#/components/schemas/MaintenanceInfo"
         free:
           type: boolean
           default: true
         bindable:
           type: boolean
         schemas:
-          $ref: '#/components/schemas/Schemas'
+          $ref: "#/components/schemas/Schemas"
 
     Schemas:
       type: object
       properties:
         service_instance:
-          $ref: '#/components/schemas/ServiceInstanceSchema'
+          $ref: "#/components/schemas/ServiceInstanceSchema"
         service_binding:
-          $ref: '#/components/schemas/ServiceBindingSchema'
+          $ref: "#/components/schemas/ServiceBindingSchema"
 
     ServiceInstanceSchema:
       type: object
       properties:
         create:
-          $ref: '#/components/schemas/SchemaParameters'
+          $ref: "#/components/schemas/SchemaParameters"
         update:
-          $ref: '#/components/schemas/SchemaParameters'
+          $ref: "#/components/schemas/SchemaParameters"
 
     ServiceBindingSchema:
       type: object
       properties:
         create:
-          $ref: '#/components/schemas/SchemaParameters'
+          $ref: "#/components/schemas/SchemaParameters"
 
     SchemaParameters:
       type: object
       properties:
         parameters:
-          $ref: '#/components/schemas/JSONSchema'
+          $ref: "#/components/schemas/JSONSchema"
 
     JSONSchema:
-      $ref: 'http://json-schema.org/draft-04/schema'
+      $ref: "http://json-schema.org/draft-04/schema"
 
     ServiceInstanceResource:
       type: object
@@ -690,7 +690,7 @@ components:
         dashboard_url:
           type: string
         parameters:
-          $ref: '#/components/schemas/Object'
+          $ref: "#/components/schemas/Object"
 
     ServiceInstanceProvisionRequest:
       type: object
@@ -705,7 +705,7 @@ components:
         plan_id:
           type: string
         context:
-          $ref: '#/components/schemas/Context'
+          $ref: "#/components/schemas/Context"
         organization_guid:
           type: string
           deprecated: true
@@ -713,7 +713,7 @@ components:
           type: string
           deprecated: true
         parameters:
-          $ref: '#/components/schemas/Object'
+          $ref: "#/components/schemas/Object"
 
     ServiceInstanceProvisionResponse:
       type: object
@@ -735,15 +735,15 @@ components:
         - service_id
       properties:
         context:
-          $ref: '#/components/schemas/Context'
+          $ref: "#/components/schemas/Context"
         service_id:
           type: string
         plan_id:
           type: string
         parameters:
-          $ref: '#/components/schemas/Object'
+          $ref: "#/components/schemas/Object"
         previous_values:
-          $ref: '#/components/schemas/ServiceInstancePreviousValues'
+          $ref: "#/components/schemas/ServiceInstancePreviousValues"
 
     ServiceInstancePreviousValues:
       type: object
@@ -788,7 +788,7 @@ components:
       type: object
       properties:
         credentials:
-          $ref: '#/components/schemas/Object'
+          $ref: "#/components/schemas/Object"
         syslog_drain_url:
           type: string
         route_service_url:
@@ -796,13 +796,13 @@ components:
         volume_mounts:
           type: array
           items:
-            $ref: '#/components/schemas/ServiceBindingVolumeMount'
+            $ref: "#/components/schemas/ServiceBindingVolumeMount"
         endpoints:
           type: array
           items:
-            $ref: '#/components/schemas/ServiceBindingEndpoint'
+            $ref: "#/components/schemas/ServiceBindingEndpoint"
         parameters:
-          $ref: '#/components/schemas/Object'
+          $ref: "#/components/schemas/Object"
 
     ServiceBindingRequest:
       type: object
@@ -811,7 +811,7 @@ components:
         - plan_id
       properties:
         context:
-          $ref: '#/components/schemas/Context'
+          $ref: "#/components/schemas/Context"
         service_id:
           type: string
         plan_id:
@@ -820,9 +820,9 @@ components:
           type: string
           deprecated: true
         bind_resource:
-          $ref: '#/components/schemas/ServiceBindingResouceObject'
+          $ref: "#/components/schemas/ServiceBindingResouceObject"
         parameters:
-          $ref: '#/components/schemas/Object'
+          $ref: "#/components/schemas/Object"
 
     ServiceBindingResouceObject:
       type: object
@@ -836,7 +836,7 @@ components:
       type: object
       properties:
         credentials:
-          $ref: '#/components/schemas/Object'
+          $ref: "#/components/schemas/Object"
         syslog_drain_url:
           type: string
         route_service_url:
@@ -844,11 +844,11 @@ components:
         volume_mounts:
           type: array
           items:
-            $ref: '#/components/schemas/ServiceBindingVolumeMount'
+            $ref: "#/components/schemas/ServiceBindingVolumeMount"
         endpoints:
           type: array
           items:
-            $ref: '#/components/schemas/ServiceBindingEndpoint'
+            $ref: "#/components/schemas/ServiceBindingEndpoint"
 
     ServiceBindingEndpoint:
       type: object
@@ -865,10 +865,10 @@ components:
         protocol:
           type: string
           enum:
-            - 'tcp'
-            - 'udp'
-            - 'all'
-          default: 'tcp'
+            - "tcp"
+            - "udp"
+            - "all"
+          default: "tcp"
 
     ServiceBindingVolumeMount:
       type: object
@@ -893,7 +893,7 @@ components:
           enum:
             - shared
         device:
-          $ref: '#/components/schemas/ServiceBindingVolumeMountDevice'
+          $ref: "#/components/schemas/ServiceBindingVolumeMountDevice"
 
     ServiceBindingVolumeMountDevice:
       type: object
@@ -903,14 +903,18 @@ components:
         volume_id:
           type: string
         mount_config:
-          $ref: '#/components/schemas/Object'
+          $ref: "#/components/schemas/Object"
 
     Context:
-      description: "See [Context Conventions](https://github.com/openservicebrokerapi/servicebroker/blob/master/profile.md#context-object) for more details."
+      description:
+        "See [Context Conventions](https://github.com/openservicebrokerapi/servicebroker/blob/master/profile.md#context-object) for more
+        details."
       type: object
 
     Metadata:
-      description: "See [Service Metadata Conventions](https://github.com/openservicebrokerapi/servicebroker/blob/master/profile.md#service-metadata) for more details."
+      description:
+        "See [Service Metadata Conventions](https://github.com/openservicebrokerapi/servicebroker/blob/master/profile.md#service-metadata)
+        for more details."
       type: object
 
     MaintenanceInfo:
@@ -927,7 +931,9 @@ components:
       type: object
 
     Error:
-      description: "See [Service Broker Errors](https://github.com/openservicebrokerapi/servicebroker/blob/master/spec.md#service-broker-errors) for more details."
+      description:
+        "See [Service Broker Errors](https://github.com/openservicebrokerapi/servicebroker/blob/master/spec.md#service-broker-errors) for
+        more details."
       type: object
       properties:
         error:

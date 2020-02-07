@@ -62,7 +62,7 @@ variables:
   tags:
     - dockermultistage
   script:
-    - yarn test:all
+    - yarn test:ci
   coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
   artifacts:
     paths:
