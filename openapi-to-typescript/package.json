@@ -17,7 +17,6 @@
     "clean": "mkdir -p $(yarn -s ts-out-dir) && rm -rf $(yarn -s ts-out-dir)/*",
     "precompile": "run-s clean precompile:*",
     "precompile:default": "exit",
-    "copy-transforms": "mkdir -p $(yarn -s ts-out-dir)/transforms && rm -rf $(yarn -s ts-out-dir)/transforms/* && cp src/transforms/* $(yarn -s ts-out-dir)/transforms",
     "compile": "yarn tsc -p tsconfig.dist.json",
     "test:compile": "run-s compile",
     "test:all-formatted": "prettier --check -c ./.prettierrc '**/*.{ts,tsx,yaml,yml,json,md}'",
@@ -59,10 +58,13 @@
   },
   "dependencies": {
     "@mittwald/awesome-node-utils": "^2.10.0",
+    "@types/ejs": "^3.0.0",
     "@types/prettier": "^1.19.0",
     "debug": "^4.1.1",
     "dot-prop": "^5.2.0",
+    "ejs": "^3.0.1",
     "js-yaml": "^3.13.1",
+    "json-schema-typed": "^7.0.3",
     "verror": "^1.10.0"
   },
   "main": "dist/index.js"

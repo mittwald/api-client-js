@@ -1,21 +1,15 @@
-export interface Schema {
-    [prop: string]: any;
-    $ref?: string;
-}
-
-export interface OperationParameter {
-    path: Schema;
-    query: Schema;
-    header: Schema;
-}
+import { JSONSchema } from "json-schema-typed";
 
 export interface OperationParameters {
-    [name: string]: OperationParameter;
+    path?: JSONSchema;
+    query?: JSONSchema;
+    header?: JSONSchema;
+    requestBody?: JSONSchema;
 }
 
 export interface OperationResponse {
-    content: Schema;
-    headers: Schema;
+    content: JSONSchema;
+    headers: JSONSchema;
 }
 
 export interface OperationResponses {
@@ -28,10 +22,26 @@ export interface Operation {
     responses: OperationResponses;
 }
 
+export interface Operations {
+    [operation: string]: Operation;
+}
+
+export interface Paths {
+    [name: string]: Operations;
+}
+
+export interface Schemas {
+    [name: string]: JSONSchema;
+}
+
+export interface Parameters {
+    [name: string]: JSONSchema;
+}
+
 export interface IntermediateFormat {
-    paths: {
-        [name: string]: {
-            [operation: string]: {};
-        };
+    paths: Paths;
+    components: {
+        schemas: Schemas;
+        parameters: Parameters;
     };
 }

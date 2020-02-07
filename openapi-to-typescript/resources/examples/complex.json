@@ -61,52 +61,43 @@
                 "type": "boolean"
               }
             }
+          },
+          "requestBody": {
+            "$ref": "#/components/schemas/ServiceInstanceProvisionRequest"
           }
         },
-        "responses": [
-          {
-            "200": {
-              "content": {
-                "$ref": "#/components/schemas/ServiceInstanceProvisionResponse"
-              }
+        "responses": {
+          "200": {
+            "content": {
+              "$ref": "#/components/schemas/ServiceInstanceProvisionResponse"
             }
           },
-          {
-            "201": {
-              "content": {
-                "$ref": "#/components/schemas/ServiceInstanceProvisionResponse"
-              }
+          "201": {
+            "content": {
+              "$ref": "#/components/schemas/ServiceInstanceProvisionResponse"
             }
           },
-          {
-            "202": {
-              "content": {
-                "$ref": "#/components/schemas/ServiceInstanceAsyncOperation"
-              }
+          "202": {
+            "content": {
+              "$ref": "#/components/schemas/ServiceInstanceAsyncOperation"
             }
           },
-          {
-            "400": {
-              "content": {
-                "$ref": "#/components/schemas/Error"
-              }
+          "400": {
+            "content": {
+              "$ref": "#/components/schemas/Error"
             }
           },
-          {
-            "409": {
-              "content": {
-                "$ref": "#/components/schemas/Error"
-              }
+          "409": {
+            "content": {
+              "$ref": "#/components/schemas/Error"
             }
           },
-          {
-            "422": {
-              "content": {
-                "$ref": "#/components/schemas/Error"
-              }
+          "422": {
+            "content": {
+              "$ref": "#/components/schemas/Error"
             }
           }
-        ]
+        }
       },
       "patch": {
         "operationId": "serviceInstance.update",
@@ -143,38 +134,33 @@
                 "type": "boolean"
               }
             }
+          },
+          "requestBody": {
+            "$ref": "#/components/schemas/ServiceInstanceUpdateRequest"
           }
         },
-        "responses": [
-          {
-            "200": {
-              "content": {
-                "$ref": "#/components/schemas/Object"
-              }
+        "responses": {
+          "200": {
+            "content": {
+              "$ref": "#/components/schemas/Object"
             }
           },
-          {
-            "202": {
-              "content": {
-                "$ref": "#/components/schemas/ServiceInstanceAsyncOperation"
-              }
+          "202": {
+            "content": {
+              "$ref": "#/components/schemas/ServiceInstanceAsyncOperation"
             }
           },
-          {
-            "400": {
-              "content": {
-                "$ref": "#/components/schemas/Error"
-              }
+          "400": {
+            "content": {
+              "$ref": "#/components/schemas/Error"
             }
           },
-          {
-            "422": {
-              "content": {
-                "$ref": "#/components/schemas/Error"
-              }
+          "422": {
+            "content": {
+              "$ref": "#/components/schemas/Error"
             }
           }
-        ]
+        }
       },
       "delete": {
         "operationId": "serviceInstance.deprovision",
@@ -219,43 +205,33 @@
             }
           }
         },
-        "responses": [
-          {
-            "200": {
-              "content": {
-                "$ref": "#/components/schemas/Object"
-              }
+        "responses": {
+          "200": {
+            "content": {
+              "$ref": "#/components/schemas/Object"
             }
           },
-          {
-            "202": {
-              "content": {
-                "$ref": "#/components/schemas/AsyncOperation"
-              }
+          "202": {
+            "content": {
+              "$ref": "#/components/schemas/AsyncOperation"
             }
           },
-          {
-            "400": {
-              "content": {
-                "$ref": "#/components/schemas/Error"
-              }
+          "400": {
+            "content": {
+              "$ref": "#/components/schemas/Error"
             }
           },
-          {
-            "410": {
-              "content": {
-                "$ref": "#/components/schemas/Error"
-              }
+          "410": {
+            "content": {
+              "$ref": "#/components/schemas/Error"
             }
           },
-          {
-            "422": {
-              "content": {
-                "$ref": "#/components/schemas/Error"
-              }
+          "422": {
+            "content": {
+              "$ref": "#/components/schemas/Error"
             }
           }
-        ]
+        }
       },
       "get": {
         "operationId": "serviceInstance.get",
@@ -297,22 +273,18 @@
             }
           }
         },
-        "responses": [
-          {
-            "200": {
-              "content": {
-                "$ref": "#/components/schemas/ServiceInstanceResource"
-              }
+        "responses": {
+          "200": {
+            "content": {
+              "$ref": "#/components/schemas/ServiceInstanceResource"
             }
           },
-          {
-            "404": {
-              "content": {
-                "$ref": "#/components/schemas/Error"
-              }
+          "404": {
+            "content": {
+              "$ref": "#/components/schemas/Error"
             }
           }
-        ]
+        }
       }
     },
     "/v2/service_instances/{instance_id}/last_operation": {
@@ -355,36 +327,32 @@
             }
           }
         },
-        "responses": [
-          {
-            "200": {
-              "content": {
-                "$ref": "#/components/schemas/LastOperationResource"
-              },
-              "headers": {
-                "type": "object",
-                "required": [],
-                "properties": {
-                  "Retry-After": {}
+        "responses": {
+          "200": {
+            "content": {
+              "$ref": "#/components/schemas/LastOperationResource"
+            },
+            "headers": {
+              "type": "object",
+              "required": [],
+              "properties": {
+                "Retry-After": {
+                  "type": "string"
                 }
               }
             }
           },
-          {
-            "400": {
-              "content": {
-                "$ref": "#/components/schemas/Error"
-              }
+          "400": {
+            "content": {
+              "$ref": "#/components/schemas/Error"
             }
           },
-          {
-            "410": {
-              "content": {
-                "$ref": "#/components/schemas/Error"
-              }
+          "410": {
+            "content": {
+              "$ref": "#/components/schemas/Error"
             }
           }
-        ]
+        }
       }
     },
     "/v2/service_instances/{instance_id}/service_bindings/{binding_id}/last_operation": {
@@ -430,36 +398,32 @@
             }
           }
         },
-        "responses": [
-          {
-            "200": {
-              "content": {
-                "$ref": "#/components/schemas/LastOperationResource"
-              },
-              "headers": {
-                "type": "object",
-                "required": [],
-                "properties": {
-                  "Retry-After": {}
+        "responses": {
+          "200": {
+            "content": {
+              "$ref": "#/components/schemas/LastOperationResource"
+            },
+            "headers": {
+              "type": "object",
+              "required": [],
+              "properties": {
+                "Retry-After": {
+                  "type": "string"
                 }
               }
             }
           },
-          {
-            "400": {
-              "content": {
-                "$ref": "#/components/schemas/Error"
-              }
+          "400": {
+            "content": {
+              "$ref": "#/components/schemas/Error"
             }
           },
-          {
-            "410": {
-              "content": {
-                "$ref": "#/components/schemas/Error"
-              }
+          "410": {
+            "content": {
+              "$ref": "#/components/schemas/Error"
             }
           }
-        ]
+        }
       }
     },
     "/v2/service_instances/{instance_id}/service_bindings/{binding_id}": {
@@ -501,52 +465,43 @@
                 "type": "boolean"
               }
             }
+          },
+          "requestBody": {
+            "$ref": "#/components/schemas/ServiceBindingRequest"
           }
         },
-        "responses": [
-          {
-            "200": {
-              "content": {
-                "$ref": "#/components/schemas/ServiceBindingResponse"
-              }
+        "responses": {
+          "200": {
+            "content": {
+              "$ref": "#/components/schemas/ServiceBindingResponse"
             }
           },
-          {
-            "201": {
-              "content": {
-                "$ref": "#/components/schemas/ServiceBindingResponse"
-              }
+          "201": {
+            "content": {
+              "$ref": "#/components/schemas/ServiceBindingResponse"
             }
           },
-          {
-            "202": {
-              "content": {
-                "$ref": "#/components/schemas/AsyncOperation"
-              }
+          "202": {
+            "content": {
+              "$ref": "#/components/schemas/AsyncOperation"
             }
           },
-          {
-            "400": {
-              "content": {
-                "$ref": "#/components/schemas/Error"
-              }
+          "400": {
+            "content": {
+              "$ref": "#/components/schemas/Error"
             }
           },
-          {
-            "409": {
-              "content": {
-                "$ref": "#/components/schemas/Error"
-              }
+          "409": {
+            "content": {
+              "$ref": "#/components/schemas/Error"
             }
           },
-          {
-            "422": {
-              "content": {
-                "$ref": "#/components/schemas/Error"
-              }
+          "422": {
+            "content": {
+              "$ref": "#/components/schemas/Error"
             }
           }
-        ]
+        }
       },
       "delete": {
         "operationId": "serviceBinding.unbinding",
@@ -594,36 +549,28 @@
             }
           }
         },
-        "responses": [
-          {
-            "200": {
-              "content": {
-                "$ref": "#/components/schemas/Object"
-              }
+        "responses": {
+          "200": {
+            "content": {
+              "$ref": "#/components/schemas/Object"
             }
           },
-          {
-            "202": {
-              "content": {
-                "$ref": "#/components/schemas/AsyncOperation"
-              }
+          "202": {
+            "content": {
+              "$ref": "#/components/schemas/AsyncOperation"
             }
           },
-          {
-            "400": {
-              "content": {
-                "$ref": "#/components/schemas/Error"
-              }
+          "400": {
+            "content": {
+              "$ref": "#/components/schemas/Error"
             }
           },
-          {
-            "410": {
-              "content": {
-                "$ref": "#/components/schemas/Error"
-              }
+          "410": {
+            "content": {
+              "$ref": "#/components/schemas/Error"
             }
           }
-        ]
+        }
       },
       "get": {
         "operationId": "serviceBinding.get",
@@ -668,22 +615,18 @@
             }
           }
         },
-        "responses": [
-          {
-            "200": {
-              "content": {
-                "$ref": "#/components/schemas/ServiceBindingResource"
-              }
+        "responses": {
+          "200": {
+            "content": {
+              "$ref": "#/components/schemas/ServiceBindingResource"
             }
           },
-          {
-            "404": {
-              "content": {
-                "$ref": "#/components/schemas/Error"
-              }
+          "404": {
+            "content": {
+              "$ref": "#/components/schemas/Error"
             }
           }
-        ]
+        }
       }
     }
   },

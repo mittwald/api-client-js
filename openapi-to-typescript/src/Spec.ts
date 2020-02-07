@@ -1,13 +1,13 @@
 import { readFileSync } from "fs";
 import yaml from "js-yaml";
 import { IntermediateFormat } from "./IntermediateFormat";
-import { expression } from "./jsonata";
+import { transformOpenAPIExpression } from "./transforms";
 
 export class Spec {
     public readonly intermediateFormat: IntermediateFormat;
 
-    private constructor(spec: any) {
-        this.intermediateFormat = expression.evaluate(spec);
+    public constructor(openAPISpec: object) {
+        this.intermediateFormat = transformOpenAPIExpression.evaluate(openAPISpec);
     }
 
     public static fromYamlFile(path: string): Spec {

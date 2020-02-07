@@ -1,0 +1,7 @@
+namespace API {
+    namespace Paths {
+      <% Object.keys(paths).forEach(function(path) { -%>
+      <%= path %> - <%= sayHello() %>
+      <% }) -%>
+    }
+}

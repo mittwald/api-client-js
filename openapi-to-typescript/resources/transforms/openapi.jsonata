@@ -51,9 +51,13 @@
     };
 
     $resolveRefs($$).(
+        $hasRef := function($val)<o:b>{
+            "$ref" in $val.$keys()
+        };
+
         $schemaWithRef := function($obj)<o:o>{
             $obj.(
-                [schema, `$ref` ? {"$ref": `$ref`} : {}] ~> $merge
+                [schema, `$ref` ? {"$ref": `$ref`}] ~> $merge
             )
         };
 
@@ -70,18 +74,18 @@
         };
 
         $constructResponses := function($responses)<o:a>{
-            $responses.$spread().(
+            $responses.(
                 $constructHeaders := function($headers)<o:o>{
                     {
                         "type": "object",
                         "required": [$headers.$sift(function($h) {$h.required}).$keys()],
                         "properties": $headers ? $headers.$spread(){
-                            $k($): *.schema ~> $schemaWithRef
+                            $k($): * ~> $schemaWithRef
                         }
                     }
                 };
 
-                {
+                $spread(){
                     $k($): {
                         "content": *.content.`application/json`.schema ~> $schemaWithRef,
                         "headers": *.headers ? $constructHeaders(*.headers)
@@ -95,7 +99,12 @@
                 $k($): *.$spread(){
                     $k($): *.{
                         "operationId": operationId,
-                        "parameters": parameters ? $constructParams(parameters),
+                        "parameters": [
+                            parameters ? $constructParams(parameters),
+                            {
+                                "requestBody": requestBody.content.`application/json`.schema ~> $schemaWithRef
+                            }
+                        ] ~> $merge,
                         "responses": responses ? $constructResponses(responses)
                     }
                 }
