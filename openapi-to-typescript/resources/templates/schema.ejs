@@ -1,0 +1,10 @@
+<% if (typeof schema === "object" && "$ref" in schema) { %>
+    type <%- niceName(name) %> = <%- formatTs(rootNamespace, schema) %>;
+<% } else { %>
+    <% if (typeof schema == "object" && schema.type !== "object") { %>
+        type <%- niceName(name) %> = <%- formatTs(rootNamespace, schema) %>
+    <% } else { %>
+        interface <%- niceName(name) %>
+        <%- formatTs(rootNamespace, schema) %>
+    <% } %>
+<% } %>

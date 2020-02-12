@@ -892,6 +892,7 @@ components:
           type: string
           enum:
             - shared
+            - shared2
         device:
           $ref: "#/components/schemas/ServiceBindingVolumeMountDevice"
 

@@ -325,10 +325,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@mittwald/awesome-node-utils@^2.10.0":
-  version "2.11.1"
-  resolved "http://npm.mittwald.it/@mittwald%2fawesome-node-utils/-/awesome-node-utils-2.11.1.tgz#860009faadcebefd50e5e84ec8156c115da4f04f"
-  integrity sha512-13EXv1DNAESdAnd8Xj68a2uAE0VHVgtmjZWw/1FgjpI3y6qXwCx838HQGVorJWVM/EdzDV1kU4V0m88utJERig==
+"@mittwald/awesome-node-utils@^2.12.0":
+  version "2.12.0"
+  resolved "http://npm.mittwald.it/@mittwald%2fawesome-node-utils/-/awesome-node-utils-2.12.0.tgz#2059b7616f004350a1ef6b4c9b798e0893d9fa01"
+  integrity sha512-sw18kN8rrNy7W49uARK5diq1OEaWwB77wrb3jqs6kXS+DaZqaI5E/K3MBBWX26HBBueQcbzJrBDb8XFk2qelaA==
   dependencies:
     "@types/camelcase" "^5.2.0"
     "@types/cls-hooked" "^4.3.0"
@@ -467,6 +467,13 @@
   version "7.0.4"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.4.tgz#38fd73ddfd9b55abb1e1b2ed578cb55bd7b7d339"
   integrity sha512-8+KAKzEvSUdeo+kmqnKrqgeE+LcA0tjYWFY7RPProVYwnqDjukzO+3b6dLD56rYX5TdWejnEOLJYOIeh4CXKuA==
+
+"@types/jsonata@^1.5.1":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@types/jsonata/-/jsonata-1.5.1.tgz#403176c3f265523c36e799f27752188b2fc08981"
+  integrity sha512-zBVjNYS7FUUIZ4Ckq3p7xOkJKndT6h+kHUeKiud1E6h/OLPkQOagzq8UJYN07QvtkA03XFadQER1zSIWSJj2EA==
+  dependencies:
+    jsonata "*"
 
 "@types/lodash@^4.14.149":
   version "4.14.149"
@@ -2757,6 +2764,11 @@ json5@2.x, json5@^2.1.0:
   integrity sha512-l+3HXD0GEI3huGq1njuqtzYK8OYJyXMkOLtQ53pjWh89tvWS2h6l+1zMkYWqlb57+SiQodKZyvMEFb2X+KrFhQ==
   dependencies:
     minimist "^1.2.0"
+
+jsonata@*, jsonata@^1.8.1:
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/jsonata/-/jsonata-1.8.1.tgz#75f942971a1fe1019c86690e1ddc2af7e21dbec9"
+  integrity sha512-Lw1ApNtYH9i/lWBuRSm1I/xfhPyTvlVslVIaGLW/bxFimxQYzQx2y3+DNRmbx5mmCmRb+bCLdIJasEFyb+aUlQ==
 
 jsonpointer-cli@^1.0.0:
   version "1.0.0"

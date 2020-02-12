@@ -1,7 +1,19 @@
-namespace API {
+declare namespace <%- rootNamespace %> {
     namespace Paths {
-      <% Object.keys(paths).forEach(function(path) { -%>
-      <%= path %> - <%= sayHello() %>
-      <% }) -%>
+      <% Object.entries(paths).forEach(function([pathname, path]) { %>
+      namespace <%- niceName(pathname) %> {
+          <% Object.entries(path).forEach(function([methodname, method]) { %>
+          namespace <%- niceName(methodname) %> {
+              <%- include('schemas', {schemas: method.parameters, namespace: 'Parameters'}); %>
+              <%- include('object-schemas', {object: method.responses, namespace: 'Responses'}); %>
+          }
+          <% }) %>
+      }
+      <% }) %>
+    }
+
+    namespace Components {
+        <%- include('schemas', {schemas: components.schemas, namespace: 'Schemas'}); %>
+        <%- include('schemas', {schemas: components.parameters, namespace: 'Parameters'}); %>
     }
 }

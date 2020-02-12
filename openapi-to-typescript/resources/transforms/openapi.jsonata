@@ -112,7 +112,7 @@
             "components": components{
                 "schemas": schemas,
                 "parameters": parameters.$spread(){
-                    $k($): *.schema ~> $schemaWithRef
+                    $k($): * ~> $schemaWithRef
                 }
             }
         }

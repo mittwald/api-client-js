@@ -1102,7 +1102,7 @@
                 },
                 "device_type": {
                   "type": "string",
-                  "enum": ["shared"]
+                  "enum": ["shared", "shared2"]
                 },
                 "device": {
                   "$ref": "#/components/schemas/ServiceBindingVolumeMountDevice"
@@ -1220,7 +1220,7 @@
                 },
                 "device_type": {
                   "type": "string",
-                  "enum": ["shared"]
+                  "enum": ["shared", "shared2"]
                 },
                 "device": {
                   "$ref": "#/components/schemas/ServiceBindingVolumeMountDevice"
@@ -1291,7 +1291,7 @@
           },
           "device_type": {
             "type": "string",
-            "enum": "shared"
+            "enum": ["shared", "shared2"]
           },
           "device": {
             "type": "object",
@@ -1364,8 +1364,13 @@
       }
     },
     "parameters": {
-      "APIVersion": {},
-      "OriginatingIdentity": {}
+      "APIVersion": {
+        "type": "string",
+        "default": "2.13"
+      },
+      "OriginatingIdentity": {
+        "type": "string"
+      }
     }
   }
 }
