@@ -1,9 +1,9 @@
 declare namespace <%- rootNamespace %> {
     namespace Paths {
       <% Object.entries(paths).forEach(function([pathname, path]) { %>
-      namespace <%- niceName(pathname) %> {
+      namespace <%- tsName(pathname) %> {
           <% Object.entries(path).forEach(function([methodname, method]) { %>
-          namespace <%- niceName(methodname) %> {
+          namespace <%- tsName(methodname) %> {
               <%- include('schemas', {schemas: method.parameters, namespace: 'Parameters'}); %>
               <%- include('object-schemas', {object: method.responses, namespace: 'Responses'}); %>
           }

@@ -59,7 +59,7 @@ const rendered = template({
         const ts = schemaToTypeTS(withConsts);
         return replaceRefsTypeNames(rootNamespace, ts);
     },
-    niceName: transformNamespaceName,
+    tsName: transformNamespaceName,
     rootNamespace: "API",
 });
 
