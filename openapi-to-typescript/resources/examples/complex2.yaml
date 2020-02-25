@@ -1,0 +1,186 @@
+openapi: "3.0.0"
+info:
+  description: |
+    This is the Mittwald Signup API.
+  version: v1
+  title: "Mittwald Signup API"
+  x-spaces-api-group: Signup
+servers:
+  - url: https://signup.mittwald.de/v1
+    description: Production Mittwald Signup API
+tags:
+  - name: Registration
+    description: Create a new Mittwald user
+  - name: Authentication
+    description: Sign in to use the Mittwald Services
+components:
+  schemas:
+    de.mittwald.v1.signup.Profile:
+      type: object
+      required: [lastName, firstName]
+      description: The users personal information, e.g. first name.
+      properties:
+        firstName:
+          type: string
+          description: "The users first name"
+        lastName:
+          type: string
+          description: "the users last name"
+    de.mittwald.v1.signup.RequestError:
+      type: object
+      required: [name, message]
+      properties:
+        name:
+          type: string
+          description: Identifier for the error that occured
+        message:
+          type: string
+          description: Some more detailed information about the error
+        info:
+          type: object
+          description: A json object, given further information about the error
+paths:
+  /registration:
+    post:
+      tags: [Registration]
+      summary: Register with email and password
+      operationId: register
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password, profile]
+              properties:
+                email:
+                  type: string
+                  format: email
+                  description: The users email address
+                password:
+                  type: string
+                  description: The users password
+                profile:
+                  $ref: '#/components/schemas/de.mittwald.v1.signup.Profile'
+      responses:
+        200:
+          description: |
+            Registration was successfull. A verification email will be send to the specified email address.
+            The users can be used as soon as the verification link was opened
+        400:
+          description: |
+            Some of the specified values does not meet our requirements.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/de.mittwald.v1.signup.RequestError'
+  /registration/verification:
+    post:
+      tags: [Registration]
+      summary: Verify your registration
+      operationId: verify
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, token, userId]
+              properties:
+                email:
+                  type: string
+                  format: email
+                  description: The users email address
+                userId:
+                  type: string
+                  format: uuid
+                  description: UUID of the registered user
+                token:
+                  type: string
+                  description: The token that was send to your email address
+      responses:
+        200:
+          description: |
+            User is verified and you can now login to your user account.
+        400:
+          description: |
+            Some of the specified values does not meet our requirements.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/de.mittwald.v1.signup.RequestError'
+  /authentication:
+    post:
+      tags: [Authentication]
+      summary: Authenticate yourself to get an access token.
+      operationId: authenticate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password, browserFingerprint, userAgent]
+              properties:
+                email:
+                  type: string
+                  format: email
+                  description: The users email address
+                password:
+                  type: string
+                  description: Password of the user
+                browserFingerprint:
+                  type: string
+                  description: |
+                    Calculated browser fingerprint to identify your browser.
+                    This information will be used to display your current sessions, so that you can see, with which devices you logged in.
+                userAgent:
+                  type: string
+                  description: Your browsers user agent. For usage see browserFingerprint.
+      responses:
+        200:
+          description: Your authentication request was successfull and you've got an access token.
+          headers:
+            Set-Cookie:
+              schema:
+                type: string
+              description: Access token, you need to authenticate yourself against the api gateway.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [token, expires]
+                properties:
+                  token:
+                    type: string
+                    description: Public token to identify yourself against the api gateway.
+                  expires:
+                    type: number
+                    description: Expiration unix timestamp
+        202:
+          description: |
+            Multi factor authentication is activated for this user. After calling this, you need to call 'authentication/mfa' with a valid multi factor code.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/de.mittwald.v1.signup.RequestError'
+        400:
+          description: |
+            Some of the specified values does not meet our requirements.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/de.mittwald.v1.signup.RequestError'
+        404:
+          description: |
+            Either user does not exist or password is wrong
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/de.mittwald.v1.signup.RequestError'

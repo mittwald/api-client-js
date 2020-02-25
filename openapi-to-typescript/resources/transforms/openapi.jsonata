@@ -1,8 +1,18 @@
+/* try this out at https://try.jsonata.org */
 (
-    $k := function($ctx)<o:s>{
-        $keys($ctx)[0]
+    /* map over the objects values */
+    $mapValues := function($obj, $fn)<o,f:o> {
+        $obj ?($obj ~> $spread){
+            $k($): * ~> $fn
+        }
     };
 
+    /* returns the first key of $ctx */
+    $k := function($ctx)<o:s>{
+        ($ctx ~> $keys)[0]
+    };
+
+    /* gets the prop by dot-notation from the root object ($$) */
     $resolvePath := function($path)<a:o>{
         $path ~> $reduce(
             $lookup,
@@ -10,57 +20,73 @@
         )
     };
 
+    /* splits a ref in its path segments */
     $splitRef := function($ref)<s:a>{
         $ref ~> $substring(2) ~> $split("/")
     };
 
+    /* finds the ref in the root object */
     $resolveRef := function($ref)<s:o>{
         $ref ~> $splitRef ~> $resolvePath
     };
 
+    /* just checks for a ref in the $val */
+    $hasRef := function($val)<o:b>{
+        "$ref" in $val.$keys()
+    };
 
+    /* finds refs in the root object and spreads the refs content into the current node */
     $resolveRefs := function($obj)<j:o>{
         (
-            $recurseObj := function($obj){
-                $obj.$spread(){
-                    $k($): $resolveRefs(*)
-                }
-            };
-
+            /* spreads the refs content into $obj */
             $mergeInResolvedRef := function($obj){
-                $merge([$resolveRef($obj.`$ref`), ({"$ref": $obj.`$ref`})])
+                $merge([
+                    $resolveRef($obj.`$ref`),
+                    { "$ref": $obj.`$ref` }
+                ])
             };
 
             $resolveRefsInObj := function($obj){
-                $obj.`$ref` ?
+                $obj ~> $hasRef ?
                     $mergeInResolvedRef($obj) :
-                    $recurseObj($obj)
+                    $obj ~> $mapValues($resolveRefs)
             };
 
             $resolveRefsInArray := function($obj){
-                $map($obj, function($item){ $resolveRefs($item) })
+                $map($obj, function($item){
+                    $resolveRefs($item)
+                })
             };
 
+            /* final resolving */
             $type($obj) = "object" ?
-            $resolveRefsInObj($obj) :
-            $type($obj) = "array" ?
-                $resolveRefsInArray($obj) :
-                $obj
+                /* object */
+                $resolveRefsInObj($obj) :
+                $type($obj) = "array" ?
+                    /* array */
+                    $resolveRefsInArray($obj) :
+                    /* other */
+                    $obj
 
         )
     };
 
+    /* first we resolve all refs in the root object */
     $resolveRefs($$).(
-        $hasRef := function($val)<o:b>{
-            "$ref" in $val.$keys()
-        };
+        /* ...  and go further with the result */
 
         $schemaWithRef := function($obj)<o:o>{
-            $obj.(
-                [schema, `$ref` ? {"$ref": `$ref`}] ~> $merge
-            )
+            $obj ~> $hasRef ?
+                /* merge in $ref name */
+                [
+                    $obj.schema,
+                    { "$ref": $obj.`$ref` }
+                ] ~> $merge :
+                /* no need to merge */
+                $obj.schema
         };
 
+        /* fn to construct 'parameters' (header, path, query, ...) */
         $constructParams := function($params)<a:o>{
             $params{
                 in: {
@@ -73,31 +99,46 @@
             }
         };
 
+        /* find all keys in the $obj where $obj[k].required */
+        $getRequiredNames := function($obj)<o:a> {
+            $obj.(
+                $isRequired := function($o)<o:b> {
+                    $o.required
+                };
+
+                /* return as array */
+                [$obj ~> $sift($isRequired) ~> $keys]
+            )
+        };
+
+        /* fn to construct 'responses' (200, 404, ...) */
         $constructResponses := function($responses)<o:a>{
             $responses.(
                 $constructHeaders := function($headers)<o:o>{
                     {
                         "type": "object",
-                        "required": [$headers.$sift(function($h) {$h.required}).$keys()],
-                        "properties": $headers ? $headers.$spread(){
-                            $k($): * ~> $schemaWithRef
-                        }
+                        "required": $headers ~> $getRequiredNames,
+                        "properties": $headers ~> $mapValues($schemaWithRef)
                     }
                 };
 
-                $spread(){
-                    $k($): {
-                        "content": *.content.`application/json`.schema ~> $schemaWithRef,
-                        "headers": *.headers ? $constructHeaders(*.headers)
+                $construct := function($response) {
+                    /* response does have header and content */
+                    $response{
+                        "content": content.`application/json`.schema ~> $schemaWithRef,
+                        "headers": headers ? $constructHeaders(headers)
                     }
-                }
+                };
+
+                $mapValues($, $construct)
             )
         };
 
+        /* here we build the final object */
         {
-            "paths": paths.$spread(){
-                $k($): *.$spread(){
-                    $k($): *.{
+            "paths": paths ~> $mapValues(function ($path) {
+                $path ~> $mapValues(function($method) {
+                    $method{
                         "operationId": operationId,
                         "parameters": [
                             parameters ? $constructParams(parameters),
@@ -107,13 +148,11 @@
                         ] ~> $merge,
                         "responses": responses ? $constructResponses(responses)
                     }
-                }
-            },
+                })
+            }),
             "components": components{
                 "schemas": schemas,
-                "parameters": parameters.$spread(){
-                    $k($): * ~> $schemaWithRef
-                }
+                "parameters": parameters ~> $mapValues($schemaWithRef)
             }
         }
     )

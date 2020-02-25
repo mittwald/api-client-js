@@ -1,0 +1,11 @@
+{
+    <% if (operation.parameters.header) { %>
+        header: <%- makeNamespace(rootNamespace, "paths", pathname, method, "parameters", "header") %>,
+    <% } %>
+    <% if (operation.parameters.path) { %>
+        path: <%- makeNamespace(rootNamespace, "paths", pathname, method, "parameters", "path") %>,
+    <% } %>
+    <% if (operation.parameters.query) { %>
+        query: <%- makeNamespace(rootNamespace, "paths", pathname, method, "parameters", "query") %>,
+    <% } %>
+}
