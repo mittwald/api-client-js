@@ -2,7 +2,7 @@
 (
     /* map over the objects values */
     $mapValues := function($obj, $fn)<o,f:o> {
-        $obj ?($obj ~> $spread){
+        ($obj ~> $spread){
             $k($): * ~> $fn
         }
     };
