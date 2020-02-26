@@ -1,0 +1,11 @@
+<%- !operation.responses || Object.keys(operation.responses).length === 0 ? "never": "" %>
+<% Object.entries(operation.responses).forEach(function([status, response]) { %>
+    | ({status: <%- status %>} & {
+        <% if (response.content) { %>
+            content: <%- joinNamespace(rootNamespace, "paths", pathname, method, "responses", status, "content") %>;
+        <% }%>
+        <% if (response.headers) { %>
+            header: <%- joinNamespace(rootNamespace, "paths", pathname, method, "responses", status, "headers") %>;
+        <% }%>
+    })
+<% }) %>

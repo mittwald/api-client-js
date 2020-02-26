@@ -1,0 +1,21 @@
+import { KyHTTPClient } from "@mittwald/api-client/dist/KyHTTPClient";
+import { HTTPClient } from "@mittwald/api-client/dist/HTTPClient";
+import { RequestFunction } from "@mittwald/api-client/dist/OperationDescriptor";
+import * as descriptors from "./descriptors";
+
+export class <%- rootNamespace %>Client {
+    <% Object.entries(paths).forEach(([path, operations]) => { %>
+        <% Object.values(operations).forEach((operation) => { %>
+            public <%- camelCase(operation.operationId) %>: RequestFunction<typeof descriptors.<%- camelCase(operation.operationId) %>>;
+        <% }) %>
+    <% }) %>
+
+    public constructor(clientOrUrl: HTTPClient | string) {
+        const client = typeof clientOrUrl === "string" ? new KyHTTPClient({ prefixUrl: clientOrUrl }) : clientOrUrl;
+        <% Object.entries(paths).forEach(([path, operations]) => { %>
+        <% Object.values(operations).forEach((operation) => { %>
+        this.<%- camelCase(operation.operationId) %> = client.requestFunctionFactory(descriptors.<%- camelCase(operation.operationId) %>);
+        <% }) %>
+        <% }) %>
+        }
+}

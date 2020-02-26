@@ -1,4 +1,0 @@
-<% Object.entries(operation.responses).forEach(function([status, body], i) { %>
-    {status: <%- status %>} & <%- makeNamespace(rootNamespace, "paths", pathname, method, "responses", status, "content") %>
-    <%- (i+1) === Object.keys(operation.responses).length ? "": "|" %>
-<% }) %>

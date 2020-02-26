@@ -1,0 +1,14 @@
+{
+    <% if (operation.parameters.requestBody) { %>
+        requestBody: <%- joinNamespace(rootNamespace, "paths", pathname, method, "parameters", "requestBody") %>,
+    <% } %>
+    <% if (operation.parameters.header) { %>
+        header: <%- joinNamespace(rootNamespace, "paths", pathname, method, "parameters", "header") %>,
+    <% } %>
+    <% if (operation.parameters.path) { %>
+        path: <%- joinNamespace(rootNamespace, "paths", pathname, method, "parameters", "path") %>,
+    <% } %>
+    <% if (operation.parameters.query) { %>
+        query: <%- joinNamespace(rootNamespace, "paths", pathname, method, "parameters", "query") %>,
+    <% } %>
+}

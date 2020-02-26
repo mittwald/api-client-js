@@ -1,0 +1,41 @@
+Arguments: 
+  /Users/mfalkenberg/.nvm/versions/node/v12.14.0/bin/node /Users/mfalkenberg/.yarn/bin/yarn.js --force
+
+PATH: 
+  /Users/mfalkenberg/.nvm/versions/node/v12.14.0/bin:/usr/local/opt/node@10/bin:/Users/mfalkenberg/.go/bin:/Users/mfalkenberg/.yarn/bin:/Users/mfalkenberg/.config/yarn/global/node_modules/.bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/opt/ImageMagick/bin:/Users/spaces/.npm-packages/bin
+
+Yarn version: 
+  1.19.1
+
+Node version: 
+  12.14.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/mfalkenberg/dev/api-tools/package.json: Unexpected token ] in JSON at position 124
+      at JSON.parse (<anonymous>)
+      at /Users/mfalkenberg/.yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/Users/mfalkenberg/.yarn/lib/cli.js:304:30)
+      at /Users/mfalkenberg/.yarn/lib/cli.js:315:13
+
+npm manifest: 
+  {
+    "private": true,
+    "workspaces": {
+      "packages": [
+        "packages/*"
+       ],
+      "nohoist": [
+        "**/eslint",
+      ]
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

@@ -1,0 +1,5 @@
+<% if (operation.parameters.requestBody) { %>
+    <%- joinNamespace(rootNamespace, "paths", pathname, method, "parameters", "requestBody") %>
+<% } else { %>
+    never
+<% } %>
