@@ -72,6 +72,7 @@
     "deepmerge": "^4.2.2",
     "dot-prop": "^5.2.0",
     "ejs": "^3.0.1",
+    "fs-jetpack": "^2.2.3",
     "got": "^10.6.0",
     "js-yaml": "^3.13.1",
     "json-schema-typed": "^7.0.3",

@@ -1,4 +1,3 @@
-import { writeFileSync } from "fs";
 import { transformOpenAPIExpression } from "./jsonata/transforms";
 import { Exporter } from "./Exporter";
 import OpenAPISchemaValidator from "openapi-schema-validator";
@@ -9,6 +8,7 @@ import { runWithContext } from "@mittwald/awesome-node-utils/context/run";
 import { objectEntries } from "@mittwald/awesome-node-utils/object/entries";
 import deepmerge from "deepmerge";
 import { loadSpec } from "./loadSpec";
+import jp from "fs-jetpack";
 
 interface SpecOptions {
     statusLog?: StatusLog;
@@ -134,7 +134,7 @@ export class Spec {
         const log = getStatusLog();
 
         log?.start(`writing 'types' to "${filename}"`);
-        writeFileSync(filename, this.getTypes(), { encoding: "utf8" });
+        jp.write(filename, this.getTypes());
         log?.succeed(`'types' written to "${filename}"`);
     }
 
@@ -142,7 +142,7 @@ export class Spec {
         const log = getStatusLog();
 
         log?.start(`writing 'descriptors' to "${filename}"`);
-        writeFileSync(filename, this.getDescriptors(), { encoding: "utf8" });
+        jp.write(filename, this.getDescriptors());
         log?.succeed(`'descriptors' written to "${filename}"`);
     }
 
@@ -150,7 +150,7 @@ export class Spec {
         const log = getStatusLog();
 
         log?.start(`writing 'client' to "${filename}"`);
-        writeFileSync(filename, this.getClient(), { encoding: "utf8" });
+        jp.write(filename, this.getClient());
         log?.succeed(`'client' written to "${filename}"`);
     }
 }

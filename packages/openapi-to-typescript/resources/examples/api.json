@@ -1,0 +1,145 @@
+{
+  "openapi": "3.0",
+  "info": {
+    "title": "WIP",
+    "description": "Work in progress",
+    "contact": {
+      "name": "Mittwald CM Service GmbH & Co. KG",
+      "email": "opensource@mittwald.de",
+      "url": "https://www.mittwald.de"
+    },
+    "version": "2.0"
+  },
+  "paths": {
+    "/v1/projects/:paymentProfileId/contracts/:contractId/contractItem/:contractItemId": {
+      "put": {
+        "operationId": "paymentservice-activate-contract-item",
+        "responses": {}
+      }
+    },
+    "/v1/projects/:paymentProfileId/contracts/:contractId": {
+      "put": {
+        "operationId": "paymentservice-add-contract-item",
+        "responses": {}
+      },
+      "post": {
+        "operationId": "paymentservice-create-contract",
+        "responses": {}
+      },
+      "get": {
+        "operationId": "paymentservice-detail-of-contract",
+        "responses": {}
+      }
+    },
+    "/v1/projects/:paymentProfileId/invoice/:invoiceId": {
+      "put": {
+        "operationId": "paymentservice-send-invoice",
+        "responses": {}
+      },
+      "post": {
+        "operationId": "paymentservice-create-invoice",
+        "responses": {}
+      },
+      "get": {
+        "operationId": "paymentservice-overview-of-invoices",
+        "responses": {}
+      }
+    },
+    "/v1/projects/:paymentProfileId": {
+      "post": {
+        "operationId": "paymentservice-create-payment-profile",
+        "responses": {}
+      },
+      "delete": {
+        "operationId": "paymentservice-delete-payment-profile",
+        "responses": {}
+      },
+      "get": {
+        "operationId": "paymentservice-details-of-payment-profile",
+        "responses": {}
+      },
+      "put": {
+        "operationId": "paymentservice-update-payment-profile",
+        "responses": {}
+      }
+    },
+    "/v1/projects/:paymentProfileId/contract": {
+      "get": {
+        "operationId": "paymentservice-overview-of-contracts",
+        "responses": {}
+      }
+    },
+    "/v1/projects/": {
+      "get": {
+        "operationId": "paymentservice-overview-of-payment-profiles",
+        "responses": {}
+      }
+    },
+    "/v1/timetracking/projects/:projectId/booking-records": {
+      "post": {
+        "operationId": "timetrackingservice-add-booking-record",
+        "responses": {}
+      }
+    },
+    "/v1/timetracking/projects/:projectId/records": {
+      "post": {
+        "operationId": "timetrackingservice-add-record",
+        "responses": {}
+      }
+    },
+    "/v1/timetracking/users": {
+      "post": {
+        "operationId": "timetrackingservice-add-user",
+        "responses": {}
+      },
+      "get": {
+        "operationId": "timetrackingservice-list-users",
+        "responses": {}
+      }
+    },
+    "/v1/timetracking/users/:userId": {
+      "get": {
+        "operationId": "timetrackingservice-info-user",
+        "responses": {}
+      },
+      "put": {
+        "operationId": "timetrackingservice-update-user",
+        "responses": {}
+      }
+    },
+    "/v1/timetracking/projects/:projectId": {
+      "get": {
+        "operationId": "timetrackingservice-project-details",
+        "responses": {}
+      }
+    },
+    "/v1/timetracking/projects": {
+      "get": {
+        "operationId": "timetrackingservice-project-overview",
+        "responses": {}
+      }
+    },
+    "/v1/timetracking/projects/:projectId/records/:recordId": {
+      "delete": {
+        "operationId": "timetrackingservice-remove-record",
+        "responses": {}
+      },
+      "put": {
+        "operationId": "timetrackingservice-update-record",
+        "responses": {}
+      }
+    },
+    "/v1/timetracking/projects/:projectId/booking-records/:recordId": {
+      "put": {
+        "operationId": "timetrackingservice-update-booking-record",
+        "responses": {}
+      }
+    },
+    "/v1/timetracking/users/:userId/records": {
+      "get": {
+        "operationId": "timetrackingservice-user-records",
+        "responses": {}
+      }
+    }
+  }
+}

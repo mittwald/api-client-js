@@ -1,0 +1,987 @@
+openapi: "3.0.0"
+info:
+  description: |
+    This is the Mittwald Signup API.
+  version: v1
+  title: "Mittwald Signup API"
+  x-spaces-api-group: Signup
+servers:
+  - url: https://signup.mittwald.de
+    description: Production Mittwald Signup API
+tags:
+  - name: Registration
+    description: Create a new Mittwald user
+  - name: Authentication
+    description: Sign in to use the Mittwald Services
+  - name: Password
+    description: Change your password or reset it
+  - name: Multi Factor Authentication
+    description: Update your mfa settings
+  - name: Logout
+    description: Terminate your session and invalidate your access token
+components:
+  schemas:
+    de.mittwald.v1.signup.Profile:
+      type: object
+      required: [lastName, firstName]
+      description: The users personal information, e.g. first name.
+      properties:
+        firstName:
+          type: string
+          description: "The users first name"
+        lastName:
+          type: string
+          description: "the users last name"
+    de.mittwald.v1.signup.RequestError:
+      type: object
+      required: [name, message]
+      properties:
+        message:
+          type: string
+          description: Some more detailed information about the error
+        info:
+          type: object
+          description: A json object, given further information about the error
+paths:
+  /registration:
+    post:
+      tags: [Registration]
+      summary:
+        Register with email and password. You can import your account by defining a Legacy Account Name. Therefore, you firstly have to call
+        /authentication/legacy
+      operationId: register
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password, profile]
+              properties:
+                email:
+                  type: string
+                  format: email
+                  description: The users email address
+                password:
+                  type: string
+                  description: The users password
+                profile:
+                  $ref: "#/components/schemas/de.mittwald.v1.signup.Profile"
+                legacyAccount:
+                  type: string
+                  description: Legacy-Account you want to import
+      responses:
+        200:
+          description: |
+            Registration was successfull. A verification email will be send to the specified email address.
+            The users can be used as soon as the verification link was opened
+        400:
+          description: |
+            Some of the specified values does not meet our requirements.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - EmailInUse
+                          - PasswordIsLeaked
+                          - ValidationError
+        408:
+          description: |
+            Your legacy login attempt has been expired. Please call /authentication/legacy again or remove legacy account from request
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - LegacyAuthenticationExpired
+                          - Stuff
+        500:
+          description: |
+            Something in our infrastructure went wrong
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - InternalServerError
+                          - Stuff
+  /registration/verification:
+    post:
+      tags: [Registration]
+      summary: Verify your registration
+      operationId: verify
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, token, userId]
+              properties:
+                email:
+                  type: string
+                  format: email
+                  description: The users email address
+                userId:
+                  type: string
+                  format: uuid
+                  description: UUID of the registered user
+                token:
+                  type: string
+                  description: The token that was send to your email address
+      responses:
+        200:
+          description: |
+            User is verified and you can now login to your user account.
+        400:
+          description: |
+            Some of the specified values does not meet our requirements.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - UserRegistrationAlreadyVerified
+                          - WrongVerificationToken
+                          - ValidationError
+        404:
+          description: |
+            Some entity involved with this request is not existing.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - EmailNotFound
+        500:
+          description: |
+            Something in our infrastructure went wrong
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - InternalServerError
+                          - Stuff
+  /authentication:
+    post:
+      tags: [Authentication]
+      summary: Authenticate yourself to get an access token.
+      operationId: authenticate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password, browserFingerprint, userAgent]
+              properties:
+                email:
+                  type: string
+                  format: email
+                  description: The users email address
+                password:
+                  type: string
+                  description: Password of the user
+                browserFingerprint:
+                  type: string
+                  description: |
+                    Calculated browser fingerprint to identify your browser.
+                    This information will be used to display your current sessions, so that you can see, with which devices you logged in.
+                userAgent:
+                  type: string
+                  description: Your browsers user agent. For usage see browserFingerprint.
+                remember:
+                  type: boolean
+                  description: Should the access token expire or not ?
+      responses:
+        200:
+          description: Your authentication request was successfull and you've got an access token.
+          headers:
+            Set-Cookie:
+              schema:
+                type: string
+              description: Access token, you need to authenticate yourself against the api gateway.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [token, expires]
+                properties:
+                  token:
+                    type: string
+                    description: Public token to identify yourself against the api gateway.
+                  expires:
+                    type: number
+                    description: Expiration unix timestamp
+        202:
+          description: |
+            Multi factor authentication is activated for this user. After calling this, you need to call '/authentication/mfa' with a valid multi factor code.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - SecondFactorRequired
+                          - Stuff
+        400:
+          description: |
+            Some of the specified values does not meet our requirements.
+            Possible values are:
+              * ValidationError
+              * LoginFailed
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - ValidationError
+                          - LoginFailed
+        500:
+          description: |
+            Something in our infrastructure went wrong
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - InternalServerError
+                          - Stuff
+  /authentication/mfa:
+    post:
+      tags: [Authentication]
+      summary: Validate your second factor.
+      operationId: validateMfa
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [multiFactorCode]
+              properties:
+                multiFactorCode:
+                  type: string
+                  description: The second factor
+
+      responses:
+        200:
+          description: Your authentication request was successfull and you've got an access token.
+          headers:
+            Set-Cookie:
+              schema:
+                type: string
+              description: Access token, you need to authenticate yourself against the api gateway.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [token, expires]
+                properties:
+                  token:
+                    type: string
+                    description: Public token to identify yourself against the api gateway.
+                  expires:
+                    type: number
+                    description: Expiration unix timestamp
+        400:
+          description: |
+            Some of the specified values does not meet our requirements.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - ValidationError
+                          - MultiFactorCodeNotValid
+        408:
+          description: |
+            Your first factor has been expired. Please call '/authentication' again
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - FirstAuthenticationFactorExpired
+                          - Stuff
+        500:
+          description: |
+            Something in our infrastructure went wrong
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - InternalServerError
+                          - Stuff
+  /authentication/legacy:
+    post:
+      tags: [Authentication]
+      summary: Authenticate yourself against your legacy account to migrate it with the '/registration'-Route
+      operationId: validateLegacy
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [account, password]
+              properties:
+                account:
+                  type: string
+                  description: The legacy account name
+                password:
+                  type: string
+                  description: The legacy account password
+      responses:
+        200:
+          description:
+            Your authentication request was successfull, now register a new user with '/registration' and add the account name to the
+            request body
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [expires]
+                properties:
+                  expires:
+                    type: number
+                    description: Expiration unix timestamp
+        400:
+          description: |
+            Some of the specified values does not meet our requirements.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - ValidationError
+                          - LoginFailed
+        500:
+          description: |
+            Something in our infrastructure went wrong
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - InternalServerError
+                          - Stuff
+  /password:
+    put:
+      tags: [Password]
+      summary: Change your password
+      operationId: changePassword
+      parameters:
+        - in: header
+          name: Cookie
+          schema:
+            type: string
+          required: true
+          description: |
+            Access Token is required in Cookie header. e.g. `mw_access-token=2568a2ba-1785-4a4b-8df5-eccd4b40c600%3Atj08XUi35%2BPatuS2KjgrcrRRsUU4d3cKG3DLKaIEPFI%3D; Domain=signup.prod.mittwald.systems; Path=/; HttpOny`
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [oldPassword, newPassword]
+              properties:
+                oldPassword:
+                  type: string
+                  description: The old password
+                newPassword:
+                  type: string
+                  description: The new password
+      responses:
+        200:
+          description: Your password was changed
+        400:
+          description: |
+            Some of the specified values does not meet our requirements.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - ValidationError
+                          - EmailAddressNotVerified
+                          - WrongPassword
+                          - PasswordIsLeaked
+        401:
+          description: No valid access token was provided
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - NoAccessTokenProvided
+                          - Stuff
+        500:
+          description: |
+            Something in our infrastructure went wrong
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - InternalServerError
+                          - Stuff
+  /password/reset:
+    post:
+      tags: [Password]
+      summary: Initialize password reset process
+      operationId: initPasswordReset
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email]
+              properties:
+                email:
+                  type: string
+                  format: email
+                  description: email address to reset the password for
+      responses:
+        200:
+          description: |
+            If email address is existing, password reset process was initialized and email with confirmation code was send
+        400:
+          description: |
+            Some of the specified values does not meet our requirements.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - ValidationError
+                          - Stuff
+        500:
+          description: |
+            Something in our infrastructure went wrong
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - InternalServerError
+                          - Stuff
+  /password/reset/confirm:
+    post:
+      tags: [Password]
+      summary: Confirm password reset
+      operationId: confirmPasswordReset
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [userId, token, password]
+              properties:
+                userId:
+                  type: string
+                  format: uuid
+                  description: userId of the user to reset the password for
+                token:
+                  type: string
+                  minLength: 6
+                  maxLength: 6
+                  description: Password reset token
+                password:
+                  type: string
+                  description: The new password
+      responses:
+        200:
+          description: Password reset was successful
+        400:
+          description: |
+            Some of the specified values does not meet our requirements.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - WrongPasswordResetToken
+                          - EmailAddressNotVerified
+                          - PasswordIsLeaked
+                          - ValidationError
+        500:
+          description: |
+            Something in our infrastructure went wrong
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - InternalServerError
+                          - Stuff
+  /mfa:
+    post:
+      tags: [Multi Factor Authentication]
+      summary: Initialize Multi Factor Authentication. If successfull, it needs to be confirmed, before usage of mfa.
+      operationId: initMfa
+      parameters:
+        - in: header
+          name: Cookie
+          schema:
+            type: string
+          required: true
+          description: |
+            Access Token is required in Cookie header. e.g. `mw_access-token=2568a2ba-1785-4a4b-8df5-eccd4b40c600%3Atj08XUi35%2BPatuS2KjgrcrRRsUU4d3cKG3DLKaIEPFI%3D; Domain=signup.prod.mittwald.systems; Path=/; HttpOny`
+      responses:
+        200:
+          description: The process of activating Multi Factor Authentication is initialized
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [barcode, url]
+                properties:
+                  barcode:
+                    type: string
+                    description:
+                      base64 encoded barcode content to scan from your mfa app. e.g. `iVBORw0KGgoAAAANSUhEUgAAAMgAAADIEAAAAADYoy...`. You
+                      can display it with `<img src="data:image/png;base64,iVBORw0KGgoAAAANSUh.." />`
+                  url:
+                    type: string
+                    description:
+                      Same as barcode,  but in URL form. e.g.
+                      `otpauth://totp/Google:test@gmail.com?algorithm=SHA1&digits=6&issuer=Google&period=30&secret=HTXT7KJFVNAJUPYWQRWMNVQE5AF5YZI2"`
+        400:
+          description: |
+            Some of the specified values does not meet our requirements.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - EmailAddressNotVerified
+                          - MFAAlreadyConfirmed
+                          - ValidationError
+        401:
+          description: No valid access token was provided
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - NoAccessTokenProvided
+                          - Stuff
+        500:
+          description: |
+            Something in our infrastructure went wrong
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - InternalServerError
+                          - Stuff
+    delete:
+      tags: [Multi Factor Authentication]
+      summary: Disable Multi Factor Authentication.
+      operationId: disableMfa
+      parameters:
+        - in: header
+          name: Cookie
+          schema:
+            type: string
+          required: true
+          description: |
+            Access Token is required in Cookie header. e.g. `mw_access-token=2568a2ba-1785-4a4b-8df5-eccd4b40c600%3Atj08XUi35%2BPatuS2KjgrcrRRsUU4d3cKG3DLKaIEPFI%3D; Domain=signup.prod.mittwald.systems; Path=/; HttpOny`
+      responses:
+        200:
+          description: Multi Factor Authentication was disabled
+        400:
+          description: |
+            Some of the specified values does not meet our requirements.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - ValidationError
+                          - MultiFactorCodeNotValid
+        401:
+          description: No valid access token was provided
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - NoAccessTokenProvided
+                          - Stuff
+        500:
+          description: |
+            Something in our infrastructure went wrong
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - InternalServerError
+                          - Stuff
+  /mfa/confirm:
+    post:
+      tags: [Multi Factor Authentication]
+      summary: Confirm Multi Factor Authentication
+      operationId: confirmMfa
+      parameters:
+        - in: header
+          name: Cookie
+          schema:
+            type: string
+          required: true
+          description: |
+            Access Token is required in Cookie header. e.g. `mw_access-token=2568a2ba-1785-4a4b-8df5-eccd4b40c600%3Atj08XUi35%2BPatuS2KjgrcrRRsUU4d3cKG3DLKaIEPFI%3D; Domain=signup.prod.mittwald.systems; Path=/; HttpOny`
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [multiFactorCode]
+              properties:
+                multiFactorCode:
+                  type: string
+                  maxLength: 6
+                  minLength: 6
+                  description: Multi Factor Code to confirm MFA
+      responses:
+        200:
+          description: Mfa is now activated and recovery codes are in the response body
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [recoveryCodesList]
+                properties:
+                  recoveryCodesList:
+                    type: array
+                    items:
+                      type: string
+        400:
+          description: |
+            Some of the specified values does not meet our requirements.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - ValidationError
+                          - EmailAddressNotVerified
+                          - MFANotInitialized
+                          - MFAAlreadyConfirmed
+        401:
+          description: No valid access token was provided
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - NoAccessTokenProvided
+                          - Stuff
+        500:
+          description: |
+            Something in our infrastructure went wrong
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - InternalServerError
+                          - Stuff
+  /mfa/reset-recoverycodes:
+    put:
+      tags: [Multi Factor Authentication]
+      summary: Reset Recovery-Codes for MFA
+      operationId: resetRecoveryCodes
+      parameters:
+        - in: header
+          name: Cookie
+          schema:
+            type: string
+          required: true
+          description: |
+            Access Token is required in Cookie header. e.g. `mw_access-token=2568a2ba-1785-4a4b-8df5-eccd4b40c600%3Atj08XUi35%2BPatuS2KjgrcrRRsUU4d3cKG3DLKaIEPFI%3D; Domain=signup.prod.mittwald.systems; Path=/; HttpOny`
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [multiFactorCode]
+              properties:
+                multiFactorCode:
+                  type: string
+                  description: Multi Factor Code to authorize your request
+      responses:
+        200:
+          description: Recovery-Codes are reset now. The new Recovery-Codes are in the response body.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [recoveryCodesList]
+                properties:
+                  recoveryCodesList:
+                    type: array
+                    items:
+                      type: string
+        400:
+          description: |
+            Some of the specified values does not meet our requirements.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - ValidationError
+                          - MultiFactorCodeNotValid
+                          - MFANotInitialized
+        401:
+          description: No valid access token was provided
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - NoAccessTokenProvided
+                          - Stuff
+        500:
+          description: |
+            Something in our infrastructure went wrong
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - InternalServerError
+                          - Stuff
+  /logout:
+    put:
+      tags: [Logout]
+      summary: Terminate session and invalidate access token
+      operationId: logout
+      parameters:
+        - in: header
+          name: Cookie
+          schema:
+            type: string
+          required: true
+          description: |
+            Access Token is required in Cookie header. e.g. `mw_access-token=2568a2ba-1785-4a4b-8df5-eccd4b40c600%3Atj08XUi35%2BPatuS2KjgrcrRRsUU4d3cKG3DLKaIEPFI%3D; Domain=signup.prod.mittwald.systems; Path=/; HttpOny`
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [multiFactorCode]
+              properties:
+                multiFactorCode:
+                  type: string
+                  description: Multi Factor Code to authorize your request
+      responses:
+        200:
+          description: You've been logged out. The access token was removed and invalidated
+        400:
+          description: |
+            Some of the specified values does not meet our requirements.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - ValidationError
+                          - Stuff
+        500:
+          description: |
+            Something in our infrastructure went wrong
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/de.mittwald.v1.signup.RequestError"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                        enum:
+                          - InternalServerError
+                          - Stuff
