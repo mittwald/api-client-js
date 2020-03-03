@@ -2,6 +2,7 @@ import { schemaToTypeTS } from "@mittwald/awesome-node-utils/mapping/schemaToTs"
 import { Schema } from "@mittwald/awesome-node-utils/types/schema";
 import { camelCase, pascalCase } from "@mittwald/awesome-node-utils/text/formatter";
 import { objectEntries } from "@mittwald/awesome-node-utils/object/entries";
+import { Operation } from "./NormalizedSpec";
 
 const namespaceNameSeparator = "_";
 
@@ -64,6 +65,14 @@ export const viewHelpersFactory = (namespace: string) => {
         return args.map(transformNamespaceName).join(".");
     }
 
+    function operationId(path: string, method: string, operation: Operation): string {
+        if (operation.operationId) {
+            return camelCase(tsName(operation.operationId));
+        }
+
+        return camelCase(tsName([method, path].join("/")));
+    }
+
     const rootNamespace = transformNamespaceName(namespace);
 
     return {
@@ -76,5 +85,6 @@ export const viewHelpersFactory = (namespace: string) => {
         formatTs,
         replaceRefsTypeNames,
         replaceRefWithConst,
+        operationId,
     };
 };

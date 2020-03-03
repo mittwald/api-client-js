@@ -17,7 +17,7 @@ export interface OperationResponses {
 }
 
 export interface Operation {
-    operationId: string;
+    operationId?: string;
     parameters: OperationParameters;
     responses: OperationResponses;
 }

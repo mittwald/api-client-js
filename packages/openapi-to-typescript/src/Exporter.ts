@@ -15,7 +15,7 @@ export class Exporter {
     }
 
     private static compileTemplate(templateFileName: string, options: Options = {}): TemplateFunction {
-        const templateFilename = join(process.cwd(), `resources/templates/${templateFileName}`);
+        const templateFilename = join(__dirname, `../resources/templates/${templateFileName}`);
         const templateContent = readFileSync(templateFilename, "utf8");
 
         return ejs.compile(templateContent, {
@@ -26,10 +26,11 @@ export class Exporter {
         });
     }
 
-    public exportDescriptors(namespace: string): string {
+    public exportDescriptors(namespace: string, typesModule: string): string {
         const jobLog = getStatusLog();
         jobLog?.start("rendering templates for 'descriptors'");
-        const result = this.export(namespace, "descriptor/main.ejs");
+
+        const result = this.export(namespace, "descriptor/main.ejs", { typesModule });
         jobLog?.succeed("'descriptors' successfully rendered");
         return result;
     }
@@ -42,15 +43,23 @@ export class Exporter {
         return result;
     }
 
-    public exportClient(namespace: string): string {
+    public exportClient(namespace: string, descriptorsModule: string): string {
         const jobLog = getStatusLog();
         jobLog?.start("rendering template for 'client'");
-        const result = this.export(namespace, "client/main.ejs");
+        const result = this.export(namespace, "client/main.ejs", { descriptorsModule });
         jobLog?.succeed("'client' successfully rendered");
         return result;
     }
 
-    public export(namespace: string, filename: string): string {
+    public exportReactHooks(namespace: string, clientModule: string): string {
+        const jobLog = getStatusLog();
+        jobLog?.start("rendering template for 'react-hooks'");
+        const result = this.export(namespace, "react-hooks/main.ejs", { clientModule });
+        jobLog?.succeed("'react-hooks' successfully rendered");
+        return result;
+    }
+
+    public export(namespace: string, filename: string, variables: Record<string, string> = {}): string {
         const jobLog = getStatusLog();
         const renderTemplate = Exporter.compileTemplate(filename);
 
@@ -59,6 +68,7 @@ export class Exporter {
                 renderTemplate({
                     ...this.normalized,
                     ...viewHelpersFactory(namespace),
+                    ...variables,
                 }),
             "TemplateError",
             "Failed while rendering the template",

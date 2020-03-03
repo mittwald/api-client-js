@@ -1,0 +1,82 @@
+variables:
+  NPM_DIST_DIR: "/dist"
+  NPM_WORKING_DIR: $CI_PROJECT_DIR
+  NODE_VERSION: 12
+  COVERAGE_PUBLIC_SUBDIR: ""
+
+.npm-install:
+  before_script:
+    - |
+      set -e
+      set -x
+
+      if which npm ; then
+          cat <<EOT >> ~/.npmrc
+      registry=https://registry.npmjs.org/
+      @types:registry=https://registry.npmjs.org/
+      @mittwald:registry=https://npm.mittwald.it/
+      //npm.mittwald.it/:_authToken="${NPM_TOKEN}"
+      EOT
+          if which docker ; then
+              docker run --rm -v ${NPM_WORKING_DIR}:/app -v ~/.npmrc:/root/.npmrc -w /app node:${NODE_VERSION}-alpine yarn install
+          else
+              cd ${NPM_WORKING_DIR}
+              yarn install
+          fi
+
+          git config user.email gitlab@mittwald.de
+          git config user.name "Gitlab CI"
+      fi
+
+      set +x
+
+.publish:npm:
+  extends: .npm-install
+  image: node:${NODE_VERSION}
+  tags:
+    - dockermultistage
+  script:
+    - cd ${NPM_WORKING_DIR}
+    - yarn prepublish:all
+    - cd ${NPM_WORKING_DIR}${NPM_DIST_DIR}
+    - npm version ${CI_COMMIT_TAG}
+    - npm publish
+  only:
+    - tags
+
+.compile:package:
+  extends: .npm-install
+  image: node:${NODE_VERSION}
+  tags:
+    - dockermultistage
+  script:
+    - yarn prepublish:all
+  artifacts:
+    paths:
+      - ${NPM_WORKING_DIR}/dist/
+    expire_in: 1 hour
+
+.test:package:
+  extends: .npm-install
+  image: node:${NODE_VERSION}
+  tags:
+    - dockermultistage
+  script:
+    - yarn test:ci
+  coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
+  artifacts:
+    paths:
+      - ${NPM_WORKING_DIR}/coverage/
+  except:
+    - tags
+
+.publish:test-coverage:
+  script:
+    - mkdir -p public/${COVERAGE_PUBLIC_SUBDIR}
+    - mv ${NPM_WORKING_DIR}/coverage/lcov-report public/${COVERAGE_PUBLIC_SUBDIR}
+  artifacts:
+    paths:
+      - public
+    expire_in: 1 years
+  only:
+    - master

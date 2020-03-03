@@ -1,0 +1,23 @@
+{
+  "@mittwald/generator-projectbase": {
+    "promptValues": {
+      "projectType": "typescript-frontend-lib",
+      "subProjectDir": "packages/react-api-hooks",
+      "react-storybook": true,
+      "git-ignore": true,
+      "readme": true,
+      "gitlab-ci": true
+    },
+    "typescript": true,
+    "react": true,
+    "default-dependencies": true,
+    "format": true,
+    "editor": true,
+    "lint": true,
+    "git-hooks": true,
+    "config-files": true,
+    "test": true,
+    "scripts": true,
+    "npm-package": true
+  }
+}

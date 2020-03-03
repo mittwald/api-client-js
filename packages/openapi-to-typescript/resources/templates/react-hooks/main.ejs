@@ -1,0 +1,12 @@
+/**
+* This file is auto-generated with openapi2ts (@mittwald/openapi-to-typescript)
+*/
+
+import { createUseGetData } from "@mittwald/react-api-hooks/dist/hooks/useGetDataFactory";
+import client from "<%- clientModule %>";
+
+<% Object.entries(paths).forEach(([path, operations]) => { %>
+<% Object.entries(operations).forEach(([method, operation]) => { %>
+export const use<%- pascalCase(operationId(path, method, operation)) %> = createUseGetData(client.<%- operationId(path, method, operation) %>);
+<% }) %>
+<% }) %>

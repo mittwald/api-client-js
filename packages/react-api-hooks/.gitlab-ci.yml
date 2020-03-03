@@ -1,0 +1,10 @@
+include: packages/react-api-hooks/.gitlab-ci/node.yaml
+stages:
+  - test
+  - publish
+test:
+  stage: test
+  extends: .test:package
+publish:
+  stage: publish
+  extends: .publish:npm

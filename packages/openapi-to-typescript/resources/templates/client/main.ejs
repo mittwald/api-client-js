@@ -1,20 +1,24 @@
-import { KyHTTPClient } from "@mittwald/api-client/dist/KyHTTPClient";
-import { HTTPClient } from "@mittwald/api-client/dist/HTTPClient";
+/**
+* This file is auto-generated with openapi2ts (@mittwald/openapi-to-typescript)
+*/
+
+import { KyClient } from "@mittwald/api-client/dist/http/KyClient";
+import { Client } from "@mittwald/api-client/dist/http/Client";
 import { RequestFunction } from "@mittwald/api-client/dist/OperationDescriptor";
-import * as descriptors from "./descriptors";
+import * as descriptors from "<%- descriptorsModule %>";
 
 export class <%- rootNamespace %>Client {
     <% Object.entries(paths).forEach(([path, operations]) => { %>
-        <% Object.values(operations).forEach((operation) => { %>
-            public <%- camelCase(operation.operationId) %>: RequestFunction<typeof descriptors.<%- camelCase(operation.operationId) %>>;
+        <% Object.entries(operations).forEach(([method, operation]) => { %>
+            public <%- operationId(path, method, operation) %>: RequestFunction<typeof descriptors.<%- operationId(path, method, operation) %>>;
         <% }) %>
     <% }) %>
 
-    public constructor(clientOrUrl: HTTPClient | string) {
-        const client = typeof clientOrUrl === "string" ? new KyHTTPClient({ prefixUrl: clientOrUrl }) : clientOrUrl;
+    public constructor(clientOrUrl: Client | string) {
+        const client = typeof clientOrUrl === "string" ? new KyClient({ prefixUrl: clientOrUrl }) : clientOrUrl;
         <% Object.entries(paths).forEach(([path, operations]) => { %>
-        <% Object.values(operations).forEach((operation) => { %>
-        this.<%- camelCase(operation.operationId) %> = client.requestFunctionFactory(descriptors.<%- camelCase(operation.operationId) %>);
+        <% Object.entries(operations).forEach(([method, operation]) => { %>
+        this.<%- operationId(path, method, operation) %> = client.requestFunctionFactory(descriptors.<%- operationId(path, method, operation) %>);
         <% }) %>
         <% }) %>
         }

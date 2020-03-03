@@ -2,28 +2,14 @@
 export type Headers = Record<string, string>;
 export type PathParams = Record<string, string>;
 
-export interface Response {
-    status: number;
-    content?: any;
-    header?: Headers;
-}
-
-export interface Request {
-    requestBody?: any;
-    header?: any;
-    path?: any;
-    query?: any;
-}
-
-export interface OperationDescriptor<TRequest extends Request = Request, TResponse extends Response = Response> {
+export interface OperationDescriptor<TRequest = any, TResponse = any> {
     path: string;
     method: string;
-    _types?: {
-        request?: TRequest;
-        response?: TResponse;
-    };
 }
 
-export type RequestFunction<TDescriptor = OperationDescriptor> = TDescriptor extends OperationDescriptor<infer TRequest, infer TResponse>
-    ? (request: TRequest) => Promise<TResponse>
-    : never;
+type AnyFunction = (...args: any[]) => any;
+
+export type RequestType<T extends OperationDescriptor> = T extends OperationDescriptor<infer TReq> ? TReq : never;
+export type ResponseType<T extends OperationDescriptor> = T extends OperationDescriptor<any, infer TRes> ? TRes : never;
+
+export type RequestFunction<T extends OperationDescriptor = OperationDescriptor> = (request: RequestType<T>) => Promise<ResponseType<T>>;

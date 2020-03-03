@@ -9,10 +9,13 @@ import { objectEntries } from "@mittwald/awesome-node-utils/object/entries";
 import deepmerge from "deepmerge";
 import { loadSpec } from "./loadSpec";
 import jp from "fs-jetpack";
+import jsyaml from "js-yaml";
+import { basename, dirname, relative } from "path";
 
 interface SpecOptions {
     statusLog?: StatusLog;
     throwErrors?: boolean;
+    skipValidation?: boolean;
 }
 
 export type SpecRunnable = (spec: Spec) => void;
@@ -21,12 +24,18 @@ export type FileFormat = "yaml" | "json";
 export class Spec {
     private readonly exporter: Exporter;
     public readonly namespace: string;
+    private readonly options: SpecOptions;
 
-    private constructor(namespace: string, openAPISpec: object) {
+    private constructor(namespace: string, openAPISpec: object, options: SpecOptions = {}) {
         const log = getStatusLog();
+        this.options = options;
         log?.info(`used namespace: ${namespace}`);
         this.namespace = namespace;
-        Spec.validateSpec(openAPISpec);
+        if (!options.skipValidation) {
+            Spec.validateSpec(openAPISpec);
+        } else {
+            log?.warn("OpenAPI spec validation skipped!");
+        }
         this.exporter = new Exporter(Spec.normalizeSpec(openAPISpec));
     }
 
@@ -79,7 +88,14 @@ export class Spec {
             const { statusLog, throwErrors } = options;
 
             const fail = (error: Error): void => {
-                statusLog?.fail(error.message);
+                let message = error.message;
+
+                const infos = VError.info(error);
+                if (Object.keys(infos).length > 0) {
+                    message += "\n" + jsyaml.dump(infos);
+                }
+
+                statusLog?.fail(message);
                 if (throwErrors) {
                     throw error;
                 }
@@ -114,20 +130,28 @@ export class Spec {
                 mergedOpenAPI = deepmerge(mergedOpenAPI, openAPI);
             }
 
-            return new Spec(namespace, mergedOpenAPI);
+            return new Spec(namespace, mergedOpenAPI, options);
         });
+    }
+    private static getModuleImport(from: string, to: string): string {
+        const path = relative(dirname(from), dirname(to)) || "./";
+        return path + basename(to, ".ts");
     }
 
     public getTypes(): string {
         return this.exporter.exportTypes(this.namespace);
     }
 
-    public getDescriptors(): string {
-        return this.exporter.exportDescriptors(this.namespace);
+    public getDescriptors(typesModule: string): string {
+        return this.exporter.exportDescriptors(this.namespace, typesModule);
     }
 
-    public getClient(): string {
-        return this.exporter.exportClient(this.namespace);
+    public getClient(descriptorsModule: string): string {
+        return this.exporter.exportClient(this.namespace, descriptorsModule);
+    }
+
+    public getReactHooks(clientModule: string): string {
+        return this.exporter.exportReactHooks(this.namespace, clientModule);
     }
 
     public writeTypes(filename: string): void {
@@ -138,19 +162,27 @@ export class Spec {
         log?.succeed(`'types' written to "${filename}"`);
     }
 
-    public writeDescriptors(filename: string): void {
+    public writeDescriptors(filename: string, typesFilename: string): void {
         const log = getStatusLog();
 
         log?.start(`writing 'descriptors' to "${filename}"`);
-        jp.write(filename, this.getDescriptors());
+        jp.write(filename, this.getDescriptors(Spec.getModuleImport(filename, typesFilename)));
         log?.succeed(`'descriptors' written to "${filename}"`);
     }
 
-    public writeClient(filename: string): void {
+    public writeClient(filename: string, descriptorsFilename: string): void {
         const log = getStatusLog();
 
         log?.start(`writing 'client' to "${filename}"`);
-        jp.write(filename, this.getClient());
+        jp.write(filename, this.getClient(Spec.getModuleImport(filename, descriptorsFilename)));
         log?.succeed(`'client' written to "${filename}"`);
+    }
+
+    public writeReactHooks(filename: string, clientFilename: string): void {
+        const log = getStatusLog();
+
+        log?.start(`writing 'react-hooks' to "${filename}"`);
+        jp.write(filename, this.getReactHooks(Spec.getModuleImport(filename, clientFilename)));
+        log?.succeed(`'react-hooks' written to "${filename}"`);
     }
 }

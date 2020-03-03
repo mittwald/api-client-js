@@ -23,6 +23,10 @@ export class OraStatusLog implements StatusLog {
     public info(msg: string): void {
         this.instance.info(msg);
     }
+
+    public warn(msg: string): void {
+        this.instance.warn(msg);
+    }
 }
 
 export interface StatusLog {
@@ -30,6 +34,7 @@ export interface StatusLog {
     succeed: (msg?: string) => void;
     update: (msg: string) => void;
     info: (msg: string) => void;
+    warn: (msg: string) => void;
     fail: (msg?: string) => void;
 }
 

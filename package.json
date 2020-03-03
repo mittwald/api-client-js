@@ -5,7 +5,11 @@
       "packages/*"
      ],
     "nohoist": [
-      "**/eslint"
+      "**/eslint",
+      "**/@storybook/**",
+      "**/@types/*",
+      "**/@types/**",
+      "**/cacheable-lookup"
     ]
   }
 }
