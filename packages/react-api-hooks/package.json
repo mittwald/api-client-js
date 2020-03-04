@@ -68,7 +68,7 @@
   },
   "dependencies": {
     "@mittwald/api-client": "*",
-    "@mittwald/awesome-node-utils": "^2.15.2",
+    "@mittwald/awesome-node-utils": "^2.15.3",
     "@mittwald/frontend-lib": "^0.0.31",
     "@storybook/addon-knobs": "^5.3.14",
     "@types/fetch-mock": "^7.3.2",
