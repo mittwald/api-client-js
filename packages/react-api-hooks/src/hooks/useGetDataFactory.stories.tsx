@@ -4,7 +4,7 @@ import { useGetCake } from "../dev/cakeHooks";
 
 interface CakeNameProps {
     id: string;
-    showLoading?: boolean;
+    noLoadingView?: boolean;
 }
 
 const CakeName: FC<CakeNameProps> = (props) => {
@@ -15,7 +15,7 @@ const CakeName: FC<CakeNameProps> = (props) => {
             },
         },
         {
-            loading: props.showLoading ? <>Loading</> : undefined,
+            loading: props.noLoadingView ? undefined : <>Loading</>,
             pristine: <>...</>,
             notFound: <>Not found</>,
             noAccess: <>No access</>,
@@ -40,24 +40,22 @@ export const examples = (): ReactElement => {
 
     return (
         <>
-            <dl style={{ fontFamily: "sans-serif" }}>
-                <dt>Status 200</dt>
-                <dd>
-                    <CakeName id={id} showLoading />
-                </dd>
-                <dt>Status 200 (no loading view)</dt>
-                <dd>
-                    <CakeName id={id} />
-                </dd>
-                <dt>Status 404</dt>
-                <dd>
-                    <CakeName id={idNotFound} showLoading />
-                </dd>
-                <dt>Status 401</dt>
-                <dd>
-                    <CakeName id={idNoAccess} showLoading />
-                </dd>
-            </dl>
+            <h3>Status 200</h3>
+            <p>
+                <CakeName id={id} />
+            </p>
+            <h3>Status 200 (no loading view)</h3>
+            <p>
+                <CakeName id={id} noLoadingView />
+            </p>
+            <h3>Status 404</h3>
+            <p>
+                <CakeName id={idNotFound} />
+            </p>
+            <h3>Status 401</h3>
+            <p>
+                <CakeName id={idNoAccess} />
+            </p>
         </>
     );
 };

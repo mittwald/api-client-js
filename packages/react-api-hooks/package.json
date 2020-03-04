@@ -38,6 +38,7 @@
   "main": "dist/index.js",
   "devDependencies": {
     "@hot-loader/react-dom": "^16.12.0",
+    "@mittwald/frontend-styles": "^0.0.31",
     "@storybook/addon-actions": "^5.3.14",
     "@storybook/addon-info": "^5.3.14",
     "@storybook/addon-knobs": "^5.3.14",
