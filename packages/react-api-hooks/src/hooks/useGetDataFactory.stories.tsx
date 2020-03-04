@@ -4,29 +4,29 @@ import { useGetCake } from "../dev/cakeHooks";
 
 interface CakeNameProps {
     id: string;
-    loading?: boolean;
+    showLoading?: boolean;
 }
 
 const CakeName: FC<CakeNameProps> = (props) => {
-    const pet = useGetCake(
+    const cake = useGetCake(
         {
             path: {
                 id: props.id,
             },
         },
         {
-            loading: props.loading ? <>Loading</> : undefined,
+            loading: props.showLoading ? <>Loading</> : undefined,
             pristine: <>...</>,
             notFound: <>Not found</>,
             noAccess: <>No access</>,
         },
     );
 
-    if (!pet.hasLoaded) {
-        return pet.view;
+    if (!cake.hasLoaded) {
+        return cake.view;
     }
 
-    return <>{pet.data.name}</>;
+    return <>{cake.data.name}</>;
 };
 
 export const examples = (): ReactElement => {
@@ -34,28 +34,16 @@ export const examples = (): ReactElement => {
         name: "Cheese Cake",
     });
 
-    const idNotFound = mockFetch(
-        {
-            name: "Cheese Cake",
-        },
-        undefined,
-        404,
-    );
+    const idNotFound = mockFetch({}, undefined, 404);
 
-    const idNoAccess = mockFetch(
-        {
-            name: "Cheese Cake",
-        },
-        undefined,
-        401,
-    );
+    const idNoAccess = mockFetch({}, undefined, 401);
 
     return (
         <>
             <dl style={{ fontFamily: "sans-serif" }}>
                 <dt>Status 200</dt>
                 <dd>
-                    <CakeName id={id} loading />
+                    <CakeName id={id} showLoading />
                 </dd>
                 <dt>Status 200 (no loading view)</dt>
                 <dd>
@@ -63,11 +51,11 @@ export const examples = (): ReactElement => {
                 </dd>
                 <dt>Status 404</dt>
                 <dd>
-                    <CakeName id={idNotFound} loading />
+                    <CakeName id={idNotFound} showLoading />
                 </dd>
                 <dt>Status 401</dt>
                 <dd>
-                    <CakeName id={idNoAccess} loading />
+                    <CakeName id={idNoAccess} showLoading />
                 </dd>
             </dl>
         </>
