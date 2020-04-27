@@ -1,6 +1,6 @@
 import { KyClient } from "@mittwald/api-client/dist/http/KyClient";
 import { OperationDescriptor } from "@mittwald/api-client/dist/OperationDescriptor";
-import { createUseGetData } from "../hooks/useGetDataFactory";
+import { createUseGetData } from "../hooks/createUseGetData";
 
 export const client = new KyClient();
 
