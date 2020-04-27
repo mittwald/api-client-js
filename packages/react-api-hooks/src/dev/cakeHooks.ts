@@ -2,7 +2,7 @@ import { KyClient } from "@mittwald/api-client/dist/http/KyClient";
 import { OperationDescriptor } from "@mittwald/api-client/dist/OperationDescriptor";
 import { createUseGetData } from "../hooks/useGetDataFactory";
 
-const client = new KyClient();
+export const client = new KyClient();
 
 const getCakeDescriptor: OperationDescriptor<
     { path: { id: string } },

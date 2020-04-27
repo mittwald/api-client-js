@@ -1,10 +1,12 @@
-include: openapi-to-typescript/.gitlab-ci/node.yaml
-stages:
-  - test
-  - publish
-test:
+include: packages/openapi-to-typescript/.gitlab-ci/node.yaml
+
+test:openapi-to-typescript:
+  variables:
+    NPM_WORKING_DIR: $CI_PROJECT_DIR/packages/openapi-to-typescript
   stage: test
   extends: .test:package
-publish:
+publish:openapi-to-typescript:
+  variables:
+    NPM_WORKING_DIR: $CI_PROJECT_DIR/packages/openapi-to-typescript
   stage: publish
   extends: .publish:npm

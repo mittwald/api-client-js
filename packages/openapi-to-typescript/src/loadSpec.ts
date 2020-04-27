@@ -3,9 +3,11 @@ import got from "got";
 import { readFileSync } from "fs";
 import yaml from "js-yaml";
 import { FileFormat } from "./Spec";
+import dotProp from "dot-prop";
 
-export async function loadSpec(path: string, format?: FileFormat): Promise<object> {
+export async function loadSpec(extendedPath: string, format?: FileFormat): Promise<object> {
     const log = getStatusLog();
+    const [path, selector] = extendedPath.split("|");
 
     const downloadFile = path.startsWith("http");
 
@@ -26,6 +28,14 @@ export async function loadSpec(path: string, format?: FileFormat): Promise<objec
         log?.start("parsing JSON");
         openAPI = JSON.parse(content);
         log?.succeed("JSON parsed");
+    }
+
+    if (selector) {
+        const selectedOpenAPI = dotProp.get(openAPI, selector);
+        if (!selectedOpenAPI) {
+            throw new Error(`"${selector}" has no content`);
+        }
+        return selectedOpenAPI as object;
     }
 
     return openAPI;

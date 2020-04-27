@@ -1,13 +1,13 @@
-include: .gitlab-ci/node.yaml
+include:
+  - packages/api-client/.gitlab-ci.yml
+  - packages/openapi-to-typescript/.gitlab-ci.yml
+  - packages/react-api-hooks/.gitlab-ci.yml
+
 stages:
+  - compile
   - test
   - publish
-test:
-  stage: test
-  extends: .test:package
-publish:
-  stage: publish
-  extends: .publish:npm
+
 test:project-base-up-to-date:
   image: gitlab-registry.mittwald.it/coab-0x7e7/tools/go-dev-env
   before_script:
@@ -20,3 +20,26 @@ test:project-base-up-to-date:
   except:
     - tags
   allow_failure: true
+
+compile:all:
+  extends: .npm-install
+  image: node:${NODE_VERSION}
+  stage: compile
+  tags:
+    - dockermultistage
+  script:
+    - yarn compile:packages
+    - yarn global add set-versions@1
+    - npm --no-git-tag-version version ${CI_COMMIT_TAG}
+    - set-versions -w
+    - yarn compile:apps:haarlem:shared
+  interruptible: true
+  artifacts:
+    paths:
+      - packages/lib/dist/
+      - packages/styles/dist/
+      - packages/components/dist/
+      - packages/renderer/dist/
+      - apps/haarlem/shared/dist/
+    expire_in: 1 hour
+

@@ -21,7 +21,7 @@ variables:
               docker run --rm -v ${NPM_WORKING_DIR}:/app -v ~/.npmrc:/root/.npmrc -w /app node:${NODE_VERSION}-alpine yarn install
           else
               cd ${NPM_WORKING_DIR}
-              yarn install
+              yarn install --pure-lockfile
           fi
 
           git config user.email gitlab@mittwald.de

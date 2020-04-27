@@ -4,10 +4,10 @@
   "author": {
     "name": "Marco Falkenberg, Marco Rieger"
   },
+  "name": "@mittwald/openapi-to-typescript",
   "bin": {
     "openapi2ts": "./bin/cli.js"
   },
-  "name": "@mittwald/openapi-to-typescript",
   "scripts": {
     "precommit:format": "run-s test:staged-formatted",
     "precommit": "run-s precommit:*",
@@ -18,7 +18,7 @@
     "base:update": "run-s base:pull base:generate",
     "ts-out-dir": "cat tsconfig.json | yarn -s jp --log /compilerOptions/outDir",
     "clean": "mkdir -p $(yarn -s ts-out-dir) && rm -rf $(yarn -s ts-out-dir)/*",
-    "precompile": "run-s clean precompile:*",
+    "precompile": "run-s precompile:*",
     "precompile:default": "exit",
     "compile": "yarn tsc -p tsconfig.dist.json",
     "test:compile": "run-s compile",
@@ -28,7 +28,7 @@
     "format:staged": "prettier --write $(git -C ${PWD} diff --relative --staged --diff-filter=ACMR --name-only -- '*ts' '*.tsx' '*.json' '*.md' '*.yaml' '*.yml') package.json",
     "test:lint": "yarn lint",
     "lint": "eslint 'src/**/*.{ts,tsx}' 2>/dev/null",
-    "lint:staged": "eslint $(git -C ${PWD} diff --relative --staged --diff-filter=ACMR --name-only -- '*.ts' '*.tsx') 1>/dev/null || (echo 'ESlint failed. Run `yarn lint` to see error details' && exit 1)",
+    "lint:staged": "eslint $(git -C ${PWD} diff --relative --staged --diff-filter=ACMR --name-only -- 'src/**/*.ts' 'src/**/*.tsx') 1>/dev/null || (echo 'ESlint failed. Run `yarn lint` to see error details' && exit 1)",
     "test:unit": "jest --color --silent --verbose --passWithNoTests",
     "test:all": "run-s 'test:!(all)'",
     "prepublish:default": "exit",
@@ -85,5 +85,8 @@
     "verror": "^1.10.0",
     "yargs": "^15.1.0"
   },
-  "main": "dist/index.js"
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ]
 }

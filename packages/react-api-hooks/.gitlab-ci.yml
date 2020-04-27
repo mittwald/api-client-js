@@ -1,10 +1,12 @@
 include: packages/react-api-hooks/.gitlab-ci/node.yaml
-stages:
-  - test
-  - publish
-test:
+
+test:react-api-hooks:
+  variables:
+    NPM_WORKING_DIR: $CI_PROJECT_DIR/packages/react-api-hooks
   stage: test
   extends: .test:package
-publish:
+publish:react-api-hooks:
+  variables:
+    NPM_WORKING_DIR: $CI_PROJECT_DIR/packages/react-api-hooks
   stage: publish
   extends: .publish:npm

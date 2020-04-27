@@ -1,10 +1,12 @@
 include: packages/api-client/.gitlab-ci/node.yaml
-stages:
-  - test
-  - publish
-test:
+
+test:api-client:
+  variables:
+    NPM_WORKING_DIR: $CI_PROJECT_DIR/packages/api-client
   stage: test
   extends: .test:package
-publish:
+publish:api-client:
+  variables:
+    NPM_WORKING_DIR: $CI_PROJECT_DIR/packages/api-client
   stage: publish
   extends: .publish:npm
