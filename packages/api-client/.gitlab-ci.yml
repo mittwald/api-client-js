@@ -1,5 +1,4 @@
 include: packages/api-client/.gitlab-ci/node.yaml
-
 test:api-client:
   variables:
     NPM_WORKING_DIR: $CI_PROJECT_DIR/packages/api-client

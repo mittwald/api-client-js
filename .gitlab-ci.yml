@@ -2,12 +2,10 @@ include:
   - packages/api-client/.gitlab-ci.yml
   - packages/openapi-to-typescript/.gitlab-ci.yml
   - packages/react-api-hooks/.gitlab-ci.yml
-
 stages:
   - compile
   - test
   - publish
-
 test:project-base-up-to-date:
   image: gitlab-registry.mittwald.it/coab-0x7e7/tools/go-dev-env
   before_script:
@@ -20,7 +18,6 @@ test:project-base-up-to-date:
   except:
     - tags
   allow_failure: true
-
 compile:all:
   extends: .npm-install
   image: node:${NODE_VERSION}
@@ -42,4 +39,3 @@ compile:all:
       - packages/renderer/dist/
       - apps/haarlem/shared/dist/
     expire_in: 1 hour
-

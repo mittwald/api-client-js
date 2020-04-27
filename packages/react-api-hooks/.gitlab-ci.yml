@@ -1,5 +1,4 @@
 include: packages/react-api-hooks/.gitlab-ci/node.yaml
-
 test:react-api-hooks:
   variables:
     NPM_WORKING_DIR: $CI_PROJECT_DIR/packages/react-api-hooks
