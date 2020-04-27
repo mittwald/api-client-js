@@ -1,19 +1,32 @@
+import { Headers } from "../OperationDescriptor";
 import { Client, RequestFunctionFactory } from "./Client";
 import ky from "ky-universal";
-import { Options } from "ky";
+import { Options as KyOptions } from "ky";
 import debug from "../debug";
 import { setPathParams } from "./path";
 import { mapResponse } from "./response";
+import { mapHeaders } from "./headers";
 
 const d = debug.extend("KyHTTPClient");
 
 export type Ky = typeof ky;
 
+export interface Options extends KyOptions {
+    defaultHeaders?: Headers;
+}
+
 export class KyClient implements Client {
     public readonly ky: Ky;
+    private defaultHeaders: Headers = {};
 
     public constructor(defaultOptions: Options = {}) {
-        this.ky = ky.create(defaultOptions);
+        const { defaultHeaders, ...kyOnlyOptions } = defaultOptions;
+        this.defaultHeaders = defaultHeaders || {};
+        this.ky = ky.create(kyOnlyOptions);
+    }
+
+    public setDefaultHeaders(headers: Headers): void {
+        this.defaultHeaders = headers;
     }
 
     public requestFunctionFactory: RequestFunctionFactory = (descriptor) => async (request) => {
@@ -21,9 +34,12 @@ export class KyClient implements Client {
         const { header, requestBody, path: pathParams, query } = request;
 
         try {
-            const requestOptions: Options = {
+            const requestOptions: KyOptions = {
                 method,
-                headers: header,
+                headers: {
+                    ...this.defaultHeaders,
+                    ...mapHeaders(header),
+                },
                 searchParams: query,
             };
 

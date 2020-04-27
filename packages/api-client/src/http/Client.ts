@@ -1,4 +1,4 @@
-import { OperationDescriptor } from "../OperationDescriptor";
+import { Headers, OperationDescriptor } from "../OperationDescriptor";
 
 export interface Response {
     status: number;
@@ -19,4 +19,5 @@ export type RequestFunctionFactory = <TRequest extends Request, TResponse extend
 
 export interface Client {
     requestFunctionFactory: RequestFunctionFactory;
+    setDefaultHeaders(headers: Headers): void;
 }
