@@ -23,10 +23,10 @@ describe("ViewHelpers", () => {
         });
     });
 
-    describe("makeNamespace", () => {
+    describe("joinNamespace", () => {
         test("should make a full namespace from array", () => {
-            expect(viewHelpers.makeNamespace("foo", "bar", "baz")).toBe("Foo.Bar.Baz");
-            expect(viewHelpers.makeNamespace("%$foo", "asd-bar", "baz")).toBe("Foo.Asd_Bar.Baz");
+            expect(viewHelpers.joinNamespace("foo", "bar", "baz")).toBe("Foo.Bar.Baz");
+            expect(viewHelpers.joinNamespace("%$foo", "asd-bar", "baz")).toBe("Foo.Asd_Bar.Baz");
         });
     });
 
