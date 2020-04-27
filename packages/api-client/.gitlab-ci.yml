@@ -7,5 +7,6 @@ test:api-client:
 publish:api-client:
   variables:
     NPM_WORKING_DIR: $CI_PROJECT_DIR/packages/api-client
+    NPM_DIST_DIR: ""
   stage: publish
   extends: .publish:npm

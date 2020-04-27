@@ -7,5 +7,6 @@ test:react-api-hooks:
 publish:react-api-hooks:
   variables:
     NPM_WORKING_DIR: $CI_PROJECT_DIR/packages/react-api-hooks
+    NPM_DIST_DIR: ""
   stage: publish
   extends: .publish:npm

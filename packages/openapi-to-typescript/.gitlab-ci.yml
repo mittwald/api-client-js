@@ -7,5 +7,6 @@ test:openapi-to-typescript:
 publish:openapi-to-typescript:
   variables:
     NPM_WORKING_DIR: $CI_PROJECT_DIR/packages/openapi-to-typescript
+    NPM_DIST_DIR: ""
   stage: publish
   extends: .publish:npm
