@@ -1,7 +1,6 @@
 import { RequestFunction } from "@mittwald/api-client/dist/OperationDescriptor";
 import { createElement, ReactElement, useEffect, useState } from "react";
 import { executionSubscriber, OnResultCallback, ResolvedFunctionResult } from "@mittwald/awesome-node-utils/funcs/ExecutionSubscriber";
-import Null from "@mittwald/frontend-lib/dist/components/Null";
 
 export interface GetDataHookNoDataResult {
     hasLoaded: false;
@@ -25,7 +24,7 @@ export interface AlternateViews {
     notFound?: ReactElement;
 }
 
-const nullView = createElement(Null);
+const nullView = createElement(() => null);
 
 export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
     request: Parameters<T>[0],
