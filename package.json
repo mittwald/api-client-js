@@ -6,8 +6,7 @@
     ],
     "nohoist": [
       "**/eslint",
-      "**/cacheable-lookup",
-      "**/@types/*"
+      "**/@storybook/*"
     ]
   }
 }
