@@ -15,7 +15,7 @@ export class <%- rootNamespace %>Client {
     <% }) %>
 
     public constructor(clientOrUrl: Client | string) {
-        const client = typeof clientOrUrl === "string" ? new KyClient({ prefixUrl: clientOrUrl }) : clientOrUrl;
+        const client = typeof clientOrUrl === "string" ? new KyClient({ ky: { prefixUrl: clientOrUrl } }) : clientOrUrl;
         <% Object.entries(paths).forEach(([path, operations]) => { %>
         <% Object.entries(operations).forEach(([method, operation]) => { %>
         this.<%- operationId(path, method, operation) %> = client.requestFunctionFactory(descriptors.<%- operationId(path, method, operation) %>);
