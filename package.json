@@ -6,10 +6,10 @@
      ],
     "nohoist": [
       "**/eslint",
-      "**/@storybook/**",
-      "**/@types/*",
-      "**/@types/**",
       "**/cacheable-lookup"
     ]
+  },
+  "resolutions": {
+    "react-dom": "16.13.1"
   }
 }
