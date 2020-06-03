@@ -6,7 +6,8 @@
     ],
     "nohoist": [
       "**/eslint",
-      "**/@storybook/*"
+      "**/@storybook/*",
+      "**/@types/*"
     ]
   }
 }
