@@ -1,7 +1,6 @@
 import { RequestFunction } from "@mittwald/api-client/dist/OperationDescriptor";
 import { createElement, ReactElement, useEffect, useState } from "react";
 import { executionSubscriber, OnResultCallback, ResolvedFunctionResult } from "@mittwald/awesome-node-utils/funcs/ExecutionSubscriber";
-import Null from "@mittwald/frontend-lib/dist/components/Null";
 
 export interface GetDataHookNoDataResult {
     hasLoaded: false;
@@ -25,29 +24,31 @@ export interface AlternateViews {
     notFound?: ReactElement;
 }
 
-const nullView = createElement(Null);
+const nullView = createElement(() => null);
 
 export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
     request: Parameters<T>[0],
     alternateViews: AlternateViews = {},
 ): GetDataHookResult<T> => {
     const [result, setResult] = useState<ResolvedFunctionResult<T> | undefined>();
-    const [, setError] = useState<Error | undefined>();
-    const [isExecuting, setIsExecuting] = useState(false);
+    const [execError, setExecError] = useState<Error | undefined>();
+    const [isExecuting, setIsExecuting] = useState(true);
     const [isPristine, setIsPristine] = useState(true);
 
     const onResult: OnResultCallback<T> = (result) => {
-        setError(undefined);
+        setExecError(undefined);
+        setResult(result);
         setIsExecuting(false);
         setIsPristine(false);
-        setResult(result);
     };
 
     const onError = (error: Error): void => {
+        // This happens if the request function throws internally. HTTP errors will show up
+        // with the HTTP error status code in the onResult function!
+        setExecError(error);
         setResult(undefined);
         setIsExecuting(false);
         setIsPristine(false);
-        setError(error);
     };
 
     const onExecuting = (): void => {
@@ -56,8 +57,13 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
 
     const funcParams = [request] as Parameters<T>;
 
-    useEffect(() =>
-        executionSubscriber.subscribe<T>(
+    useEffect(() => {
+        // Prevents error loops!
+        if (execError) {
+            return;
+        }
+
+        return executionSubscriber.subscribe<T>(
             requestFn,
             {
                 onResult,
@@ -65,8 +71,8 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
                 onExecuting,
             },
             ...funcParams,
-        ),
-    );
+        );
+    });
 
     if (isExecuting) {
         if (isPristine && alternateViews.pristine) {
@@ -99,7 +105,7 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
             };
         }
 
-        if (result.status < 200 && result.status >= 300) {
+        if (result.status < 200 || result.status >= 300) {
             return {
                 view: alternateViews.error || nullView,
                 hasLoaded: false,

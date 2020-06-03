@@ -3,13 +3,11 @@
   "workspaces": {
     "packages": [
       "packages/*"
-     ],
+    ],
     "nohoist": [
       "**/eslint",
-      "**/@storybook/**",
-      "**/@types/*",
-      "**/@types/**",
-      "**/cacheable-lookup"
+      "**/@storybook/*",
+      "**/@types/*"
     ]
   }
 }
