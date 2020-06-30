@@ -5,3 +5,5 @@ package.json
 .prettierrc
 tsconfig.json
 build
+.gitlab-ci
+.gitlab-ci.yml
