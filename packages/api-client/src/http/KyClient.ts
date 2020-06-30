@@ -5,7 +5,6 @@ import { Options as KyOptions } from "ky";
 import debug from "../debug";
 import { setPathParams } from "./path";
 import { mapResponse } from "./response";
-import { mapHeaders } from "./headers";
 
 const d = debug.extend("KyHTTPClient");
 
@@ -51,7 +50,7 @@ export class KyClient implements Client {
                 method,
                 headers: {
                     ...options.defaultHeaders,
-                    ...mapHeaders(header),
+                    ...header,
                 },
                 searchParams: query,
             };
