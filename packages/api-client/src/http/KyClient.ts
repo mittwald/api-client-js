@@ -1,11 +1,11 @@
+import { Options as KyOptions } from "ky";
+import ky from "ky-universal";
+import debug from "../debug";
 import { Headers } from "../OperationDescriptor";
 import { Client, RequestFunctionFactory } from "./Client";
-import ky from "ky-universal";
-import { Options as KyOptions } from "ky";
-import debug from "../debug";
+import { mapHeaders } from "./headers";
 import { setPathParams } from "./path";
 import { mapResponse } from "./response";
-import { mapHeaders } from "./headers";
 
 const d = debug.extend("KyHTTPClient");
 
