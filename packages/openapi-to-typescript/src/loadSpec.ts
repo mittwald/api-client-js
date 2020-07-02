@@ -19,7 +19,10 @@ export async function loadSpec(extendedPath: string, format?: FileFormat): Promi
 
     if (format === "yaml" || path.endsWith("yaml") || path.endsWith("yml")) {
         log?.start("parsing YAML");
-        openAPI = yaml.safeLoad(content);
+        const loadedYaml = yaml.safeLoad(content);
+        if (typeof loadedYaml !== "object") {
+            throw new Error(`Expected loaded YAML to be of type object, but got ${typeof loadedYaml}!`);
+        }
         log?.succeed("YAML parsed");
     } else if (downloadFile || format === "json" || path.endsWith("json")) {
         if (downloadFile) {

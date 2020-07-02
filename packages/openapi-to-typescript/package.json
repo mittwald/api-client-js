@@ -81,6 +81,7 @@
     "jsonata": "^1.8.1",
     "openapi-schema-validator": "^3.0.3",
     "ora": "^4.0.3",
+    "prettier": "^2.0.5",
     "verror": "^1.10.0",
     "yargs": "^15.1.0"
   },
