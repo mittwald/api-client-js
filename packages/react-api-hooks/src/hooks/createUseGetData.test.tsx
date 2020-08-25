@@ -71,6 +71,13 @@ beforeEach(() => {
     executionSubscriber.clearCache();
 });
 
+test("renders 'empty => data' if no pristine view and no loading view is given", async () => {
+    getPristineElement.mockReturnValueOnce(undefined);
+    getLoadingElement.mockReturnValueOnce(undefined);
+    renderView();
+    await expectViews("", "data");
+});
+
 test("renders 'pristine => data' if pristine view is given", async () => {
     renderView();
     await expectViews("pristine", "data");
