@@ -87,6 +87,11 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
                 view: alternateViews.loading,
                 hasLoaded: false,
             };
+        } else if (!result) {
+            return {
+                view: nullView,
+                hasLoaded: false,
+            };
         }
     }
 
