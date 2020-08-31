@@ -11,6 +11,7 @@ import { loadSpec } from "./loadSpec";
 import jp from "fs-jetpack";
 import jsyaml from "js-yaml";
 import { basename, dirname, relative } from "path";
+import debug from "./debug";
 
 interface SpecOptions {
     statusLog?: StatusLog;
@@ -68,6 +69,7 @@ export class Spec {
         const log = getStatusLog();
         log?.start("validating OpenAPI spec");
 
+        debug("Validating %O", openAPISpec);
         const result = new OpenAPISchemaValidator({ version: 3 }).validate(openAPISpec as any);
 
         if (result.errors.length > 0) {

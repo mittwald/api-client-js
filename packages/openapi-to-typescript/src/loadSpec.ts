@@ -4,6 +4,7 @@ import { readFileSync } from "fs";
 import yaml from "js-yaml";
 import { FileFormat } from "./Spec";
 import dotProp from "dot-prop";
+import debug from "./debug";
 
 export async function loadSpec(extendedPath: string, format?: FileFormat): Promise<object> {
     const log = getStatusLog();
@@ -23,7 +24,9 @@ export async function loadSpec(extendedPath: string, format?: FileFormat): Promi
         if (typeof loadedYaml !== "object") {
             throw new Error(`Expected loaded YAML to be of type object, but got ${typeof loadedYaml}!`);
         }
+        debug("Loaded YAML: %O", loadedYaml);
         log?.succeed("YAML parsed");
+        openAPI = loadedYaml;
     } else if (downloadFile || format === "json" || path.endsWith("json")) {
         if (downloadFile) {
             log?.info("file was downloaded ~> using JSON as default format");
@@ -34,6 +37,7 @@ export async function loadSpec(extendedPath: string, format?: FileFormat): Promi
     }
 
     if (selector) {
+        log?.info(`Using selector ${selector}`);
         const selectedOpenAPI = dotProp.get(openAPI, selector);
         if (!selectedOpenAPI) {
             throw new Error(`"${selector}" has no content`);
