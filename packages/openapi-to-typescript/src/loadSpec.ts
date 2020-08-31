@@ -38,7 +38,7 @@ export async function loadSpec(extendedPath: string, format?: FileFormat): Promi
 
     if (selector) {
         log?.info(`Using selector ${selector}`);
-        const selectedOpenAPI = dotProp.get(openAPI, selector, undefined);
+        const selectedOpenAPI = dotProp.get(openAPI, selector);
         if (!selectedOpenAPI) {
             throw new Error(`"${selector}" has no content`);
         }
