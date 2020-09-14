@@ -2,19 +2,27 @@ import { RequestFunction } from "@mittwald/api-client/dist/OperationDescriptor";
 import { createElement, ReactElement, useEffect, useState } from "react";
 import { executionSubscriber, OnResultCallback, ResolvedFunctionResult } from "@mittwald/awesome-node-utils/funcs/ExecutionSubscriber";
 
-export interface GetDataHookNoDataResult {
+interface BaseResult {
+    hasError: boolean;
+    notFound: boolean;
+    noAccess: boolean;
+    refreshCache: () => void;
+}
+
+export interface GetDataHookNoDataResult<T extends RequestFunction> extends BaseResult {
     hasLoaded: false;
     view: ReactElement;
+    data?: ResponseContent<ResolvedFunctionResult<T>>;
 }
 
 export type ResponseContent<T> = T extends { status: 200; content: infer TContent } ? TContent : never;
 
-export interface GetDataHookDataResult<T extends RequestFunction> {
+export interface GetDataHookDataResult<T extends RequestFunction> extends BaseResult {
     hasLoaded: true;
     data: ResponseContent<ResolvedFunctionResult<T>>;
 }
 
-export type GetDataHookResult<T extends RequestFunction> = GetDataHookDataResult<T> | GetDataHookNoDataResult;
+export type GetDataHookResult<T extends RequestFunction> = GetDataHookDataResult<T> | GetDataHookNoDataResult<T>;
 
 export interface AlternateViews {
     pristine?: ReactElement;
@@ -57,6 +65,8 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
 
     const funcParams = [request] as Parameters<T>;
 
+    const refreshCache = (): void => executionSubscriber.refreshCache(requestFn, ...funcParams);
+
     useEffect(() => {
         // Prevents error loops!
         if (execError) {
@@ -72,13 +82,17 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
             },
             ...funcParams,
         );
-    });
+    }, [JSON.stringify(funcParams)]);
 
     if (isExecuting) {
         if (isPristine && alternateViews.pristine) {
             return {
                 view: alternateViews.pristine,
                 hasLoaded: false,
+                hasError: false,
+                noAccess: false,
+                notFound: false,
+                refreshCache,
             };
         }
 
@@ -86,11 +100,19 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
             return {
                 view: alternateViews.loading,
                 hasLoaded: false,
+                hasError: false,
+                noAccess: false,
+                notFound: false,
+                refreshCache,
             };
         } else if (!result) {
             return {
                 view: nullView,
                 hasLoaded: false,
+                hasError: false,
+                noAccess: false,
+                notFound: false,
+                refreshCache,
             };
         }
     }
@@ -100,6 +122,10 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
             return {
                 view: alternateViews.noAccess || nullView,
                 hasLoaded: false,
+                hasError: false,
+                noAccess: true,
+                notFound: false,
+                refreshCache,
             };
         }
 
@@ -107,6 +133,10 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
             return {
                 view: alternateViews.notFound || nullView,
                 hasLoaded: false,
+                hasError: false,
+                noAccess: false,
+                notFound: true,
+                refreshCache,
             };
         }
 
@@ -114,17 +144,29 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
             return {
                 view: alternateViews.error || nullView,
                 hasLoaded: false,
+                hasError: true,
+                noAccess: false,
+                notFound: false,
+                refreshCache,
             };
         }
 
         return {
             data: result.content,
             hasLoaded: true,
+            hasError: false,
+            noAccess: false,
+            notFound: false,
+            refreshCache,
         };
     }
 
     return {
         view: alternateViews.error || nullView,
         hasLoaded: false,
+        hasError: true,
+        noAccess: false,
+        notFound: false,
+        refreshCache,
     };
 };
