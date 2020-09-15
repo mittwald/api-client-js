@@ -1,12 +1,14 @@
 import { RequestFunction } from "@mittwald/api-client/dist/OperationDescriptor";
 import { createElement, ReactElement, useEffect, useState } from "react";
 import { executionSubscriber, OnResultCallback, ResolvedFunctionResult } from "@mittwald/awesome-node-utils/funcs/ExecutionSubscriber";
+import { useIsOnline } from "./useIsOnline";
 
 interface BaseResult {
     hasError: boolean;
     notFound: boolean;
     noAccess: boolean;
     isLoading: boolean;
+    isOffline: boolean;
     refreshCache: () => void;
 }
 
@@ -31,6 +33,7 @@ export interface AlternateViews {
     error?: ReactElement;
     noAccess?: ReactElement;
     notFound?: ReactElement;
+    offline?: ReactElement;
 }
 
 const nullView = createElement(() => null);
@@ -43,6 +46,7 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
     const [execError, setExecError] = useState<Error | undefined>();
     const [isExecuting, setIsExecuting] = useState(true);
     const [isPristine, setIsPristine] = useState(true);
+    const isOffline = !useIsOnline();
 
     const onResult: OnResultCallback<T> = (result) => {
         setExecError(undefined);
@@ -69,8 +73,7 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
     const refreshCache = (): void => executionSubscriber.refreshCache(requestFn, ...funcParams);
 
     useEffect(() => {
-        // Prevents error loops!
-        if (execError) {
+        if (execError || isOffline) {
             return;
         }
 
@@ -83,7 +86,20 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
             },
             ...funcParams,
         );
-    }, [JSON.stringify(funcParams)]);
+    }, [JSON.stringify(funcParams), isOffline]);
+
+    if (isOffline) {
+        return {
+            view: alternateViews.offline ?? nullView,
+            hasLoaded: false,
+            hasError: false,
+            noAccess: false,
+            notFound: false,
+            isLoading: false,
+            isOffline: true,
+            refreshCache,
+        };
+    }
 
     if (isExecuting) {
         if (isPristine && alternateViews.pristine) {
@@ -94,6 +110,7 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
                 noAccess: false,
                 notFound: false,
                 isLoading: true,
+                isOffline,
                 refreshCache,
             };
         }
@@ -106,6 +123,7 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
                 noAccess: false,
                 notFound: false,
                 isLoading: true,
+                isOffline,
                 refreshCache,
             };
         } else if (!result) {
@@ -116,6 +134,7 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
                 noAccess: false,
                 notFound: false,
                 isLoading: true,
+                isOffline,
                 refreshCache,
             };
         }
@@ -130,6 +149,7 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
                 noAccess: true,
                 notFound: false,
                 isLoading: false,
+                isOffline,
                 refreshCache,
             };
         }
@@ -142,6 +162,7 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
                 noAccess: false,
                 notFound: true,
                 isLoading: false,
+                isOffline,
                 refreshCache,
             };
         }
@@ -154,6 +175,7 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
                 noAccess: false,
                 notFound: false,
                 isLoading: false,
+                isOffline,
                 refreshCache,
             };
         }
@@ -165,6 +187,7 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
             noAccess: false,
             notFound: false,
             isLoading: false,
+            isOffline,
             refreshCache,
         };
     }
@@ -176,6 +199,7 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
         noAccess: false,
         notFound: false,
         isLoading: false,
+        isOffline,
         refreshCache,
     };
 };
