@@ -6,6 +6,7 @@ interface BaseResult {
     hasError: boolean;
     notFound: boolean;
     noAccess: boolean;
+    isLoading: boolean;
     refreshCache: () => void;
 }
 
@@ -92,6 +93,7 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
                 hasError: false,
                 noAccess: false,
                 notFound: false,
+                isLoading: true,
                 refreshCache,
             };
         }
@@ -103,6 +105,7 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
                 hasError: false,
                 noAccess: false,
                 notFound: false,
+                isLoading: true,
                 refreshCache,
             };
         } else if (!result) {
@@ -112,6 +115,7 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
                 hasError: false,
                 noAccess: false,
                 notFound: false,
+                isLoading: true,
                 refreshCache,
             };
         }
@@ -125,6 +129,7 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
                 hasError: false,
                 noAccess: true,
                 notFound: false,
+                isLoading: false,
                 refreshCache,
             };
         }
@@ -136,6 +141,7 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
                 hasError: false,
                 noAccess: false,
                 notFound: true,
+                isLoading: false,
                 refreshCache,
             };
         }
@@ -147,6 +153,7 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
                 hasError: true,
                 noAccess: false,
                 notFound: false,
+                isLoading: false,
                 refreshCache,
             };
         }
@@ -157,6 +164,7 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
             hasError: false,
             noAccess: false,
             notFound: false,
+            isLoading: false,
             refreshCache,
         };
     }
@@ -167,6 +175,7 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
         hasError: true,
         noAccess: false,
         notFound: false,
+        isLoading: false,
         refreshCache,
     };
 };
