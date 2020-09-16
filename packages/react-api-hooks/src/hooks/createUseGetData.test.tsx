@@ -7,10 +7,6 @@ import { sleep } from "@mittwald/awesome-node-utils/promises/timeout";
 
 window.MutationObserver = require("mutation-observer");
 
-const getErrorElement = jest.fn().mockReturnValue(<>error</>);
-const getLoadingElement = jest.fn().mockReturnValue(<>loading</>);
-const getPristineElement = jest.fn().mockReturnValue(<>pristine</>);
-
 const getResponseContent = jest.fn().mockReturnValue("data");
 const getResponseStatus = jest.fn().mockReturnValue(200);
 
@@ -24,19 +20,9 @@ const useGetData = createUseGetData(requestFn);
 const request = { request: "anything" };
 
 const TestComponent: FC = () => {
-    const response = useGetData(request, {
-        error: getErrorElement(),
-        loading: getLoadingElement(),
-        pristine: getPristineElement(),
-        noAccess: <>noAccess</>,
-        notFound: <>notFound</>,
-    });
+    const response = useGetData(request);
 
-    if (!response.hasLoaded) {
-        return response.view;
-    }
-
-    return <>{response.data}</>;
+    return <>{response.state}</>;
 };
 
 let renderResult: RenderResult;
@@ -71,70 +57,47 @@ beforeEach(() => {
     executionSubscriber.clearCache();
 });
 
-test("renders 'empty => data' if no pristine view and no loading view is given", async () => {
-    getPristineElement.mockReturnValueOnce(undefined);
-    getLoadingElement.mockReturnValueOnce(undefined);
+test("regular loading state: 'loading => ok'", async () => {
     renderView();
-    await expectViews("", "data");
+    await expectViews("loading", "ok");
 });
 
-test("renders 'pristine => data' if pristine view is given", async () => {
+test("reload after cache refresh: 'loading => ok' => 'loading => ok'", async () => {
     renderView();
-    await expectViews("pristine", "data");
-});
-
-test("renders 'loading => data' if only loading view is given", async () => {
-    getPristineElement.mockReturnValueOnce(undefined);
-    renderView();
-    await expectViews("loading", "data");
-});
-
-test("renders 'pristine => data => loading => newData' if pristine view is given and cache is cleared", async () => {
-    renderView();
-    await expectViews("pristine", "data");
-
-    // return new data next time and refresh cache
-    getResponseContent.mockReturnValueOnce("newData");
+    await expectViews("loading", "ok");
     executionSubscriber.refreshCache(requestFn, request);
-
-    await expectViews("data", "loading", "newData");
+    await expectViews("ok", "loading", "ok");
 });
 
-test("renders 'pristine => data => newData' if no loading view is given and cache is cleared", async () => {
-    renderView();
-    await expectViews("pristine", "data");
-
-    // return new data next time and refresh cache
-    getLoadingElement.mockReturnValueOnce(undefined);
-    getResponseContent.mockReturnValueOnce("newData");
-    executionSubscriber.refreshCache(requestFn, request);
-
-    await expectViews("data", "newData");
-});
-
-test("renders 'pristine => error' if status 500 returned", async () => {
+test("status 500", async () => {
     getResponseStatus.mockReturnValueOnce(500);
     renderView();
-    await expectViews("pristine", "error");
+    await expectViews("loading", "error");
 });
 
-test("renders 'pristine => error' if requestFunc throws internally", async () => {
+test("status 404", async () => {
+    getResponseStatus.mockReturnValueOnce(404);
+    renderView();
+    await expectViews("loading", "notFound");
+});
+
+test("status 401", async () => {
+    getResponseStatus.mockReturnValueOnce(401);
+    renderView();
+    await expectViews("loading", "unauthorized");
+});
+
+test("status 403", async () => {
+    getResponseStatus.mockReturnValueOnce(403);
+    renderView();
+    await expectViews("loading", "noAccess");
+});
+
+test("requestFunc throws internally", async () => {
     requestFn.mockImplementationOnce(() => {
         throw new Error("wuaaa");
     });
 
     renderView();
-    await expectViews("pristine", "error");
-});
-
-test("renders 'pristine => notFound' if status 404 returned", async () => {
-    getResponseStatus.mockReturnValueOnce(404);
-    renderView();
-    await expectViews("pristine", "notFound");
-});
-
-test("renders 'pristine => notAccess' if status 401 returned", async () => {
-    getResponseStatus.mockReturnValueOnce(401);
-    renderView();
-    await expectViews("pristine", "noAccess");
+    await expectViews("loading", "error");
 });

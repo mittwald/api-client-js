@@ -8,25 +8,23 @@ interface CakeNameProps {
 }
 
 const CakeName: FC<CakeNameProps> = (props) => {
-    const cake = useGetCake(
-        {
-            path: {
-                id: props.id,
-            },
+    const cake = useGetCake({
+        path: {
+            id: props.id,
         },
-        {
-            loading: props.noLoadingView ? undefined : <>Loading</>,
-            pristine: <>...</>,
-            notFound: <>Not found</>,
-            noAccess: <>No access</>,
-        },
-    );
+    });
 
-    if (!cake.hasLoaded) {
-        return cake.view;
+    if (cake.state === "loading") {
+        return <>Loading</>;
+    }
+    if (cake.state === "notFound") {
+        return <>Not found</>;
+    }
+    if (cake.state === "noAccess") {
+        return <>No access</>;
     }
 
-    return <>{cake.data.name}</>;
+    return <>{cake.data?.name ?? "..."}</>;
 };
 
 export const examples = (): ReactElement => {

@@ -1,205 +1,101 @@
 import { RequestFunction } from "@mittwald/api-client/dist/OperationDescriptor";
-import { createElement, ReactElement, useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { executionSubscriber, OnResultCallback, ResolvedFunctionResult } from "@mittwald/awesome-node-utils/funcs/ExecutionSubscriber";
 import { useIsOnline } from "./useIsOnline";
 
 interface BaseResult {
-    hasError: boolean;
-    notFound: boolean;
-    noAccess: boolean;
-    isLoading: boolean;
-    isOffline: boolean;
     refreshCache: () => void;
 }
 
 export interface GetDataHookNoDataResult<T extends RequestFunction> extends BaseResult {
-    hasLoaded: false;
-    view: ReactElement;
+    state: "error" | "notFound" | "noAccess" | "unauthorized" | "loading" | "timeout";
     data?: ResponseContent<ResolvedFunctionResult<T>>;
 }
 
 export type ResponseContent<T> = T extends { status: 200; content: infer TContent } ? TContent : never;
 
 export interface GetDataHookDataResult<T extends RequestFunction> extends BaseResult {
-    hasLoaded: true;
+    state: "ok";
     data: ResponseContent<ResolvedFunctionResult<T>>;
 }
 
+export type GetDataHookState = GetDataHookResult<any>["state"] | GetDataHookNoDataResult<any>["state"];
+
 export type GetDataHookResult<T extends RequestFunction> = GetDataHookDataResult<T> | GetDataHookNoDataResult<T>;
 
-export interface AlternateViews {
-    pristine?: ReactElement;
-    loading?: ReactElement;
-    error?: ReactElement;
-    noAccess?: ReactElement;
-    notFound?: ReactElement;
-    offline?: ReactElement;
-}
-
-const nullView = createElement(() => null);
-
-export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (
-    request: Parameters<T>[0],
-    alternateViews: AlternateViews = {},
-): GetDataHookResult<T> => {
+export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (request: Parameters<T>[0]): GetDataHookResult<T> => {
     const [result, setResult] = useState<ResolvedFunctionResult<T> | undefined>();
-    const [execError, setExecError] = useState<Error | undefined>();
-    const [isExecuting, setIsExecuting] = useState(true);
-    const [isPristine, setIsPristine] = useState(true);
     const isOffline = !useIsOnline();
 
+    const [state, setState] = useState<GetDataHookState>("loading");
+    const wasOffline = useRef(isOffline);
+
     const onResult: OnResultCallback<T> = (result) => {
-        setExecError(undefined);
-        setResult(result);
-        setIsExecuting(false);
-        setIsPristine(false);
+        const status = result.status;
+        const ok = status >= 200 && status < 300;
+
+        setResult(ok ? result : undefined);
+
+        if (status === 401) {
+            setState("unauthorized");
+        } else if (status === 403) {
+            setState("noAccess");
+        } else if (status === 404) {
+            setState("notFound");
+        } else if (ok) {
+            setState("ok");
+        } else {
+            setState("error");
+        }
     };
 
-    const onError = (error: Error): void => {
-        // This happens if the request function throws internally. HTTP errors will show up
+    const onError = (error?: Error): void => {
+        // This happens if the request function throws internally. Regular HTTP errors will show up
         // with the HTTP error status code in the onResult function!
-        setExecError(error);
+        if (error?.name === "TimeoutError") {
+            setState("timeout");
+        } else {
+            setState("error");
+        }
         setResult(undefined);
-        setIsExecuting(false);
-        setIsPristine(false);
     };
 
     const onExecuting = (): void => {
-        setIsExecuting(true);
+        setState("loading");
     };
 
     const funcParams = [request] as Parameters<T>;
 
-    const refreshCache = (): void => executionSubscriber.refreshCache(requestFn, ...funcParams);
+    const refreshCache = (): void => {
+        setState("loading");
+        executionSubscriber.refreshCache(requestFn, ...funcParams);
+    };
 
     useEffect(() => {
-        if (execError || isOffline) {
-            return;
+        const hasSwitchedToOnline = wasOffline.current && !isOffline;
+        if (hasSwitchedToOnline) {
+            refreshCache();
         }
+        wasOffline.current = isOffline;
+    }, [isOffline]);
 
-        return executionSubscriber.subscribe<T>(
-            requestFn,
-            {
-                onResult,
-                onError,
-                onExecuting,
-            },
-            ...funcParams,
-        );
-    }, [JSON.stringify(funcParams), isOffline]);
-
-    if (isOffline) {
-        return {
-            view: alternateViews.offline ?? nullView,
-            hasLoaded: false,
-            hasError: false,
-            noAccess: false,
-            notFound: false,
-            isLoading: false,
-            isOffline: true,
-            refreshCache,
-        };
-    }
-
-    if (isExecuting) {
-        if (isPristine && alternateViews.pristine) {
-            return {
-                view: alternateViews.pristine,
-                hasLoaded: false,
-                hasError: false,
-                noAccess: false,
-                notFound: false,
-                isLoading: true,
-                isOffline,
-                refreshCache,
-            };
-        }
-
-        if (alternateViews.loading) {
-            return {
-                view: alternateViews.loading,
-                hasLoaded: false,
-                hasError: false,
-                noAccess: false,
-                notFound: false,
-                isLoading: true,
-                isOffline,
-                refreshCache,
-            };
-        } else if (!result) {
-            return {
-                view: nullView,
-                hasLoaded: false,
-                hasError: false,
-                noAccess: false,
-                notFound: false,
-                isLoading: true,
-                isOffline,
-                refreshCache,
-            };
-        }
-    }
-
-    if (result) {
-        if (result.status === 401 || result.status === 403) {
-            return {
-                view: alternateViews.noAccess || nullView,
-                hasLoaded: false,
-                hasError: false,
-                noAccess: true,
-                notFound: false,
-                isLoading: false,
-                isOffline,
-                refreshCache,
-            };
-        }
-
-        if (result.status === 404) {
-            return {
-                view: alternateViews.notFound || nullView,
-                hasLoaded: false,
-                hasError: false,
-                noAccess: false,
-                notFound: true,
-                isLoading: false,
-                isOffline,
-                refreshCache,
-            };
-        }
-
-        if (result.status < 200 || result.status >= 300) {
-            return {
-                view: alternateViews.error || nullView,
-                hasLoaded: false,
-                hasError: true,
-                noAccess: false,
-                notFound: false,
-                isLoading: false,
-                isOffline,
-                refreshCache,
-            };
-        }
-
-        return {
-            data: result.content,
-            hasLoaded: true,
-            hasError: false,
-            noAccess: false,
-            notFound: false,
-            isLoading: false,
-            isOffline,
-            refreshCache,
-        };
-    }
+    useEffect(
+        () =>
+            executionSubscriber.subscribe<T>(
+                requestFn,
+                {
+                    onResult,
+                    onError,
+                    onExecuting,
+                },
+                ...funcParams,
+            ),
+        [],
+    );
 
     return {
-        view: alternateViews.error || nullView,
-        hasLoaded: false,
-        hasError: true,
-        noAccess: false,
-        notFound: false,
-        isLoading: false,
-        isOffline,
+        data: result?.content,
+        state,
         refreshCache,
     };
 };
