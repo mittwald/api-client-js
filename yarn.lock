@@ -1256,10 +1256,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@mittwald/awesome-node-utils@^2.15.3":
-  version "2.21.0"
-  resolved "https://npm.mittwald.it/@mittwald%2fawesome-node-utils/-/awesome-node-utils-2.21.0.tgz#1cd6c15a8024af15f87942a32f45548efde22714"
-  integrity sha512-GBo0+oCA6aYzzxdeDweufbgc3oHlh7WkE8qWwmmgYpMIHKy2QMPCAHJhHi7jun5ecIfLW+DywM71nuNmQAG+Uw==
+"@mittwald/awesome-node-utils@^2.28.1":
+  version "2.28.1"
+  resolved "https://npm.mittwald.it/@mittwald%2fawesome-node-utils/-/awesome-node-utils-2.28.1.tgz#b6a16d63bfc6fa0d1df7c2f95987ca41d36dc587"
+  integrity sha512-CxXzhSSHb6Y25+JoIMfiT718ocS6p0ljAqo4kaIa5G1G6i9ac78t2Nr8Z9GBVNk1xGwEjJvfsVm2DpUvOGk+MA==
   dependencies:
     "@types/async-lock" "^1.1.1"
     "@types/camelcase" "^5.2.0"

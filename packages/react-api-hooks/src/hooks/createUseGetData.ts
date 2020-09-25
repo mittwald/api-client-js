@@ -24,10 +24,16 @@ export type GetDataHookState = GetDataHookResult<any>["state"] | GetDataHookNoDa
 export type GetDataHookResult<T extends RequestFunction> = GetDataHookDataResult<T> | GetDataHookNoDataResult<T>;
 
 export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (request: Parameters<T>[0]): GetDataHookResult<T> => {
-    const [result, setResult] = useState<ResolvedFunctionResult<T> | undefined>();
+    const funcParams = [request] as Parameters<T>;
+
+    const cachedResult = executionSubscriber.getCachedResult(requestFn, ...funcParams);
+
+    const [result, setResult] = useState<ResolvedFunctionResult<T> | undefined>(cachedResult);
+
     const isOffline = !useIsOnline();
 
-    const [state, setState] = useState<GetDataHookState>("loading");
+    const [state, setState] = useState<GetDataHookState>(cachedResult !== undefined ? "ok" : "loading");
+
     const wasOffline = useRef(isOffline);
 
     const onResult: OnResultCallback<T> = (result) => {
@@ -63,8 +69,6 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (re
     const onExecuting = (): void => {
         setState("loading");
     };
-
-    const funcParams = [request] as Parameters<T>;
 
     const refreshCache = (): void => {
         setState("loading");
