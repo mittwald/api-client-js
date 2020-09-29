@@ -156,7 +156,7 @@
                 "parameters": parameters ~> $mapValues($schemaWithRef)
             },
             /* definitions are used by Swagger */
-            "definitions": definitions
+            "definitions": definitions ? definitions : { }
         }
     )
 )
