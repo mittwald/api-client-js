@@ -44,4 +44,5 @@ export interface NormalizedSpec {
         schemas?: Schemas;
         parameters?: Parameters;
     };
+    definitions?: Schemas;
 }

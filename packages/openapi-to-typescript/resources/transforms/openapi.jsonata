@@ -88,7 +88,7 @@
 
         /* fn to construct 'parameters' (header, path, query, ...) */
         $constructParams := function($params)<a:o>{
-            $params{
+            $params.properties ? $params{
                 in: {
                     "type": "object",
                     "required": [$[required=true].name],
@@ -96,7 +96,7 @@
                         name: $ ~> $schemaWithRef
                     }
                 }
-            }
+            } : { }
         };
 
         /* find all keys in the $obj where $obj[k].required */
@@ -125,7 +125,8 @@
                 $construct := function($response) {
                     /* response does have header and content */
                     $response{
-                        "content": content.`application/json` ~> $schemaWithRef,
+                        /* $response is used as fallback to cover Swagger structure */
+                        "content": (content.`application/json` ? content.`application/json` : $response) ~> $schemaWithRef,
                         "headers": headers ? $constructHeaders(headers)
                     }
                 };
@@ -153,7 +154,9 @@
             "components": (components ? components : { }){
                 "schemas": schemas ? schemas : { },
                 "parameters": parameters ~> $mapValues($schemaWithRef)
-            }
+            },
+            /* definitions are used by Swagger */
+            "definitions": definitions
         }
     )
 )

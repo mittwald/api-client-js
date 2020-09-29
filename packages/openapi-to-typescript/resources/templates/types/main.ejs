@@ -22,4 +22,6 @@ export declare module <%- rootNamespace %> {
         <%- include('schemas', {schemas: components.schemas, namespace: 'Schemas'}); %>
         <%- include('schemas', {schemas: components.parameters, namespace: 'Parameters'}); %>
     }
+
+    <%- include('schemas', {schemas: definitions, namespace: 'Definitions'}); %>
 }
