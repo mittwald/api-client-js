@@ -26,40 +26,15 @@ export class Exporter {
         });
     }
 
-    public exportDescriptors(namespace: string, typesModule: string): string {
-        const jobLog = getStatusLog();
-        jobLog?.start("rendering templates for 'descriptors'");
-
-        const result = this.export(namespace, "descriptor/main.ejs", { typesModule });
-        jobLog?.succeed("'descriptors' successfully rendered");
-        return result;
-    }
-
-    public exportTypes(namespace: string): string {
-        const jobLog = getStatusLog();
-        jobLog?.start("rendering template for 'types'");
-        const result = this.export(namespace, "types/main.ejs");
-        jobLog?.succeed("'types' successfully rendered");
-        return result;
-    }
-
-    public exportClient(namespace: string, descriptorsModule: string): string {
+    public exportClient(namespace: string, reactHooks: boolean): string {
         const jobLog = getStatusLog();
         jobLog?.start("rendering template for 'client'");
-        const result = this.export(namespace, "client/main.ejs", { descriptorsModule });
+        const result = this.export(namespace, "client/main.ejs", { reactHooks });
         jobLog?.succeed("'client' successfully rendered");
         return result;
     }
 
-    public exportReactHooks(namespace: string, clientModule: string): string {
-        const jobLog = getStatusLog();
-        jobLog?.start("rendering template for 'react-hooks'");
-        const result = this.export(namespace, "react-hooks/main.ejs", { clientModule });
-        jobLog?.succeed("'react-hooks' successfully rendered");
-        return result;
-    }
-
-    public export(namespace: string, filename: string, variables: Record<string, string> = {}): string {
+    public export(namespace: string, filename: string, variables: Record<string, string | boolean> = {}): string {
         const jobLog = getStatusLog();
         const renderTemplate = Exporter.compileTemplate(filename);
 

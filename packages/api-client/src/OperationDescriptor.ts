@@ -7,8 +7,6 @@ export interface OperationDescriptor<TRequest = any, TResponse = any> {
     method: string;
 }
 
-type AnyFunction = (...args: any[]) => any;
-
 export type RequestType<T extends OperationDescriptor> = T extends OperationDescriptor<infer TReq> ? TReq : never;
 export type ResponseType<T extends OperationDescriptor> = T extends OperationDescriptor<any, infer TRes> ? TRes : never;
 

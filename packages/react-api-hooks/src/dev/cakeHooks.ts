@@ -19,4 +19,4 @@ const getCakeDescriptor: OperationDescriptor<
 };
 
 const getCake = client.requestFunctionFactory(getCakeDescriptor);
-export const useGetCake = createUseGetData(getCake);
+export const useGetCake = createUseGetData(() => getCake);

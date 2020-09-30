@@ -1,4 +1,5 @@
 /* eslint-disable */
+/* prettier-ignore */
 
 /**
 * This file is auto-generated with openapi2ts (@mittwald/openapi-to-typescript)
@@ -7,12 +8,74 @@
 import { KyClient } from "@mittwald/api-client/dist/http/KyClient";
 import { Client } from "@mittwald/api-client/dist/http/Client";
 import { RequestFunction } from "@mittwald/api-client/dist/OperationDescriptor";
-import * as descriptors from "<%- descriptorsModule %>";
+import { OperationDescriptor } from "@mittwald/api-client/dist/OperationDescriptor";
 
+/**
+* ====================================
+* Types
+* ====================================
+*/
+export declare module <%- rootNamespace %> {
+    namespace Paths {
+      <% Object.entries(paths).forEach(function([pathname, path]) { %>
+      namespace <%- tsName(pathname) %> {
+          <% Object.entries(path).forEach(function([methodname, method]) { %>
+          namespace <%- tsName(methodname) %> {
+              <%- include('../types/schemas', {schemas: method.parameters, namespace: 'Parameters'}); %>
+              <%- include('../types/object-schemas', {object: method.responses, namespace: 'Responses'}); %>
+          }
+          <% }) %>
+      }
+      <% }) %>
+    }
+
+    namespace Components {
+        <%- include('../types/schemas', {schemas: components.schemas, namespace: 'Schemas'}); %>
+        <%- include('../types/schemas', {schemas: components.parameters, namespace: 'Parameters'}); %>
+    }
+
+    <%- include('../types/schemas', {schemas: definitions, namespace: 'Definitions'}); %>
+}
+
+/**
+* ====================================
+* Descriptors
+* ====================================
+*/
+<% Object.entries(paths).forEach(function([pathname, path]) { %>
+    <% Object.entries(path).forEach(function([method, operation]) { %>
+        export const <%- operationId(pathname, method, operation) %>: OperationDescriptor<
+            <%- include('../descriptor/parameters', {method, pathname, operation}); %>,
+            <%- include('../descriptor/responseType', {method, pathname, operation}); %>
+        > = {
+            path: "<%- pathname %>",
+            method: "<%- method %>",
+        };
+    <% }) %>
+<% }) %>
+
+/**
+* ====================================
+* Client
+* ====================================
+*/
 export class <%- rootNamespace %>Client {
+    private static instance: <%- rootNamespace %>Client | undefined;
+
+    public static getInstance(): <%- rootNamespace %>Client {
+        if (!<%- rootNamespace %>Client.instance) {
+            throw new Error("ApiClientInstanceNotSet: API-Client-instance must be set before using hooks. Use <%- rootNamespace %>Client.setInstance().");
+        }
+        return <%- rootNamespace %>Client.instance;
+    }
+
+    public static setInstance(client: <%- rootNamespace %>Client): void {
+        this.instance = client;
+    }
+
     <% Object.entries(paths).forEach(([path, operations]) => { %>
         <% Object.entries(operations).forEach(([method, operation]) => { %>
-            public <%- operationId(path, method, operation) %>: RequestFunction<typeof descriptors.<%- operationId(path, method, operation) %>>;
+            public <%- operationId(path, method, operation) %>: RequestFunction<typeof <%- operationId(path, method, operation) %>>;
         <% }) %>
     <% }) %>
 
@@ -20,8 +83,32 @@ export class <%- rootNamespace %>Client {
         const client = typeof clientOrUrl === "string" ? new KyClient({ ky: { prefixUrl: clientOrUrl } }) : clientOrUrl;
         <% Object.entries(paths).forEach(([path, operations]) => { %>
         <% Object.entries(operations).forEach(([method, operation]) => { %>
-        this.<%- operationId(path, method, operation) %> = client.requestFunctionFactory(descriptors.<%- operationId(path, method, operation) %>);
+        this.<%- operationId(path, method, operation) %> = client.requestFunctionFactory(<%- operationId(path, method, operation) %>);
         <% }) %>
         <% }) %>
         }
 }
+<% if (reactHooks) { %>
+
+/**
+* ====================================
+* React Hooks
+* ====================================
+*/
+import { createUseGetData, createRefreshCache } from "@mittwald/react-api-hooks/dist/hooks/createUseGetData";
+
+<% Object.entries(paths).forEach(([path, operations]) => { %>
+<% Object.entries(operations).filter(([method]) => method.toLowerCase() === "get").forEach(([method, operation]) => { %>
+export const use<%- pascalCase(operationId(path, method, operation)) %> = createUseGetData(() => <%- rootNamespace %>Client.getInstance().<%- operationId(path, method, operation) %>);
+<% }) %>
+<% }) %>
+
+export const <%- camelCase(rootNamespace) %>Cache = {
+<% Object.entries(paths).forEach(([path, operations]) => { %>
+<% Object.entries(operations).filter(([method]) => method.toLowerCase() === "get").forEach(([method, operation]) => { %>
+  refresh<%- pascalCase(operationId(path, method, operation)) %>: createRefreshCache(() => <%- rootNamespace %>Client.getInstance().<%- operationId(path, method, operation) %>),
+<% }) %>
+<% }) %>
+}
+
+<% } %>

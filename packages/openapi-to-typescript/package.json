@@ -79,11 +79,15 @@
     "js-yaml": "^3.13.1",
     "json-schema-typed": "^7.0.3",
     "jsonata": "^1.8.1",
+    "jsonschema": "1.2.5",
     "openapi-schema-validator": "^3.0.3",
     "ora": "^4.0.3",
     "prettier": "^2.0.5",
     "verror": "^1.10.0",
     "yargs": "^15.1.0"
+  },
+  "resolutions": {
+    "jsonschema": "1.2.5"
   },
   "main": "dist/index.js",
   "files": [

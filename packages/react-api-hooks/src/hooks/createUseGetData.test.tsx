@@ -15,7 +15,7 @@ const requestFn = jest.fn<ReturnType<RequestFunction>, Parameters<RequestFunctio
     return { content: getResponseContent(), status: getResponseStatus() };
 });
 
-const useGetData = createUseGetData(requestFn);
+const useGetData = createUseGetData(() => requestFn);
 
 const request = { request: "anything" };
 

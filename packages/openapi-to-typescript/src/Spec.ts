@@ -10,7 +10,6 @@ import deepmerge from "deepmerge";
 import { loadSpec } from "./loadSpec";
 import jp from "fs-jetpack";
 import jsyaml from "js-yaml";
-import { basename, dirname, relative } from "path";
 import debug from "./debug";
 
 interface SpecOptions {
@@ -135,56 +134,15 @@ export class Spec {
             return new Spec(namespace, mergedOpenAPI, options);
         });
     }
-    private static getModuleImport(from: string, to: string): string {
-        const path = relative(dirname(from), dirname(to)) || "./";
-        return path + basename(to, ".ts");
+    public getClient(reactHooks: boolean): string {
+        return this.exporter.exportClient(this.namespace, reactHooks);
     }
 
-    public getTypes(): string {
-        return this.exporter.exportTypes(this.namespace);
-    }
-
-    public getDescriptors(typesModule: string): string {
-        return this.exporter.exportDescriptors(this.namespace, typesModule);
-    }
-
-    public getClient(descriptorsModule: string): string {
-        return this.exporter.exportClient(this.namespace, descriptorsModule);
-    }
-
-    public getReactHooks(clientModule: string): string {
-        return this.exporter.exportReactHooks(this.namespace, clientModule);
-    }
-
-    public writeTypes(filename: string): void {
-        const log = getStatusLog();
-
-        log?.start(`writing 'types' to "${filename}"`);
-        jp.write(filename, this.getTypes());
-        log?.succeed(`'types' written to "${filename}"`);
-    }
-
-    public writeDescriptors(filename: string, typesFilename: string): void {
-        const log = getStatusLog();
-
-        log?.start(`writing 'descriptors' to "${filename}"`);
-        jp.write(filename, this.getDescriptors(Spec.getModuleImport(filename, typesFilename)));
-        log?.succeed(`'descriptors' written to "${filename}"`);
-    }
-
-    public writeClient(filename: string, descriptorsFilename: string): void {
+    public writeClient(filename: string, reactHooks: boolean): void {
         const log = getStatusLog();
 
         log?.start(`writing 'client' to "${filename}"`);
-        jp.write(filename, this.getClient(Spec.getModuleImport(filename, descriptorsFilename)));
+        jp.write(filename, this.getClient(reactHooks));
         log?.succeed(`'client' written to "${filename}"`);
-    }
-
-    public writeReactHooks(filename: string, clientFilename: string): void {
-        const log = getStatusLog();
-
-        log?.start(`writing 'react-hooks' to "${filename}"`);
-        jp.write(filename, this.getReactHooks(Spec.getModuleImport(filename, clientFilename)));
-        log?.succeed(`'react-hooks' written to "${filename}"`);
     }
 }

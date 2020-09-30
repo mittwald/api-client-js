@@ -23,10 +23,25 @@ export type GetDataHookState = GetDataHookResult<any>["state"] | GetDataHookNoDa
 
 export type GetDataHookResult<T extends RequestFunction> = GetDataHookDataResult<T> | GetDataHookNoDataResult<T>;
 
-export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (request: Parameters<T>[0]): GetDataHookResult<T> => {
+export const createRefreshCache = <T extends RequestFunction>(getRequestFn: () => T) => (request: Parameters<T>[0]): void => {
+    executionSubscriber.refreshCache(getRequestFn(), ...request);
+};
+
+export interface UseGetDataOptions {
+    disableCache?: boolean;
+}
+
+export const createUseGetData = <T extends RequestFunction>(getRequestFn: () => T) => (
+    request: Parameters<T>[0],
+    options?: UseGetDataOptions,
+): GetDataHookResult<T> => {
+    const { disableCache = false } = options ?? {};
+
+    const requestFn = getRequestFn();
+
     const funcParams = [request] as Parameters<T>;
 
-    const cachedResult = executionSubscriber.getCachedResult(requestFn, ...funcParams);
+    const cachedResult = disableCache ? undefined : executionSubscriber.getCachedResult(requestFn, ...funcParams);
 
     const [result, setResult] = useState<ResolvedFunctionResult<T> | undefined>(cachedResult);
 
@@ -74,6 +89,12 @@ export const createUseGetData = <T extends RequestFunction>(requestFn: T) => (re
         setState("loading");
         executionSubscriber.refreshCache(requestFn, ...funcParams);
     };
+
+    useEffect(() => {
+        if (disableCache) {
+            refreshCache();
+        }
+    }, [disableCache]);
 
     useEffect(() => {
         const hasSwitchedToOnline = wasOffline.current && !isOffline;

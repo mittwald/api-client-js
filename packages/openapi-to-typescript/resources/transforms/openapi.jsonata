@@ -88,7 +88,7 @@
 
         /* fn to construct 'parameters' (header, path, query, ...) */
         $constructParams := function($params)<a:o>{
-            $params.properties ? $params{
+            $params ? $params{
                 in: {
                     "type": "object",
                     "required": [$[required=true].name],

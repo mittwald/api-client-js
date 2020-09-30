@@ -18,7 +18,10 @@ export async function loadSpec(extendedPath: string, format?: FileFormat): Promi
 
     let openAPI: object = {};
 
-    if (format === "yaml" || path.endsWith("yaml") || path.endsWith("yml")) {
+    const isYaml = format === "yaml" || path.endsWith("yaml") || path.endsWith("yml");
+    const iJson = downloadFile || format === "json" || path.endsWith("json");
+
+    if (isYaml) {
         log?.start("parsing YAML");
         const loadedYaml = yaml.safeLoad(content);
         if (typeof loadedYaml !== "object") {
@@ -27,7 +30,7 @@ export async function loadSpec(extendedPath: string, format?: FileFormat): Promi
         debug("Loaded YAML: %O", loadedYaml);
         log?.succeed("YAML parsed");
         openAPI = loadedYaml;
-    } else if (downloadFile || format === "json" || path.endsWith("json")) {
+    } else if (iJson) {
         if (downloadFile) {
             log?.info("file was downloaded ~> using JSON as default format");
         }
