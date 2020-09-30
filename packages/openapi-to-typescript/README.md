@@ -2,6 +2,14 @@
 
 > Generate TypeScript types, API clients and React hooks from OpenAPI (and Swagger) specs
 
+<div align="center">
+	<br>
+	<div>
+		<img src="media/editor-example.gif" alt="Editor example">
+	</div>
+	<br>
+</div>
+
 ## Features
 
 -   OpenAPI V3 support (including validation)
@@ -97,14 +105,6 @@ If you are not fine with the `KyClient` implementation, you can build your own, 
 `@mittwald/api-client/dist/http/Client`.
 
 ## Using the API client
-
-<div align="center">
-	<br>
-	<div>
-		<img width="600" height="200" src="media/editor-example.gif" alt="Editor example">
-	</div>
-	<br>
-</div>
 
 The generated API client has async methods for each operation defined in the specification. Thanks to the complete TypeScript support, you
 can just use your IDEs auto completion to use the API in a convenient and accurate way.
