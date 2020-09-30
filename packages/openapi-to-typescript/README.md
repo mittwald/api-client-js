@@ -159,17 +159,17 @@ const PetStatus: FC<{ id: string }> = (props) => {
 When using the React hooks all API responses are automatically cached. So when using a hook with the same request parameters twice, the API
 will actually not be requested again.
 
-### Clearing cache
+### Clearing the cache
 
 There are several ways to clear the cache.
 
-1. Use the hook un-cached
+#### 1. Use the hook un-cached
 
 ```typescript
 const petResponse = useGetPetById({ path: { petId: props.id } }, { disableCache: true });
 ```
 
-1. Clear the whole cache
+#### 2. Clear the whole cache
 
 ```typescript
 import clearCache from "@mittwald/react-api-hooks/dist/lib/clearCache";
@@ -177,7 +177,7 @@ import clearCache from "@mittwald/react-api-hooks/dist/lib/clearCache";
 clearCache();
 ```
 
-1. Clear a specific cache
+#### 3. Clear a specific cache
 
 Clear the cache by using the hook result:
 
