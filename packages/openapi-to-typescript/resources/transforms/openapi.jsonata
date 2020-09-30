@@ -88,15 +88,15 @@
 
         /* fn to construct 'parameters' (header, path, query, ...) */
         $constructParams := function($params)<a:o>{
-            $type($params) = "object" ? $params{
-                in: {
+            $params{
+                (in ? in : "undefined"): {
                     "type": "object",
                     "required": [$[required=true].name],
                     "properties": {
                         name: $ ~> $schemaWithRef
                     }
                 }
-            } : { }
+            }
         };
 
         /* find all keys in the $obj where $obj[k].required */
