@@ -53,9 +53,9 @@
             };
 
             $resolveRefsInArray := function($obj){
-                $map($obj, function($item){
+                [$map($obj, function($item){
                     $resolveRefs($item)
-                })
+                })]
             };
 
             /* final resolving */
