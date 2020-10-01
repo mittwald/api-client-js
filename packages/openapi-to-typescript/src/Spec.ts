@@ -11,6 +11,7 @@ import { loadSpec } from "./loadSpec";
 import jp from "fs-jetpack";
 import jsyaml from "js-yaml";
 import debug from "./debug";
+import SwaggerParser from "@apidevtools/swagger-parser";
 
 interface SpecOptions {
     statusLog?: StatusLog;
@@ -31,11 +32,6 @@ export class Spec {
         this.options = options;
         log?.info(`used namespace: ${namespace}`);
         this.namespace = namespace;
-        if (!options.skipValidation) {
-            Spec.validateSpec(openAPISpec);
-        } else {
-            log?.warn("OpenAPI spec validation skipped!");
-        }
         this.exporter = new Exporter(Spec.normalizeSpec(openAPISpec));
     }
 
@@ -59,26 +55,40 @@ export class Spec {
                     info: err,
                     cause: new Error(err.message),
                 },
-                "error while transforming OpenAPI spec with JSONata",
+                "Error while transforming OpenAPI spec with JSONata. This usually happens, when the spec is invalid. You might get more details on the cause, when not skipping validation.",
             );
         }
     }
 
-    public static validateSpec(openAPISpec: object): void {
+    public static async validateSpec(spec: object): Promise<void> {
         const log = getStatusLog();
-        log?.start("validating OpenAPI spec");
+        log?.start("validating OpenAPI/Swagger spec");
 
-        debug("Validating %O", openAPISpec);
-        const result = new OpenAPISchemaValidator({ version: 3 }).validate(openAPISpec as any);
+        debug("Validating %O", spec);
 
-        if (result.errors.length > 0) {
-            throw new VError(
-                {
-                    cause: new Error(result.errors[0].message),
-                    info: result.errors[0],
-                },
-                "OpenAPI spec is not valid",
-            );
+        if ("swagger" in spec) {
+            try {
+                await SwaggerParser.validate(spec as any);
+            } catch (err) {
+                throw new VError(
+                    {
+                        cause: err,
+                    },
+                    `Swagger spec is not valid: ${err.name}`,
+                );
+            }
+        } else {
+            const result = new OpenAPISchemaValidator({ version: 3 }).validate(spec as any);
+
+            if (result.errors.length > 0) {
+                throw new VError(
+                    {
+                        cause: new Error(result.errors[0].message),
+                        info: result.errors[0],
+                    },
+                    "OpenAPI spec is not valid",
+                );
+            }
         }
 
         log?.succeed("OpenAPI is valid");
@@ -124,16 +134,23 @@ export class Spec {
 
     public static fromFiles(namespace: string, paths: string[], options: SpecOptions = {}): (specRunnable: SpecRunnable) => void {
         return Spec.runInContext(options, async () => {
-            let mergedOpenAPI = {};
+            let mergedSpec = {};
 
             for (const path of paths) {
                 const openAPI = await loadSpec(path);
-                mergedOpenAPI = deepmerge(mergedOpenAPI, openAPI);
+                mergedSpec = deepmerge(mergedSpec, openAPI);
             }
 
-            return new Spec(namespace, mergedOpenAPI, options);
+            if (!options.skipValidation) {
+                await Spec.validateSpec(mergedSpec);
+            } else {
+                getStatusLog()?.warn("Spec validation skipped!");
+            }
+
+            return new Spec(namespace, mergedSpec, options);
         });
     }
+
     public getClient(reactHooks: boolean): string {
         return this.exporter.exportClient(this.namespace, reactHooks);
     }
