@@ -17,31 +17,39 @@ export const mockRequestFactory: MockRequestFactory = (descriptor) => (request, 
     const pathWithParams = setPathParams(descriptor.path, request.path);
 
     const asyncResponse: MockResponseFunction = (url, opts) =>
-        new Promise<MockResponse>((res) => {
-            const actualRequest = {
-                path: request.path,
-                header: opts.headers,
-                query: request.header,
-                requestBody: opts.body,
-            } as RequestType<typeof descriptor>;
+        new Promise<MockResponse>((res, rej) => {
+            (async () => {
+                const requestBody = await (opts.body as any);
 
-            const response = typeof responseFactory === "function" ? responseFactory(actualRequest) : responseFactory;
+                if (typeof requestBody !== "string") {
+                    throw new Error("Cannot create mocked response. Expected body to be a string.");
+                }
 
-            const mockResponse: MockResponse = {
-                body: response.content,
-                status: response.status,
-                headers: response.header,
-            };
+                const actualRequest = {
+                    path: request.path,
+                    header: opts.headers,
+                    query: request.header,
+                    requestBody: requestBody.length > 0 ? JSON.parse(requestBody) : requestBody,
+                } as RequestType<typeof descriptor>;
 
-            setTimeout(() => res(mockResponse), Math.random() * 600 + 200);
+                const response = typeof responseFactory === "function" ? responseFactory(actualRequest) : responseFactory;
+
+                const mockResponse: MockResponse = {
+                    body: response.content,
+                    status: response.status,
+                    headers: response.header,
+                };
+
+                setTimeout(() => res(mockResponse), Math.random() * 600 + 200);
+            })().catch(rej);
         });
 
     fetchMock.mock(
         {
             method: descriptor.method,
-            url: `glob:*/${pathWithParams}${request.query ? "?*" : ""}`,
-            query: request.query ?? {},
-            body: request.requestBody ?? {},
+            url: `glob:*/${pathWithParams}*`,
+            query: request.query ?? undefined,
+            body: request.requestBody ?? undefined,
             matchPartialBody: true,
         },
         asyncResponse,
