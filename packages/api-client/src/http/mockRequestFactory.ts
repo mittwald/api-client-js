@@ -31,11 +31,10 @@ export const mockRequestFactory: MockRequestFactory = (descriptor) => (request, 
 
             const response = typeof responseFactory === "function" ? responseFactory(actualRequest) : responseFactory;
 
-            const mockResponse: MockResponse = {
-                body: response.content,
+            const mockResponse: MockResponse = new Response(JSON.stringify(response.content), {
                 headers: response.header,
                 status: response.status,
-            };
+            });
 
             setTimeout(() => res(mockResponse), Math.random() * 600 + 200);
         });
