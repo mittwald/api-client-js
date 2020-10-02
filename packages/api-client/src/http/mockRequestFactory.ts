@@ -30,7 +30,15 @@ export const mockRequestFactory: MockRequestFactory = (descriptor) => (request, 
             } as RequestType<typeof descriptor>;
 
             const response = typeof responseFactory === "function" ? responseFactory(actualRequest) : responseFactory;
-            setTimeout(() => res(response), Math.random() * 600 + 200);
+            setTimeout(
+                () =>
+                    res({
+                        body: response.content,
+                        headers: response.header,
+                        status: response.status,
+                    }),
+                Math.random() * 600 + 200,
+            );
         });
 
     fetchMock.mock(
