@@ -18,23 +18,20 @@ export const mockRequestFactory: MockRequestFactory = (descriptor) => (request, 
 
     const asyncResponse: MockResponseFunction = (url, opts) =>
         new Promise<MockResponse>((res) => {
-            if (typeof opts.body !== "string") {
-                throw new Error("Cannot generate mocked response. Expected body to be of type string.");
-            }
-
             const actualRequest = {
                 path: request.path,
                 header: opts.headers,
                 query: request.header,
-                requestBody: JSON.parse(opts.body),
+                requestBody: opts.body,
             } as RequestType<typeof descriptor>;
 
             const response = typeof responseFactory === "function" ? responseFactory(actualRequest) : responseFactory;
 
-            const mockResponse: MockResponse = new Response(JSON.stringify(response.content), {
-                headers: response.header,
+            const mockResponse: MockResponse = {
+                body: response.content,
                 status: response.status,
-            });
+                headers: response.header,
+            };
 
             setTimeout(() => res(mockResponse), Math.random() * 600 + 200);
         });
