@@ -64,5 +64,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "optionalDependencies": {
+    "fetch-mock": "^9.10.7"
+  }
 }

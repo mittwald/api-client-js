@@ -43,4 +43,5 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore http://petstore.swagger.i
 
 Spec.fromFiles(namespace, _, { statusLog: new OraStatusLog(), throwErrors: displayErrors, skipValidation })((spec) => {
     spec.writeClient(output, !!react);
+    spec.writeRequestMockingFactory(output);
 });

@@ -28,9 +28,17 @@ export class Exporter {
 
     public exportClient(namespace: string, reactHooks: boolean): string {
         const jobLog = getStatusLog();
-        jobLog?.start("rendering template for 'client'");
+        jobLog?.start("rendering 'client'");
         const result = this.export(namespace, "client/main.ejs", { reactHooks });
         jobLog?.succeed("'client' successfully rendered");
+        return result;
+    }
+
+    public exportRequestMockingFactory(namespace: string, mainFileImport: string): string {
+        const jobLog = getStatusLog();
+        jobLog?.start("rendering 'request mocking factory'");
+        const result = this.export(namespace, "request_mock/main.ejs", { mainFileImport });
+        jobLog?.succeed("'request mocking factory' successfully rendered");
         return result;
     }
 

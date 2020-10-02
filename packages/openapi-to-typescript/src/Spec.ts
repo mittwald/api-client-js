@@ -12,6 +12,7 @@ import jp from "fs-jetpack";
 import jsyaml from "js-yaml";
 import debug from "./debug";
 import SwaggerParser from "@apidevtools/swagger-parser";
+import path from "path";
 
 interface SpecOptions {
     statusLog?: StatusLog;
@@ -60,16 +61,19 @@ export class Spec {
         }
     }
 
-    public static async validateSpec(spec: object): Promise<void> {
+    public static async validateSpec(spec: any): Promise<void> {
         const log = getStatusLog();
         log?.start("validating OpenAPI/Swagger spec");
 
         debug("Validating %O", spec);
 
+        delete spec["__meta"];
+
         if ("swagger" in spec) {
             try {
-                await SwaggerParser.validate(spec as any);
+                await SwaggerParser.validate(spec, {});
             } catch (err) {
+                console.log(err);
                 throw new VError(
                     {
                         cause: err,
@@ -78,7 +82,7 @@ export class Spec {
                 );
             }
         } else {
-            const result = new OpenAPISchemaValidator({ version: 3 }).validate(spec as any);
+            const result = new OpenAPISchemaValidator({ version: 3 }).validate(spec);
 
             if (result.errors.length > 0) {
                 throw new VError(
@@ -155,11 +159,26 @@ export class Spec {
         return this.exporter.exportClient(this.namespace, reactHooks);
     }
 
+    public getRequestMockingFactory(mainFileImport: string): string {
+        return this.exporter.exportRequestMockingFactory(this.namespace, mainFileImport);
+    }
+
     public writeClient(filename: string, reactHooks: boolean): void {
         const log = getStatusLog();
 
         log?.start(`writing 'client' to "${filename}"`);
         jp.write(filename, this.getClient(reactHooks));
         log?.succeed(`'client' written to "${filename}"`);
+    }
+
+    public writeRequestMockingFactory(filename: string): void {
+        const log = getStatusLog();
+
+        const mocksFilename = path.join(path.dirname(filename), path.basename(filename, ".ts") + ".mocks.ts");
+        const mainFileImport = path.basename(path.relative(mocksFilename, filename), ".ts");
+
+        log?.start(`writing 'request mocking factory' to "${mocksFilename}"`);
+        jp.write(mocksFilename, this.getRequestMockingFactory(mainFileImport));
+        log?.succeed(`'request mocking factory' written to "${mocksFilename}"`);
     }
 }

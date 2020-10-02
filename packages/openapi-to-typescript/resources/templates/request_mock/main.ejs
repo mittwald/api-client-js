@@ -1,0 +1,17 @@
+/* eslint-disable */
+/* prettier-ignore */
+
+/**
+* This file is auto-generated with openapi2ts (@mittwald/openapi-to-typescript)
+*/
+
+import { mockRequestFactory } from "@mittwald/api-client/dist/http/mockRequestFactory";
+import * as descriptors from "./<%- mainFileImport %>";
+
+export const <%- camelCase(rootNamespace) %>RequestMocking = {
+<% Object.entries(paths).forEach(([path, operations]) => { %>
+<% Object.entries(operations).forEach(([method, operation]) => { %>
+  mock<%- pascalCase(operationId(path, method, operation)) %>: mockRequestFactory(descriptors.<%- operationId(path, method, operation) %>),
+<% }) %>
+<% }) %>
+};

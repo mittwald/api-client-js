@@ -18,6 +18,7 @@
 -   TS Types for requests: body, headers, path parameters, query parameters
 -   TS Types for responses: response types are correctly reflected for different response statuses
 -   TS Types for components: makes reuse of types very easy
+-   Easy mocking for all API operations
 -   Types can be imported separately and reused in your code-base
 -   little JavaScript footprint
 -   various options to configure transport level settings
@@ -117,6 +118,51 @@ if (petsResponse.status !== 200) {
 }
 
 const petNames = petsResponse.content.map((pet) => pet.name);
+```
+
+## Mocking of requests
+
+Request mocking lets you mock responses for certain API requests.
+
+In order to use request mocking, you need first need to add `fetch-mock`
+
+```shell script
+$ yarn add -D fetch-mock
+```
+
+Then you can use the mocking functions from the `<output>.mocks.ts` file, like this
+
+```typescript
+import { petStoreApiRequestMocking } from "./api/PetStoreClient.mocks";
+
+// With static response
+petStoreApiRequestMocking.mockAddPet(
+    {
+        // Mocks all requests, where the name is "Cat"
+        requestBody: {
+            name: "Cat",
+        },
+    },
+    {
+        status: 200,
+        content: {
+            id: 123,
+            photoUrls: ["https://www.cat.com/me.jpg"],
+            name: "Cat",
+        },
+    },
+);
+
+let petId = 1;
+
+// With dynamic response
+petStoreApiRequestMocking.mockAddPet({}, (req) => ({
+    content: {
+        ...req.requestBody,
+        id: ++petId,
+    },
+    status: 200,
+}));
 ```
 
 ## Using React hooks
