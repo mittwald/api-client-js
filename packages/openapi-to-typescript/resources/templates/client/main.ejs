@@ -70,7 +70,7 @@ export class <%- rootNamespace %>Client {
     }
 
     public static setInstance(client: <%- rootNamespace %>Client): void {
-        this.instance = client;
+        <%- rootNamespace %>Client.instance = client;
     }
 
     <% Object.entries(paths).forEach(([path, operations]) => { %>
