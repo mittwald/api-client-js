@@ -1,6 +1,6 @@
 import { OperationDescriptor, RequestType } from "../OperationDescriptor";
 import { Request, Response } from "./Client";
-import fetchMock, { MockResponse, MockResponseFunction } from "fetch-mock";
+import fetchMock, { MockOptions, MockResponse, MockResponseFunction } from "fetch-mock";
 import { setPathParams } from "./path";
 
 type DeepPartial<T> = {
@@ -44,14 +44,31 @@ export const mockRequestFactory: MockRequestFactory = (descriptor) => (request, 
             })().catch(rej);
         });
 
+    const mockOptions: MockOptions = {
+        method: descriptor.method,
+        query: request.query ?? undefined,
+        body: request.requestBody ?? undefined,
+        matchPartialBody: true,
+        overwriteRoutes: true,
+    };
+
     fetchMock.mock(
         {
-            method: descriptor.method,
-            url: `glob:*/${pathWithParams}*`,
-            query: request.query ?? undefined,
-            body: request.requestBody ?? undefined,
-            matchPartialBody: true,
+            ...mockOptions,
+            url: `glob:*/${pathWithParams}?*`,
         },
         asyncResponse,
     );
+
+    fetchMock.mock(
+        {
+            ...mockOptions,
+            url: `glob:*/${pathWithParams}`,
+        },
+        asyncResponse,
+    );
+};
+
+export const resetAllRequestMocks = (): void => {
+    fetchMock.reset();
 };
