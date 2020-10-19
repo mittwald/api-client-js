@@ -1,48 +1,49 @@
 import { OperationDescriptor, RequestType } from "../OperationDescriptor";
-import { Request, Response } from "./Client";
-import fetchMock, { MockOptions, MockResponse, MockResponseFunction } from "fetch-mock";
+import { Request as ClientRequest, Response } from "./Client";
+import fetchMock, { MockOptions, MockRequest, MockResponse } from "fetch-mock";
 import { setPathParams } from "./path";
 
 type DeepPartial<T> = {
     [TKey in keyof T]?: DeepPartial<T[TKey]>;
 };
 
-type PartialRequest<TRequest extends Request> = DeepPartial<Omit<TRequest, "path">> & Omit<TRequest, "query" | "header" | "requestBody">;
+type PartialRequest<TRequest extends ClientRequest> = DeepPartial<Omit<TRequest, "path">> &
+    Omit<TRequest, "query" | "header" | "requestBody">;
 
-export type MockRequestFactory = <TRequest extends Request, TResponse extends Response>(
+// The provided types are not up-to-date (third param is missing). So I did my own 🤷‍♂️
+type MockResponseFunction = (url: string, opts: MockRequest, request: Request) => Promise<MockResponse>;
+
+export type MockRequestFactory = <TRequest extends ClientRequest, TResponse extends Response>(
     descriptor: OperationDescriptor<TRequest, TResponse>,
 ) => (request: PartialRequest<TRequest>, response: TResponse | ((req: TRequest) => TResponse)) => void;
+
+const sleep = (): Promise<void> => new Promise((res) => setTimeout(() => res(), Math.random() * 600 + 200));
 
 export const mockRequestFactory: MockRequestFactory = (descriptor) => (request, responseFactory) => {
     const pathWithParams = setPathParams(descriptor.path, request.path);
 
-    const asyncResponse: MockResponseFunction = (url, opts) =>
-        new Promise<MockResponse>((res, rej) => {
-            (async () => {
-                const requestBody = await (opts.body as any);
+    const asyncResponse: MockResponseFunction = async (url, opts, rawRequest) => {
+        const requestBody = rawRequest.body ? await rawRequest.json() : undefined;
 
-                if (typeof requestBody !== "string") {
-                    throw new Error("Cannot create mocked response. Expected body to be a string.");
-                }
+        const actualRequest = {
+            path: request.path,
+            header: opts.headers,
+            query: request.header,
+            requestBody,
+        } as RequestType<typeof descriptor>;
 
-                const actualRequest = {
-                    path: request.path,
-                    header: opts.headers,
-                    query: request.header,
-                    requestBody: requestBody.length > 0 ? JSON.parse(requestBody) : requestBody,
-                } as RequestType<typeof descriptor>;
+        const response = typeof responseFactory === "function" ? responseFactory(actualRequest) : responseFactory;
 
-                const response = typeof responseFactory === "function" ? responseFactory(actualRequest) : responseFactory;
+        const mockResponse: MockResponse = {
+            body: response.content,
+            status: response.status,
+            headers: response.header,
+        };
 
-                const mockResponse: MockResponse = {
-                    body: response.content,
-                    status: response.status,
-                    headers: response.header,
-                };
+        await sleep();
 
-                setTimeout(() => res(mockResponse), Math.random() * 600 + 200);
-            })().catch(rej);
-        });
+        return mockResponse;
+    };
 
     const mockOptions: MockOptions = {
         method: descriptor.method,
