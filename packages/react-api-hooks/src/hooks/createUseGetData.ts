@@ -1,7 +1,8 @@
 import { RequestFunction } from "@mittwald/api-client/dist/OperationDescriptor";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { executionSubscriber, OnResultCallback, ResolvedFunctionResult } from "@mittwald/awesome-node-utils/funcs/ExecutionSubscriber";
 import { useIsOnline } from "./useIsOnline";
+import { useSafeState } from "./useSafeState";
 
 interface BaseResult {
     refreshCache: () => void;
@@ -43,11 +44,11 @@ export const createUseGetData = <T extends RequestFunction>(getRequestFn: () => 
 
     const cachedResult = disableCache ? undefined : executionSubscriber.getCachedResult(requestFn, ...funcParams);
 
-    const [result, setResult] = useState<ResolvedFunctionResult<T> | undefined>(cachedResult);
+    const [result, setResult] = useSafeState<ResolvedFunctionResult<T> | undefined>(cachedResult);
 
     const isOffline = !useIsOnline();
 
-    const [state, setState] = useState<GetDataHookState>(cachedResult !== undefined ? "ok" : "loading");
+    const [state, setState] = useSafeState<GetDataHookState>(cachedResult !== undefined ? "ok" : "loading");
 
     const wasOffline = useRef(isOffline);
 
