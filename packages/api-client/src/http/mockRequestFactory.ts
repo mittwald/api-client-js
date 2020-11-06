@@ -1,7 +1,7 @@
 import { OperationDescriptor, RequestType } from "../OperationDescriptor";
 import { Request as ClientRequest, Response } from "./Client";
 import fetchMock, { MockOptions, MockRequest, MockResponse } from "fetch-mock";
-import { setPathParams } from "./path";
+import { buildPathParamsMatcher, setPathParams } from "./path";
 
 type DeepPartial<T> = {
     [TKey in keyof T]?: DeepPartial<T[TKey]>;
@@ -19,55 +19,60 @@ export type MockRequestFactory = <TRequest extends ClientRequest, TResponse exte
 
 const sleep = (): Promise<void> => new Promise((res) => setTimeout(() => res(), Math.random() * 600 + 200));
 
-export const mockRequestFactory: MockRequestFactory = (descriptor) => (request, responseFactory) => {
-    const pathWithParams = setPathParams(descriptor.path, request.path);
+export const mockRequestFactory: MockRequestFactory = (descriptor) => {
+    const matchPathParams = buildPathParamsMatcher(descriptor.path);
 
-    const asyncResponse: MockResponseFunction = async (url, opts, rawRequest) => {
-        const requestBody = rawRequest.body ? await rawRequest.json() : undefined;
+    return (request, responseFactory) => {
+        const pathWithParams = setPathParams(descriptor.path, request.path);
 
-        const actualRequest = {
-            path: request.path,
-            header: opts.headers,
-            query: request.header,
-            requestBody,
-        } as RequestType<typeof descriptor>;
+        const asyncResponse: MockResponseFunction = async (url, opts, rawRequest) => {
+            const requestBody = rawRequest.body ? await rawRequest.json() : undefined;
+            const pathParams = matchPathParams(rawRequest.url);
 
-        const response = typeof responseFactory === "function" ? responseFactory(actualRequest) : responseFactory;
+            const actualRequest = {
+                path: pathParams,
+                header: opts.headers,
+                query: request.header,
+                requestBody,
+            } as RequestType<typeof descriptor>;
 
-        const mockResponse: MockResponse = {
-            body: response.content,
-            status: response.status,
-            headers: response.header,
+            const response = typeof responseFactory === "function" ? responseFactory(actualRequest) : responseFactory;
+
+            const mockResponse: MockResponse = {
+                body: response.content,
+                status: response.status,
+                headers: response.header,
+            };
+
+            await sleep();
+
+            return mockResponse;
         };
 
-        await sleep();
+        const mockOptions: MockOptions = {
+            method: descriptor.method,
+            query: request.query ?? undefined,
+            body: request.requestBody ?? undefined,
+            matchPartialBody: true,
+            overwriteRoutes: true,
+        };
 
-        return mockResponse;
+        fetchMock.mock(
+            {
+                ...mockOptions,
+                url: `glob:*/${pathWithParams}?*`,
+            },
+            asyncResponse,
+        );
+
+        fetchMock.mock(
+            {
+                ...mockOptions,
+                url: `glob:*/${pathWithParams}`,
+            },
+            asyncResponse,
+        );
     };
-
-    const mockOptions: MockOptions = {
-        method: descriptor.method,
-        query: request.query ?? undefined,
-        body: request.requestBody ?? undefined,
-        matchPartialBody: true,
-        overwriteRoutes: true,
-    };
-
-    fetchMock.mock(
-        {
-            ...mockOptions,
-            url: `glob:*/${pathWithParams}?*`,
-        },
-        asyncResponse,
-    );
-
-    fetchMock.mock(
-        {
-            ...mockOptions,
-            url: `glob:*/${pathWithParams}`,
-        },
-        asyncResponse,
-    );
 };
 
 export const resetAllRequestMocks = (): void => {
