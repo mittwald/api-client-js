@@ -43,6 +43,7 @@ export class Spec {
 
             const normalized: NormalizedSpec = transformOpenAPIExpression.evaluate(openAPISpec);
             log?.succeed("OpenAPI spec normalized");
+            debug("normalized spec: %O", normalized);
 
             objectEntries(normalized.paths).forEach(([path, ops]) =>
                 log?.info(`Path found: ${path} (methods: ${Object.keys(ops).join(", ")})`),

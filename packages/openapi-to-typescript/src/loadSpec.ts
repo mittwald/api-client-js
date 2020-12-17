@@ -27,7 +27,6 @@ export async function loadSpec(extendedPath: string, format?: FileFormat): Promi
         if (typeof loadedYaml !== "object") {
             throw new Error(`Expected loaded YAML to be of type object, but got ${typeof loadedYaml}!`);
         }
-        debug("Loaded YAML: %O", loadedYaml);
         log?.succeed("YAML parsed");
         openAPI = loadedYaml;
     } else if (iJson) {

@@ -13,9 +13,17 @@ type PartialRequest<TRequest extends ClientRequest> = DeepPartial<Omit<TRequest,
 // The provided types are not up-to-date (third param is missing). So I did my own 🤷‍♂️
 type MockResponseFunction = (url: string, opts: MockRequest, request: Request) => Promise<MockResponse>;
 
+// Make the mediaType property optional, because it can be defaulted to `application/json`
+type MockRequestFactoryResponse<T extends Response> = T extends { mediaType: string }
+    ? Partial<Pick<T, "mediaType">> & Omit<T, "mediaType">
+    : T;
+
 export type MockRequestFactory = <TRequest extends ClientRequest, TResponse extends Response>(
     descriptor: OperationDescriptor<TRequest, TResponse>,
-) => (request: PartialRequest<TRequest>, response: TResponse | ((req: TRequest) => TResponse)) => void;
+) => (
+    request: PartialRequest<TRequest>,
+    response: MockRequestFactoryResponse<TResponse> | ((req: TRequest) => MockRequestFactoryResponse<TResponse>),
+) => void;
 
 const sleep = (): Promise<void> => new Promise((res) => setTimeout(() => res(), Math.random() * 600 + 200));
 
@@ -41,7 +49,8 @@ export const mockRequestFactory: MockRequestFactory = (descriptor) => {
             const mockResponse: MockResponse = {
                 body: response.content,
                 status: response.status,
-                headers: response.header,
+                headers: response.headers,
+                mediaType: response.mediaType ?? "application/json",
             };
 
             await sleep();

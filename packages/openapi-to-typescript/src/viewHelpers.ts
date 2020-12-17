@@ -47,6 +47,10 @@ export const viewHelpersFactory = (namespace: string) => {
         return replaceRefsTypeNames(namespace, ts);
     }
 
+    function optional(schema: Schema): string {
+        return (schema.required ?? []).length > 0 ? "" : "?";
+    }
+
     function tsName(name: string): string {
         const snakedName = name.replace(/[^a-zA-Z0-9_]/gm, namespaceNameSeparator);
         const pascalCased = snakedName
@@ -83,5 +87,6 @@ export const viewHelpersFactory = (namespace: string) => {
         replaceRefsTypeNames,
         replaceRefWithConst,
         operationId,
+        optional,
     };
 };

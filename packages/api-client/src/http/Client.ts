@@ -2,8 +2,9 @@ import { Headers, OperationDescriptor } from "../OperationDescriptor";
 
 export interface Response {
     status: number;
+    mediaType?: string;
     content?: any;
-    header?: any;
+    headers?: any;
 }
 
 export interface Request {

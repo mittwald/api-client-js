@@ -1,5 +1,7 @@
 import { JSONSchema } from "json-schema-typed";
 
+export type ResponseMediaType = "application/json" | "base64";
+
 export interface OperationParameters {
     path?: JSONSchema;
     query?: JSONSchema;
@@ -10,10 +12,15 @@ export interface OperationParameters {
 export interface OperationResponse {
     content: JSONSchema;
     headers: JSONSchema;
+    mediaType: ResponseMediaType;
+}
+
+export interface OperationResponseTypes {
+    [type: string]: OperationResponse;
 }
 
 export interface OperationResponses {
-    [code: string]: OperationResponse;
+    [code: string]: OperationResponseTypes;
 }
 
 export interface Operation {

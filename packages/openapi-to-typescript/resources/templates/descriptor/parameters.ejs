@@ -3,7 +3,7 @@
         requestBody: <%- joinNamespace(rootNamespace, "paths", pathname, method, "parameters", "requestBody") %>,
     <% } %>
     <% if (operation.parameters.header) { %>
-        header: <%- joinNamespace(rootNamespace, "paths", pathname, method, "parameters", "header") %>,
+        header<%- optional(operation.parameters.header) %>: <%- joinNamespace(rootNamespace, "paths", pathname, method, "parameters", "header") %>,
     <% } %>
     <% if (operation.parameters.path) { %>
         path: <%- joinNamespace(rootNamespace, "paths", pathname, method, "parameters", "path") %>,

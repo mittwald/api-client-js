@@ -1,10 +1,16 @@
-<% if (typeof schema === "object" && "$ref" in schema) { %>
-    type <%- tsName(name) %> = <%- formatTs(rootNamespace, schema) %>;
-<% } else { %>
-    <% if (typeof schema == "object" && schema.type !== "object") { %>
-        type <%- tsName(name) %> = <%- formatTs(rootNamespace, schema) %>
+<% if (schema) { %>
+    <% if (typeof schema === "object" && "$ref" in schema) { %>
+        type <%- tsName(name) %> = <%- formatTs(rootNamespace, schema) %>;
     <% } else { %>
-        interface <%- tsName(name) %>
-        <%- formatTs(rootNamespace, schema) %>
+        <% if (typeof schema == "object" && schema.type !== "object") { %>
+            type <%- tsName(name) %> = <%- formatTs(rootNamespace, schema) %>
+        <% } else { %>
+            <% if (typeof schema === "string") { %>
+                type <%- tsName(name) %> = "<%- schema %>";
+            <% } else { %>
+                interface <%- tsName(name) %>
+                <%- formatTs(rootNamespace, schema) %>
+            <% } %>
+        <% } %>
     <% } %>
 <% } %>

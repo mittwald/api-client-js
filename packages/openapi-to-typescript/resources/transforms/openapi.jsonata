@@ -86,9 +86,16 @@
                 $obj.schema
         };
 
+
+        $collectResponseContentTypes := function($responses)<o:a> {
+            $each($responses, function($response) {
+                $response.content ~> $keys
+            })
+        };
+
         /* fn to construct 'parameters' (header, path, query, ...) */
-        $constructParams := function($params)<a:o>{
-            $params{
+        $constructParams := function($params)<x:o>{
+            $params ? $params{
                 in: {
                     "type": "object",
                     "required": [$[required=true].name],
@@ -96,7 +103,7 @@
                         name: $ ~> $schemaWithRef
                     }
                 }
-            }
+            } : { }
         };
 
         /* find all keys in the $obj where $obj[k].required */
@@ -126,13 +133,30 @@
                     /* response does have header and content */
                     $response{
                         /* $response is used as fallback to cover Swagger structure */
-                        "content": (content.`application/json` ? content.`application/json` : $response) ~> $schemaWithRef,
+                        "content": content ~> $mapValues($schemaWithRef),
                         "headers": headers ? $constructHeaders(headers)
                     }
                 };
 
                 $mapValues($, $construct)
             )
+        };
+
+        /* deep-merge "header.properties.Accept" into the parameters (idea: recursive function) */
+        $mergeInResponseContentTypeAcceptHeader := function($parameters, $responses)<o,o:o> {
+            [$parameters ~> $spread, {
+                "header": [
+                    $parameters.header ~> $spread, {
+                        "properties": [
+                            $parameters.header.properties ~> $spread, {
+                                "Accept": {
+                                    "type": "string",
+                                    "enum": $responses ~> $collectResponseContentTypes
+                                }
+                            }
+                    ] ~> $merge}
+                ] ~> $merge
+            }] ~> $merge
         };
 
         /* here we build the final object */
@@ -142,7 +166,7 @@
                     $method{
                         "operationId": operationId,
                         "parameters": [
-                            parameters ? $constructParams(parameters) : { },
+                            $constructParams(parameters) ~> $mergeInResponseContentTypeAcceptHeader(responses),
                             {
                                 "requestBody": requestBody.content.`application/json` ~> $schemaWithRef
                             }
