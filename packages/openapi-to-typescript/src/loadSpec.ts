@@ -4,7 +4,6 @@ import { readFileSync } from "fs";
 import yaml from "js-yaml";
 import { FileFormat } from "./Spec";
 import dotProp from "dot-prop";
-import debug from "./debug";
 
 export async function loadSpec(extendedPath: string, format?: FileFormat): Promise<object> {
     const log = getStatusLog();
