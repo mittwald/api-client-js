@@ -46,11 +46,16 @@ export const mockRequestFactory: MockRequestFactory = (descriptor) => {
 
             const response = typeof responseFactory === "function" ? responseFactory(actualRequest) : responseFactory;
 
+            const headers = response.headers ?? {};
+
+            if (response.mediaType) {
+                headers["content-type"] = response.mediaType;
+            }
+
             const mockResponse: MockResponse = {
                 body: response.content,
                 status: response.status,
-                headers: response.headers,
-                mediaType: response.mediaType ?? "application/json",
+                headers: headers,
             };
 
             await sleep();
