@@ -6,24 +6,28 @@ const d = debug.extend("mapResponse");
 
 export const mapResponse = async (response: Response): Promise<Client.Response> => {
     const headers = mapHeaders(response.headers);
-    const mediaType = headers["content-type"];
+
+    const rawMediaType = headers["content-type"];
+    // when header includes meta data like "base64; charset=UTF-8"
+    const mediaType = rawMediaType ? rawMediaType.split(";")[0] : undefined;
 
     d("Headers: %O", headers);
 
     let content: any;
 
-    try {
-        switch (mediaType) {
-            case "application/json":
-                content = await response.json();
-                break;
-            default:
-                content = await response.text();
-                break;
+    if (response.body) {
+        try {
+            switch (mediaType) {
+                case "application/json":
+                    content = await response.json();
+                    break;
+                default:
+                    content = await response.text();
+                    break;
+            }
+        } catch (err) {
+            d("Error while decoding body of response: %O", err);
         }
-    } catch (err) {
-        // response might be empty
-        d("Error: %O", err);
     }
 
     return {
