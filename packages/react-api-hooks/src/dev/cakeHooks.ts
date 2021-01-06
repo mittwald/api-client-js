@@ -6,13 +6,19 @@ export const client = new KyClient();
 
 const getCakeDescriptor: OperationDescriptor<
     { path: { id: string } },
-    {
-        status: 200;
-        content: {
-            name: string;
-            topping: string;
-        };
-    }
+    | {
+          status: 200;
+          content: {
+              name: string;
+              topping: string;
+          };
+          mediaType: "application/json";
+      }
+    | {
+          status: 200;
+          content: string;
+          mediaType: "base64";
+      }
 > = {
     method: "get",
     path: "/cake/{id}",
