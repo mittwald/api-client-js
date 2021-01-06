@@ -165,6 +165,32 @@ petStoreApiRequestMocking.mockAddPet({}, (req) => ({
 }));
 ```
 
+### Using wildcards in Path parameters
+
+If your request path contains parameters, you can also use wildcards, to mock all requests. To use the actual param in the mocked response, you can use the response factory function and access the `req.path.myParam` property.
+
+```typescript
+import { petStoreApiRequestMocking } from "./api/PetStoreClient.mocks";
+
+petStoreApiRequestMocking.mockGetPet(
+    {
+        // Mocks all requests
+        path: {
+            id: "*",
+        },
+    },
+    (req) => ({
+        content: {
+            // you can get the actual param from the request
+            id: req.path.id,
+            name: `Cat ${req.path.id}`,
+        },
+        status: 200,
+    })
+);
+```
+
+
 ## Using React hooks
 
 If you have enabled the React hook generation with the `--react` flag, you get data loading hooks for each API operation.
