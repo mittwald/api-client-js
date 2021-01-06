@@ -48,7 +48,7 @@ export const viewHelpersFactory = (namespace: string) => {
     }
 
     function optional(schema: Schema): string {
-        return (schema.required ?? []).length > 0 ? "" : "?";
+        return (Array.isArray(schema.required) && schema.required.length > 0) || schema.required ? "" : "?";
     }
 
     function tsName(name: string): string {

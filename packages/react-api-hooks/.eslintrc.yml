@@ -17,7 +17,6 @@ rules:
     - error
     - default: array-simple
   "@typescript-eslint/await-thenable": error
-  "@typescript-eslint/class-name-casing": error
   "@typescript-eslint/consistent-type-assertions": off
   "@typescript-eslint/consistent-type-definitions":
     - error
@@ -28,7 +27,6 @@ rules:
       allowHigherOrderFunctions: true
       allowTypedFunctionExpressions: true
   "@typescript-eslint/explicit-member-accessibility": error
-  "@typescript-eslint/generic-type-naming": error
   "@typescript-eslint/member-delimiter-style":
     - error
     - multiline:
@@ -64,7 +62,6 @@ rules:
   "@typescript-eslint/no-type-alias": off
   "@typescript-eslint/no-unnecessary-condition":
     - error
-    - ignoreRhs: true
   "@typescript-eslint/no-unnecessary-qualifier": error
   "@typescript-eslint/no-unnecessary-type-arguments": off
   "@typescript-eslint/no-unnecessary-type-assertion": error
@@ -106,6 +103,34 @@ rules:
   semi:
     - error
     - always
+  "@typescript-eslint/naming-convention":
+    - error
+    - selector: default
+      format:
+        - camelCase
+    - selector: parameter
+      format:
+        - camelCase
+      leadingUnderscore: allow
+    - selector: typeLike
+      format:
+        - PascalCase
+    - selector: enumMember
+      format:
+        - camelCase
+        - UPPER_CASE
+      leadingUnderscore: allow
+    - selector: property
+      format:
+        - camelCase
+        - PascalCase
+        - UPPER_CASE
+      leadingUnderscore: allow
+    - selector: variable
+      format:
+        - PascalCase
+        - camelCase
+        - UPPER_CASE
 settings:
   react:
     createClass: createReactClass

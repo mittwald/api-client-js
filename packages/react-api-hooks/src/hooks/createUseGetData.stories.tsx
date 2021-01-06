@@ -23,8 +23,14 @@ const CakeName: FC<CakeNameProps> = (props) => {
     if (cake.state === "noAccess") {
         return <>No access</>;
     }
+    if (cake.state === "ok" && cake.mediaType === "application/json") {
+        return <>{cake.data.name}</>;
+    }
+    if (cake.state === "ok" && cake.mediaType === "base64") {
+        return <>{btoa(cake.data)}</>;
+    }
 
-    return <>{cake.data?.name ?? "..."}</>;
+    return <>...</>;
 };
 
 export const examples = (): ReactElement => {

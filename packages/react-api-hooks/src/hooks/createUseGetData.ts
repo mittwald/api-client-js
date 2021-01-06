@@ -1,6 +1,10 @@
 import { RequestFunction } from "@mittwald/api-client/dist/OperationDescriptor";
-import { useEffect, useRef } from "react";
-import { executionSubscriber, OnResultCallback, ResolvedFunctionResult } from "@mittwald/awesome-node-utils/funcs/ExecutionSubscriber";
+import { useEffect, useRef, useState } from "react";
+import {
+    executionSubscriber,
+    OnResultCallback,
+    ResolvedFunctionResult as RequestFunctionResult,
+} from "@mittwald/awesome-node-utils/funcs/ExecutionSubscriber";
 import { useIsOnline } from "./useIsOnline";
 import { useSafeState } from "./useSafeState";
 
@@ -8,17 +12,17 @@ interface BaseResult {
     refreshCache: () => void;
 }
 
-export interface GetDataHookNoDataResult<T extends RequestFunction> extends BaseResult {
+export type Response<T> = T extends { status: 200; content: infer TContent; mediaType?: infer TMediaType }
+    ? { data: TContent; mediaType?: TMediaType }
+    : never;
+
+export type GetDataHookNoDataResult<T extends RequestFunction> = BaseResult & {
     state: "error" | "notFound" | "noAccess" | "unauthorized" | "loading" | "timeout";
-    data?: ResponseContent<ResolvedFunctionResult<T>>;
-}
+} & Partial<Response<RequestFunctionResult<T>>>;
 
-export type ResponseContent<T> = T extends { status: 200; content: infer TContent } ? TContent : never;
-
-export interface GetDataHookDataResult<T extends RequestFunction> extends BaseResult {
+export type GetDataHookDataResult<T extends RequestFunction> = BaseResult & {
     state: "ok";
-    data: ResponseContent<ResolvedFunctionResult<T>>;
-}
+} & Response<RequestFunctionResult<T>>;
 
 export type GetDataHookState = GetDataHookResult<any>["state"] | GetDataHookNoDataResult<any>["state"];
 
@@ -33,18 +37,25 @@ export interface UseGetDataOptions {
 }
 
 export const createUseGetData = <T extends RequestFunction>(getRequestFn: () => T) => (
-    request: Parameters<T>[0],
+    request: Parameters<T>[0] | null,
     options?: UseGetDataOptions,
 ): GetDataHookResult<T> => {
     const { disableCache = false } = options ?? {};
 
     const requestFn = getRequestFn();
 
+    // The rules of hooks do not allow conditional calling, but you can use `null` as request to short-circuit executing the request
+    const [shortCircuitExecution, setShortCircuitExecution] = useState(request === null);
+
+    useEffect(() => {
+        setShortCircuitExecution(request === null);
+    }, [setShortCircuitExecution, request]);
+
     const funcParams = [request] as Parameters<T>;
 
-    const cachedResult = disableCache ? undefined : executionSubscriber.getCachedResult(requestFn, ...funcParams);
+    const cachedResult = disableCache || request === null ? undefined : executionSubscriber.getCachedResult(requestFn, ...funcParams);
 
-    const [result, setResult] = useSafeState<ResolvedFunctionResult<T> | undefined>(cachedResult);
+    const [result, setResult] = useSafeState<RequestFunctionResult<T> | undefined>(cachedResult);
 
     const isOffline = !useIsOnline();
 
@@ -87,6 +98,9 @@ export const createUseGetData = <T extends RequestFunction>(getRequestFn: () => 
     };
 
     const refreshCache = (): void => {
+        if (shortCircuitExecution) {
+            return;
+        }
         setState("loading");
         executionSubscriber.refreshCache(requestFn, ...funcParams);
     };
@@ -105,22 +119,25 @@ export const createUseGetData = <T extends RequestFunction>(getRequestFn: () => 
         wasOffline.current = isOffline;
     }, [isOffline]);
 
-    useEffect(
-        () =>
-            executionSubscriber.subscribe<T>(
-                requestFn,
-                {
-                    onResult,
-                    onError,
-                    onExecuting,
-                },
-                ...funcParams,
-            ),
-        [],
-    );
+    useEffect(() => {
+        if (shortCircuitExecution) {
+            return;
+        }
+
+        return executionSubscriber.subscribe<T>(
+            requestFn,
+            {
+                onResult,
+                onError,
+                onExecuting,
+            },
+            ...funcParams,
+        );
+    }, [shortCircuitExecution]);
 
     return {
         data: result?.content,
+        mediaType: result?.mediaType,
         state,
         refreshCache,
     };

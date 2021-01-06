@@ -167,7 +167,8 @@ petStoreApiRequestMocking.mockAddPet({}, (req) => ({
 
 ### Using wildcards in Path parameters
 
-If your request path contains parameters, you can also use wildcards, to mock all requests. To use the actual param in the mocked response, you can use the response factory function and access the `req.path.myParam` property.
+If your request path contains parameters, you can also use wildcards, to mock all requests. To use the actual param in the mocked response,
+you can use the response factory function and access the `req.path.myParam` property.
 
 ```typescript
 import { petStoreApiRequestMocking } from "./api/PetStoreClient.mocks";
@@ -186,10 +187,9 @@ petStoreApiRequestMocking.mockGetPet(
             name: `Cat ${req.path.id}`,
         },
         status: 200,
-    })
+    }),
 );
 ```
-
 
 ## Using React hooks
 
@@ -223,6 +223,17 @@ const PetStatus: FC<{ id: string }> = (props) => {
             <p>{pet?.status || <Skeleton />}</p>
         </>
     );
+};
+```
+
+### Short-circuit request
+
+The rules of hooks do not allow conditional calling of hooks, but you can use `null` as request to short-circuit executing the request.
+
+If `null` is used the response is in state `loading`.
+
+```tsx
+const petResponse = useGetPetById(someCondition ? { path: { petId: props.id } } : null);
 };
 ```
 
