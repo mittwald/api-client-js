@@ -15,6 +15,7 @@
         <% if (response.headers) { %>
             headers: <%- joinNamespace(rootNamespace, "paths", pathname, method, "responses", status, "headers") %>;
         <% }%>
+        content: never;
     })
     <% } %>
 <% }) %>
