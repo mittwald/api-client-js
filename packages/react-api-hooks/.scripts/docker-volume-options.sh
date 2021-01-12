@@ -19,3 +19,5 @@ function getDockerVolumeOption() {
 
     echo "${volumeOption}"
 }
+
+echo $(getDockerVolumeOption)

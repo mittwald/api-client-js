@@ -7,7 +7,8 @@
       "debugger-logger": false,
       "git-ignore": true,
       "readme": true,
-      "gitlab-ci": true
+      "gitlab-ci": true,
+      "dependabot": false
     },
     "default-dependencies": true,
     "git-hooks": true,

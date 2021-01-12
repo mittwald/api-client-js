@@ -8,3 +8,4 @@ build
 resources
 .gitlab-ci
 .gitlab-ci.yml
+globalConfig.json

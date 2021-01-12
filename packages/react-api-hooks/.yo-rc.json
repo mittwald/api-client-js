@@ -6,7 +6,8 @@
       "react-storybook": true,
       "git-ignore": true,
       "readme": true,
-      "gitlab-ci": true
+      "gitlab-ci": true,
+      "dependabot": false
     },
     "typescript": true,
     "react": true,

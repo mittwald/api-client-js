@@ -8,7 +8,8 @@
       "git-ignore": true,
       "readme": true,
       "gitlab-ci": true,
-      "debugKey": "openapi-to-typescript"
+      "debugKey": "openapi-to-typescript",
+      "dependabot": false
     },
     "default-dependencies": true,
     "git-hooks": true,

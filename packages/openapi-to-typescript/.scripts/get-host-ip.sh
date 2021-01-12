@@ -12,3 +12,5 @@ function getHostIP() {
 
     echo "${getHostIP}"
 }
+
+echo $(getHostIP)

@@ -1,5 +1,5 @@
 variables:
-  NPM_DIST_DIR: "/dist"
+  NPM_DIST_DIR: ""
   NPM_WORKING_DIR: $CI_PROJECT_DIR
   NODE_VERSION: 12
   COVERAGE_PUBLIC_SUBDIR: ""
@@ -39,7 +39,7 @@ variables:
     - cd ${NPM_WORKING_DIR}
     - yarn prepublish:all
     - cd ${NPM_WORKING_DIR}${NPM_DIST_DIR}
-    - npm version ${CI_COMMIT_TAG}
+    - npm version ${CI_COMMIT_TAG} --git-tag-version false
     - npm publish
   only:
     - tags
@@ -73,7 +73,7 @@ variables:
 .publish:test-coverage:
   script:
     - mkdir -p public/${COVERAGE_PUBLIC_SUBDIR}
-    - mv ${NPM_WORKING_DIR}/coverage/lcov-report public/${COVERAGE_PUBLIC_SUBDIR}
+    - mv ${NPM_WORKING_DIR}/coverage/lcov-report/* public/${COVERAGE_PUBLIC_SUBDIR}
   artifacts:
     paths:
       - public

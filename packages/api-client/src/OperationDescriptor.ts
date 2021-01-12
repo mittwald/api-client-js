@@ -2,6 +2,7 @@
 export type Headers = Record<string, string>;
 export type PathParams = Record<string, string>;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars,no-unused-vars
 export interface OperationDescriptor<TRequest = any, TResponse = any> {
     path: string;
     method: string;

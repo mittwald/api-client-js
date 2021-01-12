@@ -8,3 +8,4 @@ dist
 build
 .gitlab-ci
 .gitlab-ci.yml
+globalConfig.json

@@ -9,9 +9,9 @@
     "emitDecoratorMetadata": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
-    "target": "es6",
+    "target": "ES2019",
     "lib": [
-      "es2016"
+      "es2019"
     ],
     "module": "commonjs"
   },

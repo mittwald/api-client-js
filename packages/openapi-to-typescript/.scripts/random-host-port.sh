@@ -9,3 +9,5 @@ function getRandomHostPort() {
         fi
     done
 }
+
+echo $(getRandomHostPort)

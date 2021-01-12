@@ -38,3 +38,4 @@ atlassian-ide-plugin.xml
 .DS_Store
 Thumbs.db
 [Dd]esktop.ini
+globalConfig.json
