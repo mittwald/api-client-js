@@ -1,5 +1,5 @@
 import { RequestFunction } from "@mittwald/api-client/dist/OperationDescriptor";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
     executionSubscriber,
     OnResultCallback,
@@ -135,10 +135,13 @@ export const createUseGetData = <T extends RequestFunction>(getRequestFn: () => 
         );
     }, [shortCircuitExecution]);
 
-    return {
-        data: result?.content,
-        mediaType: result?.mediaType,
-        state,
-        refreshCache,
-    };
+    return useMemo(
+        () => ({
+            data: result?.content,
+            mediaType: result?.mediaType,
+            state,
+            refreshCache,
+        }),
+        [state],
+    );
 };

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { createUseGetData } from "./createUseGetData";
 import { RequestFunction } from "@mittwald/api-client/dist/OperationDescriptor";
 import { render, RenderResult, waitFor } from "@testing-library/react";
@@ -19,8 +19,13 @@ const useGetData = createUseGetData(() => requestFn);
 
 const request = { request: "anything" };
 
+let hookCalls = 0;
+
 const TestComponent: FC = () => {
     const response = useGetData(request);
+    useEffect(() => {
+        hookCalls++;
+    }, [response]);
 
     return <>{response.state}</>;
 };
@@ -55,6 +60,7 @@ const expectViews = async (...views: string[]): Promise<void> => {
 
 beforeEach(() => {
     executionSubscriber.clearCache();
+    hookCalls = 0;
 });
 
 test("regular loading state: 'loading => ok'", async () => {
@@ -100,4 +106,22 @@ test("requestFunc throws internally", async () => {
 
     renderView();
     await expectViews("loading", "error");
+});
+
+test("hooks with response as dependency are not re-called, when response is cached", async () => {
+    getResponseStatus.mockReturnValueOnce(200);
+    renderView();
+
+    await waitFor(
+        () => {
+            expect(renderResult.getByText("ok")).toBeDefined();
+        },
+        {
+            container: renderResult.container,
+        },
+    );
+
+    const hooksCalledFirstRender = hookCalls;
+    renderResult.rerender(<TestComponent />);
+    expect(hookCalls).toBe(hooksCalledFirstRender);
 });
