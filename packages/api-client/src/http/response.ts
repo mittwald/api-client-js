@@ -4,25 +4,27 @@ import debug from "../debug";
 
 const d = debug.extend("mapResponse");
 
-export const mapResponse = async (response: Response): Promise<Client.Response> => {
-    const headers = mapHeaders(response.headers);
+export const getMediaType = (headers: Headers): string | undefined => {
+    const mappedHeaders = mapHeaders(headers);
 
-    const rawMediaType = headers["content-type"];
+    const rawMediaType = mappedHeaders["content-type"];
     // when header includes meta data like "base64; charset=UTF-8"
-    const mediaType = rawMediaType ? rawMediaType.split(";")[0] : undefined;
+    return rawMediaType ? rawMediaType.split(";")[0] : undefined;
+};
 
-    d("Headers: %O", headers);
+export const mapBody = async (body: Body, headers: Headers): Promise<any> => {
+    const mediaType = getMediaType(headers);
 
     let content: any;
 
-    if (response.body) {
+    if (body.body) {
         try {
-            switch (mediaType) {
+            switch (mediaType?.toLowerCase()) {
                 case "application/json":
-                    content = await response.json();
+                    content = await body.json();
                     break;
                 default:
-                    content = await response.text();
+                    content = await body.text();
                     break;
             }
         } catch (err) {
@@ -30,10 +32,16 @@ export const mapResponse = async (response: Response): Promise<Client.Response> 
         }
     }
 
+    return content;
+};
+
+export const mapResponse = async (response: Response): Promise<Client.Response> => {
+    const mediaType = getMediaType(response.headers);
+
     return {
         status: response.status,
         mediaType,
-        content,
-        headers,
+        content: await mapBody(response, response.headers),
+        headers: mapHeaders(response.headers),
     };
 };

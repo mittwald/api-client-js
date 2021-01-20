@@ -1,6 +1,7 @@
-import { mapResponse } from "./response";
-import { mockRequestFactory, resetAllRequestMocks } from "./mockRequestFactory";
+import { Request as ClientRequest, Response } from "./Client";
+import { mockRequestFactory, MockRequestFactoryResponse, PartialRequest, resetAllRequestMocks } from "./mockRequestFactory";
 import { KyClient } from "./KyClient";
+import { OperationDescriptor } from "../OperationDescriptor";
 
 const client = new KyClient({
     ky: {
@@ -8,88 +9,206 @@ const client = new KyClient({
     },
 });
 
+interface MockTableEntry {
+    operation: OperationDescriptor<ClientRequest, Response>;
+    reqMatcher?: PartialRequest<ClientRequest>;
+    req?: ClientRequest;
+    expectedReq?: ClientRequest;
+    mockResp?: MockRequestFactoryResponse<Response>;
+    expectedResp?: Partial<Response>;
+    throws?: boolean;
+}
+
 describe("mockRequestFactory()", () => {
     beforeEach(() => {
         resetAllRequestMocks();
     });
 
-    test("does generally mock responses correctly", async () => {
-        const mockRequest = mockRequestFactory<
-            {},
+    test.each<[string, MockTableEntry]>([
+        [
+            "Requests are generally mocked",
             {
-                status: 200;
-                content: {
-                    bar: string;
-                };
-            }
-        >({
-            path: "/test-mock",
-            method: "get",
-        });
-
-        mockRequest(
-            {},
-            {
-                content: {
-                    bar: "bar",
+                operation: {
+                    path: "/test/",
+                    method: "get",
                 },
-                status: 200,
             },
-        );
-
-        const response = await client.ky.get("test-mock");
-        const mappedResponse = await mapResponse(response);
-
-        return expect(mappedResponse).toMatchInlineSnapshot(`
-                    Object {
-                      "content": Object {
-                        "bar": "bar",
-                      },
-                      "headers": Object {
-                        "content-length": "13",
-                        "content-type": "application/json",
-                      },
-                      "mediaType": "application/json",
-                      "status": 200,
-                    }
-                `);
-    });
-
-    test("does use correct response content-type", async () => {
-        const mockRequest = mockRequestFactory<
-            {},
+        ],
+        [
+            "Requests will be mocked, when using wildcards in path parameters",
             {
-                status: 200;
-                content: string;
-                mediaType: "base64";
-            }
-        >({
-            path: "/test-mock",
-            method: "get",
+                operation: {
+                    path: "/test/{id}",
+                    method: "get",
+                },
+                reqMatcher: {
+                    path: {
+                        id: "*",
+                    },
+                },
+                req: {
+                    path: { id: "foo" },
+                },
+            },
+        ],
+        [
+            "Requests will not be mocked, when path parameters do not match",
+            {
+                operation: {
+                    path: "/test/{id}",
+                    method: "get",
+                },
+                reqMatcher: {
+                    path: {
+                        id: "special-id",
+                    },
+                },
+                req: {
+                    path: { id: "foo" },
+                },
+                throws: true,
+            },
+        ],
+        [
+            "Path parameter is in request",
+            {
+                operation: {
+                    path: "/test/{id}",
+                    method: "get",
+                },
+                reqMatcher: {
+                    path: {
+                        id: "*",
+                    },
+                },
+                req: {
+                    path: { id: "foo" },
+                },
+                expectedReq: {
+                    path: { id: "foo" },
+                },
+            },
+        ],
+        [
+            "Request body is in request",
+            {
+                operation: {
+                    path: "/test",
+                    method: "post",
+                },
+                req: {
+                    requestBody: { foo: "bar" },
+                },
+                expectedReq: {
+                    requestBody: { foo: "bar" },
+                },
+            },
+        ],
+        [
+            "Request query string is in request",
+            {
+                operation: {
+                    path: "/test",
+                    method: "post",
+                },
+                req: {
+                    query: {
+                        foo: "bar",
+                    },
+                },
+                expectedReq: {
+                    query: { foo: "bar" },
+                },
+            },
+        ],
+        [
+            "Request media type in in request",
+            {
+                operation: {
+                    path: "/test",
+                    method: "post",
+                },
+                req: {
+                    header: {
+                        "x-my-header": "foo",
+                    },
+                },
+                expectedReq: {
+                    header: {
+                        "x-my-header": "foo",
+                    },
+                },
+            },
+        ],
+        [
+            "Mocked application/JSON response has object in its content",
+            {
+                operation: {
+                    path: "/test",
+                    method: "get",
+                },
+                reqMatcher: {
+                    path: "/test",
+                },
+                mockResp: {
+                    status: 200,
+                    content: {
+                        foo: "bar",
+                    },
+                    mediaType: "application/json",
+                },
+                expectedResp: {
+                    content: {
+                        foo: "bar",
+                    },
+                    mediaType: "application/json",
+                },
+            },
+        ],
+        [
+            "Mocked text/plain response has string in its content",
+            {
+                operation: {
+                    path: "/test",
+                    method: "get",
+                },
+                reqMatcher: {
+                    path: "/test",
+                },
+                mockResp: {
+                    status: 200,
+                    content: "plainText",
+                    mediaType: "text/plain",
+                },
+                expectedResp: {
+                    content: "plainText",
+                    mediaType: "text/plain",
+                },
+            },
+        ],
+    ])("%s", async (_, { expectedResp, expectedReq, mockResp = { status: 200 }, reqMatcher = {}, req = {}, operation, throws }) => {
+        let actualRequest: any;
+
+        const mockRequest = mockRequestFactory(operation);
+        mockRequest(reqMatcher, (request) => {
+            actualRequest = request;
+            return mockResp;
         });
 
-        mockRequest(
-            {},
-            {
-                content: "Zm9v",
-                status: 200,
-                mediaType: "base64; charset=UTF-8" as any,
-            },
-        );
+        const requestFunction = client.requestFunctionFactory(operation);
 
-        const response = await client.ky.get("test-mock");
-        const mappedResponse = await mapResponse(response);
+        if (throws) {
+            return expect(requestFunction(req)).rejects.toBeDefined();
+        }
 
-        return expect(mappedResponse).toMatchInlineSnapshot(`
-                    Object {
-                      "content": "Zm9v",
-                      "headers": Object {
-                        "content-length": "4",
-                        "content-type": "base64; charset=UTF-8",
-                      },
-                      "mediaType": "base64",
-                      "status": 200,
-                    }
-                `);
+        const response = await requestFunction(req);
+
+        if (expectedReq) {
+            expect(actualRequest).toMatchObject(expectedReq);
+        }
+
+        if (expectedResp) {
+            expect(response).toMatchObject(expectedResp);
+        }
     });
 });
