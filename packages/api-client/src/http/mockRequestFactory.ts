@@ -2,19 +2,22 @@ import { OperationDescriptor, RequestType } from "../OperationDescriptor";
 import { Request as ClientRequest, Response } from "./Client";
 import fetchMock, { MockOptions, MockRequest, MockResponse } from "fetch-mock";
 import { buildPathParamsMatcher, setPathParams } from "./path";
+import { mapBody } from "./response";
+import { mapHeaders } from "./headers";
+import queryString from "querystring";
 
-type DeepPartial<T> = {
+export type DeepPartial<T> = {
     [TKey in keyof T]?: DeepPartial<T[TKey]>;
 };
 
-type PartialRequest<TRequest extends ClientRequest> = DeepPartial<Omit<TRequest, "path">> &
+export type PartialRequest<TRequest extends ClientRequest> = DeepPartial<Omit<TRequest, "path">> &
     Omit<TRequest, "query" | "header" | "requestBody">;
 
 // The provided types are not up-to-date (third param is missing). So I did my own 🤷‍♂️
-type MockResponseFunction = (url: string, opts: MockRequest, request: Request) => Promise<MockResponse>;
+export type MockResponseFunction = (url: string, opts: MockRequest, request: Request) => Promise<MockResponse>;
 
 // Make the mediaType property optional, because it can be defaulted to `application/json`
-type MockRequestFactoryResponse<T extends Response> = T extends { mediaType: string }
+export type MockRequestFactoryResponse<T extends Response> = T extends { mediaType: string }
     ? Partial<Pick<T, "mediaType">> & Omit<T, "mediaType">
     : T;
 
@@ -34,13 +37,13 @@ export const mockRequestFactory: MockRequestFactory = (descriptor) => {
         const pathWithParams = setPathParams(descriptor.path, request.path);
 
         const asyncResponse: MockResponseFunction = async (url, opts, rawRequest) => {
-            const requestBody = rawRequest.body ? await rawRequest.json() : undefined;
+            const requestBody = await mapBody(rawRequest, rawRequest.headers);
             const pathParams = matchPathParams(rawRequest.url);
 
             const actualRequest = {
                 path: pathParams,
-                header: opts.headers,
-                query: request.header,
+                header: mapHeaders(rawRequest.headers),
+                query: queryString.parse(url.split("?")[1]),
                 requestBody,
             } as RequestType<typeof descriptor>;
 
