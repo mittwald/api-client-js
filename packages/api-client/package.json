@@ -57,8 +57,8 @@
   "dependencies": {
     "@types/parse-path": "^4.0.0",
     "debug": "^4.1.1",
-    "ky": "^0.18.0",
-    "ky-universal": "^0.5.0",
+    "ky": "^0.25.1",
+    "ky-universal": "^0.8.2",
     "parse-path": "^4.0.2",
     "path-to-regexp": "^6.2.0",
     "query-string": "^6.13.8",

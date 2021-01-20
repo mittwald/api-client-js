@@ -42,6 +42,8 @@ export class KyClient implements Client {
         const { path, method } = descriptor;
         const { header, requestBody, path: pathParams, query } = request;
 
+        d("requestBody: %o", requestBody);
+
         // make a shallow copy
         const options = this.options.requestOptionsHook({ ...this.options, ky: { ...this.options.ky } });
 

@@ -17,20 +17,20 @@ export const mapBody = async (body: Body, headers: Headers): Promise<any> => {
 
     let content: any;
 
-    if (body.body) {
-        try {
-            switch (mediaType?.toLowerCase()) {
-                case "application/json":
-                    content = await body.json();
-                    break;
-                default:
-                    content = await body.text();
-                    break;
-            }
-        } catch (err) {
-            d("Error while decoding body of response: %O", err);
+    try {
+        switch (mediaType?.toLowerCase()) {
+            case "application/json":
+                content = await body.json();
+                break;
+            default:
+                content = await body.text();
+                break;
         }
+    } catch (err) {
+        d("Error while decoding body of response: %O", err);
     }
+
+    d("mapped body with media type %s to %o", mediaType, content);
 
     return content;
 };
