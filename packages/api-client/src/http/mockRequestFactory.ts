@@ -5,6 +5,7 @@ import { buildPathParamsMatcher, setPathParams } from "./path";
 import { mapBody } from "./response";
 import { mapHeaders } from "./headers";
 import queryString from "querystring";
+import debug from "../debug";
 
 export type DeepPartial<T> = {
     [TKey in keyof T]?: DeepPartial<T[TKey]>;
@@ -29,6 +30,8 @@ export type MockRequestFactory = <TRequest extends ClientRequest, TResponse exte
 ) => void;
 
 const sleep = (): Promise<void> => new Promise((res) => setTimeout(() => res(), Math.random() * 600 + 200));
+
+const d = debug.extend("mockRequestFactory");
 
 export const mockRequestFactory: MockRequestFactory = (descriptor) => {
     const matchPathParams = buildPathParamsMatcher(descriptor.path);
@@ -73,6 +76,8 @@ export const mockRequestFactory: MockRequestFactory = (descriptor) => {
             matchPartialBody: true,
             overwriteRoutes: true,
         };
+
+        d("mocking %o for url %s with options %o", descriptor, pathWithParams, mockOptions);
 
         fetchMock.mock(
             {
