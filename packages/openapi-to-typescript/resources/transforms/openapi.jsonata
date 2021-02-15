@@ -7,6 +7,12 @@
         } : { }
     };
 
+
+    /* returns the $obj as array */
+    $asArray := function($obj)<x:a> {
+        [$obj]
+    };
+
     /* returns the first key of $ctx */
     $k := function($ctx)<o:s>{
         ($ctx ~> $keys)[0]
@@ -33,6 +39,15 @@
     /* just checks for a ref in the $val */
     $hasRef := function($val)<o:b>{
         "$ref" in $val.$keys()
+    };
+
+    $resolveSecurityScheme := function($obj)<o:o> {
+        $resolvePath(["components", "securitySchemes", $k($obj)])
+    };
+
+    /* if $value is falsy return $or otherwise $value
+    $or := function($value, $or)<x:x> {
+        $value ? $value : $or
     };
 
     /* finds refs in the root object and spreads the refs content into the current node */
@@ -159,6 +174,19 @@
             }] ~> $merge
         };
 
+        $getApiKeyParams := function($security)<a:o> {
+            $security.(
+                $buildParam := function($schema) {
+                    [
+                        { "schema": {"type": "string"}, "required": true },
+                        $schema
+                    ] ~> $merge
+                };
+
+                ($ ~> $map($resolveSecurityScheme))[type="apiKey"] ~> $map($buildParam) ~> $asArray
+            )
+        };
+
         /* here we build the final object */
         {
             "paths": paths ~> $mapValues(function ($path) {
@@ -166,7 +194,7 @@
                     $method{
                         "operationId": operationId,
                         "parameters": [
-                            $constructParams(parameters) ~> $mergeInResponseContentTypeAcceptHeader(responses),
+                            $constructParams([parameters, $getApiKeyParams(security)]) ~> $mergeInResponseContentTypeAcceptHeader(responses),
                             {
                                 "requestBody": requestBody.content.`application/json` ~> $schemaWithRef
                             }

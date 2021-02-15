@@ -1,0 +1,2781 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "WIP",
+    "description": "Work in progress",
+    "contact": {
+      "name": "Mittwald CM Service GmbH & Co. KG",
+      "email": "opensource@mittwald.de",
+      "url": "https://www.mittwald.de"
+    },
+    "version": "2.0"
+  },
+  "components": {
+    "callbacks": {},
+    "examples": {},
+    "headers": {},
+    "links": {},
+    "parameters": {},
+    "requestBodies": {},
+    "responses": {
+      "de.mittwald.v1.signup.InternalServerError": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError"
+                },
+                {
+                  "properties": {
+                    "name": {
+                      "enum": ["InternalServerError"],
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          }
+        },
+        "description": "Something in our infrastructure went wrong\n"
+      },
+      "de.mittwald.v1.signup.NoValidAccessTokenError": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError"
+                },
+                {
+                  "properties": {
+                    "name": {
+                      "enum": ["NoAccessTokenProvided"],
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          }
+        },
+        "description": "No valid access token was provided"
+      },
+      "de.mittwald.v1.common.RateLimitError": {
+        "description": "Your request ran into a rate limit. You have to wait until rate limit expires\n"
+      }
+    },
+    "schemas": {
+      "de.mittwald.v1.signup.DeviceInfo": {
+        "properties": {
+          "browser": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "os": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "de.mittwald.v1.signup.DomainError": {
+        "properties": {
+          "info": {
+            "description": "A json object, given further information about the error",
+            "type": "object"
+          },
+          "message": {
+            "description": "Some more detailed information about the error",
+            "type": "string"
+          },
+          "name": {
+            "description": "Unique key for the error type",
+            "type": "string"
+          }
+        },
+        "required": ["name", "message"],
+        "type": "object"
+      },
+      "de.mittwald.v1.signup.Location": {
+        "properties": {
+          "city": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "de.mittwald.v1.signup.Profile": {
+        "description": "The users personal information, e.g. first name.",
+        "properties": {
+          "firstName": {
+            "description": "The users first name",
+            "type": "string"
+          },
+          "lastName": {
+            "description": "the users last name",
+            "type": "string"
+          },
+          "title": {
+            "description": "the users title",
+            "enum": [0, 1, 2],
+            "type": "integer"
+          }
+        },
+        "required": ["lastName", "firstName"],
+        "type": "object"
+      },
+      "de.mittwald.v1.signup.SshKey": {
+        "properties": {
+          "algorithm": {
+            "type": "string"
+          },
+          "comment": {
+            "type": "string"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "expiresAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "fingerprint": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "sshKeyId": {
+            "type": "string"
+          }
+        },
+        "required": ["sshKeyId", "algorithm", "key", "comment", "fingerprint", "createdAt"],
+        "type": "object"
+      },
+      "de.mittwald.v1.signup.UserSession": {
+        "properties": {
+          "created": {
+            "type": "number"
+          },
+          "device": {
+            "$ref": "#/components/schemas/de.mittwald.v1.signup.DeviceInfo"
+          },
+          "lastAccess": {
+            "type": "number"
+          },
+          "location": {
+            "$ref": "#/components/schemas/de.mittwald.v1.signup.Location"
+          },
+          "tokenId": {
+            "type": "string"
+          }
+        },
+        "required": ["device", "created", "tokenId"],
+        "type": "object"
+      },
+      "de.mittwald.v1.common.ValidationError": {
+        "properties": {
+          "context": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "The object with the additional information about the error that can be used to create custom error messages. Keys depend on the\ntype that failed validation (e.g. \"missingProperty\" for type \"required\")\n",
+            "type": "object"
+          },
+          "message": {
+            "description": "The standard error message",
+            "type": "string"
+          },
+          "path": {
+            "description": "The path to the part of the data that was validated. JavaScript property access notation (e.g., \".prop[1].subProp\") is used.\n",
+            "type": "string"
+          },
+          "type": {
+            "description": "ajv validation error type (e.g. \"format\", \"required\", \"type\") or own valiation error types",
+            "type": "string"
+          }
+        },
+        "required": ["message", "path", "type"],
+        "type": "object"
+      },
+      "de.mittwald.v1.common.ValidationErrors": {
+        "properties": {
+          "errorObjects": {
+            "items": {
+              "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationError"
+            },
+            "type": "array"
+          },
+          "name": {
+            "enum": ["ValidationError"],
+            "type": "string"
+          }
+        },
+        "required": ["name", "errorObjects"],
+        "type": "object"
+      },
+      "de.mittwald.v1.software.ConfigRevision": {
+        "properties": {
+          "expire": {
+            "type": "integer"
+          },
+          "files": {
+            "items": {
+              "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFileRef"
+            },
+            "type": "array"
+          },
+          "note": {
+            "type": "string"
+          },
+          "revision": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "updated": {
+            "type": "integer"
+          }
+        },
+        "required": ["revision", "updated", "files"],
+        "type": "object"
+      },
+      "de.mittwald.v1.software.ConfigTemplate": {
+        "properties": {
+          "files": {
+            "description": "A set of config file references.",
+            "items": {
+              "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFileRef"
+            },
+            "type": "array"
+          },
+          "id": {
+            "type": "string"
+          },
+          "isGlobal": {
+            "description": "If 'true', then it is one of Mittwalds global templates and the 'projectId' is empty.",
+            "type": "boolean"
+          },
+          "note": {
+            "type": "string"
+          },
+          "projectId": {
+            "type": "string"
+          },
+          "softwareId": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "description": "unix-formatted timestamp for when the template was created or updated last",
+            "type": "number"
+          }
+        },
+        "required": ["id", "softwareId", "files"],
+        "type": "object"
+      },
+      "de.mittwald.v1.software.ConfigFile": {
+        "properties": {
+          "content": {
+            "format": "bytes",
+            "type": "string"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFileMetadata"
+          }
+        },
+        "required": ["content"],
+        "type": "object"
+      },
+      "de.mittwald.v1.software.ConfigFileMetadata": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "required": ["name"],
+        "type": "object"
+      },
+      "de.mittwald.v1.software.ConfigFileRef": {
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFileMetadata"
+          }
+        },
+        "required": ["content"],
+        "type": "object"
+      },
+      "de.mittwald.v1.software.Software": {
+        "properties": {
+          "config": {
+            "$ref": "#/components/schemas/de.mittwald.v1.software.SoftwareConfig"
+          },
+          "id": {
+            "type": "string"
+          },
+          "projectId": {
+            "type": "string"
+          },
+          "settings": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "softwareId": {
+            "type": "string"
+          },
+          "softwareVersion": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "number"
+          }
+        },
+        "required": ["id", "updatedAt", "softwareId", "softwareVersion", "projectId", "config", "settings"],
+        "type": "object"
+      },
+      "de.mittwald.v1.software.SoftwareConfig": {
+        "properties": {
+          "configExpiration": {
+            "properties": {
+              "maxVersions": {
+                "type": "number"
+              },
+              "retentionTime": {
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "latestConfigRevision": {
+            "type": "number"
+          },
+          "revisions": {
+            "items": {
+              "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigRevision"
+            },
+            "type": "array"
+          }
+        },
+        "required": ["revisions"],
+        "type": "object"
+      },
+      "de.mittwald.v1.software.SoftwareSetting": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": ["name", "value"],
+        "type": "object"
+      }
+    },
+    "securitySchemes": {
+      "de.mittwald.v1.common.AccessToken": {
+        "description": "Access Token is required in header",
+        "in": "header",
+        "name": "x-access-token",
+        "type": "apiKey"
+      }
+    }
+  },
+  "paths": {
+    "/v2/files/{fileID}": {
+      "get": {
+        "operationId": "file-service-files-get-by-id",
+        "responses": {
+          "200": {
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "format": "binary",
+                  "type": "string"
+                }
+              },
+              "base64": {
+                "schema": {
+                  "format": "byte",
+                  "type": "string"
+                }
+              }
+            },
+            "description": "The requested file"
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "fileID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Download a file"
+      }
+    },
+    "/v2/imapcluster": {
+      "post": {
+        "operationId": "mailsystem-service-imapcluster-create",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "members": {
+                    "items": {
+                      "properties": {
+                        "hostname": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": ["id", "hostname"],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": ["id", "name", "members"],
+                "type": "object"
+              }
+            }
+          },
+          "description": "imapcluster"
+        },
+        "summary": "create a new imapcluster"
+      },
+      "put": {
+        "operationId": "mailsystem-service-imapcluster-update",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "members": {
+                    "items": {
+                      "properties": {
+                        "hostname": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": ["id", "hostname"],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": ["id", "name", "members"],
+                "type": "object"
+              }
+            }
+          },
+          "description": "imapcluster"
+        },
+        "summary": "update a imapcluster"
+      }
+    },
+    "/v2/mailsystemsetting": {
+      "post": {
+        "operationId": "mailsystem-service-setting-create",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": ["name", "value"],
+                "type": "object"
+              }
+            }
+          },
+          "description": "mailsystemsetting"
+        },
+        "summary": "create a new mailsystemsetting"
+      },
+      "put": {
+        "operationId": "mailsystem-service-setting-update",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": ["name", "value"],
+                "type": "object"
+              }
+            }
+          },
+          "description": "mailsystemsetting"
+        },
+        "summary": "update a mailsystemsetting"
+      }
+    },
+    "/v2/signup/authentication": {
+      "post": {
+        "operationId": "signup-api-authenticate",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "expires": {
+                      "description": "Expiration unix timestamp",
+                      "type": "number"
+                    },
+                    "token": {
+                      "description": "Public token to identify yourself against the api gateway.",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["token", "expires"],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Your authentication request was successfull and you've got an access token."
+          },
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "enum": ["SecondFactorRequired"],
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "Multi factor authentication is activated for this user. After calling this, you need to call '/authentication/mfa' with a valid multi factor code.\n"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors"
+                }
+              }
+            },
+            "description": "Some of the specified values does not meet our requirements.\nPossible domain specific `type` values are:\n  * ValidationError\n  * LoginFailed\n"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "email": {
+                    "description": "The users email address",
+                    "format": "email",
+                    "type": "string"
+                  },
+                  "password": {
+                    "description": "Password of the user",
+                    "type": "string"
+                  }
+                },
+                "required": ["email", "password"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "summary": "Authenticate yourself to get an access token.",
+        "tags": ["Signup"]
+      }
+    },
+    "/v2/signup/authentication/legacy": {
+      "post": {
+        "operationId": "signup-api-authenticate-legacy",
+        "responses": {
+          "200": {
+            "description": "Given legacy credentials were correct"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors"
+                }
+              }
+            },
+            "description": "Some of the specified values does not meet our requirements.\nPossible domain specific `type` values are:\n  * LoginFailed\n"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "account": {
+                    "description": "The legacy account name",
+                    "type": "string"
+                  },
+                  "password": {
+                    "description": "The legacy account password",
+                    "type": "string"
+                  }
+                },
+                "required": ["account", "password"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "summary": "Authenticate yourself against your legacy account to migrate it with the '/registration'-Route",
+        "tags": ["Signup"]
+      }
+    },
+    "/v2/signup/authentication/mfa": {
+      "post": {
+        "operationId": "signup-api-authenticate-mfa",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "expires": {
+                      "description": "Expiration unix timestamp",
+                      "type": "number"
+                    },
+                    "token": {
+                      "description": "Public token to identify yourself against the api gateway.",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["token", "expires"],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Your authentication request was successfull and you've got an access token."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors"
+                }
+              }
+            },
+            "description": "Some of the specified values does not meet our requirements.\nPossible domain specific `type` values are:\n  * MultiFactorCodeNotValid\n"
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "enum": ["FirstAuthenticationFactorExpired"],
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "Your first factor has been expired. Please call '/authentication' again\n"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "email": {
+                    "description": "The email of the user",
+                    "type": "string"
+                  },
+                  "multiFactorCode": {
+                    "description": "The second factor",
+                    "type": "string"
+                  },
+                  "password": {
+                    "description": "The password of the user",
+                    "type": "string"
+                  }
+                },
+                "required": ["multiFactorCode"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "summary": "Validate your second factor.",
+        "tags": ["Signup"]
+      }
+    },
+    "/v2/signup/email/resend": {
+      "post": {
+        "operationId": "signup-api-email-resend",
+        "responses": {
+          "204": {
+            "description": "New Email Address verification mail was send"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors"
+                }
+              }
+            },
+            "description": "Some of the specified values does not meet our requirements.\n"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "email": {
+                    "format": "email",
+                    "type": "string"
+                  },
+                  "userId": {
+                    "format": "uuid",
+                    "type": "string"
+                  }
+                },
+                "required": ["multiFactorCode"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "summary": "Resend the email address verification email",
+        "tags": ["Signup"]
+      }
+    },
+    "/v2/signup/logout": {
+      "put": {
+        "operationId": "signup-api-logout",
+        "responses": {
+          "200": {
+            "description": "You've been logged out. The access token was removed and invalidated"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors"
+                }
+              }
+            },
+            "description": "Some of the specified values does not meet our requirements.\n"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "multiFactorCode": {
+                    "description": "Multi Factor Code to authorize your request",
+                    "type": "string"
+                  }
+                },
+                "required": ["multiFactorCode"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "de.mittwald.v1.common.AccessToken": []
+          }
+        ],
+        "summary": "Terminate session and invalidate access token",
+        "tags": ["Signup"]
+      }
+    },
+    "/v2/signup/mfa/confirm": {
+      "post": {
+        "operationId": "signup-api-mfa-confirm",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "recoveryCodesList": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": ["recoveryCodesList"],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Mfa is now activated and recovery codes are in the response body"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors"
+                }
+              }
+            },
+            "description": "Some of the specified values does not meet our requirements.\nPossible domain specific `type` values are:\n  * EmailAddressNotVerified\n  * MFANotInitialized\n  * MFAAlreadyConfirmed\n"
+          },
+          "401": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.NoValidAccessTokenError"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "multiFactorCode": {
+                    "description": "Multi Factor Code to confirm MFA",
+                    "maxLength": 6,
+                    "minLength": 6,
+                    "type": "string"
+                  }
+                },
+                "required": ["multiFactorCode"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "de.mittwald.v1.common.AccessToken": []
+          }
+        ],
+        "summary": "Confirm Multi Factor Authentication",
+        "tags": ["Signup"]
+      }
+    },
+    "/v2/signup/mfa": {
+      "delete": {
+        "operationId": "signup-api-mfa-disable",
+        "responses": {
+          "200": {
+            "description": "Multi Factor Authentication was disabled"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors"
+                }
+              }
+            },
+            "description": "Some of the specified values does not meet our requirements.\nPossible domain specific `type` values are:\n  * MultiFactorCodeNotValid\n"
+          },
+          "401": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.NoValidAccessTokenError"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "security": [
+          {
+            "de.mittwald.v1.common.AccessToken": []
+          }
+        ],
+        "summary": "Disable Multi Factor Authentication.",
+        "tags": ["Signup"]
+      },
+      "post": {
+        "operationId": "signup-api-mfa-init",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "barcode": {
+                      "description": "base64 encoded barcode content to scan from your mfa app. e.g. `iVBORw0KGgoAAAANSUhEUgAAAMgAAADIEAAAAADYoy...`. You\ncan display it with `<img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\" />`\n",
+                      "type": "string"
+                    },
+                    "url": {
+                      "description": "Same as barcode,  but in URL form. e.g.\n`otpauth://totp/Google:test@gmail.com?algorithm=SHA1&digits=6&issuer=Google&period=30&secret=HTXT7KJFVNAJUPYWQRWMNVQE5AF5YZI2\"`\n",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["barcode", "url"],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "The process of activating Multi Factor Authentication is initialized"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors"
+                }
+              }
+            },
+            "description": "Some of the specified values does not meet our requirements.\nPossible domain specific `type` values are:\n  * EmailAddressNotVerified\n  * MFAAlreadyConfirmed\n"
+          },
+          "401": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.NoValidAccessTokenError"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "security": [
+          {
+            "de.mittwald.v1.common.AccessToken": []
+          }
+        ],
+        "summary": "Initialize Multi Factor Authentication. If successfull, it needs to be confirmed, before usage of mfa.",
+        "tags": ["Signup"]
+      }
+    },
+    "/v2/signup/password": {
+      "put": {
+        "operationId": "signup-api-password-change",
+        "responses": {
+          "200": {
+            "description": "Your password was changed"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors"
+                }
+              }
+            },
+            "description": "Some of the specified values does not meet our requirements.\nPossible domain specific `type` values are:\n  * EmailAddressNotVerified\n  * WrongPassword\n  * PasswordIsLeaked\n"
+          },
+          "401": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.NoValidAccessTokenError"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "newPassword": {
+                    "description": "The new password",
+                    "type": "string"
+                  },
+                  "oldPassword": {
+                    "description": "The old password",
+                    "type": "string"
+                  }
+                },
+                "required": ["oldPassword", "newPassword"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "de.mittwald.v1.common.AccessToken": []
+          }
+        ],
+        "summary": "Change your password",
+        "tags": ["Signup"]
+      }
+    },
+    "/v2/signup/password/reset/confirm": {
+      "post": {
+        "operationId": "signup-api-password-reset-confirm",
+        "responses": {
+          "200": {
+            "description": "Password reset was successful"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors"
+                }
+              }
+            },
+            "description": "Some of the specified values does not meet our requirements.\nPossible domain specific `type` values are:\n  * WrongPasswordResetToken\n  * EmailAddressNotVerified\n  * PasswordIsLeaked\n  * ValidationError\n"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "password": {
+                    "description": "The new password",
+                    "type": "string"
+                  },
+                  "token": {
+                    "description": "Password reset token",
+                    "maxLength": 6,
+                    "minLength": 6,
+                    "type": "string"
+                  },
+                  "userId": {
+                    "description": "userId of the user to reset the password for",
+                    "format": "uuid",
+                    "type": "string"
+                  }
+                },
+                "required": ["userId", "token", "password"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "summary": "Confirm password reset",
+        "tags": ["Signup"]
+      }
+    },
+    "/v2/signup/password/reset": {
+      "post": {
+        "operationId": "signup-api-password-reset-init",
+        "responses": {
+          "200": {
+            "description": "If email address is existing, password reset process was initialized and email with confirmation code was send\n"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors"
+                }
+              }
+            },
+            "description": "Some of the specified values does not meet our requirements.\n"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "email": {
+                    "description": "email address to reset the password for",
+                    "format": "email",
+                    "type": "string"
+                  }
+                },
+                "required": ["email"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "summary": "Initialize password reset process",
+        "tags": ["Signup"]
+      }
+    },
+    "/v2/signup/phone": {
+      "delete": {
+        "operationId": "signup-api-phone-number-delete",
+        "responses": {
+          "200": {
+            "description": "Phone number deleted"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors"
+                }
+              }
+            },
+            "description": "Some of the specified values does not meet our requirements.\nPossible domain specific `type` values are:\n  * ValidationError\n"
+          },
+          "401": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.NoValidAccessTokenError"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "security": [
+          {
+            "de.mittwald.v1.common.AccessToken": []
+          }
+        ],
+        "summary": "Deletes phone number",
+        "tags": ["Signup"]
+      },
+      "get": {
+        "operationId": "signup-api-phone-number-get",
+        "responses": {
+          "200": {
+            "description": "Phone number"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors"
+                }
+              }
+            },
+            "description": "Some of the specified values does not meet our requirements.\nPossible domain specific `type` values are:\n  * ValidationError\n"
+          },
+          "401": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.NoValidAccessTokenError"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "security": [
+          {
+            "de.mittwald.v1.common.AccessToken": []
+          }
+        ],
+        "summary": "Get current phone number",
+        "tags": ["Signup"]
+      },
+      "post": {
+        "operationId": "signup-api-phone-number-init-process",
+        "responses": {
+          "200": {
+            "description": "Phone number added"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors"
+                }
+              }
+            },
+            "description": "Some of the specified values does not meet our requirements.\n"
+          },
+          "401": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.NoValidAccessTokenError"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "phoneNumber": {
+                    "format": "phone",
+                    "type": "string"
+                  }
+                },
+                "required": ["phoneNumber"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "de.mittwald.v1.common.AccessToken": []
+          }
+        ],
+        "summary": "Initialize phone number process",
+        "tags": ["Signup"]
+      }
+    },
+    "/v2/signup/phone/verify": {
+      "post": {
+        "operationId": "signup-api-phone-number-verify",
+        "responses": {
+          "200": {
+            "description": "Phone number verified"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors"
+                }
+              }
+            },
+            "description": "Some entity involved with this request is not existing.\n"
+          },
+          "401": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.NoValidAccessTokenError"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors"
+                }
+              }
+            },
+            "description": "Some entity involved with this request is not existing.\n"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "string"
+                  },
+                  "phoneNumber": {
+                    "format": "phone",
+                    "type": "string"
+                  }
+                },
+                "required": ["phoneNumber", "code"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "de.mittwald.v1.common.AccessToken": []
+          }
+        ],
+        "summary": "Initialize phone number process",
+        "tags": ["Signup"]
+      }
+    },
+    "/v2/signup/profile": {
+      "put": {
+        "operationId": "signup-api-profile-change",
+        "responses": {
+          "200": {
+            "description": "Profile was changed"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors"
+                }
+              }
+            },
+            "description": "Some of the specified values does not meet our requirements.\n"
+          },
+          "401": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.NoValidAccessTokenError"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "profile": {
+                    "properties": {
+                      "firstName": {
+                        "type": "string"
+                      },
+                      "lastName": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "enum": [0, 1, 2],
+                        "type": "number"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "required": ["profile"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "de.mittwald.v1.common.AccessToken": []
+          }
+        ],
+        "summary": "Change your profile information",
+        "tags": ["Signup"]
+      },
+      "get": {
+        "operationId": "signup-api-profile-get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "profile": {
+                      "$ref": "#/components/schemas/de.mittwald.v1.signup.Profile"
+                    },
+                    "userId": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Profile information"
+          },
+          "401": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.NoValidAccessTokenError"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "security": [
+          {
+            "de.mittwald.v1.common.AccessToken": []
+          }
+        ],
+        "summary": "Get your profile information",
+        "tags": ["Signup"]
+      }
+    },
+    "/v2/signup/mfa/reset-recoverycodes": {
+      "put": {
+        "operationId": "signup-api-recoverycodes-reset",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "recoveryCodesList": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": ["recoveryCodesList"],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Recovery-Codes are reset now. The new Recovery-Codes are in the response body."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors"
+                }
+              }
+            },
+            "description": "Some of the specified values does not meet our requirements.\nPossible domain specific `type` values are:\n  * MultiFactorCodeNotValid\n  * MFANotInitialized\n"
+          },
+          "401": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.NoValidAccessTokenError"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "multiFactorCode": {
+                    "description": "Multi Factor Code to authorize your request",
+                    "type": "string"
+                  }
+                },
+                "required": ["multiFactorCode"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "de.mittwald.v1.common.AccessToken": []
+          }
+        ],
+        "summary": "Reset Recovery-Codes for MFA",
+        "tags": ["Signup"]
+      }
+    },
+    "/v2/signup/registration": {
+      "post": {
+        "operationId": "signup-api-register",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "userId": {
+                      "format": "uuid",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["userId"],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Registration was successfull. A verification email will be send to the specified email address.\nThe users can be used as soon as the verification link was opened\n"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors"
+                }
+              }
+            },
+            "description": "Some of the specified values does not meet our requirements.\nPossible domain specific `type` values are:\n    * EmailInUse\n    * PasswordIsLeaked\n    * ValidationError\n"
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "enum": ["LegacyAuthenticationExpired"],
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "Your legacy login attempt has been expired. Please call /authentication/legacy again or remove legacy account from request\n"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "description": "Register with email and password. You can import your account by defining a Legacy Account Name. Therefore, you firstly have to call /authentication/legacy",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "email": {
+                    "description": "The users email address",
+                    "format": "email",
+                    "type": "string"
+                  },
+                  "legacyAccount": {
+                    "description": "Credentials for the Legacy-Account you want to import",
+                    "properties": {
+                      "account": {
+                        "type": "string"
+                      },
+                      "password": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "password": {
+                    "description": "The users password",
+                    "type": "string"
+                  },
+                  "profile": {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.Profile"
+                  }
+                },
+                "required": ["email", "password", "profile"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "summary": "Register with email and password. \n",
+        "tags": ["Signup"]
+      }
+    },
+    "/v2/signup/registration/verification": {
+      "post": {
+        "operationId": "signup-api-registration-verify",
+        "responses": {
+          "200": {
+            "description": "User is verified and you can now login to your user account.\n"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors"
+                }
+              }
+            },
+            "description": "Some of the specified values does not meet our requirements.\nPossible domain specific `type` values are:\n  * UserRegistrationAlreadyVerified\n  * WrongVerificationToken\n"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "enum": ["EmailNotFound"],
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "Some entity involved with this request is not existing.\n"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "email": {
+                    "description": "The users email address",
+                    "format": "email",
+                    "type": "string"
+                  },
+                  "token": {
+                    "description": "The token that was send to your email address",
+                    "type": "string"
+                  },
+                  "userId": {
+                    "description": "UUID of the registered user",
+                    "format": "uuid",
+                    "type": "string"
+                  }
+                },
+                "required": ["email", "token", "userId"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "summary": "Verify your registration",
+        "tags": ["Signup"]
+      }
+    },
+    "/v2/signup/sessions/{tokenId}": {
+      "get": {
+        "operationId": "signup-api-session-get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "session": {
+                      "$ref": "#/components/schemas/de.mittwald.v1.signup.UserSession"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Session"
+          },
+          "401": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.NoValidAccessTokenError"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError"
+                }
+              }
+            },
+            "description": "Session does not exist"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "parameters": [
+          {
+            "description": "tokenId to identify the concrete session",
+            "in": "path",
+            "name": "tokenId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "de.mittwald.v1.common.AccessToken": []
+          }
+        ],
+        "summary": "Get a specific session of an authorized user",
+        "tags": ["Signup"]
+      }
+    },
+    "/v2/signup/sessions": {
+      "get": {
+        "operationId": "signup-api-sessions-list",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "sessions": {
+                      "items": {
+                        "$ref": "#/components/schemas/de.mittwald.v1.signup.UserSession"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Session list"
+          },
+          "401": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.NoValidAccessTokenError"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "security": [
+          {
+            "de.mittwald.v1.common.AccessToken": []
+          }
+        ],
+        "summary": "List all active sessions of authorized user",
+        "tags": ["Signup"]
+      }
+    },
+    "/v2/signup/ssh": {
+      "post": {
+        "operationId": "signup-api-ssh-create",
+        "responses": {
+          "200": {
+            "description": "SSH Key was added"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors"
+                }
+              }
+            },
+            "description": "Some of the specified values does not meet our requirements.\n"
+          },
+          "401": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.NoValidAccessTokenError"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "publicKey": {
+                    "type": "string"
+                  }
+                },
+                "required": ["publicKey"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "de.mittwald.v1.common.AccessToken": []
+          }
+        ],
+        "summary": "Store a new SSH key",
+        "tags": ["Signup"]
+      },
+      "get": {
+        "operationId": "signup-api-ssh-list",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "sshKeys": {
+                      "items": {
+                        "$ref": "#/components/schemas/de.mittwald.v1.signup.SshKey"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "SSH Keys"
+          },
+          "401": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.NoValidAccessTokenError"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "security": [
+          {
+            "de.mittwald.v1.common.AccessToken": []
+          }
+        ],
+        "summary": "Get your stored ssh keys",
+        "tags": ["Signup"]
+      }
+    },
+    "/v2/signup/ssh/{sshKeyId}": {
+      "delete": {
+        "operationId": "signup-api-ssh-delete",
+        "responses": {
+          "200": {
+            "description": "SSH key was removed"
+          },
+          "401": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.NoValidAccessTokenError"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sshKeyId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "de.mittwald.v1.common.AccessToken": []
+          }
+        ],
+        "summary": "Remove an existing SSH Key",
+        "tags": ["Signup"]
+      }
+    },
+    "/v2/signup/token/check": {
+      "post": {
+        "operationId": "signup-api-token-check",
+        "responses": {
+          "200": {
+            "description": "Token is valid"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors"
+                }
+              }
+            },
+            "description": "Some of the specified values does not meet our requirements.\n"
+          },
+          "401": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.NoValidAccessTokenError"
+          },
+          "429": {
+            "$ref": "#/components/responses/de.mittwald.v1.common.RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
+          }
+        },
+        "security": [
+          {
+            "de.mittwald.v1.common.AccessToken": []
+          }
+        ],
+        "summary": "Check, if the current access token is valid",
+        "tags": ["Signup"]
+      }
+    },
+    "/v2/software/config/validate": {
+      "get": {
+        "operationId": "software-service-list-validators",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "properties": {
+                      "name": {
+                        "description": "The name of the validator.",
+                        "type": "string"
+                      },
+                      "version": {
+                        "description": "Semantic version describing all of supported versions",
+                        "type": "string"
+                      }
+                    },
+                    "required": ["name", "version"],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": ""
+          }
+        },
+        "summary": "List all available validators."
+      },
+      "post": {
+        "operationId": "software-service-validate",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "stages": {
+                      "items": {
+                        "properties": {
+                          "error_context": {
+                            "description": "The 'error_context' may contain validator / error_type specific content like\n'line' and 'pos'.\n",
+                            "type": "object"
+                          },
+                          "error_message": {
+                            "description": "The 'error_message' may contain a human readable error message,\nif the error could be parsed / is known\nor the complete, unparsed validator output otherwise.\n",
+                            "type": "string"
+                          },
+                          "error_type": {
+                            "description": "The 'error_type' is\n* empty, when the stage is successful\n* unknown, when the error type is now known / not parsed\n* or some validator specific string.\n",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The name of the stage.",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "success": {
+                      "description": "A validation request is successful, if all stages are successful.",
+                      "type": "boolean"
+                    }
+                  },
+                  "required": ["success"],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "The config could be validated with this validator. The success state is given in the response."
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "files": {
+                    "description": "A set of config files.",
+                    "items": {
+                      "properties": {
+                        "content": {
+                          "format": "byte",
+                          "type": "string"
+                        },
+                        "meta": {
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "path": {
+                              "type": "string"
+                            }
+                          },
+                          "required": ["name"],
+                          "type": "object"
+                        }
+                      },
+                      "required": ["content"],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "name": {
+                    "description": "The name of the specific validator that should be used.",
+                    "type": "string"
+                  },
+                  "version": {
+                    "description": "The exact version you want to validate against.",
+                    "type": "string"
+                  }
+                },
+                "required": ["name", "version", "files"]
+              }
+            }
+          },
+          "description": ""
+        },
+        "summary": "validate a set of config files with a named validator against a specific version"
+      }
+    },
+    "/v2/projects/{projectID}/software/{softwareID}/config": {
+      "post": {
+        "operationId": "software-service-software-config-create",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "The template was successfully created."
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "softwareID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "files": {
+                    "description": "A set of config files.",
+                    "items": {
+                      "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFile"
+                    },
+                    "type": "array"
+                  },
+                  "id": {
+                    "description": "The template UUID.",
+                    "type": "string"
+                  },
+                  "softwareInstallationID": {
+                    "description": "",
+                    "type": "string"
+                  }
+                },
+                "required": ["files"],
+                "type": "object"
+              }
+            }
+          },
+          "description": ""
+        },
+        "summary": "Create a config.",
+        "tags": ["Software"]
+      },
+      "delete": {
+        "operationId": "software-service-software-config-delete",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "The config was successfully deleted."
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "softwareID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Delete a config.",
+        "tags": ["Software"]
+      },
+      "get": {
+        "operationId": "software-service-software-config-get-by-id",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "expiration": {
+                      "properties": {
+                        "maxVersions": {
+                          "minimum": 0,
+                          "type": "integer"
+                        },
+                        "retentionTime": {
+                          "description": "Duration in seconds.",
+                          "minimum": 0,
+                          "type": "integer"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "revisions": {
+                      "items": {
+                        "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigRevision"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": ["id", "revisions"],
+                  "type": "object"
+                }
+              }
+            },
+            "description": ""
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "softwareID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Get a config by id.",
+        "tags": ["Software"]
+      },
+      "patch": {
+        "operationId": "software-service-software-config-rollback",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "files": {
+                      "items": {
+                        "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFileRef"
+                      },
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "revision": {
+                      "description": "The new version, because on rollback, the content is copied and a new revision is created.",
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "rollbackRef": {
+                      "description": "The revision, that is used as the rollback source.",
+                      "minimum": 1,
+                      "type": "integer"
+                    }
+                  },
+                  "required": ["revision", "files", "rollbackRef"],
+                  "type": "object"
+                }
+              }
+            },
+            "description": ""
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "softwareID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "revision": {
+                    "description": "Rollback to a specific version. If empty, the config is rolled back to the previous version.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "description": ""
+        },
+        "summary": "Rollback a config.",
+        "tags": ["Software"]
+      },
+      "put": {
+        "operationId": "software-service-software-config-update",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "files": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "meta": {
+                            "properties": {
+                              "name": {
+                                "type": "string"
+                              },
+                              "path": {
+                                "type": "string"
+                              }
+                            },
+                            "required": ["name"],
+                            "type": "object"
+                          }
+                        },
+                        "required": ["id"],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "revision": {
+                      "description": "The new version.",
+                      "minimum": 1,
+                      "type": "integer"
+                    }
+                  },
+                  "required": ["revision", "files"],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "The template was successfully updated."
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "softwareID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "files": {
+                    "description": "A set of config files.",
+                    "items": {
+                      "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFile"
+                    },
+                    "type": "array"
+                  },
+                  "note": {
+                    "type": "string"
+                  }
+                },
+                "required": ["files"],
+                "type": "object"
+              }
+            }
+          },
+          "description": ""
+        },
+        "summary": "Update a config, this will create a new revision.",
+        "tags": ["Software"]
+      }
+    },
+    "/v2/projects/{projectID}/software/config/template": {
+      "post": {
+        "operationId": "software-service-software-configtemplate-create",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "The template was successfully created."
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "files": {
+                    "description": "A set of config file references.",
+                    "items": {
+                      "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFile"
+                    },
+                    "type": "array"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "note": {
+                    "type": "string"
+                  },
+                  "softwareId": {
+                    "type": "string"
+                  }
+                },
+                "required": ["id", "softwareId", "files"],
+                "type": "object"
+              }
+            }
+          },
+          "description": ""
+        },
+        "summary": "Create a template.",
+        "tags": ["Software"]
+      },
+      "get": {
+        "operationId": "software-service-software-configtemplate-get-list",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigTemplate"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "",
+            "headers": {
+              "Link": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Pagination-Limit": {
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "X-Pagination-Skip": {
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "X-Pagination-TotalCount": {
+                "schema": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "softwareID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Include Mittwalds global config templates.",
+            "in": "query",
+            "name": "includeGlobals",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "skip",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "summary": "List templates.",
+        "tags": ["Software"]
+      }
+    },
+    "/v2/projects/{projectID}/software/config/template/{id}": {
+      "delete": {
+        "operationId": "software-service-software-configtemplate-delete",
+        "responses": {
+          "200": {
+            "description": "The template was successfully deleted."
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Delete a template.",
+        "tags": ["Software"]
+      },
+      "get": {
+        "operationId": "software-service-software-configtemplate-get-specific",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigTemplate"
+                }
+              }
+            },
+            "description": "The requested software config template"
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Get a specific template.",
+        "tags": ["Software"]
+      }
+    },
+    "/v2/projects/{projectID}/software/{softwareID}": {
+      "get": {
+        "operationId": "software-service-software-get-by-id",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.software.Software"
+                }
+              }
+            },
+            "description": ""
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "softwareID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Get a software by id",
+        "tags": ["Software"]
+      }
+    },
+    "/v2/projects/{projectID}/software/{softwareID}/settings": {
+      "patch": {
+        "operationId": "software-service-software-settings-declare",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "The settings were declared"
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "softwareID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "items": {
+                  "$ref": "#/components/schemas/de.mittwald.v1.software.SoftwareSetting"
+                },
+                "type": "array"
+              }
+            }
+          },
+          "description": ""
+        },
+        "summary": "Declare software settings",
+        "tags": ["Software"]
+      }
+    }
+  }
+}
