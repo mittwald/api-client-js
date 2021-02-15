@@ -1,6 +1,3741 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Exporter creates correct snapshots for Pet Store example 1`] = `
+exports[`Exporter creates correct snapshots for 'Mittwald Public API' example 1`] = `
+"/* eslint-disable */
+/* prettier-ignore */
+
+/**
+ * This file is auto-generated with openapi2ts (@mittwald/openapi-to-typescript)
+ */
+
+import { KyClient } from \\"@mittwald/api-client/dist/http/KyClient\\";
+import { Client } from \\"@mittwald/api-client/dist/http/Client\\";
+import { RequestFunction } from \\"@mittwald/api-client/dist/OperationDescriptor\\";
+import { OperationDescriptor } from \\"@mittwald/api-client/dist/OperationDescriptor\\";
+
+/**
+ * ====================================
+ * Types
+ * ====================================
+ */
+export declare module Test {
+  namespace Paths {
+    namespace V2_Files_FileId {
+      namespace Get {
+        namespace Parameters {
+          interface Path {
+            fileID: string;
+          }
+
+          type Header = {
+            Accept?: \\"application/octet-stream\\" | \\"base64\\";
+          };
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              type Application_Octet_Stream = string;
+
+              type Base64 = string;
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Imapcluster {
+      namespace Post {
+        namespace Parameters {
+          type Header = {
+            Accept?: string;
+          };
+
+          interface RequestBody {
+            id: string;
+            members: {
+              hostname: string;
+              id: string;
+            }[];
+            name: string;
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Put {
+        namespace Parameters {
+          type Header = {
+            Accept?: string;
+          };
+
+          interface RequestBody {
+            id: string;
+            members: {
+              hostname: string;
+              id: string;
+            }[];
+            name: string;
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2_Mailsystemsetting {
+      namespace Post {
+        namespace Parameters {
+          type Header = {
+            Accept?: string;
+          };
+
+          interface RequestBody {
+            name: string;
+            value: string;
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Put {
+        namespace Parameters {
+          type Header = {
+            Accept?: string;
+          };
+
+          interface RequestBody {
+            name: string;
+            value: string;
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2_Signup_Authentication {
+      namespace Post {
+        namespace Parameters {
+          type Header = {
+            Accept?:
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\";
+          };
+
+          interface RequestBody {
+            email: string;
+            password: string;
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              interface Application_Json {
+                expires: number;
+                token: string;
+              }
+            }
+          }
+
+          namespace $202 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"SecondFactorRequired\\";
+              };
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Common_ValidationErrors;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Signup_Authentication_Legacy {
+      namespace Post {
+        namespace Parameters {
+          type Header = {
+            Accept?: \\"application/json\\" | \\"application/json\\";
+          };
+
+          interface RequestBody {
+            account: string;
+            password: string;
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Common_ValidationErrors;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Signup_Authentication_Mfa {
+      namespace Post {
+        namespace Parameters {
+          type Header = {
+            Accept?:
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\";
+          };
+
+          interface RequestBody {
+            email?: string;
+            multiFactorCode: string;
+            password?: string;
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              interface Application_Json {
+                expires: number;
+                token: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Common_ValidationErrors;
+            }
+          }
+
+          namespace $408 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"FirstAuthenticationFactorExpired\\";
+              };
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Signup_Email_Resend {
+      namespace Post {
+        namespace Parameters {
+          type Header = {
+            Accept?: \\"application/json\\" | \\"application/json\\";
+          };
+
+          interface RequestBody {
+            email?: string;
+            userId?: string;
+          }
+        }
+
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Common_ValidationErrors;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Signup_Logout {
+      namespace Put {
+        namespace Parameters {
+          interface Header {
+            \\"x-access-token\\": string;
+            Accept?: \\"application/json\\" | \\"application/json\\";
+          }
+
+          interface RequestBody {
+            multiFactorCode: string;
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Common_ValidationErrors;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Signup_Mfa_Confirm {
+      namespace Post {
+        namespace Parameters {
+          interface Header {
+            \\"x-access-token\\": string;
+            Accept?:
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\";
+          }
+
+          interface RequestBody {
+            multiFactorCode: string;
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              interface Application_Json {
+                recoveryCodesList: string[];
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Common_ValidationErrors;
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"NoAccessTokenProvided\\";
+              };
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Signup_Mfa {
+      namespace Delete {
+        namespace Parameters {
+          interface Header {
+            \\"x-access-token\\": string;
+            Accept?:
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\";
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Common_ValidationErrors;
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"NoAccessTokenProvided\\";
+              };
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          interface Header {
+            \\"x-access-token\\": string;
+            Accept?:
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\";
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              interface Application_Json {
+                barcode: string;
+                url: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Common_ValidationErrors;
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"NoAccessTokenProvided\\";
+              };
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Signup_Password {
+      namespace Put {
+        namespace Parameters {
+          interface Header {
+            \\"x-access-token\\": string;
+            Accept?:
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\";
+          }
+
+          interface RequestBody {
+            newPassword: string;
+            oldPassword: string;
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Common_ValidationErrors;
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"NoAccessTokenProvided\\";
+              };
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Signup_Password_Reset_Confirm {
+      namespace Post {
+        namespace Parameters {
+          type Header = {
+            Accept?: \\"application/json\\" | \\"application/json\\";
+          };
+
+          interface RequestBody {
+            password: string;
+            token: string;
+            userId: string;
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Common_ValidationErrors;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Signup_Password_Reset {
+      namespace Post {
+        namespace Parameters {
+          type Header = {
+            Accept?: \\"application/json\\" | \\"application/json\\";
+          };
+
+          interface RequestBody {
+            email: string;
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Common_ValidationErrors;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Signup_Phone {
+      namespace Delete {
+        namespace Parameters {
+          interface Header {
+            \\"x-access-token\\": string;
+            Accept?:
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\";
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Common_ValidationErrors;
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"NoAccessTokenProvided\\";
+              };
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+
+      namespace Get {
+        namespace Parameters {
+          interface Header {
+            \\"x-access-token\\": string;
+            Accept?:
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\";
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Common_ValidationErrors;
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"NoAccessTokenProvided\\";
+              };
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          interface Header {
+            \\"x-access-token\\": string;
+            Accept?:
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\";
+          }
+
+          interface RequestBody {
+            phoneNumber: string;
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Common_ValidationErrors;
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"NoAccessTokenProvided\\";
+              };
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Signup_Phone_Verify {
+      namespace Post {
+        namespace Parameters {
+          interface Header {
+            \\"x-access-token\\": string;
+            Accept?:
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\";
+          }
+
+          interface RequestBody {
+            code: string;
+            phoneNumber: string;
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Common_ValidationErrors;
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"NoAccessTokenProvided\\";
+              };
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Common_ValidationErrors;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Signup_Profile {
+      namespace Put {
+        namespace Parameters {
+          interface Header {
+            \\"x-access-token\\": string;
+            Accept?:
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\";
+          }
+
+          interface RequestBody {
+            profile: {
+              firstName?: string;
+              lastName?: string;
+              title?: 0 | 1 | 2;
+            };
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Common_ValidationErrors;
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"NoAccessTokenProvided\\";
+              };
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+
+      namespace Get {
+        namespace Parameters {
+          interface Header {
+            \\"x-access-token\\": string;
+            Accept?:
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\";
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              interface Application_Json {
+                profile?: Test.Components.Schemas.De_Mittwald_V1_Signup_Profile;
+                userId?: string;
+              }
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"NoAccessTokenProvided\\";
+              };
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Signup_Mfa_Reset_Recoverycodes {
+      namespace Put {
+        namespace Parameters {
+          interface Header {
+            \\"x-access-token\\": string;
+            Accept?:
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\";
+          }
+
+          interface RequestBody {
+            multiFactorCode: string;
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              interface Application_Json {
+                recoveryCodesList: string[];
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Common_ValidationErrors;
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"NoAccessTokenProvided\\";
+              };
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Signup_Registration {
+      namespace Post {
+        namespace Parameters {
+          type Header = {
+            Accept?:
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\";
+          };
+
+          interface RequestBody {
+            email: string;
+            legacyAccount?: {
+              account?: string;
+              password?: string;
+            };
+            password: string;
+            profile: Test.Components.Schemas.De_Mittwald_V1_Signup_Profile;
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              interface Application_Json {
+                userId: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Common_ValidationErrors;
+            }
+          }
+
+          namespace $408 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"LegacyAuthenticationExpired\\";
+              };
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Signup_Registration_Verification {
+      namespace Post {
+        namespace Parameters {
+          type Header = {
+            Accept?:
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\";
+          };
+
+          interface RequestBody {
+            email: string;
+            token: string;
+            userId: string;
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Common_ValidationErrors;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"EmailNotFound\\";
+              };
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Signup_Sessions_TokenId {
+      namespace Get {
+        namespace Parameters {
+          interface Path {
+            tokenId: string;
+          }
+
+          interface Header {
+            \\"x-access-token\\": string;
+            Accept?:
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\";
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              interface Application_Json {
+                session?: Test.Components.Schemas.De_Mittwald_V1_Signup_UserSession;
+              }
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"NoAccessTokenProvided\\";
+              };
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Signup_Sessions {
+      namespace Get {
+        namespace Parameters {
+          interface Header {
+            \\"x-access-token\\": string;
+            Accept?:
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\";
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              interface Application_Json {
+                sessions?: Test.Components.Schemas.De_Mittwald_V1_Signup_UserSession[];
+              }
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"NoAccessTokenProvided\\";
+              };
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Signup_Ssh {
+      namespace Post {
+        namespace Parameters {
+          interface Header {
+            \\"x-access-token\\": string;
+            Accept?:
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\";
+          }
+
+          interface RequestBody {
+            publicKey: string;
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Common_ValidationErrors;
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"NoAccessTokenProvided\\";
+              };
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+
+      namespace Get {
+        namespace Parameters {
+          interface Header {
+            \\"x-access-token\\": string;
+            Accept?:
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\";
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              interface Application_Json {
+                sshKeys?: Test.Components.Schemas.De_Mittwald_V1_Signup_SshKey[];
+              }
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"NoAccessTokenProvided\\";
+              };
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Signup_Ssh_SshKeyId {
+      namespace Delete {
+        namespace Parameters {
+          interface Path {
+            sshKeyId: string;
+          }
+
+          interface Header {
+            \\"x-access-token\\": string;
+            Accept?: \\"application/json\\" | \\"application/json\\";
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $401 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"NoAccessTokenProvided\\";
+              };
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Signup_Token_Check {
+      namespace Post {
+        namespace Parameters {
+          interface Header {
+            \\"x-access-token\\": string;
+            Accept?:
+              | \\"application/json\\"
+              | \\"application/json\\"
+              | \\"application/json\\";
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Common_ValidationErrors;
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"NoAccessTokenProvided\\";
+              };
+            }
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
+                name?: \\"InternalServerError\\";
+              };
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Software_Config_Validate {
+      namespace Get {
+        namespace Parameters {
+          type Header = {
+            Accept?: \\"application/json\\";
+          };
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              type Application_Json = {
+                name: string;
+                version: string;
+              }[];
+            }
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          type Header = {
+            Accept?: \\"application/json\\";
+          };
+
+          type RequestBody = {
+            files: {
+              content: string;
+              meta?: {
+                name: string;
+                path?: string;
+              };
+            }[];
+            name: string;
+            version: string;
+          };
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              interface Application_Json {
+                stages?: {
+                  error_context?: {};
+                  error_message?: string;
+                  error_type?: string;
+                  name?: string;
+                }[];
+                success: boolean;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Projects_ProjectId_Software_SoftwareId_Config {
+      namespace Post {
+        namespace Parameters {
+          interface Path {
+            projectID: string;
+            softwareID: string;
+          }
+
+          type Header = {
+            Accept?: \\"application/json\\";
+          };
+
+          interface RequestBody {
+            files: Test.Components.Schemas.De_Mittwald_V1_Software_ConfigFile[];
+            id?: string;
+            softwareInstallationID?: string;
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              interface Application_Json {}
+            }
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          interface Path {
+            projectID: string;
+            softwareID: string;
+          }
+
+          type Header = {
+            Accept?: \\"application/json\\";
+          };
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              interface Application_Json {}
+            }
+          }
+        }
+      }
+
+      namespace Get {
+        namespace Parameters {
+          interface Path {
+            projectID: string;
+            softwareID: string;
+          }
+
+          type Header = {
+            Accept?: \\"application/json\\";
+          };
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              interface Application_Json {
+                expiration?: {
+                  maxVersions?: number;
+                  retentionTime?: number;
+                };
+                id: string;
+                revisions: Test.Components.Schemas.De_Mittwald_V1_Software_ConfigRevision[];
+              }
+            }
+          }
+        }
+      }
+
+      namespace Patch {
+        namespace Parameters {
+          interface Path {
+            projectID: string;
+            softwareID: string;
+          }
+
+          type Header = {
+            Accept?: \\"application/json\\";
+          };
+
+          interface RequestBody {
+            revision?: string;
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              interface Application_Json {
+                files: Test.Components.Schemas.De_Mittwald_V1_Software_ConfigFileRef[];
+                revision: number;
+                rollbackRef: number;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Put {
+        namespace Parameters {
+          interface Path {
+            projectID: string;
+            softwareID: string;
+          }
+
+          type Header = {
+            Accept?: \\"application/json\\";
+          };
+
+          interface RequestBody {
+            files: Test.Components.Schemas.De_Mittwald_V1_Software_ConfigFile[];
+            note?: string;
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              interface Application_Json {
+                files: {
+                  id: string;
+                  meta?: {
+                    name: string;
+                    path?: string;
+                  };
+                }[];
+                revision: number;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Projects_ProjectId_Software_Config_Template {
+      namespace Post {
+        namespace Parameters {
+          interface Path {
+            projectID: string;
+          }
+
+          type Header = {
+            Accept?: \\"application/json\\";
+          };
+
+          interface RequestBody {
+            files: Test.Components.Schemas.De_Mittwald_V1_Software_ConfigFile[];
+            id: string;
+            note?: string;
+            softwareId: string;
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              interface Application_Json {}
+            }
+          }
+        }
+      }
+
+      namespace Get {
+        namespace Parameters {
+          interface Path {
+            projectID: string;
+          }
+
+          interface Query {
+            softwareID: string;
+            includeGlobals?: boolean;
+            limit?: number;
+            skip?: number;
+          }
+
+          type Header = {
+            Accept?: \\"application/json\\";
+          };
+        }
+
+        namespace Responses {
+          namespace $200 {
+            interface Headers {
+              Link?: string;
+              \\"X-Pagination-Limit\\"?: number;
+              \\"X-Pagination-Skip\\"?: number;
+              \\"X-Pagination-TotalCount\\"?: number;
+            }
+
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Software_ConfigTemplate[];
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Projects_ProjectId_Software_Config_Template_Id {
+      namespace Delete {
+        namespace Parameters {
+          interface Path {
+            projectID: string;
+            id: string;
+          }
+
+          type Header = {
+            Accept?: string;
+          };
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Get {
+        namespace Parameters {
+          interface Path {
+            projectID: string;
+            id: string;
+          }
+
+          type Header = {
+            Accept?: \\"application/json\\";
+          };
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Software_ConfigTemplate;
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Projects_ProjectId_Software_SoftwareId {
+      namespace Get {
+        namespace Parameters {
+          interface Path {
+            projectID: string;
+            softwareID: string;
+          }
+
+          type Header = {
+            Accept?: \\"application/json\\";
+          };
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.De_Mittwald_V1_Software_Software;
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Projects_ProjectId_Software_SoftwareId_Settings {
+      namespace Patch {
+        namespace Parameters {
+          interface Path {
+            projectID: string;
+            softwareID: string;
+          }
+
+          type Header = {
+            Accept?: \\"application/json\\";
+          };
+
+          type RequestBody = Test.Components.Schemas.De_Mittwald_V1_Software_SoftwareSetting[];
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              interface Application_Json {}
+            }
+          }
+        }
+      }
+    }
+  }
+
+  namespace Components {
+    namespace Schemas {
+      interface De_Mittwald_V1_Signup_DeviceInfo {
+        browser?: string;
+        model?: string;
+        os?: string;
+        type?: string;
+      }
+
+      interface De_Mittwald_V1_Signup_DomainError {
+        info?: {};
+        message: string;
+        name: string;
+      }
+
+      interface De_Mittwald_V1_Signup_Location {
+        city?: string;
+        country?: string;
+      }
+
+      interface De_Mittwald_V1_Signup_Profile {
+        firstName: string;
+        lastName: string;
+        title?: 0 | 1 | 2;
+      }
+
+      interface De_Mittwald_V1_Signup_SshKey {
+        algorithm: string;
+        comment: string;
+        createdAt: string;
+        expiresAt?: string;
+        fingerprint: string;
+        key: string;
+        sshKeyId: string;
+      }
+
+      interface De_Mittwald_V1_Signup_UserSession {
+        created: number;
+        device: Test.Components.Schemas.De_Mittwald_V1_Signup_DeviceInfo;
+        lastAccess?: number;
+        location?: Test.Components.Schemas.De_Mittwald_V1_Signup_Location;
+        tokenId: string;
+      }
+
+      interface De_Mittwald_V1_Common_ValidationError {
+        context?: {
+          [a: string]: any;
+        };
+        message: string;
+        path: string;
+        type: string;
+      }
+
+      interface De_Mittwald_V1_Common_ValidationErrors {
+        errorObjects: Test.Components.Schemas.De_Mittwald_V1_Common_ValidationError[];
+        name: \\"ValidationError\\";
+      }
+
+      interface De_Mittwald_V1_Software_ConfigRevision {
+        expire?: number;
+        files: Test.Components.Schemas.De_Mittwald_V1_Software_ConfigFileRef[];
+        note?: string;
+        revision: number;
+        updated: number;
+      }
+
+      interface De_Mittwald_V1_Software_ConfigTemplate {
+        files: Test.Components.Schemas.De_Mittwald_V1_Software_ConfigFileRef[];
+        id: string;
+        isGlobal?: boolean;
+        note?: string;
+        projectId?: string;
+        softwareId: string;
+        updatedAt?: number;
+      }
+
+      interface De_Mittwald_V1_Software_ConfigFile {
+        content: string;
+        meta?: Test.Components.Schemas.De_Mittwald_V1_Software_ConfigFileMetadata;
+      }
+
+      interface De_Mittwald_V1_Software_ConfigFileMetadata {
+        name: string;
+        path?: string;
+      }
+
+      interface De_Mittwald_V1_Software_ConfigFileRef {
+        id?: string;
+        meta?: Test.Components.Schemas.De_Mittwald_V1_Software_ConfigFileMetadata;
+      }
+
+      interface De_Mittwald_V1_Software_Software {
+        config: Test.Components.Schemas.De_Mittwald_V1_Software_SoftwareConfig;
+        id: string;
+        projectId: string;
+        settings: {
+          [a: string]: any;
+        };
+        softwareId: string;
+        softwareVersion: string;
+        updatedAt: number;
+      }
+
+      interface De_Mittwald_V1_Software_SoftwareConfig {
+        configExpiration?: {
+          maxVersions?: number;
+          retentionTime?: number;
+        };
+        latestConfigRevision?: number;
+        revisions: Test.Components.Schemas.De_Mittwald_V1_Software_ConfigRevision[];
+      }
+
+      interface De_Mittwald_V1_Software_SoftwareSetting {
+        name: string;
+        value: string;
+      }
+    }
+
+    namespace Parameters {}
+  }
+
+  namespace Definitions {}
+}
+
+/**
+ * ====================================
+ * Descriptors
+ * ====================================
+ */
+
+export const fileServiceFilesGetById: OperationDescriptor<
+  {
+    header?: Test.Paths.V2_Files_FileId.Get.Parameters.Header;
+
+    path: Test.Paths.V2_Files_FileId.Get.Parameters.Path;
+  },
+  | ({ status: 200 } & {
+      mediaType: \\"application/octet-stream\\";
+      content: Test.Paths.V2_Files_FileId.Get.Responses.$200.Content.Application_Octet_Stream;
+    })
+  | ({ status: 200 } & {
+      mediaType: \\"base64\\";
+      content: Test.Paths.V2_Files_FileId.Get.Responses.$200.Content.Base64;
+    })
+> = {
+  path: \\"/v2/files/{fileID}\\",
+  method: \\"get\\",
+};
+
+export const mailsystemServiceImapclusterCreate: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Imapcluster.Post.Parameters.RequestBody;
+
+    header?: Test.Paths.V2_Imapcluster.Post.Parameters.Header;
+  },
+  { status: 200 } & {
+    content: undefined;
+  }
+> = {
+  path: \\"/v2/imapcluster\\",
+  method: \\"post\\",
+};
+
+export const mailsystemServiceImapclusterUpdate: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Imapcluster.Put.Parameters.RequestBody;
+
+    header?: Test.Paths.V2_Imapcluster.Put.Parameters.Header;
+  },
+  { status: 200 } & {
+    content: undefined;
+  }
+> = {
+  path: \\"/v2/imapcluster\\",
+  method: \\"put\\",
+};
+
+export const mailsystemServiceSettingCreate: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Mailsystemsetting.Post.Parameters.RequestBody;
+
+    header?: Test.Paths.V2_Mailsystemsetting.Post.Parameters.Header;
+  },
+  { status: 200 } & {
+    content: undefined;
+  }
+> = {
+  path: \\"/v2/mailsystemsetting\\",
+  method: \\"post\\",
+};
+
+export const mailsystemServiceSettingUpdate: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Mailsystemsetting.Put.Parameters.RequestBody;
+
+    header?: Test.Paths.V2_Mailsystemsetting.Put.Parameters.Header;
+  },
+  { status: 200 } & {
+    content: undefined;
+  }
+> = {
+  path: \\"/v2/mailsystemsetting\\",
+  method: \\"put\\",
+};
+
+export const signupApiAuthenticate: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Signup_Authentication.Post.Parameters.RequestBody;
+
+    header?: Test.Paths.V2_Signup_Authentication.Post.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Authentication.Post.Responses.$200.Content.Application_Json;
+    })
+  | ({ status: 202 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Authentication.Post.Responses.$202.Content.Application_Json;
+    })
+  | ({ status: 400 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Authentication.Post.Responses.$400.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Authentication.Post.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/authentication\\",
+  method: \\"post\\",
+};
+
+export const signupApiAuthenticateLegacy: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Signup_Authentication_Legacy.Post.Parameters.RequestBody;
+
+    header?: Test.Paths.V2_Signup_Authentication_Legacy.Post.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      content: undefined;
+    })
+  | ({ status: 400 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Authentication_Legacy.Post.Responses.$400.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Authentication_Legacy.Post.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/authentication/legacy\\",
+  method: \\"post\\",
+};
+
+export const signupApiAuthenticateMfa: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Signup_Authentication_Mfa.Post.Parameters.RequestBody;
+
+    header?: Test.Paths.V2_Signup_Authentication_Mfa.Post.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Authentication_Mfa.Post.Responses.$200.Content.Application_Json;
+    })
+  | ({ status: 400 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Authentication_Mfa.Post.Responses.$400.Content.Application_Json;
+    })
+  | ({ status: 408 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Authentication_Mfa.Post.Responses.$408.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Authentication_Mfa.Post.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/authentication/mfa\\",
+  method: \\"post\\",
+};
+
+export const signupApiEmailResend: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Signup_Email_Resend.Post.Parameters.RequestBody;
+
+    header?: Test.Paths.V2_Signup_Email_Resend.Post.Parameters.Header;
+  },
+  | ({ status: 204 } & {
+      content: undefined;
+    })
+  | ({ status: 400 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Email_Resend.Post.Responses.$400.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Email_Resend.Post.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/email/resend\\",
+  method: \\"post\\",
+};
+
+export const signupApiLogout: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Signup_Logout.Put.Parameters.RequestBody;
+
+    header: Test.Paths.V2_Signup_Logout.Put.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      content: undefined;
+    })
+  | ({ status: 400 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Logout.Put.Responses.$400.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Logout.Put.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/logout\\",
+  method: \\"put\\",
+};
+
+export const signupApiMfaConfirm: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Signup_Mfa_Confirm.Post.Parameters.RequestBody;
+
+    header: Test.Paths.V2_Signup_Mfa_Confirm.Post.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Mfa_Confirm.Post.Responses.$200.Content.Application_Json;
+    })
+  | ({ status: 400 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Mfa_Confirm.Post.Responses.$400.Content.Application_Json;
+    })
+  | ({ status: 401 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Mfa_Confirm.Post.Responses.$401.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Mfa_Confirm.Post.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/mfa/confirm\\",
+  method: \\"post\\",
+};
+
+export const signupApiMfaDisable: OperationDescriptor<
+  {
+    header: Test.Paths.V2_Signup_Mfa.Delete.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      content: undefined;
+    })
+  | ({ status: 400 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Mfa.Delete.Responses.$400.Content.Application_Json;
+    })
+  | ({ status: 401 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Mfa.Delete.Responses.$401.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Mfa.Delete.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/mfa\\",
+  method: \\"delete\\",
+};
+
+export const signupApiMfaInit: OperationDescriptor<
+  {
+    header: Test.Paths.V2_Signup_Mfa.Post.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Mfa.Post.Responses.$200.Content.Application_Json;
+    })
+  | ({ status: 400 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Mfa.Post.Responses.$400.Content.Application_Json;
+    })
+  | ({ status: 401 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Mfa.Post.Responses.$401.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Mfa.Post.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/mfa\\",
+  method: \\"post\\",
+};
+
+export const signupApiPasswordChange: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Signup_Password.Put.Parameters.RequestBody;
+
+    header: Test.Paths.V2_Signup_Password.Put.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      content: undefined;
+    })
+  | ({ status: 400 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Password.Put.Responses.$400.Content.Application_Json;
+    })
+  | ({ status: 401 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Password.Put.Responses.$401.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Password.Put.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/password\\",
+  method: \\"put\\",
+};
+
+export const signupApiPasswordResetConfirm: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Signup_Password_Reset_Confirm.Post.Parameters.RequestBody;
+
+    header?: Test.Paths.V2_Signup_Password_Reset_Confirm.Post.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      content: undefined;
+    })
+  | ({ status: 400 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Password_Reset_Confirm.Post.Responses.$400.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Password_Reset_Confirm.Post.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/password/reset/confirm\\",
+  method: \\"post\\",
+};
+
+export const signupApiPasswordResetInit: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Signup_Password_Reset.Post.Parameters.RequestBody;
+
+    header?: Test.Paths.V2_Signup_Password_Reset.Post.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      content: undefined;
+    })
+  | ({ status: 400 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Password_Reset.Post.Responses.$400.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Password_Reset.Post.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/password/reset\\",
+  method: \\"post\\",
+};
+
+export const signupApiPhoneNumberDelete: OperationDescriptor<
+  {
+    header: Test.Paths.V2_Signup_Phone.Delete.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      content: undefined;
+    })
+  | ({ status: 400 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Phone.Delete.Responses.$400.Content.Application_Json;
+    })
+  | ({ status: 401 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Phone.Delete.Responses.$401.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Phone.Delete.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/phone\\",
+  method: \\"delete\\",
+};
+
+export const signupApiPhoneNumberGet: OperationDescriptor<
+  {
+    header: Test.Paths.V2_Signup_Phone.Get.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      content: undefined;
+    })
+  | ({ status: 400 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Phone.Get.Responses.$400.Content.Application_Json;
+    })
+  | ({ status: 401 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Phone.Get.Responses.$401.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Phone.Get.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/phone\\",
+  method: \\"get\\",
+};
+
+export const signupApiPhoneNumberInitProcess: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Signup_Phone.Post.Parameters.RequestBody;
+
+    header: Test.Paths.V2_Signup_Phone.Post.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      content: undefined;
+    })
+  | ({ status: 400 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Phone.Post.Responses.$400.Content.Application_Json;
+    })
+  | ({ status: 401 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Phone.Post.Responses.$401.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Phone.Post.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/phone\\",
+  method: \\"post\\",
+};
+
+export const signupApiPhoneNumberVerify: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Signup_Phone_Verify.Post.Parameters.RequestBody;
+
+    header: Test.Paths.V2_Signup_Phone_Verify.Post.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      content: undefined;
+    })
+  | ({ status: 400 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Phone_Verify.Post.Responses.$400.Content.Application_Json;
+    })
+  | ({ status: 401 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Phone_Verify.Post.Responses.$401.Content.Application_Json;
+    })
+  | ({ status: 404 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Phone_Verify.Post.Responses.$404.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Phone_Verify.Post.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/phone/verify\\",
+  method: \\"post\\",
+};
+
+export const signupApiProfileChange: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Signup_Profile.Put.Parameters.RequestBody;
+
+    header: Test.Paths.V2_Signup_Profile.Put.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      content: undefined;
+    })
+  | ({ status: 400 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Profile.Put.Responses.$400.Content.Application_Json;
+    })
+  | ({ status: 401 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Profile.Put.Responses.$401.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Profile.Put.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/profile\\",
+  method: \\"put\\",
+};
+
+export const signupApiProfileGet: OperationDescriptor<
+  {
+    header: Test.Paths.V2_Signup_Profile.Get.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Profile.Get.Responses.$200.Content.Application_Json;
+    })
+  | ({ status: 401 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Profile.Get.Responses.$401.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Profile.Get.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/profile\\",
+  method: \\"get\\",
+};
+
+export const signupApiRecoverycodesReset: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Signup_Mfa_Reset_Recoverycodes.Put.Parameters.RequestBody;
+
+    header: Test.Paths.V2_Signup_Mfa_Reset_Recoverycodes.Put.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Mfa_Reset_Recoverycodes.Put.Responses.$200.Content.Application_Json;
+    })
+  | ({ status: 400 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Mfa_Reset_Recoverycodes.Put.Responses.$400.Content.Application_Json;
+    })
+  | ({ status: 401 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Mfa_Reset_Recoverycodes.Put.Responses.$401.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Mfa_Reset_Recoverycodes.Put.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/mfa/reset-recoverycodes\\",
+  method: \\"put\\",
+};
+
+export const signupApiRegister: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Signup_Registration.Post.Parameters.RequestBody;
+
+    header?: Test.Paths.V2_Signup_Registration.Post.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Registration.Post.Responses.$200.Content.Application_Json;
+    })
+  | ({ status: 400 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Registration.Post.Responses.$400.Content.Application_Json;
+    })
+  | ({ status: 408 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Registration.Post.Responses.$408.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Registration.Post.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/registration\\",
+  method: \\"post\\",
+};
+
+export const signupApiRegistrationVerify: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Signup_Registration_Verification.Post.Parameters.RequestBody;
+
+    header?: Test.Paths.V2_Signup_Registration_Verification.Post.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      content: undefined;
+    })
+  | ({ status: 400 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Registration_Verification.Post.Responses.$400.Content.Application_Json;
+    })
+  | ({ status: 404 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Registration_Verification.Post.Responses.$404.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Registration_Verification.Post.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/registration/verification\\",
+  method: \\"post\\",
+};
+
+export const signupApiSessionGet: OperationDescriptor<
+  {
+    header: Test.Paths.V2_Signup_Sessions_TokenId.Get.Parameters.Header;
+
+    path: Test.Paths.V2_Signup_Sessions_TokenId.Get.Parameters.Path;
+  },
+  | ({ status: 200 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Sessions_TokenId.Get.Responses.$200.Content.Application_Json;
+    })
+  | ({ status: 401 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Sessions_TokenId.Get.Responses.$401.Content.Application_Json;
+    })
+  | ({ status: 404 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Sessions_TokenId.Get.Responses.$404.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Sessions_TokenId.Get.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/sessions/{tokenId}\\",
+  method: \\"get\\",
+};
+
+export const signupApiSessionsList: OperationDescriptor<
+  {
+    header: Test.Paths.V2_Signup_Sessions.Get.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Sessions.Get.Responses.$200.Content.Application_Json;
+    })
+  | ({ status: 401 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Sessions.Get.Responses.$401.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Sessions.Get.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/sessions\\",
+  method: \\"get\\",
+};
+
+export const signupApiSshCreate: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Signup_Ssh.Post.Parameters.RequestBody;
+
+    header: Test.Paths.V2_Signup_Ssh.Post.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      content: undefined;
+    })
+  | ({ status: 400 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Ssh.Post.Responses.$400.Content.Application_Json;
+    })
+  | ({ status: 401 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Ssh.Post.Responses.$401.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Ssh.Post.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/ssh\\",
+  method: \\"post\\",
+};
+
+export const signupApiSshList: OperationDescriptor<
+  {
+    header: Test.Paths.V2_Signup_Ssh.Get.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Ssh.Get.Responses.$200.Content.Application_Json;
+    })
+  | ({ status: 401 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Ssh.Get.Responses.$401.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Ssh.Get.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/ssh\\",
+  method: \\"get\\",
+};
+
+export const signupApiSshDelete: OperationDescriptor<
+  {
+    header: Test.Paths.V2_Signup_Ssh_SshKeyId.Delete.Parameters.Header;
+
+    path: Test.Paths.V2_Signup_Ssh_SshKeyId.Delete.Parameters.Path;
+  },
+  | ({ status: 200 } & {
+      content: undefined;
+    })
+  | ({ status: 401 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Ssh_SshKeyId.Delete.Responses.$401.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Ssh_SshKeyId.Delete.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/ssh/{sshKeyId}\\",
+  method: \\"delete\\",
+};
+
+export const signupApiTokenCheck: OperationDescriptor<
+  {
+    header: Test.Paths.V2_Signup_Token_Check.Post.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      content: undefined;
+    })
+  | ({ status: 400 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Token_Check.Post.Responses.$400.Content.Application_Json;
+    })
+  | ({ status: 401 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Token_Check.Post.Responses.$401.Content.Application_Json;
+    })
+  | ({ status: 429 } & {
+      content: undefined;
+    })
+  | ({ status: 500 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.V2_Signup_Token_Check.Post.Responses.$500.Content.Application_Json;
+    })
+> = {
+  path: \\"/v2/signup/token/check\\",
+  method: \\"post\\",
+};
+
+export const softwareServiceListValidators: OperationDescriptor<
+  {
+    header?: Test.Paths.V2_Software_Config_Validate.Get.Parameters.Header;
+  },
+  { status: 200 } & {
+    mediaType: \\"application/json\\";
+    content: Test.Paths.V2_Software_Config_Validate.Get.Responses.$200.Content.Application_Json;
+  }
+> = {
+  path: \\"/v2/software/config/validate\\",
+  method: \\"get\\",
+};
+
+export const softwareServiceValidate: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Software_Config_Validate.Post.Parameters.RequestBody;
+
+    header?: Test.Paths.V2_Software_Config_Validate.Post.Parameters.Header;
+  },
+  { status: 200 } & {
+    mediaType: \\"application/json\\";
+    content: Test.Paths.V2_Software_Config_Validate.Post.Responses.$200.Content.Application_Json;
+  }
+> = {
+  path: \\"/v2/software/config/validate\\",
+  method: \\"post\\",
+};
+
+export const softwareServiceSoftwareConfigCreate: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Post.Parameters.RequestBody;
+
+    header?: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Post.Parameters.Header;
+
+    path: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Post.Parameters.Path;
+  },
+  { status: 200 } & {
+    mediaType: \\"application/json\\";
+    content: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Post.Responses.$200.Content.Application_Json;
+  }
+> = {
+  path: \\"/v2/projects/{projectID}/software/{softwareID}/config\\",
+  method: \\"post\\",
+};
+
+export const softwareServiceSoftwareConfigDelete: OperationDescriptor<
+  {
+    header?: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Delete.Parameters.Header;
+
+    path: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Delete.Parameters.Path;
+  },
+  { status: 200 } & {
+    mediaType: \\"application/json\\";
+    content: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Delete.Responses.$200.Content.Application_Json;
+  }
+> = {
+  path: \\"/v2/projects/{projectID}/software/{softwareID}/config\\",
+  method: \\"delete\\",
+};
+
+export const softwareServiceSoftwareConfigGetById: OperationDescriptor<
+  {
+    header?: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Get.Parameters.Header;
+
+    path: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Get.Parameters.Path;
+  },
+  { status: 200 } & {
+    mediaType: \\"application/json\\";
+    content: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Get.Responses.$200.Content.Application_Json;
+  }
+> = {
+  path: \\"/v2/projects/{projectID}/software/{softwareID}/config\\",
+  method: \\"get\\",
+};
+
+export const softwareServiceSoftwareConfigRollback: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Patch.Parameters.RequestBody;
+
+    header?: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Patch.Parameters.Header;
+
+    path: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Patch.Parameters.Path;
+  },
+  { status: 200 } & {
+    mediaType: \\"application/json\\";
+    content: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Patch.Responses.$200.Content.Application_Json;
+  }
+> = {
+  path: \\"/v2/projects/{projectID}/software/{softwareID}/config\\",
+  method: \\"patch\\",
+};
+
+export const softwareServiceSoftwareConfigUpdate: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Put.Parameters.RequestBody;
+
+    header?: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Put.Parameters.Header;
+
+    path: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Put.Parameters.Path;
+  },
+  { status: 200 } & {
+    mediaType: \\"application/json\\";
+    content: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Put.Responses.$200.Content.Application_Json;
+  }
+> = {
+  path: \\"/v2/projects/{projectID}/software/{softwareID}/config\\",
+  method: \\"put\\",
+};
+
+export const softwareServiceSoftwareConfigtemplateCreate: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Projects_ProjectId_Software_Config_Template.Post.Parameters.RequestBody;
+
+    header?: Test.Paths.V2_Projects_ProjectId_Software_Config_Template.Post.Parameters.Header;
+
+    path: Test.Paths.V2_Projects_ProjectId_Software_Config_Template.Post.Parameters.Path;
+  },
+  { status: 200 } & {
+    mediaType: \\"application/json\\";
+    content: Test.Paths.V2_Projects_ProjectId_Software_Config_Template.Post.Responses.$200.Content.Application_Json;
+  }
+> = {
+  path: \\"/v2/projects/{projectID}/software/config/template\\",
+  method: \\"post\\",
+};
+
+export const softwareServiceSoftwareConfigtemplateGetList: OperationDescriptor<
+  {
+    header?: Test.Paths.V2_Projects_ProjectId_Software_Config_Template.Get.Parameters.Header;
+
+    path: Test.Paths.V2_Projects_ProjectId_Software_Config_Template.Get.Parameters.Path;
+
+    query: Test.Paths.V2_Projects_ProjectId_Software_Config_Template.Get.Parameters.Query;
+  },
+  { status: 200 } & {
+    mediaType: \\"application/json\\";
+    content: Test.Paths.V2_Projects_ProjectId_Software_Config_Template.Get.Responses.$200.Content.Application_Json;
+
+    headers: Test.Paths.V2_Projects_ProjectId_Software_Config_Template.Get.Responses.$200.Headers;
+  }
+> = {
+  path: \\"/v2/projects/{projectID}/software/config/template\\",
+  method: \\"get\\",
+};
+
+export const softwareServiceSoftwareConfigtemplateDelete: OperationDescriptor<
+  {
+    header?: Test.Paths.V2_Projects_ProjectId_Software_Config_Template_Id.Delete.Parameters.Header;
+
+    path: Test.Paths.V2_Projects_ProjectId_Software_Config_Template_Id.Delete.Parameters.Path;
+  },
+  { status: 200 } & {
+    content: undefined;
+  }
+> = {
+  path: \\"/v2/projects/{projectID}/software/config/template/{id}\\",
+  method: \\"delete\\",
+};
+
+export const softwareServiceSoftwareConfigtemplateGetSpecific: OperationDescriptor<
+  {
+    header?: Test.Paths.V2_Projects_ProjectId_Software_Config_Template_Id.Get.Parameters.Header;
+
+    path: Test.Paths.V2_Projects_ProjectId_Software_Config_Template_Id.Get.Parameters.Path;
+  },
+  { status: 200 } & {
+    mediaType: \\"application/json\\";
+    content: Test.Paths.V2_Projects_ProjectId_Software_Config_Template_Id.Get.Responses.$200.Content.Application_Json;
+  }
+> = {
+  path: \\"/v2/projects/{projectID}/software/config/template/{id}\\",
+  method: \\"get\\",
+};
+
+export const softwareServiceSoftwareGetById: OperationDescriptor<
+  {
+    header?: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId.Get.Parameters.Header;
+
+    path: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId.Get.Parameters.Path;
+  },
+  { status: 200 } & {
+    mediaType: \\"application/json\\";
+    content: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId.Get.Responses.$200.Content.Application_Json;
+  }
+> = {
+  path: \\"/v2/projects/{projectID}/software/{softwareID}\\",
+  method: \\"get\\",
+};
+
+export const softwareServiceSoftwareSettingsDeclare: OperationDescriptor<
+  {
+    requestBody: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Settings.Patch.Parameters.RequestBody;
+
+    header?: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Settings.Patch.Parameters.Header;
+
+    path: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Settings.Patch.Parameters.Path;
+  },
+  { status: 200 } & {
+    mediaType: \\"application/json\\";
+    content: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Settings.Patch.Responses.$200.Content.Application_Json;
+  }
+> = {
+  path: \\"/v2/projects/{projectID}/software/{softwareID}/settings\\",
+  method: \\"patch\\",
+};
+
+/**
+ * ====================================
+ * Client
+ * ====================================
+ */
+export class TestClient {
+  private static instance: TestClient | undefined;
+
+  public static getInstance(): TestClient {
+    if (!TestClient.instance) {
+      throw new Error(
+        \\"ApiClientInstanceNotSet: API-Client-instance must be set before using hooks. Use TestClient.setInstance().\\"
+      );
+    }
+    return TestClient.instance;
+  }
+
+  public static setInstance(client: TestClient): void {
+    TestClient.instance = client;
+  }
+
+  public fileServiceFilesGetById: RequestFunction<
+    typeof fileServiceFilesGetById
+  >;
+
+  public mailsystemServiceImapclusterCreate: RequestFunction<
+    typeof mailsystemServiceImapclusterCreate
+  >;
+
+  public mailsystemServiceImapclusterUpdate: RequestFunction<
+    typeof mailsystemServiceImapclusterUpdate
+  >;
+
+  public mailsystemServiceSettingCreate: RequestFunction<
+    typeof mailsystemServiceSettingCreate
+  >;
+
+  public mailsystemServiceSettingUpdate: RequestFunction<
+    typeof mailsystemServiceSettingUpdate
+  >;
+
+  public signupApiAuthenticate: RequestFunction<typeof signupApiAuthenticate>;
+
+  public signupApiAuthenticateLegacy: RequestFunction<
+    typeof signupApiAuthenticateLegacy
+  >;
+
+  public signupApiAuthenticateMfa: RequestFunction<
+    typeof signupApiAuthenticateMfa
+  >;
+
+  public signupApiEmailResend: RequestFunction<typeof signupApiEmailResend>;
+
+  public signupApiLogout: RequestFunction<typeof signupApiLogout>;
+
+  public signupApiMfaConfirm: RequestFunction<typeof signupApiMfaConfirm>;
+
+  public signupApiMfaDisable: RequestFunction<typeof signupApiMfaDisable>;
+
+  public signupApiMfaInit: RequestFunction<typeof signupApiMfaInit>;
+
+  public signupApiPasswordChange: RequestFunction<
+    typeof signupApiPasswordChange
+  >;
+
+  public signupApiPasswordResetConfirm: RequestFunction<
+    typeof signupApiPasswordResetConfirm
+  >;
+
+  public signupApiPasswordResetInit: RequestFunction<
+    typeof signupApiPasswordResetInit
+  >;
+
+  public signupApiPhoneNumberDelete: RequestFunction<
+    typeof signupApiPhoneNumberDelete
+  >;
+
+  public signupApiPhoneNumberGet: RequestFunction<
+    typeof signupApiPhoneNumberGet
+  >;
+
+  public signupApiPhoneNumberInitProcess: RequestFunction<
+    typeof signupApiPhoneNumberInitProcess
+  >;
+
+  public signupApiPhoneNumberVerify: RequestFunction<
+    typeof signupApiPhoneNumberVerify
+  >;
+
+  public signupApiProfileChange: RequestFunction<typeof signupApiProfileChange>;
+
+  public signupApiProfileGet: RequestFunction<typeof signupApiProfileGet>;
+
+  public signupApiRecoverycodesReset: RequestFunction<
+    typeof signupApiRecoverycodesReset
+  >;
+
+  public signupApiRegister: RequestFunction<typeof signupApiRegister>;
+
+  public signupApiRegistrationVerify: RequestFunction<
+    typeof signupApiRegistrationVerify
+  >;
+
+  public signupApiSessionGet: RequestFunction<typeof signupApiSessionGet>;
+
+  public signupApiSessionsList: RequestFunction<typeof signupApiSessionsList>;
+
+  public signupApiSshCreate: RequestFunction<typeof signupApiSshCreate>;
+
+  public signupApiSshList: RequestFunction<typeof signupApiSshList>;
+
+  public signupApiSshDelete: RequestFunction<typeof signupApiSshDelete>;
+
+  public signupApiTokenCheck: RequestFunction<typeof signupApiTokenCheck>;
+
+  public softwareServiceListValidators: RequestFunction<
+    typeof softwareServiceListValidators
+  >;
+
+  public softwareServiceValidate: RequestFunction<
+    typeof softwareServiceValidate
+  >;
+
+  public softwareServiceSoftwareConfigCreate: RequestFunction<
+    typeof softwareServiceSoftwareConfigCreate
+  >;
+
+  public softwareServiceSoftwareConfigDelete: RequestFunction<
+    typeof softwareServiceSoftwareConfigDelete
+  >;
+
+  public softwareServiceSoftwareConfigGetById: RequestFunction<
+    typeof softwareServiceSoftwareConfigGetById
+  >;
+
+  public softwareServiceSoftwareConfigRollback: RequestFunction<
+    typeof softwareServiceSoftwareConfigRollback
+  >;
+
+  public softwareServiceSoftwareConfigUpdate: RequestFunction<
+    typeof softwareServiceSoftwareConfigUpdate
+  >;
+
+  public softwareServiceSoftwareConfigtemplateCreate: RequestFunction<
+    typeof softwareServiceSoftwareConfigtemplateCreate
+  >;
+
+  public softwareServiceSoftwareConfigtemplateGetList: RequestFunction<
+    typeof softwareServiceSoftwareConfigtemplateGetList
+  >;
+
+  public softwareServiceSoftwareConfigtemplateDelete: RequestFunction<
+    typeof softwareServiceSoftwareConfigtemplateDelete
+  >;
+
+  public softwareServiceSoftwareConfigtemplateGetSpecific: RequestFunction<
+    typeof softwareServiceSoftwareConfigtemplateGetSpecific
+  >;
+
+  public softwareServiceSoftwareGetById: RequestFunction<
+    typeof softwareServiceSoftwareGetById
+  >;
+
+  public softwareServiceSoftwareSettingsDeclare: RequestFunction<
+    typeof softwareServiceSoftwareSettingsDeclare
+  >;
+
+  public constructor(clientOrUrl: Client | string) {
+    const client =
+      typeof clientOrUrl === \\"string\\"
+        ? new KyClient({ ky: { prefixUrl: clientOrUrl } })
+        : clientOrUrl;
+
+    this.fileServiceFilesGetById = client.requestFunctionFactory(
+      fileServiceFilesGetById
+    );
+
+    this.mailsystemServiceImapclusterCreate = client.requestFunctionFactory(
+      mailsystemServiceImapclusterCreate
+    );
+
+    this.mailsystemServiceImapclusterUpdate = client.requestFunctionFactory(
+      mailsystemServiceImapclusterUpdate
+    );
+
+    this.mailsystemServiceSettingCreate = client.requestFunctionFactory(
+      mailsystemServiceSettingCreate
+    );
+
+    this.mailsystemServiceSettingUpdate = client.requestFunctionFactory(
+      mailsystemServiceSettingUpdate
+    );
+
+    this.signupApiAuthenticate = client.requestFunctionFactory(
+      signupApiAuthenticate
+    );
+
+    this.signupApiAuthenticateLegacy = client.requestFunctionFactory(
+      signupApiAuthenticateLegacy
+    );
+
+    this.signupApiAuthenticateMfa = client.requestFunctionFactory(
+      signupApiAuthenticateMfa
+    );
+
+    this.signupApiEmailResend = client.requestFunctionFactory(
+      signupApiEmailResend
+    );
+
+    this.signupApiLogout = client.requestFunctionFactory(signupApiLogout);
+
+    this.signupApiMfaConfirm = client.requestFunctionFactory(
+      signupApiMfaConfirm
+    );
+
+    this.signupApiMfaDisable = client.requestFunctionFactory(
+      signupApiMfaDisable
+    );
+
+    this.signupApiMfaInit = client.requestFunctionFactory(signupApiMfaInit);
+
+    this.signupApiPasswordChange = client.requestFunctionFactory(
+      signupApiPasswordChange
+    );
+
+    this.signupApiPasswordResetConfirm = client.requestFunctionFactory(
+      signupApiPasswordResetConfirm
+    );
+
+    this.signupApiPasswordResetInit = client.requestFunctionFactory(
+      signupApiPasswordResetInit
+    );
+
+    this.signupApiPhoneNumberDelete = client.requestFunctionFactory(
+      signupApiPhoneNumberDelete
+    );
+
+    this.signupApiPhoneNumberGet = client.requestFunctionFactory(
+      signupApiPhoneNumberGet
+    );
+
+    this.signupApiPhoneNumberInitProcess = client.requestFunctionFactory(
+      signupApiPhoneNumberInitProcess
+    );
+
+    this.signupApiPhoneNumberVerify = client.requestFunctionFactory(
+      signupApiPhoneNumberVerify
+    );
+
+    this.signupApiProfileChange = client.requestFunctionFactory(
+      signupApiProfileChange
+    );
+
+    this.signupApiProfileGet = client.requestFunctionFactory(
+      signupApiProfileGet
+    );
+
+    this.signupApiRecoverycodesReset = client.requestFunctionFactory(
+      signupApiRecoverycodesReset
+    );
+
+    this.signupApiRegister = client.requestFunctionFactory(signupApiRegister);
+
+    this.signupApiRegistrationVerify = client.requestFunctionFactory(
+      signupApiRegistrationVerify
+    );
+
+    this.signupApiSessionGet = client.requestFunctionFactory(
+      signupApiSessionGet
+    );
+
+    this.signupApiSessionsList = client.requestFunctionFactory(
+      signupApiSessionsList
+    );
+
+    this.signupApiSshCreate = client.requestFunctionFactory(signupApiSshCreate);
+
+    this.signupApiSshList = client.requestFunctionFactory(signupApiSshList);
+
+    this.signupApiSshDelete = client.requestFunctionFactory(signupApiSshDelete);
+
+    this.signupApiTokenCheck = client.requestFunctionFactory(
+      signupApiTokenCheck
+    );
+
+    this.softwareServiceListValidators = client.requestFunctionFactory(
+      softwareServiceListValidators
+    );
+
+    this.softwareServiceValidate = client.requestFunctionFactory(
+      softwareServiceValidate
+    );
+
+    this.softwareServiceSoftwareConfigCreate = client.requestFunctionFactory(
+      softwareServiceSoftwareConfigCreate
+    );
+
+    this.softwareServiceSoftwareConfigDelete = client.requestFunctionFactory(
+      softwareServiceSoftwareConfigDelete
+    );
+
+    this.softwareServiceSoftwareConfigGetById = client.requestFunctionFactory(
+      softwareServiceSoftwareConfigGetById
+    );
+
+    this.softwareServiceSoftwareConfigRollback = client.requestFunctionFactory(
+      softwareServiceSoftwareConfigRollback
+    );
+
+    this.softwareServiceSoftwareConfigUpdate = client.requestFunctionFactory(
+      softwareServiceSoftwareConfigUpdate
+    );
+
+    this.softwareServiceSoftwareConfigtemplateCreate = client.requestFunctionFactory(
+      softwareServiceSoftwareConfigtemplateCreate
+    );
+
+    this.softwareServiceSoftwareConfigtemplateGetList = client.requestFunctionFactory(
+      softwareServiceSoftwareConfigtemplateGetList
+    );
+
+    this.softwareServiceSoftwareConfigtemplateDelete = client.requestFunctionFactory(
+      softwareServiceSoftwareConfigtemplateDelete
+    );
+
+    this.softwareServiceSoftwareConfigtemplateGetSpecific = client.requestFunctionFactory(
+      softwareServiceSoftwareConfigtemplateGetSpecific
+    );
+
+    this.softwareServiceSoftwareGetById = client.requestFunctionFactory(
+      softwareServiceSoftwareGetById
+    );
+
+    this.softwareServiceSoftwareSettingsDeclare = client.requestFunctionFactory(
+      softwareServiceSoftwareSettingsDeclare
+    );
+  }
+}
+
+/**
+ * ====================================
+ * React Hooks
+ * ====================================
+ */
+import {
+  createUseGetData,
+  createRefreshCache,
+} from \\"@mittwald/react-api-hooks/dist/hooks/createUseGetData\\";
+
+export const useFileServiceFilesGetById = createUseGetData(
+  () => TestClient.getInstance().fileServiceFilesGetById
+);
+
+export const useMailsystemServiceImapclusterCreate = createUseGetData(
+  () => TestClient.getInstance().mailsystemServiceImapclusterCreate
+);
+
+export const useMailsystemServiceImapclusterUpdate = createUseGetData(
+  () => TestClient.getInstance().mailsystemServiceImapclusterUpdate
+);
+
+export const useMailsystemServiceSettingCreate = createUseGetData(
+  () => TestClient.getInstance().mailsystemServiceSettingCreate
+);
+
+export const useMailsystemServiceSettingUpdate = createUseGetData(
+  () => TestClient.getInstance().mailsystemServiceSettingUpdate
+);
+
+export const useSignupApiAuthenticate = createUseGetData(
+  () => TestClient.getInstance().signupApiAuthenticate
+);
+
+export const useSignupApiAuthenticateLegacy = createUseGetData(
+  () => TestClient.getInstance().signupApiAuthenticateLegacy
+);
+
+export const useSignupApiAuthenticateMfa = createUseGetData(
+  () => TestClient.getInstance().signupApiAuthenticateMfa
+);
+
+export const useSignupApiEmailResend = createUseGetData(
+  () => TestClient.getInstance().signupApiEmailResend
+);
+
+export const useSignupApiLogout = createUseGetData(
+  () => TestClient.getInstance().signupApiLogout
+);
+
+export const useSignupApiMfaConfirm = createUseGetData(
+  () => TestClient.getInstance().signupApiMfaConfirm
+);
+
+export const useSignupApiMfaDisable = createUseGetData(
+  () => TestClient.getInstance().signupApiMfaDisable
+);
+
+export const useSignupApiMfaInit = createUseGetData(
+  () => TestClient.getInstance().signupApiMfaInit
+);
+
+export const useSignupApiPasswordChange = createUseGetData(
+  () => TestClient.getInstance().signupApiPasswordChange
+);
+
+export const useSignupApiPasswordResetConfirm = createUseGetData(
+  () => TestClient.getInstance().signupApiPasswordResetConfirm
+);
+
+export const useSignupApiPasswordResetInit = createUseGetData(
+  () => TestClient.getInstance().signupApiPasswordResetInit
+);
+
+export const useSignupApiPhoneNumberDelete = createUseGetData(
+  () => TestClient.getInstance().signupApiPhoneNumberDelete
+);
+
+export const useSignupApiPhoneNumberGet = createUseGetData(
+  () => TestClient.getInstance().signupApiPhoneNumberGet
+);
+
+export const useSignupApiPhoneNumberInitProcess = createUseGetData(
+  () => TestClient.getInstance().signupApiPhoneNumberInitProcess
+);
+
+export const useSignupApiPhoneNumberVerify = createUseGetData(
+  () => TestClient.getInstance().signupApiPhoneNumberVerify
+);
+
+export const useSignupApiProfileChange = createUseGetData(
+  () => TestClient.getInstance().signupApiProfileChange
+);
+
+export const useSignupApiProfileGet = createUseGetData(
+  () => TestClient.getInstance().signupApiProfileGet
+);
+
+export const useSignupApiRecoverycodesReset = createUseGetData(
+  () => TestClient.getInstance().signupApiRecoverycodesReset
+);
+
+export const useSignupApiRegister = createUseGetData(
+  () => TestClient.getInstance().signupApiRegister
+);
+
+export const useSignupApiRegistrationVerify = createUseGetData(
+  () => TestClient.getInstance().signupApiRegistrationVerify
+);
+
+export const useSignupApiSessionGet = createUseGetData(
+  () => TestClient.getInstance().signupApiSessionGet
+);
+
+export const useSignupApiSessionsList = createUseGetData(
+  () => TestClient.getInstance().signupApiSessionsList
+);
+
+export const useSignupApiSshCreate = createUseGetData(
+  () => TestClient.getInstance().signupApiSshCreate
+);
+
+export const useSignupApiSshList = createUseGetData(
+  () => TestClient.getInstance().signupApiSshList
+);
+
+export const useSignupApiSshDelete = createUseGetData(
+  () => TestClient.getInstance().signupApiSshDelete
+);
+
+export const useSignupApiTokenCheck = createUseGetData(
+  () => TestClient.getInstance().signupApiTokenCheck
+);
+
+export const useSoftwareServiceListValidators = createUseGetData(
+  () => TestClient.getInstance().softwareServiceListValidators
+);
+
+export const useSoftwareServiceValidate = createUseGetData(
+  () => TestClient.getInstance().softwareServiceValidate
+);
+
+export const useSoftwareServiceSoftwareConfigCreate = createUseGetData(
+  () => TestClient.getInstance().softwareServiceSoftwareConfigCreate
+);
+
+export const useSoftwareServiceSoftwareConfigDelete = createUseGetData(
+  () => TestClient.getInstance().softwareServiceSoftwareConfigDelete
+);
+
+export const useSoftwareServiceSoftwareConfigGetById = createUseGetData(
+  () => TestClient.getInstance().softwareServiceSoftwareConfigGetById
+);
+
+export const useSoftwareServiceSoftwareConfigRollback = createUseGetData(
+  () => TestClient.getInstance().softwareServiceSoftwareConfigRollback
+);
+
+export const useSoftwareServiceSoftwareConfigUpdate = createUseGetData(
+  () => TestClient.getInstance().softwareServiceSoftwareConfigUpdate
+);
+
+export const useSoftwareServiceSoftwareConfigtemplateCreate = createUseGetData(
+  () => TestClient.getInstance().softwareServiceSoftwareConfigtemplateCreate
+);
+
+export const useSoftwareServiceSoftwareConfigtemplateGetList = createUseGetData(
+  () => TestClient.getInstance().softwareServiceSoftwareConfigtemplateGetList
+);
+
+export const useSoftwareServiceSoftwareConfigtemplateDelete = createUseGetData(
+  () => TestClient.getInstance().softwareServiceSoftwareConfigtemplateDelete
+);
+
+export const useSoftwareServiceSoftwareConfigtemplateGetSpecific = createUseGetData(
+  () =>
+    TestClient.getInstance().softwareServiceSoftwareConfigtemplateGetSpecific
+);
+
+export const useSoftwareServiceSoftwareGetById = createUseGetData(
+  () => TestClient.getInstance().softwareServiceSoftwareGetById
+);
+
+export const useSoftwareServiceSoftwareSettingsDeclare = createUseGetData(
+  () => TestClient.getInstance().softwareServiceSoftwareSettingsDeclare
+);
+
+export const testCache = {
+  refreshFileServiceFilesGetById: createRefreshCache(
+    () => TestClient.getInstance().fileServiceFilesGetById
+  ),
+
+  refreshMailsystemServiceImapclusterCreate: createRefreshCache(
+    () => TestClient.getInstance().mailsystemServiceImapclusterCreate
+  ),
+
+  refreshMailsystemServiceImapclusterUpdate: createRefreshCache(
+    () => TestClient.getInstance().mailsystemServiceImapclusterUpdate
+  ),
+
+  refreshMailsystemServiceSettingCreate: createRefreshCache(
+    () => TestClient.getInstance().mailsystemServiceSettingCreate
+  ),
+
+  refreshMailsystemServiceSettingUpdate: createRefreshCache(
+    () => TestClient.getInstance().mailsystemServiceSettingUpdate
+  ),
+
+  refreshSignupApiAuthenticate: createRefreshCache(
+    () => TestClient.getInstance().signupApiAuthenticate
+  ),
+
+  refreshSignupApiAuthenticateLegacy: createRefreshCache(
+    () => TestClient.getInstance().signupApiAuthenticateLegacy
+  ),
+
+  refreshSignupApiAuthenticateMfa: createRefreshCache(
+    () => TestClient.getInstance().signupApiAuthenticateMfa
+  ),
+
+  refreshSignupApiEmailResend: createRefreshCache(
+    () => TestClient.getInstance().signupApiEmailResend
+  ),
+
+  refreshSignupApiLogout: createRefreshCache(
+    () => TestClient.getInstance().signupApiLogout
+  ),
+
+  refreshSignupApiMfaConfirm: createRefreshCache(
+    () => TestClient.getInstance().signupApiMfaConfirm
+  ),
+
+  refreshSignupApiMfaDisable: createRefreshCache(
+    () => TestClient.getInstance().signupApiMfaDisable
+  ),
+
+  refreshSignupApiMfaInit: createRefreshCache(
+    () => TestClient.getInstance().signupApiMfaInit
+  ),
+
+  refreshSignupApiPasswordChange: createRefreshCache(
+    () => TestClient.getInstance().signupApiPasswordChange
+  ),
+
+  refreshSignupApiPasswordResetConfirm: createRefreshCache(
+    () => TestClient.getInstance().signupApiPasswordResetConfirm
+  ),
+
+  refreshSignupApiPasswordResetInit: createRefreshCache(
+    () => TestClient.getInstance().signupApiPasswordResetInit
+  ),
+
+  refreshSignupApiPhoneNumberDelete: createRefreshCache(
+    () => TestClient.getInstance().signupApiPhoneNumberDelete
+  ),
+
+  refreshSignupApiPhoneNumberGet: createRefreshCache(
+    () => TestClient.getInstance().signupApiPhoneNumberGet
+  ),
+
+  refreshSignupApiPhoneNumberInitProcess: createRefreshCache(
+    () => TestClient.getInstance().signupApiPhoneNumberInitProcess
+  ),
+
+  refreshSignupApiPhoneNumberVerify: createRefreshCache(
+    () => TestClient.getInstance().signupApiPhoneNumberVerify
+  ),
+
+  refreshSignupApiProfileChange: createRefreshCache(
+    () => TestClient.getInstance().signupApiProfileChange
+  ),
+
+  refreshSignupApiProfileGet: createRefreshCache(
+    () => TestClient.getInstance().signupApiProfileGet
+  ),
+
+  refreshSignupApiRecoverycodesReset: createRefreshCache(
+    () => TestClient.getInstance().signupApiRecoverycodesReset
+  ),
+
+  refreshSignupApiRegister: createRefreshCache(
+    () => TestClient.getInstance().signupApiRegister
+  ),
+
+  refreshSignupApiRegistrationVerify: createRefreshCache(
+    () => TestClient.getInstance().signupApiRegistrationVerify
+  ),
+
+  refreshSignupApiSessionGet: createRefreshCache(
+    () => TestClient.getInstance().signupApiSessionGet
+  ),
+
+  refreshSignupApiSessionsList: createRefreshCache(
+    () => TestClient.getInstance().signupApiSessionsList
+  ),
+
+  refreshSignupApiSshCreate: createRefreshCache(
+    () => TestClient.getInstance().signupApiSshCreate
+  ),
+
+  refreshSignupApiSshList: createRefreshCache(
+    () => TestClient.getInstance().signupApiSshList
+  ),
+
+  refreshSignupApiSshDelete: createRefreshCache(
+    () => TestClient.getInstance().signupApiSshDelete
+  ),
+
+  refreshSignupApiTokenCheck: createRefreshCache(
+    () => TestClient.getInstance().signupApiTokenCheck
+  ),
+
+  refreshSoftwareServiceListValidators: createRefreshCache(
+    () => TestClient.getInstance().softwareServiceListValidators
+  ),
+
+  refreshSoftwareServiceValidate: createRefreshCache(
+    () => TestClient.getInstance().softwareServiceValidate
+  ),
+
+  refreshSoftwareServiceSoftwareConfigCreate: createRefreshCache(
+    () => TestClient.getInstance().softwareServiceSoftwareConfigCreate
+  ),
+
+  refreshSoftwareServiceSoftwareConfigDelete: createRefreshCache(
+    () => TestClient.getInstance().softwareServiceSoftwareConfigDelete
+  ),
+
+  refreshSoftwareServiceSoftwareConfigGetById: createRefreshCache(
+    () => TestClient.getInstance().softwareServiceSoftwareConfigGetById
+  ),
+
+  refreshSoftwareServiceSoftwareConfigRollback: createRefreshCache(
+    () => TestClient.getInstance().softwareServiceSoftwareConfigRollback
+  ),
+
+  refreshSoftwareServiceSoftwareConfigUpdate: createRefreshCache(
+    () => TestClient.getInstance().softwareServiceSoftwareConfigUpdate
+  ),
+
+  refreshSoftwareServiceSoftwareConfigtemplateCreate: createRefreshCache(
+    () => TestClient.getInstance().softwareServiceSoftwareConfigtemplateCreate
+  ),
+
+  refreshSoftwareServiceSoftwareConfigtemplateGetList: createRefreshCache(
+    () => TestClient.getInstance().softwareServiceSoftwareConfigtemplateGetList
+  ),
+
+  refreshSoftwareServiceSoftwareConfigtemplateDelete: createRefreshCache(
+    () => TestClient.getInstance().softwareServiceSoftwareConfigtemplateDelete
+  ),
+
+  refreshSoftwareServiceSoftwareConfigtemplateGetSpecific: createRefreshCache(
+    () =>
+      TestClient.getInstance().softwareServiceSoftwareConfigtemplateGetSpecific
+  ),
+
+  refreshSoftwareServiceSoftwareGetById: createRefreshCache(
+    () => TestClient.getInstance().softwareServiceSoftwareGetById
+  ),
+
+  refreshSoftwareServiceSoftwareSettingsDeclare: createRefreshCache(
+    () => TestClient.getInstance().softwareServiceSoftwareSettingsDeclare
+  ),
+};
+"
+`;
+
+exports[`Exporter creates correct snapshots for 'Mittwald Public API' example 2`] = `
+"/* eslint-disable */
+/* prettier-ignore */
+
+/**
+ * This file is auto-generated with openapi2ts (@mittwald/openapi-to-typescript)
+ */
+
+import { mockRequestFactory } from \\"@mittwald/api-client/dist/http/mockRequestFactory\\";
+import * as descriptors from \\"./TestClient\\";
+
+export const testRequestMocking = {
+  mockFileServiceFilesGetById: mockRequestFactory(
+    descriptors.fileServiceFilesGetById
+  ),
+
+  mockMailsystemServiceImapclusterCreate: mockRequestFactory(
+    descriptors.mailsystemServiceImapclusterCreate
+  ),
+
+  mockMailsystemServiceImapclusterUpdate: mockRequestFactory(
+    descriptors.mailsystemServiceImapclusterUpdate
+  ),
+
+  mockMailsystemServiceSettingCreate: mockRequestFactory(
+    descriptors.mailsystemServiceSettingCreate
+  ),
+
+  mockMailsystemServiceSettingUpdate: mockRequestFactory(
+    descriptors.mailsystemServiceSettingUpdate
+  ),
+
+  mockSignupApiAuthenticate: mockRequestFactory(
+    descriptors.signupApiAuthenticate
+  ),
+
+  mockSignupApiAuthenticateLegacy: mockRequestFactory(
+    descriptors.signupApiAuthenticateLegacy
+  ),
+
+  mockSignupApiAuthenticateMfa: mockRequestFactory(
+    descriptors.signupApiAuthenticateMfa
+  ),
+
+  mockSignupApiEmailResend: mockRequestFactory(
+    descriptors.signupApiEmailResend
+  ),
+
+  mockSignupApiLogout: mockRequestFactory(descriptors.signupApiLogout),
+
+  mockSignupApiMfaConfirm: mockRequestFactory(descriptors.signupApiMfaConfirm),
+
+  mockSignupApiMfaDisable: mockRequestFactory(descriptors.signupApiMfaDisable),
+
+  mockSignupApiMfaInit: mockRequestFactory(descriptors.signupApiMfaInit),
+
+  mockSignupApiPasswordChange: mockRequestFactory(
+    descriptors.signupApiPasswordChange
+  ),
+
+  mockSignupApiPasswordResetConfirm: mockRequestFactory(
+    descriptors.signupApiPasswordResetConfirm
+  ),
+
+  mockSignupApiPasswordResetInit: mockRequestFactory(
+    descriptors.signupApiPasswordResetInit
+  ),
+
+  mockSignupApiPhoneNumberDelete: mockRequestFactory(
+    descriptors.signupApiPhoneNumberDelete
+  ),
+
+  mockSignupApiPhoneNumberGet: mockRequestFactory(
+    descriptors.signupApiPhoneNumberGet
+  ),
+
+  mockSignupApiPhoneNumberInitProcess: mockRequestFactory(
+    descriptors.signupApiPhoneNumberInitProcess
+  ),
+
+  mockSignupApiPhoneNumberVerify: mockRequestFactory(
+    descriptors.signupApiPhoneNumberVerify
+  ),
+
+  mockSignupApiProfileChange: mockRequestFactory(
+    descriptors.signupApiProfileChange
+  ),
+
+  mockSignupApiProfileGet: mockRequestFactory(descriptors.signupApiProfileGet),
+
+  mockSignupApiRecoverycodesReset: mockRequestFactory(
+    descriptors.signupApiRecoverycodesReset
+  ),
+
+  mockSignupApiRegister: mockRequestFactory(descriptors.signupApiRegister),
+
+  mockSignupApiRegistrationVerify: mockRequestFactory(
+    descriptors.signupApiRegistrationVerify
+  ),
+
+  mockSignupApiSessionGet: mockRequestFactory(descriptors.signupApiSessionGet),
+
+  mockSignupApiSessionsList: mockRequestFactory(
+    descriptors.signupApiSessionsList
+  ),
+
+  mockSignupApiSshCreate: mockRequestFactory(descriptors.signupApiSshCreate),
+
+  mockSignupApiSshList: mockRequestFactory(descriptors.signupApiSshList),
+
+  mockSignupApiSshDelete: mockRequestFactory(descriptors.signupApiSshDelete),
+
+  mockSignupApiTokenCheck: mockRequestFactory(descriptors.signupApiTokenCheck),
+
+  mockSoftwareServiceListValidators: mockRequestFactory(
+    descriptors.softwareServiceListValidators
+  ),
+
+  mockSoftwareServiceValidate: mockRequestFactory(
+    descriptors.softwareServiceValidate
+  ),
+
+  mockSoftwareServiceSoftwareConfigCreate: mockRequestFactory(
+    descriptors.softwareServiceSoftwareConfigCreate
+  ),
+
+  mockSoftwareServiceSoftwareConfigDelete: mockRequestFactory(
+    descriptors.softwareServiceSoftwareConfigDelete
+  ),
+
+  mockSoftwareServiceSoftwareConfigGetById: mockRequestFactory(
+    descriptors.softwareServiceSoftwareConfigGetById
+  ),
+
+  mockSoftwareServiceSoftwareConfigRollback: mockRequestFactory(
+    descriptors.softwareServiceSoftwareConfigRollback
+  ),
+
+  mockSoftwareServiceSoftwareConfigUpdate: mockRequestFactory(
+    descriptors.softwareServiceSoftwareConfigUpdate
+  ),
+
+  mockSoftwareServiceSoftwareConfigtemplateCreate: mockRequestFactory(
+    descriptors.softwareServiceSoftwareConfigtemplateCreate
+  ),
+
+  mockSoftwareServiceSoftwareConfigtemplateGetList: mockRequestFactory(
+    descriptors.softwareServiceSoftwareConfigtemplateGetList
+  ),
+
+  mockSoftwareServiceSoftwareConfigtemplateDelete: mockRequestFactory(
+    descriptors.softwareServiceSoftwareConfigtemplateDelete
+  ),
+
+  mockSoftwareServiceSoftwareConfigtemplateGetSpecific: mockRequestFactory(
+    descriptors.softwareServiceSoftwareConfigtemplateGetSpecific
+  ),
+
+  mockSoftwareServiceSoftwareGetById: mockRequestFactory(
+    descriptors.softwareServiceSoftwareGetById
+  ),
+
+  mockSoftwareServiceSoftwareSettingsDeclare: mockRequestFactory(
+    descriptors.softwareServiceSoftwareSettingsDeclare
+  ),
+};
+"
+`;
+
+exports[`Exporter creates correct snapshots for 'Pet Store' example 1`] = `
 "/* eslint-disable */
 /* prettier-ignore */
 
@@ -1229,7 +4964,7 @@ export const testCache = {
 "
 `;
 
-exports[`Exporter creates correct snapshots for Pet Store example 2`] = `
+exports[`Exporter creates correct snapshots for 'Pet Store' example 2`] = `
 "/* eslint-disable */
 /* prettier-ignore */
 

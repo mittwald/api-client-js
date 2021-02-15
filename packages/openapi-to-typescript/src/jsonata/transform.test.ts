@@ -3,8 +3,11 @@ import * as path from "path";
 import { loadSpec } from "../loadSpec";
 
 describe("transformOpenAPIExpression.evaluate()", () => {
-    test("creates correct snapshots for Pet Store example", async () => {
-        const spec = await loadSpec(path.join(__dirname, "../../resources/examples/petstore.json"));
+    test.each([
+        ["Pet Store", "../../resources/examples/petstore.json"],
+        ["Mittwald Public API", "../../resources/examples/mw-public.json"],
+    ])("creates correct snapshots for '%s' example", async (name, testFile) => {
+        const spec = await loadSpec(path.join(__dirname, testFile));
         expect(transformOpenAPIExpression.evaluate(spec)).toMatchSnapshot();
     });
 });

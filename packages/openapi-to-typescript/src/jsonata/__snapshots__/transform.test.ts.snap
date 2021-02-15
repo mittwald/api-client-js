@@ -1,6 +1,4849 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`transformOpenAPIExpression.evaluate() creates correct snapshots for Pet Store example 1`] = `
+exports[`transformOpenAPIExpression.evaluate() creates correct snapshots for 'Mittwald Public API' example 1`] = `
+Object {
+  "components": Object {
+    "parameters": Object {},
+    "schemas": Object {
+      "de.mittwald.v1.common.ValidationError": Object {
+        "properties": Object {
+          "context": Object {
+            "additionalProperties": Object {
+              "type": "string",
+            },
+            "description": "The object with the additional information about the error that can be used to create custom error messages. Keys depend on the
+type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
+",
+            "type": "object",
+          },
+          "message": Object {
+            "description": "The standard error message",
+            "type": "string",
+          },
+          "path": Object {
+            "description": "The path to the part of the data that was validated. JavaScript property access notation (e.g., \\".prop[1].subProp\\") is used.
+",
+            "type": "string",
+          },
+          "type": Object {
+            "description": "ajv validation error type (e.g. \\"format\\", \\"required\\", \\"type\\") or own valiation error types",
+            "type": "string",
+          },
+        },
+        "required": Array [
+          "message",
+          "path",
+          "type",
+        ],
+        "type": "object",
+      },
+      "de.mittwald.v1.common.ValidationErrors": Object {
+        "properties": Object {
+          "errorObjects": Object {
+            "items": Object {
+              "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationError",
+              "properties": Object {
+                "context": Object {
+                  "additionalProperties": Object {
+                    "type": "string",
+                  },
+                  "description": "The object with the additional information about the error that can be used to create custom error messages. Keys depend on the
+type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
+",
+                  "type": "object",
+                },
+                "message": Object {
+                  "description": "The standard error message",
+                  "type": "string",
+                },
+                "path": Object {
+                  "description": "The path to the part of the data that was validated. JavaScript property access notation (e.g., \\".prop[1].subProp\\") is used.
+",
+                  "type": "string",
+                },
+                "type": Object {
+                  "description": "ajv validation error type (e.g. \\"format\\", \\"required\\", \\"type\\") or own valiation error types",
+                  "type": "string",
+                },
+              },
+              "required": Array [
+                "message",
+                "path",
+                "type",
+              ],
+              "type": "object",
+            },
+            "type": "array",
+          },
+          "name": Object {
+            "enum": Array [
+              "ValidationError",
+            ],
+            "type": "string",
+          },
+        },
+        "required": Array [
+          "name",
+          "errorObjects",
+        ],
+        "type": "object",
+      },
+      "de.mittwald.v1.signup.DeviceInfo": Object {
+        "properties": Object {
+          "browser": Object {
+            "type": "string",
+          },
+          "model": Object {
+            "type": "string",
+          },
+          "os": Object {
+            "type": "string",
+          },
+          "type": Object {
+            "type": "string",
+          },
+        },
+        "type": "object",
+      },
+      "de.mittwald.v1.signup.DomainError": Object {
+        "properties": Object {
+          "info": Object {
+            "description": "A json object, given further information about the error",
+            "type": "object",
+          },
+          "message": Object {
+            "description": "Some more detailed information about the error",
+            "type": "string",
+          },
+          "name": Object {
+            "description": "Unique key for the error type",
+            "type": "string",
+          },
+        },
+        "required": Array [
+          "name",
+          "message",
+        ],
+        "type": "object",
+      },
+      "de.mittwald.v1.signup.Location": Object {
+        "properties": Object {
+          "city": Object {
+            "type": "string",
+          },
+          "country": Object {
+            "type": "string",
+          },
+        },
+        "type": "object",
+      },
+      "de.mittwald.v1.signup.Profile": Object {
+        "description": "The users personal information, e.g. first name.",
+        "properties": Object {
+          "firstName": Object {
+            "description": "The users first name",
+            "type": "string",
+          },
+          "lastName": Object {
+            "description": "the users last name",
+            "type": "string",
+          },
+          "title": Object {
+            "description": "the users title",
+            "enum": Array [
+              0,
+              1,
+              2,
+            ],
+            "type": "integer",
+          },
+        },
+        "required": Array [
+          "lastName",
+          "firstName",
+        ],
+        "type": "object",
+      },
+      "de.mittwald.v1.signup.SshKey": Object {
+        "properties": Object {
+          "algorithm": Object {
+            "type": "string",
+          },
+          "comment": Object {
+            "type": "string",
+          },
+          "createdAt": Object {
+            "format": "date-time",
+            "type": "string",
+          },
+          "expiresAt": Object {
+            "format": "date-time",
+            "type": "string",
+          },
+          "fingerprint": Object {
+            "type": "string",
+          },
+          "key": Object {
+            "type": "string",
+          },
+          "sshKeyId": Object {
+            "type": "string",
+          },
+        },
+        "required": Array [
+          "sshKeyId",
+          "algorithm",
+          "key",
+          "comment",
+          "fingerprint",
+          "createdAt",
+        ],
+        "type": "object",
+      },
+      "de.mittwald.v1.signup.UserSession": Object {
+        "properties": Object {
+          "created": Object {
+            "type": "number",
+          },
+          "device": Object {
+            "$ref": "#/components/schemas/de.mittwald.v1.signup.DeviceInfo",
+            "properties": Object {
+              "browser": Object {
+                "type": "string",
+              },
+              "model": Object {
+                "type": "string",
+              },
+              "os": Object {
+                "type": "string",
+              },
+              "type": Object {
+                "type": "string",
+              },
+            },
+            "type": "object",
+          },
+          "lastAccess": Object {
+            "type": "number",
+          },
+          "location": Object {
+            "$ref": "#/components/schemas/de.mittwald.v1.signup.Location",
+            "properties": Object {
+              "city": Object {
+                "type": "string",
+              },
+              "country": Object {
+                "type": "string",
+              },
+            },
+            "type": "object",
+          },
+          "tokenId": Object {
+            "type": "string",
+          },
+        },
+        "required": Array [
+          "device",
+          "created",
+          "tokenId",
+        ],
+        "type": "object",
+      },
+      "de.mittwald.v1.software.ConfigFile": Object {
+        "properties": Object {
+          "content": Object {
+            "format": "bytes",
+            "type": "string",
+          },
+          "meta": Object {
+            "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFileMetadata",
+            "properties": Object {
+              "name": Object {
+                "type": "string",
+              },
+              "path": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "name",
+            ],
+            "type": "object",
+          },
+        },
+        "required": Array [
+          "content",
+        ],
+        "type": "object",
+      },
+      "de.mittwald.v1.software.ConfigFileMetadata": Object {
+        "properties": Object {
+          "name": Object {
+            "type": "string",
+          },
+          "path": Object {
+            "type": "string",
+          },
+        },
+        "required": Array [
+          "name",
+        ],
+        "type": "object",
+      },
+      "de.mittwald.v1.software.ConfigFileRef": Object {
+        "properties": Object {
+          "id": Object {
+            "type": "string",
+          },
+          "meta": Object {
+            "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFileMetadata",
+            "properties": Object {
+              "name": Object {
+                "type": "string",
+              },
+              "path": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "name",
+            ],
+            "type": "object",
+          },
+        },
+        "required": Array [
+          "content",
+        ],
+        "type": "object",
+      },
+      "de.mittwald.v1.software.ConfigRevision": Object {
+        "properties": Object {
+          "expire": Object {
+            "type": "integer",
+          },
+          "files": Object {
+            "items": Object {
+              "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFileRef",
+              "properties": Object {
+                "id": Object {
+                  "type": "string",
+                },
+                "meta": Object {
+                  "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFileMetadata",
+                },
+              },
+              "required": Array [
+                "content",
+              ],
+              "type": "object",
+            },
+            "type": "array",
+          },
+          "note": Object {
+            "type": "string",
+          },
+          "revision": Object {
+            "minimum": 1,
+            "type": "integer",
+          },
+          "updated": Object {
+            "type": "integer",
+          },
+        },
+        "required": Array [
+          "revision",
+          "updated",
+          "files",
+        ],
+        "type": "object",
+      },
+      "de.mittwald.v1.software.ConfigTemplate": Object {
+        "properties": Object {
+          "files": Object {
+            "description": "A set of config file references.",
+            "items": Object {
+              "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFileRef",
+              "properties": Object {
+                "id": Object {
+                  "type": "string",
+                },
+                "meta": Object {
+                  "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFileMetadata",
+                },
+              },
+              "required": Array [
+                "content",
+              ],
+              "type": "object",
+            },
+            "type": "array",
+          },
+          "id": Object {
+            "type": "string",
+          },
+          "isGlobal": Object {
+            "description": "If 'true', then it is one of Mittwalds global templates and the 'projectId' is empty.",
+            "type": "boolean",
+          },
+          "note": Object {
+            "type": "string",
+          },
+          "projectId": Object {
+            "type": "string",
+          },
+          "softwareId": Object {
+            "type": "string",
+          },
+          "updatedAt": Object {
+            "description": "unix-formatted timestamp for when the template was created or updated last",
+            "type": "number",
+          },
+        },
+        "required": Array [
+          "id",
+          "softwareId",
+          "files",
+        ],
+        "type": "object",
+      },
+      "de.mittwald.v1.software.Software": Object {
+        "properties": Object {
+          "config": Object {
+            "$ref": "#/components/schemas/de.mittwald.v1.software.SoftwareConfig",
+            "properties": Object {
+              "configExpiration": Object {
+                "properties": Object {
+                  "maxVersions": Object {
+                    "type": "number",
+                  },
+                  "retentionTime": Object {
+                    "type": "number",
+                  },
+                },
+                "type": "object",
+              },
+              "latestConfigRevision": Object {
+                "type": "number",
+              },
+              "revisions": Object {
+                "items": Object {
+                  "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigRevision",
+                },
+                "type": "array",
+              },
+            },
+            "required": Array [
+              "revisions",
+            ],
+            "type": "object",
+          },
+          "id": Object {
+            "type": "string",
+          },
+          "projectId": Object {
+            "type": "string",
+          },
+          "settings": Object {
+            "additionalProperties": Object {
+              "type": "string",
+            },
+            "type": "object",
+          },
+          "softwareId": Object {
+            "type": "string",
+          },
+          "softwareVersion": Object {
+            "type": "string",
+          },
+          "updatedAt": Object {
+            "type": "number",
+          },
+        },
+        "required": Array [
+          "id",
+          "updatedAt",
+          "softwareId",
+          "softwareVersion",
+          "projectId",
+          "config",
+          "settings",
+        ],
+        "type": "object",
+      },
+      "de.mittwald.v1.software.SoftwareConfig": Object {
+        "properties": Object {
+          "configExpiration": Object {
+            "properties": Object {
+              "maxVersions": Object {
+                "type": "number",
+              },
+              "retentionTime": Object {
+                "type": "number",
+              },
+            },
+            "type": "object",
+          },
+          "latestConfigRevision": Object {
+            "type": "number",
+          },
+          "revisions": Object {
+            "items": Object {
+              "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigRevision",
+              "properties": Object {
+                "expire": Object {
+                  "type": "integer",
+                },
+                "files": Object {
+                  "items": Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFileRef",
+                  },
+                  "type": "array",
+                },
+                "note": Object {
+                  "type": "string",
+                },
+                "revision": Object {
+                  "minimum": 1,
+                  "type": "integer",
+                },
+                "updated": Object {
+                  "type": "integer",
+                },
+              },
+              "required": Array [
+                "revision",
+                "updated",
+                "files",
+              ],
+              "type": "object",
+            },
+            "type": "array",
+          },
+        },
+        "required": Array [
+          "revisions",
+        ],
+        "type": "object",
+      },
+      "de.mittwald.v1.software.SoftwareSetting": Object {
+        "properties": Object {
+          "name": Object {
+            "type": "string",
+          },
+          "value": Object {
+            "type": "string",
+          },
+        },
+        "required": Array [
+          "name",
+          "value",
+        ],
+        "type": "object",
+      },
+    },
+  },
+  "definitions": Object {},
+  "paths": Object {
+    "/v2/files/{fileID}": Object {
+      "get": Object {
+        "operationId": "file-service-files-get-by-id",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/octet-stream",
+                  "base64",
+                ],
+                "type": "string",
+              },
+            },
+          },
+          "path": Object {
+            "properties": Object {
+              "fileID": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "fileID",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {
+              "application/octet-stream": Object {
+                "format": "binary",
+                "type": "string",
+              },
+              "base64": Object {
+                "format": "byte",
+                "type": "string",
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/imapcluster": Object {
+      "post": Object {
+        "operationId": "mailsystem-service-imapcluster-create",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "type": "string",
+              },
+            },
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "id": Object {
+                "type": "string",
+              },
+              "members": Object {
+                "items": Object {
+                  "properties": Object {
+                    "hostname": Object {
+                      "type": "string",
+                    },
+                    "id": Object {
+                      "type": "string",
+                    },
+                  },
+                  "required": Array [
+                    "id",
+                    "hostname",
+                  ],
+                  "type": "object",
+                },
+                "type": "array",
+              },
+              "name": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "id",
+              "name",
+              "members",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {},
+          },
+        },
+      },
+      "put": Object {
+        "operationId": "mailsystem-service-imapcluster-update",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "type": "string",
+              },
+            },
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "id": Object {
+                "type": "string",
+              },
+              "members": Object {
+                "items": Object {
+                  "properties": Object {
+                    "hostname": Object {
+                      "type": "string",
+                    },
+                    "id": Object {
+                      "type": "string",
+                    },
+                  },
+                  "required": Array [
+                    "id",
+                    "hostname",
+                  ],
+                  "type": "object",
+                },
+                "type": "array",
+              },
+              "name": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "id",
+              "name",
+              "members",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {},
+          },
+        },
+      },
+    },
+    "/v2/mailsystemsetting": Object {
+      "post": Object {
+        "operationId": "mailsystem-service-setting-create",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "type": "string",
+              },
+            },
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "name": Object {
+                "type": "string",
+              },
+              "value": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "name",
+              "value",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {},
+          },
+        },
+      },
+      "put": Object {
+        "operationId": "mailsystem-service-setting-update",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "type": "string",
+              },
+            },
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "name": Object {
+                "type": "string",
+              },
+              "value": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "name",
+              "value",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {},
+          },
+        },
+      },
+    },
+    "/v2/projects/{projectID}/software/config/template": Object {
+      "get": Object {
+        "operationId": "software-service-software-configtemplate-get-list",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": "application/json",
+                "type": "string",
+              },
+            },
+          },
+          "path": Object {
+            "properties": Object {
+              "projectID": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "projectID",
+            ],
+            "type": "object",
+          },
+          "query": Object {
+            "properties": Object {
+              "includeGlobals": Object {
+                "type": "boolean",
+              },
+              "limit": Object {
+                "type": "integer",
+              },
+              "skip": Object {
+                "type": "integer",
+              },
+              "softwareID": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "softwareID",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {
+              "application/json": Object {
+                "items": Object {
+                  "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigTemplate",
+                  "properties": Object {
+                    "files": Object {
+                      "description": "A set of config file references.",
+                      "items": Object {
+                        "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFileRef",
+                      },
+                      "type": "array",
+                    },
+                    "id": Object {
+                      "type": "string",
+                    },
+                    "isGlobal": Object {
+                      "description": "If 'true', then it is one of Mittwalds global templates and the 'projectId' is empty.",
+                      "type": "boolean",
+                    },
+                    "note": Object {
+                      "type": "string",
+                    },
+                    "projectId": Object {
+                      "type": "string",
+                    },
+                    "softwareId": Object {
+                      "type": "string",
+                    },
+                    "updatedAt": Object {
+                      "description": "unix-formatted timestamp for when the template was created or updated last",
+                      "type": "number",
+                    },
+                  },
+                  "required": Array [
+                    "id",
+                    "softwareId",
+                    "files",
+                  ],
+                  "type": "object",
+                },
+                "type": "array",
+              },
+            },
+            "headers": Object {
+              "properties": Object {
+                "Link": Object {
+                  "type": "string",
+                },
+                "X-Pagination-Limit": Object {
+                  "type": "number",
+                },
+                "X-Pagination-Skip": Object {
+                  "type": "number",
+                },
+                "X-Pagination-TotalCount": Object {
+                  "type": "number",
+                },
+              },
+              "required": Array [],
+              "type": "object",
+            },
+          },
+        },
+      },
+      "post": Object {
+        "operationId": "software-service-software-configtemplate-create",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": "application/json",
+                "type": "string",
+              },
+            },
+          },
+          "path": Object {
+            "properties": Object {
+              "projectID": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "projectID",
+            ],
+            "type": "object",
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "files": Object {
+                "description": "A set of config file references.",
+                "items": Object {
+                  "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFile",
+                  "properties": Object {
+                    "content": Object {
+                      "format": "bytes",
+                      "type": "string",
+                    },
+                    "meta": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFileMetadata",
+                    },
+                  },
+                  "required": Array [
+                    "content",
+                  ],
+                  "type": "object",
+                },
+                "type": "array",
+              },
+              "id": Object {
+                "type": "string",
+              },
+              "note": Object {
+                "type": "string",
+              },
+              "softwareId": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "id",
+              "softwareId",
+              "files",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {
+              "application/json": Object {
+                "type": "object",
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/projects/{projectID}/software/config/template/{id}": Object {
+      "delete": Object {
+        "operationId": "software-service-software-configtemplate-delete",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "type": "string",
+              },
+            },
+          },
+          "path": Object {
+            "properties": Object {
+              "id": Object {
+                "type": "string",
+              },
+              "projectID": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "projectID",
+              "id",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {},
+          },
+        },
+      },
+      "get": Object {
+        "operationId": "software-service-software-configtemplate-get-specific",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": "application/json",
+                "type": "string",
+              },
+            },
+          },
+          "path": Object {
+            "properties": Object {
+              "id": Object {
+                "type": "string",
+              },
+              "projectID": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "projectID",
+              "id",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigTemplate",
+                "properties": Object {
+                  "files": Object {
+                    "description": "A set of config file references.",
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFileRef",
+                    },
+                    "type": "array",
+                  },
+                  "id": Object {
+                    "type": "string",
+                  },
+                  "isGlobal": Object {
+                    "description": "If 'true', then it is one of Mittwalds global templates and the 'projectId' is empty.",
+                    "type": "boolean",
+                  },
+                  "note": Object {
+                    "type": "string",
+                  },
+                  "projectId": Object {
+                    "type": "string",
+                  },
+                  "softwareId": Object {
+                    "type": "string",
+                  },
+                  "updatedAt": Object {
+                    "description": "unix-formatted timestamp for when the template was created or updated last",
+                    "type": "number",
+                  },
+                },
+                "required": Array [
+                  "id",
+                  "softwareId",
+                  "files",
+                ],
+                "type": "object",
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/projects/{projectID}/software/{softwareID}": Object {
+      "get": Object {
+        "operationId": "software-service-software-get-by-id",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": "application/json",
+                "type": "string",
+              },
+            },
+          },
+          "path": Object {
+            "properties": Object {
+              "projectID": Object {
+                "type": "string",
+              },
+              "softwareID": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "projectID",
+              "softwareID",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.software.Software",
+                "properties": Object {
+                  "config": Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.software.SoftwareConfig",
+                  },
+                  "id": Object {
+                    "type": "string",
+                  },
+                  "projectId": Object {
+                    "type": "string",
+                  },
+                  "settings": Object {
+                    "additionalProperties": Object {
+                      "type": "string",
+                    },
+                    "type": "object",
+                  },
+                  "softwareId": Object {
+                    "type": "string",
+                  },
+                  "softwareVersion": Object {
+                    "type": "string",
+                  },
+                  "updatedAt": Object {
+                    "type": "number",
+                  },
+                },
+                "required": Array [
+                  "id",
+                  "updatedAt",
+                  "softwareId",
+                  "softwareVersion",
+                  "projectId",
+                  "config",
+                  "settings",
+                ],
+                "type": "object",
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/projects/{projectID}/software/{softwareID}/config": Object {
+      "delete": Object {
+        "operationId": "software-service-software-config-delete",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": "application/json",
+                "type": "string",
+              },
+            },
+          },
+          "path": Object {
+            "properties": Object {
+              "projectID": Object {
+                "type": "string",
+              },
+              "softwareID": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "projectID",
+              "softwareID",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {
+              "application/json": Object {
+                "type": "object",
+              },
+            },
+          },
+        },
+      },
+      "get": Object {
+        "operationId": "software-service-software-config-get-by-id",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": "application/json",
+                "type": "string",
+              },
+            },
+          },
+          "path": Object {
+            "properties": Object {
+              "projectID": Object {
+                "type": "string",
+              },
+              "softwareID": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "projectID",
+              "softwareID",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {
+              "application/json": Object {
+                "properties": Object {
+                  "expiration": Object {
+                    "properties": Object {
+                      "maxVersions": Object {
+                        "minimum": 0,
+                        "type": "integer",
+                      },
+                      "retentionTime": Object {
+                        "description": "Duration in seconds.",
+                        "minimum": 0,
+                        "type": "integer",
+                      },
+                    },
+                    "type": "object",
+                  },
+                  "id": Object {
+                    "type": "string",
+                  },
+                  "revisions": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigRevision",
+                      "properties": Object {
+                        "expire": Object {
+                          "type": "integer",
+                        },
+                        "files": Object {
+                          "items": Object {
+                            "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFileRef",
+                          },
+                          "type": "array",
+                        },
+                        "note": Object {
+                          "type": "string",
+                        },
+                        "revision": Object {
+                          "minimum": 1,
+                          "type": "integer",
+                        },
+                        "updated": Object {
+                          "type": "integer",
+                        },
+                      },
+                      "required": Array [
+                        "revision",
+                        "updated",
+                        "files",
+                      ],
+                      "type": "object",
+                    },
+                    "type": "array",
+                  },
+                },
+                "required": Array [
+                  "id",
+                  "revisions",
+                ],
+                "type": "object",
+              },
+            },
+          },
+        },
+      },
+      "patch": Object {
+        "operationId": "software-service-software-config-rollback",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": "application/json",
+                "type": "string",
+              },
+            },
+          },
+          "path": Object {
+            "properties": Object {
+              "projectID": Object {
+                "type": "string",
+              },
+              "softwareID": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "projectID",
+              "softwareID",
+            ],
+            "type": "object",
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "revision": Object {
+                "description": "Rollback to a specific version. If empty, the config is rolled back to the previous version.",
+                "type": "string",
+              },
+            },
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {
+              "application/json": Object {
+                "properties": Object {
+                  "files": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFileRef",
+                      "properties": Object {
+                        "id": Object {
+                          "type": "string",
+                        },
+                        "meta": Object {
+                          "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFileMetadata",
+                        },
+                      },
+                      "required": Array [
+                        "content",
+                      ],
+                      "type": "object",
+                    },
+                    "minItems": 1,
+                    "type": "array",
+                  },
+                  "revision": Object {
+                    "description": "The new version, because on rollback, the content is copied and a new revision is created.",
+                    "minimum": 1,
+                    "type": "integer",
+                  },
+                  "rollbackRef": Object {
+                    "description": "The revision, that is used as the rollback source.",
+                    "minimum": 1,
+                    "type": "integer",
+                  },
+                },
+                "required": Array [
+                  "revision",
+                  "files",
+                  "rollbackRef",
+                ],
+                "type": "object",
+              },
+            },
+          },
+        },
+      },
+      "post": Object {
+        "operationId": "software-service-software-config-create",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": "application/json",
+                "type": "string",
+              },
+            },
+          },
+          "path": Object {
+            "properties": Object {
+              "projectID": Object {
+                "type": "string",
+              },
+              "softwareID": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "projectID",
+              "softwareID",
+            ],
+            "type": "object",
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "files": Object {
+                "description": "A set of config files.",
+                "items": Object {
+                  "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFile",
+                  "properties": Object {
+                    "content": Object {
+                      "format": "bytes",
+                      "type": "string",
+                    },
+                    "meta": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFileMetadata",
+                    },
+                  },
+                  "required": Array [
+                    "content",
+                  ],
+                  "type": "object",
+                },
+                "type": "array",
+              },
+              "id": Object {
+                "description": "The template UUID.",
+                "type": "string",
+              },
+              "softwareInstallationID": Object {
+                "description": "",
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "files",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {
+              "application/json": Object {
+                "type": "object",
+              },
+            },
+          },
+        },
+      },
+      "put": Object {
+        "operationId": "software-service-software-config-update",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": "application/json",
+                "type": "string",
+              },
+            },
+          },
+          "path": Object {
+            "properties": Object {
+              "projectID": Object {
+                "type": "string",
+              },
+              "softwareID": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "projectID",
+              "softwareID",
+            ],
+            "type": "object",
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "files": Object {
+                "description": "A set of config files.",
+                "items": Object {
+                  "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFile",
+                  "properties": Object {
+                    "content": Object {
+                      "format": "bytes",
+                      "type": "string",
+                    },
+                    "meta": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.software.ConfigFileMetadata",
+                    },
+                  },
+                  "required": Array [
+                    "content",
+                  ],
+                  "type": "object",
+                },
+                "type": "array",
+              },
+              "note": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "files",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {
+              "application/json": Object {
+                "properties": Object {
+                  "files": Object {
+                    "items": Object {
+                      "properties": Object {
+                        "id": Object {
+                          "type": "string",
+                        },
+                        "meta": Object {
+                          "properties": Object {
+                            "name": Object {
+                              "type": "string",
+                            },
+                            "path": Object {
+                              "type": "string",
+                            },
+                          },
+                          "required": Array [
+                            "name",
+                          ],
+                          "type": "object",
+                        },
+                      },
+                      "required": Array [
+                        "id",
+                      ],
+                      "type": "object",
+                    },
+                    "type": "array",
+                  },
+                  "revision": Object {
+                    "description": "The new version.",
+                    "minimum": 1,
+                    "type": "integer",
+                  },
+                },
+                "required": Array [
+                  "revision",
+                  "files",
+                ],
+                "type": "object",
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/projects/{projectID}/software/{softwareID}/settings": Object {
+      "patch": Object {
+        "operationId": "software-service-software-settings-declare",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": "application/json",
+                "type": "string",
+              },
+            },
+          },
+          "path": Object {
+            "properties": Object {
+              "projectID": Object {
+                "type": "string",
+              },
+              "softwareID": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "projectID",
+              "softwareID",
+            ],
+            "type": "object",
+          },
+          "requestBody": Object {
+            "items": Object {
+              "$ref": "#/components/schemas/de.mittwald.v1.software.SoftwareSetting",
+              "properties": Object {
+                "name": Object {
+                  "type": "string",
+                },
+                "value": Object {
+                  "type": "string",
+                },
+              },
+              "required": Array [
+                "name",
+                "value",
+              ],
+              "type": "object",
+            },
+            "type": "array",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {
+              "application/json": Object {
+                "type": "object",
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/signup/authentication": Object {
+      "post": Object {
+        "operationId": "signup-api-authenticate",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+            },
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "email": Object {
+                "description": "The users email address",
+                "format": "email",
+                "type": "string",
+              },
+              "password": Object {
+                "description": "Password of the user",
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "email",
+              "password",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {
+              "application/json": Object {
+                "properties": Object {
+                  "expires": Object {
+                    "description": "Expiration unix timestamp",
+                    "type": "number",
+                  },
+                  "token": Object {
+                    "description": "Public token to identify yourself against the api gateway.",
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "token",
+                  "expires",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "202": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                    "properties": Object {
+                      "info": Object {
+                        "description": "A json object, given further information about the error",
+                        "type": "object",
+                      },
+                      "message": Object {
+                        "description": "Some more detailed information about the error",
+                        "type": "string",
+                      },
+                      "name": Object {
+                        "description": "Unique key for the error type",
+                        "type": "string",
+                      },
+                    },
+                    "required": Array [
+                      "name",
+                      "message",
+                    ],
+                    "type": "object",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "SecondFactorRequired",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+          "400": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors",
+                "properties": Object {
+                  "errorObjects": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationError",
+                    },
+                    "type": "array",
+                  },
+                  "name": Object {
+                    "enum": Array [
+                      "ValidationError",
+                    ],
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "name",
+                  "errorObjects",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/signup/authentication/legacy": Object {
+      "post": Object {
+        "operationId": "signup-api-authenticate-legacy",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+            },
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "account": Object {
+                "description": "The legacy account name",
+                "type": "string",
+              },
+              "password": Object {
+                "description": "The legacy account password",
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "account",
+              "password",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {},
+          },
+          "400": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors",
+                "properties": Object {
+                  "errorObjects": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationError",
+                    },
+                    "type": "array",
+                  },
+                  "name": Object {
+                    "enum": Array [
+                      "ValidationError",
+                    ],
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "name",
+                  "errorObjects",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/signup/authentication/mfa": Object {
+      "post": Object {
+        "operationId": "signup-api-authenticate-mfa",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+            },
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "email": Object {
+                "description": "The email of the user",
+                "type": "string",
+              },
+              "multiFactorCode": Object {
+                "description": "The second factor",
+                "type": "string",
+              },
+              "password": Object {
+                "description": "The password of the user",
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "multiFactorCode",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {
+              "application/json": Object {
+                "properties": Object {
+                  "expires": Object {
+                    "description": "Expiration unix timestamp",
+                    "type": "number",
+                  },
+                  "token": Object {
+                    "description": "Public token to identify yourself against the api gateway.",
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "token",
+                  "expires",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "400": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors",
+                "properties": Object {
+                  "errorObjects": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationError",
+                    },
+                    "type": "array",
+                  },
+                  "name": Object {
+                    "enum": Array [
+                      "ValidationError",
+                    ],
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "name",
+                  "errorObjects",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "408": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                    "properties": Object {
+                      "info": Object {
+                        "description": "A json object, given further information about the error",
+                        "type": "object",
+                      },
+                      "message": Object {
+                        "description": "Some more detailed information about the error",
+                        "type": "string",
+                      },
+                      "name": Object {
+                        "description": "Unique key for the error type",
+                        "type": "string",
+                      },
+                    },
+                    "required": Array [
+                      "name",
+                      "message",
+                    ],
+                    "type": "object",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "FirstAuthenticationFactorExpired",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/signup/email/resend": Object {
+      "post": Object {
+        "operationId": "signup-api-email-resend",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+            },
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "email": Object {
+                "format": "email",
+                "type": "string",
+              },
+              "userId": Object {
+                "format": "uuid",
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "multiFactorCode",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "204": Object {
+            "content": Object {},
+          },
+          "400": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors",
+                "properties": Object {
+                  "errorObjects": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationError",
+                    },
+                    "type": "array",
+                  },
+                  "name": Object {
+                    "enum": Array [
+                      "ValidationError",
+                    ],
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "name",
+                  "errorObjects",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/signup/logout": Object {
+      "put": Object {
+        "operationId": "signup-api-logout",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+              "x-access-token": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "multiFactorCode": Object {
+                "description": "Multi Factor Code to authorize your request",
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "multiFactorCode",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {},
+          },
+          "400": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors",
+                "properties": Object {
+                  "errorObjects": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationError",
+                    },
+                    "type": "array",
+                  },
+                  "name": Object {
+                    "enum": Array [
+                      "ValidationError",
+                    ],
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "name",
+                  "errorObjects",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/signup/mfa": Object {
+      "delete": Object {
+        "operationId": "signup-api-mfa-disable",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+              "x-access-token": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {},
+          },
+          "400": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors",
+                "properties": Object {
+                  "errorObjects": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationError",
+                    },
+                    "type": "array",
+                  },
+                  "name": Object {
+                    "enum": Array [
+                      "ValidationError",
+                    ],
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "name",
+                  "errorObjects",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "401": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "NoAccessTokenProvided",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+      "post": Object {
+        "operationId": "signup-api-mfa-init",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+              "x-access-token": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {
+              "application/json": Object {
+                "properties": Object {
+                  "barcode": Object {
+                    "description": "base64 encoded barcode content to scan from your mfa app. e.g. \`iVBORw0KGgoAAAANSUhEUgAAAMgAAADIEAAAAADYoy...\`. You
+can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\" />\`
+",
+                    "type": "string",
+                  },
+                  "url": Object {
+                    "description": "Same as barcode,  but in URL form. e.g.
+\`otpauth://totp/Google:test@gmail.com?algorithm=SHA1&digits=6&issuer=Google&period=30&secret=HTXT7KJFVNAJUPYWQRWMNVQE5AF5YZI2\\"\`
+",
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "barcode",
+                  "url",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "400": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors",
+                "properties": Object {
+                  "errorObjects": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationError",
+                    },
+                    "type": "array",
+                  },
+                  "name": Object {
+                    "enum": Array [
+                      "ValidationError",
+                    ],
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "name",
+                  "errorObjects",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "401": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "NoAccessTokenProvided",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/signup/mfa/confirm": Object {
+      "post": Object {
+        "operationId": "signup-api-mfa-confirm",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+              "x-access-token": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "multiFactorCode": Object {
+                "description": "Multi Factor Code to confirm MFA",
+                "maxLength": 6,
+                "minLength": 6,
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "multiFactorCode",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {
+              "application/json": Object {
+                "properties": Object {
+                  "recoveryCodesList": Object {
+                    "items": Object {
+                      "type": "string",
+                    },
+                    "type": "array",
+                  },
+                },
+                "required": Array [
+                  "recoveryCodesList",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "400": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors",
+                "properties": Object {
+                  "errorObjects": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationError",
+                    },
+                    "type": "array",
+                  },
+                  "name": Object {
+                    "enum": Array [
+                      "ValidationError",
+                    ],
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "name",
+                  "errorObjects",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "401": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "NoAccessTokenProvided",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/signup/mfa/reset-recoverycodes": Object {
+      "put": Object {
+        "operationId": "signup-api-recoverycodes-reset",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+              "x-access-token": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "multiFactorCode": Object {
+                "description": "Multi Factor Code to authorize your request",
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "multiFactorCode",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {
+              "application/json": Object {
+                "properties": Object {
+                  "recoveryCodesList": Object {
+                    "items": Object {
+                      "type": "string",
+                    },
+                    "type": "array",
+                  },
+                },
+                "required": Array [
+                  "recoveryCodesList",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "400": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors",
+                "properties": Object {
+                  "errorObjects": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationError",
+                    },
+                    "type": "array",
+                  },
+                  "name": Object {
+                    "enum": Array [
+                      "ValidationError",
+                    ],
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "name",
+                  "errorObjects",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "401": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "NoAccessTokenProvided",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/signup/password": Object {
+      "put": Object {
+        "operationId": "signup-api-password-change",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+              "x-access-token": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "newPassword": Object {
+                "description": "The new password",
+                "type": "string",
+              },
+              "oldPassword": Object {
+                "description": "The old password",
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "oldPassword",
+              "newPassword",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {},
+          },
+          "400": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors",
+                "properties": Object {
+                  "errorObjects": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationError",
+                    },
+                    "type": "array",
+                  },
+                  "name": Object {
+                    "enum": Array [
+                      "ValidationError",
+                    ],
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "name",
+                  "errorObjects",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "401": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "NoAccessTokenProvided",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/signup/password/reset": Object {
+      "post": Object {
+        "operationId": "signup-api-password-reset-init",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+            },
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "email": Object {
+                "description": "email address to reset the password for",
+                "format": "email",
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "email",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {},
+          },
+          "400": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors",
+                "properties": Object {
+                  "errorObjects": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationError",
+                    },
+                    "type": "array",
+                  },
+                  "name": Object {
+                    "enum": Array [
+                      "ValidationError",
+                    ],
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "name",
+                  "errorObjects",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/signup/password/reset/confirm": Object {
+      "post": Object {
+        "operationId": "signup-api-password-reset-confirm",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+            },
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "password": Object {
+                "description": "The new password",
+                "type": "string",
+              },
+              "token": Object {
+                "description": "Password reset token",
+                "maxLength": 6,
+                "minLength": 6,
+                "type": "string",
+              },
+              "userId": Object {
+                "description": "userId of the user to reset the password for",
+                "format": "uuid",
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "userId",
+              "token",
+              "password",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {},
+          },
+          "400": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors",
+                "properties": Object {
+                  "errorObjects": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationError",
+                    },
+                    "type": "array",
+                  },
+                  "name": Object {
+                    "enum": Array [
+                      "ValidationError",
+                    ],
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "name",
+                  "errorObjects",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/signup/phone": Object {
+      "delete": Object {
+        "operationId": "signup-api-phone-number-delete",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+              "x-access-token": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {},
+          },
+          "400": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors",
+                "properties": Object {
+                  "errorObjects": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationError",
+                    },
+                    "type": "array",
+                  },
+                  "name": Object {
+                    "enum": Array [
+                      "ValidationError",
+                    ],
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "name",
+                  "errorObjects",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "401": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "NoAccessTokenProvided",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+      "get": Object {
+        "operationId": "signup-api-phone-number-get",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+              "x-access-token": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {},
+          },
+          "400": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors",
+                "properties": Object {
+                  "errorObjects": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationError",
+                    },
+                    "type": "array",
+                  },
+                  "name": Object {
+                    "enum": Array [
+                      "ValidationError",
+                    ],
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "name",
+                  "errorObjects",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "401": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "NoAccessTokenProvided",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+      "post": Object {
+        "operationId": "signup-api-phone-number-init-process",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+              "x-access-token": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "phoneNumber": Object {
+                "format": "phone",
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "phoneNumber",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {},
+          },
+          "400": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors",
+                "properties": Object {
+                  "errorObjects": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationError",
+                    },
+                    "type": "array",
+                  },
+                  "name": Object {
+                    "enum": Array [
+                      "ValidationError",
+                    ],
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "name",
+                  "errorObjects",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "401": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "NoAccessTokenProvided",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/signup/phone/verify": Object {
+      "post": Object {
+        "operationId": "signup-api-phone-number-verify",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+              "x-access-token": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "code": Object {
+                "type": "string",
+              },
+              "phoneNumber": Object {
+                "format": "phone",
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "phoneNumber",
+              "code",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {},
+          },
+          "400": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors",
+                "properties": Object {
+                  "errorObjects": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationError",
+                    },
+                    "type": "array",
+                  },
+                  "name": Object {
+                    "enum": Array [
+                      "ValidationError",
+                    ],
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "name",
+                  "errorObjects",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "401": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "NoAccessTokenProvided",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+          "404": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors",
+                "properties": Object {
+                  "errorObjects": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationError",
+                    },
+                    "type": "array",
+                  },
+                  "name": Object {
+                    "enum": Array [
+                      "ValidationError",
+                    ],
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "name",
+                  "errorObjects",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/signup/profile": Object {
+      "get": Object {
+        "operationId": "signup-api-profile-get",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+              "x-access-token": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {
+              "application/json": Object {
+                "properties": Object {
+                  "profile": Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.Profile",
+                    "description": "The users personal information, e.g. first name.",
+                    "properties": Object {
+                      "firstName": Object {
+                        "description": "The users first name",
+                        "type": "string",
+                      },
+                      "lastName": Object {
+                        "description": "the users last name",
+                        "type": "string",
+                      },
+                      "title": Object {
+                        "description": "the users title",
+                        "enum": Array [
+                          0,
+                          1,
+                          2,
+                        ],
+                        "type": "integer",
+                      },
+                    },
+                    "required": Array [
+                      "lastName",
+                      "firstName",
+                    ],
+                    "type": "object",
+                  },
+                  "userId": Object {
+                    "type": "string",
+                  },
+                },
+                "type": "object",
+              },
+            },
+          },
+          "401": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "NoAccessTokenProvided",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+      "put": Object {
+        "operationId": "signup-api-profile-change",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+              "x-access-token": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "profile": Object {
+                "properties": Object {
+                  "firstName": Object {
+                    "type": "string",
+                  },
+                  "lastName": Object {
+                    "type": "string",
+                  },
+                  "title": Object {
+                    "enum": Array [
+                      0,
+                      1,
+                      2,
+                    ],
+                    "type": "number",
+                  },
+                },
+                "type": "object",
+              },
+            },
+            "required": Array [
+              "profile",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {},
+          },
+          "400": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors",
+                "properties": Object {
+                  "errorObjects": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationError",
+                    },
+                    "type": "array",
+                  },
+                  "name": Object {
+                    "enum": Array [
+                      "ValidationError",
+                    ],
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "name",
+                  "errorObjects",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "401": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "NoAccessTokenProvided",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/signup/registration": Object {
+      "post": Object {
+        "operationId": "signup-api-register",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+            },
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "email": Object {
+                "description": "The users email address",
+                "format": "email",
+                "type": "string",
+              },
+              "legacyAccount": Object {
+                "description": "Credentials for the Legacy-Account you want to import",
+                "properties": Object {
+                  "account": Object {
+                    "type": "string",
+                  },
+                  "password": Object {
+                    "type": "string",
+                  },
+                },
+                "type": "object",
+              },
+              "password": Object {
+                "description": "The users password",
+                "type": "string",
+              },
+              "profile": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.signup.Profile",
+                "description": "The users personal information, e.g. first name.",
+                "properties": Object {
+                  "firstName": Object {
+                    "description": "The users first name",
+                    "type": "string",
+                  },
+                  "lastName": Object {
+                    "description": "the users last name",
+                    "type": "string",
+                  },
+                  "title": Object {
+                    "description": "the users title",
+                    "enum": Array [
+                      0,
+                      1,
+                      2,
+                    ],
+                    "type": "integer",
+                  },
+                },
+                "required": Array [
+                  "lastName",
+                  "firstName",
+                ],
+                "type": "object",
+              },
+            },
+            "required": Array [
+              "email",
+              "password",
+              "profile",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {
+              "application/json": Object {
+                "properties": Object {
+                  "userId": Object {
+                    "format": "uuid",
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "userId",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "400": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors",
+                "properties": Object {
+                  "errorObjects": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationError",
+                    },
+                    "type": "array",
+                  },
+                  "name": Object {
+                    "enum": Array [
+                      "ValidationError",
+                    ],
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "name",
+                  "errorObjects",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "408": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                    "properties": Object {
+                      "info": Object {
+                        "description": "A json object, given further information about the error",
+                        "type": "object",
+                      },
+                      "message": Object {
+                        "description": "Some more detailed information about the error",
+                        "type": "string",
+                      },
+                      "name": Object {
+                        "description": "Unique key for the error type",
+                        "type": "string",
+                      },
+                    },
+                    "required": Array [
+                      "name",
+                      "message",
+                    ],
+                    "type": "object",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "LegacyAuthenticationExpired",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/signup/registration/verification": Object {
+      "post": Object {
+        "operationId": "signup-api-registration-verify",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+            },
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "email": Object {
+                "description": "The users email address",
+                "format": "email",
+                "type": "string",
+              },
+              "token": Object {
+                "description": "The token that was send to your email address",
+                "type": "string",
+              },
+              "userId": Object {
+                "description": "UUID of the registered user",
+                "format": "uuid",
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "email",
+              "token",
+              "userId",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {},
+          },
+          "400": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors",
+                "properties": Object {
+                  "errorObjects": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationError",
+                    },
+                    "type": "array",
+                  },
+                  "name": Object {
+                    "enum": Array [
+                      "ValidationError",
+                    ],
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "name",
+                  "errorObjects",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "404": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                    "properties": Object {
+                      "info": Object {
+                        "description": "A json object, given further information about the error",
+                        "type": "object",
+                      },
+                      "message": Object {
+                        "description": "Some more detailed information about the error",
+                        "type": "string",
+                      },
+                      "name": Object {
+                        "description": "Unique key for the error type",
+                        "type": "string",
+                      },
+                    },
+                    "required": Array [
+                      "name",
+                      "message",
+                    ],
+                    "type": "object",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "EmailNotFound",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/signup/sessions": Object {
+      "get": Object {
+        "operationId": "signup-api-sessions-list",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+              "x-access-token": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {
+              "application/json": Object {
+                "properties": Object {
+                  "sessions": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.signup.UserSession",
+                      "properties": Object {
+                        "created": Object {
+                          "type": "number",
+                        },
+                        "device": Object {
+                          "$ref": "#/components/schemas/de.mittwald.v1.signup.DeviceInfo",
+                        },
+                        "lastAccess": Object {
+                          "type": "number",
+                        },
+                        "location": Object {
+                          "$ref": "#/components/schemas/de.mittwald.v1.signup.Location",
+                        },
+                        "tokenId": Object {
+                          "type": "string",
+                        },
+                      },
+                      "required": Array [
+                        "device",
+                        "created",
+                        "tokenId",
+                      ],
+                      "type": "object",
+                    },
+                    "type": "array",
+                  },
+                },
+                "type": "object",
+              },
+            },
+          },
+          "401": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "NoAccessTokenProvided",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/signup/sessions/{tokenId}": Object {
+      "get": Object {
+        "operationId": "signup-api-session-get",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+              "x-access-token": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
+          },
+          "path": Object {
+            "properties": Object {
+              "tokenId": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "tokenId",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {
+              "application/json": Object {
+                "properties": Object {
+                  "session": Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.UserSession",
+                    "properties": Object {
+                      "created": Object {
+                        "type": "number",
+                      },
+                      "device": Object {
+                        "$ref": "#/components/schemas/de.mittwald.v1.signup.DeviceInfo",
+                      },
+                      "lastAccess": Object {
+                        "type": "number",
+                      },
+                      "location": Object {
+                        "$ref": "#/components/schemas/de.mittwald.v1.signup.Location",
+                      },
+                      "tokenId": Object {
+                        "type": "string",
+                      },
+                    },
+                    "required": Array [
+                      "device",
+                      "created",
+                      "tokenId",
+                    ],
+                    "type": "object",
+                  },
+                },
+                "type": "object",
+              },
+            },
+          },
+          "401": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "NoAccessTokenProvided",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+          "404": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                "properties": Object {
+                  "info": Object {
+                    "description": "A json object, given further information about the error",
+                    "type": "object",
+                  },
+                  "message": Object {
+                    "description": "Some more detailed information about the error",
+                    "type": "string",
+                  },
+                  "name": Object {
+                    "description": "Unique key for the error type",
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "name",
+                  "message",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/signup/ssh": Object {
+      "get": Object {
+        "operationId": "signup-api-ssh-list",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+              "x-access-token": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {
+              "application/json": Object {
+                "properties": Object {
+                  "sshKeys": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.signup.SshKey",
+                      "properties": Object {
+                        "algorithm": Object {
+                          "type": "string",
+                        },
+                        "comment": Object {
+                          "type": "string",
+                        },
+                        "createdAt": Object {
+                          "format": "date-time",
+                          "type": "string",
+                        },
+                        "expiresAt": Object {
+                          "format": "date-time",
+                          "type": "string",
+                        },
+                        "fingerprint": Object {
+                          "type": "string",
+                        },
+                        "key": Object {
+                          "type": "string",
+                        },
+                        "sshKeyId": Object {
+                          "type": "string",
+                        },
+                      },
+                      "required": Array [
+                        "sshKeyId",
+                        "algorithm",
+                        "key",
+                        "comment",
+                        "fingerprint",
+                        "createdAt",
+                      ],
+                      "type": "object",
+                    },
+                    "type": "array",
+                  },
+                },
+                "type": "object",
+              },
+            },
+          },
+          "401": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "NoAccessTokenProvided",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+      "post": Object {
+        "operationId": "signup-api-ssh-create",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+              "x-access-token": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "publicKey": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "publicKey",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {},
+          },
+          "400": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors",
+                "properties": Object {
+                  "errorObjects": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationError",
+                    },
+                    "type": "array",
+                  },
+                  "name": Object {
+                    "enum": Array [
+                      "ValidationError",
+                    ],
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "name",
+                  "errorObjects",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "401": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "NoAccessTokenProvided",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/signup/ssh/{sshKeyId}": Object {
+      "delete": Object {
+        "operationId": "signup-api-ssh-delete",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+              "x-access-token": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
+          },
+          "path": Object {
+            "properties": Object {
+              "sshKeyId": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "sshKeyId",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {},
+          },
+          "401": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "NoAccessTokenProvided",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/signup/token/check": Object {
+      "post": Object {
+        "operationId": "signup-api-token-check",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": Array [
+                  "application/json",
+                  "application/json",
+                  "application/json",
+                ],
+                "type": "string",
+              },
+              "x-access-token": Object {
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {},
+          },
+          "400": Object {
+            "content": Object {
+              "application/json": Object {
+                "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationErrors",
+                "properties": Object {
+                  "errorObjects": Object {
+                    "items": Object {
+                      "$ref": "#/components/schemas/de.mittwald.v1.common.ValidationError",
+                    },
+                    "type": "array",
+                  },
+                  "name": Object {
+                    "enum": Array [
+                      "ValidationError",
+                    ],
+                    "type": "string",
+                  },
+                },
+                "required": Array [
+                  "name",
+                  "errorObjects",
+                ],
+                "type": "object",
+              },
+            },
+          },
+          "401": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "NoAccessTokenProvided",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+          "429": Object {
+            "content": Object {},
+          },
+          "500": Object {
+            "content": Object {
+              "application/json": Object {
+                "allOf": Array [
+                  Object {
+                    "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  },
+                  Object {
+                    "properties": Object {
+                      "name": Object {
+                        "enum": Array [
+                          "InternalServerError",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "type": "object",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+    "/v2/software/config/validate": Object {
+      "get": Object {
+        "operationId": "software-service-list-validators",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": "application/json",
+                "type": "string",
+              },
+            },
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {
+              "application/json": Object {
+                "items": Object {
+                  "properties": Object {
+                    "name": Object {
+                      "description": "The name of the validator.",
+                      "type": "string",
+                    },
+                    "version": Object {
+                      "description": "Semantic version describing all of supported versions",
+                      "type": "string",
+                    },
+                  },
+                  "required": Array [
+                    "name",
+                    "version",
+                  ],
+                  "type": "object",
+                },
+                "type": "array",
+              },
+            },
+          },
+        },
+      },
+      "post": Object {
+        "operationId": "software-service-validate",
+        "parameters": Object {
+          "header": Object {
+            "properties": Object {
+              "Accept": Object {
+                "enum": "application/json",
+                "type": "string",
+              },
+            },
+          },
+          "requestBody": Object {
+            "properties": Object {
+              "files": Object {
+                "description": "A set of config files.",
+                "items": Object {
+                  "properties": Object {
+                    "content": Object {
+                      "format": "byte",
+                      "type": "string",
+                    },
+                    "meta": Object {
+                      "properties": Object {
+                        "name": Object {
+                          "type": "string",
+                        },
+                        "path": Object {
+                          "type": "string",
+                        },
+                      },
+                      "required": Array [
+                        "name",
+                      ],
+                      "type": "object",
+                    },
+                  },
+                  "required": Array [
+                    "content",
+                  ],
+                  "type": "object",
+                },
+                "type": "array",
+              },
+              "name": Object {
+                "description": "The name of the specific validator that should be used.",
+                "type": "string",
+              },
+              "version": Object {
+                "description": "The exact version you want to validate against.",
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "name",
+              "version",
+              "files",
+            ],
+          },
+        },
+        "responses": Object {
+          "200": Object {
+            "content": Object {
+              "application/json": Object {
+                "properties": Object {
+                  "stages": Object {
+                    "items": Object {
+                      "properties": Object {
+                        "error_context": Object {
+                          "description": "The 'error_context' may contain validator / error_type specific content like
+'line' and 'pos'.
+",
+                          "type": "object",
+                        },
+                        "error_message": Object {
+                          "description": "The 'error_message' may contain a human readable error message,
+if the error could be parsed / is known
+or the complete, unparsed validator output otherwise.
+",
+                          "type": "string",
+                        },
+                        "error_type": Object {
+                          "description": "The 'error_type' is
+* empty, when the stage is successful
+* unknown, when the error type is now known / not parsed
+* or some validator specific string.
+",
+                          "type": "string",
+                        },
+                        "name": Object {
+                          "description": "The name of the stage.",
+                          "type": "string",
+                        },
+                      },
+                      "type": "object",
+                    },
+                    "type": "array",
+                  },
+                  "success": Object {
+                    "description": "A validation request is successful, if all stages are successful.",
+                    "type": "boolean",
+                  },
+                },
+                "required": Array [
+                  "success",
+                ],
+                "type": "object",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`transformOpenAPIExpression.evaluate() creates correct snapshots for 'Pet Store' example 1`] = `
 Object {
   "components": Object {
     "parameters": Object {},
