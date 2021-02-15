@@ -1,0 +1,1285 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Exporter creates correct snapshots for Pet Store example 1`] = `
+"/* eslint-disable */
+/* prettier-ignore */
+
+/**
+ * This file is auto-generated with openapi2ts (@mittwald/openapi-to-typescript)
+ */
+
+import { KyClient } from \\"@mittwald/api-client/dist/http/KyClient\\";
+import { Client } from \\"@mittwald/api-client/dist/http/Client\\";
+import { RequestFunction } from \\"@mittwald/api-client/dist/OperationDescriptor\\";
+import { OperationDescriptor } from \\"@mittwald/api-client/dist/OperationDescriptor\\";
+
+/**
+ * ====================================
+ * Types
+ * ====================================
+ */
+export declare module Test {
+  namespace Paths {
+    namespace Pet {
+      namespace Put {
+        namespace Parameters {
+          type Header = {
+            Accept?: \\"application/xml\\" | \\"application/json\\";
+          };
+
+          type RequestBody = Test.Components.Schemas.Pet;
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              type Application_Xml = Test.Components.Schemas.Pet;
+
+              type Application_Json = Test.Components.Schemas.Pet;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace $405 {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          type Header = {
+            Accept?: \\"application/xml\\" | \\"application/json\\";
+          };
+
+          type RequestBody = Test.Components.Schemas.Pet;
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              type Application_Xml = Test.Components.Schemas.Pet;
+
+              type Application_Json = Test.Components.Schemas.Pet;
+            }
+          }
+
+          namespace $405 {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace Pet_FindByStatus {
+      namespace Get {
+        namespace Parameters {
+          interface Query {
+            status?: \\"available\\" | \\"pending\\" | \\"sold\\";
+          }
+
+          type Header = {
+            Accept?: \\"application/xml\\" | \\"application/json\\";
+          };
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              type Application_Xml = Test.Components.Schemas.Pet[];
+
+              type Application_Json = Test.Components.Schemas.Pet[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace Pet_FindByTags {
+      namespace Get {
+        namespace Parameters {
+          interface Query {
+            tags?: string[];
+          }
+
+          type Header = {
+            Accept?: \\"application/xml\\" | \\"application/json\\";
+          };
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              type Application_Xml = Test.Components.Schemas.Pet[];
+
+              type Application_Json = Test.Components.Schemas.Pet[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace Pet_PetId {
+      namespace Get {
+        namespace Parameters {
+          interface Path {
+            petId: number;
+          }
+
+          interface Header {
+            api_key: string;
+            Accept?: \\"application/xml\\" | \\"application/json\\";
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              type Application_Xml = Test.Components.Schemas.Pet;
+
+              type Application_Json = Test.Components.Schemas.Pet;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          interface Path {
+            petId: number;
+          }
+
+          interface Query {
+            name?: string;
+            status?: string;
+          }
+
+          type Header = {
+            Accept?: string;
+          };
+        }
+
+        namespace Responses {
+          namespace $405 {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          interface Header {
+            api_key?: string;
+            Accept?: string;
+          }
+
+          interface Path {
+            petId: number;
+          }
+        }
+
+        namespace Responses {
+          namespace $400 {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace Pet_PetId_UploadImage {
+      namespace Post {
+        namespace Parameters {
+          interface Path {
+            petId: number;
+          }
+
+          interface Query {
+            additionalMetadata?: string;
+          }
+
+          type Header = {
+            Accept?: \\"application/json\\";
+          };
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.ApiResponse;
+            }
+          }
+        }
+      }
+    }
+
+    namespace Store_Inventory {
+      namespace Get {
+        namespace Parameters {
+          interface Header {
+            api_key: string;
+            Accept?: \\"application/json\\";
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              interface Application_Json {
+                [a: string]: any;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace Store_Order {
+      namespace Post {
+        namespace Parameters {
+          type Header = {
+            Accept?: \\"application/json\\";
+          };
+
+          type RequestBody = Test.Components.Schemas.Order;
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.Order;
+            }
+          }
+
+          namespace $405 {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace Store_Order_OrderId {
+      namespace Get {
+        namespace Parameters {
+          interface Path {
+            orderId: number;
+          }
+
+          type Header = {
+            Accept?: \\"application/xml\\" | \\"application/json\\";
+          };
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              type Application_Xml = Test.Components.Schemas.Order;
+
+              type Application_Json = Test.Components.Schemas.Order;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          interface Path {
+            orderId: number;
+          }
+
+          type Header = {
+            Accept?: string;
+          };
+        }
+
+        namespace Responses {
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace User {
+      namespace Post {
+        namespace Parameters {
+          type Header = {
+            Accept?: \\"application/json\\" | \\"application/xml\\";
+          };
+
+          type RequestBody = Test.Components.Schemas.User;
+        }
+
+        namespace Responses {
+          namespace Default {
+            namespace Content {
+              type Application_Json = Test.Components.Schemas.User;
+
+              type Application_Xml = Test.Components.Schemas.User;
+            }
+          }
+        }
+      }
+    }
+
+    namespace User_CreateWithList {
+      namespace Post {
+        namespace Parameters {
+          type Header = {
+            Accept?: \\"application/xml\\" | \\"application/json\\";
+          };
+
+          type RequestBody = Test.Components.Schemas.User[];
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              type Application_Xml = Test.Components.Schemas.User;
+
+              type Application_Json = Test.Components.Schemas.User;
+            }
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace User_Login {
+      namespace Get {
+        namespace Parameters {
+          interface Query {
+            username?: string;
+            password?: string;
+          }
+
+          type Header = {
+            Accept?: \\"application/xml\\" | \\"application/json\\";
+          };
+        }
+
+        namespace Responses {
+          namespace $200 {
+            interface Headers {
+              \\"X-Rate-Limit\\"?: number;
+              \\"X-Expires-After\\"?: string;
+            }
+
+            namespace Content {
+              type Application_Xml = string;
+
+              type Application_Json = string;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace User_Logout {
+      namespace Get {
+        namespace Parameters {
+          type Header = {
+            Accept?: string;
+          };
+        }
+
+        namespace Responses {
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace User_Username {
+      namespace Get {
+        namespace Parameters {
+          interface Path {
+            username: string;
+          }
+
+          type Header = {
+            Accept?: \\"application/xml\\" | \\"application/json\\";
+          };
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              type Application_Xml = Test.Components.Schemas.User;
+
+              type Application_Json = Test.Components.Schemas.User;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Put {
+        namespace Parameters {
+          interface Path {
+            username: string;
+          }
+
+          type Header = {
+            Accept?: string;
+          };
+
+          type RequestBody = Test.Components.Schemas.User;
+        }
+
+        namespace Responses {
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          interface Path {
+            username: string;
+          }
+
+          type Header = {
+            Accept?: string;
+          };
+        }
+
+        namespace Responses {
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+        }
+      }
+    }
+  }
+
+  namespace Components {
+    namespace Schemas {
+      interface Order {
+        id?: number;
+        petId?: number;
+        quantity?: number;
+        shipDate?: string;
+        status?: \\"placed\\" | \\"approved\\" | \\"delivered\\";
+        complete?: boolean;
+      }
+
+      interface Customer {
+        id?: number;
+        username?: string;
+        address?: Test.Components.Schemas.Address[];
+      }
+
+      interface Address {
+        street?: string;
+        city?: string;
+        state?: string;
+        zip?: string;
+      }
+
+      interface Category {
+        id?: number;
+        name?: string;
+      }
+
+      interface User {
+        id?: number;
+        username?: string;
+        firstName?: string;
+        lastName?: string;
+        email?: string;
+        password?: string;
+        phone?: string;
+        userStatus?: number;
+      }
+
+      interface Tag {
+        id?: number;
+        name?: string;
+      }
+
+      interface Pet {
+        id?: number;
+        name: string;
+        category?: Test.Components.Schemas.Category;
+        photoUrls: string[];
+        tags?: Test.Components.Schemas.Tag[];
+        status?: \\"available\\" | \\"pending\\" | \\"sold\\";
+      }
+
+      interface ApiResponse {
+        code?: number;
+        type?: string;
+        message?: string;
+      }
+    }
+
+    namespace Parameters {}
+  }
+
+  namespace Definitions {}
+}
+
+/**
+ * ====================================
+ * Descriptors
+ * ====================================
+ */
+
+export const updatePet: OperationDescriptor<
+  {
+    requestBody: Test.Paths.Pet.Put.Parameters.RequestBody;
+
+    header?: Test.Paths.Pet.Put.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      mediaType: \\"application/xml\\";
+      content: Test.Paths.Pet.Put.Responses.$200.Content.Application_Xml;
+    })
+  | ({ status: 200 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.Pet.Put.Responses.$200.Content.Application_Json;
+    })
+  | ({ status: 400 } & {
+      content: undefined;
+    })
+  | ({ status: 404 } & {
+      content: undefined;
+    })
+  | ({ status: 405 } & {
+      content: undefined;
+    })
+> = {
+  path: \\"/pet\\",
+  method: \\"put\\",
+};
+
+export const addPet: OperationDescriptor<
+  {
+    requestBody: Test.Paths.Pet.Post.Parameters.RequestBody;
+
+    header?: Test.Paths.Pet.Post.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      mediaType: \\"application/xml\\";
+      content: Test.Paths.Pet.Post.Responses.$200.Content.Application_Xml;
+    })
+  | ({ status: 200 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.Pet.Post.Responses.$200.Content.Application_Json;
+    })
+  | ({ status: 405 } & {
+      content: undefined;
+    })
+> = {
+  path: \\"/pet\\",
+  method: \\"post\\",
+};
+
+export const findPetsByStatus: OperationDescriptor<
+  {
+    header?: Test.Paths.Pet_FindByStatus.Get.Parameters.Header;
+
+    query: Test.Paths.Pet_FindByStatus.Get.Parameters.Query;
+  },
+  | ({ status: 200 } & {
+      mediaType: \\"application/xml\\";
+      content: Test.Paths.Pet_FindByStatus.Get.Responses.$200.Content.Application_Xml;
+    })
+  | ({ status: 200 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.Pet_FindByStatus.Get.Responses.$200.Content.Application_Json;
+    })
+  | ({ status: 400 } & {
+      content: undefined;
+    })
+> = {
+  path: \\"/pet/findByStatus\\",
+  method: \\"get\\",
+};
+
+export const findPetsByTags: OperationDescriptor<
+  {
+    header?: Test.Paths.Pet_FindByTags.Get.Parameters.Header;
+
+    query: Test.Paths.Pet_FindByTags.Get.Parameters.Query;
+  },
+  | ({ status: 200 } & {
+      mediaType: \\"application/xml\\";
+      content: Test.Paths.Pet_FindByTags.Get.Responses.$200.Content.Application_Xml;
+    })
+  | ({ status: 200 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.Pet_FindByTags.Get.Responses.$200.Content.Application_Json;
+    })
+  | ({ status: 400 } & {
+      content: undefined;
+    })
+> = {
+  path: \\"/pet/findByTags\\",
+  method: \\"get\\",
+};
+
+export const getPetById: OperationDescriptor<
+  {
+    header: Test.Paths.Pet_PetId.Get.Parameters.Header;
+
+    path: Test.Paths.Pet_PetId.Get.Parameters.Path;
+  },
+  | ({ status: 200 } & {
+      mediaType: \\"application/xml\\";
+      content: Test.Paths.Pet_PetId.Get.Responses.$200.Content.Application_Xml;
+    })
+  | ({ status: 200 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.Pet_PetId.Get.Responses.$200.Content.Application_Json;
+    })
+  | ({ status: 400 } & {
+      content: undefined;
+    })
+  | ({ status: 404 } & {
+      content: undefined;
+    })
+> = {
+  path: \\"/pet/{petId}\\",
+  method: \\"get\\",
+};
+
+export const updatePetWithForm: OperationDescriptor<
+  {
+    header?: Test.Paths.Pet_PetId.Post.Parameters.Header;
+
+    path: Test.Paths.Pet_PetId.Post.Parameters.Path;
+
+    query: Test.Paths.Pet_PetId.Post.Parameters.Query;
+  },
+  { status: 405 } & {
+    content: undefined;
+  }
+> = {
+  path: \\"/pet/{petId}\\",
+  method: \\"post\\",
+};
+
+export const deletePet: OperationDescriptor<
+  {
+    header: Test.Paths.Pet_PetId.Delete.Parameters.Header;
+
+    path: Test.Paths.Pet_PetId.Delete.Parameters.Path;
+  },
+  { status: 400 } & {
+    content: undefined;
+  }
+> = {
+  path: \\"/pet/{petId}\\",
+  method: \\"delete\\",
+};
+
+export const uploadFile: OperationDescriptor<
+  {
+    header?: Test.Paths.Pet_PetId_UploadImage.Post.Parameters.Header;
+
+    path: Test.Paths.Pet_PetId_UploadImage.Post.Parameters.Path;
+
+    query: Test.Paths.Pet_PetId_UploadImage.Post.Parameters.Query;
+  },
+  { status: 200 } & {
+    mediaType: \\"application/json\\";
+    content: Test.Paths.Pet_PetId_UploadImage.Post.Responses.$200.Content.Application_Json;
+  }
+> = {
+  path: \\"/pet/{petId}/uploadImage\\",
+  method: \\"post\\",
+};
+
+export const getInventory: OperationDescriptor<
+  {
+    header: Test.Paths.Store_Inventory.Get.Parameters.Header;
+  },
+  { status: 200 } & {
+    mediaType: \\"application/json\\";
+    content: Test.Paths.Store_Inventory.Get.Responses.$200.Content.Application_Json;
+  }
+> = {
+  path: \\"/store/inventory\\",
+  method: \\"get\\",
+};
+
+export const placeOrder: OperationDescriptor<
+  {
+    requestBody: Test.Paths.Store_Order.Post.Parameters.RequestBody;
+
+    header?: Test.Paths.Store_Order.Post.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.Store_Order.Post.Responses.$200.Content.Application_Json;
+    })
+  | ({ status: 405 } & {
+      content: undefined;
+    })
+> = {
+  path: \\"/store/order\\",
+  method: \\"post\\",
+};
+
+export const getOrderById: OperationDescriptor<
+  {
+    header?: Test.Paths.Store_Order_OrderId.Get.Parameters.Header;
+
+    path: Test.Paths.Store_Order_OrderId.Get.Parameters.Path;
+  },
+  | ({ status: 200 } & {
+      mediaType: \\"application/xml\\";
+      content: Test.Paths.Store_Order_OrderId.Get.Responses.$200.Content.Application_Xml;
+    })
+  | ({ status: 200 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.Store_Order_OrderId.Get.Responses.$200.Content.Application_Json;
+    })
+  | ({ status: 400 } & {
+      content: undefined;
+    })
+  | ({ status: 404 } & {
+      content: undefined;
+    })
+> = {
+  path: \\"/store/order/{orderId}\\",
+  method: \\"get\\",
+};
+
+export const deleteOrder: OperationDescriptor<
+  {
+    header?: Test.Paths.Store_Order_OrderId.Delete.Parameters.Header;
+
+    path: Test.Paths.Store_Order_OrderId.Delete.Parameters.Path;
+  },
+  | ({ status: 400 } & {
+      content: undefined;
+    })
+  | ({ status: 404 } & {
+      content: undefined;
+    })
+> = {
+  path: \\"/store/order/{orderId}\\",
+  method: \\"delete\\",
+};
+
+export const createUser: OperationDescriptor<
+  {
+    requestBody: Test.Paths.User.Post.Parameters.RequestBody;
+
+    header?: Test.Paths.User.Post.Parameters.Header;
+  },
+  | ({ status: 0 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.User.Post.Responses.Default.Content.Application_Json;
+    })
+  | ({ status: 0 } & {
+      mediaType: \\"application/xml\\";
+      content: Test.Paths.User.Post.Responses.Default.Content.Application_Xml;
+    })
+> = {
+  path: \\"/user\\",
+  method: \\"post\\",
+};
+
+export const createUsersWithListInput: OperationDescriptor<
+  {
+    requestBody: Test.Paths.User_CreateWithList.Post.Parameters.RequestBody;
+
+    header?: Test.Paths.User_CreateWithList.Post.Parameters.Header;
+  },
+  | ({ status: 200 } & {
+      mediaType: \\"application/xml\\";
+      content: Test.Paths.User_CreateWithList.Post.Responses.$200.Content.Application_Xml;
+    })
+  | ({ status: 200 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.User_CreateWithList.Post.Responses.$200.Content.Application_Json;
+    })
+  | ({ status: 0 } & {
+      content: undefined;
+    })
+> = {
+  path: \\"/user/createWithList\\",
+  method: \\"post\\",
+};
+
+export const loginUser: OperationDescriptor<
+  {
+    header?: Test.Paths.User_Login.Get.Parameters.Header;
+
+    query: Test.Paths.User_Login.Get.Parameters.Query;
+  },
+  | ({ status: 200 } & {
+      mediaType: \\"application/xml\\";
+      content: Test.Paths.User_Login.Get.Responses.$200.Content.Application_Xml;
+
+      headers: Test.Paths.User_Login.Get.Responses.$200.Headers;
+    })
+  | ({ status: 200 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.User_Login.Get.Responses.$200.Content.Application_Json;
+
+      headers: Test.Paths.User_Login.Get.Responses.$200.Headers;
+    })
+  | ({ status: 400 } & {
+      content: undefined;
+    })
+> = {
+  path: \\"/user/login\\",
+  method: \\"get\\",
+};
+
+export const logoutUser: OperationDescriptor<
+  {
+    header?: Test.Paths.User_Logout.Get.Parameters.Header;
+  },
+  { status: 0 } & {
+    content: undefined;
+  }
+> = {
+  path: \\"/user/logout\\",
+  method: \\"get\\",
+};
+
+export const getUserByName: OperationDescriptor<
+  {
+    header?: Test.Paths.User_Username.Get.Parameters.Header;
+
+    path: Test.Paths.User_Username.Get.Parameters.Path;
+  },
+  | ({ status: 200 } & {
+      mediaType: \\"application/xml\\";
+      content: Test.Paths.User_Username.Get.Responses.$200.Content.Application_Xml;
+    })
+  | ({ status: 200 } & {
+      mediaType: \\"application/json\\";
+      content: Test.Paths.User_Username.Get.Responses.$200.Content.Application_Json;
+    })
+  | ({ status: 400 } & {
+      content: undefined;
+    })
+  | ({ status: 404 } & {
+      content: undefined;
+    })
+> = {
+  path: \\"/user/{username}\\",
+  method: \\"get\\",
+};
+
+export const updateUser: OperationDescriptor<
+  {
+    requestBody: Test.Paths.User_Username.Put.Parameters.RequestBody;
+
+    header?: Test.Paths.User_Username.Put.Parameters.Header;
+
+    path: Test.Paths.User_Username.Put.Parameters.Path;
+  },
+  { status: 0 } & {
+    content: undefined;
+  }
+> = {
+  path: \\"/user/{username}\\",
+  method: \\"put\\",
+};
+
+export const deleteUser: OperationDescriptor<
+  {
+    header?: Test.Paths.User_Username.Delete.Parameters.Header;
+
+    path: Test.Paths.User_Username.Delete.Parameters.Path;
+  },
+  | ({ status: 400 } & {
+      content: undefined;
+    })
+  | ({ status: 404 } & {
+      content: undefined;
+    })
+> = {
+  path: \\"/user/{username}\\",
+  method: \\"delete\\",
+};
+
+/**
+ * ====================================
+ * Client
+ * ====================================
+ */
+export class TestClient {
+  private static instance: TestClient | undefined;
+
+  public static getInstance(): TestClient {
+    if (!TestClient.instance) {
+      throw new Error(
+        \\"ApiClientInstanceNotSet: API-Client-instance must be set before using hooks. Use TestClient.setInstance().\\"
+      );
+    }
+    return TestClient.instance;
+  }
+
+  public static setInstance(client: TestClient): void {
+    TestClient.instance = client;
+  }
+
+  public updatePet: RequestFunction<typeof updatePet>;
+
+  public addPet: RequestFunction<typeof addPet>;
+
+  public findPetsByStatus: RequestFunction<typeof findPetsByStatus>;
+
+  public findPetsByTags: RequestFunction<typeof findPetsByTags>;
+
+  public getPetById: RequestFunction<typeof getPetById>;
+
+  public updatePetWithForm: RequestFunction<typeof updatePetWithForm>;
+
+  public deletePet: RequestFunction<typeof deletePet>;
+
+  public uploadFile: RequestFunction<typeof uploadFile>;
+
+  public getInventory: RequestFunction<typeof getInventory>;
+
+  public placeOrder: RequestFunction<typeof placeOrder>;
+
+  public getOrderById: RequestFunction<typeof getOrderById>;
+
+  public deleteOrder: RequestFunction<typeof deleteOrder>;
+
+  public createUser: RequestFunction<typeof createUser>;
+
+  public createUsersWithListInput: RequestFunction<
+    typeof createUsersWithListInput
+  >;
+
+  public loginUser: RequestFunction<typeof loginUser>;
+
+  public logoutUser: RequestFunction<typeof logoutUser>;
+
+  public getUserByName: RequestFunction<typeof getUserByName>;
+
+  public updateUser: RequestFunction<typeof updateUser>;
+
+  public deleteUser: RequestFunction<typeof deleteUser>;
+
+  public constructor(clientOrUrl: Client | string) {
+    const client =
+      typeof clientOrUrl === \\"string\\"
+        ? new KyClient({ ky: { prefixUrl: clientOrUrl } })
+        : clientOrUrl;
+
+    this.updatePet = client.requestFunctionFactory(updatePet);
+
+    this.addPet = client.requestFunctionFactory(addPet);
+
+    this.findPetsByStatus = client.requestFunctionFactory(findPetsByStatus);
+
+    this.findPetsByTags = client.requestFunctionFactory(findPetsByTags);
+
+    this.getPetById = client.requestFunctionFactory(getPetById);
+
+    this.updatePetWithForm = client.requestFunctionFactory(updatePetWithForm);
+
+    this.deletePet = client.requestFunctionFactory(deletePet);
+
+    this.uploadFile = client.requestFunctionFactory(uploadFile);
+
+    this.getInventory = client.requestFunctionFactory(getInventory);
+
+    this.placeOrder = client.requestFunctionFactory(placeOrder);
+
+    this.getOrderById = client.requestFunctionFactory(getOrderById);
+
+    this.deleteOrder = client.requestFunctionFactory(deleteOrder);
+
+    this.createUser = client.requestFunctionFactory(createUser);
+
+    this.createUsersWithListInput = client.requestFunctionFactory(
+      createUsersWithListInput
+    );
+
+    this.loginUser = client.requestFunctionFactory(loginUser);
+
+    this.logoutUser = client.requestFunctionFactory(logoutUser);
+
+    this.getUserByName = client.requestFunctionFactory(getUserByName);
+
+    this.updateUser = client.requestFunctionFactory(updateUser);
+
+    this.deleteUser = client.requestFunctionFactory(deleteUser);
+  }
+}
+
+/**
+ * ====================================
+ * React Hooks
+ * ====================================
+ */
+import {
+  createUseGetData,
+  createRefreshCache,
+} from \\"@mittwald/react-api-hooks/dist/hooks/createUseGetData\\";
+
+export const useUpdatePet = createUseGetData(
+  () => TestClient.getInstance().updatePet
+);
+
+export const useAddPet = createUseGetData(
+  () => TestClient.getInstance().addPet
+);
+
+export const useFindPetsByStatus = createUseGetData(
+  () => TestClient.getInstance().findPetsByStatus
+);
+
+export const useFindPetsByTags = createUseGetData(
+  () => TestClient.getInstance().findPetsByTags
+);
+
+export const useGetPetById = createUseGetData(
+  () => TestClient.getInstance().getPetById
+);
+
+export const useUpdatePetWithForm = createUseGetData(
+  () => TestClient.getInstance().updatePetWithForm
+);
+
+export const useDeletePet = createUseGetData(
+  () => TestClient.getInstance().deletePet
+);
+
+export const useUploadFile = createUseGetData(
+  () => TestClient.getInstance().uploadFile
+);
+
+export const useGetInventory = createUseGetData(
+  () => TestClient.getInstance().getInventory
+);
+
+export const usePlaceOrder = createUseGetData(
+  () => TestClient.getInstance().placeOrder
+);
+
+export const useGetOrderById = createUseGetData(
+  () => TestClient.getInstance().getOrderById
+);
+
+export const useDeleteOrder = createUseGetData(
+  () => TestClient.getInstance().deleteOrder
+);
+
+export const useCreateUser = createUseGetData(
+  () => TestClient.getInstance().createUser
+);
+
+export const useCreateUsersWithListInput = createUseGetData(
+  () => TestClient.getInstance().createUsersWithListInput
+);
+
+export const useLoginUser = createUseGetData(
+  () => TestClient.getInstance().loginUser
+);
+
+export const useLogoutUser = createUseGetData(
+  () => TestClient.getInstance().logoutUser
+);
+
+export const useGetUserByName = createUseGetData(
+  () => TestClient.getInstance().getUserByName
+);
+
+export const useUpdateUser = createUseGetData(
+  () => TestClient.getInstance().updateUser
+);
+
+export const useDeleteUser = createUseGetData(
+  () => TestClient.getInstance().deleteUser
+);
+
+export const testCache = {
+  refreshUpdatePet: createRefreshCache(
+    () => TestClient.getInstance().updatePet
+  ),
+
+  refreshAddPet: createRefreshCache(() => TestClient.getInstance().addPet),
+
+  refreshFindPetsByStatus: createRefreshCache(
+    () => TestClient.getInstance().findPetsByStatus
+  ),
+
+  refreshFindPetsByTags: createRefreshCache(
+    () => TestClient.getInstance().findPetsByTags
+  ),
+
+  refreshGetPetById: createRefreshCache(
+    () => TestClient.getInstance().getPetById
+  ),
+
+  refreshUpdatePetWithForm: createRefreshCache(
+    () => TestClient.getInstance().updatePetWithForm
+  ),
+
+  refreshDeletePet: createRefreshCache(
+    () => TestClient.getInstance().deletePet
+  ),
+
+  refreshUploadFile: createRefreshCache(
+    () => TestClient.getInstance().uploadFile
+  ),
+
+  refreshGetInventory: createRefreshCache(
+    () => TestClient.getInstance().getInventory
+  ),
+
+  refreshPlaceOrder: createRefreshCache(
+    () => TestClient.getInstance().placeOrder
+  ),
+
+  refreshGetOrderById: createRefreshCache(
+    () => TestClient.getInstance().getOrderById
+  ),
+
+  refreshDeleteOrder: createRefreshCache(
+    () => TestClient.getInstance().deleteOrder
+  ),
+
+  refreshCreateUser: createRefreshCache(
+    () => TestClient.getInstance().createUser
+  ),
+
+  refreshCreateUsersWithListInput: createRefreshCache(
+    () => TestClient.getInstance().createUsersWithListInput
+  ),
+
+  refreshLoginUser: createRefreshCache(
+    () => TestClient.getInstance().loginUser
+  ),
+
+  refreshLogoutUser: createRefreshCache(
+    () => TestClient.getInstance().logoutUser
+  ),
+
+  refreshGetUserByName: createRefreshCache(
+    () => TestClient.getInstance().getUserByName
+  ),
+
+  refreshUpdateUser: createRefreshCache(
+    () => TestClient.getInstance().updateUser
+  ),
+
+  refreshDeleteUser: createRefreshCache(
+    () => TestClient.getInstance().deleteUser
+  ),
+};
+"
+`;
+
+exports[`Exporter creates correct snapshots for Pet Store example 2`] = `
+"/* eslint-disable */
+/* prettier-ignore */
+
+/**
+ * This file is auto-generated with openapi2ts (@mittwald/openapi-to-typescript)
+ */
+
+import { mockRequestFactory } from \\"@mittwald/api-client/dist/http/mockRequestFactory\\";
+import * as descriptors from \\"./TestClient\\";
+
+export const testRequestMocking = {
+  mockUpdatePet: mockRequestFactory(descriptors.updatePet),
+
+  mockAddPet: mockRequestFactory(descriptors.addPet),
+
+  mockFindPetsByStatus: mockRequestFactory(descriptors.findPetsByStatus),
+
+  mockFindPetsByTags: mockRequestFactory(descriptors.findPetsByTags),
+
+  mockGetPetById: mockRequestFactory(descriptors.getPetById),
+
+  mockUpdatePetWithForm: mockRequestFactory(descriptors.updatePetWithForm),
+
+  mockDeletePet: mockRequestFactory(descriptors.deletePet),
+
+  mockUploadFile: mockRequestFactory(descriptors.uploadFile),
+
+  mockGetInventory: mockRequestFactory(descriptors.getInventory),
+
+  mockPlaceOrder: mockRequestFactory(descriptors.placeOrder),
+
+  mockGetOrderById: mockRequestFactory(descriptors.getOrderById),
+
+  mockDeleteOrder: mockRequestFactory(descriptors.deleteOrder),
+
+  mockCreateUser: mockRequestFactory(descriptors.createUser),
+
+  mockCreateUsersWithListInput: mockRequestFactory(
+    descriptors.createUsersWithListInput
+  ),
+
+  mockLoginUser: mockRequestFactory(descriptors.loginUser),
+
+  mockLogoutUser: mockRequestFactory(descriptors.logoutUser),
+
+  mockGetUserByName: mockRequestFactory(descriptors.getUserByName),
+
+  mockUpdateUser: mockRequestFactory(descriptors.updateUser),
+
+  mockDeleteUser: mockRequestFactory(descriptors.deleteUser),
+};
+"
+`;
