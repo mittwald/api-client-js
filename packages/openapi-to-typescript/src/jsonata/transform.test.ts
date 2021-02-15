@@ -4,7 +4,7 @@ import { loadSpec } from "../loadSpec";
 
 describe("transformOpenAPIExpression.evaluate()", () => {
     test("creates correct snapshots for Pet Store example", async () => {
-        const spec = await loadSpec(path.join(__dirname, "../testData/petstore.json"));
+        const spec = await loadSpec(path.join(__dirname, "../../resources/examples/petstore.json"));
         expect(transformOpenAPIExpression.evaluate(spec)).toMatchSnapshot();
     });
 });
