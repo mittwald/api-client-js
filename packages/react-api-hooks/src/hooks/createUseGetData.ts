@@ -29,7 +29,9 @@ export type GetDataHookState = GetDataHookResult<any>["state"] | GetDataHookNoDa
 export type GetDataHookResult<T extends RequestFunction> = GetDataHookDataResult<T> | GetDataHookNoDataResult<T>;
 
 export const createRefreshCache = <T extends RequestFunction>(getRequestFn: () => T) => (request: Parameters<T>[0]): void => {
-    executionSubscriber.refreshCache(getRequestFn(), ...request);
+    const funcParams = [request] as Parameters<T>;
+    // refreshCache() needs the params-array as rest arg
+    executionSubscriber.refreshCache(getRequestFn(), ...funcParams);
 };
 
 export interface UseGetDataOptions {
