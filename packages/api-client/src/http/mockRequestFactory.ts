@@ -6,6 +6,7 @@ import { mapBody } from "./response";
 import { mapHeaders } from "./headers";
 import queryString from "querystring";
 import debug from "../debug";
+import globals from "../globals";
 
 export type DeepPartial<T> = {
     [TKey in keyof T]?: DeepPartial<T[TKey]>;
@@ -28,20 +29,6 @@ export type MockRequestFactory = <TRequest extends ClientRequest, TResponse exte
     request: PartialRequest<TRequest>,
     response: MockRequestFactoryResponse<TResponse> | ((req: TRequest) => MockRequestFactoryResponse<TResponse>),
 ) => void;
-
-type Sleeper = () => Promise<void>;
-
-const defaultSleeper: Sleeper = () => new Promise((res) => setTimeout(() => res(), Math.random() * 600 + 200));
-
-let sleeper = defaultSleeper;
-
-export const setSleeper = (newSleeper: Sleeper): void => {
-    sleeper = newSleeper;
-};
-
-export const resetSleeper = (): void => {
-    sleeper = defaultSleeper;
-};
 
 const d = debug.extend("mockRequestFactory");
 
@@ -76,7 +63,7 @@ export const mockRequestFactory: MockRequestFactory = (descriptor) => {
                 headers: headers,
             };
 
-            await sleeper();
+            await globals.mockRequestSleeper();
 
             return mockResponse;
         };
