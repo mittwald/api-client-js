@@ -66,6 +66,14 @@ $ yarn openapi2ts --namespace PetStoreApi --react --output src/api/PetStoreApiCl
 -   http(s)
 -   local files
 
+###
+
+### Help
+
+```shell script
+yarn openapi2ts --help
+```
+
 ### Caveats using Swagger
 
 This library focuses on using OpenAPI specs. However, if you disable the spec validation (`--skipValidation`), you might get an adequate

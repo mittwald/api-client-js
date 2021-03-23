@@ -29,7 +29,19 @@ export type MockRequestFactory = <TRequest extends ClientRequest, TResponse exte
     response: MockRequestFactoryResponse<TResponse> | ((req: TRequest) => MockRequestFactoryResponse<TResponse>),
 ) => void;
 
-const sleep = (): Promise<void> => new Promise((res) => setTimeout(() => res(), Math.random() * 600 + 200));
+type Sleeper = () => Promise<void>;
+
+const defaultSleeper: Sleeper = () => new Promise((res) => setTimeout(() => res(), Math.random() * 600 + 200));
+
+let sleeper = defaultSleeper;
+
+export const setSleeper = (newSleeper: Sleeper): void => {
+    sleeper = newSleeper;
+};
+
+export const resetSleeper = (): void => {
+    sleeper = defaultSleeper;
+};
 
 const d = debug.extend("mockRequestFactory");
 
@@ -64,7 +76,7 @@ export const mockRequestFactory: MockRequestFactory = (descriptor) => {
                 headers: headers,
             };
 
-            await sleep();
+            await sleeper();
 
             return mockResponse;
         };
