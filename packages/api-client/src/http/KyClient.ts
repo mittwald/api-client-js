@@ -2,7 +2,7 @@ import { Options as KyOptions } from "ky";
 import ky from "ky-universal";
 import debug from "../debug";
 import { Headers } from "../OperationDescriptor";
-import { Client, RequestFunctionFactory } from "./Client";
+import { Client, RequestFunctionFactory, RequestInfos } from "./Client";
 import { mapHeaders } from "./headers";
 import { setPathParams } from "./path";
 import { mapResponse } from "./response";
@@ -41,6 +41,7 @@ export class KyClient implements Client {
     public requestFunctionFactory: RequestFunctionFactory = (descriptor) => async (request) => {
         const { path, method } = descriptor;
         const { header, requestBody, path: pathParams, query } = request;
+        const requestInfos: RequestInfos = { method };
 
         d("requestBody: %o", requestBody);
 
@@ -66,11 +67,12 @@ export class KyClient implements Client {
             const resolvedPath = setPathParams(path, pathParams);
             d("starting %o request to %o", method.toUpperCase(), resolvedPath);
             const kyResponse = await this.ky(resolvedPath, requestOptions);
+            requestInfos.url = kyResponse.url;
             d("mapping response");
-            return (await mapResponse(kyResponse)) as any;
+            return (await mapResponse(kyResponse, requestInfos)) as any;
         } catch (error) {
             if (error instanceof ky.HTTPError) {
-                return (await mapResponse(error.response)) as any;
+                return (await mapResponse(error.response, requestInfos)) as any;
             }
             throw error;
         }

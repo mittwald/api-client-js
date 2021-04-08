@@ -1,3 +1,4 @@
+import { RequestInfos, Response as ApiClientResponse } from "@mittwald/api-client/dist/http/Client";
 import { RequestFunction } from "@mittwald/api-client/dist/OperationDescriptor";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
@@ -10,6 +11,8 @@ import { useSafeState } from "./useSafeState";
 
 interface BaseResult {
     refreshCache: () => void;
+    request?: RequestInfos;
+    status?: number;
 }
 
 export type Response<T> = T extends { status: 200; content: infer TContent; mediaType?: infer TMediaType }
@@ -17,7 +20,7 @@ export type Response<T> = T extends { status: 200; content: infer TContent; medi
     : never;
 
 export type GetDataHookNoDataResult<T extends RequestFunction> = BaseResult & {
-    state: "error" | "notFound" | "noAccess" | "unauthorized" | "loading" | "timeout";
+    state: "unexpectedError" | "notFound" | "noAccess" | "unauthorized" | "loading" | "timeout" | "clientError" | "serverError";
 } & Partial<Response<RequestFunctionResult<T>>>;
 
 export type GetDataHookDataResult<T extends RequestFunction> = BaseResult & {
@@ -57,7 +60,7 @@ export const createUseGetData = <T extends RequestFunction>(getRequestFn: () => 
 
     const cachedResult = disableCache || request === null ? undefined : executionSubscriber.getCachedResult(requestFn, ...funcParams);
 
-    const [result, setResult] = useSafeState<RequestFunctionResult<T> | undefined>(cachedResult);
+    const [result, setResult] = useSafeState<ApiClientResponse | undefined>(cachedResult);
 
     const isOffline = !useIsOnline();
 
@@ -65,7 +68,7 @@ export const createUseGetData = <T extends RequestFunction>(getRequestFn: () => 
 
     const wasOffline = useRef(isOffline);
 
-    const onResult: OnResultCallback<T> = (result) => {
+    const onResult: OnResultCallback<T> = (result: ApiClientResponse) => {
         const status = result.status;
         const ok = status >= 200 && status < 300;
 
@@ -77,10 +80,14 @@ export const createUseGetData = <T extends RequestFunction>(getRequestFn: () => 
             setState("noAccess");
         } else if (status === 404) {
             setState("notFound");
+        } else if (status >= 400 && status < 500) {
+            setState("clientError");
+        } else if (status >= 500 && status < 600) {
+            setState("serverError");
         } else if (ok) {
             setState("ok");
         } else {
-            setState("error");
+            setState("unexpectedError");
         }
     };
 
@@ -90,7 +97,7 @@ export const createUseGetData = <T extends RequestFunction>(getRequestFn: () => 
         if (error?.name === "TimeoutError") {
             setState("timeout");
         } else {
-            setState("error");
+            setState("unexpectedError");
         }
         setResult(undefined);
     };
@@ -143,6 +150,8 @@ export const createUseGetData = <T extends RequestFunction>(getRequestFn: () => 
             mediaType: result?.mediaType,
             state,
             refreshCache,
+            request: result?.requestInfos,
+            status: result?.status,
         }),
         [state],
     );

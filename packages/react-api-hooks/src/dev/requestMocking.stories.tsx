@@ -35,6 +35,10 @@ mockPostRequest({}, (req) => {
     return {
         content: req.requestBody,
         status: 200,
+        requestInfos: {
+            method: "post",
+            url: "test",
+        },
     };
 });
 

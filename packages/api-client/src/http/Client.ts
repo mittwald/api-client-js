@@ -1,10 +1,16 @@
 import { Headers, OperationDescriptor } from "../OperationDescriptor";
 
+export interface RequestInfos {
+    method: string;
+    url?: string;
+}
+
 export interface Response {
     status: number;
     mediaType?: string;
     content?: any;
     headers?: any;
+    requestInfos: RequestInfos;
 }
 
 export interface Request {
@@ -14,7 +20,7 @@ export interface Request {
     query?: any;
 }
 
-export type RequestFunctionFactory = <TRequest extends Request, TResponse extends Response>(
+export type RequestFunctionFactory = <TRequest extends Request, TResponse extends Omit<Response, "requestInfos">>(
     descriptor: OperationDescriptor<TRequest, TResponse>,
 ) => (request: TRequest) => Promise<TResponse>;
 

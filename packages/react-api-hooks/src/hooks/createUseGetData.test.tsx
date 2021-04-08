@@ -78,7 +78,7 @@ test("reload after cache refresh: 'loading => ok' => 'loading => ok'", async () 
 test("status 500", async () => {
     getResponseStatus.mockReturnValueOnce(500);
     renderView();
-    await expectViews("loading", "error");
+    await expectViews("loading", "serverError");
 });
 
 test("status 404", async () => {
@@ -105,7 +105,7 @@ test("requestFunc throws internally", async () => {
     });
 
     renderView();
-    await expectViews("loading", "error");
+    await expectViews("loading", "unexpectedError");
 });
 
 test("hooks with response as dependency are not re-called, when response is cached", async () => {
