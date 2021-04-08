@@ -13,6 +13,7 @@ interface BaseResult {
     refreshCache: () => void;
     operation?: OperationDescriptor;
     status?: number;
+    url?: string;
 }
 
 export type Response<T> = T extends { status: 200; content: infer TContent; mediaType?: infer TMediaType }
@@ -152,6 +153,7 @@ export const createUseGetData = <T extends RequestFunction>(operation: Operation
             refreshCache,
             operation,
             status: result?.status,
+            url: result?.url,
         }),
         [state],
     );
