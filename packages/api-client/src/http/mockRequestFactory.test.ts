@@ -31,6 +31,7 @@ describe("mockRequestFactory()", () => {
                 operation: {
                     path: "/test/",
                     method: "get",
+                    operationId: "test",
                 },
             },
         ],
@@ -40,6 +41,7 @@ describe("mockRequestFactory()", () => {
                 operation: {
                     path: "/test/{id}",
                     method: "get",
+                    operationId: "test",
                 },
                 reqMatcher: {
                     path: {
@@ -57,6 +59,7 @@ describe("mockRequestFactory()", () => {
                 operation: {
                     path: "/test/{id}",
                     method: "get",
+                    operationId: "test",
                 },
                 reqMatcher: {
                     path: {
@@ -75,6 +78,7 @@ describe("mockRequestFactory()", () => {
                 operation: {
                     path: "/test/{id}",
                     method: "get",
+                    operationId: "test",
                 },
                 reqMatcher: {
                     path: {
@@ -95,6 +99,7 @@ describe("mockRequestFactory()", () => {
                 operation: {
                     path: "/test",
                     method: "post",
+                    operationId: "test",
                 },
                 req: {
                     requestBody: { foo: "bar" },
@@ -110,6 +115,7 @@ describe("mockRequestFactory()", () => {
                 operation: {
                     path: "/test",
                     method: "post",
+                    operationId: "test",
                 },
                 req: {
                     query: {
@@ -127,6 +133,7 @@ describe("mockRequestFactory()", () => {
                 operation: {
                     path: "/test",
                     method: "post",
+                    operationId: "test",
                 },
                 req: {
                     header: {
@@ -146,6 +153,7 @@ describe("mockRequestFactory()", () => {
                 operation: {
                     path: "/test",
                     method: "get",
+                    operationId: "test",
                 },
                 reqMatcher: {
                     path: "/test",
@@ -156,9 +164,10 @@ describe("mockRequestFactory()", () => {
                         foo: "bar",
                     },
                     mediaType: "application/json",
-                    requestInfos: {
+                    operation: {
+                        path: "/test",
                         method: "get",
-                        url: "http://localhost/test",
+                        operationId: "test",
                     },
                 },
                 expectedResp: {
@@ -166,9 +175,10 @@ describe("mockRequestFactory()", () => {
                         foo: "bar",
                     },
                     mediaType: "application/json",
-                    requestInfos: {
+                    operation: {
+                        path: "/test",
                         method: "get",
-                        url: "http://localhost/test",
+                        operationId: "test",
                     },
                 },
             },
@@ -179,6 +189,7 @@ describe("mockRequestFactory()", () => {
                 operation: {
                     path: "/test",
                     method: "get",
+                    operationId: "test",
                 },
                 reqMatcher: {
                     path: "/test",
@@ -187,17 +198,19 @@ describe("mockRequestFactory()", () => {
                     status: 200,
                     content: "plainText",
                     mediaType: "text/plain",
-                    requestInfos: {
+                    operation: {
+                        path: "/test",
                         method: "get",
-                        url: "http://localhost/test",
+                        operationId: "test",
                     },
                 },
                 expectedResp: {
                     content: "plainText",
                     mediaType: "text/plain",
-                    requestInfos: {
+                    operation: {
+                        path: "/test",
                         method: "get",
-                        url: "http://localhost/test",
+                        operationId: "test",
                     },
                 },
             },
@@ -211,9 +224,10 @@ describe("mockRequestFactory()", () => {
                 expectedReq,
                 mockResp = {
                     status: 200,
-                    requestInfos: {
+                    operation: {
+                        path: "/test",
                         method: "get",
-                        url: "http://localhost/test",
+                        operationId: "test",
                     },
                 },
                 reqMatcher = {},

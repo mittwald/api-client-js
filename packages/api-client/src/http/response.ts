@@ -1,7 +1,7 @@
 import * as Client from "./Client";
 import { mapHeaders } from "./headers";
 import debug from "../debug";
-import { RequestInfos } from "./Client";
+import { OperationDescriptor } from "../OperationDescriptor";
 
 const d = debug.extend("mapResponse");
 
@@ -36,7 +36,7 @@ export const mapBody = async (body: Body, headers: Headers): Promise<any> => {
     return content;
 };
 
-export const mapResponse = async (response: Response, requestInfos: RequestInfos): Promise<Client.Response> => {
+export const mapResponse = async (response: Response, operation: OperationDescriptor): Promise<Client.Response> => {
     const mediaType = getMediaType(response.headers);
 
     return {
@@ -44,6 +44,6 @@ export const mapResponse = async (response: Response, requestInfos: RequestInfos
         mediaType,
         content: await mapBody(response, response.headers),
         headers: mapHeaders(response.headers),
-        requestInfos,
+        operation,
     };
 };

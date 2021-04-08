@@ -22,7 +22,8 @@ const getCakeDescriptor: OperationDescriptor<
 > = {
     method: "get",
     path: "/cake/{id}",
+    operationId: "getCake",
 };
 
 const getCake = client.requestFunctionFactory(getCakeDescriptor);
-export const useGetCake = createUseGetData(() => getCake);
+export const useGetCake = createUseGetData(getCakeDescriptor, () => getCake);

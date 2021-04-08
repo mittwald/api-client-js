@@ -110,7 +110,7 @@ import { createUseGetData, createRefreshCache } from "@mittwald/react-api-hooks/
 
 <% Object.entries(paths).forEach(([path, operations]) => { %>
 <% Object.entries(operations).forEach(([method, operation]) => { %>
-export const use<%- pascalCase(operationId(path, method, operation)) %> = createUseGetData(() => <%- rootNamespace %>Client.getInstance().<%- operationId(path, method, operation) %>);
+export const use<%- pascalCase(operationId(path, method, operation)) %> = createUseGetData(<%- operationId(path, method, operation) %>, () => <%- rootNamespace %>Client.getInstance().<%- operationId(path, method, operation) %>);
 <% }) %>
 <% }) %>
 

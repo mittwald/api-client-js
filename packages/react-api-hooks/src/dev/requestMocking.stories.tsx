@@ -25,6 +25,7 @@ const postOperationDescriptor: OperationDescriptor<
 > = {
     path: "test",
     method: "post",
+    operationId: "postTest",
 };
 
 const startRequest = client.requestFunctionFactory(postOperationDescriptor);
@@ -35,14 +36,11 @@ mockPostRequest({}, (req) => {
     return {
         content: req.requestBody,
         status: 200,
-        requestInfos: {
-            method: "post",
-            url: "test",
-        },
+        operation: postOperationDescriptor,
     };
 });
 
-const usePostRequest = createUseGetData(() => startRequest);
+const usePostRequest = createUseGetData(postOperationDescriptor, () => startRequest);
 
 export const Default = (): ReactElement => {
     const postRequest = usePostRequest({

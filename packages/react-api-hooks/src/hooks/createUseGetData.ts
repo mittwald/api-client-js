@@ -1,5 +1,5 @@
-import { RequestInfos, Response as ApiClientResponse } from "@mittwald/api-client/dist/http/Client";
-import { RequestFunction } from "@mittwald/api-client/dist/OperationDescriptor";
+import { Response as ApiClientResponse } from "@mittwald/api-client/dist/http/Client";
+import { OperationDescriptor, RequestFunction } from "@mittwald/api-client/dist/OperationDescriptor";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
     executionSubscriber,
@@ -11,7 +11,7 @@ import { useSafeState } from "./useSafeState";
 
 interface BaseResult {
     refreshCache: () => void;
-    request?: RequestInfos;
+    operation?: OperationDescriptor;
     status?: number;
 }
 
@@ -41,7 +41,7 @@ export interface UseGetDataOptions {
     disableCache?: boolean;
 }
 
-export const createUseGetData = <T extends RequestFunction>(getRequestFn: () => T) => (
+export const createUseGetData = <T extends RequestFunction>(operation: OperationDescriptor, getRequestFn: () => T) => (
     request: Parameters<T>[0] | null,
     options?: UseGetDataOptions,
 ): GetDataHookResult<T> => {
@@ -150,7 +150,7 @@ export const createUseGetData = <T extends RequestFunction>(getRequestFn: () => 
             mediaType: result?.mediaType,
             state,
             refreshCache,
-            request: result?.requestInfos,
+            operation,
             status: result?.status,
         }),
         [state],

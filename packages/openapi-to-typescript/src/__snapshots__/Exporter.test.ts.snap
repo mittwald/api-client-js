@@ -3209,179 +3209,223 @@ import {
 } from \\"@mittwald/react-api-hooks/dist/hooks/createUseGetData\\";
 
 export const useFileServiceFilesGetById = createUseGetData(
+  fileServiceFilesGetById,
   () => TestClient.getInstance().fileServiceFilesGetById
 );
 
 export const useMailsystemServiceImapclusterCreate = createUseGetData(
+  mailsystemServiceImapclusterCreate,
   () => TestClient.getInstance().mailsystemServiceImapclusterCreate
 );
 
 export const useMailsystemServiceImapclusterUpdate = createUseGetData(
+  mailsystemServiceImapclusterUpdate,
   () => TestClient.getInstance().mailsystemServiceImapclusterUpdate
 );
 
 export const useMailsystemServiceSettingCreate = createUseGetData(
+  mailsystemServiceSettingCreate,
   () => TestClient.getInstance().mailsystemServiceSettingCreate
 );
 
 export const useMailsystemServiceSettingUpdate = createUseGetData(
+  mailsystemServiceSettingUpdate,
   () => TestClient.getInstance().mailsystemServiceSettingUpdate
 );
 
 export const useSignupApiAuthenticate = createUseGetData(
+  signupApiAuthenticate,
   () => TestClient.getInstance().signupApiAuthenticate
 );
 
 export const useSignupApiAuthenticateLegacy = createUseGetData(
+  signupApiAuthenticateLegacy,
   () => TestClient.getInstance().signupApiAuthenticateLegacy
 );
 
 export const useSignupApiAuthenticateMfa = createUseGetData(
+  signupApiAuthenticateMfa,
   () => TestClient.getInstance().signupApiAuthenticateMfa
 );
 
 export const useSignupApiEmailResend = createUseGetData(
+  signupApiEmailResend,
   () => TestClient.getInstance().signupApiEmailResend
 );
 
 export const useSignupApiLogout = createUseGetData(
+  signupApiLogout,
   () => TestClient.getInstance().signupApiLogout
 );
 
 export const useSignupApiMfaConfirm = createUseGetData(
+  signupApiMfaConfirm,
   () => TestClient.getInstance().signupApiMfaConfirm
 );
 
 export const useSignupApiMfaDisable = createUseGetData(
+  signupApiMfaDisable,
   () => TestClient.getInstance().signupApiMfaDisable
 );
 
 export const useSignupApiMfaInit = createUseGetData(
+  signupApiMfaInit,
   () => TestClient.getInstance().signupApiMfaInit
 );
 
 export const useSignupApiPasswordChange = createUseGetData(
+  signupApiPasswordChange,
   () => TestClient.getInstance().signupApiPasswordChange
 );
 
 export const useSignupApiPasswordResetConfirm = createUseGetData(
+  signupApiPasswordResetConfirm,
   () => TestClient.getInstance().signupApiPasswordResetConfirm
 );
 
 export const useSignupApiPasswordResetInit = createUseGetData(
+  signupApiPasswordResetInit,
   () => TestClient.getInstance().signupApiPasswordResetInit
 );
 
 export const useSignupApiPhoneNumberDelete = createUseGetData(
+  signupApiPhoneNumberDelete,
   () => TestClient.getInstance().signupApiPhoneNumberDelete
 );
 
 export const useSignupApiPhoneNumberGet = createUseGetData(
+  signupApiPhoneNumberGet,
   () => TestClient.getInstance().signupApiPhoneNumberGet
 );
 
 export const useSignupApiPhoneNumberInitProcess = createUseGetData(
+  signupApiPhoneNumberInitProcess,
   () => TestClient.getInstance().signupApiPhoneNumberInitProcess
 );
 
 export const useSignupApiPhoneNumberVerify = createUseGetData(
+  signupApiPhoneNumberVerify,
   () => TestClient.getInstance().signupApiPhoneNumberVerify
 );
 
 export const useSignupApiProfileChange = createUseGetData(
+  signupApiProfileChange,
   () => TestClient.getInstance().signupApiProfileChange
 );
 
 export const useSignupApiProfileGet = createUseGetData(
+  signupApiProfileGet,
   () => TestClient.getInstance().signupApiProfileGet
 );
 
 export const useSignupApiRecoverycodesReset = createUseGetData(
+  signupApiRecoverycodesReset,
   () => TestClient.getInstance().signupApiRecoverycodesReset
 );
 
 export const useSignupApiRegister = createUseGetData(
+  signupApiRegister,
   () => TestClient.getInstance().signupApiRegister
 );
 
 export const useSignupApiRegistrationVerify = createUseGetData(
+  signupApiRegistrationVerify,
   () => TestClient.getInstance().signupApiRegistrationVerify
 );
 
 export const useSignupApiSessionGet = createUseGetData(
+  signupApiSessionGet,
   () => TestClient.getInstance().signupApiSessionGet
 );
 
 export const useSignupApiSessionsList = createUseGetData(
+  signupApiSessionsList,
   () => TestClient.getInstance().signupApiSessionsList
 );
 
 export const useSignupApiSshCreate = createUseGetData(
+  signupApiSshCreate,
   () => TestClient.getInstance().signupApiSshCreate
 );
 
 export const useSignupApiSshList = createUseGetData(
+  signupApiSshList,
   () => TestClient.getInstance().signupApiSshList
 );
 
 export const useSignupApiSshDelete = createUseGetData(
+  signupApiSshDelete,
   () => TestClient.getInstance().signupApiSshDelete
 );
 
 export const useSignupApiTokenCheck = createUseGetData(
+  signupApiTokenCheck,
   () => TestClient.getInstance().signupApiTokenCheck
 );
 
 export const useSoftwareServiceListValidators = createUseGetData(
+  softwareServiceListValidators,
   () => TestClient.getInstance().softwareServiceListValidators
 );
 
 export const useSoftwareServiceValidate = createUseGetData(
+  softwareServiceValidate,
   () => TestClient.getInstance().softwareServiceValidate
 );
 
 export const useSoftwareServiceSoftwareConfigCreate = createUseGetData(
+  softwareServiceSoftwareConfigCreate,
   () => TestClient.getInstance().softwareServiceSoftwareConfigCreate
 );
 
 export const useSoftwareServiceSoftwareConfigDelete = createUseGetData(
+  softwareServiceSoftwareConfigDelete,
   () => TestClient.getInstance().softwareServiceSoftwareConfigDelete
 );
 
 export const useSoftwareServiceSoftwareConfigGetById = createUseGetData(
+  softwareServiceSoftwareConfigGetById,
   () => TestClient.getInstance().softwareServiceSoftwareConfigGetById
 );
 
 export const useSoftwareServiceSoftwareConfigRollback = createUseGetData(
+  softwareServiceSoftwareConfigRollback,
   () => TestClient.getInstance().softwareServiceSoftwareConfigRollback
 );
 
 export const useSoftwareServiceSoftwareConfigUpdate = createUseGetData(
+  softwareServiceSoftwareConfigUpdate,
   () => TestClient.getInstance().softwareServiceSoftwareConfigUpdate
 );
 
 export const useSoftwareServiceSoftwareConfigtemplateCreate = createUseGetData(
+  softwareServiceSoftwareConfigtemplateCreate,
   () => TestClient.getInstance().softwareServiceSoftwareConfigtemplateCreate
 );
 
 export const useSoftwareServiceSoftwareConfigtemplateGetList = createUseGetData(
+  softwareServiceSoftwareConfigtemplateGetList,
   () => TestClient.getInstance().softwareServiceSoftwareConfigtemplateGetList
 );
 
 export const useSoftwareServiceSoftwareConfigtemplateDelete = createUseGetData(
+  softwareServiceSoftwareConfigtemplateDelete,
   () => TestClient.getInstance().softwareServiceSoftwareConfigtemplateDelete
 );
 
 export const useSoftwareServiceSoftwareConfigtemplateGetSpecific = createUseGetData(
+  softwareServiceSoftwareConfigtemplateGetSpecific,
   () =>
     TestClient.getInstance().softwareServiceSoftwareConfigtemplateGetSpecific
 );
 
 export const useSoftwareServiceSoftwareGetById = createUseGetData(
+  softwareServiceSoftwareGetById,
   () => TestClient.getInstance().softwareServiceSoftwareGetById
 );
 
 export const useSoftwareServiceSoftwareSettingsDeclare = createUseGetData(
+  softwareServiceSoftwareSettingsDeclare,
   () => TestClient.getInstance().softwareServiceSoftwareSettingsDeclare
 );
 
@@ -4811,78 +4855,97 @@ import {
 } from \\"@mittwald/react-api-hooks/dist/hooks/createUseGetData\\";
 
 export const useUpdatePet = createUseGetData(
+  updatePet,
   () => TestClient.getInstance().updatePet
 );
 
 export const useAddPet = createUseGetData(
+  addPet,
   () => TestClient.getInstance().addPet
 );
 
 export const useFindPetsByStatus = createUseGetData(
+  findPetsByStatus,
   () => TestClient.getInstance().findPetsByStatus
 );
 
 export const useFindPetsByTags = createUseGetData(
+  findPetsByTags,
   () => TestClient.getInstance().findPetsByTags
 );
 
 export const useGetPetById = createUseGetData(
+  getPetById,
   () => TestClient.getInstance().getPetById
 );
 
 export const useUpdatePetWithForm = createUseGetData(
+  updatePetWithForm,
   () => TestClient.getInstance().updatePetWithForm
 );
 
 export const useDeletePet = createUseGetData(
+  deletePet,
   () => TestClient.getInstance().deletePet
 );
 
 export const useUploadFile = createUseGetData(
+  uploadFile,
   () => TestClient.getInstance().uploadFile
 );
 
 export const useGetInventory = createUseGetData(
+  getInventory,
   () => TestClient.getInstance().getInventory
 );
 
 export const usePlaceOrder = createUseGetData(
+  placeOrder,
   () => TestClient.getInstance().placeOrder
 );
 
 export const useGetOrderById = createUseGetData(
+  getOrderById,
   () => TestClient.getInstance().getOrderById
 );
 
 export const useDeleteOrder = createUseGetData(
+  deleteOrder,
   () => TestClient.getInstance().deleteOrder
 );
 
 export const useCreateUser = createUseGetData(
+  createUser,
   () => TestClient.getInstance().createUser
 );
 
 export const useCreateUsersWithListInput = createUseGetData(
+  createUsersWithListInput,
   () => TestClient.getInstance().createUsersWithListInput
 );
 
 export const useLoginUser = createUseGetData(
+  loginUser,
   () => TestClient.getInstance().loginUser
 );
 
 export const useLogoutUser = createUseGetData(
+  logoutUser,
   () => TestClient.getInstance().logoutUser
 );
 
 export const useGetUserByName = createUseGetData(
+  getUserByName,
   () => TestClient.getInstance().getUserByName
 );
 
 export const useUpdateUser = createUseGetData(
+  updateUser,
   () => TestClient.getInstance().updateUser
 );
 
 export const useDeleteUser = createUseGetData(
+  deleteUser,
   () => TestClient.getInstance().deleteUser
 );
 

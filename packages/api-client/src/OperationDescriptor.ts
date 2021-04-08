@@ -6,6 +6,7 @@ export type PathParams = Record<string, string>;
 export interface OperationDescriptor<TRequest = any, TResponse = any> {
     path: string;
     method: string;
+    operationId: string;
 }
 
 export type RequestType<T extends OperationDescriptor> = T extends OperationDescriptor<infer TReq> ? TReq : never;
