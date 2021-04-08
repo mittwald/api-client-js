@@ -67,7 +67,7 @@ export class KyClient implements Client {
             d("starting %o request to %o", method.toUpperCase(), resolvedPath);
             const kyResponse = await this.ky(resolvedPath, requestOptions);
             d("mapping response");
-            return (await mapResponse(kyResponse, descriptor)) as any;
+            return (await mapResponse(kyResponse, descriptor, kyResponse.url)) as any;
         } catch (error) {
             if (error instanceof ky.HTTPError) {
                 return (await mapResponse(error.response, descriptor)) as any;

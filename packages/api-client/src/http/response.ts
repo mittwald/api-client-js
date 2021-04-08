@@ -36,7 +36,7 @@ export const mapBody = async (body: Body, headers: Headers): Promise<any> => {
     return content;
 };
 
-export const mapResponse = async (response: Response, operation: OperationDescriptor): Promise<Client.Response> => {
+export const mapResponse = async (response: Response, operation: OperationDescriptor, url?: string): Promise<Client.Response> => {
     const mediaType = getMediaType(response.headers);
 
     return {
@@ -45,5 +45,6 @@ export const mapResponse = async (response: Response, operation: OperationDescri
         content: await mapBody(response, response.headers),
         headers: mapHeaders(response.headers),
         operation,
+        url,
     };
 };

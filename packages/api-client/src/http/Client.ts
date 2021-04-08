@@ -6,6 +6,7 @@ export interface Response {
     content?: any;
     headers?: any;
     operation: OperationDescriptor;
+    url?: string;
 }
 
 export interface Request {
@@ -15,7 +16,7 @@ export interface Request {
     query?: any;
 }
 
-export type RequestFunctionFactory = <TRequest extends Request, TResponse extends Omit<Response, "operation">>(
+export type RequestFunctionFactory = <TRequest extends Request, TResponse extends Omit<Response, "operation" | "url">>(
     descriptor: OperationDescriptor<TRequest, TResponse>,
 ) => (request: TRequest) => Promise<TResponse>;
 
