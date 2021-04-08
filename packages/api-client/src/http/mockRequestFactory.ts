@@ -19,9 +19,10 @@ export type PartialRequest<TRequest extends ClientRequest> = DeepPartial<Omit<TR
 export type MockResponseFunction = (url: string, opts: MockRequest, request: Request) => Promise<MockResponse>;
 
 // Make the mediaType property optional, because it can be defaulted to `application/json`
-export type MockRequestFactoryResponse<T extends Response> = T extends { mediaType: string }
-    ? Partial<Pick<T, "mediaType">> & Omit<T, "mediaType">
-    : T;
+export type MockRequestFactoryResponse<T extends Response> = Omit<
+    T extends { mediaType: string } ? Partial<Pick<T, "mediaType">> & Omit<T, "mediaType"> : T,
+    "operation" | "url"
+>;
 
 export type MockRequestFactory = <TRequest extends ClientRequest, TResponse extends Response>(
     descriptor: OperationDescriptor<TRequest, TResponse>,
