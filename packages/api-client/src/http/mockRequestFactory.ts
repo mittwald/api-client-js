@@ -20,7 +20,7 @@ export type MockResponseFunction = (url: string, opts: MockRequest, request: Req
 
 // Make the mediaType property optional, because it can be defaulted to `application/json`
 export type MockRequestFactoryResponse<T extends Response> = T extends { mediaType: string }
-    ? Partial<Pick<T, "mediaType">> & Omit<T, "mediaType">
+    ? Partial<Pick<T, "mediaType">> & Omit<T, "mediaType" | "operation" | "url">
     : T;
 
 export type MockRequestFactory = <TRequest extends ClientRequest, TResponse extends Response>(
