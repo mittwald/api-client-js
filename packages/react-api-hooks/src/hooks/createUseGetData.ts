@@ -73,7 +73,7 @@ export const createUseGetData = <T extends RequestFunction>(operation: Operation
         const status = result.status;
         const ok = status >= 200 && status < 300;
 
-        setResult(ok ? result : undefined);
+        setResult(result);
 
         if (status === 401) {
             setState("unauthorized");
@@ -147,8 +147,8 @@ export const createUseGetData = <T extends RequestFunction>(operation: Operation
 
     return useMemo(
         () => ({
-            data: result?.content,
-            mediaType: result?.mediaType,
+            data: state === "ok" ? result?.content : undefined,
+            mediaType: state === "ok" ? result?.mediaType : undefined,
             state,
             refreshCache,
             operation,
