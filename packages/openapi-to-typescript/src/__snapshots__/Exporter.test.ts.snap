@@ -1879,6 +1879,7 @@ export const fileServiceFilesGetById: OperationDescriptor<
 > = {
   path: \\"/v2/files/{fileID}\\",
   method: \\"get\\",
+  operationId: \\"fileServiceFilesGetById\\",
 };
 
 export const mailsystemServiceImapclusterCreate: OperationDescriptor<
@@ -1893,6 +1894,7 @@ export const mailsystemServiceImapclusterCreate: OperationDescriptor<
 > = {
   path: \\"/v2/imapcluster\\",
   method: \\"post\\",
+  operationId: \\"mailsystemServiceImapclusterCreate\\",
 };
 
 export const mailsystemServiceImapclusterUpdate: OperationDescriptor<
@@ -1907,6 +1909,7 @@ export const mailsystemServiceImapclusterUpdate: OperationDescriptor<
 > = {
   path: \\"/v2/imapcluster\\",
   method: \\"put\\",
+  operationId: \\"mailsystemServiceImapclusterUpdate\\",
 };
 
 export const mailsystemServiceSettingCreate: OperationDescriptor<
@@ -1921,6 +1924,7 @@ export const mailsystemServiceSettingCreate: OperationDescriptor<
 > = {
   path: \\"/v2/mailsystemsetting\\",
   method: \\"post\\",
+  operationId: \\"mailsystemServiceSettingCreate\\",
 };
 
 export const mailsystemServiceSettingUpdate: OperationDescriptor<
@@ -1935,6 +1939,7 @@ export const mailsystemServiceSettingUpdate: OperationDescriptor<
 > = {
   path: \\"/v2/mailsystemsetting\\",
   method: \\"put\\",
+  operationId: \\"mailsystemServiceSettingUpdate\\",
 };
 
 export const signupApiAuthenticate: OperationDescriptor<
@@ -1965,6 +1970,7 @@ export const signupApiAuthenticate: OperationDescriptor<
 > = {
   path: \\"/v2/signup/authentication\\",
   method: \\"post\\",
+  operationId: \\"signupApiAuthenticate\\",
 };
 
 export const signupApiAuthenticateLegacy: OperationDescriptor<
@@ -1990,6 +1996,7 @@ export const signupApiAuthenticateLegacy: OperationDescriptor<
 > = {
   path: \\"/v2/signup/authentication/legacy\\",
   method: \\"post\\",
+  operationId: \\"signupApiAuthenticateLegacy\\",
 };
 
 export const signupApiAuthenticateMfa: OperationDescriptor<
@@ -2020,6 +2027,7 @@ export const signupApiAuthenticateMfa: OperationDescriptor<
 > = {
   path: \\"/v2/signup/authentication/mfa\\",
   method: \\"post\\",
+  operationId: \\"signupApiAuthenticateMfa\\",
 };
 
 export const signupApiEmailResend: OperationDescriptor<
@@ -2045,6 +2053,7 @@ export const signupApiEmailResend: OperationDescriptor<
 > = {
   path: \\"/v2/signup/email/resend\\",
   method: \\"post\\",
+  operationId: \\"signupApiEmailResend\\",
 };
 
 export const signupApiLogout: OperationDescriptor<
@@ -2070,6 +2079,7 @@ export const signupApiLogout: OperationDescriptor<
 > = {
   path: \\"/v2/signup/logout\\",
   method: \\"put\\",
+  operationId: \\"signupApiLogout\\",
 };
 
 export const signupApiMfaConfirm: OperationDescriptor<
@@ -2100,6 +2110,7 @@ export const signupApiMfaConfirm: OperationDescriptor<
 > = {
   path: \\"/v2/signup/mfa/confirm\\",
   method: \\"post\\",
+  operationId: \\"signupApiMfaConfirm\\",
 };
 
 export const signupApiMfaDisable: OperationDescriptor<
@@ -2127,6 +2138,7 @@ export const signupApiMfaDisable: OperationDescriptor<
 > = {
   path: \\"/v2/signup/mfa\\",
   method: \\"delete\\",
+  operationId: \\"signupApiMfaDisable\\",
 };
 
 export const signupApiMfaInit: OperationDescriptor<
@@ -2155,6 +2167,7 @@ export const signupApiMfaInit: OperationDescriptor<
 > = {
   path: \\"/v2/signup/mfa\\",
   method: \\"post\\",
+  operationId: \\"signupApiMfaInit\\",
 };
 
 export const signupApiPasswordChange: OperationDescriptor<
@@ -2184,6 +2197,7 @@ export const signupApiPasswordChange: OperationDescriptor<
 > = {
   path: \\"/v2/signup/password\\",
   method: \\"put\\",
+  operationId: \\"signupApiPasswordChange\\",
 };
 
 export const signupApiPasswordResetConfirm: OperationDescriptor<
@@ -2209,6 +2223,7 @@ export const signupApiPasswordResetConfirm: OperationDescriptor<
 > = {
   path: \\"/v2/signup/password/reset/confirm\\",
   method: \\"post\\",
+  operationId: \\"signupApiPasswordResetConfirm\\",
 };
 
 export const signupApiPasswordResetInit: OperationDescriptor<
@@ -2234,6 +2249,7 @@ export const signupApiPasswordResetInit: OperationDescriptor<
 > = {
   path: \\"/v2/signup/password/reset\\",
   method: \\"post\\",
+  operationId: \\"signupApiPasswordResetInit\\",
 };
 
 export const signupApiPhoneNumberDelete: OperationDescriptor<
@@ -2261,6 +2277,7 @@ export const signupApiPhoneNumberDelete: OperationDescriptor<
 > = {
   path: \\"/v2/signup/phone\\",
   method: \\"delete\\",
+  operationId: \\"signupApiPhoneNumberDelete\\",
 };
 
 export const signupApiPhoneNumberGet: OperationDescriptor<
@@ -2288,6 +2305,7 @@ export const signupApiPhoneNumberGet: OperationDescriptor<
 > = {
   path: \\"/v2/signup/phone\\",
   method: \\"get\\",
+  operationId: \\"signupApiPhoneNumberGet\\",
 };
 
 export const signupApiPhoneNumberInitProcess: OperationDescriptor<
@@ -2317,6 +2335,7 @@ export const signupApiPhoneNumberInitProcess: OperationDescriptor<
 > = {
   path: \\"/v2/signup/phone\\",
   method: \\"post\\",
+  operationId: \\"signupApiPhoneNumberInitProcess\\",
 };
 
 export const signupApiPhoneNumberVerify: OperationDescriptor<
@@ -2350,6 +2369,7 @@ export const signupApiPhoneNumberVerify: OperationDescriptor<
 > = {
   path: \\"/v2/signup/phone/verify\\",
   method: \\"post\\",
+  operationId: \\"signupApiPhoneNumberVerify\\",
 };
 
 export const signupApiProfileChange: OperationDescriptor<
@@ -2379,6 +2399,7 @@ export const signupApiProfileChange: OperationDescriptor<
 > = {
   path: \\"/v2/signup/profile\\",
   method: \\"put\\",
+  operationId: \\"signupApiProfileChange\\",
 };
 
 export const signupApiProfileGet: OperationDescriptor<
@@ -2403,6 +2424,7 @@ export const signupApiProfileGet: OperationDescriptor<
 > = {
   path: \\"/v2/signup/profile\\",
   method: \\"get\\",
+  operationId: \\"signupApiProfileGet\\",
 };
 
 export const signupApiRecoverycodesReset: OperationDescriptor<
@@ -2433,6 +2455,7 @@ export const signupApiRecoverycodesReset: OperationDescriptor<
 > = {
   path: \\"/v2/signup/mfa/reset-recoverycodes\\",
   method: \\"put\\",
+  operationId: \\"signupApiRecoverycodesReset\\",
 };
 
 export const signupApiRegister: OperationDescriptor<
@@ -2463,6 +2486,7 @@ export const signupApiRegister: OperationDescriptor<
 > = {
   path: \\"/v2/signup/registration\\",
   method: \\"post\\",
+  operationId: \\"signupApiRegister\\",
 };
 
 export const signupApiRegistrationVerify: OperationDescriptor<
@@ -2492,6 +2516,7 @@ export const signupApiRegistrationVerify: OperationDescriptor<
 > = {
   path: \\"/v2/signup/registration/verification\\",
   method: \\"post\\",
+  operationId: \\"signupApiRegistrationVerify\\",
 };
 
 export const signupApiSessionGet: OperationDescriptor<
@@ -2522,6 +2547,7 @@ export const signupApiSessionGet: OperationDescriptor<
 > = {
   path: \\"/v2/signup/sessions/{tokenId}\\",
   method: \\"get\\",
+  operationId: \\"signupApiSessionGet\\",
 };
 
 export const signupApiSessionsList: OperationDescriptor<
@@ -2546,6 +2572,7 @@ export const signupApiSessionsList: OperationDescriptor<
 > = {
   path: \\"/v2/signup/sessions\\",
   method: \\"get\\",
+  operationId: \\"signupApiSessionsList\\",
 };
 
 export const signupApiSshCreate: OperationDescriptor<
@@ -2575,6 +2602,7 @@ export const signupApiSshCreate: OperationDescriptor<
 > = {
   path: \\"/v2/signup/ssh\\",
   method: \\"post\\",
+  operationId: \\"signupApiSshCreate\\",
 };
 
 export const signupApiSshList: OperationDescriptor<
@@ -2599,6 +2627,7 @@ export const signupApiSshList: OperationDescriptor<
 > = {
   path: \\"/v2/signup/ssh\\",
   method: \\"get\\",
+  operationId: \\"signupApiSshList\\",
 };
 
 export const signupApiSshDelete: OperationDescriptor<
@@ -2624,6 +2653,7 @@ export const signupApiSshDelete: OperationDescriptor<
 > = {
   path: \\"/v2/signup/ssh/{sshKeyId}\\",
   method: \\"delete\\",
+  operationId: \\"signupApiSshDelete\\",
 };
 
 export const signupApiTokenCheck: OperationDescriptor<
@@ -2651,6 +2681,7 @@ export const signupApiTokenCheck: OperationDescriptor<
 > = {
   path: \\"/v2/signup/token/check\\",
   method: \\"post\\",
+  operationId: \\"signupApiTokenCheck\\",
 };
 
 export const softwareServiceListValidators: OperationDescriptor<
@@ -2664,6 +2695,7 @@ export const softwareServiceListValidators: OperationDescriptor<
 > = {
   path: \\"/v2/software/config/validate\\",
   method: \\"get\\",
+  operationId: \\"softwareServiceListValidators\\",
 };
 
 export const softwareServiceValidate: OperationDescriptor<
@@ -2679,6 +2711,7 @@ export const softwareServiceValidate: OperationDescriptor<
 > = {
   path: \\"/v2/software/config/validate\\",
   method: \\"post\\",
+  operationId: \\"softwareServiceValidate\\",
 };
 
 export const softwareServiceSoftwareConfigCreate: OperationDescriptor<
@@ -2696,6 +2729,7 @@ export const softwareServiceSoftwareConfigCreate: OperationDescriptor<
 > = {
   path: \\"/v2/projects/{projectID}/software/{softwareID}/config\\",
   method: \\"post\\",
+  operationId: \\"softwareServiceSoftwareConfigCreate\\",
 };
 
 export const softwareServiceSoftwareConfigDelete: OperationDescriptor<
@@ -2711,6 +2745,7 @@ export const softwareServiceSoftwareConfigDelete: OperationDescriptor<
 > = {
   path: \\"/v2/projects/{projectID}/software/{softwareID}/config\\",
   method: \\"delete\\",
+  operationId: \\"softwareServiceSoftwareConfigDelete\\",
 };
 
 export const softwareServiceSoftwareConfigGetById: OperationDescriptor<
@@ -2726,6 +2761,7 @@ export const softwareServiceSoftwareConfigGetById: OperationDescriptor<
 > = {
   path: \\"/v2/projects/{projectID}/software/{softwareID}/config\\",
   method: \\"get\\",
+  operationId: \\"softwareServiceSoftwareConfigGetById\\",
 };
 
 export const softwareServiceSoftwareConfigRollback: OperationDescriptor<
@@ -2743,6 +2779,7 @@ export const softwareServiceSoftwareConfigRollback: OperationDescriptor<
 > = {
   path: \\"/v2/projects/{projectID}/software/{softwareID}/config\\",
   method: \\"patch\\",
+  operationId: \\"softwareServiceSoftwareConfigRollback\\",
 };
 
 export const softwareServiceSoftwareConfigUpdate: OperationDescriptor<
@@ -2760,6 +2797,7 @@ export const softwareServiceSoftwareConfigUpdate: OperationDescriptor<
 > = {
   path: \\"/v2/projects/{projectID}/software/{softwareID}/config\\",
   method: \\"put\\",
+  operationId: \\"softwareServiceSoftwareConfigUpdate\\",
 };
 
 export const softwareServiceSoftwareConfigtemplateCreate: OperationDescriptor<
@@ -2777,6 +2815,7 @@ export const softwareServiceSoftwareConfigtemplateCreate: OperationDescriptor<
 > = {
   path: \\"/v2/projects/{projectID}/software/config/template\\",
   method: \\"post\\",
+  operationId: \\"softwareServiceSoftwareConfigtemplateCreate\\",
 };
 
 export const softwareServiceSoftwareConfigtemplateGetList: OperationDescriptor<
@@ -2796,6 +2835,7 @@ export const softwareServiceSoftwareConfigtemplateGetList: OperationDescriptor<
 > = {
   path: \\"/v2/projects/{projectID}/software/config/template\\",
   method: \\"get\\",
+  operationId: \\"softwareServiceSoftwareConfigtemplateGetList\\",
 };
 
 export const softwareServiceSoftwareConfigtemplateDelete: OperationDescriptor<
@@ -2810,6 +2850,7 @@ export const softwareServiceSoftwareConfigtemplateDelete: OperationDescriptor<
 > = {
   path: \\"/v2/projects/{projectID}/software/config/template/{id}\\",
   method: \\"delete\\",
+  operationId: \\"softwareServiceSoftwareConfigtemplateDelete\\",
 };
 
 export const softwareServiceSoftwareConfigtemplateGetSpecific: OperationDescriptor<
@@ -2825,6 +2866,7 @@ export const softwareServiceSoftwareConfigtemplateGetSpecific: OperationDescript
 > = {
   path: \\"/v2/projects/{projectID}/software/config/template/{id}\\",
   method: \\"get\\",
+  operationId: \\"softwareServiceSoftwareConfigtemplateGetSpecific\\",
 };
 
 export const softwareServiceSoftwareGetById: OperationDescriptor<
@@ -2840,6 +2882,7 @@ export const softwareServiceSoftwareGetById: OperationDescriptor<
 > = {
   path: \\"/v2/projects/{projectID}/software/{softwareID}\\",
   method: \\"get\\",
+  operationId: \\"softwareServiceSoftwareGetById\\",
 };
 
 export const softwareServiceSoftwareSettingsDeclare: OperationDescriptor<
@@ -2857,6 +2900,7 @@ export const softwareServiceSoftwareSettingsDeclare: OperationDescriptor<
 > = {
   path: \\"/v2/projects/{projectID}/software/{softwareID}/settings\\",
   method: \\"patch\\",
+  operationId: \\"softwareServiceSoftwareSettingsDeclare\\",
 };
 
 /**
@@ -4385,6 +4429,7 @@ export const updatePet: OperationDescriptor<
 > = {
   path: \\"/pet\\",
   method: \\"put\\",
+  operationId: \\"updatePet\\",
 };
 
 export const addPet: OperationDescriptor<
@@ -4407,6 +4452,7 @@ export const addPet: OperationDescriptor<
 > = {
   path: \\"/pet\\",
   method: \\"post\\",
+  operationId: \\"addPet\\",
 };
 
 export const findPetsByStatus: OperationDescriptor<
@@ -4429,6 +4475,7 @@ export const findPetsByStatus: OperationDescriptor<
 > = {
   path: \\"/pet/findByStatus\\",
   method: \\"get\\",
+  operationId: \\"findPetsByStatus\\",
 };
 
 export const findPetsByTags: OperationDescriptor<
@@ -4451,6 +4498,7 @@ export const findPetsByTags: OperationDescriptor<
 > = {
   path: \\"/pet/findByTags\\",
   method: \\"get\\",
+  operationId: \\"findPetsByTags\\",
 };
 
 export const getPetById: OperationDescriptor<
@@ -4476,6 +4524,7 @@ export const getPetById: OperationDescriptor<
 > = {
   path: \\"/pet/{petId}\\",
   method: \\"get\\",
+  operationId: \\"getPetById\\",
 };
 
 export const updatePetWithForm: OperationDescriptor<
@@ -4492,6 +4541,7 @@ export const updatePetWithForm: OperationDescriptor<
 > = {
   path: \\"/pet/{petId}\\",
   method: \\"post\\",
+  operationId: \\"updatePetWithForm\\",
 };
 
 export const deletePet: OperationDescriptor<
@@ -4506,6 +4556,7 @@ export const deletePet: OperationDescriptor<
 > = {
   path: \\"/pet/{petId}\\",
   method: \\"delete\\",
+  operationId: \\"deletePet\\",
 };
 
 export const uploadFile: OperationDescriptor<
@@ -4523,6 +4574,7 @@ export const uploadFile: OperationDescriptor<
 > = {
   path: \\"/pet/{petId}/uploadImage\\",
   method: \\"post\\",
+  operationId: \\"uploadFile\\",
 };
 
 export const getInventory: OperationDescriptor<
@@ -4536,6 +4588,7 @@ export const getInventory: OperationDescriptor<
 > = {
   path: \\"/store/inventory\\",
   method: \\"get\\",
+  operationId: \\"getInventory\\",
 };
 
 export const placeOrder: OperationDescriptor<
@@ -4554,6 +4607,7 @@ export const placeOrder: OperationDescriptor<
 > = {
   path: \\"/store/order\\",
   method: \\"post\\",
+  operationId: \\"placeOrder\\",
 };
 
 export const getOrderById: OperationDescriptor<
@@ -4579,6 +4633,7 @@ export const getOrderById: OperationDescriptor<
 > = {
   path: \\"/store/order/{orderId}\\",
   method: \\"get\\",
+  operationId: \\"getOrderById\\",
 };
 
 export const deleteOrder: OperationDescriptor<
@@ -4596,6 +4651,7 @@ export const deleteOrder: OperationDescriptor<
 > = {
   path: \\"/store/order/{orderId}\\",
   method: \\"delete\\",
+  operationId: \\"deleteOrder\\",
 };
 
 export const createUser: OperationDescriptor<
@@ -4615,6 +4671,7 @@ export const createUser: OperationDescriptor<
 > = {
   path: \\"/user\\",
   method: \\"post\\",
+  operationId: \\"createUser\\",
 };
 
 export const createUsersWithListInput: OperationDescriptor<
@@ -4637,6 +4694,7 @@ export const createUsersWithListInput: OperationDescriptor<
 > = {
   path: \\"/user/createWithList\\",
   method: \\"post\\",
+  operationId: \\"createUsersWithListInput\\",
 };
 
 export const loginUser: OperationDescriptor<
@@ -4663,6 +4721,7 @@ export const loginUser: OperationDescriptor<
 > = {
   path: \\"/user/login\\",
   method: \\"get\\",
+  operationId: \\"loginUser\\",
 };
 
 export const logoutUser: OperationDescriptor<
@@ -4675,6 +4734,7 @@ export const logoutUser: OperationDescriptor<
 > = {
   path: \\"/user/logout\\",
   method: \\"get\\",
+  operationId: \\"logoutUser\\",
 };
 
 export const getUserByName: OperationDescriptor<
@@ -4700,6 +4760,7 @@ export const getUserByName: OperationDescriptor<
 > = {
   path: \\"/user/{username}\\",
   method: \\"get\\",
+  operationId: \\"getUserByName\\",
 };
 
 export const updateUser: OperationDescriptor<
@@ -4716,6 +4777,7 @@ export const updateUser: OperationDescriptor<
 > = {
   path: \\"/user/{username}\\",
   method: \\"put\\",
+  operationId: \\"updateUser\\",
 };
 
 export const deleteUser: OperationDescriptor<
@@ -4733,6 +4795,7 @@ export const deleteUser: OperationDescriptor<
 > = {
   path: \\"/user/{username}\\",
   method: \\"delete\\",
+  operationId: \\"deleteUser\\",
 };
 
 /**
