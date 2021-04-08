@@ -156,12 +156,20 @@ describe("mockRequestFactory()", () => {
                         foo: "bar",
                     },
                     mediaType: "application/json",
+                    requestInfos: {
+                        method: "get",
+                        url: "http://localhost/test",
+                    },
                 },
                 expectedResp: {
                     content: {
                         foo: "bar",
                     },
                     mediaType: "application/json",
+                    requestInfos: {
+                        method: "get",
+                        url: "http://localhost/test",
+                    },
                 },
             },
         ],
@@ -179,36 +187,64 @@ describe("mockRequestFactory()", () => {
                     status: 200,
                     content: "plainText",
                     mediaType: "text/plain",
+                    requestInfos: {
+                        method: "get",
+                        url: "http://localhost/test",
+                    },
                 },
                 expectedResp: {
                     content: "plainText",
                     mediaType: "text/plain",
+                    requestInfos: {
+                        method: "get",
+                        url: "http://localhost/test",
+                    },
                 },
             },
         ],
-    ])("%s", async (_, { expectedResp, expectedReq, mockResp = { status: 200 }, reqMatcher = {}, req = {}, operation, throws }) => {
-        let actualRequest: any;
+    ])(
+        "%s",
+        async (
+            _,
+            {
+                expectedResp,
+                expectedReq,
+                mockResp = {
+                    status: 200,
+                    requestInfos: {
+                        method: "get",
+                        url: "http://localhost/test",
+                    },
+                },
+                reqMatcher = {},
+                req = {},
+                operation,
+                throws,
+            },
+        ) => {
+            let actualRequest: any;
 
-        const mockRequest = mockRequestFactory(operation);
-        mockRequest(reqMatcher, (request) => {
-            actualRequest = request;
-            return mockResp;
-        });
+            const mockRequest = mockRequestFactory(operation);
+            mockRequest(reqMatcher, (request) => {
+                actualRequest = request;
+                return mockResp;
+            });
 
-        const requestFunction = client.requestFunctionFactory(operation);
+            const requestFunction = client.requestFunctionFactory(operation);
 
-        if (throws) {
-            return expect(requestFunction(req)).rejects.toBeDefined();
-        }
+            if (throws) {
+                return expect(requestFunction(req)).rejects.toBeDefined();
+            }
 
-        const response = await requestFunction(req);
+            const response = await requestFunction(req);
 
-        if (expectedReq) {
-            expect(actualRequest).toMatchObject(expectedReq);
-        }
+            if (expectedReq) {
+                expect(actualRequest).toMatchObject(expectedReq);
+            }
 
-        if (expectedResp) {
-            expect(response).toMatchObject(expectedResp);
-        }
-    });
+            if (expectedResp) {
+                expect(response).toMatchObject(expectedResp);
+            }
+        },
+    );
 });
