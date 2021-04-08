@@ -15,7 +15,7 @@ describe("mapResponse()", () => {
                         "path": "/test",
                       },
                       "status": 200,
-                      "url": undefined,
+                      "url": "",
                     }
                 `);
     });

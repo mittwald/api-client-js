@@ -164,22 +164,12 @@ describe("mockRequestFactory()", () => {
                         foo: "bar",
                     },
                     mediaType: "application/json",
-                    operation: {
-                        path: "/test",
-                        method: "get",
-                        operationId: "test",
-                    },
                 },
                 expectedResp: {
                     content: {
                         foo: "bar",
                     },
                     mediaType: "application/json",
-                    operation: {
-                        path: "/test",
-                        method: "get",
-                        operationId: "test",
-                    },
                 },
             },
         ],
@@ -198,20 +188,10 @@ describe("mockRequestFactory()", () => {
                     status: 200,
                     content: "plainText",
                     mediaType: "text/plain",
-                    operation: {
-                        path: "/test",
-                        method: "get",
-                        operationId: "test",
-                    },
                 },
                 expectedResp: {
                     content: "plainText",
                     mediaType: "text/plain",
-                    operation: {
-                        path: "/test",
-                        method: "get",
-                        operationId: "test",
-                    },
                 },
             },
         ],
