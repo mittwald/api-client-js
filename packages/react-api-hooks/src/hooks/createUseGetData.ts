@@ -147,8 +147,8 @@ export const createUseGetData = <T extends RequestFunction>(operation: Operation
 
     return useMemo(
         () => ({
-            data: state === "ok" ? result?.content : undefined,
-            mediaType: state === "ok" ? result?.mediaType : undefined,
+            data: result?.content,
+            mediaType: result?.mediaType,
             state,
             refreshCache,
             operation,
