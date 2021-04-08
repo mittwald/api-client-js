@@ -70,7 +70,7 @@ export class KyClient implements Client {
             return (await mapResponse(kyResponse, descriptor, kyResponse.url)) as any;
         } catch (error) {
             if (error instanceof ky.HTTPError) {
-                return (await mapResponse(error.response, descriptor)) as any;
+                return (await mapResponse(error.response, descriptor, error.response.url)) as any;
             }
             throw error;
         }
