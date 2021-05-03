@@ -9,3 +9,4 @@ resources
 .gitlab-ci
 .gitlab-ci.yml
 globalConfig.json
+*-ti.ts

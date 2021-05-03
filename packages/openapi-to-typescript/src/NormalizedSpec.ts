@@ -1,4 +1,4 @@
-import { JSONSchema } from "json-schema-typed";
+type JSONSchema = any;
 
 export type ResponseMediaType = "application/json" | "base64";
 

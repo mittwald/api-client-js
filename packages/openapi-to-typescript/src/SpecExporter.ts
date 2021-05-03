@@ -7,11 +7,11 @@ import prettier from "prettier";
 import { getStatusLog } from "./statusLog";
 import { wrapError } from "@mittwald/awesome-node-utils/error/wrapError";
 
-export class Exporter {
-    private readonly normalized: NormalizedSpec;
+export class SpecExporter {
+    private readonly spec: NormalizedSpec;
 
-    public constructor(normalized: NormalizedSpec) {
-        this.normalized = normalized;
+    public constructor(spec: NormalizedSpec) {
+        this.spec = spec;
     }
 
     private static compileTemplate(templateFileName: string, options: Options = {}): TemplateFunction {
@@ -44,12 +44,12 @@ export class Exporter {
 
     public export(namespace: string, filename: string, variables: Record<string, string | boolean> = {}): string {
         const jobLog = getStatusLog();
-        const renderTemplate = Exporter.compileTemplate(filename);
+        const renderTemplate = SpecExporter.compileTemplate(filename);
 
         const result = wrapError(
             () =>
                 renderTemplate({
-                    ...this.normalized,
+                    ...this.spec,
                     ...viewHelpersFactory(namespace),
                     ...variables,
                 }),

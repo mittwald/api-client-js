@@ -1,6 +1,6 @@
 import * as path from "path";
 import { loadSpec } from "./loadSpec";
-import { Exporter } from "./Exporter";
+import { SpecExporter } from "./SpecExporter";
 import { transformOpenAPIExpression } from "./jsonata/transforms";
 
 describe("Exporter", () => {
@@ -9,8 +9,9 @@ describe("Exporter", () => {
         ["Mittwald Public API", "../resources/examples/mw-public.json"],
     ])("creates correct snapshots for '%s' example", async (name, testFile) => {
         const spec = await loadSpec(path.join(__dirname, testFile));
-        const exporter = new Exporter(transformOpenAPIExpression.evaluate(spec));
+        const exporter = new SpecExporter(transformOpenAPIExpression.evaluate(spec));
         expect(exporter.exportClient("Test", true)).toMatchSnapshot();
         expect(exporter.exportRequestMockingFactory("Test", "TestClient")).toMatchSnapshot();
+        expect(exporter.exportSpec()).toMatchSnapshot();
     });
 });

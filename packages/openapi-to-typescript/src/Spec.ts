@@ -1,5 +1,5 @@
 import { transformOpenAPIExpression } from "./jsonata/transforms";
-import { Exporter } from "./Exporter";
+import { SpecExporter } from "./SpecExporter";
 import OpenAPISchemaValidator from "openapi-schema-validator";
 import VError from "verror";
 import { getStatusLog, StatusLog, useStatusLog } from "./statusLog";
@@ -24,16 +24,18 @@ export type SpecRunnable = (spec: Spec) => void;
 export type FileFormat = "yaml" | "json";
 
 export class Spec {
-    private readonly exporter: Exporter;
+    private readonly exporter: SpecExporter;
     public readonly namespace: string;
     private readonly options: SpecOptions;
+    public readonly normalized: NormalizedSpec;
 
     private constructor(namespace: string, openAPISpec: object, options: SpecOptions = {}) {
         const log = getStatusLog();
         this.options = options;
         log?.info(`used namespace: ${namespace}`);
         this.namespace = namespace;
-        this.exporter = new Exporter(Spec.normalizeSpec(openAPISpec));
+        this.normalized = Spec.normalizeSpec(openAPISpec);
+        this.exporter = new SpecExporter(this.normalized);
     }
 
     private static normalizeSpec(openAPISpec: object): NormalizedSpec {

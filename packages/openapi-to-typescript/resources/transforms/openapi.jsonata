@@ -166,7 +166,7 @@
                             $parameters.header.properties ~> $spread, {
                                 "Accept": {
                                     "type": "string",
-                                    "enum": $responses ~> $collectResponseContentTypes
+                                    "enum": $responses ~> $collectResponseContentTypes ~> $distinct
                                 }
                             }
                     ] ~> $merge}
