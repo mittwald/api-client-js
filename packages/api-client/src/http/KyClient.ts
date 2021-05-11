@@ -70,8 +70,10 @@ export class KyClient implements Client {
             return (await mapResponse(kyResponse, descriptor)) as any;
         } catch (error) {
             if (error instanceof ky.HTTPError) {
+                d("request failed with ky HTTPError");
                 return (await mapResponse(error.response, descriptor)) as any;
             }
+            d("request failed");
             throw error;
         }
     };
