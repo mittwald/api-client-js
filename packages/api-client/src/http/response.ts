@@ -1,11 +1,11 @@
 import * as Client from "./Client";
 import { mapHeaders } from "./headers";
 import debug from "../debug";
-import { OperationDescriptor } from "../OperationDescriptor";
+import * as Descriptor from "../OperationDescriptor";
 
 const d = debug.extend("mapResponse");
 
-export const getMediaType = (headers: Headers): string | undefined => {
+export const getMediaType = (headers: Headers | Descriptor.Headers): string | undefined => {
     const mappedHeaders = mapHeaders(headers);
 
     const rawMediaType = mappedHeaders["content-type"];
@@ -13,7 +13,7 @@ export const getMediaType = (headers: Headers): string | undefined => {
     return rawMediaType ? rawMediaType.split(";")[0] : undefined;
 };
 
-export const mapBody = async (body: Body, headers: Headers): Promise<any> => {
+export const mapBody = async (body: Body, headers: Headers | Descriptor.Headers): Promise<any> => {
     const mediaType = getMediaType(headers);
 
     let content: any;
@@ -36,7 +36,7 @@ export const mapBody = async (body: Body, headers: Headers): Promise<any> => {
     return content;
 };
 
-export const mapResponse = async (response: Response, operation: OperationDescriptor): Promise<Client.Response> => {
+export const mapResponse = async (response: Response, operation: Descriptor.OperationDescriptor): Promise<Client.Response> => {
     const mediaType = getMediaType(response.headers);
 
     return {
