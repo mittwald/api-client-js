@@ -1,4 +1,5 @@
 import { LockFile } from "./LockFile";
+import { NormalizedSpec } from "./NormalizedSpec";
 
 describe("Loading", () => {
     test("empty spec works", () => {
@@ -178,5 +179,239 @@ describe("Comparing", () => {
                 },
             }),
         ).toHaveLength(0);
+    });
+});
+
+describe("Syncing", () => {
+    test("Does nothing when there are no accepted changes", () => {
+        const lockfile = LockFile.fromSpec({
+            paths: {
+                "/foo": {
+                    get: {
+                        operationId: "getFoo",
+                        parameters: {},
+                        responses: {
+                            200: {
+                                "application/json": {
+                                    content: {},
+                                    headers: {},
+                                    mediaType: "application/json",
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+        });
+
+        const spec: NormalizedSpec = {
+            paths: {
+                "/newFoo": {
+                    get: {
+                        operationId: "newFoo",
+                        parameters: {},
+                        responses: {
+                            200: {
+                                "application/json": {
+                                    content: {},
+                                    headers: {},
+                                    mediaType: "application/json",
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+        };
+
+        expect(lockfile.syncSpecs(spec, [])).toMatchInlineSnapshot(`
+            Object {
+              "paths": Object {
+                "/foo": Object {
+                  "get": Object {
+                    "operationId": "getFoo",
+                    "parameters": Object {},
+                    "responses": Object {
+                      "200": Object {
+                        "application/json": Object {
+                          "content": Object {},
+                          "headers": Object {},
+                          "mediaType": "application/json",
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            }
+        `);
+    });
+
+    test("Removes accepted changes", () => {
+        const lockfile = LockFile.fromSpec({
+            paths: {
+                "/foo": {
+                    get: {
+                        operationId: "getFoo",
+                        parameters: {},
+                        responses: {
+                            200: {
+                                "application/json": {
+                                    content: {},
+                                    headers: {},
+                                    mediaType: "application/json",
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+        });
+
+        const spec: NormalizedSpec = {
+            paths: {},
+        };
+
+        expect(
+            lockfile.syncSpecs(spec, [
+                {
+                    target: "path",
+                    changeType: "removed",
+                    name: "/foo",
+                },
+            ]),
+        ).toMatchInlineSnapshot(`
+            Object {
+              "paths": Object {},
+            }
+        `);
+    });
+
+    test("Updates accepted changes", () => {
+        const lockfile = LockFile.fromSpec({
+            paths: {
+                "/foo": {
+                    get: {
+                        operationId: "getFoo",
+                        parameters: {},
+                        responses: {
+                            200: {
+                                "application/json": {
+                                    content: {},
+                                    headers: {},
+                                    mediaType: "application/json",
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+        });
+
+        const spec: NormalizedSpec = {
+            paths: {
+                "/foo": {
+                    get: {
+                        operationId: "getFoo",
+                        parameters: {},
+                        responses: {
+                            404: {
+                                "application/json": {
+                                    content: {},
+                                    headers: {},
+                                    mediaType: "application/json",
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+        };
+
+        expect(
+            lockfile.syncSpecs(spec, [
+                {
+                    target: "path",
+                    changeType: "changed",
+                    name: "/foo",
+                },
+            ]),
+        ).toMatchInlineSnapshot(`
+            Object {
+              "paths": Object {
+                "/foo": Object {
+                  "get": Object {
+                    "operationId": "getFoo",
+                    "parameters": Object {},
+                    "responses": Object {
+                      "404": Object {
+                        "application/json": Object {
+                          "content": Object {},
+                          "headers": Object {},
+                          "mediaType": "application/json",
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            }
+        `);
+    });
+
+    test("Adds accepted changes", () => {
+        const lockfile = LockFile.fromSpec({
+            paths: {},
+        });
+
+        const spec: NormalizedSpec = {
+            paths: {
+                "/foo": {
+                    get: {
+                        operationId: "getFoo",
+                        parameters: {},
+                        responses: {
+                            200: {
+                                "application/json": {
+                                    content: {},
+                                    headers: {},
+                                    mediaType: "application/json",
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+        };
+
+        expect(
+            lockfile.syncSpecs(spec, [
+                {
+                    target: "path",
+                    changeType: "new",
+                    name: "/foo",
+                },
+            ]),
+        ).toMatchInlineSnapshot(`
+            Object {
+              "paths": Object {
+                "/foo": Object {
+                  "get": Object {
+                    "operationId": "getFoo",
+                    "parameters": Object {},
+                    "responses": Object {
+                      "200": Object {
+                        "application/json": Object {
+                          "content": Object {},
+                          "headers": Object {},
+                          "mediaType": "application/json",
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            }
+        `);
     });
 });

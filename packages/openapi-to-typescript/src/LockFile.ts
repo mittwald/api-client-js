@@ -4,12 +4,12 @@ import { LockFileContent } from "./LockFileContent";
 import lockFileContentTypeChecks from "./LockFileContent-ti";
 import { createCheckers } from "ts-interface-checker";
 import { getStatusLog } from "./statusLog";
-import { NormalizedSpec, Operations } from "./NormalizedSpec";
+import { NormalizedSpec } from "./NormalizedSpec";
 import { deepEqual } from "fast-equals";
 import clone from "clone";
 
 export type ChangeType = "new" | "changed" | "removed";
-export type CompareTargetType = "path" | "components" | "definitions";
+export type CompareTargetType = "path" | "parameter" | "schema";
 
 export interface CompareResult {
     name: string;
@@ -67,33 +67,43 @@ export class LockFile {
     public compare(spec: NormalizedSpec): CompareResult[] {
         const result: CompareResult[] = [];
 
-        for (const [path] of Object.entries(this.content.spec.paths)) {
-            const newPathSpec = spec.paths[path] as Operations | undefined;
-            if (!newPathSpec) {
-                result.push({
-                    name: path,
-                    target: "path",
-                    changeType: "removed",
-                });
+        const compareForTarget = (
+            compareType: CompareTargetType,
+            source: Record<string, any> = {},
+            target: Record<string, any> = {},
+        ): void => {
+            for (const [name] of Object.entries(source)) {
+                const targetEntry = target[name];
+                if (!targetEntry) {
+                    result.push({
+                        name,
+                        target: compareType,
+                        changeType: "removed",
+                    });
+                }
             }
-        }
 
-        for (const [path, pathSpec] of Object.entries(spec.paths)) {
-            const thisPathSpec = this.content.spec.paths[path] as Operations | undefined;
-            if (!thisPathSpec) {
-                result.push({
-                    name: path,
-                    target: "path",
-                    changeType: "new",
-                });
-            } else if (!deepEqual(thisPathSpec, pathSpec)) {
-                result.push({
-                    name: path,
-                    target: "path",
-                    changeType: "changed",
-                });
+            for (const [name, targetEntry] of Object.entries(target)) {
+                const sourceEntry = source[name];
+                if (!sourceEntry) {
+                    result.push({
+                        name,
+                        target: compareType,
+                        changeType: "new",
+                    });
+                } else if (!deepEqual(sourceEntry, targetEntry)) {
+                    result.push({
+                        name,
+                        target: compareType,
+                        changeType: "changed",
+                    });
+                }
             }
-        }
+        };
+
+        compareForTarget("path", this.content.spec.paths, spec.paths);
+        compareForTarget("parameter", this.content.spec.components?.parameters, spec.components?.parameters);
+        compareForTarget("schema", this.content.spec.components?.schemas, spec.components?.schemas);
 
         return result;
     }
@@ -107,22 +117,30 @@ export class LockFile {
     }
 
     public syncSpecs(targetSpec: NormalizedSpec, acceptedChanges: CompareResult[]): NormalizedSpec {
-        const source = clone(this.content.spec);
+        const result = clone(this.content.spec);
 
-        for (const acceptedChange of acceptedChanges) {
-            if (acceptedChange.target === "path") {
-                const pathName = acceptedChange.name;
-                const path = source.paths[pathName];
+        const syncForTarget = (
+            compareType: CompareTargetType,
+            target: Record<string, any> = {},
+            source: Record<string, any> = {},
+        ): void => {
+            for (const acceptedChange of acceptedChanges.filter((c) => c.target === compareType)) {
+                const name = acceptedChange.name;
+                const entry = source[name];
                 if (acceptedChange.changeType === "new" || acceptedChange.changeType === "changed") {
-                    targetSpec.paths[pathName] = path;
+                    target[name] = entry;
                 } else {
-                    delete targetSpec.paths[pathName];
+                    delete target[name];
                 }
             }
-        }
+        };
 
-        this.content.spec = clone(targetSpec);
+        syncForTarget("path", result.paths, targetSpec.paths);
+        syncForTarget("schema", result.components?.schemas, targetSpec.components?.schemas);
+        syncForTarget("parameter", result.components?.parameters, targetSpec.components?.parameters);
 
-        return targetSpec;
+        this.content.spec = result;
+
+        return result;
     }
 }
