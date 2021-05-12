@@ -165,7 +165,9 @@ export class Spec {
 
             for (const path of paths) {
                 const openAPI = await loadSpec(path);
-                mergedSpec = deepmerge(mergedSpec, openAPI);
+                mergedSpec = deepmerge(mergedSpec, openAPI, {
+                    arrayMerge: (target, source) => source,
+                });
             }
 
             if (!options.skipValidation) {
