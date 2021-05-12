@@ -7,7 +7,7 @@ import inquirer, { ChoiceCollection } from "inquirer";
 import "colors";
 
 void (async () => {
-    const { namespace, output, displayErrors, skipValidation, askForFiles, react, _: allFiles } = yargs
+    const { namespace, output, displayErrors, skipValidation, interactive, force, react, _: allFiles } = yargs
         .usage("openapi2ts [options] [url/file...]")
         .example(
             "Full example",
@@ -21,28 +21,10 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore http://petstore.swagger.i
             description: "client output filename",
             demandOption: true,
         })
-        .option("displayErrors", {
-            boolean: true,
-            alias: "e",
-            description: "show full error stack",
-            demandOption: false,
-        })
         .option("react", {
             boolean: true,
             alias: "r",
             description: "generate React hooks",
-            demandOption: false,
-        })
-        .option("skipValidation", {
-            boolean: true,
-            alias: "s",
-            description: "skip OpenAPI spec validation",
-            demandOption: false,
-        })
-        .option("askForFiles", {
-            boolean: true,
-            alias: "a",
-            description: "select from multiple files",
             demandOption: false,
         })
         .option("namespace", {
@@ -50,25 +32,55 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore http://petstore.swagger.i
             alias: "n",
             description: "TypeScript namespace where the types are generated",
             default: "API",
+        })
+        .option("force", {
+            boolean: true,
+            alias: "f",
+            description: "force apply changes",
+            demandOption: false,
+            default: false,
+        })
+        .option("interactive", {
+            boolean: true,
+            alias: "i",
+            description: "interactive mode",
+            demandOption: false,
+            default: false,
+        })
+        .option("displayErrors", {
+            boolean: true,
+            alias: "e",
+            description: "show full error stack",
+            demandOption: false,
+        })
+        .option("skipValidation", {
+            boolean: true,
+            alias: "s",
+            description: "skip OpenAPI spec validation",
+            demandOption: false,
         }).argv;
 
     let files = allFiles.map((f) => f.toString());
 
-    if (files.length > 1 && askForFiles) {
-        const answer = await inquirer.prompt([
-            {
-                type: "checkbox",
-                name: "files",
-                message: "Select sources:",
-                choices: allFiles.map((file, index) => ({
-                    name: file,
-                    value: file,
-                    checked: index === 0,
-                })),
-            },
-        ]);
+    if (files.length > 1) {
+        if (interactive) {
+            const answer = await inquirer.prompt([
+                {
+                    type: "checkbox",
+                    name: "files",
+                    message: "Select sources:",
+                    choices: allFiles.map((file, index) => ({
+                        name: file,
+                        value: file,
+                        checked: index === 0,
+                    })),
+                },
+            ]);
 
-        files = answer.files;
+            files = answer.files;
+        } else {
+            files = files.slice(0, 1);
+        }
     }
 
     Spec.fromFiles(namespace, files, { statusLog: new OraStatusLog(), throwErrors: displayErrors, skipValidation })(async (spec) => {
@@ -77,66 +89,70 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore http://petstore.swagger.i
         const lockfile = LockFile.fromFile(lockfileName) ?? LockFile.fromSpec(spec.normalized);
         const detectedChanges = lockfile.compare(spec.normalized);
 
-        const acceptedChanges: CompareResult[] = [];
+        let acceptedChanges: CompareResult[] = [];
 
-        for (const change of detectedChanges) {
-            let answered = false;
-            while (!answered) {
-                const choices: ChoiceCollection = [
-                    {
-                        key: "y",
-                        name: "Yes",
-                        value: "yes",
-                    },
-                    {
-                        key: "n",
-                        name: "No",
-                        value: "no",
-                    },
-                ];
+        if (force) {
+            acceptedChanges = detectedChanges;
+        } else if (interactive) {
+            for (const change of detectedChanges) {
+                let answered = false;
+                while (!answered) {
+                    const choices: ChoiceCollection = [
+                        {
+                            key: "y",
+                            name: "Yes",
+                            value: "yes",
+                        },
+                        {
+                            key: "n",
+                            name: "No",
+                            value: "no",
+                        },
+                    ];
 
-                if (change.diffInfos) {
-                    choices.push({
-                        key: "d",
-                        name: "Show diff",
-                        value: "diff",
-                    });
-                }
+                    if (change.diffInfos) {
+                        choices.push({
+                            key: "d",
+                            name: "Show diff",
+                            value: "diff",
+                        });
+                    }
 
-                const answer = await inquirer.prompt<{ update: "yes" | "no" | "diff" }>([
-                    {
-                        type: "expand",
-                        message: `The ${change.target} '${change.name}' ${
-                            change.changeType === "changed" ? "has changed" : change.changeType === "new" ? "is new" : "has removed"
-                        }. Accept changes?`,
-                        name: "update",
-                        choices,
-                    },
-                ]);
+                    const answer = await inquirer.prompt<{ update: "yes" | "no" | "diff" }>([
+                        {
+                            type: "expand",
+                            message: `The ${change.target} '${change.name}' ${
+                                change.changeType === "changed" ? "has changed" : change.changeType === "new" ? "is new" : "has removed"
+                            }. Accept changes?`,
+                            name: "update",
+                            choices,
+                        },
+                    ]);
 
-                switch (answer.update) {
-                    case "yes":
-                        acceptedChanges.push(change);
-                        answered = true;
-                        break;
-                    case "no":
-                        answered = true;
-                        break;
-                    case "diff":
-                        if (change.diffInfos) {
-                            let diffText = "";
-                            change.diffInfos.forEach((part) => {
-                                // green for additions, red for deletions
-                                // grey for common parts
-                                const color = part.added ? "green" : part.removed ? "red" : "grey";
-                                diffText += part.value[color];
-                            });
-                            console.log("");
-                            console.log(`Diff for ${change.target} ${change.name["bold"]}:`);
-                            console.log("");
-                            console.log(diffText);
-                        }
-                        break;
+                    switch (answer.update) {
+                        case "yes":
+                            acceptedChanges.push(change);
+                            answered = true;
+                            break;
+                        case "no":
+                            answered = true;
+                            break;
+                        case "diff":
+                            if (change.diffInfos) {
+                                let diffText = "";
+                                change.diffInfos.forEach((part) => {
+                                    // green for additions, red for deletions
+                                    // grey for common parts
+                                    const color = part.added ? "green" : part.removed ? "red" : "grey";
+                                    diffText += part.value[color];
+                                });
+                                console.log("");
+                                console.log(`Diff for ${change.target} ${change.name["bold"]}:`);
+                                console.log("");
+                                console.log(diffText);
+                            }
+                            break;
+                    }
                 }
             }
         }
