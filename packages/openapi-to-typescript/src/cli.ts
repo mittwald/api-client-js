@@ -1,6 +1,10 @@
 import yargs from "yargs";
 import { Spec } from "./Spec";
 import { OraStatusLog } from "./statusLog";
+import { CompareResult, LockFile } from "./LockFile";
+import { getSubFileName } from "./lib";
+import inquirer from "inquirer";
+import "colors";
 
 const { namespace, output, displayErrors, skipValidation, react, _ } = yargs
     .usage("openapi2ts [options] [url/file...]")
@@ -45,7 +49,77 @@ Spec.fromFiles(
     namespace,
     _.map((a) => a.toString()),
     { statusLog: new OraStatusLog(), throwErrors: displayErrors, skipValidation },
-)((spec) => {
+)(async (spec) => {
+    const lockfileName = getSubFileName(output, ".spec.lock");
+    const lockfile = LockFile.fromFile(lockfileName) ?? LockFile.fromSpec(spec.normalized);
+    const detectedChanges = lockfile.compare(spec.normalized);
+
+    const acceptedChanges: CompareResult[] = [];
+
+    for (const change of detectedChanges) {
+        let answered = false;
+        while (!answered) {
+            const answer = await inquirer.prompt<{ update: "yes" | "no" | "diff" }>([
+                {
+                    type: "expand",
+                    message: `The ${change.target} '${change.name}' ${
+                        change.changeType === "changed" ? "has changed" : change.changeType === "new" ? "is new" : "has removed"
+                    }. Accept changes?`,
+                    name: "update",
+                    choices: [
+                        {
+                            key: "y",
+                            name: "Yes",
+                            value: "yes",
+                        },
+                        {
+                            key: "n",
+                            name: "No",
+                            value: "no",
+                        },
+                        change.diffInfos
+                            ? {
+                                  key: "d",
+                                  name: "Show diff",
+                                  value: "diff",
+                              }
+                            : undefined,
+                    ],
+                },
+            ]);
+
+            switch (answer.update) {
+                case "yes":
+                    acceptedChanges.push(change);
+                    answered = true;
+                    break;
+                case "no":
+                    answered = true;
+                    break;
+                case "diff":
+                    if (change.diffInfos) {
+                        let diffText = "";
+                        change.diffInfos.forEach((part) => {
+                            // green for additions, red for deletions
+                            // grey for common parts
+                            const color = part.added ? "green" : part.removed ? "red" : "grey";
+                            diffText += part.value[color];
+                        });
+                        console.log("");
+                        console.log(`Diff for ${change.target} ${change.name["bold"]}:`);
+                        console.log("");
+                        console.log(diffText);
+                    }
+                    break;
+            }
+        }
+    }
+
+    const specWithChanges = lockfile.applyChanges(spec.normalized, acceptedChanges);
+    spec.updateSpec(specWithChanges);
+
     spec.writeClient(output, !!react);
     spec.writeRequestMockingFactory(output);
+
+    lockfile.write(lockfileName);
 });

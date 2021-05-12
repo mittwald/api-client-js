@@ -7,6 +7,8 @@ import { getStatusLog } from "./statusLog";
 import { NormalizedSpec } from "./NormalizedSpec";
 import { deepEqual } from "fast-equals";
 import clone from "clone";
+import { Change, diffLines } from "diff";
+import "colors";
 
 export type ChangeType = "new" | "changed" | "removed";
 export type CompareTargetType = "path" | "parameter" | "schema";
@@ -15,6 +17,7 @@ export interface CompareResult {
     name: string;
     target: CompareTargetType;
     changeType: ChangeType;
+    diffInfos?: Change[];
 }
 
 const emptyLockFileContent = (): LockFileContent => ({
@@ -32,20 +35,24 @@ export class LockFile {
     }
 
     public static fromSpec(spec: NormalizedSpec): LockFile {
+        const log = getStatusLog();
+        log?.start("Creating new lock file from spec");
         const content: LockFileContent = {
             version: "v1",
             spec,
         };
         const checkers = createCheckers(lockFileContentTypeChecks);
+        log?.update("Checking lockfile content");
         checkers.LockFileContent.check(content);
+        log?.succeed("Creating new lock file from spec done");
         return new LockFile(content);
     }
 
     public static fromString(content: string): LockFile {
         const log = getStatusLog();
         log?.start("Processing lock file");
-        log?.update("Reading lock file YAML");
-        const lockFileContent = yaml.safeLoad(content);
+        log?.update("Reading lock file JSON");
+        const lockFileContent = JSON.parse(content);
         log?.update("Validating lock file");
         const checkers = createCheckers(lockFileContentTypeChecks);
         checkers.LockFileContent.check(lockFileContent);
@@ -57,10 +64,10 @@ export class LockFile {
         const log = getStatusLog();
         log?.start(`Loading lock file from ${filename}`);
         if (!existsSync(filename)) {
+            log?.warn(`Lock file ${filename} not found`);
             return;
         }
         const content = readFileSync(filename, "utf8");
-        log?.succeed("Lock file loaded");
         return LockFile.fromString(content);
     }
 
@@ -92,10 +99,14 @@ export class LockFile {
                         changeType: "new",
                     });
                 } else if (!deepEqual(sourceEntry, targetEntry)) {
+                    const sourceEntryYaml = yaml.dump(sourceEntry, { noRefs: true });
+                    const targetEntryYaml = yaml.dump(targetEntry, { noRefs: true });
+
                     result.push({
                         name,
                         target: compareType,
                         changeType: "changed",
+                        diffInfos: diffLines(sourceEntryYaml, targetEntryYaml),
                     });
                 }
             }
@@ -109,14 +120,17 @@ export class LockFile {
     }
 
     public export(): string {
-        return yaml.dump(this.content, { noRefs: true });
+        return JSON.stringify(this.content, undefined, 4);
     }
 
     public write(filename: string): void {
+        const log = getStatusLog();
+        log?.start(`Writing lock file to ${filename}`);
         writeFileSync(filename, this.export());
+        log?.succeed(`Lock file written to ${filename}`);
     }
 
-    public syncSpecs(targetSpec: NormalizedSpec, acceptedChanges: CompareResult[]): NormalizedSpec {
+    public applyChanges(targetSpec: NormalizedSpec, acceptedChanges: CompareResult[]): NormalizedSpec {
         const result = clone(this.content.spec);
 
         const syncForTarget = (

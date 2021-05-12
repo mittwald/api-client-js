@@ -12,6 +12,5 @@ describe("Exporter", () => {
         const exporter = new SpecExporter(transformOpenAPIExpression.evaluate(spec));
         expect(exporter.exportClient("Test", true)).toMatchSnapshot();
         expect(exporter.exportRequestMockingFactory("Test", "TestClient")).toMatchSnapshot();
-        expect(exporter.exportSpec()).toMatchSnapshot();
     });
 });

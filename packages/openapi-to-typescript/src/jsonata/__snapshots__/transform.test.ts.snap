@@ -1580,12 +1580,7 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
             },
@@ -1733,10 +1728,7 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
             },
@@ -1824,12 +1816,7 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
             },
@@ -1979,10 +1966,7 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
             },
@@ -2069,10 +2053,7 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
               "x-access-token": Object {
@@ -2162,11 +2143,7 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
               "x-access-token": Object {
@@ -2264,12 +2241,7 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
               "x-access-token": Object {
@@ -2391,12 +2363,7 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
               "x-access-token": Object {
@@ -2525,12 +2492,7 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
               "x-access-token": Object {
@@ -2657,11 +2619,7 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
               "x-access-token": Object {
@@ -2778,10 +2736,7 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
             },
@@ -2865,10 +2820,7 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
             },
@@ -2964,11 +2916,7 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
               "x-access-token": Object {
@@ -3066,11 +3014,7 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
               "x-access-token": Object {
@@ -3168,11 +3112,7 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
               "x-access-token": Object {
@@ -3284,12 +3224,7 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
               "x-access-token": Object {
@@ -3431,11 +3366,7 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
               "x-access-token": Object {
@@ -3544,11 +3475,7 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
               "x-access-token": Object {
@@ -3675,12 +3602,7 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
             },
@@ -3864,11 +3786,7 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
             },
@@ -4004,11 +3922,7 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
               "x-access-token": Object {
@@ -4117,12 +4031,7 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
               "x-access-token": Object {
@@ -4265,11 +4174,7 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
               "x-access-token": Object {
@@ -4387,11 +4292,7 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
               "x-access-token": Object {
@@ -4502,10 +4403,7 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
               "x-access-token": Object {
@@ -4590,11 +4488,7 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
           "header": Object {
             "properties": Object {
               "Accept": Object {
-                "enum": Array [
-                  "application/json",
-                  "application/json",
-                  "application/json",
-                ],
+                "enum": "application/json",
                 "type": "string",
               },
               "x-access-token": Object {

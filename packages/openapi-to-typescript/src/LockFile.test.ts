@@ -4,20 +4,23 @@ import { NormalizedSpec } from "./NormalizedSpec";
 describe("Loading", () => {
     test("empty spec works", () => {
         const lockfile = LockFile.fromString(`
-version: v1
-spec:
-    paths: []
-namespace: test
+{
+    "version": "v1",
+    "spec": {
+        "paths": [],
+        "namespace": "test"
+    }
+}
     `);
         expect(lockfile.content).toMatchInlineSnapshot(`
-                    Object {
-                      "namespace": "test",
-                      "spec": Object {
-                        "paths": Array [],
-                      },
-                      "version": "v1",
-                    }
-            `);
+            Object {
+              "spec": Object {
+                "namespace": "test",
+                "paths": Array [],
+              },
+              "version": "v1",
+            }
+        `);
     });
 });
 
@@ -130,6 +133,32 @@ describe("Comparing", () => {
             Array [
               Object {
                 "changeType": "changed",
+                "diffInfos": Array [
+                  Object {
+                    "count": 9,
+                    "value": "get:
+              operationId: getFoo
+              parameters: {}
+              responses:
+                '200':
+                  application/json:
+                    content: {}
+                    headers: {}
+                    mediaType: application/json
+            ",
+                  },
+                  Object {
+                    "added": true,
+                    "count": 5,
+                    "removed": undefined,
+                    "value": "    '400':
+                  application/json:
+                    content: {}
+                    headers: {}
+                    mediaType: application/json
+            ",
+                  },
+                ],
                 "name": "/foo",
                 "target": "path",
               },
@@ -224,7 +253,7 @@ describe("Syncing", () => {
             },
         };
 
-        expect(lockfile.syncSpecs(spec, [])).toMatchInlineSnapshot(`
+        expect(lockfile.applyChanges(spec, [])).toMatchInlineSnapshot(`
             Object {
               "paths": Object {
                 "/foo": Object {
@@ -273,7 +302,7 @@ describe("Syncing", () => {
         };
 
         expect(
-            lockfile.syncSpecs(spec, [
+            lockfile.applyChanges(spec, [
                 {
                     target: "path",
                     changeType: "removed",
@@ -329,7 +358,7 @@ describe("Syncing", () => {
         };
 
         expect(
-            lockfile.syncSpecs(spec, [
+            lockfile.applyChanges(spec, [
                 {
                     target: "path",
                     changeType: "changed",
@@ -385,7 +414,7 @@ describe("Syncing", () => {
         };
 
         expect(
-            lockfile.syncSpecs(spec, [
+            lockfile.applyChanges(spec, [
                 {
                     target: "path",
                     changeType: "new",

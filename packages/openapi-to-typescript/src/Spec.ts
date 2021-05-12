@@ -13,6 +13,7 @@ import jsyaml from "js-yaml";
 import debug from "./debug";
 import SwaggerParser from "@apidevtools/swagger-parser";
 import path from "path";
+import { getSubFileName } from "./lib";
 
 interface SpecOptions {
     statusLog?: StatusLog;
@@ -20,22 +21,40 @@ interface SpecOptions {
     skipValidation?: boolean;
 }
 
-export type SpecRunnable = (spec: Spec) => void;
+export type SpecRunnable = (spec: Spec) => Promise<void>;
 export type FileFormat = "yaml" | "json";
 
 export class Spec {
     private readonly exporter: SpecExporter;
     public readonly namespace: string;
     private readonly options: SpecOptions;
-    public readonly normalized: NormalizedSpec;
+    private _normalized: NormalizedSpec;
 
     private constructor(namespace: string, openAPISpec: object, options: SpecOptions = {}) {
         const log = getStatusLog();
         this.options = options;
         log?.info(`used namespace: ${namespace}`);
         this.namespace = namespace;
-        this.normalized = Spec.normalizeSpec(openAPISpec);
-        this.exporter = new SpecExporter(this.normalized);
+        this._normalized = Spec.normalizeSpec(openAPISpec);
+        this.exporter = new SpecExporter(this._normalized);
+    }
+
+    private static removeIfRef(item: any): void {
+        if (typeof item !== "object") {
+            return;
+        }
+
+        for (const [propName, propValue] of Object.entries(item)) {
+            if (propValue && typeof propValue === "object") {
+                if ("$ref" in propValue) {
+                    item[propName] = {
+                        $ref: (propValue as any)["$ref"],
+                    };
+                } else {
+                    Spec.removeIfRef(propValue);
+                }
+            }
+        }
     }
 
     private static normalizeSpec(openAPISpec: object): NormalizedSpec {
@@ -44,6 +63,7 @@ export class Spec {
             log?.start("normalizing OpenAPI spec");
 
             const normalized: NormalizedSpec = transformOpenAPIExpression.evaluate(openAPISpec);
+            Spec.removeIfRef(normalized);
             log?.succeed("OpenAPI spec normalized");
             debug("normalized spec: %O", normalized);
 
@@ -128,8 +148,8 @@ export class Spec {
 
                 try {
                     specFactory()
-                        .then((spec) => {
-                            specRunnable(spec);
+                        .then(async (spec) => {
+                            await specRunnable(spec);
                         })
                         .catch(fail);
                 } catch (error) {
@@ -177,11 +197,19 @@ export class Spec {
     public writeRequestMockingFactory(filename: string): void {
         const log = getStatusLog();
 
-        const mocksFilename = path.join(path.dirname(filename), path.basename(filename, ".ts") + ".mocks.ts");
+        const mocksFilename = getSubFileName(filename, ".mocks.ts");
         const mainFileImport = path.basename(path.relative(mocksFilename, filename), ".ts");
 
         log?.start(`writing 'request mocking factory' to "${mocksFilename}"`);
         jp.write(mocksFilename, this.getRequestMockingFactory(mainFileImport));
         log?.succeed(`'request mocking factory' written to "${mocksFilename}"`);
+    }
+
+    public updateSpec(spec: NormalizedSpec): void {
+        this._normalized = spec;
+    }
+
+    public get normalized(): NormalizedSpec {
+        return this._normalized;
     }
 }
