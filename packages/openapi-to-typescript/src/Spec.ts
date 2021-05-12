@@ -209,6 +209,7 @@ export class Spec {
 
     public updateSpec(spec: NormalizedSpec): void {
         this._normalized = spec;
+        this.exporter.updateSpec(spec);
     }
 
     public get normalized(): NormalizedSpec {

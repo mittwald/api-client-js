@@ -4,18 +4,15 @@ import { NormalizedSpec } from "./NormalizedSpec";
 describe("Loading", () => {
     test("empty spec works", () => {
         const lockfile = LockFile.fromString(`
-{
-    "version": "v1",
-    "spec": {
-        "paths": [],
-        "namespace": "test"
-    }
-}
+version: v1
+namespace: test
+spec:
+    paths: []
     `);
         expect(lockfile.content).toMatchInlineSnapshot(`
             Object {
+              "namespace": "test",
               "spec": Object {
-                "namespace": "test",
                 "paths": Array [],
               },
               "version": "v1",

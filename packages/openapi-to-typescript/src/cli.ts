@@ -73,6 +73,7 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore http://petstore.swagger.i
 
     Spec.fromFiles(namespace, files, { statusLog: new OraStatusLog(), throwErrors: displayErrors, skipValidation })(async (spec) => {
         const lockfileName = getSubFileName(output, ".spec.lock");
+
         const lockfile = LockFile.fromFile(lockfileName) ?? LockFile.fromSpec(spec.normalized);
         const detectedChanges = lockfile.compare(spec.normalized);
 
@@ -141,6 +142,7 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore http://petstore.swagger.i
         }
 
         const specWithChanges = lockfile.applyChanges(spec.normalized, acceptedChanges);
+
         spec.updateSpec(specWithChanges);
 
         spec.writeClient(output, !!react);

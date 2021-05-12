@@ -8,9 +8,13 @@ import { getStatusLog } from "./statusLog";
 import { wrapError } from "@mittwald/awesome-node-utils/error/wrapError";
 
 export class SpecExporter {
-    private readonly spec: NormalizedSpec;
+    private spec: NormalizedSpec;
 
     public constructor(spec: NormalizedSpec) {
+        this.spec = spec;
+    }
+
+    public updateSpec(spec: NormalizedSpec): void {
         this.spec = spec;
     }
 

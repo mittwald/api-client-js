@@ -6,9 +6,9 @@ import { createCheckers } from "ts-interface-checker";
 import { getStatusLog } from "./statusLog";
 import { NormalizedSpec } from "./NormalizedSpec";
 import { deepEqual } from "fast-equals";
-import clone from "clone";
 import { Change, diffLines } from "diff";
 import "colors";
+import clone from "clone";
 
 export type ChangeType = "new" | "changed" | "removed";
 export type CompareTargetType = "path" | "parameter" | "schema";
@@ -51,8 +51,8 @@ export class LockFile {
     public static fromString(content: string): LockFile {
         const log = getStatusLog();
         log?.start("Processing lock file");
-        log?.update("Reading lock file JSON");
-        const lockFileContent = JSON.parse(content);
+        log?.update("Reading lock file YAML");
+        const lockFileContent = yaml.safeLoad(content);
         log?.update("Validating lock file");
         const checkers = createCheckers(lockFileContentTypeChecks);
         checkers.LockFileContent.check(lockFileContent);
@@ -120,7 +120,7 @@ export class LockFile {
     }
 
     public export(): string {
-        return JSON.stringify(this.content, undefined, 4);
+        return yaml.dump(this.content, { noRefs: true });
     }
 
     public write(filename: string): void {
@@ -153,8 +153,7 @@ export class LockFile {
         syncForTarget("schema", result.components?.schemas, targetSpec.components?.schemas);
         syncForTarget("parameter", result.components?.parameters, targetSpec.components?.parameters);
 
-        this.content.spec = result;
-
+        this.content.spec = clone(result);
         return result;
     }
 }
