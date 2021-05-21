@@ -28,7 +28,7 @@ export class Spec {
     public readonly namespace: string;
     private readonly options: SpecOptions;
 
-    private constructor(namespace: string, openAPISpec: object, options: SpecOptions = {}) {
+    public constructor(namespace: string, openAPISpec: object, options: SpecOptions = {}) {
         const log = getStatusLog();
         this.options = options;
         log?.info(`used namespace: ${namespace}`);
