@@ -46,6 +46,30 @@ export interface UseGetDataOptions {
     cacheMaxAge?: number;
 }
 
+const getStateFromResult = (result: ApiClientResponse): GetDataHookState => {
+    const status = result.status;
+
+    if (status === 401) {
+        return "unauthorized";
+    }
+    if (status === 403) {
+        return "noAccess";
+    }
+    if (status === 404) {
+        return "notFound";
+    }
+    if (status >= 400 && status < 500) {
+        return "clientError";
+    }
+    if (status >= 500 && status < 600) {
+        return "serverError";
+    }
+    if (status >= 200 && status < 300) {
+        return "ok";
+    }
+    return "unexpectedError";
+};
+
 export const createUseGetData = <T extends RequestFunction>(operation: OperationDescriptor, getRequestFn: () => T) => (
     request: Parameters<T>[0] | null,
     options?: UseGetDataOptions,
@@ -68,34 +92,12 @@ export const createUseGetData = <T extends RequestFunction>(operation: Operation
     const [result, setResult] = useSafeState<ApiClientResponse | undefined>(cachedResult);
     const latestResultTime = useRef<number>();
 
-    const isOffline = !useIsOnline();
-
-    const [state, setState] = useSafeState<GetDataHookState>(cachedResult !== undefined ? "ok" : "loading");
-
-    const wasOffline = useRef(isOffline);
+    const [state, setState] = useSafeState<GetDataHookState>(cachedResult ? getStateFromResult(cachedResult) : "loading");
 
     const onResult: OnResultCallback<T> = (result: ApiClientResponse) => {
-        const status = result.status;
-        const ok = status >= 200 && status < 300;
-
         latestResultTime.current = new Date().getTime();
         setResult(result);
-
-        if (status === 401) {
-            setState("unauthorized");
-        } else if (status === 403) {
-            setState("noAccess");
-        } else if (status === 404) {
-            setState("notFound");
-        } else if (status >= 400 && status < 500) {
-            setState("clientError");
-        } else if (status >= 500 && status < 600) {
-            setState("serverError");
-        } else if (ok) {
-            setState("ok");
-        } else {
-            setState("unexpectedError");
-        }
+        setState(getStateFromResult(result));
     };
 
     const onError = (error?: Error): void => {
@@ -150,6 +152,10 @@ export const createUseGetData = <T extends RequestFunction>(operation: Operation
             refreshCache();
         }
     }, [disableCache]);
+
+    // auto-refresh when going online
+    const isOffline = !useIsOnline();
+    const wasOffline = useRef(isOffline);
 
     useEffect(() => {
         const hasSwitchedToOnline = wasOffline.current && !isOffline;
