@@ -40,13 +40,17 @@ export const createRefreshCache = <T extends RequestFunction>(getRequestFn: () =
 
 export interface UseGetDataOptions {
     disableCache?: boolean;
+    /**
+     * Maximum cache age in ms
+     */
+    cacheMaxAge?: number;
 }
 
 export const createUseGetData = <T extends RequestFunction>(operation: OperationDescriptor, getRequestFn: () => T) => (
     request: Parameters<T>[0] | null,
     options?: UseGetDataOptions,
 ): GetDataHookResult<T> => {
-    const { disableCache = false } = options ?? {};
+    const { disableCache = false, cacheMaxAge } = options ?? {};
 
     const requestFn = getRequestFn();
 
@@ -62,6 +66,7 @@ export const createUseGetData = <T extends RequestFunction>(operation: Operation
     const cachedResult = disableCache || request === null ? undefined : executionSubscriber.getCachedResult(requestFn, ...funcParams);
 
     const [result, setResult] = useSafeState<ApiClientResponse | undefined>(cachedResult);
+    const latestResultTime = useRef<number>();
 
     const isOffline = !useIsOnline();
 
@@ -73,6 +78,7 @@ export const createUseGetData = <T extends RequestFunction>(operation: Operation
         const status = result.status;
         const ok = status >= 200 && status < 300;
 
+        latestResultTime.current = new Date().getTime();
         setResult(result);
 
         if (status === 401) {
@@ -115,6 +121,30 @@ export const createUseGetData = <T extends RequestFunction>(operation: Operation
         executionSubscriber.refreshCache(requestFn, ...funcParams);
     };
 
+    // auto-refresh after cache expiration
+    const [autoRefreshRequestTime, setAutoRefreshRequestTime] = useState(new Date().getTime());
+
+    useEffect(() => {
+        if (!cacheMaxAge || latestResultTime.current === undefined) {
+            return;
+        }
+        const waitFor = cacheMaxAge - (new Date().getTime() - latestResultTime.current);
+
+        const updateRefreshRequestTime = (): void => {
+            setAutoRefreshRequestTime(new Date().getTime());
+        };
+
+        if (waitFor > 0) {
+            const reloadTimeout = setTimeout(updateRefreshRequestTime, waitFor);
+
+            return () => {
+                clearTimeout(reloadTimeout);
+            };
+        } else {
+            updateRefreshRequestTime();
+        }
+    }, [cacheMaxAge, latestResultTime.current]);
+
     useEffect(() => {
         if (disableCache) {
             refreshCache();
@@ -134,16 +164,17 @@ export const createUseGetData = <T extends RequestFunction>(operation: Operation
             return;
         }
 
-        return executionSubscriber.subscribe<T>(
+        return executionSubscriber.subscribeWithOptions<T>(
             requestFn,
             {
                 onResult,
                 onError,
                 onExecuting,
             },
-            ...funcParams,
+            funcParams,
+            { maxAge: cacheMaxAge },
         );
-    }, [shortCircuitExecution]);
+    }, [shortCircuitExecution, autoRefreshRequestTime]);
 
     return useMemo(
         () => ({
