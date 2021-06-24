@@ -8,7 +8,18 @@ import "colors";
 import multimatch from "multimatch";
 
 void (async () => {
-    const { namespace, output, autoAccept, displayErrors, skipValidation, noInteractive, force, react, _: allFiles } = yargs
+    const {
+        namespace,
+        output,
+        autoAccept,
+        validateNoChanges,
+        displayErrors,
+        skipValidation,
+        noInteractive,
+        force,
+        react,
+        _: allFiles,
+    } = yargs
         .usage("openapi2ts [options] [url/file...]")
         .example(
             "Full example",
@@ -34,6 +45,12 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore -a '{/user,/user/**}' htt
             boolean: true,
             alias: "r",
             description: "generate React hooks",
+            demandOption: false,
+        })
+        .option("validateNoChanges", {
+            boolean: true,
+            alias: "v",
+            description: "fail, if there are changes",
             demandOption: false,
         })
         .option("namespace", {
@@ -94,6 +111,22 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore -a '{/user,/user/**}' htt
         }
     }
 
+    const logDiffInfos = (compareResult: CompareResult): void => {
+        if (compareResult.diffInfos) {
+            let diffText = "";
+            compareResult.diffInfos.forEach((part) => {
+                // green for additions, red for deletions
+                // grey for common parts
+                const color = part.added ? "green" : part.removed ? "red" : "grey";
+                diffText += part.value[color];
+            });
+            console.log("");
+            console.log(`Diff for ${compareResult.target} ${compareResult.name["bold"]}:`);
+            console.log("");
+            console.log(diffText);
+        }
+    };
+
     // eslint-disable-next-line @typescript-eslint/no-misused-promises
     Spec.fromFiles(namespace, files, { statusLog: new OraStatusLog(), throwErrors: displayErrors, skipValidation })(async (spec) => {
         const lockfileName = getSubFileName(output, ".spec.lock");
@@ -101,6 +134,11 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore -a '{/user,/user/**}' htt
 
         const lockfile = LockFile.fromFile(lockfileName) ?? LockFile.fromSpec(spec.normalized);
         const detectedChanges = lockfile.compare(spec.normalized);
+
+        if (validateNoChanges && detectedChanges.length > 0) {
+            detectedChanges.forEach(logDiffInfos);
+            throw new Error("The API spec has unexpectedly changed!");
+        }
 
         let acceptedChanges: CompareResult[] = [];
 
@@ -192,19 +230,7 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore -a '{/user,/user/**}' htt
                             answered = true;
                             break;
                         case "diff":
-                            if (change.diffInfos) {
-                                let diffText = "";
-                                change.diffInfos.forEach((part) => {
-                                    // green for additions, red for deletions
-                                    // grey for common parts
-                                    const color = part.added ? "green" : part.removed ? "red" : "grey";
-                                    diffText += part.value[color];
-                                });
-                                console.log("");
-                                console.log(`Diff for ${change.target} ${change.name["bold"]}:`);
-                                console.log("");
-                                console.log(diffText);
-                            }
+                            logDiffInfos(change);
                             break;
                     }
                 }
