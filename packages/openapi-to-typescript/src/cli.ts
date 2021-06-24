@@ -111,7 +111,14 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore -a '{/user,/user/**}' htt
         }
     }
 
+    const getChangeText = (change: CompareResult): string =>
+        `The ${change.target} '${change.name}' ${
+            change.changeType === "changed" ? "has changed" : change.changeType === "new" ? "is new" : "has removed"
+        }`;
+
     const logDiffInfos = (compareResult: CompareResult): void => {
+        getChangeText(compareResult);
+
         if (compareResult.diffInfos) {
             let diffText = "";
             compareResult.diffInfos.forEach((part) => {
@@ -204,9 +211,7 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore -a '{/user,/user/**}' htt
                     const answer = await inquirer.prompt<{ update: "yes" | "no" | "diff" | "skipFromNow" | "acceptFromNow" }>([
                         {
                             type: "expand",
-                            message: `The ${change.target} '${change.name}' ${
-                                change.changeType === "changed" ? "has changed" : change.changeType === "new" ? "is new" : "has removed"
-                            }. Accept changes?`,
+                            message: `${getChangeText(change)}. Accept changes?`,
                             name: "update",
                             choices,
                         },
