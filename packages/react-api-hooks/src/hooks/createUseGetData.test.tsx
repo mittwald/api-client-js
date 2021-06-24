@@ -21,8 +21,12 @@ const request = { request: "anything" };
 
 let hookCalls = 0;
 
-const TestComponent: FC = () => {
-    const response = useGetData(request);
+interface TestComponentProps {
+    cacheMaxAge?: number;
+}
+
+const TestComponent: FC<TestComponentProps> = (props) => {
+    const response = useGetData(request, { cacheMaxAge: props.cacheMaxAge });
     useEffect(() => {
         hookCalls++;
     }, [response]);
@@ -32,8 +36,8 @@ const TestComponent: FC = () => {
 
 let renderResult: RenderResult;
 
-const renderView = (): void => {
-    renderResult = render(<TestComponent />);
+const renderView = (props: TestComponentProps = {}): void => {
+    renderResult = render(<TestComponent {...props} />);
 };
 
 // checks if the component will render the given strings in the given order
@@ -72,6 +76,12 @@ test("reload after cache refresh: 'loading => ok' => 'loading => ok'", async () 
     renderView();
     await expectViews("loading", "ok");
     executionSubscriber.refreshCache(requestFn, request);
+    await expectViews("ok", "loading", "ok");
+});
+
+test("reload after cache expires: 'loading => ok' => 'loading => ok'", async () => {
+    renderView({ cacheMaxAge: 100 });
+    await expectViews("loading", "ok");
     await expectViews("ok", "loading", "ok");
 });
 

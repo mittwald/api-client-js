@@ -30,7 +30,7 @@ export class Spec {
     private readonly options: SpecOptions;
     private _normalized: NormalizedSpec;
 
-    private constructor(namespace: string, openAPISpec: object, options: SpecOptions = {}) {
+    public constructor(namespace: string, openAPISpec: object, options: SpecOptions = {}) {
         const log = getStatusLog();
         this.options = options;
         log?.info(`used namespace: ${namespace}`);
