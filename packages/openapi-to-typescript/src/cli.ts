@@ -117,7 +117,7 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore -a '{/user,/user/**}' htt
         }`;
 
     const logDiffInfos = (compareResult: CompareResult): void => {
-        getChangeText(compareResult);
+        console.log(getChangeText(compareResult));
 
         if (compareResult.diffInfos) {
             let diffText = "";
@@ -144,7 +144,8 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore -a '{/user,/user/**}' htt
 
         if (validateNoChanges && detectedChanges.length > 0) {
             detectedChanges.forEach(logDiffInfos);
-            throw new Error("The API spec has unexpectedly changed!");
+            console.error("The API spec has unexpectedly changed!!!");
+            process.exit(1);
         }
 
         let acceptedChanges: CompareResult[] = [];
@@ -168,7 +169,7 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore -a '{/user,/user/**}' htt
 
                 if (autoAccept) {
                     if (multimatch(change.name, autoAccept).length === 1) {
-                        statusLog?.info(`${change.target} ${change.name} matches glob ${autoAccept}`);
+                        statusLog?.info(`${change.target} ${change.name} auto-accepted (matches glob ${autoAccept})`);
                         acceptedChanges.push(change);
                     }
                     continue;
