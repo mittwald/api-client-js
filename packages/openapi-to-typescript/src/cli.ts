@@ -26,7 +26,7 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore -a '{/user,/user/**}' htt
         .option("autoAccept", {
             string: true,
             alias: "a",
-            description: "auto-accept paths matching this glob",
+            description: "auto-accept paths matching this glob and skip others",
             demandOption: false,
             requiresArg: true,
         })
@@ -52,7 +52,6 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore -a '{/user,/user/**}' htt
         })
         .option("noInteractive", {
             boolean: true,
-            alias: "i",
             description: "disables interactive mode",
             demandOption: false,
             default: false,
@@ -122,9 +121,11 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore -a '{/user,/user/**}' htt
                     continue;
                 }
 
-                if (autoAccept && multimatch(change.name, autoAccept).length === 1) {
-                    statusLog?.info(`${change.target} ${change.name} matches glob ${autoAccept}`);
-                    acceptedChanges.push(change);
+                if (autoAccept) {
+                    if (multimatch(change.name, autoAccept).length === 1) {
+                        statusLog?.info(`${change.target} ${change.name} matches glob ${autoAccept}`);
+                        acceptedChanges.push(change);
+                    }
                     continue;
                 }
 
