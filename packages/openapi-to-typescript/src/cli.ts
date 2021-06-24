@@ -111,13 +111,13 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore -a '{/user,/user/**}' htt
         }
     }
 
-    const getChangeText = (change: CompareResult): string =>
+    const getChangeText = (change: CompareResult, error = false): string =>
         `The ${change.target} '${change.name}' ${
             change.changeType === "changed" ? "has changed" : change.changeType === "new" ? "is new" : "has removed"
-        }`;
+        }`[error ? "red" : "reset"];
 
-    const logDiffInfos = (compareResult: CompareResult): void => {
-        console.log(getChangeText(compareResult));
+    const logDiffInfos = (compareResult: CompareResult, error = false): void => {
+        console.log(getChangeText(compareResult, error));
 
         if (compareResult.diffInfos) {
             let diffText = "";
@@ -128,7 +128,7 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore -a '{/user,/user/**}' htt
                 diffText += part.value[color];
             });
             console.log("");
-            console.log(`Diff for ${compareResult.target} ${compareResult.name["bold"]}:`);
+            console.log(`Diff for ${compareResult.target} ${compareResult.name.bold}:`);
             console.log("");
             console.log(diffText);
         }
@@ -143,8 +143,10 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore -a '{/user,/user/**}' htt
         const detectedChanges = lockfile.compare(spec.normalized);
 
         if (validateNoChanges && detectedChanges.length > 0) {
-            detectedChanges.forEach(logDiffInfos);
-            console.error("The API spec has unexpectedly changed!!!");
+            for (const change of detectedChanges) {
+                logDiffInfos(change, true);
+            }
+            console.error("The API spec has unexpectedly changed!".red);
             process.exit(1);
         }
 
