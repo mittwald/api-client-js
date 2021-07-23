@@ -143,14 +143,19 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore -a '{/user,/user/**}' htt
         const detectedChanges = lockfile.compare(spec.normalized);
 
         if (validateNoChanges) {
+            console.info("Checking changes for the following input specs:");
+            files.forEach((file) => `  • ${file}`);
+            console.info("");
+
             if (detectedChanges.length > 0) {
                 for (const change of detectedChanges) {
                     logDiffInfos(change, true);
                 }
-                console.error("The API spec has unexpectedly changed!".red);
+                console.error("The lock file is NOT IN SYNC with the input specs".red);
                 process.exit(1);
             }
 
+            console.info("The lock file is in sync with the input specs".green);
             process.exit(0);
         }
 
