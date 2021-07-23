@@ -143,8 +143,9 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore -a '{/user,/user/**}' htt
         const detectedChanges = lockfile.compare(spec.normalized);
 
         if (validateNoChanges) {
+            console.info("");
             console.info("Checking changes for the following input specs:");
-            files.forEach((file) => `  • ${file}`);
+            files.forEach((file) => console.info(`  • ${file}`));
             console.info("");
 
             if (detectedChanges.length > 0) {
