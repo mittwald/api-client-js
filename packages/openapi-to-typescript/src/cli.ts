@@ -128,7 +128,7 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore -a '{/user,/user/**}' htt
                 diffText += part.value[color];
             });
             console.log("");
-            console.log(`Diff for ${compareResult.target} ${compareResult.name.bold()}:`);
+            console.log(`Diff for ${compareResult.target} ${compareResult.name["bold"]}:`);
             console.log("");
             console.log(diffText);
         }
