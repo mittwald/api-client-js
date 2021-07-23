@@ -142,12 +142,16 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore -a '{/user,/user/**}' htt
         const lockfile = LockFile.fromFile(lockfileName) ?? LockFile.fromSpec(spec.normalized);
         const detectedChanges = lockfile.compare(spec.normalized);
 
-        if (validateNoChanges && detectedChanges.length > 0) {
-            for (const change of detectedChanges) {
-                logDiffInfos(change, true);
+        if (validateNoChanges) {
+            if (detectedChanges.length > 0) {
+                for (const change of detectedChanges) {
+                    logDiffInfos(change, true);
+                }
+                console.error("The API spec has unexpectedly changed!".red);
+                process.exit(1);
             }
-            console.error("The API spec has unexpectedly changed!".red);
-            process.exit(1);
+
+            process.exit(0);
         }
 
         let acceptedChanges: CompareResult[] = [];
