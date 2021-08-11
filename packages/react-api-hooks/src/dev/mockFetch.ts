@@ -1,11 +1,11 @@
 import fetchMock from "fetch-mock";
 import { button } from "@storybook/addon-knobs";
 import shortid from "shortid";
-import { executionSubscriber } from "@mittwald/awesome-node-utils/funcs/ExecutionSubscriber";
+import clearCache from "../lib/clearCache";
 
 export const mockFetch = (response: any, id: string = shortid(), status = 200): string => {
     button("Clear API cache", () => {
-        executionSubscriber.clearCache();
+        clearCache();
     });
 
     const buildResponse = (url: string): Promise<any> => {

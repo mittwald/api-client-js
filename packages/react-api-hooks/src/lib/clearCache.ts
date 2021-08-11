@@ -1,4 +1,4 @@
-import { executionSubscriber } from "@mittwald/awesome-node-utils/funcs/ExecutionSubscriber";
+import { executionSubscriber } from "./ExecutionSubscriber";
 
 export const clearCache = (): void => executionSubscriber.clearCache();
 

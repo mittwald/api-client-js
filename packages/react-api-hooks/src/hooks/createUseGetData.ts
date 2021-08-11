@@ -1,13 +1,9 @@
 import { Response as ApiClientResponse } from "@mittwald/api-client/dist/http/Client";
 import { OperationDescriptor, RequestFunction } from "@mittwald/api-client/dist/OperationDescriptor";
 import { useEffect, useMemo, useRef, useState } from "react";
-import {
-    executionSubscriber,
-    OnResultCallback,
-    ResolvedFunctionResult as RequestFunctionResult,
-} from "@mittwald/awesome-node-utils/funcs/ExecutionSubscriber";
 import { useIsOnline } from "./useIsOnline";
 import { useSafeState } from "./useSafeState";
+import { executionSubscriber, OnResultCallback, ResolvedFunctionResult } from "../lib/ExecutionSubscriber";
 
 interface BaseResult {
     refreshCache: () => void;
@@ -22,11 +18,11 @@ export type Response<T> = T extends { status: 200; content: infer TContent; medi
 
 export type GetDataHookNoDataResult<T extends RequestFunction> = BaseResult & {
     state: "unexpectedError" | "notFound" | "noAccess" | "unauthorized" | "loading" | "timeout" | "clientError" | "serverError";
-} & Partial<Response<RequestFunctionResult<T>>>;
+} & Partial<Response<ResolvedFunctionResult<T>>>;
 
 export type GetDataHookDataResult<T extends RequestFunction> = BaseResult & {
     state: "ok";
-} & Response<RequestFunctionResult<T>>;
+} & Response<ResolvedFunctionResult<T>>;
 
 export type GetDataHookState = GetDataHookResult<any>["state"] | GetDataHookNoDataResult<any>["state"];
 

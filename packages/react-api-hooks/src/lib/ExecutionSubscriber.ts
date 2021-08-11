@@ -20,6 +20,10 @@ export interface ExecutionEvents<T extends FunctionType = FunctionType> {
 
 export type InitExecutionEvents<T extends FunctionType = FunctionType> = Partial<ExecutionEvents<T>>;
 
+export interface ExecutionOptions {
+    maxAge?: number;
+}
+
 const defaultEvents: ExecutionEvents = {
     onResult: voidFunction,
     onError: voidFunction,
@@ -50,14 +54,6 @@ export interface ExecutionSubscriberOptions {
     };
 }
 
-/**
- * The ExecutionSubscriber mainly caches the results of function calls. Subscribers will be notified with the events of the function
- * execution, which are: `onResult(result)`, `onError(error)`, `onExecuting()` (only for async functions). If a component subscribes to an
- * already executed function (with the same parameters), it will be notified immediately with the cached result.
- *
- * If the cached result of a function call becomes stale, the `clearCache(func)` method can be used. If there are running subscriptions at
- * this point, the function will executed again, and all subscribers will be notified with the mentioned execution events.
- */
 export class ExecutionSubscriber {
     private readonly resultCache = new Map<FunctionType, LRUCache<string, any>>();
     private readonly subscriptions = new Map<FunctionType, Map<string, Set<ExecutionEvents>>>();
@@ -68,19 +64,60 @@ export class ExecutionSubscriber {
         this.options = options;
     }
 
-    /**
-     * Starts a function subscription. Executes the function, if there is no cached result. Event subscriptions can be setup with the
-     * `events` parameter. To unsubscribe, use the returned function.
-     *
-     * @param func - The function to be executed
-     * @param events - Event callbacks for `onResult(result)`, `onError(error)`, `onExecuting()` (only for async functions)
-     * @param params - The parameters the `func` should be executed with
-     * @returns The unsubscribe function
-     */
     public subscribe<TFunc extends FunctionType>(
         func: TFunc,
         events: InitExecutionEvents<TFunc>,
         ...params: Parameters<TFunc>
+    ): Unsubscribe {
+        return this.subscribeInternal(func, events, params);
+    }
+
+    public subscribeWithOptions<TFunc extends FunctionType>(
+        func: TFunc,
+        events: InitExecutionEvents<TFunc>,
+        params: Parameters<TFunc>,
+        executionOptions?: ExecutionOptions,
+    ): Unsubscribe {
+        return this.subscribeInternal(func, events, params, executionOptions);
+    }
+
+    public refreshCache<TFunc extends FunctionType>(func: TFunc, ...params: Parameters<TFunc>): void {
+        const lock = this.getLock(func);
+        const [paramsHash, cache] = this.getCache(func, params);
+        cache.del(paramsHash);
+
+        const runLocked = async (): Promise<void> => {
+            const releaseLock = await acquireLock(paramsHash, lock);
+            try {
+                await this.executeAndNotify(func, params);
+            } finally {
+                releaseLock();
+            }
+        };
+
+        muteErrors(runLocked);
+    }
+
+    public getCachedResult<TFunc extends FunctionType>(
+        func: TFunc,
+        ...params: Parameters<TFunc>
+    ): ResolvedFunctionResult<TFunc> | undefined {
+        const [paramsHash, cache] = this.getCache(func, params);
+        return cache.get(paramsHash);
+    }
+
+    /**
+     * Clears the complete result cache. Does not trigger re-execution!
+     */
+    public clearCache(): void {
+        this.resultCache.clear();
+    }
+
+    private subscribeInternal<TFunc extends FunctionType>(
+        func: TFunc,
+        events: InitExecutionEvents<TFunc>,
+        params: Parameters<TFunc>,
+        options?: ExecutionOptions,
     ): Unsubscribe {
         const executionEvents = {
             ...defaultEvents,
@@ -109,7 +146,7 @@ export class ExecutionSubscriber {
                 if (cachedResult) {
                     muteErrors(() => executionEvents.onResult(cachedResult));
                 } else {
-                    await this.executeAndNotify(func, params);
+                    await this.executeAndNotify(func, params, options);
                 }
             } finally {
                 releaseLock();
@@ -121,53 +158,11 @@ export class ExecutionSubscriber {
         return unsubscribe;
     }
 
-    /**
-     * Removes a function result from the cache. If there are any subscribers, listening for the functions execution, the function
-     * will be executed again.
-     *
-     * @param func - The function from which the result cache should be removed
-     * @param params - The parameters of the function call
-     */
-    public refreshCache<TFunc extends FunctionType>(func: TFunc, ...params: Parameters<TFunc>): void {
-        const lock = this.getLock(func);
-        const [paramsHash, cache] = this.getCache(func, params);
-        cache.del(paramsHash);
-
-        const runLocked = async (): Promise<void> => {
-            const releaseLock = await acquireLock(paramsHash, lock);
-            try {
-                await this.executeAndNotify(func, params);
-            } finally {
-                releaseLock();
-            }
-        };
-
-        muteErrors(runLocked);
-    }
-
-    /**
-     * Returns the cached value
-     *
-     * @param func - The function from which the result cache should be retrieved
-     * @param params - The parameters of the function call
-     * @returns The cached result
-     */
-    public getCachedResult<TFunc extends FunctionType>(
+    private async executeAndNotify<TFunc extends FunctionType>(
         func: TFunc,
-        ...params: Parameters<TFunc>
-    ): ResolvedFunctionResult<TFunc> | undefined {
-        const [paramsHash, cache] = this.getCache(func, params);
-        return cache.get(paramsHash);
-    }
-
-    /**
-     * Clears the complete result cache. Does not trigger re-execution!
-     */
-    public clearCache(): void {
-        this.resultCache.clear();
-    }
-
-    private async executeAndNotify<TFunc extends FunctionType>(func: TFunc, params: Parameters<TFunc>): Promise<void> {
+        params: Parameters<TFunc>,
+        options: ExecutionOptions = {},
+    ): Promise<void> {
         const [paramsHash, cache] = this.getCache(func, params);
 
         // only execute the function, if there are subscribers
@@ -176,7 +171,7 @@ export class ExecutionSubscriber {
         }
 
         const onSuccess = (result: ResolvedFunctionResult<TFunc>): void => {
-            cache.set(paramsHash, result);
+            cache.set(paramsHash, result, options.maxAge);
             this.notifyResult(func, paramsHash, result);
         };
 

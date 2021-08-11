@@ -2,8 +2,8 @@ import React, { FC, useEffect } from "react";
 import { createUseGetData } from "./createUseGetData";
 import { RequestFunction } from "@mittwald/api-client/dist/OperationDescriptor";
 import { render, RenderResult, waitFor } from "@testing-library/react";
-import { executionSubscriber } from "@mittwald/awesome-node-utils/funcs/ExecutionSubscriber";
-import { sleep } from "@mittwald/awesome-node-utils/promises/timeout";
+import { sleep } from "../lib/timeout";
+import { executionSubscriber } from "../lib/ExecutionSubscriber";
 
 window.MutationObserver = require("mutation-observer");
 
