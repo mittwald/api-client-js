@@ -22,6 +22,7 @@ export type InitExecutionEvents<T extends FunctionType = FunctionType> = Partial
 
 export interface ExecutionOptions {
     maxAge?: number;
+    cacheTags?: string[];
 }
 
 const defaultEvents: ExecutionEvents = {
@@ -55,6 +56,7 @@ export interface ExecutionSubscriberOptions {
 }
 
 export class ExecutionSubscriber {
+    private readonly cacheTags = new Map<string, [FunctionType, Parameters<any>]>();
     private readonly resultCache = new Map<FunctionType, LRUCache<string, any>>();
     private readonly subscriptions = new Map<FunctionType, Map<string, Set<ExecutionEvents>>>();
     private readonly locks = new Map<FunctionType, AsyncLock>();
@@ -98,6 +100,14 @@ export class ExecutionSubscriber {
         muteErrors(runLocked);
     }
 
+    public refreshCacheByTag(tag: string): void {
+        const cacheEntry = this.cacheTags.get(tag);
+        if (!cacheEntry) {
+            return;
+        }
+        return this.refreshCache(cacheEntry[0], ...cacheEntry[1]);
+    }
+
     public getCachedResult<TFunc extends FunctionType>(
         func: TFunc,
         ...params: Parameters<TFunc>
@@ -125,6 +135,7 @@ export class ExecutionSubscriber {
         } as ExecutionEvents<TFunc>;
 
         const [paramsHash, cache] = this.getCache(func, params);
+        options?.cacheTags?.forEach((t) => this.cacheTags.set(t, [func, params]));
 
         const subscriptions = this.getSubscriptions(func, paramsHash);
         subscriptions.add(executionEvents);

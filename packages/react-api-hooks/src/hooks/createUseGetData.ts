@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useIsOnline } from "./useIsOnline";
 import { useSafeState } from "./useSafeState";
 import { executionSubscriber, OnResultCallback, ResolvedFunctionResult } from "../lib/ExecutionSubscriber";
+import { setPathParams } from "@mittwald/api-client/dist/http/path";
 
 interface BaseResult {
     refreshCache: () => void;
@@ -67,7 +68,7 @@ const getStateFromResult = (result: ApiClientResponse): GetDataHookState => {
 };
 
 export const createUseGetData = <T extends RequestFunction>(operation: OperationDescriptor, getRequestFn: () => T) => (
-    request: Parameters<T>[0] | null,
+    requestParams: Parameters<T>[0] | null,
     options?: UseGetDataOptions,
 ): GetDataHookResult<T> => {
     const { disableCache = false, cacheMaxAge } = options ?? {};
@@ -75,15 +76,15 @@ export const createUseGetData = <T extends RequestFunction>(operation: Operation
     const requestFn = getRequestFn();
 
     // The rules of hooks do not allow conditional calling, but you can use `null` as request to short-circuit executing the request
-    const [shortCircuitExecution, setShortCircuitExecution] = useState(request === null);
+    const [shortCircuitExecution, setShortCircuitExecution] = useState(requestParams === null);
 
     useEffect(() => {
-        setShortCircuitExecution(request === null);
-    }, [setShortCircuitExecution, request]);
+        setShortCircuitExecution(requestParams === null);
+    }, [setShortCircuitExecution, requestParams]);
 
-    const funcParams = [request] as Parameters<T>;
+    const funcParams = [requestParams] as Parameters<T>;
 
-    const cachedResult = disableCache || request === null ? undefined : executionSubscriber.getCachedResult(requestFn, ...funcParams);
+    const cachedResult = disableCache || requestParams === null ? undefined : executionSubscriber.getCachedResult(requestFn, ...funcParams);
 
     const [result, setResult] = useSafeState<ApiClientResponse | undefined>(cachedResult);
     const latestResultTime = useRef<number>();
@@ -174,7 +175,7 @@ export const createUseGetData = <T extends RequestFunction>(operation: Operation
                 onExecuting,
             },
             funcParams,
-            { maxAge: cacheMaxAge },
+            { maxAge: cacheMaxAge, cacheTags: ["/" + setPathParams(operation.path, requestParams?.path)] },
         );
     }, [shortCircuitExecution, autoRefreshRequestTime]);
 

@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "license": "UNLICENSED",
-  "author": {},
+  "author": "Marco Falkenberg <m.falkenberg@mittwald.de>",
   "name": "@mittwald/react-api-hooks",
   "scripts": {
     "ts-out-dir": "cat tsconfig.json | yarn -s jp --log /compilerOptions/outDir",
@@ -24,7 +24,7 @@
     "precommit": "run-s precommit:*",
     "precommit:lint": "run-s lint:staged",
     "test": "yarn test:unit",
-    "test:unit": "jest --color --silent --verbose --passWithNoTests",
+    "test:unit": "jest --color --verbose --passWithNoTests",
     "test:coverage": "yarn test:unit --coverage",
     "test:ci:unit": "run-s test:coverage",
     "test:ci": "run-s test:ci:*",
