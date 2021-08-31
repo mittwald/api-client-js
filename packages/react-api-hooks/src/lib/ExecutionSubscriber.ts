@@ -60,7 +60,7 @@ export interface ExecutionSubscriberOptions {
 }
 
 export class ExecutionSubscriber {
-    private readonly cacheTags = new Map<string, [FunctionType, Parameters<any>]>();
+    private readonly cacheTags = new Map<string, Array<[FunctionType, Parameters<any>]>>();
     private readonly resultCache = new Map<FunctionType, LRUCache<string, any>>();
     private readonly subscriptions = new Map<FunctionType, Map<string, Set<ExecutionEvents>>>();
     private readonly locks = new Map<FunctionType, AsyncLock>();
@@ -105,11 +105,18 @@ export class ExecutionSubscriber {
     }
 
     public refreshCacheByTag(tag: string): void {
-        const cacheEntry = this.cacheTags.get(tag);
-        if (!cacheEntry) {
+        const cacheEntriesOfTags = this.cacheTags.get(tag);
+        if (!cacheEntriesOfTags) {
             return;
         }
-        return this.refreshCache(cacheEntry[0], ...cacheEntry[1]);
+
+        cacheEntriesOfTags.forEach(([func, params]) => {
+            this.refreshCache(func, ...params);
+        });
+
+        this.cacheTags.delete(tag);
+
+        return;
     }
 
     public getCachedResult<TFunc extends FunctionType>(
@@ -125,6 +132,7 @@ export class ExecutionSubscriber {
      */
     public clearCache(): void {
         this.resultCache.clear();
+        this.cacheTags.clear();
     }
 
     /**
@@ -147,7 +155,11 @@ export class ExecutionSubscriber {
 
         const [paramsHash, cache] = this.getCache(func, params);
         const tags = options?.cacheTags ?? [];
-        [...tags, CacheTags.ALL].forEach((t) => this.cacheTags.set(t, [func, params]));
+        [...tags, CacheTags.ALL].forEach((t) => {
+            const cacheEntriesOfTag = this.cacheTags.get(t) ?? [];
+            cacheEntriesOfTag.push([func, params]);
+            this.cacheTags.set(t, cacheEntriesOfTag);
+        });
 
         const subscriptions = this.getSubscriptions(func, paramsHash);
         subscriptions.add(executionEvents);
