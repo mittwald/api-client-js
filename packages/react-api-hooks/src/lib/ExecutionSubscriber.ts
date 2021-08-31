@@ -123,6 +123,15 @@ export class ExecutionSubscriber {
         this.resultCache.clear();
     }
 
+    /**
+     * Refreshs the complete result cache
+     */
+    public refreshAllCache(): void {
+        this.resultCache.forEach((unusedResult, func) => {
+            this.refreshCache(func);
+        });
+    }
+
     private subscribeInternal<TFunc extends FunctionType>(
         func: TFunc,
         events: InitExecutionEvents<TFunc>,
