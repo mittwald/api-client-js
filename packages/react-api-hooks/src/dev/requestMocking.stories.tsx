@@ -32,13 +32,20 @@ const startRequest = client.requestFunctionFactory(postOperationDescriptor);
 
 const mockPostRequest = mockRequestFactory(postOperationDescriptor);
 
-mockPostRequest({}, (req) => {
-    return {
-        content: req.requestBody,
-        status: 200,
-        operation: postOperationDescriptor,
-    };
-});
+mockPostRequest(
+    {
+        requestBody: {
+            foo: "bar",
+        },
+    },
+    (req) => {
+        return {
+            content: req.requestBody,
+            status: 200,
+            operation: postOperationDescriptor,
+        };
+    },
+);
 
 const usePostRequest = createUseGetData(postOperationDescriptor, () => startRequest);
 

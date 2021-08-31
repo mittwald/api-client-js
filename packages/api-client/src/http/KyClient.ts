@@ -6,6 +6,7 @@ import { Client, RequestFunctionFactory } from "./Client";
 import { mapHeaders } from "./headers";
 import { setPathParams } from "./path";
 import { mapResponse } from "./response";
+import { patchedFetchForSafari } from "./safari";
 
 const d = debug.extend("KyHTTPClient");
 
@@ -14,7 +15,9 @@ export type Ky = typeof ky;
 const defaultOptions: Required<Options> = {
     defaultHeaders: {},
     requestOptionsHook: (opts) => opts,
-    ky: {},
+    ky: {
+        fetch: patchedFetchForSafari,
+    },
 };
 
 export type RequestOptionsHook = (options: Options) => Options;
@@ -30,8 +33,14 @@ export class KyClient implements Client {
     private readonly options: Required<Options>;
 
     public constructor(options: Options = {}) {
-        this.options = { ...defaultOptions, ...options };
-        this.ky = ky.create(this.options.ky);
+        this.options = {
+            ...defaultOptions,
+            ...options,
+        };
+        this.ky = ky.create({
+            ...defaultOptions.ky,
+            ...(options.ky ?? {}),
+        });
     }
 
     public setDefaultHeaders(headers: Headers): void {
@@ -45,11 +54,10 @@ export class KyClient implements Client {
         d("requestBody: %o", requestBody);
 
         // make a shallow copy
-        const options = this.options.requestOptionsHook({ ...this.options, ky: { ...this.options.ky } });
+        const options = this.options.requestOptionsHook({ ...this.options });
 
         try {
             const requestOptions: KyOptions = {
-                ...options.ky,
                 method,
                 headers: {
                     ...options.defaultHeaders,
