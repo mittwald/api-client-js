@@ -7,6 +7,10 @@ import { assertInMap } from "./assertInMap";
 
 const voidFunction = (): void => {};
 
+export enum CacheTags {
+    ALL = "@all",
+}
+
 export type ResolvedFunctionResult<T extends FunctionType = FunctionType> = Resolved<ReturnType<T>>;
 export type OnResultCallback<T extends FunctionType = FunctionType> = (result: ResolvedFunctionResult<T>) => any;
 export type OnExecutingCallback = () => any;
@@ -127,9 +131,7 @@ export class ExecutionSubscriber {
      * Refreshs the complete result cache
      */
     public refreshAllCache(): void {
-        this.resultCache.forEach((unusedResult, func) => {
-            this.refreshCache(func);
-        });
+        this.refreshCacheByTag(CacheTags.ALL);
     }
 
     private subscribeInternal<TFunc extends FunctionType>(
@@ -144,7 +146,8 @@ export class ExecutionSubscriber {
         } as ExecutionEvents<TFunc>;
 
         const [paramsHash, cache] = this.getCache(func, params);
-        options?.cacheTags?.forEach((t) => this.cacheTags.set(t, [func, params]));
+        const tags = options?.cacheTags ?? [];
+        [...tags, CacheTags.ALL].forEach((t) => this.cacheTags.set(t, [func, params]));
 
         const subscriptions = this.getSubscriptions(func, paramsHash);
         subscriptions.add(executionEvents);
