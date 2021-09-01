@@ -4,7 +4,7 @@ import { RequestFunction } from "@mittwald/api-client/dist/OperationDescriptor";
 import { render, RenderResult, waitFor } from "@testing-library/react";
 import { sleep } from "../lib/timeout";
 import { executionSubscriber } from "../lib/ExecutionSubscriber";
-import clearCache, { clearCacheByUrl } from "../lib/clearCache";
+import refreshCache, { refreshCacheByUrl } from "../lib/refreshCache";
 
 window.MutationObserver = require("mutation-observer");
 
@@ -83,14 +83,14 @@ test("reload after cache refresh: 'loading => ok' => 'loading => ok'", async () 
 test("reload after cache refresh with tag: 'loading => ok' => 'loading => ok'", async () => {
     renderView();
     await expectViews("loading", "ok");
-    clearCacheByUrl("/test");
+    refreshCacheByUrl("/test");
     await expectViews("ok", "loading", "ok");
 });
 
 test("reload after cache refresh with ALL-tag: 'loading => ok' => 'loading => ok'", async () => {
     renderView();
     await expectViews("loading", "ok");
-    clearCache();
+    refreshCache();
     await expectViews("ok", "loading", "ok");
 });
 

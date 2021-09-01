@@ -59,8 +59,14 @@ export interface ExecutionSubscriberOptions {
     };
 }
 
+interface TaggedCacheEntry {
+    paramsHash: string;
+    params: Parameters<any>;
+    func: FunctionType;
+}
+
 export class ExecutionSubscriber {
-    private readonly cacheTags = new Map<string, Array<[FunctionType, Parameters<any>]>>();
+    private readonly cacheTags = new Map<string, TaggedCacheEntry[]>();
     private readonly resultCache = new Map<FunctionType, LRUCache<string, any>>();
     private readonly subscriptions = new Map<FunctionType, Map<string, Set<ExecutionEvents>>>();
     private readonly locks = new Map<FunctionType, AsyncLock>();
@@ -110,7 +116,7 @@ export class ExecutionSubscriber {
             return;
         }
 
-        cacheEntriesOfTags.forEach(([func, params]) => {
+        cacheEntriesOfTags.forEach(({ func, params }) => {
             this.refreshCache(func, ...params);
         });
 
@@ -154,12 +160,6 @@ export class ExecutionSubscriber {
         } as ExecutionEvents<TFunc>;
 
         const [paramsHash, cache] = this.getCache(func, params);
-        const tags = options?.cacheTags ?? [];
-        [...tags, CacheTags.ALL].forEach((t) => {
-            const cacheEntriesOfTag = this.cacheTags.get(t) ?? [];
-            cacheEntriesOfTag.push([func, params]);
-            this.cacheTags.set(t, cacheEntriesOfTag);
-        });
 
         const subscriptions = this.getSubscriptions(func, paramsHash);
         subscriptions.add(executionEvents);
@@ -207,6 +207,18 @@ export class ExecutionSubscriber {
 
         const onSuccess = (result: ResolvedFunctionResult<TFunc>): void => {
             cache.set(paramsHash, result, options.maxAge);
+
+            const tags = options.cacheTags ?? [];
+
+            [...tags, CacheTags.ALL].forEach((t) => {
+                const cacheEntriesOfTag = this.cacheTags.get(t) ?? [];
+                if (cacheEntriesOfTag.some((e) => e.func === func && e.paramsHash === paramsHash)) {
+                    return;
+                }
+                cacheEntriesOfTag.push({ func, params, paramsHash });
+                this.cacheTags.set(t, cacheEntriesOfTag);
+            });
+
             this.notifyResult(func, paramsHash, result);
         };
 

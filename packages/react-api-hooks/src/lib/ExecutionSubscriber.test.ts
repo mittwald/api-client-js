@@ -91,7 +91,7 @@ describe("ExecutionSubscriber", (): void => {
             expect(onExecuting).toBeCalledTimes(1);
         });
 
-        test("executes function once ' parallel' executing", async () => {
+        test("executes function once 'parallel' executing", async () => {
             const onExecuting = jest.fn();
             await Promise.all([callSubscribe(undefined, onExecuting), callSubscribe(undefined, onExecuting)]);
             expect(func).toBeCalledTimes(1);

@@ -1,11 +1,11 @@
 import fetchMock from "fetch-mock";
 import { button } from "@storybook/addon-knobs";
 import shortid from "shortid";
-import clearCache from "../lib/clearCache";
+import refreshCache from "../lib/refreshCache";
 
 export const mockFetch = (response: any, id: string = shortid(), status = 200): string => {
     button("Clear API cache", () => {
-        clearCache();
+        refreshCache();
     });
 
     const buildResponse = (url: string): Promise<any> => {
