@@ -1892,7 +1892,7 @@
   resolved "https://registry.yarnpkg.com/@mdx-js/util/-/util-1.6.22.tgz#219dfd89ae5b97a8801f015323ffa4b62f45718b"
   integrity sha512-H1rQc1ZOHANWBvPcW+JpGwr+juXSxM8Q8YCkm3GhZd8REu1fHR3z99CErO1p9pkcfcxZnMdIZdIsXkOHY0NilA==
 
-"@mittwald/awesome-node-utils@^2.34.0", "@mittwald/awesome-node-utils@^2.36.0":
+"@mittwald/awesome-node-utils@^2.36.0":
   version "2.36.0"
   resolved "https://npm.mittwald.it/@mittwald%2fawesome-node-utils/-/awesome-node-utils-2.36.0.tgz#fc8d18c9be36b19d2ef4a240f0bf267d03bd19be"
   integrity sha512-CRIOXnKRg3187naP6GRraD6SixXV0ZheBuYFthkIKHmGIPzFx1lX11hmBctmxZFt10vO+4HFRUTNkkgwsM4HPA==
