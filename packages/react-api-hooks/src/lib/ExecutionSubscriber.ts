@@ -4,6 +4,7 @@ import LRUCache from "lru-cache";
 import { FunctionType, Resolved } from "./types";
 import { acquireLock } from "./lock";
 import { assertInMap } from "./assertInMap";
+import debug from "../debug";
 
 const voidFunction = (): void => {};
 
@@ -94,6 +95,15 @@ export class ExecutionSubscriber {
     }
 
     public refreshCache<TFunc extends FunctionType>(func: TFunc, ...params: Parameters<TFunc>): void {
+        return this.refreshCacheWithOptions(func, params);
+    }
+
+    public refreshCacheWithOptions<TFunc extends FunctionType>(
+        func: TFunc,
+        params: Parameters<TFunc>,
+        executionOptions?: ExecutionOptions,
+    ): void {
+        debug("Refreshing cache");
         const lock = this.getLock(func);
         const [paramsHash, cache] = this.getCache(func, params);
         cache.del(paramsHash);
@@ -101,7 +111,7 @@ export class ExecutionSubscriber {
         const runLocked = async (): Promise<void> => {
             const releaseLock = await acquireLock(paramsHash, lock);
             try {
-                await this.executeAndNotify(func, params);
+                await this.executeAndNotify(func, params, executionOptions);
             } finally {
                 releaseLock();
             }
@@ -113,11 +123,14 @@ export class ExecutionSubscriber {
     public refreshCacheByTag(tag: string): void {
         const cacheEntriesOfTags = this.cacheTags.get(tag);
         if (!cacheEntriesOfTags) {
+            debug("Refreshing cache with tag %s: NOT FOUND", tag);
             return;
         }
 
+        debug("Refreshing cache with tag %s: %d entries found", tag, cacheEntriesOfTags.length);
+
         cacheEntriesOfTags.forEach(({ func, params }) => {
-            this.refreshCache(func, ...params);
+            this.refreshCacheWithOptions(func, params, { cacheTags: [tag] });
         });
 
         this.cacheTags.delete(tag);
@@ -206,9 +219,9 @@ export class ExecutionSubscriber {
         }
 
         const onSuccess = (result: ResolvedFunctionResult<TFunc>): void => {
-            cache.set(paramsHash, result, options.maxAge);
-
             const tags = options.cacheTags ?? [];
+            debug("Updating cache (hash: %s, tags: %s)", paramsHash, tags);
+            cache.set(paramsHash, result, options.maxAge);
 
             [...tags, CacheTags.ALL].forEach((t) => {
                 const cacheEntriesOfTag = this.cacheTags.get(t) ?? [];

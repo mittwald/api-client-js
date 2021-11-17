@@ -87,6 +87,15 @@ test("reload after cache refresh with tag: 'loading => ok' => 'loading => ok'", 
     await expectViews("ok", "loading", "ok");
 });
 
+test("reload after subsequent cache refreshes", async () => {
+    renderView();
+    await expectViews("loading", "ok");
+    refreshCacheByUrl("/test");
+    await expectViews("ok", "loading", "ok");
+    refreshCacheByUrl("/test");
+    await expectViews("ok", "loading", "ok");
+});
+
 test("reload after cache refresh with ALL-tag: 'loading => ok' => 'loading => ok'", async () => {
     renderView();
     await expectViews("loading", "ok");

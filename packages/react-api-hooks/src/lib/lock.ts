@@ -1,4 +1,5 @@
 import AsyncLock from "async-lock";
+import debug from "../debug";
 
 /**
  * Acquires a lock and returns a function for releasing the lock.
@@ -19,7 +20,9 @@ import AsyncLock from "async-lock";
  */
 export const acquireLock = (key: string, lock: AsyncLock): Promise<() => void> =>
     new Promise((res, rej) => {
+        debug("Acquiring lock %s", key);
         lock.acquire(key, (done) => {
+            debug("Lock acquired %s", key);
             res(done);
         }).catch(rej);
     });
