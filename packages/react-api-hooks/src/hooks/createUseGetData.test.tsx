@@ -19,15 +19,18 @@ const requestFn = jest.fn<ReturnType<RequestFunction>, Parameters<RequestFunctio
 const useGetData = createUseGetData({ operationId: "test", path: "/test", method: "get" }, () => requestFn);
 
 const request = { request: "anything" };
+const altRequest = { request: "something" };
 
 let hookCalls = 0;
 
 interface TestComponentProps {
     cacheMaxAge?: number;
+    altRequest?: boolean;
 }
 
 const TestComponent: FC<TestComponentProps> = (props) => {
-    const response = useGetData(request, { cacheMaxAge: props.cacheMaxAge });
+    const { altRequest: doAltRequest, cacheMaxAge } = props;
+    const response = useGetData(doAltRequest ? altRequest : request, { cacheMaxAge: cacheMaxAge });
     useEffect(() => {
         hookCalls++;
     }, [response]);
@@ -77,6 +80,13 @@ test("reload after cache refresh: 'loading => ok' => 'loading => ok'", async () 
     renderView();
     await expectViews("loading", "ok");
     executionSubscriber.refreshCache(requestFn, request);
+    await expectViews("ok", "loading", "ok");
+});
+
+test("reload after request change: 'loading => ok' => 'loading => ok'", async () => {
+    renderView();
+    await expectViews("loading", "ok");
+    renderResult.rerender(<TestComponent altRequest />);
     await expectViews("ok", "loading", "ok");
 });
 

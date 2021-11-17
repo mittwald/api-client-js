@@ -74,6 +74,7 @@ export const createUseGetData = <T extends RequestFunction>(operation: Operation
     const { disableCache = false, cacheMaxAge } = options ?? {};
 
     const requestFn = getRequestFn();
+    const requestParamsHash = JSON.stringify(requestParams);
 
     // The rules of hooks do not allow conditional calling, but you can use `null` as request to short-circuit executing the request
     const [shortCircuitExecution, setShortCircuitExecution] = useState(requestParams === null);
@@ -177,7 +178,7 @@ export const createUseGetData = <T extends RequestFunction>(operation: Operation
             funcParams,
             { maxAge: cacheMaxAge, cacheTags: ["/" + setPathParams(operation.path, requestParams?.path)] },
         );
-    }, [shortCircuitExecution, autoRefreshRequestTime]);
+    }, [shortCircuitExecution, autoRefreshRequestTime, requestParamsHash]);
 
     return useMemo(
         () => ({
