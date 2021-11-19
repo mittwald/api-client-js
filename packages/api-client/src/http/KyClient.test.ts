@@ -15,6 +15,7 @@ describe("KyClient", () => {
                 id: ["2", "3"],
             },
         });
+        //https://jsonplaceholder.typicode.com/todos?id=2&id=3
         return expect(response.content).toMatchObject([
             {
                 completed: false,
@@ -31,6 +32,7 @@ describe("KyClient", () => {
         ]);
     });
 
+    //https://jsonplaceholder.typicode.com/todos?id=2
     test("query array param with single id", async () => {
         const client = new KyClient();
 
@@ -73,6 +75,7 @@ describe("KyClient", () => {
             },
         });
 
+        //https://jsonplaceholder.typicode.com/todos/2
         return expect(response.content).toMatchObject(
             {
                 completed: false,
