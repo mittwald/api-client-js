@@ -14,9 +14,13 @@ export const convertQueryToUrlSerachParams = (query?: any): URLSearchParams => {
     const params = new URLSearchParams();
     for (const key of Object.keys(query)) {
         if (typeof query[key] === "object") {
-            //TODO: Possible bug: When array has one item, gateway may transform it into string. Has to be checked after deploy (test works). Just duplicate the entry? KEKW
             for (const value of query[key]) {
                 params.append(key, value);
+
+                if (query[key].length == 1) {
+                    //There is a bug in express in grpc gateway. When an array only have one value, we would convert it into string. So just duplicate them. :shrug:
+                    params.append(key, value);
+                }
             }
         } else {
             params.append(key, query[key]);
