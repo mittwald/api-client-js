@@ -1,4 +1,4 @@
-import { URLSearchParams } from 'url';
+import { URLSearchParams } from "url";
 
 /**
  * Our wonderfull client is generates from a list of query params a comma seperated list and will crash the api gateway.
@@ -23,4 +23,4 @@ export const convertQueryToUrlSerachParams = (query?: any): URLSearchParams => {
         }
     }
     return params;
-}
+};

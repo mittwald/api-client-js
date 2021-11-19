@@ -97,15 +97,13 @@ describe("GotClient", () => {
             },
         });
 
-        return expect(response.content).toMatchObject(
-            [
-                {
-                    completed: false,
-                    id: 2,
-                    title: "quis ut nam facilis et officia qui",
-                    userId: 1,
-                },
-            ],
-        );
+        return expect(response.content).toMatchObject([
+            {
+                completed: false,
+                id: 2,
+                title: "quis ut nam facilis et officia qui",
+                userId: 1,
+            },
+        ]);
     });
 });

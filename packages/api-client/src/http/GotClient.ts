@@ -3,7 +3,7 @@ import debug from "../debug";
 import got, { Got, Method, RequestError, Response, Options } from "got";
 import { Headers, OperationDescriptor } from "../OperationDescriptor";
 import { setPathParams } from "./path";
-import {convertQueryToUrlSerachParams} from "./request";
+import { convertQueryToUrlSerachParams } from "./request";
 
 const d = debug.extend("GotHTTPClient");
 

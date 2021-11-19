@@ -48,16 +48,14 @@ describe("KyClient", () => {
             },
         });
 
-        return expect(response.content).toMatchObject(
-            [
-                {
-                    completed: false,
-                    id: 2,
-                    title: "quis ut nam facilis et officia qui",
-                    userId: 1,
-                },
-            ],
-        );
+        return expect(response.content).toMatchObject([
+            {
+                completed: false,
+                id: 2,
+                title: "quis ut nam facilis et officia qui",
+                userId: 1,
+            },
+        ]);
     });
 
     test("path param with single id", async () => {
@@ -76,13 +74,11 @@ describe("KyClient", () => {
         });
 
         //https://jsonplaceholder.typicode.com/todos/2
-        return expect(response.content).toMatchObject(
-            {
-                completed: false,
-                id: 2,
-                title: "quis ut nam facilis et officia qui",
-                userId: 1,
-            }
-        );
+        return expect(response.content).toMatchObject({
+            completed: false,
+            id: 2,
+            title: "quis ut nam facilis et officia qui",
+            userId: 1,
+        });
     });
 });

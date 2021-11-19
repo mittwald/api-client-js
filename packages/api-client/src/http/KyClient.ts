@@ -7,7 +7,7 @@ import { mapHeaders } from "./headers";
 import { setPathParams } from "./path";
 import { mapResponse } from "./response";
 import { patchedFetchForSafari } from "./safari";
-import {convertQueryToUrlSerachParams} from "./request";
+import { convertQueryToUrlSerachParams } from "./request";
 
 const d = debug.extend("KyHTTPClient");
 
