@@ -1,7 +1,7 @@
 import { URLSearchParams } from "url";
 
 /**
- * Our wonderfull client is generates from a list of query params a comma seperated list and will crash the api gateway.
+ * Our wonderfull client will generate from a list of query params a comma seperated list and will crash the api gateway.
  * We have to transform the query to URLSearchParams to prevent this issue.
  *
  * This stuff fixes the ky url from this:
