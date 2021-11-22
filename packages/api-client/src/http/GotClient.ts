@@ -3,7 +3,7 @@ import debug from "../debug";
 import got, { Got, Method, RequestError, Response, Options } from "got";
 import { Headers, OperationDescriptor } from "../OperationDescriptor";
 import { setPathParams } from "./path";
-import { convertQueryToUrlSerachParams } from "./request";
+import { convertQueryToUrlSearchParams } from "./request";
 
 const d = debug.extend("GotHTTPClient");
 
@@ -35,7 +35,7 @@ export class GotClient implements Client.Client {
             const response = await this.instance(resolvedPath, {
                 method: method as Method,
                 json: request.requestBody,
-                searchParams: request.query ? convertQueryToUrlSerachParams(request.query) : undefined,
+                searchParams: convertQueryToUrlSearchParams(request.query),
                 headers: request.header,
             });
 
