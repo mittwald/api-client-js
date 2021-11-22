@@ -7,7 +7,7 @@ import { mapHeaders } from "./headers";
 import { setPathParams } from "./path";
 import { mapResponse } from "./response";
 import { patchedFetchForSafari } from "./safari";
-import { convertQueryToUrlSerachParams } from "./request";
+import { convertQueryToUrlSearchParams } from "./request";
 
 const d = debug.extend("KyHTTPClient");
 
@@ -63,7 +63,7 @@ export class KyClient implements Client {
                     ...options.defaultHeaders,
                     ...mapHeaders(header),
                 },
-                searchParams: query ? convertQueryToUrlSerachParams(query) : undefined,
+                searchParams: convertQueryToUrlSearchParams(query),
             };
 
             if (requestBody) {
