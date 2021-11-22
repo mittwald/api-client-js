@@ -7,6 +7,7 @@ import { mapHeaders } from "./headers";
 import { setPathParams } from "./path";
 import { mapResponse } from "./response";
 import { patchedFetchForSafari } from "./safari";
+import { convertQueryToUrlSerachParams } from "./request";
 
 const d = debug.extend("KyHTTPClient");
 
@@ -52,7 +53,6 @@ export class KyClient implements Client {
         const { header, requestBody, path: pathParams, query } = request;
 
         d("requestBody: %o", requestBody);
-
         // make a shallow copy
         const options = this.options.requestOptionsHook({ ...this.options });
 
@@ -63,13 +63,12 @@ export class KyClient implements Client {
                     ...options.defaultHeaders,
                     ...mapHeaders(header),
                 },
-                searchParams: query,
+                searchParams: query ? convertQueryToUrlSerachParams(query) : undefined,
             };
 
             if (requestBody) {
                 requestOptions.json = requestBody;
             }
-
             d("setting path params");
             const resolvedPath = setPathParams(path, pathParams);
             d("starting %o request to %o", method.toUpperCase(), resolvedPath);
