@@ -56,7 +56,7 @@
     "typescript": "^4.1.3"
   },
   "dependencies": {
-    "@mittwald/awesome-node-utils": "^2.36.0",
+    "@mittwald/awesome-node-utils": "^2.36.3",
     "@types/parse-path": "^4.0.0",
     "debug": "^4.1.1",
     "got": "^11.8.2",
