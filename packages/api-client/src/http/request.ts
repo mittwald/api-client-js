@@ -1,5 +1,3 @@
-import { URLSearchParams } from "url";
-
 /**
  * Creates URLSearchParams while converting array values into new params
  */
