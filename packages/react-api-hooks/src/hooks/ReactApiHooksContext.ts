@@ -1,4 +1,6 @@
-export type OnUnexpectedHookErrorCallback = (error: Error) => void;
+import { OperationDescriptor } from "@mittwald/api-client/dist/OperationDescriptor";
+
+export type OnUnexpectedHookErrorCallback = (error: Error, operation: OperationDescriptor) => void;
 export type UnregisterCallback = () => void;
 
 export class ReactApiHooksContext {
@@ -21,7 +23,7 @@ export class ReactApiHooksContext {
         };
     }
 
-    public handleUnexpectedError(error: Error): void {
-        this.onErrorCallbacks.forEach((cb) => cb(error));
+    public handleUnexpectedError(error: Error, operation: OperationDescriptor): void {
+        this.onErrorCallbacks.forEach((cb) => cb(error, operation));
     }
 }

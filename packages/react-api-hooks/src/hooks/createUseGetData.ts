@@ -105,7 +105,7 @@ export const createUseGetData = <T extends RequestFunction>(operation: Operation
         if (error.name === "TimeoutError") {
             setState("timeout");
         } else {
-            ReactApiHooksContext.instance.handleUnexpectedError(error);
+            ReactApiHooksContext.instance.handleUnexpectedError(error, operation);
             setState("unexpectedError");
         }
         setResult(undefined);
