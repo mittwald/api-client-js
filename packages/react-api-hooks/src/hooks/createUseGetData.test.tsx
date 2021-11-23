@@ -5,6 +5,7 @@ import { render, RenderResult, waitFor } from "@testing-library/react";
 import { sleep } from "../lib/timeout";
 import { executionSubscriber } from "../lib/ExecutionSubscriber";
 import refreshCache, { refreshCacheByUrl } from "../lib/refreshCache";
+import { ReactApiHooksContext } from "./ReactApiHooksContext";
 
 window.MutationObserver = require("mutation-observer");
 
@@ -150,6 +151,26 @@ test("requestFunc throws internally", async () => {
 
     renderView();
     await expectViews("loading", "unexpectedError");
+});
+
+test("error-handler will be called on unexpected errors", async () => {
+    const onError = jest.fn();
+    const unregister = ReactApiHooksContext.instance.onUnexpectedError(onError);
+
+    requestFn.mockImplementationOnce(() => {
+        throw new Error("wuaaa");
+    });
+
+    renderView();
+    await expectViews("loading", "unexpectedError");
+    expect(onError.mock.calls).toMatchInlineSnapshot(`
+        Array [
+          Array [
+            [Error: wuaaa],
+          ],
+        ]
+    `);
+    unregister();
 });
 
 test("hooks with response as dependency are not re-called, when response is cached", async () => {
