@@ -5,6 +5,7 @@ import { useIsOnline } from "./useIsOnline";
 import { useSafeState } from "./useSafeState";
 import { executionSubscriber, OnResultCallback, ResolvedFunctionResult } from "../lib/ExecutionSubscriber";
 import { setPathParams } from "@mittwald/api-client/dist/http/path";
+import { ReactApiHooksContext } from "./ReactApiHooksContext";
 
 interface BaseResult {
     refreshCache: () => void;
@@ -98,12 +99,13 @@ export const createUseGetData = <T extends RequestFunction>(operation: Operation
         setState(getStateFromResult(result));
     };
 
-    const onError = (error?: Error): void => {
+    const onError = (error: Error): void => {
         // This happens if the request function throws internally. Regular HTTP errors will show up
         // with the HTTP error status code in the onResult function!
-        if (error?.name === "TimeoutError") {
+        if (error.name === "TimeoutError") {
             setState("timeout");
         } else {
+            ReactApiHooksContext.instance.handleUnexpectedError(error);
             setState("unexpectedError");
         }
         setResult(undefined);
