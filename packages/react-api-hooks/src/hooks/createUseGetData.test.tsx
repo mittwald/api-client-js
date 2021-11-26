@@ -167,6 +167,11 @@ test("error-handler will be called on unexpected errors", async () => {
         Array [
           Array [
             [Error: wuaaa],
+            Object {
+              "method": "get",
+              "operationId": "test",
+              "path": "/test",
+            },
           ],
         ]
     `);
