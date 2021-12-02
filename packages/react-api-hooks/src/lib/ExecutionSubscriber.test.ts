@@ -1,4 +1,11 @@
-import { ExecutionEvents, ExecutionSubscriber, OnErrorCallback, OnExecutingCallback, OnResultCallback } from "./ExecutionSubscriber";
+import {
+    ExecutionEvents,
+    ExecutionOptions,
+    ExecutionSubscriber,
+    OnErrorCallback,
+    OnExecutingCallback,
+    OnResultCallback,
+} from "./ExecutionSubscriber";
 import Mock = jest.Mock;
 import { sleep } from "./timeout";
 import { mockFunc } from "./mockFunc";
@@ -41,16 +48,17 @@ describe("ExecutionSubscriber", (): void => {
             onExecuting: OnExecutingCallback = mockFunc<OnExecutingCallback>(),
             onError: OnErrorCallback = mockFunc<OnErrorCallback>(),
             foo = "Foo",
+            options: ExecutionOptions = {},
         ): Promise<ExecutionEvents<MockFunc> & { unsubscribe: Function }> => {
-            const unsubscribe = executionSubscriber.subscribe(
+            const unsubscribe = executionSubscriber.subscribeWithOptions(
                 func,
                 {
                     onResult,
                     onExecuting,
                     onError,
                 },
-                foo,
-                42,
+                [foo, 42],
+                options,
             );
 
             await wait();
@@ -124,6 +132,38 @@ describe("ExecutionSubscriber", (): void => {
         test("executes function and calls onResult callback again, if cached value is removed", async () => {
             const { onResult } = await callSubscribe();
             executionSubscriber.refreshCache(func, "Foo", 42);
+            await wait();
+            expect(onResult).toBeCalledTimes(2);
+            expect(func).toBeCalledTimes(2);
+        });
+
+        test("executes function and calls onResult callback again, if cached value is removed by tag", async () => {
+            const { onResult } = await callSubscribe(
+                mockFunc<OnResultCallback<MockFunc>>(),
+                mockFunc<OnExecutingCallback>(),
+                mockFunc<OnErrorCallback>(),
+                "Foo",
+                {
+                    cacheTags: ["foo-tag"],
+                },
+            );
+            executionSubscriber.refreshCacheByTag("foo-tag");
+            await wait();
+            expect(onResult).toBeCalledTimes(2);
+            expect(func).toBeCalledTimes(2);
+        });
+
+        test("executes function and calls onResult callback again, if cached value is removed by tag with glob", async () => {
+            const { onResult } = await callSubscribe(
+                mockFunc<OnResultCallback<MockFunc>>(),
+                mockFunc<OnExecutingCallback>(),
+                mockFunc<OnErrorCallback>(),
+                "Foo",
+                {
+                    cacheTags: ["foo-tag/bar-part"],
+                },
+            );
+            executionSubscriber.refreshCacheByTag("foo-tag/*");
             await wait();
             expect(onResult).toBeCalledTimes(2);
             expect(func).toBeCalledTimes(2);

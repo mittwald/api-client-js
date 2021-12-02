@@ -5,6 +5,8 @@ import { FunctionType, Resolved } from "./types";
 import { acquireLock } from "./lock";
 import { assertInMap } from "./assertInMap";
 import debug from "../debug";
+import isGlob from "is-glob";
+import micromatch from "micromatch";
 
 const voidFunction = (): void => {};
 
@@ -121,6 +123,20 @@ export class ExecutionSubscriber {
     }
 
     public refreshCacheByTag(tag: string): void {
+        const tagIsGlob = isGlob(tag);
+
+        if (tagIsGlob) {
+            debug("Refreshing cache with glob pattern %s", tag);
+            const availableTags = Array.from(this.cacheTags.keys());
+            micromatch(availableTags, tag).forEach((matchedTag) => this.refreshCacheBySpecificTag(matchedTag));
+        } else {
+            this.refreshCacheBySpecificTag(tag);
+        }
+
+        return;
+    }
+
+    private refreshCacheBySpecificTag(tag: string): void {
         const cacheEntriesOfTags = this.cacheTags.get(tag);
         if (!cacheEntriesOfTags) {
             debug("Refreshing cache with tag %s: NOT FOUND", tag);
