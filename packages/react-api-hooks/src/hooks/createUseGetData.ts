@@ -19,7 +19,16 @@ export type Response<T> = T extends { status: 200; content: infer TContent; medi
     : never;
 
 export type GetDataHookNoDataResult<T extends RequestFunction> = BaseResult & {
-    state: "unexpectedError" | "notFound" | "noAccess" | "unauthorized" | "loading" | "timeout" | "clientError" | "serverError";
+    state:
+        | "unexpectedError"
+        | "notFound"
+        | "noAccess"
+        | "unauthorized"
+        | "loading"
+        | "timeout"
+        | "clientError"
+        | "serverError"
+        | "networkError";
 } & Partial<Response<ResolvedFunctionResult<T>>>;
 
 export type GetDataHookDataResult<T extends RequestFunction> = BaseResult & {
@@ -104,6 +113,8 @@ export const createUseGetData = <T extends RequestFunction>(operation: Operation
         // with the HTTP error status code in the onResult function!
         if (error.name === "TimeoutError") {
             setState("timeout");
+        } else if (error.name === "NetworkError") {
+            setState("networkError");
         } else {
             ReactApiHooksContext.instance.handleUnexpectedError(error, operation);
             setState("unexpectedError");
