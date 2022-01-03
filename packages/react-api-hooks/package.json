@@ -102,6 +102,6 @@
     "react-dom": "16.13.1"
   },
   "files": [
-    "dist"
+    "dist/**/*.{js,d.ts}"
   ]
 }
