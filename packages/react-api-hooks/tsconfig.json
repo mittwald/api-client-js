@@ -3,18 +3,13 @@
     "outDir": "./dist",
     "esModuleInterop": true,
     "declaration": true,
-    "sourceMap": true,
     "noImplicitAny": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "target": "ES2019",
-    "lib": [
-      "dom",
-      "es2019",
-      "es2016"
-    ],
+    "lib": ["dom", "es2019", "es2016"],
     "jsx": "react",
     "allowJs": true,
     "skipLibCheck": true,
@@ -27,10 +22,6 @@
     "noEmit": true,
     "module": "CommonJS"
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "src/**/*.test.ts"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["src/**/*.test.ts"]
 }
