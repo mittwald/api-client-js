@@ -6,7 +6,7 @@ import { acquireLock } from "./lock";
 import { assertInMap } from "./assertInMap";
 import debug from "../debug";
 import isGlob from "is-glob";
-import picoMatch from "picomatch";
+const picoMatch = require("picomatch-browser");
 
 const voidFunction = (): void => {};
 
