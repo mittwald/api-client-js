@@ -6,7 +6,7 @@ import { acquireLock } from "./lock";
 import { assertInMap } from "./assertInMap";
 import debug from "../debug";
 import isGlob from "is-glob";
-import micromatch from "micromatch";
+import picoMatch from "picomatch";
 
 const voidFunction = (): void => {};
 
@@ -128,7 +128,10 @@ export class ExecutionSubscriber {
         if (tagIsGlob) {
             debug("Refreshing cache with glob pattern %s", tag);
             const availableTags = Array.from(this.cacheTags.keys());
-            micromatch(availableTags, tag).forEach((matchedTag) => this.refreshCacheBySpecificTag(matchedTag));
+            const isMatch = picoMatch(tag, {
+                basename: true,
+            });
+            availableTags.filter(isMatch).forEach((matchedTag) => this.refreshCacheBySpecificTag(matchedTag));
         } else {
             this.refreshCacheBySpecificTag(tag);
         }
