@@ -3,6 +3,7 @@
     "outDir": "./dist",
     "esModuleInterop": true,
     "declaration": true,
+    "inlineSourceMap": true,
     "noImplicitAny": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
