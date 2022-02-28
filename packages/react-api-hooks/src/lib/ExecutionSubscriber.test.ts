@@ -153,6 +153,22 @@ describe("ExecutionSubscriber", (): void => {
             expect(func).toBeCalledTimes(2);
         });
 
+        test("does nothing, if cached value is removed by not found tag", async () => {
+            const { onResult } = await callSubscribe(
+                mockFunc<OnResultCallback<MockFunc>>(),
+                mockFunc<OnExecutingCallback>(),
+                mockFunc<OnErrorCallback>(),
+                "Foo",
+                {
+                    cacheTags: ["foo-tag"],
+                },
+            );
+            executionSubscriber.refreshCacheByTag("bar-tag");
+            await wait();
+            expect(onResult).toBeCalledTimes(1);
+            expect(func).toBeCalledTimes(1);
+        });
+
         test("executes function and calls onResult callback again, if cached value is removed by tag with glob", async () => {
             const { onResult } = await callSubscribe(
                 mockFunc<OnResultCallback<MockFunc>>(),

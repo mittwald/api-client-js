@@ -128,10 +128,8 @@ export class ExecutionSubscriber {
         if (tagIsGlob) {
             debug("Refreshing cache with glob pattern %s", tag);
             const availableTags = Array.from(this.cacheTags.keys());
-            const isMatch = picoMatch(tag, {
-                basename: true,
-            });
-            availableTags.filter(isMatch).forEach((matchedTag) => this.refreshCacheBySpecificTag(matchedTag));
+            const isMatch = picoMatch(tag);
+            availableTags.filter((tag) => isMatch(tag)).forEach((matchedTag) => this.refreshCacheBySpecificTag(matchedTag));
         } else {
             this.refreshCacheBySpecificTag(tag);
         }
