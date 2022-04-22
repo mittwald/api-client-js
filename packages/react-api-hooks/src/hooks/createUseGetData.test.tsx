@@ -197,7 +197,7 @@ test("hooks with response as dependency are not re-called, when response is cach
     expect(hookCalls).toBe(hooksCalledFirstRender);
 });
 
-test.only("reloads after params changed", async () => {
+test("reloads after params changed", async () => {
     const hookResult = renderHook((opts) => useGetData(opts), {
         initialProps: {
             projectId: 1,
