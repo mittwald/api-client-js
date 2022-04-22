@@ -44,6 +44,7 @@
     "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/react": "^5.3.14",
     "@testing-library/react": "^10.0.4",
+    "@testing-library/react-hooks": "^8.0.0",
     "@types/async-lock": "^1.1.2",
     "@types/debug": "^4.1.7",
     "@types/is-glob": "^4.0.2",

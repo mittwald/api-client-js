@@ -6,6 +6,7 @@ import { sleep } from "../lib/timeout";
 import { executionSubscriber } from "../lib/ExecutionSubscriber";
 import refreshCache, { refreshCacheByUrl } from "../lib/refreshCache";
 import { ReactApiHooksContext } from "./ReactApiHooksContext";
+import { renderHook } from "@testing-library/react-hooks";
 
 window.MutationObserver = require("mutation-observer");
 
@@ -194,4 +195,20 @@ test("hooks with response as dependency are not re-called, when response is cach
     const hooksCalledFirstRender = hookCalls;
     renderResult.rerender(<TestComponent />);
     expect(hookCalls).toBe(hooksCalledFirstRender);
+});
+
+test.only("reloads after params changed", async () => {
+    const hookResult = renderHook((opts) => useGetData(opts), {
+        initialProps: {
+            projectId: 1,
+        },
+    });
+
+    await hookResult.waitFor(() => hookResult.result.current.state === "ok");
+
+    hookResult.rerender({
+        projectId: 2,
+    });
+
+    expect(hookResult.result.current.state).toBe("loading");
 });

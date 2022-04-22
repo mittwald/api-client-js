@@ -102,6 +102,15 @@ export const createUseGetData = <T extends RequestFunction>(operation: Operation
 
     const [state, setState] = useSafeState<GetDataHookState>(cachedResult ? getStateFromResult(cachedResult) : "loading");
 
+    const prevRequestParamsHash = useRef(requestParamsHash);
+    const requestParamsChanged = prevRequestParamsHash.current !== requestParamsHash;
+
+    useEffect(() => {
+        prevRequestParamsHash.current = requestParamsHash;
+        setResult(undefined);
+        setState("loading");
+    }, [requestParamsChanged]);
+
     const onResult: OnResultCallback<T> = (result: ApiClientResponse) => {
         latestResultTime.current = new Date().getTime();
         setResult(result);
