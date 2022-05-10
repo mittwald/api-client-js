@@ -1,13 +1,7 @@
 import fetchMock from "fetch-mock";
-import { button } from "@storybook/addon-knobs";
 import shortid from "shortid";
-import refreshCache from "../lib/refreshCache";
 
 export const mockFetch = (response: any, id: string = shortid(), status = 200): string => {
-    button("Clear API cache", () => {
-        refreshCache();
-    });
-
     const buildResponse = (url: string): Promise<any> => {
         const requestID = shortid();
         console.info(`[${requestID}] GET ${url}`);

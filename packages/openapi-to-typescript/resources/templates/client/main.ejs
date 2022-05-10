@@ -75,10 +75,40 @@ export class <%- rootNamespace %>Client {
     private static instance: <%- rootNamespace %>Client | undefined;
 
     public static getInstance(): <%- rootNamespace %>Client {
-        if (!<%- rootNamespace %>Client.instance) {
-            throw new Error("ApiClientInstanceNotSet: API-Client-instance must be set before using hooks. Use <%- rootNamespace %>Client.setInstance().");
-        }
-        return <%- rootNamespace %>Client.instance;
+        const requireClientInstanceMethod = (methodName: string | symbol): Function => {
+            const client = <%- rootNamespace %>Client.instance as undefined | Record<string | symbol, any>;
+
+            if (!client) {
+                throw new Error(
+                    "ApiClientInstanceNotSet: API-Client-instance must be set before using hooks. Use <%- rootNamespace %>Client.setInstance().",
+                );
+            }
+
+            if (!(methodName in client)) {
+                throw new Error(`InvalidMethodCall: Could not find method ${String(methodName)} in <%- rootNamespace %>Client`);
+            }
+
+            const method = client[methodName];
+
+            if (typeof method !== "function") {
+                throw new Error(`InvalidMethodCall: ${String(methodName)} in <%- rootNamespace %>Client is not a function`);
+            }
+
+            return method;
+        };
+
+        /**
+         * Catch access to all props and return proxy method that proxies
+         * calls to the underlying client instance, while accessing the instance
+         * at call-time.
+         */
+        const lazyAccessingClientInstanceHandler: ProxyHandler<<%- rootNamespace %>Client> = {
+            get(client, prop) {
+                return (...params: any[]) => requireClientInstanceMethod(prop)(...params);
+            },
+        };
+
+        return new Proxy({} as <%- rootNamespace %>Client, lazyAccessingClientInstanceHandler);
     }
 
     public static setInstance(client: <%- rootNamespace %>Client): void {
@@ -107,18 +137,19 @@ export class <%- rootNamespace %>Client {
 * React Hooks
 * ====================================
 */
-import { createUseGetData, createRefreshCache } from "@mittwald/react-api-hooks/dist/hooks/createUseGetData";
+import { createGetApiResource } from "@mittwald/react-api-hooks/dist/createGetApiResource";
+import { createRefreshCache } from "@mittwald/react-api-hooks/dist/createRefreshCache";
 
 <% Object.entries(paths).forEach(([path, operations]) => { %>
 <% Object.entries(operations).forEach(([method, operation]) => { %>
-export const use<%- pascalCase(operationId(path, method, operation)) %> = createUseGetData(<%- operationId(path, method, operation) %>, () => <%- rootNamespace %>Client.getInstance().<%- operationId(path, method, operation) %>);
+export const use<%- pascalCase(operationId(path, method, operation)) %> = createGetApiResource(<%- operationId(path, method, operation) %>, <%- rootNamespace %>Client.getInstance().<%- operationId(path, method, operation) %>);
 <% }) %>
 <% }) %>
 
 export const <%- camelCase(rootNamespace) %>Cache = {
 <% Object.entries(paths).forEach(([path, operations]) => { %>
 <% Object.entries(operations).forEach(([method, operation]) => { %>
-  refresh<%- pascalCase(operationId(path, method, operation)) %>: createRefreshCache(() => <%- rootNamespace %>Client.getInstance().<%- operationId(path, method, operation) %>),
+  refresh<%- pascalCase(operationId(path, method, operation)) %>: createRefreshCache(<%- operationId(path, method, operation) %>),
 <% }) %>
 <% }) %>
 }

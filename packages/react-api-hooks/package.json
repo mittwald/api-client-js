@@ -32,28 +32,19 @@
     "prepublish:default": "exit",
     "base:pull": "docker pull gitlab-registry.mittwald.it/coab-0x7e7/tools/project-base",
     "base:generate": "docker run -ti --rm -v \"$(pwd):/work\" gitlab-registry.mittwald.it/coab-0x7e7/tools/project-base",
-    "base:update": "run-s base:pull base:generate",
-    "storybook": "start-storybook"
+    "base:update": "run-s base:pull base:generate"
   },
   "main": "dist/index.js",
   "devDependencies": {
+    "@mittwald/flow-lib": "^8.0.0-alpha.1",
     "@hot-loader/react-dom": "^16.12.0",
     "@mittwald/api-client": "*",
-    "@storybook/addon-docs": "^5.3.21",
-    "@storybook/addon-knobs": "^5.3.14",
-    "@storybook/preset-create-react-app": "^1.5.2",
-    "@storybook/react": "^5.3.14",
     "@testing-library/react": "^10.0.4",
     "@testing-library/react-hooks": "^8.0.0",
     "@types/async-lock": "^1.1.2",
     "@types/debug": "^4.1.7",
-    "@types/is-glob": "^4.0.2",
     "@types/jest": "^25.1.3",
-    "@types/lru-cache": "^5.1.0",
     "@types/node": "^14.0.9",
-    "@types/object-hash": "^1.3.3",
-    "@types/picomatch": "^2.3.0",
-    "@types/storybook__addon-info": "^5.2.1",
     "@types/testing-library__jest-dom": "^5.7.0",
     "@types/testing-library__react": "^10.0.1",
     "@typescript-eslint/eslint-plugin": "^4.13.0",
@@ -69,38 +60,32 @@
     "mutation-observer": "^1.0.3",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.19.1",
-    "react": "^16.13.0",
+    "react": "^18.1.0",
     "react-app-rewire-hot-loader": "^2.0.1",
     "react-app-rewire-styled-components": "^3.0.2",
     "react-app-rewired": "^2.1.5",
-    "react-dom": "^16.13.1",
+    "react-dom": "^18.1.0",
     "react-hot-loader": "^4.12.19",
     "react-scripts": "^4.0.1",
     "shortid": "^2.2.15",
     "ts-jest": "^25.2.1",
-    "typescript": "^4.1.3"
+    "typescript": "^4.6.4"
   },
   "dependencies": {
     "@types/fetch-mock": "^7.3.2",
-    "@types/react": "^16.9.23",
-    "@types/react-dom": "^16.9.5",
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.3",
     "@types/shortid": "^0.0.29",
     "@types/verror": "^1.10.3",
     "async-lock": "^1.2.4",
     "debug": "^4.3.2",
-    "is-glob": "^4.0.3",
-    "lru-cache": "^6.0.0",
-    "object-hash": "^2.0.3",
-    "picomatch-browser": "^2.2.6",
     "verror": "^1.10.0"
   },
   "peerDependencies": {
+    "@mittwald/flow-lib": ">8",
     "@mittwald/api-client": "*",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.1"
-  },
-  "resolutions": {
-    "react-dom": "16.13.1"
+    "react": "*",
+    "react-dom": "*"
   },
   "files": [
     "dist/**/*.{js,d.ts}"
