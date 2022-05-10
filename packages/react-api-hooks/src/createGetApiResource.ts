@@ -9,17 +9,19 @@ export type NullableApiResource<TDescriptor extends OperationDescriptor, TReques
     ? ApiResource<TDescriptor> | Resource<null>
     : ApiResource<TDescriptor>;
 
-export const createGetApiResource =
-    <T extends OperationDescriptor>(operationDescriptor: T, requestFn: RequestFunction<T>) =>
-    <TRequestParams extends RequestType<T> | null>(requestParams: TRequestParams): NullableApiResource<T, TRequestParams> => {
-        if (requestParams === null) {
-            return nullResource as NullableApiResource<T, TRequestParams>;
-        }
+export const createGetApiResource = <T extends OperationDescriptor>(operationDescriptor: T, requestFn: RequestFunction<T>) => <
+    TRequestParams extends RequestType<T> | null
+>(
+    requestParams: TRequestParams,
+): NullableApiResource<T, TRequestParams> => {
+    if (requestParams === null) {
+        return nullResource as NullableApiResource<T, TRequestParams>;
+    }
 
-        return apiResourceStore.getOrSet(
-            [operationDescriptor, requestParams],
-            new ApiResource<T>(operationDescriptor, requestFn, requestParams as RequestType<T>) as NullableApiResource<T, TRequestParams>,
-        );
-    };
+    return apiResourceStore.getOrSet(
+        [operationDescriptor, requestParams],
+        new ApiResource<T>(operationDescriptor, requestFn, requestParams as RequestType<T>) as NullableApiResource<T, TRequestParams>,
+    );
+};
 
 export default createGetApiResource;

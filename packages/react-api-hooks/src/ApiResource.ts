@@ -3,7 +3,6 @@ import { OperationDescriptor, RequestFunction, RequestType } from "@mittwald/api
 import { Resource } from "@mittwald/flow-lib/dist/resources/Resource";
 import { TaggedResource } from "@mittwald/flow-lib/dist/resources/types";
 import Tags from "@mittwald/flow-lib/dist/resources/Tags";
-export type { OperationDescriptor } from "@mittwald/api-client/dist/OperationDescriptor";
 
 export type ApiResourceData<T> = T extends OperationDescriptor<any, infer TRes>
     ? Extract<TRes, { status: 200 }> extends { content: infer TContent }

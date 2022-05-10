@@ -18,3 +18,5 @@ export const mockFetch = (response: any, id: string = shortid(), status = 200): 
     fetchMock.mock(new RegExp(id), buildResponse);
     return id;
 };
+
+export default mockFetch;
