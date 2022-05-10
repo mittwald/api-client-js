@@ -2844,12 +2844,53 @@ export class TestClient {
   private static instance: TestClient | undefined;
 
   public static getInstance(): TestClient {
-    if (!TestClient.instance) {
-      throw new Error(
-        \\"ApiClientInstanceNotSet: API-Client-instance must be set before using hooks. Use TestClient.setInstance().\\"
-      );
-    }
-    return TestClient.instance;
+    const requireClientInstanceMethod = (
+      methodName: string | symbol
+    ): Function => {
+      const client = TestClient.instance as
+        | undefined
+        | Record<string | symbol, any>;
+
+      if (!client) {
+        throw new Error(
+          \\"ApiClientInstanceNotSet: API-Client-instance must be set before using hooks. Use TestClient.setInstance().\\"
+        );
+      }
+
+      if (!(methodName in client)) {
+        throw new Error(
+          \`InvalidMethodCall: Could not find method \${String(
+            methodName
+          )} in TestClient\`
+        );
+      }
+
+      const method = client[methodName];
+
+      if (typeof method !== \\"function\\") {
+        throw new Error(
+          \`InvalidMethodCall: \${String(
+            methodName
+          )} in TestClient is not a function\`
+        );
+      }
+
+      return method;
+    };
+
+    /**
+     * Catch access to all props and return proxy method that proxies
+     * calls to the underlying client instance, while accessing the instance
+     * at call-time.
+     */
+    const lazyAccessingClientInstanceHandler: ProxyHandler<TestClient> = {
+      get(client, prop) {
+        return (...params: any[]) =>
+          requireClientInstanceMethod(prop)(...params);
+      },
+    };
+
+    return new Proxy({} as TestClient, lazyAccessingClientInstanceHandler);
   }
 
   public static setInstance(client: TestClient): void {
@@ -3179,408 +3220,364 @@ export class TestClient {
  * React Hooks
  * ====================================
  */
-import {
-  createUseGetData,
-  createRefreshCache,
-} from \\"@mittwald/react-api-hooks/dist/hooks/createUseGetData\\";
+import { createGetApiResource } from \\"@mittwald/react-api-hooks/dist/createGetApiResource\\";
+import { createRefreshCache } from \\"@mittwald/react-api-hooks/dist/createRefreshCache\\";
 
-export const useFileServiceFilesGetById = createUseGetData(
+export const useFileServiceFilesGetById = createGetApiResource(
   fileServiceFilesGetById,
-  () => TestClient.getInstance().fileServiceFilesGetById
+  TestClient.getInstance().fileServiceFilesGetById
 );
 
-export const useMailsystemServiceImapclusterCreate = createUseGetData(
+export const useMailsystemServiceImapclusterCreate = createGetApiResource(
   mailsystemServiceImapclusterCreate,
-  () => TestClient.getInstance().mailsystemServiceImapclusterCreate
+  TestClient.getInstance().mailsystemServiceImapclusterCreate
 );
 
-export const useMailsystemServiceImapclusterUpdate = createUseGetData(
+export const useMailsystemServiceImapclusterUpdate = createGetApiResource(
   mailsystemServiceImapclusterUpdate,
-  () => TestClient.getInstance().mailsystemServiceImapclusterUpdate
+  TestClient.getInstance().mailsystemServiceImapclusterUpdate
 );
 
-export const useMailsystemServiceSettingCreate = createUseGetData(
+export const useMailsystemServiceSettingCreate = createGetApiResource(
   mailsystemServiceSettingCreate,
-  () => TestClient.getInstance().mailsystemServiceSettingCreate
+  TestClient.getInstance().mailsystemServiceSettingCreate
 );
 
-export const useMailsystemServiceSettingUpdate = createUseGetData(
+export const useMailsystemServiceSettingUpdate = createGetApiResource(
   mailsystemServiceSettingUpdate,
-  () => TestClient.getInstance().mailsystemServiceSettingUpdate
+  TestClient.getInstance().mailsystemServiceSettingUpdate
 );
 
-export const useSignupApiAuthenticate = createUseGetData(
+export const useSignupApiAuthenticate = createGetApiResource(
   signupApiAuthenticate,
-  () => TestClient.getInstance().signupApiAuthenticate
+  TestClient.getInstance().signupApiAuthenticate
 );
 
-export const useSignupApiAuthenticateLegacy = createUseGetData(
+export const useSignupApiAuthenticateLegacy = createGetApiResource(
   signupApiAuthenticateLegacy,
-  () => TestClient.getInstance().signupApiAuthenticateLegacy
+  TestClient.getInstance().signupApiAuthenticateLegacy
 );
 
-export const useSignupApiAuthenticateMfa = createUseGetData(
+export const useSignupApiAuthenticateMfa = createGetApiResource(
   signupApiAuthenticateMfa,
-  () => TestClient.getInstance().signupApiAuthenticateMfa
+  TestClient.getInstance().signupApiAuthenticateMfa
 );
 
-export const useSignupApiEmailResend = createUseGetData(
+export const useSignupApiEmailResend = createGetApiResource(
   signupApiEmailResend,
-  () => TestClient.getInstance().signupApiEmailResend
+  TestClient.getInstance().signupApiEmailResend
 );
 
-export const useSignupApiLogout = createUseGetData(
+export const useSignupApiLogout = createGetApiResource(
   signupApiLogout,
-  () => TestClient.getInstance().signupApiLogout
+  TestClient.getInstance().signupApiLogout
 );
 
-export const useSignupApiMfaConfirm = createUseGetData(
+export const useSignupApiMfaConfirm = createGetApiResource(
   signupApiMfaConfirm,
-  () => TestClient.getInstance().signupApiMfaConfirm
+  TestClient.getInstance().signupApiMfaConfirm
 );
 
-export const useSignupApiMfaDisable = createUseGetData(
+export const useSignupApiMfaDisable = createGetApiResource(
   signupApiMfaDisable,
-  () => TestClient.getInstance().signupApiMfaDisable
+  TestClient.getInstance().signupApiMfaDisable
 );
 
-export const useSignupApiMfaInit = createUseGetData(
+export const useSignupApiMfaInit = createGetApiResource(
   signupApiMfaInit,
-  () => TestClient.getInstance().signupApiMfaInit
+  TestClient.getInstance().signupApiMfaInit
 );
 
-export const useSignupApiPasswordChange = createUseGetData(
+export const useSignupApiPasswordChange = createGetApiResource(
   signupApiPasswordChange,
-  () => TestClient.getInstance().signupApiPasswordChange
+  TestClient.getInstance().signupApiPasswordChange
 );
 
-export const useSignupApiPasswordResetConfirm = createUseGetData(
+export const useSignupApiPasswordResetConfirm = createGetApiResource(
   signupApiPasswordResetConfirm,
-  () => TestClient.getInstance().signupApiPasswordResetConfirm
+  TestClient.getInstance().signupApiPasswordResetConfirm
 );
 
-export const useSignupApiPasswordResetInit = createUseGetData(
+export const useSignupApiPasswordResetInit = createGetApiResource(
   signupApiPasswordResetInit,
-  () => TestClient.getInstance().signupApiPasswordResetInit
+  TestClient.getInstance().signupApiPasswordResetInit
 );
 
-export const useSignupApiPhoneNumberDelete = createUseGetData(
+export const useSignupApiPhoneNumberDelete = createGetApiResource(
   signupApiPhoneNumberDelete,
-  () => TestClient.getInstance().signupApiPhoneNumberDelete
+  TestClient.getInstance().signupApiPhoneNumberDelete
 );
 
-export const useSignupApiPhoneNumberGet = createUseGetData(
+export const useSignupApiPhoneNumberGet = createGetApiResource(
   signupApiPhoneNumberGet,
-  () => TestClient.getInstance().signupApiPhoneNumberGet
+  TestClient.getInstance().signupApiPhoneNumberGet
 );
 
-export const useSignupApiPhoneNumberInitProcess = createUseGetData(
+export const useSignupApiPhoneNumberInitProcess = createGetApiResource(
   signupApiPhoneNumberInitProcess,
-  () => TestClient.getInstance().signupApiPhoneNumberInitProcess
+  TestClient.getInstance().signupApiPhoneNumberInitProcess
 );
 
-export const useSignupApiPhoneNumberVerify = createUseGetData(
+export const useSignupApiPhoneNumberVerify = createGetApiResource(
   signupApiPhoneNumberVerify,
-  () => TestClient.getInstance().signupApiPhoneNumberVerify
+  TestClient.getInstance().signupApiPhoneNumberVerify
 );
 
-export const useSignupApiProfileChange = createUseGetData(
+export const useSignupApiProfileChange = createGetApiResource(
   signupApiProfileChange,
-  () => TestClient.getInstance().signupApiProfileChange
+  TestClient.getInstance().signupApiProfileChange
 );
 
-export const useSignupApiProfileGet = createUseGetData(
+export const useSignupApiProfileGet = createGetApiResource(
   signupApiProfileGet,
-  () => TestClient.getInstance().signupApiProfileGet
+  TestClient.getInstance().signupApiProfileGet
 );
 
-export const useSignupApiRecoverycodesReset = createUseGetData(
+export const useSignupApiRecoverycodesReset = createGetApiResource(
   signupApiRecoverycodesReset,
-  () => TestClient.getInstance().signupApiRecoverycodesReset
+  TestClient.getInstance().signupApiRecoverycodesReset
 );
 
-export const useSignupApiRegister = createUseGetData(
+export const useSignupApiRegister = createGetApiResource(
   signupApiRegister,
-  () => TestClient.getInstance().signupApiRegister
+  TestClient.getInstance().signupApiRegister
 );
 
-export const useSignupApiRegistrationVerify = createUseGetData(
+export const useSignupApiRegistrationVerify = createGetApiResource(
   signupApiRegistrationVerify,
-  () => TestClient.getInstance().signupApiRegistrationVerify
+  TestClient.getInstance().signupApiRegistrationVerify
 );
 
-export const useSignupApiSessionGet = createUseGetData(
+export const useSignupApiSessionGet = createGetApiResource(
   signupApiSessionGet,
-  () => TestClient.getInstance().signupApiSessionGet
+  TestClient.getInstance().signupApiSessionGet
 );
 
-export const useSignupApiSessionsList = createUseGetData(
+export const useSignupApiSessionsList = createGetApiResource(
   signupApiSessionsList,
-  () => TestClient.getInstance().signupApiSessionsList
+  TestClient.getInstance().signupApiSessionsList
 );
 
-export const useSignupApiSshCreate = createUseGetData(
+export const useSignupApiSshCreate = createGetApiResource(
   signupApiSshCreate,
-  () => TestClient.getInstance().signupApiSshCreate
+  TestClient.getInstance().signupApiSshCreate
 );
 
-export const useSignupApiSshList = createUseGetData(
+export const useSignupApiSshList = createGetApiResource(
   signupApiSshList,
-  () => TestClient.getInstance().signupApiSshList
+  TestClient.getInstance().signupApiSshList
 );
 
-export const useSignupApiSshDelete = createUseGetData(
+export const useSignupApiSshDelete = createGetApiResource(
   signupApiSshDelete,
-  () => TestClient.getInstance().signupApiSshDelete
+  TestClient.getInstance().signupApiSshDelete
 );
 
-export const useSignupApiTokenCheck = createUseGetData(
+export const useSignupApiTokenCheck = createGetApiResource(
   signupApiTokenCheck,
-  () => TestClient.getInstance().signupApiTokenCheck
+  TestClient.getInstance().signupApiTokenCheck
 );
 
-export const useSoftwareServiceListValidators = createUseGetData(
+export const useSoftwareServiceListValidators = createGetApiResource(
   softwareServiceListValidators,
-  () => TestClient.getInstance().softwareServiceListValidators
+  TestClient.getInstance().softwareServiceListValidators
 );
 
-export const useSoftwareServiceValidate = createUseGetData(
+export const useSoftwareServiceValidate = createGetApiResource(
   softwareServiceValidate,
-  () => TestClient.getInstance().softwareServiceValidate
+  TestClient.getInstance().softwareServiceValidate
 );
 
-export const useSoftwareServiceSoftwareConfigCreate = createUseGetData(
+export const useSoftwareServiceSoftwareConfigCreate = createGetApiResource(
   softwareServiceSoftwareConfigCreate,
-  () => TestClient.getInstance().softwareServiceSoftwareConfigCreate
+  TestClient.getInstance().softwareServiceSoftwareConfigCreate
 );
 
-export const useSoftwareServiceSoftwareConfigDelete = createUseGetData(
+export const useSoftwareServiceSoftwareConfigDelete = createGetApiResource(
   softwareServiceSoftwareConfigDelete,
-  () => TestClient.getInstance().softwareServiceSoftwareConfigDelete
+  TestClient.getInstance().softwareServiceSoftwareConfigDelete
 );
 
-export const useSoftwareServiceSoftwareConfigGetById = createUseGetData(
+export const useSoftwareServiceSoftwareConfigGetById = createGetApiResource(
   softwareServiceSoftwareConfigGetById,
-  () => TestClient.getInstance().softwareServiceSoftwareConfigGetById
+  TestClient.getInstance().softwareServiceSoftwareConfigGetById
 );
 
-export const useSoftwareServiceSoftwareConfigRollback = createUseGetData(
+export const useSoftwareServiceSoftwareConfigRollback = createGetApiResource(
   softwareServiceSoftwareConfigRollback,
-  () => TestClient.getInstance().softwareServiceSoftwareConfigRollback
+  TestClient.getInstance().softwareServiceSoftwareConfigRollback
 );
 
-export const useSoftwareServiceSoftwareConfigUpdate = createUseGetData(
+export const useSoftwareServiceSoftwareConfigUpdate = createGetApiResource(
   softwareServiceSoftwareConfigUpdate,
-  () => TestClient.getInstance().softwareServiceSoftwareConfigUpdate
+  TestClient.getInstance().softwareServiceSoftwareConfigUpdate
 );
 
-export const useSoftwareServiceSoftwareConfigtemplateCreate = createUseGetData(
+export const useSoftwareServiceSoftwareConfigtemplateCreate = createGetApiResource(
   softwareServiceSoftwareConfigtemplateCreate,
-  () => TestClient.getInstance().softwareServiceSoftwareConfigtemplateCreate
+  TestClient.getInstance().softwareServiceSoftwareConfigtemplateCreate
 );
 
-export const useSoftwareServiceSoftwareConfigtemplateGetList = createUseGetData(
+export const useSoftwareServiceSoftwareConfigtemplateGetList = createGetApiResource(
   softwareServiceSoftwareConfigtemplateGetList,
-  () => TestClient.getInstance().softwareServiceSoftwareConfigtemplateGetList
+  TestClient.getInstance().softwareServiceSoftwareConfigtemplateGetList
 );
 
-export const useSoftwareServiceSoftwareConfigtemplateDelete = createUseGetData(
+export const useSoftwareServiceSoftwareConfigtemplateDelete = createGetApiResource(
   softwareServiceSoftwareConfigtemplateDelete,
-  () => TestClient.getInstance().softwareServiceSoftwareConfigtemplateDelete
+  TestClient.getInstance().softwareServiceSoftwareConfigtemplateDelete
 );
 
-export const useSoftwareServiceSoftwareConfigtemplateGetSpecific = createUseGetData(
+export const useSoftwareServiceSoftwareConfigtemplateGetSpecific = createGetApiResource(
   softwareServiceSoftwareConfigtemplateGetSpecific,
-  () =>
-    TestClient.getInstance().softwareServiceSoftwareConfigtemplateGetSpecific
+  TestClient.getInstance().softwareServiceSoftwareConfigtemplateGetSpecific
 );
 
-export const useSoftwareServiceSoftwareGetById = createUseGetData(
+export const useSoftwareServiceSoftwareGetById = createGetApiResource(
   softwareServiceSoftwareGetById,
-  () => TestClient.getInstance().softwareServiceSoftwareGetById
+  TestClient.getInstance().softwareServiceSoftwareGetById
 );
 
-export const useSoftwareServiceSoftwareSettingsDeclare = createUseGetData(
+export const useSoftwareServiceSoftwareSettingsDeclare = createGetApiResource(
   softwareServiceSoftwareSettingsDeclare,
-  () => TestClient.getInstance().softwareServiceSoftwareSettingsDeclare
+  TestClient.getInstance().softwareServiceSoftwareSettingsDeclare
 );
 
 export const testCache = {
-  refreshFileServiceFilesGetById: createRefreshCache(
-    () => TestClient.getInstance().fileServiceFilesGetById
-  ),
+  refreshFileServiceFilesGetById: createRefreshCache(fileServiceFilesGetById),
 
   refreshMailsystemServiceImapclusterCreate: createRefreshCache(
-    () => TestClient.getInstance().mailsystemServiceImapclusterCreate
+    mailsystemServiceImapclusterCreate
   ),
 
   refreshMailsystemServiceImapclusterUpdate: createRefreshCache(
-    () => TestClient.getInstance().mailsystemServiceImapclusterUpdate
+    mailsystemServiceImapclusterUpdate
   ),
 
   refreshMailsystemServiceSettingCreate: createRefreshCache(
-    () => TestClient.getInstance().mailsystemServiceSettingCreate
+    mailsystemServiceSettingCreate
   ),
 
   refreshMailsystemServiceSettingUpdate: createRefreshCache(
-    () => TestClient.getInstance().mailsystemServiceSettingUpdate
+    mailsystemServiceSettingUpdate
   ),
 
-  refreshSignupApiAuthenticate: createRefreshCache(
-    () => TestClient.getInstance().signupApiAuthenticate
-  ),
+  refreshSignupApiAuthenticate: createRefreshCache(signupApiAuthenticate),
 
   refreshSignupApiAuthenticateLegacy: createRefreshCache(
-    () => TestClient.getInstance().signupApiAuthenticateLegacy
+    signupApiAuthenticateLegacy
   ),
 
-  refreshSignupApiAuthenticateMfa: createRefreshCache(
-    () => TestClient.getInstance().signupApiAuthenticateMfa
-  ),
+  refreshSignupApiAuthenticateMfa: createRefreshCache(signupApiAuthenticateMfa),
 
-  refreshSignupApiEmailResend: createRefreshCache(
-    () => TestClient.getInstance().signupApiEmailResend
-  ),
+  refreshSignupApiEmailResend: createRefreshCache(signupApiEmailResend),
 
-  refreshSignupApiLogout: createRefreshCache(
-    () => TestClient.getInstance().signupApiLogout
-  ),
+  refreshSignupApiLogout: createRefreshCache(signupApiLogout),
 
-  refreshSignupApiMfaConfirm: createRefreshCache(
-    () => TestClient.getInstance().signupApiMfaConfirm
-  ),
+  refreshSignupApiMfaConfirm: createRefreshCache(signupApiMfaConfirm),
 
-  refreshSignupApiMfaDisable: createRefreshCache(
-    () => TestClient.getInstance().signupApiMfaDisable
-  ),
+  refreshSignupApiMfaDisable: createRefreshCache(signupApiMfaDisable),
 
-  refreshSignupApiMfaInit: createRefreshCache(
-    () => TestClient.getInstance().signupApiMfaInit
-  ),
+  refreshSignupApiMfaInit: createRefreshCache(signupApiMfaInit),
 
-  refreshSignupApiPasswordChange: createRefreshCache(
-    () => TestClient.getInstance().signupApiPasswordChange
-  ),
+  refreshSignupApiPasswordChange: createRefreshCache(signupApiPasswordChange),
 
   refreshSignupApiPasswordResetConfirm: createRefreshCache(
-    () => TestClient.getInstance().signupApiPasswordResetConfirm
+    signupApiPasswordResetConfirm
   ),
 
   refreshSignupApiPasswordResetInit: createRefreshCache(
-    () => TestClient.getInstance().signupApiPasswordResetInit
+    signupApiPasswordResetInit
   ),
 
   refreshSignupApiPhoneNumberDelete: createRefreshCache(
-    () => TestClient.getInstance().signupApiPhoneNumberDelete
+    signupApiPhoneNumberDelete
   ),
 
-  refreshSignupApiPhoneNumberGet: createRefreshCache(
-    () => TestClient.getInstance().signupApiPhoneNumberGet
-  ),
+  refreshSignupApiPhoneNumberGet: createRefreshCache(signupApiPhoneNumberGet),
 
   refreshSignupApiPhoneNumberInitProcess: createRefreshCache(
-    () => TestClient.getInstance().signupApiPhoneNumberInitProcess
+    signupApiPhoneNumberInitProcess
   ),
 
   refreshSignupApiPhoneNumberVerify: createRefreshCache(
-    () => TestClient.getInstance().signupApiPhoneNumberVerify
+    signupApiPhoneNumberVerify
   ),
 
-  refreshSignupApiProfileChange: createRefreshCache(
-    () => TestClient.getInstance().signupApiProfileChange
-  ),
+  refreshSignupApiProfileChange: createRefreshCache(signupApiProfileChange),
 
-  refreshSignupApiProfileGet: createRefreshCache(
-    () => TestClient.getInstance().signupApiProfileGet
-  ),
+  refreshSignupApiProfileGet: createRefreshCache(signupApiProfileGet),
 
   refreshSignupApiRecoverycodesReset: createRefreshCache(
-    () => TestClient.getInstance().signupApiRecoverycodesReset
+    signupApiRecoverycodesReset
   ),
 
-  refreshSignupApiRegister: createRefreshCache(
-    () => TestClient.getInstance().signupApiRegister
-  ),
+  refreshSignupApiRegister: createRefreshCache(signupApiRegister),
 
   refreshSignupApiRegistrationVerify: createRefreshCache(
-    () => TestClient.getInstance().signupApiRegistrationVerify
+    signupApiRegistrationVerify
   ),
 
-  refreshSignupApiSessionGet: createRefreshCache(
-    () => TestClient.getInstance().signupApiSessionGet
-  ),
+  refreshSignupApiSessionGet: createRefreshCache(signupApiSessionGet),
 
-  refreshSignupApiSessionsList: createRefreshCache(
-    () => TestClient.getInstance().signupApiSessionsList
-  ),
+  refreshSignupApiSessionsList: createRefreshCache(signupApiSessionsList),
 
-  refreshSignupApiSshCreate: createRefreshCache(
-    () => TestClient.getInstance().signupApiSshCreate
-  ),
+  refreshSignupApiSshCreate: createRefreshCache(signupApiSshCreate),
 
-  refreshSignupApiSshList: createRefreshCache(
-    () => TestClient.getInstance().signupApiSshList
-  ),
+  refreshSignupApiSshList: createRefreshCache(signupApiSshList),
 
-  refreshSignupApiSshDelete: createRefreshCache(
-    () => TestClient.getInstance().signupApiSshDelete
-  ),
+  refreshSignupApiSshDelete: createRefreshCache(signupApiSshDelete),
 
-  refreshSignupApiTokenCheck: createRefreshCache(
-    () => TestClient.getInstance().signupApiTokenCheck
-  ),
+  refreshSignupApiTokenCheck: createRefreshCache(signupApiTokenCheck),
 
   refreshSoftwareServiceListValidators: createRefreshCache(
-    () => TestClient.getInstance().softwareServiceListValidators
+    softwareServiceListValidators
   ),
 
-  refreshSoftwareServiceValidate: createRefreshCache(
-    () => TestClient.getInstance().softwareServiceValidate
-  ),
+  refreshSoftwareServiceValidate: createRefreshCache(softwareServiceValidate),
 
   refreshSoftwareServiceSoftwareConfigCreate: createRefreshCache(
-    () => TestClient.getInstance().softwareServiceSoftwareConfigCreate
+    softwareServiceSoftwareConfigCreate
   ),
 
   refreshSoftwareServiceSoftwareConfigDelete: createRefreshCache(
-    () => TestClient.getInstance().softwareServiceSoftwareConfigDelete
+    softwareServiceSoftwareConfigDelete
   ),
 
   refreshSoftwareServiceSoftwareConfigGetById: createRefreshCache(
-    () => TestClient.getInstance().softwareServiceSoftwareConfigGetById
+    softwareServiceSoftwareConfigGetById
   ),
 
   refreshSoftwareServiceSoftwareConfigRollback: createRefreshCache(
-    () => TestClient.getInstance().softwareServiceSoftwareConfigRollback
+    softwareServiceSoftwareConfigRollback
   ),
 
   refreshSoftwareServiceSoftwareConfigUpdate: createRefreshCache(
-    () => TestClient.getInstance().softwareServiceSoftwareConfigUpdate
+    softwareServiceSoftwareConfigUpdate
   ),
 
   refreshSoftwareServiceSoftwareConfigtemplateCreate: createRefreshCache(
-    () => TestClient.getInstance().softwareServiceSoftwareConfigtemplateCreate
+    softwareServiceSoftwareConfigtemplateCreate
   ),
 
   refreshSoftwareServiceSoftwareConfigtemplateGetList: createRefreshCache(
-    () => TestClient.getInstance().softwareServiceSoftwareConfigtemplateGetList
+    softwareServiceSoftwareConfigtemplateGetList
   ),
 
   refreshSoftwareServiceSoftwareConfigtemplateDelete: createRefreshCache(
-    () => TestClient.getInstance().softwareServiceSoftwareConfigtemplateDelete
+    softwareServiceSoftwareConfigtemplateDelete
   ),
 
   refreshSoftwareServiceSoftwareConfigtemplateGetSpecific: createRefreshCache(
-    () =>
-      TestClient.getInstance().softwareServiceSoftwareConfigtemplateGetSpecific
+    softwareServiceSoftwareConfigtemplateGetSpecific
   ),
 
   refreshSoftwareServiceSoftwareGetById: createRefreshCache(
-    () => TestClient.getInstance().softwareServiceSoftwareGetById
+    softwareServiceSoftwareGetById
   ),
 
   refreshSoftwareServiceSoftwareSettingsDeclare: createRefreshCache(
-    () => TestClient.getInstance().softwareServiceSoftwareSettingsDeclare
+    softwareServiceSoftwareSettingsDeclare
   ),
 };
 "
@@ -4739,12 +4736,53 @@ export class TestClient {
   private static instance: TestClient | undefined;
 
   public static getInstance(): TestClient {
-    if (!TestClient.instance) {
-      throw new Error(
-        \\"ApiClientInstanceNotSet: API-Client-instance must be set before using hooks. Use TestClient.setInstance().\\"
-      );
-    }
-    return TestClient.instance;
+    const requireClientInstanceMethod = (
+      methodName: string | symbol
+    ): Function => {
+      const client = TestClient.instance as
+        | undefined
+        | Record<string | symbol, any>;
+
+      if (!client) {
+        throw new Error(
+          \\"ApiClientInstanceNotSet: API-Client-instance must be set before using hooks. Use TestClient.setInstance().\\"
+        );
+      }
+
+      if (!(methodName in client)) {
+        throw new Error(
+          \`InvalidMethodCall: Could not find method \${String(
+            methodName
+          )} in TestClient\`
+        );
+      }
+
+      const method = client[methodName];
+
+      if (typeof method !== \\"function\\") {
+        throw new Error(
+          \`InvalidMethodCall: \${String(
+            methodName
+          )} in TestClient is not a function\`
+        );
+      }
+
+      return method;
+    };
+
+    /**
+     * Catch access to all props and return proxy method that proxies
+     * calls to the underlying client instance, while accessing the instance
+     * at call-time.
+     */
+    const lazyAccessingClientInstanceHandler: ProxyHandler<TestClient> = {
+      get(client, prop) {
+        return (...params: any[]) =>
+          requireClientInstanceMethod(prop)(...params);
+      },
+    };
+
+    return new Proxy({} as TestClient, lazyAccessingClientInstanceHandler);
   }
 
   public static setInstance(client: TestClient): void {
@@ -4844,180 +4882,142 @@ export class TestClient {
  * React Hooks
  * ====================================
  */
-import {
-  createUseGetData,
-  createRefreshCache,
-} from \\"@mittwald/react-api-hooks/dist/hooks/createUseGetData\\";
+import { createGetApiResource } from \\"@mittwald/react-api-hooks/dist/createGetApiResource\\";
+import { createRefreshCache } from \\"@mittwald/react-api-hooks/dist/createRefreshCache\\";
 
-export const useUpdatePet = createUseGetData(
+export const useUpdatePet = createGetApiResource(
   updatePet,
-  () => TestClient.getInstance().updatePet
+  TestClient.getInstance().updatePet
 );
 
-export const useAddPet = createUseGetData(
+export const useAddPet = createGetApiResource(
   addPet,
-  () => TestClient.getInstance().addPet
+  TestClient.getInstance().addPet
 );
 
-export const useFindPetsByStatus = createUseGetData(
+export const useFindPetsByStatus = createGetApiResource(
   findPetsByStatus,
-  () => TestClient.getInstance().findPetsByStatus
+  TestClient.getInstance().findPetsByStatus
 );
 
-export const useFindPetsByTags = createUseGetData(
+export const useFindPetsByTags = createGetApiResource(
   findPetsByTags,
-  () => TestClient.getInstance().findPetsByTags
+  TestClient.getInstance().findPetsByTags
 );
 
-export const useGetPetById = createUseGetData(
+export const useGetPetById = createGetApiResource(
   getPetById,
-  () => TestClient.getInstance().getPetById
+  TestClient.getInstance().getPetById
 );
 
-export const useUpdatePetWithForm = createUseGetData(
+export const useUpdatePetWithForm = createGetApiResource(
   updatePetWithForm,
-  () => TestClient.getInstance().updatePetWithForm
+  TestClient.getInstance().updatePetWithForm
 );
 
-export const useDeletePet = createUseGetData(
+export const useDeletePet = createGetApiResource(
   deletePet,
-  () => TestClient.getInstance().deletePet
+  TestClient.getInstance().deletePet
 );
 
-export const useUploadFile = createUseGetData(
+export const useUploadFile = createGetApiResource(
   uploadFile,
-  () => TestClient.getInstance().uploadFile
+  TestClient.getInstance().uploadFile
 );
 
-export const useGetInventory = createUseGetData(
+export const useGetInventory = createGetApiResource(
   getInventory,
-  () => TestClient.getInstance().getInventory
+  TestClient.getInstance().getInventory
 );
 
-export const usePlaceOrder = createUseGetData(
+export const usePlaceOrder = createGetApiResource(
   placeOrder,
-  () => TestClient.getInstance().placeOrder
+  TestClient.getInstance().placeOrder
 );
 
-export const useGetOrderById = createUseGetData(
+export const useGetOrderById = createGetApiResource(
   getOrderById,
-  () => TestClient.getInstance().getOrderById
+  TestClient.getInstance().getOrderById
 );
 
-export const useDeleteOrder = createUseGetData(
+export const useDeleteOrder = createGetApiResource(
   deleteOrder,
-  () => TestClient.getInstance().deleteOrder
+  TestClient.getInstance().deleteOrder
 );
 
-export const useCreateUser = createUseGetData(
+export const useCreateUser = createGetApiResource(
   createUser,
-  () => TestClient.getInstance().createUser
+  TestClient.getInstance().createUser
 );
 
-export const useCreateUsersWithListInput = createUseGetData(
+export const useCreateUsersWithListInput = createGetApiResource(
   createUsersWithListInput,
-  () => TestClient.getInstance().createUsersWithListInput
+  TestClient.getInstance().createUsersWithListInput
 );
 
-export const useLoginUser = createUseGetData(
+export const useLoginUser = createGetApiResource(
   loginUser,
-  () => TestClient.getInstance().loginUser
+  TestClient.getInstance().loginUser
 );
 
-export const useLogoutUser = createUseGetData(
+export const useLogoutUser = createGetApiResource(
   logoutUser,
-  () => TestClient.getInstance().logoutUser
+  TestClient.getInstance().logoutUser
 );
 
-export const useGetUserByName = createUseGetData(
+export const useGetUserByName = createGetApiResource(
   getUserByName,
-  () => TestClient.getInstance().getUserByName
+  TestClient.getInstance().getUserByName
 );
 
-export const useUpdateUser = createUseGetData(
+export const useUpdateUser = createGetApiResource(
   updateUser,
-  () => TestClient.getInstance().updateUser
+  TestClient.getInstance().updateUser
 );
 
-export const useDeleteUser = createUseGetData(
+export const useDeleteUser = createGetApiResource(
   deleteUser,
-  () => TestClient.getInstance().deleteUser
+  TestClient.getInstance().deleteUser
 );
 
 export const testCache = {
-  refreshUpdatePet: createRefreshCache(
-    () => TestClient.getInstance().updatePet
-  ),
+  refreshUpdatePet: createRefreshCache(updatePet),
 
-  refreshAddPet: createRefreshCache(() => TestClient.getInstance().addPet),
+  refreshAddPet: createRefreshCache(addPet),
 
-  refreshFindPetsByStatus: createRefreshCache(
-    () => TestClient.getInstance().findPetsByStatus
-  ),
+  refreshFindPetsByStatus: createRefreshCache(findPetsByStatus),
 
-  refreshFindPetsByTags: createRefreshCache(
-    () => TestClient.getInstance().findPetsByTags
-  ),
+  refreshFindPetsByTags: createRefreshCache(findPetsByTags),
 
-  refreshGetPetById: createRefreshCache(
-    () => TestClient.getInstance().getPetById
-  ),
+  refreshGetPetById: createRefreshCache(getPetById),
 
-  refreshUpdatePetWithForm: createRefreshCache(
-    () => TestClient.getInstance().updatePetWithForm
-  ),
+  refreshUpdatePetWithForm: createRefreshCache(updatePetWithForm),
 
-  refreshDeletePet: createRefreshCache(
-    () => TestClient.getInstance().deletePet
-  ),
+  refreshDeletePet: createRefreshCache(deletePet),
 
-  refreshUploadFile: createRefreshCache(
-    () => TestClient.getInstance().uploadFile
-  ),
+  refreshUploadFile: createRefreshCache(uploadFile),
 
-  refreshGetInventory: createRefreshCache(
-    () => TestClient.getInstance().getInventory
-  ),
+  refreshGetInventory: createRefreshCache(getInventory),
 
-  refreshPlaceOrder: createRefreshCache(
-    () => TestClient.getInstance().placeOrder
-  ),
+  refreshPlaceOrder: createRefreshCache(placeOrder),
 
-  refreshGetOrderById: createRefreshCache(
-    () => TestClient.getInstance().getOrderById
-  ),
+  refreshGetOrderById: createRefreshCache(getOrderById),
 
-  refreshDeleteOrder: createRefreshCache(
-    () => TestClient.getInstance().deleteOrder
-  ),
+  refreshDeleteOrder: createRefreshCache(deleteOrder),
 
-  refreshCreateUser: createRefreshCache(
-    () => TestClient.getInstance().createUser
-  ),
+  refreshCreateUser: createRefreshCache(createUser),
 
-  refreshCreateUsersWithListInput: createRefreshCache(
-    () => TestClient.getInstance().createUsersWithListInput
-  ),
+  refreshCreateUsersWithListInput: createRefreshCache(createUsersWithListInput),
 
-  refreshLoginUser: createRefreshCache(
-    () => TestClient.getInstance().loginUser
-  ),
+  refreshLoginUser: createRefreshCache(loginUser),
 
-  refreshLogoutUser: createRefreshCache(
-    () => TestClient.getInstance().logoutUser
-  ),
+  refreshLogoutUser: createRefreshCache(logoutUser),
 
-  refreshGetUserByName: createRefreshCache(
-    () => TestClient.getInstance().getUserByName
-  ),
+  refreshGetUserByName: createRefreshCache(getUserByName),
 
-  refreshUpdateUser: createRefreshCache(
-    () => TestClient.getInstance().updateUser
-  ),
+  refreshUpdateUser: createRefreshCache(updateUser),
 
-  refreshDeleteUser: createRefreshCache(
-    () => TestClient.getInstance().deleteUser
-  ),
+  refreshDeleteUser: createRefreshCache(deleteUser),
 };
 "
 `;
