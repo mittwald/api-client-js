@@ -19,7 +19,7 @@ export class ApiResource<T extends OperationDescriptor> extends Resource<ApiReso
     }
 
     private buildTags(operationDescriptor: T, request: RequestType<T>): Tags {
-        const path = setPathParams(operationDescriptor.path, request.path);
+        const path = setPathParams(operationDescriptor.path, request?.path);
         return new Tags([path, operationDescriptor.operationId]);
     }
 

@@ -10,7 +10,9 @@ describe("Exporter", () => {
     ])("creates correct snapshots for '%s' example", async (name, testFile) => {
         const spec = await loadSpec(path.join(__dirname, testFile));
         const exporter = new SpecExporter(transformOpenAPIExpression.evaluate(spec));
-        expect(exporter.exportClient("Test", true)).toMatchSnapshot();
+
+        expect(exporter.exportClient("Test", { reactHooks: true })).toMatchSnapshot();
         expect(exporter.exportRequestMockingFactory("Test", "TestClient")).toMatchSnapshot();
+        expect(exporter.exportClient("Test", { optionalHeaders: ["x-access-token"] })).toMatchSnapshot();
     });
 });

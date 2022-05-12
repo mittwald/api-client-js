@@ -2060,7 +2060,9 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
                 "type": "string",
               },
             },
-            "required": Array [],
+            "required": Array [
+              "x-access-token",
+            ],
             "type": "object",
           },
           "requestBody": Object {
@@ -2148,7 +2150,9 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
                 "type": "string",
               },
             },
-            "required": Array [],
+            "required": Array [
+              "x-access-token",
+            ],
             "type": "object",
           },
         },
@@ -2244,7 +2248,9 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
                 "type": "string",
               },
             },
-            "required": Array [],
+            "required": Array [
+              "x-access-token",
+            ],
             "type": "object",
           },
         },
@@ -2364,7 +2370,9 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
                 "type": "string",
               },
             },
-            "required": Array [],
+            "required": Array [
+              "x-access-token",
+            ],
             "type": "object",
           },
           "requestBody": Object {
@@ -2491,7 +2499,9 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
                 "type": "string",
               },
             },
-            "required": Array [],
+            "required": Array [
+              "x-access-token",
+            ],
             "type": "object",
           },
           "requestBody": Object {
@@ -2616,7 +2626,9 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
                 "type": "string",
               },
             },
-            "required": Array [],
+            "required": Array [
+              "x-access-token",
+            ],
             "type": "object",
           },
           "requestBody": Object {
@@ -2911,7 +2923,9 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
                 "type": "string",
               },
             },
-            "required": Array [],
+            "required": Array [
+              "x-access-token",
+            ],
             "type": "object",
           },
         },
@@ -3007,7 +3021,9 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
                 "type": "string",
               },
             },
-            "required": Array [],
+            "required": Array [
+              "x-access-token",
+            ],
             "type": "object",
           },
         },
@@ -3103,7 +3119,9 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
                 "type": "string",
               },
             },
-            "required": Array [],
+            "required": Array [
+              "x-access-token",
+            ],
             "type": "object",
           },
           "requestBody": Object {
@@ -3213,7 +3231,9 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
                 "type": "string",
               },
             },
-            "required": Array [],
+            "required": Array [
+              "x-access-token",
+            ],
             "type": "object",
           },
           "requestBody": Object {
@@ -3353,7 +3373,9 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
                 "type": "string",
               },
             },
-            "required": Array [],
+            "required": Array [
+              "x-access-token",
+            ],
             "type": "object",
           },
         },
@@ -3460,7 +3482,9 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
                 "type": "string",
               },
             },
-            "required": Array [],
+            "required": Array [
+              "x-access-token",
+            ],
             "type": "object",
           },
           "requestBody": Object {
@@ -3905,7 +3929,9 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
                 "type": "string",
               },
             },
-            "required": Array [],
+            "required": Array [
+              "x-access-token",
+            ],
             "type": "object",
           },
         },
@@ -4012,7 +4038,9 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
                 "type": "string",
               },
             },
-            "required": Array [],
+            "required": Array [
+              "x-access-token",
+            ],
             "type": "object",
           },
           "path": Object {
@@ -4153,7 +4181,9 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
                 "type": "string",
               },
             },
-            "required": Array [],
+            "required": Array [
+              "x-access-token",
+            ],
             "type": "object",
           },
         },
@@ -4269,7 +4299,9 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
                 "type": "string",
               },
             },
-            "required": Array [],
+            "required": Array [
+              "x-access-token",
+            ],
             "type": "object",
           },
           "requestBody": Object {
@@ -4378,7 +4410,9 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
                 "type": "string",
               },
             },
-            "required": Array [],
+            "required": Array [
+              "x-access-token",
+            ],
             "type": "object",
           },
           "path": Object {
@@ -4461,7 +4495,9 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
                 "type": "string",
               },
             },
-            "required": Array [],
+            "required": Array [
+              "x-access-token",
+            ],
             "type": "object",
           },
         },
@@ -5750,7 +5786,9 @@ Object {
                 "type": "string",
               },
             },
-            "required": Array [],
+            "required": Array [
+              "api_key",
+            ],
             "type": "object",
           },
           "path": Object {
@@ -6006,7 +6044,9 @@ Object {
                 "type": "string",
               },
             },
-            "required": Array [],
+            "required": Array [
+              "api_key",
+            ],
             "type": "object",
           },
         },
