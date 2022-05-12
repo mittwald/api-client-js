@@ -23,7 +23,8 @@ type LooseObjectInner<T> = OptionalObjectToUndefined<
 export type LooseObject<T> = LooseObjectInner<
     {
         [TKey in OptionalProperties<T>]?: OptionalObjectToUndefined<T[TKey]>;
-    } & {
-        [TKey in RequiredProperties<T>]: OptionalObjectToUndefined<T[TKey]>;
-    }
+    } &
+        {
+            [TKey in RequiredProperties<T>]: OptionalObjectToUndefined<T[TKey]>;
+        }
 >;

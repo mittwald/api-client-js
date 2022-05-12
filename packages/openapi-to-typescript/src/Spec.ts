@@ -14,7 +14,6 @@ import debug from "./debug";
 import SwaggerParser from "@apidevtools/swagger-parser";
 import path from "path";
 import { getSubFileName } from "./lib";
-import { JSONSchema } from "json-schema-typed";
 
 interface SpecOptions {
     statusLog?: StatusLog;

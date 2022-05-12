@@ -43,12 +43,12 @@ export const mockRequestFactory: MockRequestFactory = (descriptor) => {
             const requestBody = await mapBody(rawRequest, rawRequest.headers);
             const pathParams = matchPathParams(rawRequest.url);
 
-            const actualRequest = {
+            const actualRequest = ({
                 path: pathParams,
                 header: mapHeaders(rawRequest.headers),
                 query: queryString.parse(url.split("?")[1]),
                 requestBody,
-            } as unknown as RequestType<typeof descriptor>;
+            } as unknown) as RequestType<typeof descriptor>;
 
             const response = typeof responseFactory === "function" ? responseFactory(actualRequest) : responseFactory;
 

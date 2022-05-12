@@ -1,8 +1,8 @@
 import { Options as KyOptions } from "ky";
 import ky from "ky-universal";
 import debug from "../debug";
-import { Headers, OperationDescriptor } from "../OperationDescriptor";
-import { AnyRequestFunctionFactory, Client, RequestFunctionFactory } from "./Client";
+import { Headers } from "../OperationDescriptor";
+import { AnyRequestFunctionFactory, Client } from "./Client";
 import { mapHeaders } from "./headers";
 import { setPathParams } from "./path";
 import { mapResponse } from "./response";
