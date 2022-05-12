@@ -1,8 +1,8 @@
 import { Options as KyOptions } from "ky";
 import ky from "ky-universal";
 import debug from "../debug";
-import { Headers } from "../OperationDescriptor";
-import { Client, RequestFunctionFactory } from "./Client";
+import { Headers, OperationDescriptor } from "../OperationDescriptor";
+import { AnyRequestFunctionFactory, Client, RequestFunctionFactory } from "./Client";
 import { mapHeaders } from "./headers";
 import { setPathParams } from "./path";
 import { mapResponse } from "./response";
@@ -48,9 +48,9 @@ export class KyClient implements Client {
         this.options.defaultHeaders = headers;
     }
 
-    public requestFunctionFactory: RequestFunctionFactory = (descriptor) => async (request) => {
+    public requestFunctionFactory: AnyRequestFunctionFactory = (descriptor) => async (request) => {
         const { path, method } = descriptor;
-        const { header, requestBody, path: pathParams, query } = request;
+        const { header, requestBody, path: pathParams, query } = request ?? {};
 
         d("requestBody: %o", requestBody);
         // make a shallow copy

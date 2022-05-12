@@ -7,6 +7,7 @@ import { mapHeaders } from "./headers";
 import queryString from "querystring";
 import debug from "../debug";
 import globals from "../globals";
+import { LooseObject } from "../types/LooseObject";
 
 export type DeepPartial<T> = {
     [TKey in keyof T]?: DeepPartial<T[TKey]>;
@@ -27,7 +28,7 @@ export type MockRequestFactory = <TRequest extends ClientRequest, TResponse exte
     descriptor: OperationDescriptor<TRequest, TResponse>,
 ) => (
     request: PartialRequest<TRequest>,
-    response: MockRequestFactoryResponse<TResponse> | ((req: TRequest) => MockRequestFactoryResponse<TResponse>),
+    response: MockRequestFactoryResponse<TResponse> | ((req: LooseObject<TRequest>) => MockRequestFactoryResponse<TResponse>),
 ) => void;
 
 const d = debug.extend("mockRequestFactory");
@@ -47,7 +48,7 @@ export const mockRequestFactory: MockRequestFactory = (descriptor) => {
                 header: mapHeaders(rawRequest.headers),
                 query: queryString.parse(url.split("?")[1]),
                 requestBody,
-            } as RequestType<typeof descriptor>;
+            } as unknown as RequestType<typeof descriptor>;
 
             const response = typeof responseFactory === "function" ? responseFactory(actualRequest) : responseFactory;
 

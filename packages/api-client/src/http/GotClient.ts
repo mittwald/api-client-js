@@ -25,19 +25,20 @@ export class GotClient implements Client.Client {
         });
     }
 
-    public requestFunctionFactory: Client.RequestFunctionFactory = (descriptor) => async (request) => {
+    public requestFunctionFactory: Client.AnyRequestFunctionFactory = (descriptor) => async (request) => {
         const { path, method } = descriptor;
 
         d("setting path params");
-        const resolvedPath = setPathParams(path, request.path);
+
+        const resolvedPath = setPathParams(path, request?.path);
 
         try {
             d("starting %o request to %o", method.toUpperCase(), resolvedPath);
             const response = await this.instance(resolvedPath, {
                 method: method as Method,
-                json: request.requestBody,
-                searchParams: convertQueryToUrlSearchParams(request.query) as URLSearchParams,
-                headers: request.header,
+                json: request?.requestBody,
+                searchParams: convertQueryToUrlSearchParams(request?.query) as URLSearchParams,
+                headers: request?.header,
             });
 
             d("mapping response");

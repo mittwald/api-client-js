@@ -1,4 +1,4 @@
-import { Headers, OperationDescriptor } from "../OperationDescriptor";
+import { Headers, OperationDescriptor, RequestFunction } from "../OperationDescriptor";
 
 export interface Response {
     status: number;
@@ -16,11 +16,10 @@ export interface Request {
     query?: any;
 }
 
-export type RequestFunctionFactory = <TRequest extends Request, TResponse extends Omit<Response, "operation" | "url">>(
-    descriptor: OperationDescriptor<TRequest, TResponse>,
-) => (request: TRequest) => Promise<TResponse>;
+export type RequestFunctionFactory = <TDescriptor extends OperationDescriptor>(descriptor: TDescriptor) => RequestFunction<TDescriptor>;
+export type AnyRequestFunctionFactory = (descriptor: OperationDescriptor) => RequestFunction;
 
 export interface Client {
-    requestFunctionFactory: RequestFunctionFactory;
+    requestFunctionFactory: AnyRequestFunctionFactory;
     setDefaultHeaders(headers: Headers): void;
 }
