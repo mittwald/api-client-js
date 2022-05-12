@@ -220,9 +220,7 @@ PetStoreApiClient.setInstance(apiClient);
 
 ```tsx
 const PetStatus: FC<{ id: string }> = (props) => {
-    const petResponse = useGetPetById({ path: { petId: props.id } });
-
-    const pet = petResponse.data;
+    const pet = petApi.getPetById.getResource({ path: { petId: props.id } }).useOptionalData();
 
     return (
         <>
@@ -236,12 +234,10 @@ const PetStatus: FC<{ id: string }> = (props) => {
 
 ### Short-circuit request
 
-The rules of hooks do not allow conditional calling of hooks, but you can use `null` as request to short-circuit executing the request.
-
-If `null` is used the response is in state `loading`.
-
-```tsx
-const petResponse = useGetPetById(someCondition ? { path: { petId: props.id } } : null);
+```ts
+// Type of pet is Pet|null
+const pet = petApi.getPetById.getResource(someCondition ? { path: { petId: props.id } } : null)
+    .useData();
 };
 ```
 
@@ -254,44 +250,30 @@ will actually not be requested again.
 
 There are several ways to clear the cache.
 
-#### 1. Use the hook un-cached
+#### 1. Clear cache by tags
 
 ```typescript
-const petResponse = useGetPetById({ path: { petId: props.id } }, { disableCache: true });
+import { apiResourceStore } from "@mittwald/flow-lib/dist/resources/ApiResource";
+
+apiResourceStore.findByTag("*").forEach((r) => r.reload());
+// Resources are tagged with their URL
+apiResourceStore.findByTag("pet/*").forEach((r) => r.reload());
 ```
 
-#### 2. Clear the whole cache
-
-```typescript
-import clearCache from "@mittwald/react-api-hooks/dist/lib/clearCache";
-
-clearCache();
-```
-
-#### 3. Clear a specific cache
-
-Clear the cache by using the hook result:
+#### 2. Clear a specific cache
 
 ```tsx
 const PetStatus: FC<{ id: string }> = (props) => {
-    const petResponse = useGetPetById({ path: { petId: props.id } });
+    const petResource = petApi.getPetById({ path: { petId: props.id } });
 
-    const pet = petResponse.data;
+    const pet = petResponse.useOptionalData();
 
     return (
         <>
             <h1>{pet?.name || <Skeleton />}</h1>
             <p>{pet?.status || <Skeleton />}</p>
-            <button onClick={petResponse.refreshCache}>Reload</button>
+            <button onClick={() => petResource.reload()}>Reload</button>
         </>
     );
 };
-```
-
-Clear the cache by using the global cache object:
-
-```typescript
-import { petStoreApiCache } from "./api/PetStoreClient";
-
-petStoreApiCache.refreshFindPetsByTags({ query: { tags: ["furry", "cute"] } });
 ```
