@@ -1,5 +1,5 @@
 import { transformOpenAPIExpression } from "./jsonata/transforms";
-import { SpecExporter } from "./SpecExporter";
+import { ExportOptions, SpecExporter } from "./SpecExporter";
 import OpenAPISchemaValidator from "openapi-schema-validator";
 import VError from "verror";
 import { getStatusLog, StatusLog, useStatusLog } from "./statusLog";
@@ -14,6 +14,7 @@ import debug from "./debug";
 import SwaggerParser from "@apidevtools/swagger-parser";
 import path from "path";
 import { getSubFileName } from "./lib";
+import { JSONSchema } from "json-schema-typed";
 
 interface SpecOptions {
     statusLog?: StatusLog;
@@ -64,6 +65,7 @@ export class Spec {
 
             const normalized: NormalizedSpec = transformOpenAPIExpression.evaluate(openAPISpec);
             Spec.removeIfRef(normalized);
+
             log?.succeed("OpenAPI spec normalized");
             debug("normalized spec: %O", normalized);
 
@@ -180,19 +182,19 @@ export class Spec {
         });
     }
 
-    public getClient(reactHooks: boolean): string {
-        return this.exporter.exportClient(this.namespace, reactHooks);
+    public getClient(opts?: ExportOptions): string {
+        return this.exporter.exportClient(this.namespace, opts);
     }
 
     public getRequestMockingFactory(mainFileImport: string): string {
         return this.exporter.exportRequestMockingFactory(this.namespace, mainFileImport);
     }
 
-    public writeClient(filename: string, reactHooks: boolean): void {
+    public writeClient(filename: string, opts?: ExportOptions): void {
         const log = getStatusLog();
 
         log?.start(`writing 'client' to "${filename}"`);
-        jp.write(filename, this.getClient(reactHooks));
+        jp.write(filename, this.getClient(opts));
         log?.succeed(`'client' written to "${filename}"`);
     }
 

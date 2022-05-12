@@ -319,7 +319,7 @@ export declare module Test {
       namespace Put {
         namespace Parameters {
           interface Header {
-            \\"x-access-token\\": string;
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
           }
 
@@ -358,7 +358,7 @@ export declare module Test {
       namespace Post {
         namespace Parameters {
           interface Header {
-            \\"x-access-token\\": string;
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
           }
 
@@ -409,7 +409,7 @@ export declare module Test {
       namespace Delete {
         namespace Parameters {
           interface Header {
-            \\"x-access-token\\": string;
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
           }
         }
@@ -450,7 +450,7 @@ export declare module Test {
       namespace Post {
         namespace Parameters {
           interface Header {
-            \\"x-access-token\\": string;
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
           }
         }
@@ -498,7 +498,7 @@ export declare module Test {
       namespace Put {
         namespace Parameters {
           interface Header {
-            \\"x-access-token\\": string;
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
           }
 
@@ -624,7 +624,7 @@ export declare module Test {
       namespace Delete {
         namespace Parameters {
           interface Header {
-            \\"x-access-token\\": string;
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
           }
         }
@@ -665,7 +665,7 @@ export declare module Test {
       namespace Get {
         namespace Parameters {
           interface Header {
-            \\"x-access-token\\": string;
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
           }
         }
@@ -706,7 +706,7 @@ export declare module Test {
       namespace Post {
         namespace Parameters {
           interface Header {
-            \\"x-access-token\\": string;
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
           }
 
@@ -753,7 +753,7 @@ export declare module Test {
       namespace Post {
         namespace Parameters {
           interface Header {
-            \\"x-access-token\\": string;
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
           }
 
@@ -807,7 +807,7 @@ export declare module Test {
       namespace Put {
         namespace Parameters {
           interface Header {
-            \\"x-access-token\\": string;
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
           }
 
@@ -856,7 +856,7 @@ export declare module Test {
       namespace Get {
         namespace Parameters {
           interface Header {
-            \\"x-access-token\\": string;
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
           }
         }
@@ -898,7 +898,7 @@ export declare module Test {
       namespace Put {
         namespace Parameters {
           interface Header {
-            \\"x-access-token\\": string;
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
           }
 
@@ -1057,7 +1057,7 @@ export declare module Test {
           }
 
           interface Header {
-            \\"x-access-token\\": string;
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
           }
         }
@@ -1104,7 +1104,7 @@ export declare module Test {
       namespace Get {
         namespace Parameters {
           interface Header {
-            \\"x-access-token\\": string;
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
           }
         }
@@ -1145,7 +1145,7 @@ export declare module Test {
       namespace Post {
         namespace Parameters {
           interface Header {
-            \\"x-access-token\\": string;
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
           }
 
@@ -1190,7 +1190,7 @@ export declare module Test {
       namespace Get {
         namespace Parameters {
           interface Header {
-            \\"x-access-token\\": string;
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
           }
         }
@@ -1235,7 +1235,7 @@ export declare module Test {
           }
 
           interface Header {
-            \\"x-access-token\\": string;
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
           }
         }
@@ -1272,7 +1272,7 @@ export declare module Test {
       namespace Post {
         namespace Parameters {
           interface Header {
-            \\"x-access-token\\": string;
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
           }
         }
@@ -3217,368 +3217,456 @@ export class TestClient {
 
 /**
  * ====================================
- * React Hooks
+ * API
  * ====================================
  */
+
 import { createGetApiResource } from \\"@mittwald/react-api-hooks/dist/createGetApiResource\\";
-import { createRefreshCache } from \\"@mittwald/react-api-hooks/dist/createRefreshCache\\";
-
-export const useFileServiceFilesGetById = createGetApiResource(
-  fileServiceFilesGetById,
-  TestClient.getInstance().fileServiceFilesGetById
-);
-
-export const useMailsystemServiceImapclusterCreate = createGetApiResource(
-  mailsystemServiceImapclusterCreate,
-  TestClient.getInstance().mailsystemServiceImapclusterCreate
-);
-
-export const useMailsystemServiceImapclusterUpdate = createGetApiResource(
-  mailsystemServiceImapclusterUpdate,
-  TestClient.getInstance().mailsystemServiceImapclusterUpdate
-);
-
-export const useMailsystemServiceSettingCreate = createGetApiResource(
-  mailsystemServiceSettingCreate,
-  TestClient.getInstance().mailsystemServiceSettingCreate
-);
-
-export const useMailsystemServiceSettingUpdate = createGetApiResource(
-  mailsystemServiceSettingUpdate,
-  TestClient.getInstance().mailsystemServiceSettingUpdate
-);
-
-export const useSignupApiAuthenticate = createGetApiResource(
-  signupApiAuthenticate,
-  TestClient.getInstance().signupApiAuthenticate
-);
-
-export const useSignupApiAuthenticateLegacy = createGetApiResource(
-  signupApiAuthenticateLegacy,
-  TestClient.getInstance().signupApiAuthenticateLegacy
-);
-
-export const useSignupApiAuthenticateMfa = createGetApiResource(
-  signupApiAuthenticateMfa,
-  TestClient.getInstance().signupApiAuthenticateMfa
-);
-
-export const useSignupApiEmailResend = createGetApiResource(
-  signupApiEmailResend,
-  TestClient.getInstance().signupApiEmailResend
-);
-
-export const useSignupApiLogout = createGetApiResource(
-  signupApiLogout,
-  TestClient.getInstance().signupApiLogout
-);
-
-export const useSignupApiMfaConfirm = createGetApiResource(
-  signupApiMfaConfirm,
-  TestClient.getInstance().signupApiMfaConfirm
-);
-
-export const useSignupApiMfaDisable = createGetApiResource(
-  signupApiMfaDisable,
-  TestClient.getInstance().signupApiMfaDisable
-);
-
-export const useSignupApiMfaInit = createGetApiResource(
-  signupApiMfaInit,
-  TestClient.getInstance().signupApiMfaInit
-);
-
-export const useSignupApiPasswordChange = createGetApiResource(
-  signupApiPasswordChange,
-  TestClient.getInstance().signupApiPasswordChange
-);
-
-export const useSignupApiPasswordResetConfirm = createGetApiResource(
-  signupApiPasswordResetConfirm,
-  TestClient.getInstance().signupApiPasswordResetConfirm
-);
-
-export const useSignupApiPasswordResetInit = createGetApiResource(
-  signupApiPasswordResetInit,
-  TestClient.getInstance().signupApiPasswordResetInit
-);
-
-export const useSignupApiPhoneNumberDelete = createGetApiResource(
-  signupApiPhoneNumberDelete,
-  TestClient.getInstance().signupApiPhoneNumberDelete
-);
-
-export const useSignupApiPhoneNumberGet = createGetApiResource(
-  signupApiPhoneNumberGet,
-  TestClient.getInstance().signupApiPhoneNumberGet
-);
-
-export const useSignupApiPhoneNumberInitProcess = createGetApiResource(
-  signupApiPhoneNumberInitProcess,
-  TestClient.getInstance().signupApiPhoneNumberInitProcess
-);
-
-export const useSignupApiPhoneNumberVerify = createGetApiResource(
-  signupApiPhoneNumberVerify,
-  TestClient.getInstance().signupApiPhoneNumberVerify
-);
-
-export const useSignupApiProfileChange = createGetApiResource(
-  signupApiProfileChange,
-  TestClient.getInstance().signupApiProfileChange
-);
-
-export const useSignupApiProfileGet = createGetApiResource(
-  signupApiProfileGet,
-  TestClient.getInstance().signupApiProfileGet
-);
-
-export const useSignupApiRecoverycodesReset = createGetApiResource(
-  signupApiRecoverycodesReset,
-  TestClient.getInstance().signupApiRecoverycodesReset
-);
-
-export const useSignupApiRegister = createGetApiResource(
-  signupApiRegister,
-  TestClient.getInstance().signupApiRegister
-);
-
-export const useSignupApiRegistrationVerify = createGetApiResource(
-  signupApiRegistrationVerify,
-  TestClient.getInstance().signupApiRegistrationVerify
-);
-
-export const useSignupApiSessionGet = createGetApiResource(
-  signupApiSessionGet,
-  TestClient.getInstance().signupApiSessionGet
-);
-
-export const useSignupApiSessionsList = createGetApiResource(
-  signupApiSessionsList,
-  TestClient.getInstance().signupApiSessionsList
-);
-
-export const useSignupApiSshCreate = createGetApiResource(
-  signupApiSshCreate,
-  TestClient.getInstance().signupApiSshCreate
-);
-
-export const useSignupApiSshList = createGetApiResource(
-  signupApiSshList,
-  TestClient.getInstance().signupApiSshList
-);
-
-export const useSignupApiSshDelete = createGetApiResource(
-  signupApiSshDelete,
-  TestClient.getInstance().signupApiSshDelete
-);
-
-export const useSignupApiTokenCheck = createGetApiResource(
-  signupApiTokenCheck,
-  TestClient.getInstance().signupApiTokenCheck
-);
-
-export const useSoftwareServiceListValidators = createGetApiResource(
-  softwareServiceListValidators,
-  TestClient.getInstance().softwareServiceListValidators
-);
-
-export const useSoftwareServiceValidate = createGetApiResource(
-  softwareServiceValidate,
-  TestClient.getInstance().softwareServiceValidate
-);
-
-export const useSoftwareServiceSoftwareConfigCreate = createGetApiResource(
-  softwareServiceSoftwareConfigCreate,
-  TestClient.getInstance().softwareServiceSoftwareConfigCreate
-);
-
-export const useSoftwareServiceSoftwareConfigDelete = createGetApiResource(
-  softwareServiceSoftwareConfigDelete,
-  TestClient.getInstance().softwareServiceSoftwareConfigDelete
-);
-
-export const useSoftwareServiceSoftwareConfigGetById = createGetApiResource(
-  softwareServiceSoftwareConfigGetById,
-  TestClient.getInstance().softwareServiceSoftwareConfigGetById
-);
-
-export const useSoftwareServiceSoftwareConfigRollback = createGetApiResource(
-  softwareServiceSoftwareConfigRollback,
-  TestClient.getInstance().softwareServiceSoftwareConfigRollback
-);
-
-export const useSoftwareServiceSoftwareConfigUpdate = createGetApiResource(
-  softwareServiceSoftwareConfigUpdate,
-  TestClient.getInstance().softwareServiceSoftwareConfigUpdate
-);
 
-export const useSoftwareServiceSoftwareConfigtemplateCreate = createGetApiResource(
-  softwareServiceSoftwareConfigtemplateCreate,
-  TestClient.getInstance().softwareServiceSoftwareConfigtemplateCreate
-);
-
-export const useSoftwareServiceSoftwareConfigtemplateGetList = createGetApiResource(
-  softwareServiceSoftwareConfigtemplateGetList,
-  TestClient.getInstance().softwareServiceSoftwareConfigtemplateGetList
-);
-
-export const useSoftwareServiceSoftwareConfigtemplateDelete = createGetApiResource(
-  softwareServiceSoftwareConfigtemplateDelete,
-  TestClient.getInstance().softwareServiceSoftwareConfigtemplateDelete
-);
-
-export const useSoftwareServiceSoftwareConfigtemplateGetSpecific = createGetApiResource(
-  softwareServiceSoftwareConfigtemplateGetSpecific,
-  TestClient.getInstance().softwareServiceSoftwareConfigtemplateGetSpecific
-);
-
-export const useSoftwareServiceSoftwareGetById = createGetApiResource(
-  softwareServiceSoftwareGetById,
-  TestClient.getInstance().softwareServiceSoftwareGetById
-);
-
-export const useSoftwareServiceSoftwareSettingsDeclare = createGetApiResource(
-  softwareServiceSoftwareSettingsDeclare,
-  TestClient.getInstance().softwareServiceSoftwareSettingsDeclare
-);
-
-export const testCache = {
-  refreshFileServiceFilesGetById: createRefreshCache(fileServiceFilesGetById),
-
-  refreshMailsystemServiceImapclusterCreate: createRefreshCache(
-    mailsystemServiceImapclusterCreate
-  ),
-
-  refreshMailsystemServiceImapclusterUpdate: createRefreshCache(
-    mailsystemServiceImapclusterUpdate
-  ),
-
-  refreshMailsystemServiceSettingCreate: createRefreshCache(
-    mailsystemServiceSettingCreate
-  ),
-
-  refreshMailsystemServiceSettingUpdate: createRefreshCache(
-    mailsystemServiceSettingUpdate
-  ),
-
-  refreshSignupApiAuthenticate: createRefreshCache(signupApiAuthenticate),
-
-  refreshSignupApiAuthenticateLegacy: createRefreshCache(
-    signupApiAuthenticateLegacy
-  ),
-
-  refreshSignupApiAuthenticateMfa: createRefreshCache(signupApiAuthenticateMfa),
-
-  refreshSignupApiEmailResend: createRefreshCache(signupApiEmailResend),
-
-  refreshSignupApiLogout: createRefreshCache(signupApiLogout),
-
-  refreshSignupApiMfaConfirm: createRefreshCache(signupApiMfaConfirm),
-
-  refreshSignupApiMfaDisable: createRefreshCache(signupApiMfaDisable),
-
-  refreshSignupApiMfaInit: createRefreshCache(signupApiMfaInit),
-
-  refreshSignupApiPasswordChange: createRefreshCache(signupApiPasswordChange),
-
-  refreshSignupApiPasswordResetConfirm: createRefreshCache(
-    signupApiPasswordResetConfirm
-  ),
-
-  refreshSignupApiPasswordResetInit: createRefreshCache(
-    signupApiPasswordResetInit
-  ),
-
-  refreshSignupApiPhoneNumberDelete: createRefreshCache(
-    signupApiPhoneNumberDelete
-  ),
-
-  refreshSignupApiPhoneNumberGet: createRefreshCache(signupApiPhoneNumberGet),
-
-  refreshSignupApiPhoneNumberInitProcess: createRefreshCache(
-    signupApiPhoneNumberInitProcess
-  ),
-
-  refreshSignupApiPhoneNumberVerify: createRefreshCache(
-    signupApiPhoneNumberVerify
-  ),
-
-  refreshSignupApiProfileChange: createRefreshCache(signupApiProfileChange),
-
-  refreshSignupApiProfileGet: createRefreshCache(signupApiProfileGet),
-
-  refreshSignupApiRecoverycodesReset: createRefreshCache(
-    signupApiRecoverycodesReset
-  ),
-
-  refreshSignupApiRegister: createRefreshCache(signupApiRegister),
-
-  refreshSignupApiRegistrationVerify: createRefreshCache(
-    signupApiRegistrationVerify
-  ),
-
-  refreshSignupApiSessionGet: createRefreshCache(signupApiSessionGet),
-
-  refreshSignupApiSessionsList: createRefreshCache(signupApiSessionsList),
-
-  refreshSignupApiSshCreate: createRefreshCache(signupApiSshCreate),
-
-  refreshSignupApiSshList: createRefreshCache(signupApiSshList),
-
-  refreshSignupApiSshDelete: createRefreshCache(signupApiSshDelete),
-
-  refreshSignupApiTokenCheck: createRefreshCache(signupApiTokenCheck),
-
-  refreshSoftwareServiceListValidators: createRefreshCache(
-    softwareServiceListValidators
-  ),
-
-  refreshSoftwareServiceValidate: createRefreshCache(softwareServiceValidate),
-
-  refreshSoftwareServiceSoftwareConfigCreate: createRefreshCache(
-    softwareServiceSoftwareConfigCreate
-  ),
-
-  refreshSoftwareServiceSoftwareConfigDelete: createRefreshCache(
-    softwareServiceSoftwareConfigDelete
-  ),
-
-  refreshSoftwareServiceSoftwareConfigGetById: createRefreshCache(
-    softwareServiceSoftwareConfigGetById
-  ),
-
-  refreshSoftwareServiceSoftwareConfigRollback: createRefreshCache(
-    softwareServiceSoftwareConfigRollback
-  ),
-
-  refreshSoftwareServiceSoftwareConfigUpdate: createRefreshCache(
-    softwareServiceSoftwareConfigUpdate
-  ),
-
-  refreshSoftwareServiceSoftwareConfigtemplateCreate: createRefreshCache(
-    softwareServiceSoftwareConfigtemplateCreate
-  ),
-
-  refreshSoftwareServiceSoftwareConfigtemplateGetList: createRefreshCache(
-    softwareServiceSoftwareConfigtemplateGetList
-  ),
-
-  refreshSoftwareServiceSoftwareConfigtemplateDelete: createRefreshCache(
-    softwareServiceSoftwareConfigtemplateDelete
-  ),
-
-  refreshSoftwareServiceSoftwareConfigtemplateGetSpecific: createRefreshCache(
-    softwareServiceSoftwareConfigtemplateGetSpecific
-  ),
-
-  refreshSoftwareServiceSoftwareGetById: createRefreshCache(
-    softwareServiceSoftwareGetById
-  ),
-
-  refreshSoftwareServiceSoftwareSettingsDeclare: createRefreshCache(
-    softwareServiceSoftwareSettingsDeclare
-  ),
+export const test = {
+  fileServiceFilesGetById: {
+    getResource: createGetApiResource(
+      fileServiceFilesGetById,
+      TestClient.getInstance().fileServiceFilesGetById
+    ),
+
+    request: TestClient.getInstance().fileServiceFilesGetById,
+    descriptor: fileServiceFilesGetById,
+  },
+
+  mailsystemServiceImapclusterCreate: {
+    getResource: createGetApiResource(
+      mailsystemServiceImapclusterCreate,
+      TestClient.getInstance().mailsystemServiceImapclusterCreate
+    ),
+
+    request: TestClient.getInstance().mailsystemServiceImapclusterCreate,
+    descriptor: mailsystemServiceImapclusterCreate,
+  },
+
+  mailsystemServiceImapclusterUpdate: {
+    getResource: createGetApiResource(
+      mailsystemServiceImapclusterUpdate,
+      TestClient.getInstance().mailsystemServiceImapclusterUpdate
+    ),
+
+    request: TestClient.getInstance().mailsystemServiceImapclusterUpdate,
+    descriptor: mailsystemServiceImapclusterUpdate,
+  },
+
+  mailsystemServiceSettingCreate: {
+    getResource: createGetApiResource(
+      mailsystemServiceSettingCreate,
+      TestClient.getInstance().mailsystemServiceSettingCreate
+    ),
+
+    request: TestClient.getInstance().mailsystemServiceSettingCreate,
+    descriptor: mailsystemServiceSettingCreate,
+  },
+
+  mailsystemServiceSettingUpdate: {
+    getResource: createGetApiResource(
+      mailsystemServiceSettingUpdate,
+      TestClient.getInstance().mailsystemServiceSettingUpdate
+    ),
+
+    request: TestClient.getInstance().mailsystemServiceSettingUpdate,
+    descriptor: mailsystemServiceSettingUpdate,
+  },
+
+  signupApiAuthenticate: {
+    getResource: createGetApiResource(
+      signupApiAuthenticate,
+      TestClient.getInstance().signupApiAuthenticate
+    ),
+
+    request: TestClient.getInstance().signupApiAuthenticate,
+    descriptor: signupApiAuthenticate,
+  },
+
+  signupApiAuthenticateLegacy: {
+    getResource: createGetApiResource(
+      signupApiAuthenticateLegacy,
+      TestClient.getInstance().signupApiAuthenticateLegacy
+    ),
+
+    request: TestClient.getInstance().signupApiAuthenticateLegacy,
+    descriptor: signupApiAuthenticateLegacy,
+  },
+
+  signupApiAuthenticateMfa: {
+    getResource: createGetApiResource(
+      signupApiAuthenticateMfa,
+      TestClient.getInstance().signupApiAuthenticateMfa
+    ),
+
+    request: TestClient.getInstance().signupApiAuthenticateMfa,
+    descriptor: signupApiAuthenticateMfa,
+  },
+
+  signupApiEmailResend: {
+    getResource: createGetApiResource(
+      signupApiEmailResend,
+      TestClient.getInstance().signupApiEmailResend
+    ),
+
+    request: TestClient.getInstance().signupApiEmailResend,
+    descriptor: signupApiEmailResend,
+  },
+
+  signupApiLogout: {
+    getResource: createGetApiResource(
+      signupApiLogout,
+      TestClient.getInstance().signupApiLogout
+    ),
+
+    request: TestClient.getInstance().signupApiLogout,
+    descriptor: signupApiLogout,
+  },
+
+  signupApiMfaConfirm: {
+    getResource: createGetApiResource(
+      signupApiMfaConfirm,
+      TestClient.getInstance().signupApiMfaConfirm
+    ),
+
+    request: TestClient.getInstance().signupApiMfaConfirm,
+    descriptor: signupApiMfaConfirm,
+  },
+
+  signupApiMfaDisable: {
+    getResource: createGetApiResource(
+      signupApiMfaDisable,
+      TestClient.getInstance().signupApiMfaDisable
+    ),
+
+    request: TestClient.getInstance().signupApiMfaDisable,
+    descriptor: signupApiMfaDisable,
+  },
+
+  signupApiMfaInit: {
+    getResource: createGetApiResource(
+      signupApiMfaInit,
+      TestClient.getInstance().signupApiMfaInit
+    ),
+
+    request: TestClient.getInstance().signupApiMfaInit,
+    descriptor: signupApiMfaInit,
+  },
+
+  signupApiPasswordChange: {
+    getResource: createGetApiResource(
+      signupApiPasswordChange,
+      TestClient.getInstance().signupApiPasswordChange
+    ),
+
+    request: TestClient.getInstance().signupApiPasswordChange,
+    descriptor: signupApiPasswordChange,
+  },
+
+  signupApiPasswordResetConfirm: {
+    getResource: createGetApiResource(
+      signupApiPasswordResetConfirm,
+      TestClient.getInstance().signupApiPasswordResetConfirm
+    ),
+
+    request: TestClient.getInstance().signupApiPasswordResetConfirm,
+    descriptor: signupApiPasswordResetConfirm,
+  },
+
+  signupApiPasswordResetInit: {
+    getResource: createGetApiResource(
+      signupApiPasswordResetInit,
+      TestClient.getInstance().signupApiPasswordResetInit
+    ),
+
+    request: TestClient.getInstance().signupApiPasswordResetInit,
+    descriptor: signupApiPasswordResetInit,
+  },
+
+  signupApiPhoneNumberDelete: {
+    getResource: createGetApiResource(
+      signupApiPhoneNumberDelete,
+      TestClient.getInstance().signupApiPhoneNumberDelete
+    ),
+
+    request: TestClient.getInstance().signupApiPhoneNumberDelete,
+    descriptor: signupApiPhoneNumberDelete,
+  },
+
+  signupApiPhoneNumberGet: {
+    getResource: createGetApiResource(
+      signupApiPhoneNumberGet,
+      TestClient.getInstance().signupApiPhoneNumberGet
+    ),
+
+    request: TestClient.getInstance().signupApiPhoneNumberGet,
+    descriptor: signupApiPhoneNumberGet,
+  },
+
+  signupApiPhoneNumberInitProcess: {
+    getResource: createGetApiResource(
+      signupApiPhoneNumberInitProcess,
+      TestClient.getInstance().signupApiPhoneNumberInitProcess
+    ),
+
+    request: TestClient.getInstance().signupApiPhoneNumberInitProcess,
+    descriptor: signupApiPhoneNumberInitProcess,
+  },
+
+  signupApiPhoneNumberVerify: {
+    getResource: createGetApiResource(
+      signupApiPhoneNumberVerify,
+      TestClient.getInstance().signupApiPhoneNumberVerify
+    ),
+
+    request: TestClient.getInstance().signupApiPhoneNumberVerify,
+    descriptor: signupApiPhoneNumberVerify,
+  },
+
+  signupApiProfileChange: {
+    getResource: createGetApiResource(
+      signupApiProfileChange,
+      TestClient.getInstance().signupApiProfileChange
+    ),
+
+    request: TestClient.getInstance().signupApiProfileChange,
+    descriptor: signupApiProfileChange,
+  },
+
+  signupApiProfileGet: {
+    getResource: createGetApiResource(
+      signupApiProfileGet,
+      TestClient.getInstance().signupApiProfileGet
+    ),
+
+    request: TestClient.getInstance().signupApiProfileGet,
+    descriptor: signupApiProfileGet,
+  },
+
+  signupApiRecoverycodesReset: {
+    getResource: createGetApiResource(
+      signupApiRecoverycodesReset,
+      TestClient.getInstance().signupApiRecoverycodesReset
+    ),
+
+    request: TestClient.getInstance().signupApiRecoverycodesReset,
+    descriptor: signupApiRecoverycodesReset,
+  },
+
+  signupApiRegister: {
+    getResource: createGetApiResource(
+      signupApiRegister,
+      TestClient.getInstance().signupApiRegister
+    ),
+
+    request: TestClient.getInstance().signupApiRegister,
+    descriptor: signupApiRegister,
+  },
+
+  signupApiRegistrationVerify: {
+    getResource: createGetApiResource(
+      signupApiRegistrationVerify,
+      TestClient.getInstance().signupApiRegistrationVerify
+    ),
+
+    request: TestClient.getInstance().signupApiRegistrationVerify,
+    descriptor: signupApiRegistrationVerify,
+  },
+
+  signupApiSessionGet: {
+    getResource: createGetApiResource(
+      signupApiSessionGet,
+      TestClient.getInstance().signupApiSessionGet
+    ),
+
+    request: TestClient.getInstance().signupApiSessionGet,
+    descriptor: signupApiSessionGet,
+  },
+
+  signupApiSessionsList: {
+    getResource: createGetApiResource(
+      signupApiSessionsList,
+      TestClient.getInstance().signupApiSessionsList
+    ),
+
+    request: TestClient.getInstance().signupApiSessionsList,
+    descriptor: signupApiSessionsList,
+  },
+
+  signupApiSshCreate: {
+    getResource: createGetApiResource(
+      signupApiSshCreate,
+      TestClient.getInstance().signupApiSshCreate
+    ),
+
+    request: TestClient.getInstance().signupApiSshCreate,
+    descriptor: signupApiSshCreate,
+  },
+
+  signupApiSshList: {
+    getResource: createGetApiResource(
+      signupApiSshList,
+      TestClient.getInstance().signupApiSshList
+    ),
+
+    request: TestClient.getInstance().signupApiSshList,
+    descriptor: signupApiSshList,
+  },
+
+  signupApiSshDelete: {
+    getResource: createGetApiResource(
+      signupApiSshDelete,
+      TestClient.getInstance().signupApiSshDelete
+    ),
+
+    request: TestClient.getInstance().signupApiSshDelete,
+    descriptor: signupApiSshDelete,
+  },
+
+  signupApiTokenCheck: {
+    getResource: createGetApiResource(
+      signupApiTokenCheck,
+      TestClient.getInstance().signupApiTokenCheck
+    ),
+
+    request: TestClient.getInstance().signupApiTokenCheck,
+    descriptor: signupApiTokenCheck,
+  },
+
+  softwareServiceListValidators: {
+    getResource: createGetApiResource(
+      softwareServiceListValidators,
+      TestClient.getInstance().softwareServiceListValidators
+    ),
+
+    request: TestClient.getInstance().softwareServiceListValidators,
+    descriptor: softwareServiceListValidators,
+  },
+
+  softwareServiceValidate: {
+    getResource: createGetApiResource(
+      softwareServiceValidate,
+      TestClient.getInstance().softwareServiceValidate
+    ),
+
+    request: TestClient.getInstance().softwareServiceValidate,
+    descriptor: softwareServiceValidate,
+  },
+
+  softwareServiceSoftwareConfigCreate: {
+    getResource: createGetApiResource(
+      softwareServiceSoftwareConfigCreate,
+      TestClient.getInstance().softwareServiceSoftwareConfigCreate
+    ),
+
+    request: TestClient.getInstance().softwareServiceSoftwareConfigCreate,
+    descriptor: softwareServiceSoftwareConfigCreate,
+  },
+
+  softwareServiceSoftwareConfigDelete: {
+    getResource: createGetApiResource(
+      softwareServiceSoftwareConfigDelete,
+      TestClient.getInstance().softwareServiceSoftwareConfigDelete
+    ),
+
+    request: TestClient.getInstance().softwareServiceSoftwareConfigDelete,
+    descriptor: softwareServiceSoftwareConfigDelete,
+  },
+
+  softwareServiceSoftwareConfigGetById: {
+    getResource: createGetApiResource(
+      softwareServiceSoftwareConfigGetById,
+      TestClient.getInstance().softwareServiceSoftwareConfigGetById
+    ),
+
+    request: TestClient.getInstance().softwareServiceSoftwareConfigGetById,
+    descriptor: softwareServiceSoftwareConfigGetById,
+  },
+
+  softwareServiceSoftwareConfigRollback: {
+    getResource: createGetApiResource(
+      softwareServiceSoftwareConfigRollback,
+      TestClient.getInstance().softwareServiceSoftwareConfigRollback
+    ),
+
+    request: TestClient.getInstance().softwareServiceSoftwareConfigRollback,
+    descriptor: softwareServiceSoftwareConfigRollback,
+  },
+
+  softwareServiceSoftwareConfigUpdate: {
+    getResource: createGetApiResource(
+      softwareServiceSoftwareConfigUpdate,
+      TestClient.getInstance().softwareServiceSoftwareConfigUpdate
+    ),
+
+    request: TestClient.getInstance().softwareServiceSoftwareConfigUpdate,
+    descriptor: softwareServiceSoftwareConfigUpdate,
+  },
+
+  softwareServiceSoftwareConfigtemplateCreate: {
+    getResource: createGetApiResource(
+      softwareServiceSoftwareConfigtemplateCreate,
+      TestClient.getInstance().softwareServiceSoftwareConfigtemplateCreate
+    ),
+
+    request: TestClient.getInstance()
+      .softwareServiceSoftwareConfigtemplateCreate,
+    descriptor: softwareServiceSoftwareConfigtemplateCreate,
+  },
+
+  softwareServiceSoftwareConfigtemplateGetList: {
+    getResource: createGetApiResource(
+      softwareServiceSoftwareConfigtemplateGetList,
+      TestClient.getInstance().softwareServiceSoftwareConfigtemplateGetList
+    ),
+
+    request: TestClient.getInstance()
+      .softwareServiceSoftwareConfigtemplateGetList,
+    descriptor: softwareServiceSoftwareConfigtemplateGetList,
+  },
+
+  softwareServiceSoftwareConfigtemplateDelete: {
+    getResource: createGetApiResource(
+      softwareServiceSoftwareConfigtemplateDelete,
+      TestClient.getInstance().softwareServiceSoftwareConfigtemplateDelete
+    ),
+
+    request: TestClient.getInstance()
+      .softwareServiceSoftwareConfigtemplateDelete,
+    descriptor: softwareServiceSoftwareConfigtemplateDelete,
+  },
+
+  softwareServiceSoftwareConfigtemplateGetSpecific: {
+    getResource: createGetApiResource(
+      softwareServiceSoftwareConfigtemplateGetSpecific,
+      TestClient.getInstance().softwareServiceSoftwareConfigtemplateGetSpecific
+    ),
+
+    request: TestClient.getInstance()
+      .softwareServiceSoftwareConfigtemplateGetSpecific,
+    descriptor: softwareServiceSoftwareConfigtemplateGetSpecific,
+  },
+
+  softwareServiceSoftwareGetById: {
+    getResource: createGetApiResource(
+      softwareServiceSoftwareGetById,
+      TestClient.getInstance().softwareServiceSoftwareGetById
+    ),
+
+    request: TestClient.getInstance().softwareServiceSoftwareGetById,
+    descriptor: softwareServiceSoftwareGetById,
+  },
+
+  softwareServiceSoftwareSettingsDeclare: {
+    getResource: createGetApiResource(
+      softwareServiceSoftwareSettingsDeclare,
+      TestClient.getInstance().softwareServiceSoftwareSettingsDeclare
+    ),
+
+    request: TestClient.getInstance().softwareServiceSoftwareSettingsDeclare,
+    descriptor: softwareServiceSoftwareSettingsDeclare,
+  },
 };
 "
 `;
@@ -3894,7 +3982,7 @@ export declare module Test {
           }
 
           interface Header {
-            api_key: string;
+            api_key?: string;
             Accept?: \\"application/xml\\" | \\"application/json\\";
           }
         }
@@ -3991,7 +4079,7 @@ export declare module Test {
       namespace Get {
         namespace Parameters {
           interface Header {
-            api_key: string;
+            api_key?: string;
             Accept?: \\"application/json\\";
           }
         }
@@ -4879,145 +4967,199 @@ export class TestClient {
 
 /**
  * ====================================
- * React Hooks
+ * API
  * ====================================
  */
+
 import { createGetApiResource } from \\"@mittwald/react-api-hooks/dist/createGetApiResource\\";
-import { createRefreshCache } from \\"@mittwald/react-api-hooks/dist/createRefreshCache\\";
 
-export const useUpdatePet = createGetApiResource(
-  updatePet,
-  TestClient.getInstance().updatePet
-);
+export const test = {
+  updatePet: {
+    getResource: createGetApiResource(
+      updatePet,
+      TestClient.getInstance().updatePet
+    ),
 
-export const useAddPet = createGetApiResource(
-  addPet,
-  TestClient.getInstance().addPet
-);
+    request: TestClient.getInstance().updatePet,
+    descriptor: updatePet,
+  },
 
-export const useFindPetsByStatus = createGetApiResource(
-  findPetsByStatus,
-  TestClient.getInstance().findPetsByStatus
-);
+  addPet: {
+    getResource: createGetApiResource(addPet, TestClient.getInstance().addPet),
 
-export const useFindPetsByTags = createGetApiResource(
-  findPetsByTags,
-  TestClient.getInstance().findPetsByTags
-);
+    request: TestClient.getInstance().addPet,
+    descriptor: addPet,
+  },
 
-export const useGetPetById = createGetApiResource(
-  getPetById,
-  TestClient.getInstance().getPetById
-);
+  findPetsByStatus: {
+    getResource: createGetApiResource(
+      findPetsByStatus,
+      TestClient.getInstance().findPetsByStatus
+    ),
 
-export const useUpdatePetWithForm = createGetApiResource(
-  updatePetWithForm,
-  TestClient.getInstance().updatePetWithForm
-);
+    request: TestClient.getInstance().findPetsByStatus,
+    descriptor: findPetsByStatus,
+  },
 
-export const useDeletePet = createGetApiResource(
-  deletePet,
-  TestClient.getInstance().deletePet
-);
+  findPetsByTags: {
+    getResource: createGetApiResource(
+      findPetsByTags,
+      TestClient.getInstance().findPetsByTags
+    ),
 
-export const useUploadFile = createGetApiResource(
-  uploadFile,
-  TestClient.getInstance().uploadFile
-);
+    request: TestClient.getInstance().findPetsByTags,
+    descriptor: findPetsByTags,
+  },
 
-export const useGetInventory = createGetApiResource(
-  getInventory,
-  TestClient.getInstance().getInventory
-);
+  getPetById: {
+    getResource: createGetApiResource(
+      getPetById,
+      TestClient.getInstance().getPetById
+    ),
 
-export const usePlaceOrder = createGetApiResource(
-  placeOrder,
-  TestClient.getInstance().placeOrder
-);
+    request: TestClient.getInstance().getPetById,
+    descriptor: getPetById,
+  },
 
-export const useGetOrderById = createGetApiResource(
-  getOrderById,
-  TestClient.getInstance().getOrderById
-);
+  updatePetWithForm: {
+    getResource: createGetApiResource(
+      updatePetWithForm,
+      TestClient.getInstance().updatePetWithForm
+    ),
 
-export const useDeleteOrder = createGetApiResource(
-  deleteOrder,
-  TestClient.getInstance().deleteOrder
-);
+    request: TestClient.getInstance().updatePetWithForm,
+    descriptor: updatePetWithForm,
+  },
 
-export const useCreateUser = createGetApiResource(
-  createUser,
-  TestClient.getInstance().createUser
-);
+  deletePet: {
+    getResource: createGetApiResource(
+      deletePet,
+      TestClient.getInstance().deletePet
+    ),
 
-export const useCreateUsersWithListInput = createGetApiResource(
-  createUsersWithListInput,
-  TestClient.getInstance().createUsersWithListInput
-);
+    request: TestClient.getInstance().deletePet,
+    descriptor: deletePet,
+  },
 
-export const useLoginUser = createGetApiResource(
-  loginUser,
-  TestClient.getInstance().loginUser
-);
+  uploadFile: {
+    getResource: createGetApiResource(
+      uploadFile,
+      TestClient.getInstance().uploadFile
+    ),
 
-export const useLogoutUser = createGetApiResource(
-  logoutUser,
-  TestClient.getInstance().logoutUser
-);
+    request: TestClient.getInstance().uploadFile,
+    descriptor: uploadFile,
+  },
 
-export const useGetUserByName = createGetApiResource(
-  getUserByName,
-  TestClient.getInstance().getUserByName
-);
+  getInventory: {
+    getResource: createGetApiResource(
+      getInventory,
+      TestClient.getInstance().getInventory
+    ),
 
-export const useUpdateUser = createGetApiResource(
-  updateUser,
-  TestClient.getInstance().updateUser
-);
+    request: TestClient.getInstance().getInventory,
+    descriptor: getInventory,
+  },
 
-export const useDeleteUser = createGetApiResource(
-  deleteUser,
-  TestClient.getInstance().deleteUser
-);
+  placeOrder: {
+    getResource: createGetApiResource(
+      placeOrder,
+      TestClient.getInstance().placeOrder
+    ),
 
-export const testCache = {
-  refreshUpdatePet: createRefreshCache(updatePet),
+    request: TestClient.getInstance().placeOrder,
+    descriptor: placeOrder,
+  },
 
-  refreshAddPet: createRefreshCache(addPet),
+  getOrderById: {
+    getResource: createGetApiResource(
+      getOrderById,
+      TestClient.getInstance().getOrderById
+    ),
 
-  refreshFindPetsByStatus: createRefreshCache(findPetsByStatus),
+    request: TestClient.getInstance().getOrderById,
+    descriptor: getOrderById,
+  },
 
-  refreshFindPetsByTags: createRefreshCache(findPetsByTags),
+  deleteOrder: {
+    getResource: createGetApiResource(
+      deleteOrder,
+      TestClient.getInstance().deleteOrder
+    ),
 
-  refreshGetPetById: createRefreshCache(getPetById),
+    request: TestClient.getInstance().deleteOrder,
+    descriptor: deleteOrder,
+  },
 
-  refreshUpdatePetWithForm: createRefreshCache(updatePetWithForm),
+  createUser: {
+    getResource: createGetApiResource(
+      createUser,
+      TestClient.getInstance().createUser
+    ),
 
-  refreshDeletePet: createRefreshCache(deletePet),
+    request: TestClient.getInstance().createUser,
+    descriptor: createUser,
+  },
 
-  refreshUploadFile: createRefreshCache(uploadFile),
+  createUsersWithListInput: {
+    getResource: createGetApiResource(
+      createUsersWithListInput,
+      TestClient.getInstance().createUsersWithListInput
+    ),
 
-  refreshGetInventory: createRefreshCache(getInventory),
+    request: TestClient.getInstance().createUsersWithListInput,
+    descriptor: createUsersWithListInput,
+  },
 
-  refreshPlaceOrder: createRefreshCache(placeOrder),
+  loginUser: {
+    getResource: createGetApiResource(
+      loginUser,
+      TestClient.getInstance().loginUser
+    ),
 
-  refreshGetOrderById: createRefreshCache(getOrderById),
+    request: TestClient.getInstance().loginUser,
+    descriptor: loginUser,
+  },
 
-  refreshDeleteOrder: createRefreshCache(deleteOrder),
+  logoutUser: {
+    getResource: createGetApiResource(
+      logoutUser,
+      TestClient.getInstance().logoutUser
+    ),
 
-  refreshCreateUser: createRefreshCache(createUser),
+    request: TestClient.getInstance().logoutUser,
+    descriptor: logoutUser,
+  },
 
-  refreshCreateUsersWithListInput: createRefreshCache(createUsersWithListInput),
+  getUserByName: {
+    getResource: createGetApiResource(
+      getUserByName,
+      TestClient.getInstance().getUserByName
+    ),
 
-  refreshLoginUser: createRefreshCache(loginUser),
+    request: TestClient.getInstance().getUserByName,
+    descriptor: getUserByName,
+  },
 
-  refreshLogoutUser: createRefreshCache(logoutUser),
+  updateUser: {
+    getResource: createGetApiResource(
+      updateUser,
+      TestClient.getInstance().updateUser
+    ),
 
-  refreshGetUserByName: createRefreshCache(getUserByName),
+    request: TestClient.getInstance().updateUser,
+    descriptor: updateUser,
+  },
 
-  refreshUpdateUser: createRefreshCache(updateUser),
+  deleteUser: {
+    getResource: createGetApiResource(
+      deleteUser,
+      TestClient.getInstance().deleteUser
+    ),
 
-  refreshDeleteUser: createRefreshCache(deleteUser),
+    request: TestClient.getInstance().deleteUser,
+    descriptor: deleteUser,
+  },
 };
 "
 `;

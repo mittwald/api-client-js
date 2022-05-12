@@ -7,6 +7,11 @@ import prettier from "prettier";
 import { getStatusLog } from "./statusLog";
 import { wrapError } from "@mittwald/awesome-node-utils/error/wrapError";
 
+export interface ExportOptions {
+    reactHooks?: boolean;
+    optionalHeaders?: string[];
+}
+
 export class SpecExporter {
     private spec: NormalizedSpec;
 
@@ -30,23 +35,23 @@ export class SpecExporter {
         });
     }
 
-    public exportClient(namespace: string, reactHooks: boolean): string {
+    public exportClient(namespace: string, opts?: ExportOptions): string {
         const jobLog = getStatusLog();
         jobLog?.start("rendering 'client'");
-        const result = this.export(namespace, "client/main.ejs", { reactHooks });
+        const result = this.export(namespace, "client/main.ejs", { reactHooks: opts?.reactHooks ?? false }, opts);
         jobLog?.succeed("'client' successfully rendered");
         return result;
     }
 
-    public exportRequestMockingFactory(namespace: string, mainFileImport: string): string {
+    public exportRequestMockingFactory(namespace: string, mainFileImport: string, opts?: ExportOptions): string {
         const jobLog = getStatusLog();
         jobLog?.start("rendering 'request mocking factory'");
-        const result = this.export(namespace, "request_mock/main.ejs", { mainFileImport });
+        const result = this.export(namespace, "request_mock/main.ejs", { mainFileImport }, opts);
         jobLog?.succeed("'request mocking factory' successfully rendered");
         return result;
     }
 
-    public export(namespace: string, filename: string, variables: Record<string, string | boolean> = {}): string {
+    private export(namespace: string, filename: string, variables: Record<string, string | boolean>, opts?: ExportOptions): string {
         const jobLog = getStatusLog();
         const renderTemplate = SpecExporter.compileTemplate(filename);
 
@@ -54,7 +59,7 @@ export class SpecExporter {
             () =>
                 renderTemplate({
                     ...this.spec,
-                    ...viewHelpersFactory(namespace),
+                    ...viewHelpersFactory(namespace, { optionalHeaders: opts?.optionalHeaders }),
                     ...variables,
                 }),
             "TemplateError",

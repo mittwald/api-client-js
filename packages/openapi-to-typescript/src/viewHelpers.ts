@@ -6,8 +6,14 @@ import { Operation } from "./NormalizedSpec";
 
 const namespaceNameSeparator = "_";
 
+export interface ViewHelpersOptions {
+    optionalHeaders?: string[];
+}
+
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export const viewHelpersFactory = (namespace: string) => {
+export const viewHelpersFactory = (namespace: string, opts: ViewHelpersOptions = {}) => {
+    const { optionalHeaders = [] } = opts;
+
     function transformNamespaceName(name: string): string {
         const snakedName = name.replace(/[^a-zA-Z0-9_]/gm, namespaceNameSeparator);
         const pascalCased = snakedName
@@ -41,9 +47,19 @@ export const viewHelpersFactory = (namespace: string) => {
         return schema;
     }
 
+    function makeOptionalHeader(schema: Schema): Schema {
+        if (schema.required === undefined) {
+            return schema;
+        }
+
+        return {
+            ...schema,
+            required: schema.required.filter((h) => !optionalHeaders.includes(h)),
+        };
+    }
+
     function formatTs(namespace: string, schema: Schema): string {
-        const withConsts = replaceRefWithConst(schema);
-        const ts = schemaToTypeTS(withConsts);
+        const ts = schemaToTypeTS(makeOptionalHeader(replaceRefWithConst(schema)));
         return replaceRefsTypeNames(namespace, ts);
     }
 

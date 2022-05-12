@@ -130,28 +130,26 @@ export class <%- rootNamespace %>Client {
         <% }) %>
         }
 }
-<% if (reactHooks) { %>
 
 /**
 * ====================================
-* React Hooks
+* API
 * ====================================
 */
+<% if (reactHooks) { %>
 import { createGetApiResource } from "@mittwald/react-api-hooks/dist/createGetApiResource";
-import { createRefreshCache } from "@mittwald/react-api-hooks/dist/createRefreshCache";
+<% } %>
 
+export const <%- camelCase(rootNamespace) %> = {
 <% Object.entries(paths).forEach(([path, operations]) => { %>
 <% Object.entries(operations).forEach(([method, operation]) => { %>
-export const use<%- pascalCase(operationId(path, method, operation)) %> = createGetApiResource(<%- operationId(path, method, operation) %>, <%- rootNamespace %>Client.getInstance().<%- operationId(path, method, operation) %>);
-<% }) %>
-<% }) %>
-
-export const <%- camelCase(rootNamespace) %>Cache = {
-<% Object.entries(paths).forEach(([path, operations]) => { %>
-<% Object.entries(operations).forEach(([method, operation]) => { %>
-  refresh<%- pascalCase(operationId(path, method, operation)) %>: createRefreshCache(<%- operationId(path, method, operation) %>),
+  <%- camelCase(operationId(path, method, operation)) %>: {
+    <% if (reactHooks) { %>
+    getResource: createGetApiResource(<%- operationId(path, method, operation) %>, <%- rootNamespace %>Client.getInstance().<%- operationId(path, method, operation) %>),
+    <% } %>
+    request: <%- rootNamespace %>Client.getInstance().<%- operationId(path, method, operation) %>,
+    descriptor: <%- operationId(path, method, operation) %>,
+  },
 <% }) %>
 <% }) %>
 }
-
-<% } %>

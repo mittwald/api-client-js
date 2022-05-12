@@ -18,6 +18,7 @@ void (async () => {
         noInteractive,
         force,
         react,
+        optionalHeaders,
         _: allFiles,
     } = yargs
         .usage("openapi2ts [options] [url/file...]")
@@ -77,6 +78,11 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore -a '{/user,/user/**}' htt
             boolean: true,
             alias: "e",
             description: "show full error stack",
+            demandOption: false,
+        })
+        .option("optionalHeaders", {
+            array: true,
+            description: "makes provided headers optional",
             demandOption: false,
         })
         .option("skipValidation", {
@@ -259,7 +265,10 @@ openapi2ts -o src/api/PetStoreApiClient.ts -n PetStore -a '{/user,/user/**}' htt
 
         spec.updateSpec(specWithChanges);
 
-        spec.writeClient(output, !!react);
+        spec.writeClient(output, {
+            reactHooks: !!react,
+            optionalHeaders: optionalHeaders?.filter((h) => typeof h === "string") as string[] | undefined,
+        });
         spec.writeRequestMockingFactory(output);
 
         lockfile.write(lockfileName);
