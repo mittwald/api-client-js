@@ -3,6 +3,7 @@ import { OperationDescriptor, RequestFunction, RequestType } from "@mittwald/api
 import { Resource } from "@mittwald/flow-lib/dist/resources/Resource";
 import { TaggedResource } from "@mittwald/flow-lib/dist/resources/types";
 import Tags from "@mittwald/flow-lib/dist/resources/Tags";
+import UnexpectedApiResponseError from "./UnexpectedApiResponseError";
 
 export type ApiResourceData<T> = T extends OperationDescriptor<any, infer TRes>
     ? Extract<TRes, { status: 200 }> extends { content: infer TContent }
@@ -30,11 +31,15 @@ export class ApiResource<T extends OperationDescriptor> extends Resource<ApiReso
     private async executeRequest(requestFn: RequestFunction<T>, requestParams: RequestType<T>): Promise<ApiResourceData<T> | undefined> {
         const response = await requestFn(requestParams);
 
-        if (response?.status === 200) {
-            return response.content;
+        if (response.status === 404) {
+            return undefined;
         }
 
-        return undefined;
+        if (response.status < 200 || response.status >= 300) {
+            throw new UnexpectedApiResponseError(response);
+        }
+
+        return response.content;
     }
 }
 
