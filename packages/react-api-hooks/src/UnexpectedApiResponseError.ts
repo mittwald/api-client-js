@@ -1,5 +1,4 @@
 import { Response } from "@mittwald/api-client/dist/http/Client";
-import { getObjectValue } from "@mittwald/flow-lib/dist/object/getObjectValue";
 
 export class UnexpectedApiResponseError extends Error {
     public readonly operationId?: string;
@@ -26,20 +25,19 @@ export class UnexpectedApiResponseError extends Error {
         this.message = `${this.httpMethod?.toUpperCase() ?? "UNKNOWN"} ${this.path ?? "unknown"} [${statusCode ?? "0"}`;
 
         if (content && typeof content === "object") {
-            const responseErrorMessage =
-                getObjectValue("message", content) ?? getObjectValue("error_description", content) ?? getObjectValue("error", content);
+            const responseErrorMessage = content.message ?? content.error_description ?? content.error;
 
             if (typeof responseErrorMessage === "string") {
                 this.errorMessage = responseErrorMessage;
                 this.message += `: ${responseErrorMessage}`;
             }
 
-            const responseTraceId = getObjectValue("params.traceId", content);
+            const responseTraceId = content.params?.traceId;
             if (typeof responseTraceId === "string") {
                 this.traceId = responseTraceId;
             }
 
-            const responseErrorType = getObjectValue("type", content);
+            const responseErrorType = content.type;
             if (typeof responseErrorType === "string") {
                 this.errorType = responseErrorType;
             }
