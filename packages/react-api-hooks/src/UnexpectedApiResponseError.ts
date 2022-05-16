@@ -9,7 +9,7 @@ export class UnexpectedApiResponseError extends Error {
     public readonly errorMessage?: string;
     public readonly statusCode?: number;
 
-    public constructor(response: Response) {
+    public constructor(response: Partial<Response>) {
         super();
         this.name = "UnexpectedApiResponseError";
         Object.setPrototypeOf(this, UnexpectedApiResponseError.prototype);
