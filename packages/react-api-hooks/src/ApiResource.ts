@@ -4,6 +4,7 @@ import { Resource } from "@mittwald/flow-lib/dist/resources/Resource";
 import { TaggedResource } from "@mittwald/flow-lib/dist/resources/types";
 import Tags from "@mittwald/flow-lib/dist/resources/Tags";
 import UnexpectedApiResponseError from "./UnexpectedApiResponseError";
+import { NoAccessResourceLoadingError, NotFoundResourceLoadingError } from "@mittwald/flow-lib/dist/resources/ResourceLoadingError";
 
 export type ApiResourceData<T> = T extends OperationDescriptor<any, infer TRes>
     ? Extract<TRes, { status: 200 }> extends { content: infer TContent }
@@ -28,11 +29,15 @@ export class ApiResource<T extends OperationDescriptor> extends Resource<ApiReso
         return this.tags.toString();
     }
 
-    private async executeRequest(requestFn: RequestFunction<T>, requestParams: RequestType<T>): Promise<ApiResourceData<T> | undefined> {
+    private async executeRequest(requestFn: RequestFunction<T>, requestParams: RequestType<T>): Promise<ApiResourceData<T>> {
         const response = await requestFn(requestParams);
 
         if (response.status === 404) {
-            return undefined;
+            throw new NotFoundResourceLoadingError();
+        }
+
+        if (response.status === 401 || response.status === 403) {
+            throw new NoAccessResourceLoadingError();
         }
 
         if (response.status < 200 || response.status >= 300) {
