@@ -1,6 +1,6 @@
 type Sleeper = () => Promise<void>;
 
-const defaultSleeper: Sleeper = () => new Promise((res) => setTimeout(() => res(), Math.random() * 600 + 200));
+const defaultSleeper: Sleeper = () => new Promise((res) => setTimeout(() => res(), Math.random() * 500 + 200));
 
 export const globals = {
     mockRequestSleeper: defaultSleeper,

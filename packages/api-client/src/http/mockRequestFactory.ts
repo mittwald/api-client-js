@@ -1,4 +1,4 @@
-import { OperationDescriptor, RequestType } from "../OperationDescriptor";
+import { OperationDescriptor } from "../OperationDescriptor";
 import { Request as ClientRequest, Response } from "./Client";
 import fetchMock, { MockOptions, MockRequest, MockResponse } from "fetch-mock";
 import { buildPathParamsMatcher, setPathParams } from "./path";
@@ -7,7 +7,6 @@ import { mapHeaders } from "./headers";
 import queryString from "querystring";
 import debug from "../debug";
 import globals from "../globals";
-import { LooseObject } from "../types/LooseObject";
 
 export type DeepPartial<T> = {
     [TKey in keyof T]?: DeepPartial<T[TKey]>;
@@ -28,7 +27,7 @@ export type MockRequestFactory = <TRequest extends ClientRequest, TResponse exte
     descriptor: OperationDescriptor<TRequest, TResponse>,
 ) => (
     request: PartialRequest<TRequest>,
-    response: MockRequestFactoryResponse<TResponse> | ((req: LooseObject<TRequest>) => MockRequestFactoryResponse<TResponse>),
+    response: MockRequestFactoryResponse<TResponse> | ((req: TRequest) => MockRequestFactoryResponse<TResponse>),
 ) => void;
 
 const d = debug.extend("mockRequestFactory");
@@ -43,12 +42,12 @@ export const mockRequestFactory: MockRequestFactory = (descriptor) => {
             const requestBody = await mapBody(rawRequest, rawRequest.headers);
             const pathParams = matchPathParams(rawRequest.url);
 
-            const actualRequest = ({
+            const actualRequest = {
                 path: pathParams,
                 header: mapHeaders(rawRequest.headers),
                 query: queryString.parse(url.split("?")[1]),
                 requestBody,
-            } as unknown) as RequestType<typeof descriptor>;
+            } as any;
 
             const response = typeof responseFactory === "function" ? responseFactory(actualRequest) : responseFactory;
 

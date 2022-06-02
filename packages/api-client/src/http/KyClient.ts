@@ -52,7 +52,6 @@ export class KyClient implements Client {
         const { path, method } = descriptor;
         const { header, requestBody, path: pathParams, query } = request ?? {};
 
-        d("requestBody: %o", requestBody);
         // make a shallow copy
         const options = this.options.requestOptionsHook({ ...this.options });
 
@@ -69,11 +68,10 @@ export class KyClient implements Client {
             if (requestBody) {
                 requestOptions.json = requestBody;
             }
-            d("setting path params");
             const resolvedPath = setPathParams(path, pathParams);
-            d("starting %o request to %o", method.toUpperCase(), resolvedPath);
+            d("%s: starting %o request", resolvedPath, method.toUpperCase());
             const kyResponse = await this.ky(resolvedPath, requestOptions);
-            d("mapping response");
+            d("%s: request done. mapping response", resolvedPath);
             return (await mapResponse(kyResponse, descriptor)) as any;
         } catch (error) {
             if (error instanceof ky.HTTPError) {
