@@ -137,7 +137,7 @@ export class <%- rootNamespace %>Client {
 * ====================================
 */
 <% if (reactHooks) { %>
-import { createGetApiResource } from "@mittwald/react-api-hooks/dist/createGetApiResource";
+import { createGetApiOperationResource } from "@mittwald/flow-lib/dist/resources/ApiOperationResource/createGetApiOperationResource";
 <% } %>
 
 export const <%- camelCase(rootNamespace) %> = {
@@ -145,7 +145,7 @@ export const <%- camelCase(rootNamespace) %> = {
 <% Object.entries(operations).forEach(([method, operation]) => { %>
   <%- camelCase(operationId(path, method, operation)) %>: {
     <% if (reactHooks) { %>
-    getResource: createGetApiResource(<%- operationId(path, method, operation) %>, <%- rootNamespace %>Client.getInstance().<%- operationId(path, method, operation) %>),
+    getResource: createGetApiOperationResource(<%- operationId(path, method, operation) %>, <%- rootNamespace %>Client.getInstance().<%- operationId(path, method, operation) %>),
     <% } %>
     request: <%- rootNamespace %>Client.getInstance().<%- operationId(path, method, operation) %>,
     descriptor: <%- operationId(path, method, operation) %>,

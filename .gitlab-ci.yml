@@ -1,7 +1,6 @@
 include:
   - packages/api-client/.gitlab-ci.yml
   - packages/openapi-to-typescript/.gitlab-ci.yml
-  - packages/react-api-hooks/.gitlab-ci.yml
 stages:
   - compile
   - test
@@ -31,5 +30,4 @@ compile:all:
     paths:
       - packages/api-client/dist/
       - packages/openapi-to-typescript/dist/
-      - packages/react-api-hooks/dist/
     expire_in: 1 hour
