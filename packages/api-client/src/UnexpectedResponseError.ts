@@ -1,6 +1,6 @@
-import { Response } from "@mittwald/api-client/dist/http/Client";
+import { Response } from "./http/Client";
 
-export class UnexpectedApiResponseError extends Error {
+export class UnexpectedResponseError extends Error {
     public readonly operationId?: string;
     public readonly path?: string;
     public readonly httpMethod?: string;
@@ -8,11 +8,12 @@ export class UnexpectedApiResponseError extends Error {
     public readonly errorType?: string;
     public readonly errorMessage?: string;
     public readonly statusCode?: number;
+    public readonly content?: any;
 
     public constructor(response: Partial<Response>) {
         super();
         this.name = "UnexpectedApiResponseError";
-        Object.setPrototypeOf(this, UnexpectedApiResponseError.prototype);
+        Object.setPrototypeOf(this, UnexpectedResponseError.prototype);
 
         const { url, status: statusCode, operation: apiOperation } = response;
 
@@ -20,28 +21,28 @@ export class UnexpectedApiResponseError extends Error {
         this.path = apiOperation?.path ?? url;
         this.httpMethod = apiOperation?.method;
         this.statusCode = statusCode;
-        const content = response.content;
+        this.content = response.content;
 
         this.message = `${this.httpMethod?.toUpperCase() ?? "UNKNOWN"} ${this.path ?? "unknown"} [${statusCode ?? "0"}`;
 
-        if (content && typeof content === "object") {
-            const responseErrorMessage = content.message ?? content.error_description ?? content.error;
+        if (this.content && typeof this.content === "object") {
+            const responseErrorMessage = this.content.message ?? this.content.error_description ?? this.content.error;
 
             if (typeof responseErrorMessage === "string") {
                 this.errorMessage = responseErrorMessage;
                 this.message += `: ${responseErrorMessage}`;
             }
 
-            const responseTraceId = content.params?.traceId;
+            const responseTraceId = this.content.params?.traceId;
             if (typeof responseTraceId === "string") {
                 this.traceId = responseTraceId;
             }
 
-            const responseErrorType = content.type;
+            const responseErrorType = this.content.type;
             if (typeof responseErrorType === "string") {
                 this.errorType = responseErrorType;
             }
         }
     }
 }
-export default UnexpectedApiResponseError;
+export default UnexpectedResponseError;

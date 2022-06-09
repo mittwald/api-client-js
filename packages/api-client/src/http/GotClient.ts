@@ -1,10 +1,11 @@
 import * as Client from "./Client";
 import debug from "../debug";
-import got, { Got, Method, RequestError, Response, Options } from "got";
+import got, { Got, Method, RequestError as GotRequestError, Response, Options } from "got";
 import { Headers, OperationDescriptor } from "../OperationDescriptor";
 import { setPathParams } from "./path";
 import { convertQueryToUrlSearchParams } from "./request";
 import { URLSearchParams } from "url";
+import RequestError from "../RequestError";
 
 const d = debug.extend("GotHTTPClient");
 
@@ -45,11 +46,11 @@ export class GotClient implements Client.Client {
             return this.mapResponse(response, descriptor);
         } catch (err) {
             d("request failed with got RequestError");
-            if (err instanceof RequestError && err.response) {
+            if (err instanceof GotRequestError && err.response) {
                 return this.mapResponse(err.response, descriptor);
             }
             d("request failed");
-            return err;
+            throw new RequestError(resolvedPath, descriptor.method, err);
         }
     };
 

@@ -8,6 +8,7 @@ import { setPathParams } from "./path";
 import { mapResponse } from "./response";
 import { patchedFetchForSafari } from "./safari";
 import { convertQueryToUrlSearchParams } from "./request";
+import RequestError from "../RequestError";
 
 const d = debug.extend("KyHTTPClient");
 
@@ -55,6 +56,8 @@ export class KyClient implements Client {
         // make a shallow copy
         const options = this.options.requestOptionsHook({ ...this.options });
 
+        const resolvedPath = setPathParams(path, pathParams);
+
         try {
             const requestOptions: KyOptions = {
                 method,
@@ -68,7 +71,6 @@ export class KyClient implements Client {
             if (requestBody) {
                 requestOptions.json = requestBody;
             }
-            const resolvedPath = setPathParams(path, pathParams);
             d("%s: starting %o request", resolvedPath, method.toUpperCase());
             const kyResponse = await this.ky(resolvedPath, requestOptions);
             d("%s: request done. mapping response", resolvedPath);
@@ -79,7 +81,7 @@ export class KyClient implements Client {
                 return (await mapResponse(error.response, descriptor)) as any;
             }
             d("request failed");
-            throw error;
+            throw new RequestError(resolvedPath, descriptor.method, error);
         }
     };
 }
