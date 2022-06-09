@@ -3221,11 +3221,11 @@ export class TestClient {
  * ====================================
  */
 
-import { createGetApiResource } from \\"@mittwald/react-api-hooks/dist/createGetApiResource\\";
+import { createGetApiOperationResource } from \\"@mittwald/flow-lib/dist/resources/ApiOperationResource/createGetApiOperationResource\\";
 
 export const test = {
   fileServiceFilesGetById: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       fileServiceFilesGetById,
       TestClient.getInstance().fileServiceFilesGetById
     ),
@@ -3235,7 +3235,7 @@ export const test = {
   },
 
   mailsystemServiceImapclusterCreate: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       mailsystemServiceImapclusterCreate,
       TestClient.getInstance().mailsystemServiceImapclusterCreate
     ),
@@ -3245,7 +3245,7 @@ export const test = {
   },
 
   mailsystemServiceImapclusterUpdate: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       mailsystemServiceImapclusterUpdate,
       TestClient.getInstance().mailsystemServiceImapclusterUpdate
     ),
@@ -3255,7 +3255,7 @@ export const test = {
   },
 
   mailsystemServiceSettingCreate: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       mailsystemServiceSettingCreate,
       TestClient.getInstance().mailsystemServiceSettingCreate
     ),
@@ -3265,7 +3265,7 @@ export const test = {
   },
 
   mailsystemServiceSettingUpdate: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       mailsystemServiceSettingUpdate,
       TestClient.getInstance().mailsystemServiceSettingUpdate
     ),
@@ -3275,7 +3275,7 @@ export const test = {
   },
 
   signupApiAuthenticate: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiAuthenticate,
       TestClient.getInstance().signupApiAuthenticate
     ),
@@ -3285,7 +3285,7 @@ export const test = {
   },
 
   signupApiAuthenticateLegacy: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiAuthenticateLegacy,
       TestClient.getInstance().signupApiAuthenticateLegacy
     ),
@@ -3295,7 +3295,7 @@ export const test = {
   },
 
   signupApiAuthenticateMfa: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiAuthenticateMfa,
       TestClient.getInstance().signupApiAuthenticateMfa
     ),
@@ -3305,7 +3305,7 @@ export const test = {
   },
 
   signupApiEmailResend: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiEmailResend,
       TestClient.getInstance().signupApiEmailResend
     ),
@@ -3315,7 +3315,7 @@ export const test = {
   },
 
   signupApiLogout: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiLogout,
       TestClient.getInstance().signupApiLogout
     ),
@@ -3325,7 +3325,7 @@ export const test = {
   },
 
   signupApiMfaConfirm: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiMfaConfirm,
       TestClient.getInstance().signupApiMfaConfirm
     ),
@@ -3335,7 +3335,7 @@ export const test = {
   },
 
   signupApiMfaDisable: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiMfaDisable,
       TestClient.getInstance().signupApiMfaDisable
     ),
@@ -3345,7 +3345,7 @@ export const test = {
   },
 
   signupApiMfaInit: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiMfaInit,
       TestClient.getInstance().signupApiMfaInit
     ),
@@ -3355,7 +3355,7 @@ export const test = {
   },
 
   signupApiPasswordChange: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiPasswordChange,
       TestClient.getInstance().signupApiPasswordChange
     ),
@@ -3365,7 +3365,7 @@ export const test = {
   },
 
   signupApiPasswordResetConfirm: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiPasswordResetConfirm,
       TestClient.getInstance().signupApiPasswordResetConfirm
     ),
@@ -3375,7 +3375,7 @@ export const test = {
   },
 
   signupApiPasswordResetInit: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiPasswordResetInit,
       TestClient.getInstance().signupApiPasswordResetInit
     ),
@@ -3385,7 +3385,7 @@ export const test = {
   },
 
   signupApiPhoneNumberDelete: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiPhoneNumberDelete,
       TestClient.getInstance().signupApiPhoneNumberDelete
     ),
@@ -3395,7 +3395,7 @@ export const test = {
   },
 
   signupApiPhoneNumberGet: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiPhoneNumberGet,
       TestClient.getInstance().signupApiPhoneNumberGet
     ),
@@ -3405,7 +3405,7 @@ export const test = {
   },
 
   signupApiPhoneNumberInitProcess: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiPhoneNumberInitProcess,
       TestClient.getInstance().signupApiPhoneNumberInitProcess
     ),
@@ -3415,7 +3415,7 @@ export const test = {
   },
 
   signupApiPhoneNumberVerify: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiPhoneNumberVerify,
       TestClient.getInstance().signupApiPhoneNumberVerify
     ),
@@ -3425,7 +3425,7 @@ export const test = {
   },
 
   signupApiProfileChange: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiProfileChange,
       TestClient.getInstance().signupApiProfileChange
     ),
@@ -3435,7 +3435,7 @@ export const test = {
   },
 
   signupApiProfileGet: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiProfileGet,
       TestClient.getInstance().signupApiProfileGet
     ),
@@ -3445,7 +3445,7 @@ export const test = {
   },
 
   signupApiRecoverycodesReset: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiRecoverycodesReset,
       TestClient.getInstance().signupApiRecoverycodesReset
     ),
@@ -3455,7 +3455,7 @@ export const test = {
   },
 
   signupApiRegister: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiRegister,
       TestClient.getInstance().signupApiRegister
     ),
@@ -3465,7 +3465,7 @@ export const test = {
   },
 
   signupApiRegistrationVerify: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiRegistrationVerify,
       TestClient.getInstance().signupApiRegistrationVerify
     ),
@@ -3475,7 +3475,7 @@ export const test = {
   },
 
   signupApiSessionGet: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiSessionGet,
       TestClient.getInstance().signupApiSessionGet
     ),
@@ -3485,7 +3485,7 @@ export const test = {
   },
 
   signupApiSessionsList: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiSessionsList,
       TestClient.getInstance().signupApiSessionsList
     ),
@@ -3495,7 +3495,7 @@ export const test = {
   },
 
   signupApiSshCreate: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiSshCreate,
       TestClient.getInstance().signupApiSshCreate
     ),
@@ -3505,7 +3505,7 @@ export const test = {
   },
 
   signupApiSshList: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiSshList,
       TestClient.getInstance().signupApiSshList
     ),
@@ -3515,7 +3515,7 @@ export const test = {
   },
 
   signupApiSshDelete: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiSshDelete,
       TestClient.getInstance().signupApiSshDelete
     ),
@@ -3525,7 +3525,7 @@ export const test = {
   },
 
   signupApiTokenCheck: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       signupApiTokenCheck,
       TestClient.getInstance().signupApiTokenCheck
     ),
@@ -3535,7 +3535,7 @@ export const test = {
   },
 
   softwareServiceListValidators: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       softwareServiceListValidators,
       TestClient.getInstance().softwareServiceListValidators
     ),
@@ -3545,7 +3545,7 @@ export const test = {
   },
 
   softwareServiceValidate: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       softwareServiceValidate,
       TestClient.getInstance().softwareServiceValidate
     ),
@@ -3555,7 +3555,7 @@ export const test = {
   },
 
   softwareServiceSoftwareConfigCreate: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       softwareServiceSoftwareConfigCreate,
       TestClient.getInstance().softwareServiceSoftwareConfigCreate
     ),
@@ -3565,7 +3565,7 @@ export const test = {
   },
 
   softwareServiceSoftwareConfigDelete: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       softwareServiceSoftwareConfigDelete,
       TestClient.getInstance().softwareServiceSoftwareConfigDelete
     ),
@@ -3575,7 +3575,7 @@ export const test = {
   },
 
   softwareServiceSoftwareConfigGetById: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       softwareServiceSoftwareConfigGetById,
       TestClient.getInstance().softwareServiceSoftwareConfigGetById
     ),
@@ -3585,7 +3585,7 @@ export const test = {
   },
 
   softwareServiceSoftwareConfigRollback: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       softwareServiceSoftwareConfigRollback,
       TestClient.getInstance().softwareServiceSoftwareConfigRollback
     ),
@@ -3595,7 +3595,7 @@ export const test = {
   },
 
   softwareServiceSoftwareConfigUpdate: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       softwareServiceSoftwareConfigUpdate,
       TestClient.getInstance().softwareServiceSoftwareConfigUpdate
     ),
@@ -3605,7 +3605,7 @@ export const test = {
   },
 
   softwareServiceSoftwareConfigtemplateCreate: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       softwareServiceSoftwareConfigtemplateCreate,
       TestClient.getInstance().softwareServiceSoftwareConfigtemplateCreate
     ),
@@ -3616,7 +3616,7 @@ export const test = {
   },
 
   softwareServiceSoftwareConfigtemplateGetList: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       softwareServiceSoftwareConfigtemplateGetList,
       TestClient.getInstance().softwareServiceSoftwareConfigtemplateGetList
     ),
@@ -3627,7 +3627,7 @@ export const test = {
   },
 
   softwareServiceSoftwareConfigtemplateDelete: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       softwareServiceSoftwareConfigtemplateDelete,
       TestClient.getInstance().softwareServiceSoftwareConfigtemplateDelete
     ),
@@ -3638,7 +3638,7 @@ export const test = {
   },
 
   softwareServiceSoftwareConfigtemplateGetSpecific: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       softwareServiceSoftwareConfigtemplateGetSpecific,
       TestClient.getInstance().softwareServiceSoftwareConfigtemplateGetSpecific
     ),
@@ -3649,7 +3649,7 @@ export const test = {
   },
 
   softwareServiceSoftwareGetById: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       softwareServiceSoftwareGetById,
       TestClient.getInstance().softwareServiceSoftwareGetById
     ),
@@ -3659,7 +3659,7 @@ export const test = {
   },
 
   softwareServiceSoftwareSettingsDeclare: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       softwareServiceSoftwareSettingsDeclare,
       TestClient.getInstance().softwareServiceSoftwareSettingsDeclare
     ),
@@ -8420,11 +8420,11 @@ export class TestClient {
  * ====================================
  */
 
-import { createGetApiResource } from \\"@mittwald/react-api-hooks/dist/createGetApiResource\\";
+import { createGetApiOperationResource } from \\"@mittwald/flow-lib/dist/resources/ApiOperationResource/createGetApiOperationResource\\";
 
 export const test = {
   updatePet: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       updatePet,
       TestClient.getInstance().updatePet
     ),
@@ -8434,14 +8434,17 @@ export const test = {
   },
 
   addPet: {
-    getResource: createGetApiResource(addPet, TestClient.getInstance().addPet),
+    getResource: createGetApiOperationResource(
+      addPet,
+      TestClient.getInstance().addPet
+    ),
 
     request: TestClient.getInstance().addPet,
     descriptor: addPet,
   },
 
   findPetsByStatus: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       findPetsByStatus,
       TestClient.getInstance().findPetsByStatus
     ),
@@ -8451,7 +8454,7 @@ export const test = {
   },
 
   findPetsByTags: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       findPetsByTags,
       TestClient.getInstance().findPetsByTags
     ),
@@ -8461,7 +8464,7 @@ export const test = {
   },
 
   getPetById: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       getPetById,
       TestClient.getInstance().getPetById
     ),
@@ -8471,7 +8474,7 @@ export const test = {
   },
 
   updatePetWithForm: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       updatePetWithForm,
       TestClient.getInstance().updatePetWithForm
     ),
@@ -8481,7 +8484,7 @@ export const test = {
   },
 
   deletePet: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       deletePet,
       TestClient.getInstance().deletePet
     ),
@@ -8491,7 +8494,7 @@ export const test = {
   },
 
   uploadFile: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       uploadFile,
       TestClient.getInstance().uploadFile
     ),
@@ -8501,7 +8504,7 @@ export const test = {
   },
 
   getInventory: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       getInventory,
       TestClient.getInstance().getInventory
     ),
@@ -8511,7 +8514,7 @@ export const test = {
   },
 
   placeOrder: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       placeOrder,
       TestClient.getInstance().placeOrder
     ),
@@ -8521,7 +8524,7 @@ export const test = {
   },
 
   getOrderById: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       getOrderById,
       TestClient.getInstance().getOrderById
     ),
@@ -8531,7 +8534,7 @@ export const test = {
   },
 
   deleteOrder: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       deleteOrder,
       TestClient.getInstance().deleteOrder
     ),
@@ -8541,7 +8544,7 @@ export const test = {
   },
 
   createUser: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       createUser,
       TestClient.getInstance().createUser
     ),
@@ -8551,7 +8554,7 @@ export const test = {
   },
 
   createUsersWithListInput: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       createUsersWithListInput,
       TestClient.getInstance().createUsersWithListInput
     ),
@@ -8561,7 +8564,7 @@ export const test = {
   },
 
   loginUser: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       loginUser,
       TestClient.getInstance().loginUser
     ),
@@ -8571,7 +8574,7 @@ export const test = {
   },
 
   logoutUser: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       logoutUser,
       TestClient.getInstance().logoutUser
     ),
@@ -8581,7 +8584,7 @@ export const test = {
   },
 
   getUserByName: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       getUserByName,
       TestClient.getInstance().getUserByName
     ),
@@ -8591,7 +8594,7 @@ export const test = {
   },
 
   updateUser: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       updateUser,
       TestClient.getInstance().updateUser
     ),
@@ -8601,7 +8604,7 @@ export const test = {
   },
 
   deleteUser: {
-    getResource: createGetApiResource(
+    getResource: createGetApiOperationResource(
       deleteUser,
       TestClient.getInstance().deleteUser
     ),
