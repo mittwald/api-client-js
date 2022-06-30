@@ -12,7 +12,7 @@ export class UnexpectedResponseError extends Error {
 
     public constructor(response: Partial<Response>) {
         super();
-        this.name = "UnexpectedApiResponseError";
+        this.name = "UnexpectedResponseError";
         Object.setPrototypeOf(this, UnexpectedResponseError.prototype);
 
         const { url, status: statusCode, operation: apiOperation } = response;
