@@ -11,7 +11,7 @@ import "colors";
 import clone from "clone";
 
 export type ChangeType = "new" | "changed" | "removed";
-export type CompareTargetType = "path" | "parameter" | "schema";
+export type CompareTargetType = "path" | "parameter" | "schema" | "requestBody" | "response";
 
 export interface CompareResult {
     name: string;
@@ -152,6 +152,8 @@ export class LockFile {
         syncForTarget("path", result.paths, targetSpec.paths);
         syncForTarget("schema", result.components?.schemas, targetSpec.components?.schemas);
         syncForTarget("parameter", result.components?.parameters, targetSpec.components?.parameters);
+        syncForTarget("response", result.components?.responses, targetSpec.components?.responses);
+        syncForTarget("requestBody", result.components?.requestBodies, targetSpec.components?.requestBodies);
 
         this.content.spec = clone(result);
         return result;

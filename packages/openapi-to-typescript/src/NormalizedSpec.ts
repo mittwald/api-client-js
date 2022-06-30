@@ -41,15 +41,13 @@ export interface Schemas {
     [name: string]: JSONSchema;
 }
 
-export interface Parameters {
-    [name: string]: JSONSchema;
-}
-
 export interface NormalizedSpec {
     paths: Paths;
     components?: {
         schemas?: Schemas;
-        parameters?: Parameters;
+        parameters?: Schemas;
+        responses?: Schemas;
+        requestBodies?: Schemas;
     };
     definitions?: Schemas;
 }

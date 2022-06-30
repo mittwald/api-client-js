@@ -43,6 +43,8 @@ export declare module <%- rootNamespace %> {
     namespace Components {
         <%- include('../types/schemas', {schemas: components.schemas, namespace: 'Schemas'}); %>
         <%- include('../types/schemas', {schemas: components.parameters, namespace: 'Parameters'}); %>
+        <%- include('../types/schemas', {schemas: components.responses, namespace: 'Responses'}); %>
+        <%- include('../types/schemas', {schemas: components.requestBodies, namespace: 'RequestBodies'}); %>
     }
 
     <%- include('../types/schemas', {schemas: definitions, namespace: 'Definitions'}); %>

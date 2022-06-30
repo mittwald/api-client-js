@@ -42,14 +42,13 @@ export const Paths = t.iface([], {
 export const Schemas = t.iface([], {
 });
 
-export const Parameters = t.iface([], {
-});
-
 export const NormalizedSpec = t.iface([], {
   "paths": "Paths",
   "components": t.opt(t.iface([], {
     "schemas": t.opt("Schemas"),
-    "parameters": t.opt("Parameters"),
+    "parameters": t.opt("Schemas"),
+    "responses": t.opt("Schemas"),
+    "requestBodies": t.opt("Schemas"),
   })),
   "definitions": t.opt("Schemas"),
 });
@@ -70,7 +69,6 @@ const exportedTypeSuite: t.ITypeSuite = {
   Operations,
   Paths,
   Schemas,
-  Parameters,
   NormalizedSpec,
   LockFileContent,
 };

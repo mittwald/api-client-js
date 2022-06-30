@@ -205,7 +205,9 @@
             }),
             "components": (components ? components : { }){
                 "schemas": schemas ? schemas : { },
-                "parameters": parameters ~> $mapValues($schemaWithRef)
+                "parameters": parameters ~> $mapValues($schemaWithRef),
+                "responses": responses ? responses : { },
+                "requestBodies": requestBodies ? requestBodies : { }
             },
             /* definitions are used by Swagger */
             "definitions": definitions ? definitions : { }
