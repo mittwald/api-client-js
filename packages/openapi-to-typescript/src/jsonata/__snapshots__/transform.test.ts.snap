@@ -4,6 +4,102 @@ exports[`transformOpenAPIExpression.evaluate() creates correct snapshots for 'Mi
 Object {
   "components": Object {
     "parameters": Object {},
+    "requestBodies": Object {},
+    "responses": Object {
+      "de.mittwald.v1.common.RateLimitError": Object {
+        "description": "Your request ran into a rate limit. You have to wait until rate limit expires
+",
+      },
+      "de.mittwald.v1.signup.InternalServerError": Object {
+        "content": Object {
+          "application/json": Object {
+            "schema": Object {
+              "allOf": Array [
+                Object {
+                  "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  "properties": Object {
+                    "info": Object {
+                      "description": "A json object, given further information about the error",
+                      "type": "object",
+                    },
+                    "message": Object {
+                      "description": "Some more detailed information about the error",
+                      "type": "string",
+                    },
+                    "name": Object {
+                      "description": "Unique key for the error type",
+                      "type": "string",
+                    },
+                  },
+                  "required": Array [
+                    "name",
+                    "message",
+                  ],
+                  "type": "object",
+                },
+                Object {
+                  "properties": Object {
+                    "name": Object {
+                      "enum": Array [
+                        "InternalServerError",
+                      ],
+                      "type": "string",
+                    },
+                  },
+                  "type": "object",
+                },
+              ],
+            },
+          },
+        },
+        "description": "Something in our infrastructure went wrong
+",
+      },
+      "de.mittwald.v1.signup.NoValidAccessTokenError": Object {
+        "content": Object {
+          "application/json": Object {
+            "schema": Object {
+              "allOf": Array [
+                Object {
+                  "$ref": "#/components/schemas/de.mittwald.v1.signup.DomainError",
+                  "properties": Object {
+                    "info": Object {
+                      "description": "A json object, given further information about the error",
+                      "type": "object",
+                    },
+                    "message": Object {
+                      "description": "Some more detailed information about the error",
+                      "type": "string",
+                    },
+                    "name": Object {
+                      "description": "Unique key for the error type",
+                      "type": "string",
+                    },
+                  },
+                  "required": Array [
+                    "name",
+                    "message",
+                  ],
+                  "type": "object",
+                },
+                Object {
+                  "properties": Object {
+                    "name": Object {
+                      "enum": Array [
+                        "NoAccessTokenProvided",
+                      ],
+                      "type": "string",
+                    },
+                  },
+                  "type": "object",
+                },
+              ],
+            },
+          },
+        },
+        "description": "No valid access token was provided",
+      },
+    },
     "schemas": Object {
       "de.mittwald.v1.common.ValidationError": Object {
         "properties": Object {
@@ -4741,6 +4837,182 @@ exports[`transformOpenAPIExpression.evaluate() creates correct snapshots for 'Pe
 Object {
   "components": Object {
     "parameters": Object {},
+    "requestBodies": Object {
+      "Pet": Object {
+        "content": Object {
+          "application/json": Object {
+            "schema": Object {
+              "$ref": "#/components/schemas/Pet",
+              "properties": Object {
+                "category": Object {
+                  "$ref": "#/components/schemas/Category",
+                },
+                "id": Object {
+                  "example": 10,
+                  "format": "int64",
+                  "type": "integer",
+                },
+                "name": Object {
+                  "example": "doggie",
+                  "type": "string",
+                },
+                "photoUrls": Object {
+                  "items": Object {
+                    "type": "string",
+                    "xml": Object {
+                      "name": "photoUrl",
+                    },
+                  },
+                  "type": "array",
+                  "xml": Object {
+                    "wrapped": true,
+                  },
+                },
+                "status": Object {
+                  "description": "pet status in the store",
+                  "enum": Array [
+                    "available",
+                    "pending",
+                    "sold",
+                  ],
+                  "type": "string",
+                },
+                "tags": Object {
+                  "items": Object {
+                    "$ref": "#/components/schemas/Tag",
+                  },
+                  "type": "array",
+                  "xml": Object {
+                    "wrapped": true,
+                  },
+                },
+              },
+              "required": Array [
+                "name",
+                "photoUrls",
+              ],
+              "type": "object",
+              "xml": Object {
+                "name": "pet",
+              },
+            },
+          },
+          "application/xml": Object {
+            "schema": Object {
+              "$ref": "#/components/schemas/Pet",
+              "properties": Object {
+                "category": Object {
+                  "$ref": "#/components/schemas/Category",
+                },
+                "id": Object {
+                  "example": 10,
+                  "format": "int64",
+                  "type": "integer",
+                },
+                "name": Object {
+                  "example": "doggie",
+                  "type": "string",
+                },
+                "photoUrls": Object {
+                  "items": Object {
+                    "type": "string",
+                    "xml": Object {
+                      "name": "photoUrl",
+                    },
+                  },
+                  "type": "array",
+                  "xml": Object {
+                    "wrapped": true,
+                  },
+                },
+                "status": Object {
+                  "description": "pet status in the store",
+                  "enum": Array [
+                    "available",
+                    "pending",
+                    "sold",
+                  ],
+                  "type": "string",
+                },
+                "tags": Object {
+                  "items": Object {
+                    "$ref": "#/components/schemas/Tag",
+                  },
+                  "type": "array",
+                  "xml": Object {
+                    "wrapped": true,
+                  },
+                },
+              },
+              "required": Array [
+                "name",
+                "photoUrls",
+              ],
+              "type": "object",
+              "xml": Object {
+                "name": "pet",
+              },
+            },
+          },
+        },
+        "description": "Pet object that needs to be added to the store",
+      },
+      "UserArray": Object {
+        "content": Object {
+          "application/json": Object {
+            "schema": Object {
+              "items": Object {
+                "$ref": "#/components/schemas/User",
+                "properties": Object {
+                  "email": Object {
+                    "example": "john@email.com",
+                    "type": "string",
+                  },
+                  "firstName": Object {
+                    "example": "John",
+                    "type": "string",
+                  },
+                  "id": Object {
+                    "example": 10,
+                    "format": "int64",
+                    "type": "integer",
+                  },
+                  "lastName": Object {
+                    "example": "James",
+                    "type": "string",
+                  },
+                  "password": Object {
+                    "example": "12345",
+                    "type": "string",
+                  },
+                  "phone": Object {
+                    "example": "12345",
+                    "type": "string",
+                  },
+                  "userStatus": Object {
+                    "description": "User Status",
+                    "example": 1,
+                    "format": "int32",
+                    "type": "integer",
+                  },
+                  "username": Object {
+                    "example": "theUser",
+                    "type": "string",
+                  },
+                },
+                "type": "object",
+                "xml": Object {
+                  "name": "user",
+                },
+              },
+              "type": "array",
+            },
+          },
+        },
+        "description": "List of user object",
+      },
+    },
+    "responses": Object {},
     "schemas": Object {
       "Address": Object {
         "properties": Object {

@@ -1783,6 +1783,16 @@ export declare module Test {
     }
 
     namespace Parameters {}
+
+    namespace Responses {
+      type De_Mittwald_V1_Signup_InternalServerError = any;
+
+      type De_Mittwald_V1_Signup_NoValidAccessTokenError = any;
+
+      type De_Mittwald_V1_Common_RateLimitError = any;
+    }
+
+    namespace RequestBodies {}
   }
 
   namespace Definitions {}
@@ -5623,6 +5633,16 @@ export declare module Test {
     }
 
     namespace Parameters {}
+
+    namespace Responses {
+      type De_Mittwald_V1_Signup_InternalServerError = any;
+
+      type De_Mittwald_V1_Signup_NoValidAccessTokenError = any;
+
+      type De_Mittwald_V1_Common_RateLimitError = any;
+    }
+
+    namespace RequestBodies {}
   }
 
   namespace Definitions {}
@@ -7858,6 +7878,14 @@ export declare module Test {
     }
 
     namespace Parameters {}
+
+    namespace Responses {}
+
+    namespace RequestBodies {
+      type Pet = any;
+
+      type UserArray = any;
+    }
   }
 
   namespace Definitions {}
@@ -9240,6 +9268,14 @@ export declare module Test {
     }
 
     namespace Parameters {}
+
+    namespace Responses {}
+
+    namespace RequestBodies {
+      type Pet = any;
+
+      type UserArray = any;
+    }
   }
 
   namespace Definitions {}
