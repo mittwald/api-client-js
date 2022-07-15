@@ -9,6 +9,10 @@ export class UnexpectedResponseError extends Error {
     public readonly errorMessage?: string;
     public readonly statusCode?: number;
     public readonly content?: any;
+    public readonly isServerError: boolean = false;
+    public readonly isClientError: boolean = false;
+    public readonly isAuthenticationError: boolean = false;
+    public readonly isNotFoundError: boolean = false;
 
     public constructor(response: Partial<Response>) {
         super();
@@ -22,6 +26,13 @@ export class UnexpectedResponseError extends Error {
         this.httpMethod = apiOperation?.method;
         this.statusCode = statusCode;
         this.content = response.content;
+
+        if (statusCode !== undefined) {
+            this.isServerError = statusCode >= 500;
+            this.isClientError = statusCode >= 400 && statusCode < 500;
+            this.isAuthenticationError = statusCode >= 400 && statusCode < 500;
+            this.isNotFoundError = statusCode === 404;
+        }
 
         this.message = `${this.httpMethod?.toUpperCase() ?? "UNKNOWN"} ${this.path ?? "unknown"} [${statusCode ?? "0"}`;
 
