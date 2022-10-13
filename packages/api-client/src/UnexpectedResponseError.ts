@@ -30,7 +30,7 @@ export class UnexpectedResponseError extends Error {
         if (statusCode !== undefined) {
             this.isServerError = statusCode >= 500;
             this.isClientError = statusCode >= 400 && statusCode < 500;
-            this.isAuthenticationError = statusCode >= 400 && statusCode < 500;
+            this.isAuthenticationError = statusCode === 403 || statusCode === 401;
             this.isNotFoundError = statusCode === 404;
         }
 
