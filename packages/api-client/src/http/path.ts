@@ -22,13 +22,15 @@ type ParamsMatcher = (pathOrUrl: string) => object | undefined;
  * Generates a `ParamsMatcher` which can get the values of path params
  */
 export const buildPathParamsMatcher = (pathOrUrl: string): ParamsMatcher => {
-    const { pathname } = parsePath(pathOrUrl);
-    const convertedPath = pathname.replace(/{(.*?)}/g, convertPathParam);
+    const parsedPathResult = parsePath(pathOrUrl);
+    const pathName = parsedPathResult.pathname !== "" ? decodeURI(parsedPathResult.pathname) : parsedPathResult.href;
+    const convertedPath = pathName.replace(/{(.*?)}/g, convertPathParam);
     const matcher = match(convertedPath, { decode: decodeURIComponent });
 
     return (pathOrUrlToParse: string): object | undefined => {
-        const { pathname } = parsePath(pathOrUrlToParse);
-        const matchResult = matcher(pathname);
+        const parsedPathResult = parsePath(pathOrUrlToParse);
+        const pathName = parsedPathResult.pathname !== "" ? decodeURI(parsedPathResult.pathname) : parsedPathResult.href;
+        const matchResult = matcher(pathName);
         return matchResult ? matchResult.params : undefined;
     };
 };

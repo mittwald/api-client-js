@@ -1,7 +1,7 @@
 variables:
   NPM_DIST_DIR: ""
   NPM_WORKING_DIR: $CI_PROJECT_DIR
-  NODE_VERSION: 12
+  NODE_VERSION: 16
   COVERAGE_PUBLIC_SUBDIR: ""
 
 .npm-install:

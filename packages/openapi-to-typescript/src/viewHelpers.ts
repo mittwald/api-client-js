@@ -54,7 +54,9 @@ export const viewHelpersFactory = (namespace: string, opts: ViewHelpersOptions =
 
         return {
             ...schema,
-            required: schema.required.filter((h) => !optionalHeaders.includes(h)),
+            required: Array.isArray(schema.required)
+                ? schema.required.filter((h: string) => !optionalHeaders.includes(h))
+                : schema.required,
         };
     }
 
