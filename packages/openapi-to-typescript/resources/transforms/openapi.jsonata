@@ -45,7 +45,7 @@
         $resolvePath(["components", "securitySchemes", $k($obj)])
     };
 
-    /* if $value is falsy return $or otherwise $value
+    /* if $value is falsy return $or otherwise $value */
     $or := function($value, $or)<x:x> {
         $value ? $value : $or
     };
@@ -194,7 +194,7 @@
                     $method{
                         "operationId": operationId,
                         "parameters": [
-                            $constructParams([parameters, $getApiKeyParams(security)]) ~> $mergeInResponseContentTypeAcceptHeader(responses),
+                            $constructParams([parameters, $getApiKeyParams($exists(security) ? security : $$.security)]) ~> $mergeInResponseContentTypeAcceptHeader(responses),
                             {
                                 "requestBody": requestBody.content.`application/json` ~> $schemaWithRef
                             }

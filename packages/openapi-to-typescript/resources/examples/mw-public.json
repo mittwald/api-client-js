@@ -399,6 +399,11 @@
       }
     }
   },
+  "security": [
+    {
+      "de.mittwald.v1.common.AccessToken": []
+    }
+  ],
   "paths": {
     "/v2/files/{fileID}": {
       "get": {
@@ -432,6 +437,7 @@
             }
           }
         ],
+        "security": [],
         "summary": "Download a file"
       }
     },
@@ -2026,11 +2032,7 @@
             "$ref": "#/components/responses/de.mittwald.v1.signup.InternalServerError"
           }
         },
-        "security": [
-          {
-            "de.mittwald.v1.common.AccessToken": []
-          }
-        ],
+        "security": [],
         "summary": "Check, if the current access token is valid",
         "tags": ["Signup"]
       }

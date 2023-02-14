@@ -47,9 +47,10 @@ export declare module Test {
     namespace V2_Imapcluster {
       namespace Post {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: string;
-          };
+          }
 
           interface RequestBody {
             id: string;
@@ -70,9 +71,10 @@ export declare module Test {
 
       namespace Put {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: string;
-          };
+          }
 
           interface RequestBody {
             id: string;
@@ -95,9 +97,10 @@ export declare module Test {
     namespace V2_Mailsystemsetting {
       namespace Post {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: string;
-          };
+          }
 
           interface RequestBody {
             name: string;
@@ -114,9 +117,10 @@ export declare module Test {
 
       namespace Put {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: string;
-          };
+          }
 
           interface RequestBody {
             name: string;
@@ -135,9 +139,10 @@ export declare module Test {
     namespace V2_Signup_Authentication {
       namespace Post {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           interface RequestBody {
             email: string;
@@ -187,9 +192,10 @@ export declare module Test {
     namespace V2_Signup_Authentication_Legacy {
       namespace Post {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           interface RequestBody {
             account: string;
@@ -226,9 +232,10 @@ export declare module Test {
     namespace V2_Signup_Authentication_Mfa {
       namespace Post {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           interface RequestBody {
             email?: string;
@@ -279,9 +286,10 @@ export declare module Test {
     namespace V2_Signup_Email_Resend {
       namespace Post {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           interface RequestBody {
             email?: string;
@@ -545,9 +553,10 @@ export declare module Test {
     namespace V2_Signup_Password_Reset_Confirm {
       namespace Post {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           interface RequestBody {
             password: string;
@@ -585,9 +594,10 @@ export declare module Test {
     namespace V2_Signup_Password_Reset {
       namespace Post {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           interface RequestBody {
             email: string;
@@ -948,9 +958,10 @@ export declare module Test {
     namespace V2_Signup_Registration {
       namespace Post {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           interface RequestBody {
             email: string;
@@ -1004,9 +1015,10 @@ export declare module Test {
     namespace V2_Signup_Registration_Verification {
       namespace Post {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           interface RequestBody {
             email: string;
@@ -1271,10 +1283,9 @@ export declare module Test {
     namespace V2_Signup_Token_Check {
       namespace Post {
         namespace Parameters {
-          interface Header {
-            \\"x-access-token\\": string;
+          type Header = {
             Accept?: \\"application/json\\";
-          }
+          };
         }
 
         namespace Responses {
@@ -1314,9 +1325,10 @@ export declare module Test {
     namespace V2_Software_Config_Validate {
       namespace Get {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: \\"application/json\\";
-          };
+          }
         }
 
         namespace Responses {
@@ -1333,9 +1345,10 @@ export declare module Test {
 
       namespace Post {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           type RequestBody = {
             files: {
@@ -1376,9 +1389,10 @@ export declare module Test {
             softwareID: string;
           }
 
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           interface RequestBody {
             files: Test.Components.Schemas.De_Mittwald_V1_Software_ConfigFile[];
@@ -1403,9 +1417,10 @@ export declare module Test {
             softwareID: string;
           }
 
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: \\"application/json\\";
-          };
+          }
         }
 
         namespace Responses {
@@ -1424,9 +1439,10 @@ export declare module Test {
             softwareID: string;
           }
 
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: \\"application/json\\";
-          };
+          }
         }
 
         namespace Responses {
@@ -1452,9 +1468,10 @@ export declare module Test {
             softwareID: string;
           }
 
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           interface RequestBody {
             revision?: string;
@@ -1481,9 +1498,10 @@ export declare module Test {
             softwareID: string;
           }
 
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           interface RequestBody {
             files: Test.Components.Schemas.De_Mittwald_V1_Software_ConfigFile[];
@@ -1517,9 +1535,10 @@ export declare module Test {
             projectID: string;
           }
 
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           interface RequestBody {
             files: Test.Components.Schemas.De_Mittwald_V1_Software_ConfigFile[];
@@ -1551,9 +1570,10 @@ export declare module Test {
             skip?: number;
           }
 
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: \\"application/json\\";
-          };
+          }
         }
 
         namespace Responses {
@@ -1581,9 +1601,10 @@ export declare module Test {
             id: string;
           }
 
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: string;
-          };
+          }
         }
 
         namespace Responses {
@@ -1600,9 +1621,10 @@ export declare module Test {
             id: string;
           }
 
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: \\"application/json\\";
-          };
+          }
         }
 
         namespace Responses {
@@ -1623,9 +1645,10 @@ export declare module Test {
             softwareID: string;
           }
 
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: \\"application/json\\";
-          };
+          }
         }
 
         namespace Responses {
@@ -1646,9 +1669,10 @@ export declare module Test {
             softwareID: string;
           }
 
-          type Header = {
+          interface Header {
+            \\"x-access-token\\": string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           type RequestBody = Test.Components.Schemas.De_Mittwald_V1_Software_SoftwareSetting[];
         }
@@ -1828,7 +1852,7 @@ export const mailsystemServiceImapclusterCreate: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Imapcluster.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Imapcluster.Post.Parameters.Header;
+    header: Test.Paths.V2_Imapcluster.Post.Parameters.Header;
   },
   { status: 200 } & {
     content: undefined;
@@ -1843,7 +1867,7 @@ export const mailsystemServiceImapclusterUpdate: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Imapcluster.Put.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Imapcluster.Put.Parameters.Header;
+    header: Test.Paths.V2_Imapcluster.Put.Parameters.Header;
   },
   { status: 200 } & {
     content: undefined;
@@ -1858,7 +1882,7 @@ export const mailsystemServiceSettingCreate: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Mailsystemsetting.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Mailsystemsetting.Post.Parameters.Header;
+    header: Test.Paths.V2_Mailsystemsetting.Post.Parameters.Header;
   },
   { status: 200 } & {
     content: undefined;
@@ -1873,7 +1897,7 @@ export const mailsystemServiceSettingUpdate: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Mailsystemsetting.Put.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Mailsystemsetting.Put.Parameters.Header;
+    header: Test.Paths.V2_Mailsystemsetting.Put.Parameters.Header;
   },
   { status: 200 } & {
     content: undefined;
@@ -1888,7 +1912,7 @@ export const signupApiAuthenticate: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Signup_Authentication.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Signup_Authentication.Post.Parameters.Header;
+    header: Test.Paths.V2_Signup_Authentication.Post.Parameters.Header;
   },
   | ({ status: 200 } & {
       mediaType: \\"application/json\\";
@@ -1919,7 +1943,7 @@ export const signupApiAuthenticateLegacy: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Signup_Authentication_Legacy.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Signup_Authentication_Legacy.Post.Parameters.Header;
+    header: Test.Paths.V2_Signup_Authentication_Legacy.Post.Parameters.Header;
   },
   | ({ status: 200 } & {
       content: undefined;
@@ -1945,7 +1969,7 @@ export const signupApiAuthenticateMfa: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Signup_Authentication_Mfa.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Signup_Authentication_Mfa.Post.Parameters.Header;
+    header: Test.Paths.V2_Signup_Authentication_Mfa.Post.Parameters.Header;
   },
   | ({ status: 200 } & {
       mediaType: \\"application/json\\";
@@ -1976,7 +2000,7 @@ export const signupApiEmailResend: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Signup_Email_Resend.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Signup_Email_Resend.Post.Parameters.Header;
+    header: Test.Paths.V2_Signup_Email_Resend.Post.Parameters.Header;
   },
   | ({ status: 204 } & {
       content: undefined;
@@ -2146,7 +2170,7 @@ export const signupApiPasswordResetConfirm: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Signup_Password_Reset_Confirm.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Signup_Password_Reset_Confirm.Post.Parameters.Header;
+    header: Test.Paths.V2_Signup_Password_Reset_Confirm.Post.Parameters.Header;
   },
   | ({ status: 200 } & {
       content: undefined;
@@ -2172,7 +2196,7 @@ export const signupApiPasswordResetInit: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Signup_Password_Reset.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Signup_Password_Reset.Post.Parameters.Header;
+    header: Test.Paths.V2_Signup_Password_Reset.Post.Parameters.Header;
   },
   | ({ status: 200 } & {
       content: undefined;
@@ -2404,7 +2428,7 @@ export const signupApiRegister: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Signup_Registration.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Signup_Registration.Post.Parameters.Header;
+    header: Test.Paths.V2_Signup_Registration.Post.Parameters.Header;
   },
   | ({ status: 200 } & {
       mediaType: \\"application/json\\";
@@ -2435,7 +2459,7 @@ export const signupApiRegistrationVerify: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Signup_Registration_Verification.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Signup_Registration_Verification.Post.Parameters.Header;
+    header: Test.Paths.V2_Signup_Registration_Verification.Post.Parameters.Header;
   },
   | ({ status: 200 } & {
       content: undefined;
@@ -2600,7 +2624,7 @@ export const signupApiSshDelete: OperationDescriptor<
 
 export const signupApiTokenCheck: OperationDescriptor<
   {
-    header: Test.Paths.V2_Signup_Token_Check.Post.Parameters.Header;
+    header?: Test.Paths.V2_Signup_Token_Check.Post.Parameters.Header;
   },
   | ({ status: 200 } & {
       content: undefined;
@@ -2628,7 +2652,7 @@ export const signupApiTokenCheck: OperationDescriptor<
 
 export const softwareServiceListValidators: OperationDescriptor<
   {
-    header?: Test.Paths.V2_Software_Config_Validate.Get.Parameters.Header;
+    header: Test.Paths.V2_Software_Config_Validate.Get.Parameters.Header;
   },
   { status: 200 } & {
     mediaType: \\"application/json\\";
@@ -2644,7 +2668,7 @@ export const softwareServiceValidate: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Software_Config_Validate.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Software_Config_Validate.Post.Parameters.Header;
+    header: Test.Paths.V2_Software_Config_Validate.Post.Parameters.Header;
   },
   { status: 200 } & {
     mediaType: \\"application/json\\";
@@ -2660,7 +2684,7 @@ export const softwareServiceSoftwareConfigCreate: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Post.Parameters.Header;
+    header: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Post.Parameters.Header;
 
     path: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Post.Parameters.Path;
   },
@@ -2676,7 +2700,7 @@ export const softwareServiceSoftwareConfigCreate: OperationDescriptor<
 
 export const softwareServiceSoftwareConfigDelete: OperationDescriptor<
   {
-    header?: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Delete.Parameters.Header;
+    header: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Delete.Parameters.Header;
 
     path: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Delete.Parameters.Path;
   },
@@ -2692,7 +2716,7 @@ export const softwareServiceSoftwareConfigDelete: OperationDescriptor<
 
 export const softwareServiceSoftwareConfigGetById: OperationDescriptor<
   {
-    header?: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Get.Parameters.Header;
+    header: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Get.Parameters.Header;
 
     path: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Get.Parameters.Path;
   },
@@ -2710,7 +2734,7 @@ export const softwareServiceSoftwareConfigRollback: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Patch.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Patch.Parameters.Header;
+    header: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Patch.Parameters.Header;
 
     path: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Patch.Parameters.Path;
   },
@@ -2728,7 +2752,7 @@ export const softwareServiceSoftwareConfigUpdate: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Put.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Put.Parameters.Header;
+    header: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Put.Parameters.Header;
 
     path: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Put.Parameters.Path;
   },
@@ -2746,7 +2770,7 @@ export const softwareServiceSoftwareConfigtemplateCreate: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Projects_ProjectId_Software_Config_Template.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Projects_ProjectId_Software_Config_Template.Post.Parameters.Header;
+    header: Test.Paths.V2_Projects_ProjectId_Software_Config_Template.Post.Parameters.Header;
 
     path: Test.Paths.V2_Projects_ProjectId_Software_Config_Template.Post.Parameters.Path;
   },
@@ -2762,7 +2786,7 @@ export const softwareServiceSoftwareConfigtemplateCreate: OperationDescriptor<
 
 export const softwareServiceSoftwareConfigtemplateGetList: OperationDescriptor<
   {
-    header?: Test.Paths.V2_Projects_ProjectId_Software_Config_Template.Get.Parameters.Header;
+    header: Test.Paths.V2_Projects_ProjectId_Software_Config_Template.Get.Parameters.Header;
 
     path: Test.Paths.V2_Projects_ProjectId_Software_Config_Template.Get.Parameters.Path;
 
@@ -2782,7 +2806,7 @@ export const softwareServiceSoftwareConfigtemplateGetList: OperationDescriptor<
 
 export const softwareServiceSoftwareConfigtemplateDelete: OperationDescriptor<
   {
-    header?: Test.Paths.V2_Projects_ProjectId_Software_Config_Template_Id.Delete.Parameters.Header;
+    header: Test.Paths.V2_Projects_ProjectId_Software_Config_Template_Id.Delete.Parameters.Header;
 
     path: Test.Paths.V2_Projects_ProjectId_Software_Config_Template_Id.Delete.Parameters.Path;
   },
@@ -2797,7 +2821,7 @@ export const softwareServiceSoftwareConfigtemplateDelete: OperationDescriptor<
 
 export const softwareServiceSoftwareConfigtemplateGetSpecific: OperationDescriptor<
   {
-    header?: Test.Paths.V2_Projects_ProjectId_Software_Config_Template_Id.Get.Parameters.Header;
+    header: Test.Paths.V2_Projects_ProjectId_Software_Config_Template_Id.Get.Parameters.Header;
 
     path: Test.Paths.V2_Projects_ProjectId_Software_Config_Template_Id.Get.Parameters.Path;
   },
@@ -2813,7 +2837,7 @@ export const softwareServiceSoftwareConfigtemplateGetSpecific: OperationDescript
 
 export const softwareServiceSoftwareGetById: OperationDescriptor<
   {
-    header?: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId.Get.Parameters.Header;
+    header: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId.Get.Parameters.Header;
 
     path: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId.Get.Parameters.Path;
   },
@@ -2831,7 +2855,7 @@ export const softwareServiceSoftwareSettingsDeclare: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Settings.Patch.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Settings.Patch.Parameters.Header;
+    header: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Settings.Patch.Parameters.Header;
 
     path: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Settings.Patch.Parameters.Path;
   },
@@ -3897,9 +3921,10 @@ export declare module Test {
     namespace V2_Imapcluster {
       namespace Post {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: string;
-          };
+          }
 
           interface RequestBody {
             id: string;
@@ -3920,9 +3945,10 @@ export declare module Test {
 
       namespace Put {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: string;
-          };
+          }
 
           interface RequestBody {
             id: string;
@@ -3945,9 +3971,10 @@ export declare module Test {
     namespace V2_Mailsystemsetting {
       namespace Post {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: string;
-          };
+          }
 
           interface RequestBody {
             name: string;
@@ -3964,9 +3991,10 @@ export declare module Test {
 
       namespace Put {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: string;
-          };
+          }
 
           interface RequestBody {
             name: string;
@@ -3985,9 +4013,10 @@ export declare module Test {
     namespace V2_Signup_Authentication {
       namespace Post {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           interface RequestBody {
             email: string;
@@ -4037,9 +4066,10 @@ export declare module Test {
     namespace V2_Signup_Authentication_Legacy {
       namespace Post {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           interface RequestBody {
             account: string;
@@ -4076,9 +4106,10 @@ export declare module Test {
     namespace V2_Signup_Authentication_Mfa {
       namespace Post {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           interface RequestBody {
             email?: string;
@@ -4129,9 +4160,10 @@ export declare module Test {
     namespace V2_Signup_Email_Resend {
       namespace Post {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           interface RequestBody {
             email?: string;
@@ -4395,9 +4427,10 @@ export declare module Test {
     namespace V2_Signup_Password_Reset_Confirm {
       namespace Post {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           interface RequestBody {
             password: string;
@@ -4435,9 +4468,10 @@ export declare module Test {
     namespace V2_Signup_Password_Reset {
       namespace Post {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           interface RequestBody {
             email: string;
@@ -4798,9 +4832,10 @@ export declare module Test {
     namespace V2_Signup_Registration {
       namespace Post {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           interface RequestBody {
             email: string;
@@ -4854,9 +4889,10 @@ export declare module Test {
     namespace V2_Signup_Registration_Verification {
       namespace Post {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           interface RequestBody {
             email: string;
@@ -5121,10 +5157,9 @@ export declare module Test {
     namespace V2_Signup_Token_Check {
       namespace Post {
         namespace Parameters {
-          interface Header {
-            \\"x-access-token\\"?: string;
+          type Header = {
             Accept?: \\"application/json\\";
-          }
+          };
         }
 
         namespace Responses {
@@ -5164,9 +5199,10 @@ export declare module Test {
     namespace V2_Software_Config_Validate {
       namespace Get {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
-          };
+          }
         }
 
         namespace Responses {
@@ -5183,9 +5219,10 @@ export declare module Test {
 
       namespace Post {
         namespace Parameters {
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           type RequestBody = {
             files: {
@@ -5226,9 +5263,10 @@ export declare module Test {
             softwareID: string;
           }
 
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           interface RequestBody {
             files: Test.Components.Schemas.De_Mittwald_V1_Software_ConfigFile[];
@@ -5253,9 +5291,10 @@ export declare module Test {
             softwareID: string;
           }
 
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
-          };
+          }
         }
 
         namespace Responses {
@@ -5274,9 +5313,10 @@ export declare module Test {
             softwareID: string;
           }
 
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
-          };
+          }
         }
 
         namespace Responses {
@@ -5302,9 +5342,10 @@ export declare module Test {
             softwareID: string;
           }
 
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           interface RequestBody {
             revision?: string;
@@ -5331,9 +5372,10 @@ export declare module Test {
             softwareID: string;
           }
 
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           interface RequestBody {
             files: Test.Components.Schemas.De_Mittwald_V1_Software_ConfigFile[];
@@ -5367,9 +5409,10 @@ export declare module Test {
             projectID: string;
           }
 
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           interface RequestBody {
             files: Test.Components.Schemas.De_Mittwald_V1_Software_ConfigFile[];
@@ -5401,9 +5444,10 @@ export declare module Test {
             skip?: number;
           }
 
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
-          };
+          }
         }
 
         namespace Responses {
@@ -5431,9 +5475,10 @@ export declare module Test {
             id: string;
           }
 
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: string;
-          };
+          }
         }
 
         namespace Responses {
@@ -5450,9 +5495,10 @@ export declare module Test {
             id: string;
           }
 
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
-          };
+          }
         }
 
         namespace Responses {
@@ -5473,9 +5519,10 @@ export declare module Test {
             softwareID: string;
           }
 
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
-          };
+          }
         }
 
         namespace Responses {
@@ -5496,9 +5543,10 @@ export declare module Test {
             softwareID: string;
           }
 
-          type Header = {
+          interface Header {
+            \\"x-access-token\\"?: string;
             Accept?: \\"application/json\\";
-          };
+          }
 
           type RequestBody = Test.Components.Schemas.De_Mittwald_V1_Software_SoftwareSetting[];
         }
@@ -5678,7 +5726,7 @@ export const mailsystemServiceImapclusterCreate: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Imapcluster.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Imapcluster.Post.Parameters.Header;
+    header: Test.Paths.V2_Imapcluster.Post.Parameters.Header;
   },
   { status: 200 } & {
     content: undefined;
@@ -5693,7 +5741,7 @@ export const mailsystemServiceImapclusterUpdate: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Imapcluster.Put.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Imapcluster.Put.Parameters.Header;
+    header: Test.Paths.V2_Imapcluster.Put.Parameters.Header;
   },
   { status: 200 } & {
     content: undefined;
@@ -5708,7 +5756,7 @@ export const mailsystemServiceSettingCreate: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Mailsystemsetting.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Mailsystemsetting.Post.Parameters.Header;
+    header: Test.Paths.V2_Mailsystemsetting.Post.Parameters.Header;
   },
   { status: 200 } & {
     content: undefined;
@@ -5723,7 +5771,7 @@ export const mailsystemServiceSettingUpdate: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Mailsystemsetting.Put.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Mailsystemsetting.Put.Parameters.Header;
+    header: Test.Paths.V2_Mailsystemsetting.Put.Parameters.Header;
   },
   { status: 200 } & {
     content: undefined;
@@ -5738,7 +5786,7 @@ export const signupApiAuthenticate: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Signup_Authentication.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Signup_Authentication.Post.Parameters.Header;
+    header: Test.Paths.V2_Signup_Authentication.Post.Parameters.Header;
   },
   | ({ status: 200 } & {
       mediaType: \\"application/json\\";
@@ -5769,7 +5817,7 @@ export const signupApiAuthenticateLegacy: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Signup_Authentication_Legacy.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Signup_Authentication_Legacy.Post.Parameters.Header;
+    header: Test.Paths.V2_Signup_Authentication_Legacy.Post.Parameters.Header;
   },
   | ({ status: 200 } & {
       content: undefined;
@@ -5795,7 +5843,7 @@ export const signupApiAuthenticateMfa: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Signup_Authentication_Mfa.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Signup_Authentication_Mfa.Post.Parameters.Header;
+    header: Test.Paths.V2_Signup_Authentication_Mfa.Post.Parameters.Header;
   },
   | ({ status: 200 } & {
       mediaType: \\"application/json\\";
@@ -5826,7 +5874,7 @@ export const signupApiEmailResend: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Signup_Email_Resend.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Signup_Email_Resend.Post.Parameters.Header;
+    header: Test.Paths.V2_Signup_Email_Resend.Post.Parameters.Header;
   },
   | ({ status: 204 } & {
       content: undefined;
@@ -5996,7 +6044,7 @@ export const signupApiPasswordResetConfirm: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Signup_Password_Reset_Confirm.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Signup_Password_Reset_Confirm.Post.Parameters.Header;
+    header: Test.Paths.V2_Signup_Password_Reset_Confirm.Post.Parameters.Header;
   },
   | ({ status: 200 } & {
       content: undefined;
@@ -6022,7 +6070,7 @@ export const signupApiPasswordResetInit: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Signup_Password_Reset.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Signup_Password_Reset.Post.Parameters.Header;
+    header: Test.Paths.V2_Signup_Password_Reset.Post.Parameters.Header;
   },
   | ({ status: 200 } & {
       content: undefined;
@@ -6254,7 +6302,7 @@ export const signupApiRegister: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Signup_Registration.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Signup_Registration.Post.Parameters.Header;
+    header: Test.Paths.V2_Signup_Registration.Post.Parameters.Header;
   },
   | ({ status: 200 } & {
       mediaType: \\"application/json\\";
@@ -6285,7 +6333,7 @@ export const signupApiRegistrationVerify: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Signup_Registration_Verification.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Signup_Registration_Verification.Post.Parameters.Header;
+    header: Test.Paths.V2_Signup_Registration_Verification.Post.Parameters.Header;
   },
   | ({ status: 200 } & {
       content: undefined;
@@ -6450,7 +6498,7 @@ export const signupApiSshDelete: OperationDescriptor<
 
 export const signupApiTokenCheck: OperationDescriptor<
   {
-    header: Test.Paths.V2_Signup_Token_Check.Post.Parameters.Header;
+    header?: Test.Paths.V2_Signup_Token_Check.Post.Parameters.Header;
   },
   | ({ status: 200 } & {
       content: undefined;
@@ -6478,7 +6526,7 @@ export const signupApiTokenCheck: OperationDescriptor<
 
 export const softwareServiceListValidators: OperationDescriptor<
   {
-    header?: Test.Paths.V2_Software_Config_Validate.Get.Parameters.Header;
+    header: Test.Paths.V2_Software_Config_Validate.Get.Parameters.Header;
   },
   { status: 200 } & {
     mediaType: \\"application/json\\";
@@ -6494,7 +6542,7 @@ export const softwareServiceValidate: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Software_Config_Validate.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Software_Config_Validate.Post.Parameters.Header;
+    header: Test.Paths.V2_Software_Config_Validate.Post.Parameters.Header;
   },
   { status: 200 } & {
     mediaType: \\"application/json\\";
@@ -6510,7 +6558,7 @@ export const softwareServiceSoftwareConfigCreate: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Post.Parameters.Header;
+    header: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Post.Parameters.Header;
 
     path: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Post.Parameters.Path;
   },
@@ -6526,7 +6574,7 @@ export const softwareServiceSoftwareConfigCreate: OperationDescriptor<
 
 export const softwareServiceSoftwareConfigDelete: OperationDescriptor<
   {
-    header?: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Delete.Parameters.Header;
+    header: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Delete.Parameters.Header;
 
     path: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Delete.Parameters.Path;
   },
@@ -6542,7 +6590,7 @@ export const softwareServiceSoftwareConfigDelete: OperationDescriptor<
 
 export const softwareServiceSoftwareConfigGetById: OperationDescriptor<
   {
-    header?: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Get.Parameters.Header;
+    header: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Get.Parameters.Header;
 
     path: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Get.Parameters.Path;
   },
@@ -6560,7 +6608,7 @@ export const softwareServiceSoftwareConfigRollback: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Patch.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Patch.Parameters.Header;
+    header: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Patch.Parameters.Header;
 
     path: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Patch.Parameters.Path;
   },
@@ -6578,7 +6626,7 @@ export const softwareServiceSoftwareConfigUpdate: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Put.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Put.Parameters.Header;
+    header: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Put.Parameters.Header;
 
     path: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Config.Put.Parameters.Path;
   },
@@ -6596,7 +6644,7 @@ export const softwareServiceSoftwareConfigtemplateCreate: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Projects_ProjectId_Software_Config_Template.Post.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Projects_ProjectId_Software_Config_Template.Post.Parameters.Header;
+    header: Test.Paths.V2_Projects_ProjectId_Software_Config_Template.Post.Parameters.Header;
 
     path: Test.Paths.V2_Projects_ProjectId_Software_Config_Template.Post.Parameters.Path;
   },
@@ -6612,7 +6660,7 @@ export const softwareServiceSoftwareConfigtemplateCreate: OperationDescriptor<
 
 export const softwareServiceSoftwareConfigtemplateGetList: OperationDescriptor<
   {
-    header?: Test.Paths.V2_Projects_ProjectId_Software_Config_Template.Get.Parameters.Header;
+    header: Test.Paths.V2_Projects_ProjectId_Software_Config_Template.Get.Parameters.Header;
 
     path: Test.Paths.V2_Projects_ProjectId_Software_Config_Template.Get.Parameters.Path;
 
@@ -6632,7 +6680,7 @@ export const softwareServiceSoftwareConfigtemplateGetList: OperationDescriptor<
 
 export const softwareServiceSoftwareConfigtemplateDelete: OperationDescriptor<
   {
-    header?: Test.Paths.V2_Projects_ProjectId_Software_Config_Template_Id.Delete.Parameters.Header;
+    header: Test.Paths.V2_Projects_ProjectId_Software_Config_Template_Id.Delete.Parameters.Header;
 
     path: Test.Paths.V2_Projects_ProjectId_Software_Config_Template_Id.Delete.Parameters.Path;
   },
@@ -6647,7 +6695,7 @@ export const softwareServiceSoftwareConfigtemplateDelete: OperationDescriptor<
 
 export const softwareServiceSoftwareConfigtemplateGetSpecific: OperationDescriptor<
   {
-    header?: Test.Paths.V2_Projects_ProjectId_Software_Config_Template_Id.Get.Parameters.Header;
+    header: Test.Paths.V2_Projects_ProjectId_Software_Config_Template_Id.Get.Parameters.Header;
 
     path: Test.Paths.V2_Projects_ProjectId_Software_Config_Template_Id.Get.Parameters.Path;
   },
@@ -6663,7 +6711,7 @@ export const softwareServiceSoftwareConfigtemplateGetSpecific: OperationDescript
 
 export const softwareServiceSoftwareGetById: OperationDescriptor<
   {
-    header?: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId.Get.Parameters.Header;
+    header: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId.Get.Parameters.Header;
 
     path: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId.Get.Parameters.Path;
   },
@@ -6681,7 +6729,7 @@ export const softwareServiceSoftwareSettingsDeclare: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Settings.Patch.Parameters.RequestBody;
 
-    header?: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Settings.Patch.Parameters.Header;
+    header: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Settings.Patch.Parameters.Header;
 
     path: Test.Paths.V2_Projects_ProjectId_Software_SoftwareId_Settings.Patch.Parameters.Path;
   },

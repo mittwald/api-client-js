@@ -692,7 +692,14 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
               "Accept": Object {
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
           "requestBody": Object {
             "properties": Object {
@@ -743,7 +750,14 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
               "Accept": Object {
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
           "requestBody": Object {
             "properties": Object {
@@ -796,7 +810,14 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
               "Accept": Object {
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
           "requestBody": Object {
             "properties": Object {
@@ -828,7 +849,14 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
               "Accept": Object {
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
           "requestBody": Object {
             "properties": Object {
@@ -863,7 +891,14 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
                 "enum": "application/json",
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
           "path": Object {
             "properties": Object {
@@ -972,7 +1007,14 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
                 "enum": "application/json",
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
           "path": Object {
             "properties": Object {
@@ -1045,7 +1087,14 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
               "Accept": Object {
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
           "path": Object {
             "properties": Object {
@@ -1078,7 +1127,14 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
                 "enum": "application/json",
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
           "path": Object {
             "properties": Object {
@@ -1152,7 +1208,14 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
                 "enum": "application/json",
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
           "path": Object {
             "properties": Object {
@@ -1227,7 +1290,14 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
                 "enum": "application/json",
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
           "path": Object {
             "properties": Object {
@@ -1264,7 +1334,14 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
                 "enum": "application/json",
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
           "path": Object {
             "properties": Object {
@@ -1357,7 +1434,14 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
                 "enum": "application/json",
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
           "path": Object {
             "properties": Object {
@@ -1439,7 +1523,14 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
                 "enum": "application/json",
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
           "path": Object {
             "properties": Object {
@@ -1512,7 +1603,14 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
                 "enum": "application/json",
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
           "path": Object {
             "properties": Object {
@@ -1621,7 +1719,14 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
                 "enum": "application/json",
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
           "path": Object {
             "properties": Object {
@@ -1679,7 +1784,14 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
                 "enum": "application/json",
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
           "requestBody": Object {
             "properties": Object {
@@ -1827,7 +1939,14 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
                 "enum": "application/json",
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
           "requestBody": Object {
             "properties": Object {
@@ -1915,7 +2034,14 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
                 "enum": "application/json",
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
           "requestBody": Object {
             "properties": Object {
@@ -2065,7 +2191,14 @@ type that failed validation (e.g. \\"missingProperty\\" for type \\"required\\")
                 "enum": "application/json",
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
           "requestBody": Object {
             "properties": Object {
@@ -2835,7 +2968,14 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
                 "enum": "application/json",
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
           "requestBody": Object {
             "properties": Object {
@@ -2919,7 +3059,14 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
                 "enum": "application/json",
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
           "requestBody": Object {
             "properties": Object {
@@ -3701,7 +3848,14 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
                 "enum": "application/json",
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
           "requestBody": Object {
             "properties": Object {
@@ -3885,7 +4039,14 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
                 "enum": "application/json",
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
           "requestBody": Object {
             "properties": Object {
@@ -4587,14 +4748,7 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
                 "enum": "application/json",
                 "type": "string",
               },
-              "x-access-token": Object {
-                "type": "string",
-              },
             },
-            "required": Array [
-              "x-access-token",
-            ],
-            "type": "object",
           },
         },
         "responses": Object {
@@ -4687,7 +4841,14 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
                 "enum": "application/json",
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
         },
         "responses": Object {
@@ -4726,7 +4887,14 @@ can display it with \`<img src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUh..\\"
                 "enum": "application/json",
                 "type": "string",
               },
+              "x-access-token": Object {
+                "type": "string",
+              },
             },
+            "required": Array [
+              "x-access-token",
+            ],
+            "type": "object",
           },
           "requestBody": Object {
             "properties": Object {
