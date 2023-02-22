@@ -14,4 +14,11 @@ export interface OperationDescriptor<TRequest = any, TResponse = any> {
 export type RequestType<T extends OperationDescriptor> = T extends OperationDescriptor<infer TReq> ? LooseObject<TReq> : never;
 export type ResponseType<T extends OperationDescriptor> = T extends OperationDescriptor<any, infer TRes> ? TRes : never;
 
-export type RequestFunction<T extends OperationDescriptor = OperationDescriptor> = (request: RequestType<T>) => Promise<ResponseType<T>>;
+export interface RequestOptions {
+    // Timeout in milliseconds
+    timeout?: number;
+}
+export type RequestFunction<T extends OperationDescriptor = OperationDescriptor> = (
+    request: RequestType<T>,
+    options?: RequestOptions,
+) => Promise<ResponseType<T>>;
