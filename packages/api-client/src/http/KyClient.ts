@@ -49,7 +49,7 @@ export class KyClient implements Client {
         this.options.defaultHeaders = headers;
     }
 
-    public requestFunctionFactory: AnyRequestFunctionFactory = (descriptor) => async (request) => {
+    public requestFunctionFactory: AnyRequestFunctionFactory = (descriptor) => async (request, requestOptions) => {
         const { path, method } = descriptor;
         const { header, requestBody, path: pathParams, query } = request ?? {};
 
@@ -59,20 +59,21 @@ export class KyClient implements Client {
         const resolvedPath = setPathParams(path, pathParams);
 
         try {
-            const requestOptions: KyOptions = {
+            const kyRequestOptions: KyOptions = {
                 method,
                 headers: {
                     ...options.defaultHeaders,
                     ...mapHeaders(header),
                 },
                 searchParams: convertQueryToUrlSearchParams(query),
+                timeout: requestOptions?.timeout,
             };
 
             if (requestBody) {
-                requestOptions.json = requestBody;
+                kyRequestOptions.json = requestBody;
             }
             d("%s: starting %o request", resolvedPath, method.toUpperCase());
-            const kyResponse = await this.ky(resolvedPath, requestOptions);
+            const kyResponse = await this.ky(resolvedPath, kyRequestOptions);
             d("%s: request done. mapping response", resolvedPath);
             return (await mapResponse(kyResponse, descriptor)) as any;
         } catch (error) {
