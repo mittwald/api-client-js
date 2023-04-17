@@ -1,0 +1,19 @@
+# Operating Systems
+.DS_Store
+Thumbs.db
+
+# Yarn 2 Zero-Install (https://yarnpkg.com/features/zero-installs)
+.yarn/*
+!/**/.yarn/cache
+!/**/.yarn/releases
+!/**/.yarn/plugins
+!/**/.yarn/sdks
+!/**/.yarn/versions
+
+# Dev
+dist/
+coverage/
+*.tsbuildinfo
+
+# Other
+*.log

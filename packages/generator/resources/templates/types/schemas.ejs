@@ -1,0 +1,5 @@
+namespace <%- tsName(namespace) %> {
+<% Object.entries(schemas).forEach(function([name, schema]) { %>
+    <%- include('schema', {schema, name}); %>
+<% }) %>
+}

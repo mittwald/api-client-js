@@ -1,0 +1,14 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./packages/mittwald"
+    },
+    {
+      "path": "./packages/commons"
+    },
+    {
+      "path": "./packages/generator"
+    }
+  ]
+}

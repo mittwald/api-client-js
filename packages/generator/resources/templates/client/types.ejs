@@ -1,0 +1,34 @@
+export declare module <%- rootNamespace %> {
+    namespace Paths {
+      <% Object.entries(paths).forEach(function([pathname, path]) { %>
+      namespace <%- tsName(pathname) %> {
+          <% Object.entries(path).forEach(function([methodname, method]) { %>
+          namespace <%- tsName(methodname) %> {
+              <%- include('../types/schemas', {schemas: method.parameters, namespace: 'Parameters'}); %>
+              namespace Responses {
+                  <% Object.entries(method.responses).forEach(function([status, response]) { %>
+                      namespace <%- tsName(status) %> {
+                          <%- include('../types/schema', {schema: response.headers, name: "Headers"}); %>
+                          namespace Content {
+                              <% Object.entries(response.content).forEach(function([mediaType, content]) { %>
+                                  <%- include('../types/schema', {schema: content, name: mediaType}); %>
+                              <% }) %>
+                          }
+                      }
+                  <% }) %>
+              }
+          }
+          <% }) %>
+      }
+      <% }) %>
+    }
+
+    namespace Components {
+        <%- include('../types/schemas', {schemas: components.schemas, namespace: 'Schemas'}); %>
+        <%- include('../types/schemas', {schemas: components.parameters, namespace: 'Parameters'}); %>
+        <%- include('../types/schemas', {schemas: components.responses, namespace: 'Responses'}); %>
+        <%- include('../types/schemas', {schemas: components.requestBodies, namespace: 'RequestBodies'}); %>
+    }
+
+    <%- include('../types/schemas', {schemas: definitions, namespace: 'Definitions'}); %>
+}

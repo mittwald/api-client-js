@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "composite": true,
+    "module": "ESNext",
+    "moduleResolution": "Node"
+  },
+  "exclude": ["test-d/**/*", "*.test.ts"],
+  "extends": "../../tsconfig.packages.json",
+  "include": ["src/**/*.ts"]
+}

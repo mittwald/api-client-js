@@ -1,0 +1,20 @@
+{
+  "name": "@mittwald/api-client",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "scripts": {
+    "generate:client": "yarn generate:client:v2",
+    "generate:client:v2": "acg --autoAccept '**/*' --v2 --namespace MittwaldApiV2 --optionalHeaders x-access-token --output src/generated/v2 https://api.mittwald.de/openapi"
+  },
+  "files": [
+    "dist/**/*.{js,d.ts}"
+  ],
+  "dependencies": {
+    "@mittwald/api-client-commons": "*"
+  },
+  "devDependencies": {
+    "@mittwald/api-client-generator": "workspace:*",
+    "@mittwald/openapi-to-typescript": "^0.28.0"
+  },
+  "types": "./dist/index.d.ts"
+}

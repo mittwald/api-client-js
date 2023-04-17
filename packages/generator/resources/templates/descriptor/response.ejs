@@ -1,0 +1,17 @@
+<%- !operation.responses || Object.keys(operation.responses).length === 0 ? "never": "" %>
+<% Object.entries(operation.responses).forEach(function([status, response]) { %>
+    <% Object.entries(response.content).forEach(function([mediaType]) { %>
+        | Response<
+        <%- response.content && Object.keys(response.content).length > 0 ? joinNamespace(rootNamespace, "paths", pathname, method, "responses", status, "content", mediaType) : "null" %>,
+        <%- status === "default" ? 0 : status %>,
+        "<%- mediaType %>"
+        >
+    <% }) %>
+    <% if (!response.content || Object.keys(response.content).length === 0) { %>
+        | Response<
+        null,
+        <%- status === "default" ? 0 : status %>,
+        null
+        >
+    <% } %>
+<% }) %>

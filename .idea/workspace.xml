@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="258304a3-a57b-40d7-9812-b0c3e6c3a1e1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pnp.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/.pnp.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/mittwald-public/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/mittwald-public/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/mittwald-public/src/generated/v2.spec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/src/generated/v2.spec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/mittwald-public/src/generated/v2/client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/src/generated/v2/client.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/mittwald-public/src/generated/v2/operations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/src/generated/v2/operations.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/mittwald-public/src/generated/v2/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/src/generated/v2/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/mittwald-public/src/test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/src/test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/mittwald-public/src/v2.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/src/v2.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/mittwald-public/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/packages/mittwald/package.json" />
+  </component>
+  <component name="ProjectId" id="2OHjtkEm80vEGGw35L7x4KXmqdv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;rework&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/marcofalkenberg/dev/api-new&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;yarn:package.json:prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;yarn:package.json:typescript&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/packages/api-client-generator" />
+      <recent name="$PROJECT_DIR$/packages" />
+      <recent name="$PROJECT_DIR$/packages/api-client-commons/src" />
+      <recent name="$PROJECT_DIR$/packages/api-client/src/client/http" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/api-client-commons/src/types" />
+      <recent name="$PROJECT_DIR$/packages/api-client-commons/src" />
+      <recent name="$PROJECT_DIR$/packages/api-client/src/client" />
+      <recent name="$PROJECT_DIR$/packages/api-client/src/mittwald/v2" />
+      <recent name="$PROJECT_DIR$/packages/api-client/src" />
+    </key>
+    <key name="es6.move.members.recent.items">
+      <recent name="$PROJECT_DIR$/packages/api-client-commons/src/types/NullableOnNoRequiredKeysDeep.ts" />
+      <recent name="$PROJECT_DIR$/packages/api-client-commons/src/HttpMethod.ts" />
+      <recent name="$PROJECT_DIR$/packages/api-client-commons/src/HttpHeadersConfig.ts" />
+      <recent name="$PROJECT_DIR$/packages/api-client/src/index.ts" />
+      <recent name="$PROJECT_DIR$/packages/api-client/src/client/BaseApiClient.ts" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="258304a3-a57b-40d7-9812-b0c3e6c3a1e1" name="Changes" comment="" />
+      <created>1681224618028</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1681224618028</updated>
+      <workItem from="1681224619254" duration="3835000" />
+      <workItem from="1681282222002" duration="2107000" />
+      <workItem from="1681284341290" duration="2872000" />
+      <workItem from="1681287224349" duration="162000" />
+      <workItem from="1681287396725" duration="143000" />
+      <workItem from="1681287557252" duration="3000" />
+      <workItem from="1681287596907" duration="34000" />
+      <workItem from="1681287637437" duration="18863000" />
+      <workItem from="1681312413633" duration="678000" />
+      <workItem from="1681313206906" duration="173000" />
+      <workItem from="1681313383253" duration="180000" />
+      <workItem from="1681313568550" duration="158000" />
+      <workItem from="1681313735347" duration="59000" />
+      <workItem from="1681313795123" duration="84000" />
+      <workItem from="1681313886268" duration="68000" />
+      <workItem from="1681313957801" duration="2587000" />
+      <workItem from="1681385993645" duration="16909000" />
+      <workItem from="1681455661781" duration="13165000" />
+      <workItem from="1681470042494" duration="79000" />
+      <workItem from="1681470181819" duration="1158000" />
+      <workItem from="1681473212002" duration="12000" />
+      <workItem from="1681473238231" duration="2691000" />
+      <workItem from="1681475947960" duration="2940000" />
+      <workItem from="1681711336340" duration="7661000" />
+      <workItem from="1681720719423" duration="293000" />
+      <workItem from="1681721020804" duration="12440000" />
+      <workItem from="1681739631826" duration="396000" />
+      <workItem from="1681740031181" duration="3000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
