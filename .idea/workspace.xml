@@ -4,29 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="258304a3-a57b-40d7-9812-b0c3e6c3a1e1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.prettierignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.yarn/plugins/@yarnpkg/plugin-workspace-tools.cjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/generator/jest.config.cjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/generator/resources/examples/petstore.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.yarnrc.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.yarnrc.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/generator/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/generator/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/generator/src/LockFile.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/generator/src/LockFile.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/generator/src/SpecExporter.test.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/generator/src/SpecExporter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/generator/src/SpecExporter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/generator/src/__snapshots__/SpecExporter.test.ts.snap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/generator/src/jsonata/__snapshots__/transform.test.ts.snap" beforeDir="false" afterPath="$PROJECT_DIR$/packages/generator/src/jsonata/__snapshots__/transform.test.ts.snap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/generator/src/jsonata/transform.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/generator/src/jsonata/transform.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/generator/src/viewHelpers.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/generator/src/viewHelpers.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/mittwald/src/generated/v2/client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/src/generated/v2/client.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/mittwald/src/generated/v2/operations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/src/generated/v2/operations.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/mittwald/src/generated/v2/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/src/generated/v2/types.ts" afterDir="false" />
-    </list>
+    <list default="true" id="258304a3-a57b-40d7-9812-b0c3e6c3a1e1" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
