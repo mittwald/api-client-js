@@ -6,18 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="258304a3-a57b-40d7-9812-b0c3e6c3a1e1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.pnp.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/.pnp.cjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/mittwald-public/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/mittwald-public/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/mittwald-public/src/generated/v2.spec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/src/generated/v2.spec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/mittwald-public/src/generated/v2/client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/src/generated/v2/client.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/mittwald-public/src/generated/v2/operations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/src/generated/v2/operations.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/mittwald-public/src/generated/v2/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/src/generated/v2/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/mittwald-public/src/test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/src/test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/mittwald-public/src/v2.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/src/v2.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/mittwald-public/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/mittwald/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +25,7 @@
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/packages/mittwald/package.json" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/opt/homebrew/Cellar/php/8.2.4/bin/php" />
   <component name="ProjectId" id="2OHjtkEm80vEGGw35L7x4KXmqdv" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -123,6 +113,7 @@
       <workItem from="1681721020804" duration="12440000" />
       <workItem from="1681739631826" duration="396000" />
       <workItem from="1681740031181" duration="3000" />
+      <workItem from="1681799240299" duration="732000" />
     </task>
     <servers />
   </component>
