@@ -1,7 +1,8 @@
-include:
-  - project: "coab-0x7e7/guilds/developer-experience/oss-toolbox"
-    ref: master
-    file: /ci/node-license-check.yaml
+# TODO: Figure out how to run this with yarn workspaces
+# include:
+#   - project: "coab-0x7e7/guilds/developer-experience/oss-toolbox"
+#     ref: master
+#     file: /ci/node-license-check.yaml
 
 variables:
   NODE_VERSION: 18
