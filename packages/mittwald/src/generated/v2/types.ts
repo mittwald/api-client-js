@@ -9,7 +9,7 @@ export declare module MittwaldApiV2 {
       namespace Get {
         namespace Parameters {
           interface Path {
-            appId: number;
+            appId: string;
           }
 
           interface Header {
