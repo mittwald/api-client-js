@@ -51,6 +51,8 @@ generate-client:
   needs:
     - typescript-compile
   script:
+    - git config user.name "${GITLAB_USER_NAME}"
+    - git config user.email "${GITLAB_USER_EMAIL}"
     - cd ${CI_PROJECT_DIR}/packages/mittwald
     - yarn generate:client
     - git status
@@ -61,15 +63,13 @@ generate-client:
 
         cd ${CI_PROJECT_DIR}/packages/mittwald
 
-        git config user.name "${GITLAB_USER_NAME}"
-        git config user.email "${GITLAB_USER_EMAIL}"
+        npm version --no-workspaces-update --no-git-tag-version patch
 
         git add .
         git commit -m "Update generated client";
         
         git push "https://project:${PAT}@${CI_REPOSITORY_URL#*@}" "HEAD:${CI_COMMIT_BRANCH}"
 
-        npm version --no-workspaces-update --no-git-tag-version patch
         npm publish
       fi
   only:
