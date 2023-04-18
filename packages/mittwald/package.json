@@ -13,8 +13,7 @@
     "@mittwald/api-client-commons": "*"
   },
   "devDependencies": {
-    "@mittwald/api-client-generator": "workspace:*",
-    "@mittwald/openapi-to-typescript": "^0.28.0"
+    "@mittwald/api-client-generator": "workspace:*"
   },
   "types": "./dist/index.d.ts"
 }
