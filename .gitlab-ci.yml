@@ -64,12 +64,13 @@ generate-client:
         npm version --no-workspaces-update --no-git-tag-version patch
         npm publish
 
-        git config user.email opensource@mittwald.de
-        git config user.name "Mittwald Machine"
+        git config --global user.name "${GITLAB_USER_NAME}"
+        git config --global user.email "${GITLAB_USER_EMAIL}"
 
         git add .
         git commit -m "Update generated client";
-        git push origin HEAD:${CI_COMMIT_BRANCH}
+        
+        git push "https://${GITLAB_USER_LOGIN}:${CI_GIT_TOKEN}@${CI_REPOSITORY_URL#*@}" "HEAD:${CI_COMMIT_BRANCH}"
       fi
   only:
     - schedules
