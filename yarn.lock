@@ -855,7 +855,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@mittwald/api-client-generator@workspace:*, @mittwald/api-client-generator@workspace:packages/generator":
+"@mittwald/api-client-generator@workspace:packages/generator, @mittwald/api-client-generator@~1.0.0":
   version: 0.0.0-use.local
   resolution: "@mittwald/api-client-generator@workspace:packages/generator"
   dependencies:
@@ -908,7 +908,7 @@ __metadata:
   resolution: "@mittwald/api-client@workspace:packages/mittwald"
   dependencies:
     "@mittwald/api-client-commons": "*"
-    "@mittwald/api-client-generator": "workspace:*"
+    "@mittwald/api-client-generator": ~1.0.0
   languageName: unknown
   linkType: soft
 
