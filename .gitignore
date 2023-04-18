@@ -17,3 +17,4 @@ coverage/
 
 # Other
 *.log
+.idea/workspace.xml
