@@ -19,7 +19,7 @@ spec:
               - x-access-token
             properties:
               x-access-token:
-                type: number
+                type: string
               Accept:
                 type: string
                 enum: application/json

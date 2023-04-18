@@ -15,7 +15,7 @@ export declare module MittwaldApiV2 {
           }
 
           interface Header {
-            "x-access-token"?: number;
+            "x-access-token"?: string;
             Accept?: "application/json";
           }
         }
