@@ -5,7 +5,7 @@
   "repository": "https://github.com/mittwald/node-api-client.git",
   "scripts": {
     "generate:client": "yarn generate:client:v2",
-    "generate:client:v2": "acg --autoAccept '**/*' --v2 --namespace MittwaldApiV2 --optionalHeaders x-access-token --output src/generated/v2 https://api.mittwald.de/openapi"
+    "generate:client:v2": "acg --autoAccept '**/*' --namespace MittwaldApiV2 --optionalHeaders x-access-token --output src/generated/v2 https://api.mittwald.de/openapi"
   },
   "files": [
     "dist/**/*.{js,d.ts}"
