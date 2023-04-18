@@ -2,7 +2,7 @@
   "name": "@mittwald/api-client-generator",
   "version": "1.0.0",
   "license": "MIT",
-  "repository": "https://github.com/mittwald/api-client.git",
+  "repository": "https://github.com/mittwald/node-api-client.git",
   "main": "dist/index.js",
   "bin": {
     "acg": "./bin/cli.js"
