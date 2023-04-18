@@ -11,7 +11,8 @@ spec:
               - appId
             properties:
               appId:
-                type: number
+                format: uuid
+                type: string
           header:
             type: object
             required:
