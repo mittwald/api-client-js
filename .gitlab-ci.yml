@@ -61,8 +61,8 @@ generate-client:
 
         cd ${CI_PROJECT_DIR}/packages/mittwald
 
-        git config --global user.name "${GITLAB_USER_NAME}"
-        git config --global user.email "${GITLAB_USER_EMAIL}"
+        git config user.name "${GITLAB_USER_NAME}"
+        git config user.email "${GITLAB_USER_EMAIL}"
 
         git add .
         git commit -m "Update generated client";
