@@ -67,7 +67,7 @@ generate-client:
         git add .
         git commit -m "Update generated client";
         
-        git push "https://${GITLAB_USER_LOGIN}:${PAT}@${CI_REPOSITORY_URL#*@}" "HEAD:${CI_COMMIT_BRANCH}"
+        git push "https://project:${PAT}@${CI_REPOSITORY_URL#*@}" "HEAD:${CI_COMMIT_BRANCH}"
 
         npm version --no-workspaces-update --no-git-tag-version patch
         npm publish
