@@ -48,19 +48,25 @@ publish-commons:
 
 generate-client:
   image: node:${NODE_VERSION}
+  needs:
+    - typescript-compile
   script:
     - cd ${CI_PROJECT_DIR}/packages/mittwald
     - yarn generate:client
+    - yarn compile
     - git status
     - |
       if [ $(git status --porcelain . | wc -l) -gt 0 ] ; then
         npm version --no-workspaces-update --no-git-tag-version patch
         npm publish
 
+        cd ${CI_PROJECT_DIR}
+        yarn compile
+
         git config user.email opensource@mittwald.de
         git config user.name "Mittwald Machine"
 
-        git add .
+        git add packages/mittwald
         git commit -m "Update generated client";
         git push
       fi
