@@ -12,6 +12,10 @@ before_script:
   - npm config set //npm.pkg.github.com/:_authToken "${GITHUB_TOKEN}" -Luser
   - yarn install
 
+test:
+  script:
+    - yarn test
+
 typescript-compile:
   image: node:${NODE_VERSION}
   script:

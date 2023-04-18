@@ -1,9 +1,7 @@
 /* eslint-disable */
 /* prettier-ignore */
 
-/**
-* This file is auto-generated with openapi2ts (@mittwald/openapi-to-typescript)
-*/
+/** This file is auto-generated with openapi2ts (@mittwald/openapi-to-typescript) */
 
 export declare module MittwaldApiV2 {
   namespace Paths {

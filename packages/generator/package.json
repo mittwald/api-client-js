@@ -8,6 +8,10 @@
     "acg": "./bin/cli.js"
   },
   "type": "module",
+  "scripts": {
+    "test": "yarn test:jest",
+    "test:jest": "yarn node --no-warnings --experimental-vm-modules $(yarn bin jest) $@"
+  },
   "files": [
     "dist",
     "resources"

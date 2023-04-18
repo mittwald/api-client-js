@@ -5,8 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="258304a3-a57b-40d7-9812-b0c3e6c3a1e1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.prettierignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.yarn/plugins/@yarnpkg/plugin-workspace-tools.cjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/generator/jest.config.cjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/generator/resources/examples/petstore.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/mittwald/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.yarnrc.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.yarnrc.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/generator/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/generator/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/generator/src/LockFile.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/generator/src/LockFile.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/generator/src/SpecExporter.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/generator/src/SpecExporter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/generator/src/SpecExporter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/generator/src/__snapshots__/SpecExporter.test.ts.snap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/generator/src/jsonata/__snapshots__/transform.test.ts.snap" beforeDir="false" afterPath="$PROJECT_DIR$/packages/generator/src/jsonata/__snapshots__/transform.test.ts.snap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/generator/src/jsonata/transform.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/generator/src/jsonata/transform.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/generator/src/viewHelpers.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/generator/src/viewHelpers.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/mittwald/src/generated/v2/client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/src/generated/v2/client.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/mittwald/src/generated/v2/operations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/src/generated/v2/operations.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/mittwald/src/generated/v2/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mittwald/src/generated/v2/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,33 +50,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;rework&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/marcofalkenberg/dev/api-new&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;yarn:package.json:prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;yarn:package.json:typescript&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "rework",
+    "last_opened_file_path": "/Users/marcofalkenberg/dev/api-new",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "prettierjs.PrettierConfiguration.Package": "yarn:package.json:prettier",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "yarn:package.json:typescript",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/packages/generator/resources" />
       <recent name="$PROJECT_DIR$/packages/api-client-generator" />
       <recent name="$PROJECT_DIR$/packages" />
       <recent name="$PROJECT_DIR$/packages/api-client-commons/src" />
-      <recent name="$PROJECT_DIR$/packages/api-client/src/client/http" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/packages/api-client-commons/src/types" />

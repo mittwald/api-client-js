@@ -10,14 +10,14 @@ spec:
     paths: []
     `);
     expect(lockfile.content).toMatchInlineSnapshot(`
-            Object {
-              "namespace": "test",
-              "spec": Object {
-                "paths": Array [],
-              },
-              "version": "v1",
-            }
-        `);
+      {
+        "namespace": "test",
+        "spec": {
+          "paths": [],
+        },
+        "version": "v1",
+      }
+    `);
   });
 });
 
@@ -46,14 +46,14 @@ describe("Comparing", () => {
         },
       }),
     ).toMatchInlineSnapshot(`
-            Array [
-              Object {
-                "changeType": "new",
-                "name": "/foo",
-                "target": "path",
-              },
-            ]
-        `);
+      [
+        {
+          "changeType": "new",
+          "name": "/foo",
+          "target": "path",
+        },
+      ]
+    `);
   });
 
   test("Comparing detects removed paths", () => {
@@ -68,14 +68,14 @@ describe("Comparing", () => {
         paths: {},
       }),
     ).toMatchInlineSnapshot(`
-            Array [
-              Object {
-                "changeType": "removed",
-                "name": "/foo",
-                "target": "path",
-              },
-            ]
-        `);
+      [
+        {
+          "changeType": "removed",
+          "name": "/foo",
+          "target": "path",
+        },
+      ]
+    `);
   });
 
   test("Comparing detects changed paths", () => {
@@ -127,40 +127,40 @@ describe("Comparing", () => {
         },
       }),
     ).toMatchInlineSnapshot(`
-            Array [
-              Object {
-                "changeType": "changed",
-                "diffInfos": Array [
-                  Object {
-                    "count": 9,
-                    "value": "get:
-              operationId: getFoo
-              parameters: {}
-              responses:
-                '200':
-                  application/json:
-                    content: {}
-                    headers: {}
-                    mediaType: application/json
-            ",
-                  },
-                  Object {
-                    "added": true,
-                    "count": 5,
-                    "removed": undefined,
-                    "value": "    '400':
-                  application/json:
-                    content: {}
-                    headers: {}
-                    mediaType: application/json
-            ",
-                  },
-                ],
-                "name": "/foo",
-                "target": "path",
-              },
-            ]
-        `);
+      [
+        {
+          "changeType": "changed",
+          "diffInfos": [
+            {
+              "count": 9,
+              "value": "get:
+        operationId: getFoo
+        parameters: {}
+        responses:
+          '200':
+            application/json:
+              content: {}
+              headers: {}
+              mediaType: application/json
+      ",
+            },
+            {
+              "added": true,
+              "count": 5,
+              "removed": undefined,
+              "value": "    '400':
+            application/json:
+              content: {}
+              headers: {}
+              mediaType: application/json
+      ",
+            },
+          ],
+          "name": "/foo",
+          "target": "path",
+        },
+      ]
+    `);
   });
 
   test("Comparing detects no changes if there are no", () => {
@@ -251,26 +251,26 @@ describe("Syncing", () => {
     };
 
     expect(lockfile.applyChanges(spec, [])).toMatchInlineSnapshot(`
-            Object {
-              "paths": Object {
-                "/foo": Object {
-                  "get": Object {
-                    "operationId": "getFoo",
-                    "parameters": Object {},
-                    "responses": Object {
-                      "200": Object {
-                        "application/json": Object {
-                          "content": Object {},
-                          "headers": Object {},
-                          "mediaType": "application/json",
-                        },
-                      },
-                    },
+      {
+        "paths": {
+          "/foo": {
+            "get": {
+              "operationId": "getFoo",
+              "parameters": {},
+              "responses": {
+                "200": {
+                  "application/json": {
+                    "content": {},
+                    "headers": {},
+                    "mediaType": "application/json",
                   },
                 },
               },
-            }
-        `);
+            },
+          },
+        },
+      }
+    `);
   });
 
   test("Removes accepted changes", () => {
@@ -307,10 +307,10 @@ describe("Syncing", () => {
         },
       ]),
     ).toMatchInlineSnapshot(`
-            Object {
-              "paths": Object {},
-            }
-        `);
+      {
+        "paths": {},
+      }
+    `);
   });
 
   test("Updates accepted changes", () => {
@@ -363,26 +363,26 @@ describe("Syncing", () => {
         },
       ]),
     ).toMatchInlineSnapshot(`
-            Object {
-              "paths": Object {
-                "/foo": Object {
-                  "get": Object {
-                    "operationId": "getFoo",
-                    "parameters": Object {},
-                    "responses": Object {
-                      "404": Object {
-                        "application/json": Object {
-                          "content": Object {},
-                          "headers": Object {},
-                          "mediaType": "application/json",
-                        },
-                      },
-                    },
+      {
+        "paths": {
+          "/foo": {
+            "get": {
+              "operationId": "getFoo",
+              "parameters": {},
+              "responses": {
+                "404": {
+                  "application/json": {
+                    "content": {},
+                    "headers": {},
+                    "mediaType": "application/json",
                   },
                 },
               },
-            }
-        `);
+            },
+          },
+        },
+      }
+    `);
   });
 
   test("Adds accepted changes", () => {
@@ -419,25 +419,25 @@ describe("Syncing", () => {
         },
       ]),
     ).toMatchInlineSnapshot(`
-            Object {
-              "paths": Object {
-                "/foo": Object {
-                  "get": Object {
-                    "operationId": "getFoo",
-                    "parameters": Object {},
-                    "responses": Object {
-                      "200": Object {
-                        "application/json": Object {
-                          "content": Object {},
-                          "headers": Object {},
-                          "mediaType": "application/json",
-                        },
-                      },
-                    },
+      {
+        "paths": {
+          "/foo": {
+            "get": {
+              "operationId": "getFoo",
+              "parameters": {},
+              "responses": {
+                "200": {
+                  "application/json": {
+                    "content": {},
+                    "headers": {},
+                    "mediaType": "application/json",
                   },
                 },
               },
-            }
-        `);
+            },
+          },
+        },
+      }
+    `);
   });
 });

@@ -136,6 +136,7 @@ export class SpecExporter {
         fileHeader +
         prettier.format(result, {
           parser: "typescript",
+          plugins: [],
         }),
       "FormattingFailed",
       "Failed to format generated code with Prettier. This is a bug. Call a dev!",

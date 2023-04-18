@@ -1,5 +1,5 @@
-import { viewHelpersFactory } from "./viewHelpers";
-import { Schema } from "@mittwald/awesome-node-utils/types/schema";
+import { viewHelpersFactory } from "./viewHelpers.js";
+import { Schema } from "@mittwald/awesome-node-utils/types/schema.js";
 
 const viewHelpers = viewHelpersFactory("test");
 
