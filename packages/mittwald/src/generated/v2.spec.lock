@@ -6470,6 +6470,7 @@ spec:
                     - REGULAR
                     - REISSUE
                     - CORRECTION
+                    - CANCELLATION
                   type: string
                 type: array
               limit:
@@ -6495,44 +6496,6 @@ spec:
                 items:
                   $ref: '#/components/schemas/de.mittwald.v1.invoice.Invoice'
                 type: array
-          '400':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
-          '404':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-          default:
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-    /v2/customers/{customerId}/invoicesettings/nextInvoiceCheck:
-      put:
-        operationId: invoice-service-update-next-invoice-check
-        parameters:
-          path:
-            type: object
-            required:
-              - customerId
-            properties:
-              customerId:
-                type: string
-          header:
-            type: object
-            required:
-              - x-access-token
-            properties:
-              x-access-token:
-                type: string
-              Accept:
-                type: string
-                enum: application/json
-        responses:
-          '200':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.invoice.Dummy'
           '400':
             content:
               application/json:

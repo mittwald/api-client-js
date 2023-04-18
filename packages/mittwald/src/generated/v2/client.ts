@@ -618,10 +618,6 @@ export class MittwaldApiV2Client extends ApiClientBase {
     operations.invoiceServiceListCustomerInvoices
   );
 
-  public invoiceServiceUpdateNextInvoiceCheck = this.requestFunctionFactory(
-    operations.invoiceServiceUpdateNextInvoiceCheck
-  );
-
   public mailServiceDeliveryboxCreate = this.requestFunctionFactory(
     operations.mailServiceDeliveryboxCreate
   );
