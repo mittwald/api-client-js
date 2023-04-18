@@ -1,0 +1,45 @@
+include:
+  - project: "coab-0x7e7/guilds/developer-experience/oss-toolbox"
+    ref: master
+    file: /ci/node-license-check.yaml
+
+variables:
+  NODE_VERSION: 18
+
+before_script:
+  - npm config set @mittwald:registry https://npm.pkg.github.com/ -Luser
+  - npm config set //npm.pkg.github.com/:_authToken "${GITHUB_TOKEN}" -Luser
+
+typescript-compile:
+  image: node:${NODE_VERSION}
+  before_script:
+    - yarn install
+  script:
+    - yarn compile
+  artifacts:
+    paths:
+      - ${CI_PROJECT_DIR}/packages/commons/dist/
+      - ${CI_PROJECT_DIR}/packages/generator/dist/
+    expire_in: 1 hour
+
+publish-generator:
+  image: node:${NODE_VERSION}
+  needs:
+    - typescript-compile
+  script:
+    - cd ${CI_PROJECT_DIR}/packages/generator
+    - npm version ${CI_COMMIT_TAG} --git-tag-version false
+    - npm publish
+  only:
+    - tags
+
+publish-commons:
+  image: node:${NODE_VERSION}
+  needs:
+    - typescript-compile
+  script:
+    - cd ${CI_PROJECT_DIR}/packages/commons
+    - npm version ${CI_COMMIT_TAG} --git-tag-version false
+    - npm publish
+  only:
+    - tags
