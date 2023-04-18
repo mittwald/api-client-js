@@ -1,7 +1,7 @@
 {
   "name": "@mittwald/api-client-commons",
   "version": "1.0.0",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "repository": "https://github.com/mittwald/api-client.git",
   "scripts": {
     "test": "yarn test:tsd",
