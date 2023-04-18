@@ -12,11 +12,6 @@ before_script:
   - npm config set //npm.pkg.github.com/:_authToken "${GITHUB_TOKEN}" -Luser
   - yarn install
 
-test:
-  image: node:${NODE_VERSION}
-  script:
-    - yarn test
-
 typescript-compile:
   image: node:${NODE_VERSION}
   script:
@@ -26,6 +21,13 @@ typescript-compile:
       - ${CI_PROJECT_DIR}/packages/commons/dist/
       - ${CI_PROJECT_DIR}/packages/generator/dist/
     expire_in: 1 hour
+
+test:
+  image: node:${NODE_VERSION}
+  needs:
+    - typescript-compile
+  script:
+    - yarn test
 
 publish-generator:
   image: node:${NODE_VERSION}
