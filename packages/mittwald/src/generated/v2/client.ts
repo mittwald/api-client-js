@@ -1,7 +1,9 @@
 /* eslint-disable */
 /* prettier-ignore */
 
-/** This file is auto-generated with openapi2ts (@mittwald/openapi-to-typescript) */
+/**
+* This file is auto-generated with openapi2ts (@mittwald/openapi-to-typescript)
+*/
 
 import * as operations from "./operations";
 import ApiClientBase from "@mittwald/api-client-commons/dist/core/ApiClientBase";
@@ -12,1433 +14,1433 @@ export class MittwaldApiV2Client extends ApiClientBase {
   public appGetAppsV2 = this.requestFunctionFactory(operations.appGetAppsV2);
 
   public appinstallationExecuteActionV2 = this.requestFunctionFactory(
-    operations.appinstallationExecuteActionV2,
+    operations.appinstallationExecuteActionV2
   );
 
   public appinstallationGetAppinstallationV2 = this.requestFunctionFactory(
-    operations.appinstallationGetAppinstallationV2,
+    operations.appinstallationGetAppinstallationV2
   );
 
   public appinstallationPatchAppinstallationV2 = this.requestFunctionFactory(
-    operations.appinstallationPatchAppinstallationV2,
+    operations.appinstallationPatchAppinstallationV2
   );
 
   public appinstallationUninstallAppinstallationV2 =
     this.requestFunctionFactory(
-      operations.appinstallationUninstallAppinstallationV2,
+      operations.appinstallationUninstallAppinstallationV2
     );
 
   public appinstallationGetAppinstallationsV2 = this.requestFunctionFactory(
-    operations.appinstallationGetAppinstallationsV2,
+    operations.appinstallationGetAppinstallationsV2
   );
 
   public appinstallationRequestAppinstallationV2 = this.requestFunctionFactory(
-    operations.appinstallationRequestAppinstallationV2,
+    operations.appinstallationRequestAppinstallationV2
   );
 
   public appinstallationLinkDatabaseV2 = this.requestFunctionFactory(
-    operations.appinstallationLinkDatabaseV2,
+    operations.appinstallationLinkDatabaseV2
   );
 
   public appinstallationRetrieveStatusV2 = this.requestFunctionFactory(
-    operations.appinstallationRetrieveStatusV2,
+    operations.appinstallationRetrieveStatusV2
   );
 
   public appinstallationSetDatabaseUsersV2 = this.requestFunctionFactory(
-    operations.appinstallationSetDatabaseUsersV2,
+    operations.appinstallationSetDatabaseUsersV2
   );
 
   public appinstallationUnlinkDatabaseV2 = this.requestFunctionFactory(
-    operations.appinstallationUnlinkDatabaseV2,
+    operations.appinstallationUnlinkDatabaseV2
   );
 
   public appinstallationUpdateStatusV2 = this.requestFunctionFactory(
-    operations.appinstallationUpdateStatusV2,
+    operations.appinstallationUpdateStatusV2
   );
 
   public appversionGetAppversionV2 = this.requestFunctionFactory(
-    operations.appversionGetAppversionV2,
+    operations.appversionGetAppversionV2
   );
 
   public appversionGetAppversionsV2 = this.requestFunctionFactory(
-    operations.appversionGetAppversionsV2,
+    operations.appversionGetAppversionsV2
   );
 
   public articleServiceGetArticleV2 = this.requestFunctionFactory(
-    operations.articleServiceGetArticleV2,
+    operations.articleServiceGetArticleV2
   );
 
   public articleServiceGetOrderableArticleV2 = this.requestFunctionFactory(
-    operations.articleServiceGetOrderableArticleV2,
+    operations.articleServiceGetOrderableArticleV2
   );
 
   public articleServiceListArticlesV2 = this.requestFunctionFactory(
-    operations.articleServiceListArticlesV2,
+    operations.articleServiceListArticlesV2
   );
 
   public articleServiceListOrderableArticlesV2 = this.requestFunctionFactory(
-    operations.articleServiceListOrderableArticlesV2,
+    operations.articleServiceListOrderableArticlesV2
   );
 
   public backupServiceCreateProjectBackup = this.requestFunctionFactory(
-    operations.backupServiceCreateProjectBackup,
+    operations.backupServiceCreateProjectBackup
   );
 
   public backupServiceListProjectBackups = this.requestFunctionFactory(
-    operations.backupServiceListProjectBackups,
+    operations.backupServiceListProjectBackups
   );
 
   public backupServiceCreateProjectBackupSchedule = this.requestFunctionFactory(
-    operations.backupServiceCreateProjectBackupSchedule,
+    operations.backupServiceCreateProjectBackupSchedule
   );
 
   public backupServiceListProjectBackupSchedules = this.requestFunctionFactory(
-    operations.backupServiceListProjectBackupSchedules,
+    operations.backupServiceListProjectBackupSchedules
   );
 
   public backupServiceDeleteProjectBackup = this.requestFunctionFactory(
-    operations.backupServiceDeleteProjectBackup,
+    operations.backupServiceDeleteProjectBackup
   );
 
   public backupServiceGetProjectBackup = this.requestFunctionFactory(
-    operations.backupServiceGetProjectBackup,
+    operations.backupServiceGetProjectBackup
   );
 
   public backupServiceDeleteProjectBackupExport = this.requestFunctionFactory(
-    operations.backupServiceDeleteProjectBackupExport,
+    operations.backupServiceDeleteProjectBackupExport
   );
 
   public backupServiceRequestProjectBackupExport = this.requestFunctionFactory(
-    operations.backupServiceRequestProjectBackupExport,
+    operations.backupServiceRequestProjectBackupExport
   );
 
   public backupServiceDeleteProjectBackupSchedule = this.requestFunctionFactory(
-    operations.backupServiceDeleteProjectBackupSchedule,
+    operations.backupServiceDeleteProjectBackupSchedule
   );
 
   public backupServiceGetProjectBackupSchedule = this.requestFunctionFactory(
-    operations.backupServiceGetProjectBackupSchedule,
+    operations.backupServiceGetProjectBackupSchedule
   );
 
   public backupServicePatchBackupSchedule = this.requestFunctionFactory(
-    operations.backupServicePatchBackupSchedule,
+    operations.backupServicePatchBackupSchedule
   );
 
   public backupServicePutSystemBackupTtl = this.requestFunctionFactory(
-    operations.backupServicePutSystemBackupTtl,
+    operations.backupServicePutSystemBackupTtl
   );
 
   public backupServiceSetProjectBackupDescription = this.requestFunctionFactory(
-    operations.backupServiceSetProjectBackupDescription,
+    operations.backupServiceSetProjectBackupDescription
   );
 
   public contractServiceBaseItemOfContract = this.requestFunctionFactory(
-    operations.contractServiceBaseItemOfContract,
+    operations.contractServiceBaseItemOfContract
   );
 
   public contractServiceCancelContractItemTermination =
     this.requestFunctionFactory(
-      operations.contractServiceCancelContractItemTermination,
+      operations.contractServiceCancelContractItemTermination
     );
 
   public contractServiceTerminateContractItem = this.requestFunctionFactory(
-    operations.contractServiceTerminateContractItem,
+    operations.contractServiceTerminateContractItem
   );
 
   public contractServiceCancelContractTariffChange =
     this.requestFunctionFactory(
-      operations.contractServiceCancelContractTariffChange,
+      operations.contractServiceCancelContractTariffChange
     );
 
   public contractServiceCancelContractTermination = this.requestFunctionFactory(
-    operations.contractServiceCancelContractTermination,
+    operations.contractServiceCancelContractTermination
   );
 
   public contractServiceTerminateContract = this.requestFunctionFactory(
-    operations.contractServiceTerminateContract,
+    operations.contractServiceTerminateContract
   );
 
   public contractServiceDetailOfContract = this.requestFunctionFactory(
-    operations.contractServiceDetailOfContract,
+    operations.contractServiceDetailOfContract
   );
 
   public contractServiceDetailOfContractByAggregate =
     this.requestFunctionFactory(
-      operations.contractServiceDetailOfContractByAggregate,
+      operations.contractServiceDetailOfContractByAggregate
     );
 
   public contractServiceDetailOfContractDeprecated =
     this.requestFunctionFactory(
-      operations.contractServiceDetailOfContractDeprecated,
+      operations.contractServiceDetailOfContractDeprecated
     );
 
   public contractServiceDetailOfContractItem = this.requestFunctionFactory(
-    operations.contractServiceDetailOfContractItem,
+    operations.contractServiceDetailOfContractItem
   );
 
   public contractServiceListContracts = this.requestFunctionFactory(
-    operations.contractServiceListContracts,
+    operations.contractServiceListContracts
   );
 
   public contractServiceNextTerminationDateForItem =
     this.requestFunctionFactory(
-      operations.contractServiceNextTerminationDateForItem,
+      operations.contractServiceNextTerminationDateForItem
     );
 
   public conversationServiceCreateConversationV2 = this.requestFunctionFactory(
-    operations.conversationServiceCreateConversationV2,
+    operations.conversationServiceCreateConversationV2
   );
 
   public conversationServiceGetConversationsV2 = this.requestFunctionFactory(
-    operations.conversationServiceGetConversationsV2,
+    operations.conversationServiceGetConversationsV2
   );
 
   public conversationServiceCreateMessageV2 = this.requestFunctionFactory(
-    operations.conversationServiceCreateMessageV2,
+    operations.conversationServiceCreateMessageV2
   );
 
   public conversationServiceGetMessagesByConversationV2 =
     this.requestFunctionFactory(
-      operations.conversationServiceGetMessagesByConversationV2,
+      operations.conversationServiceGetMessagesByConversationV2
     );
 
   public conversationServiceGetCategoriesV2 = this.requestFunctionFactory(
-    operations.conversationServiceGetCategoriesV2,
+    operations.conversationServiceGetCategoriesV2
   );
 
   public conversationServiceGetCategoryV2 = this.requestFunctionFactory(
-    operations.conversationServiceGetCategoryV2,
+    operations.conversationServiceGetCategoryV2
   );
 
   public conversationServiceGetConversationV2 = this.requestFunctionFactory(
-    operations.conversationServiceGetConversationV2,
+    operations.conversationServiceGetConversationV2
   );
 
   public conversationServiceUpdateConversationV2 = this.requestFunctionFactory(
-    operations.conversationServiceUpdateConversationV2,
+    operations.conversationServiceUpdateConversationV2
   );
 
   public conversationServiceRequestFileUploadV2 = this.requestFunctionFactory(
-    operations.conversationServiceRequestFileUploadV2,
+    operations.conversationServiceRequestFileUploadV2
   );
 
   public conversationServiceSetConversationStatusV2 =
     this.requestFunctionFactory(
-      operations.conversationServiceSetConversationStatusV2,
+      operations.conversationServiceSetConversationStatusV2
     );
 
   public conversationServiceUpdateMessageV2 = this.requestFunctionFactory(
-    operations.conversationServiceUpdateMessageV2,
+    operations.conversationServiceUpdateMessageV2
   );
 
   public cronjobServiceCronjobAbortExecution = this.requestFunctionFactory(
-    operations.cronjobServiceCronjobAbortExecution,
+    operations.cronjobServiceCronjobAbortExecution
   );
 
   public cronjobServiceCronjobAddAppid = this.requestFunctionFactory(
-    operations.cronjobServiceCronjobAddAppid,
+    operations.cronjobServiceCronjobAddAppid
   );
 
   public cronjobServiceCronjobCreate = this.requestFunctionFactory(
-    operations.cronjobServiceCronjobCreate,
+    operations.cronjobServiceCronjobCreate
   );
 
   public cronjobServiceCronjobList = this.requestFunctionFactory(
-    operations.cronjobServiceCronjobList,
+    operations.cronjobServiceCronjobList
   );
 
   public cronjobServiceCronjobCreateExecution = this.requestFunctionFactory(
-    operations.cronjobServiceCronjobCreateExecution,
+    operations.cronjobServiceCronjobCreateExecution
   );
 
   public cronjobServiceCronjobListExecutions = this.requestFunctionFactory(
-    operations.cronjobServiceCronjobListExecutions,
+    operations.cronjobServiceCronjobListExecutions
   );
 
   public cronjobServiceCronjobDelete = this.requestFunctionFactory(
-    operations.cronjobServiceCronjobDelete,
+    operations.cronjobServiceCronjobDelete
   );
 
   public cronjobServiceCronjobGetSpecific = this.requestFunctionFactory(
-    operations.cronjobServiceCronjobGetSpecific,
+    operations.cronjobServiceCronjobGetSpecific
   );
 
   public cronjobServiceCronjobPatch = this.requestFunctionFactory(
-    operations.cronjobServiceCronjobPatch,
+    operations.cronjobServiceCronjobPatch
   );
 
   public cronjobServiceCronjobGetSpecificExecution =
     this.requestFunctionFactory(
-      operations.cronjobServiceCronjobGetSpecificExecution,
+      operations.cronjobServiceCronjobGetSpecificExecution
     );
 
   public customerServiceAvatarRemove = this.requestFunctionFactory(
-    operations.customerServiceAvatarRemove,
+    operations.customerServiceAvatarRemove
   );
 
   public customerServiceAvatarRequestUpload = this.requestFunctionFactory(
-    operations.customerServiceAvatarRequestUpload,
+    operations.customerServiceAvatarRequestUpload
   );
 
   public customerServiceCreateCategory = this.requestFunctionFactory(
-    operations.customerServiceCreateCategory,
+    operations.customerServiceCreateCategory
   );
 
   public customerServiceListOfCustomerCategories = this.requestFunctionFactory(
-    operations.customerServiceListOfCustomerCategories,
+    operations.customerServiceListOfCustomerCategories
   );
 
   public customerServiceCreateCustomer = this.requestFunctionFactory(
-    operations.customerServiceCreateCustomer,
+    operations.customerServiceCreateCustomer
   );
 
   public customerServiceListCustomers = this.requestFunctionFactory(
-    operations.customerServiceListCustomers,
+    operations.customerServiceListCustomers
   );
 
   public customerServiceCreateNote = this.requestFunctionFactory(
-    operations.customerServiceCreateNote,
+    operations.customerServiceCreateNote
   );
 
   public customerServiceListOfNotes = this.requestFunctionFactory(
-    operations.customerServiceListOfNotes,
+    operations.customerServiceListOfNotes
   );
 
   public customerServiceCustomerIsLegallyCompetent =
     this.requestFunctionFactory(
-      operations.customerServiceCustomerIsLegallyCompetent,
+      operations.customerServiceCustomerIsLegallyCompetent
     );
 
   public customerServiceDeleteCategory = this.requestFunctionFactory(
-    operations.customerServiceDeleteCategory,
+    operations.customerServiceDeleteCategory
   );
 
   public customerServiceDetailOfCustomerCategory = this.requestFunctionFactory(
-    operations.customerServiceDetailOfCustomerCategory,
+    operations.customerServiceDetailOfCustomerCategory
   );
 
   public customerServiceUpdateCategory = this.requestFunctionFactory(
-    operations.customerServiceUpdateCategory,
+    operations.customerServiceUpdateCategory
   );
 
   public customerServiceDeleteCustomer = this.requestFunctionFactory(
-    operations.customerServiceDeleteCustomer,
+    operations.customerServiceDeleteCustomer
   );
 
   public customerServiceDetailsOfCustomer = this.requestFunctionFactory(
-    operations.customerServiceDetailsOfCustomer,
+    operations.customerServiceDetailsOfCustomer
   );
 
   public customerServiceUpdateCustomer = this.requestFunctionFactory(
-    operations.customerServiceUpdateCustomer,
+    operations.customerServiceUpdateCustomer
   );
 
   public customerServiceDeleteNote = this.requestFunctionFactory(
-    operations.customerServiceDeleteNote,
+    operations.customerServiceDeleteNote
   );
 
   public customerServiceUpdateNote = this.requestFunctionFactory(
-    operations.customerServiceUpdateNote,
+    operations.customerServiceUpdateNote
   );
 
   public databaseServiceMysqlCharsetList = this.requestFunctionFactory(
-    operations.databaseServiceMysqlCharsetList,
+    operations.databaseServiceMysqlCharsetList
   );
 
   public databaseServiceMysqlCharsetListAll = this.requestFunctionFactory(
-    operations.databaseServiceMysqlCharsetListAll,
+    operations.databaseServiceMysqlCharsetListAll
   );
 
   public databaseServiceMysqlDatabaseCreate = this.requestFunctionFactory(
-    operations.databaseServiceMysqlDatabaseCreate,
+    operations.databaseServiceMysqlDatabaseCreate
   );
 
   public databaseServiceMysqlDatabaseList = this.requestFunctionFactory(
-    operations.databaseServiceMysqlDatabaseList,
+    operations.databaseServiceMysqlDatabaseList
   );
 
   public databaseServiceMysqlDatabaseDelete = this.requestFunctionFactory(
-    operations.databaseServiceMysqlDatabaseDelete,
+    operations.databaseServiceMysqlDatabaseDelete
   );
 
   public databaseServiceMysqlDatabaseGetSpecific = this.requestFunctionFactory(
-    operations.databaseServiceMysqlDatabaseGetSpecific,
+    operations.databaseServiceMysqlDatabaseGetSpecific
   );
 
   public databaseServiceMysqlDatabaseUpdateDefaultCharset =
     this.requestFunctionFactory(
-      operations.databaseServiceMysqlDatabaseUpdateDefaultCharset,
+      operations.databaseServiceMysqlDatabaseUpdateDefaultCharset
     );
 
   public databaseServiceMysqlDatabaseUpdateDescription =
     this.requestFunctionFactory(
-      operations.databaseServiceMysqlDatabaseUpdateDescription,
+      operations.databaseServiceMysqlDatabaseUpdateDescription
     );
 
   public databaseServiceMysqlDatabaseWithUserCreate =
     this.requestFunctionFactory(
-      operations.databaseServiceMysqlDatabaseWithUserCreate,
+      operations.databaseServiceMysqlDatabaseWithUserCreate
     );
 
   public databaseServiceMysqlUserCreate = this.requestFunctionFactory(
-    operations.databaseServiceMysqlUserCreate,
+    operations.databaseServiceMysqlUserCreate
   );
 
   public databaseServiceMysqlUserList = this.requestFunctionFactory(
-    operations.databaseServiceMysqlUserList,
+    operations.databaseServiceMysqlUserList
   );
 
   public databaseServiceMysqlUserDelete = this.requestFunctionFactory(
-    operations.databaseServiceMysqlUserDelete,
+    operations.databaseServiceMysqlUserDelete
   );
 
   public databaseServiceMysqlUserGetSpecific = this.requestFunctionFactory(
-    operations.databaseServiceMysqlUserGetSpecific,
+    operations.databaseServiceMysqlUserGetSpecific
   );
 
   public databaseServiceMysqlUserUpdate = this.requestFunctionFactory(
-    operations.databaseServiceMysqlUserUpdate,
+    operations.databaseServiceMysqlUserUpdate
   );
 
   public databaseServiceMysqlUserDisable = this.requestFunctionFactory(
-    operations.databaseServiceMysqlUserDisable,
+    operations.databaseServiceMysqlUserDisable
   );
 
   public databaseServiceMysqlUserEnable = this.requestFunctionFactory(
-    operations.databaseServiceMysqlUserEnable,
+    operations.databaseServiceMysqlUserEnable
   );
 
   public databaseServiceMysqlUserGetPhpMyAdminUrl = this.requestFunctionFactory(
-    operations.databaseServiceMysqlUserGetPhpMyAdminUrl,
+    operations.databaseServiceMysqlUserGetPhpMyAdminUrl
   );
 
   public databaseServiceMysqlUserSetPassword = this.requestFunctionFactory(
-    operations.databaseServiceMysqlUserSetPassword,
+    operations.databaseServiceMysqlUserSetPassword
   );
 
   public databaseServiceMysqlVersionList = this.requestFunctionFactory(
-    operations.databaseServiceMysqlVersionList,
+    operations.databaseServiceMysqlVersionList
   );
 
   public databaseServiceRedisDatabaseCreate = this.requestFunctionFactory(
-    operations.databaseServiceRedisDatabaseCreate,
+    operations.databaseServiceRedisDatabaseCreate
   );
 
   public databaseServiceRedisDatabaseList = this.requestFunctionFactory(
-    operations.databaseServiceRedisDatabaseList,
+    operations.databaseServiceRedisDatabaseList
   );
 
   public databaseServiceRedisDatabaseDelete = this.requestFunctionFactory(
-    operations.databaseServiceRedisDatabaseDelete,
+    operations.databaseServiceRedisDatabaseDelete
   );
 
   public databaseServiceRedisDatabaseGetSpecific = this.requestFunctionFactory(
-    operations.databaseServiceRedisDatabaseGetSpecific,
+    operations.databaseServiceRedisDatabaseGetSpecific
   );
 
   public databaseServiceRedisDatabaseUpdateDescription =
     this.requestFunctionFactory(
-      operations.databaseServiceRedisDatabaseUpdateDescription,
+      operations.databaseServiceRedisDatabaseUpdateDescription
     );
 
   public databaseServiceRedisVersionList = this.requestFunctionFactory(
-    operations.databaseServiceRedisVersionList,
+    operations.databaseServiceRedisVersionList
   );
 
   public dnsRecordASetCustom = this.requestFunctionFactory(
-    operations.dnsRecordASetCustom,
+    operations.dnsRecordASetCustom
   );
 
   public dnsRecordASetManagedByIngress = this.requestFunctionFactory(
-    operations.dnsRecordASetManagedByIngress,
+    operations.dnsRecordASetManagedByIngress
   );
 
   public dnsRecordCnameSet = this.requestFunctionFactory(
-    operations.dnsRecordCnameSet,
+    operations.dnsRecordCnameSet
   );
 
   public dnsRecordMxSetCustom = this.requestFunctionFactory(
-    operations.dnsRecordMxSetCustom,
+    operations.dnsRecordMxSetCustom
   );
 
   public dnsRecordMxSetManaged = this.requestFunctionFactory(
-    operations.dnsRecordMxSetManaged,
+    operations.dnsRecordMxSetManaged
   );
 
   public dnsRecordTxtSet = this.requestFunctionFactory(
-    operations.dnsRecordTxtSet,
+    operations.dnsRecordTxtSet
   );
 
   public dnsZoneGetSpecific = this.requestFunctionFactory(
-    operations.dnsZoneGetSpecific,
+    operations.dnsZoneGetSpecific
   );
 
   public dnsZonesForProjectV2 = this.requestFunctionFactory(
-    operations.dnsZonesForProjectV2,
+    operations.dnsZonesForProjectV2
   );
 
   public domainServiceAbortDeclareProcessV2 = this.requestFunctionFactory(
-    operations.domainServiceAbortDeclareProcessV2,
+    operations.domainServiceAbortDeclareProcessV2
   );
 
   public domainServiceChangeOwnercOfDomainV2 = this.requestFunctionFactory(
-    operations.domainServiceChangeOwnercOfDomainV2,
+    operations.domainServiceChangeOwnercOfDomainV2
   );
 
   public domainServiceChangeProjectOfDomainV2 = this.requestFunctionFactory(
-    operations.domainServiceChangeProjectOfDomainV2,
+    operations.domainServiceChangeProjectOfDomainV2
   );
 
   public domainServiceCheckDomainAvailabilityV2 = this.requestFunctionFactory(
-    operations.domainServiceCheckDomainAvailabilityV2,
+    operations.domainServiceCheckDomainAvailabilityV2
   );
 
   public domainServiceCreateAuthcodeForDomainV2 = this.requestFunctionFactory(
-    operations.domainServiceCreateAuthcodeForDomainV2,
+    operations.domainServiceCreateAuthcodeForDomainV2
   );
 
   public domainServiceCreateAuthcode2ForDomainV2 = this.requestFunctionFactory(
-    operations.domainServiceCreateAuthcode2ForDomainV2,
+    operations.domainServiceCreateAuthcode2ForDomainV2
   );
 
   public domainServiceDeclareNameserversV2 = this.requestFunctionFactory(
-    operations.domainServiceDeclareNameserversV2,
+    operations.domainServiceDeclareNameserversV2
   );
 
   public domainServiceDeclareProcessChangeAuthcodeV2 =
     this.requestFunctionFactory(
-      operations.domainServiceDeclareProcessChangeAuthcodeV2,
+      operations.domainServiceDeclareProcessChangeAuthcodeV2
     );
 
   public domainServiceDeclareProcessChangeHandlesV2 =
     this.requestFunctionFactory(
-      operations.domainServiceDeclareProcessChangeHandlesV2,
+      operations.domainServiceDeclareProcessChangeHandlesV2
     );
 
   public domainServiceDeleteDomainV2 = this.requestFunctionFactory(
-    operations.domainServiceDeleteDomainV2,
+    operations.domainServiceDeleteDomainV2
   );
 
   public domainServiceGetDomainV2 = this.requestFunctionFactory(
-    operations.domainServiceGetDomainV2,
+    operations.domainServiceGetDomainV2
   );
 
   public domainServiceGetHandleFieldsV2 = this.requestFunctionFactory(
-    operations.domainServiceGetHandleFieldsV2,
+    operations.domainServiceGetHandleFieldsV2
   );
 
   public domainServiceGetSpecificDomainOwnershipV2 =
     this.requestFunctionFactory(
-      operations.domainServiceGetSpecificDomainOwnershipV2,
+      operations.domainServiceGetSpecificDomainOwnershipV2
     );
 
   public domainServiceVerifyDomainOwnershipV2 = this.requestFunctionFactory(
-    operations.domainServiceVerifyDomainOwnershipV2,
+    operations.domainServiceVerifyDomainOwnershipV2
   );
 
   public domainServiceGetToplevelDomainV2 = this.requestFunctionFactory(
-    operations.domainServiceGetToplevelDomainV2,
+    operations.domainServiceGetToplevelDomainV2
   );
 
   public domainServiceListDomainOwnershipsV2 = this.requestFunctionFactory(
-    operations.domainServiceListDomainOwnershipsV2,
+    operations.domainServiceListDomainOwnershipsV2
   );
 
   public domainServiceListDomainsV2 = this.requestFunctionFactory(
-    operations.domainServiceListDomainsV2,
+    operations.domainServiceListDomainsV2
   );
 
   public domainServiceListToplevelDomainsV2 = this.requestFunctionFactory(
-    operations.domainServiceListToplevelDomainsV2,
+    operations.domainServiceListToplevelDomainsV2
   );
 
   public domainServiceResendDomainEmailV2 = this.requestFunctionFactory(
-    operations.domainServiceResendDomainEmailV2,
+    operations.domainServiceResendDomainEmailV2
   );
 
   public fileServiceFileCreateLegacy = this.requestFunctionFactory(
-    operations.fileServiceFileCreateLegacy,
+    operations.fileServiceFileCreateLegacy
   );
 
   public fileServiceFileCreate = this.requestFunctionFactory(
-    operations.fileServiceFileCreate,
+    operations.fileServiceFileCreate
   );
 
   public fileServiceFileGet = this.requestFunctionFactory(
-    operations.fileServiceFileGet,
+    operations.fileServiceFileGet
   );
 
   public fileServiceFileGetMeta = this.requestFunctionFactory(
-    operations.fileServiceFileGetMeta,
+    operations.fileServiceFileGetMeta
   );
 
   public fileServiceFileGetTokenRules = this.requestFunctionFactory(
-    operations.fileServiceFileGetTokenRules,
+    operations.fileServiceFileGetTokenRules
   );
 
   public ingressServiceCreate = this.requestFunctionFactory(
-    operations.ingressServiceCreate,
+    operations.ingressServiceCreate
   );
 
   public ingressServiceDelete = this.requestFunctionFactory(
-    operations.ingressServiceDelete,
+    operations.ingressServiceDelete
   );
 
   public ingressServiceGetSpecific = this.requestFunctionFactory(
-    operations.ingressServiceGetSpecific,
+    operations.ingressServiceGetSpecific
   );
 
   public ingressServiceList = this.requestFunctionFactory(
-    operations.ingressServiceList,
+    operations.ingressServiceList
   );
 
   public ingressServicePaths = this.requestFunctionFactory(
-    operations.ingressServicePaths,
+    operations.ingressServicePaths
   );
 
   public ingressServiceTls = this.requestFunctionFactory(
-    operations.ingressServiceTls,
+    operations.ingressServiceTls
   );
 
   public invoiceServiceDetailOfInvoice = this.requestFunctionFactory(
-    operations.invoiceServiceDetailOfInvoice,
+    operations.invoiceServiceDetailOfInvoice
   );
 
   public invoiceServiceInvoiceSettings = this.requestFunctionFactory(
-    operations.invoiceServiceInvoiceSettings,
+    operations.invoiceServiceInvoiceSettings
   );
 
   public invoiceServiceUpdateInvoiceSettings = this.requestFunctionFactory(
-    operations.invoiceServiceUpdateInvoiceSettings,
+    operations.invoiceServiceUpdateInvoiceSettings
   );
 
   public invoiceServiceListCustomerInvoices = this.requestFunctionFactory(
-    operations.invoiceServiceListCustomerInvoices,
+    operations.invoiceServiceListCustomerInvoices
   );
 
   public invoiceServiceUpdateNextInvoiceCheck = this.requestFunctionFactory(
-    operations.invoiceServiceUpdateNextInvoiceCheck,
+    operations.invoiceServiceUpdateNextInvoiceCheck
   );
 
   public mailServiceDeliveryboxCreate = this.requestFunctionFactory(
-    operations.mailServiceDeliveryboxCreate,
+    operations.mailServiceDeliveryboxCreate
   );
 
   public mailServiceDeliveryboxList = this.requestFunctionFactory(
-    operations.mailServiceDeliveryboxList,
+    operations.mailServiceDeliveryboxList
   );
 
   public mailServiceDeliveryboxDelete = this.requestFunctionFactory(
-    operations.mailServiceDeliveryboxDelete,
+    operations.mailServiceDeliveryboxDelete
   );
 
   public mailServiceDeliveryboxGetSpecific = this.requestFunctionFactory(
-    operations.mailServiceDeliveryboxGetSpecific,
+    operations.mailServiceDeliveryboxGetSpecific
   );
 
   public mailServiceDeliveryboxUpdateDescription = this.requestFunctionFactory(
-    operations.mailServiceDeliveryboxUpdateDescription,
+    operations.mailServiceDeliveryboxUpdateDescription
   );
 
   public mailServiceDeliveryboxUpdatePassword = this.requestFunctionFactory(
-    operations.mailServiceDeliveryboxUpdatePassword,
+    operations.mailServiceDeliveryboxUpdatePassword
   );
 
   public mailServiceMailaddressCreate = this.requestFunctionFactory(
-    operations.mailServiceMailaddressCreate,
+    operations.mailServiceMailaddressCreate
   );
 
   public mailServiceMailaddressList = this.requestFunctionFactory(
-    operations.mailServiceMailaddressList,
+    operations.mailServiceMailaddressList
   );
 
   public mailServiceMailaddressDelete = this.requestFunctionFactory(
-    operations.mailServiceMailaddressDelete,
+    operations.mailServiceMailaddressDelete
   );
 
   public mailServiceMailaddressGetSpecific = this.requestFunctionFactory(
-    operations.mailServiceMailaddressGetSpecific,
+    operations.mailServiceMailaddressGetSpecific
   );
 
   public mailServiceMailaddressUpdateAddress = this.requestFunctionFactory(
-    operations.mailServiceMailaddressUpdateAddress,
+    operations.mailServiceMailaddressUpdateAddress
   );
 
   public mailServiceMailaddressUpdateAutoresponder =
     this.requestFunctionFactory(
-      operations.mailServiceMailaddressUpdateAutoresponder,
+      operations.mailServiceMailaddressUpdateAutoresponder
     );
 
   public mailServiceMailaddressUpdateCatchall = this.requestFunctionFactory(
-    operations.mailServiceMailaddressUpdateCatchall,
+    operations.mailServiceMailaddressUpdateCatchall
   );
 
   public mailServiceMailaddressUpdateForwardaddresses =
     this.requestFunctionFactory(
-      operations.mailServiceMailaddressUpdateForwardaddresses,
+      operations.mailServiceMailaddressUpdateForwardaddresses
     );
 
   public mailServiceMailaddressUpdatePassword = this.requestFunctionFactory(
-    operations.mailServiceMailaddressUpdatePassword,
+    operations.mailServiceMailaddressUpdatePassword
   );
 
   public mailServiceMailaddressUpdateQuota = this.requestFunctionFactory(
-    operations.mailServiceMailaddressUpdateQuota,
+    operations.mailServiceMailaddressUpdateQuota
   );
 
   public mailServiceMailaddressUpdateSpamprotection =
     this.requestFunctionFactory(
-      operations.mailServiceMailaddressUpdateSpamprotection,
+      operations.mailServiceMailaddressUpdateSpamprotection
     );
 
   public mailServiceProjectsettingGetSpecific = this.requestFunctionFactory(
-    operations.mailServiceProjectsettingGetSpecific,
+    operations.mailServiceProjectsettingGetSpecific
   );
 
   public mailServiceProjectsettingUpdateBlacklist = this.requestFunctionFactory(
-    operations.mailServiceProjectsettingUpdateBlacklist,
+    operations.mailServiceProjectsettingUpdateBlacklist
   );
 
   public mailServiceProjectsettingUpdateWhitelist = this.requestFunctionFactory(
-    operations.mailServiceProjectsettingUpdateWhitelist,
+    operations.mailServiceProjectsettingUpdateWhitelist
   );
 
   public membershipServiceAcceptCustomerInvite = this.requestFunctionFactory(
-    operations.membershipServiceAcceptCustomerInvite,
+    operations.membershipServiceAcceptCustomerInvite
   );
 
   public membershipServiceAcceptCustomerInviteWithToken =
     this.requestFunctionFactory(
-      operations.membershipServiceAcceptCustomerInviteWithToken,
+      operations.membershipServiceAcceptCustomerInviteWithToken
     );
 
   public membershipServiceAcceptProjectInvite = this.requestFunctionFactory(
-    operations.membershipServiceAcceptProjectInvite,
+    operations.membershipServiceAcceptProjectInvite
   );
 
   public membershipServiceAcceptProjectInviteWithToken =
     this.requestFunctionFactory(
-      operations.membershipServiceAcceptProjectInviteWithToken,
+      operations.membershipServiceAcceptProjectInviteWithToken
     );
 
   public membershipServiceChangeCustomerMembership =
     this.requestFunctionFactory(
-      operations.membershipServiceChangeCustomerMembership,
+      operations.membershipServiceChangeCustomerMembership
     );
 
   public membershipServiceDeleteCustomerMembership =
     this.requestFunctionFactory(
-      operations.membershipServiceDeleteCustomerMembership,
+      operations.membershipServiceDeleteCustomerMembership
     );
 
   public membershipServiceChangeProjectMembership = this.requestFunctionFactory(
-    operations.membershipServiceChangeProjectMembership,
+    operations.membershipServiceChangeProjectMembership
   );
 
   public membershipServiceDeleteProjectMembership = this.requestFunctionFactory(
-    operations.membershipServiceDeleteProjectMembership,
+    operations.membershipServiceDeleteProjectMembership
   );
 
   public membershipServiceCreateCustomerInvite = this.requestFunctionFactory(
-    operations.membershipServiceCreateCustomerInvite,
+    operations.membershipServiceCreateCustomerInvite
   );
 
   public membershipServiceCreateProjectInvite = this.requestFunctionFactory(
-    operations.membershipServiceCreateProjectInvite,
+    operations.membershipServiceCreateProjectInvite
   );
 
   public membershipServiceDeclineCustomerInvite = this.requestFunctionFactory(
-    operations.membershipServiceDeclineCustomerInvite,
+    operations.membershipServiceDeclineCustomerInvite
   );
 
   public membershipServiceDeclineProjectInvite = this.requestFunctionFactory(
-    operations.membershipServiceDeclineProjectInvite,
+    operations.membershipServiceDeclineProjectInvite
   );
 
   public membershipServiceGetCustomerInviteSpecific =
     this.requestFunctionFactory(
-      operations.membershipServiceGetCustomerInviteSpecific,
+      operations.membershipServiceGetCustomerInviteSpecific
     );
 
   public membershipServiceGetCustomerInviteSpecificDeprecated =
     this.requestFunctionFactory(
-      operations.membershipServiceGetCustomerInviteSpecificDeprecated,
+      operations.membershipServiceGetCustomerInviteSpecificDeprecated
     );
 
   public membershipServiceGetCustomerMembershipSpecific =
     this.requestFunctionFactory(
-      operations.membershipServiceGetCustomerMembershipSpecific,
+      operations.membershipServiceGetCustomerMembershipSpecific
     );
 
   public membershipServiceGetOwnMembershipForProjectV2 =
     this.requestFunctionFactory(
-      operations.membershipServiceGetOwnMembershipForProjectV2,
+      operations.membershipServiceGetOwnMembershipForProjectV2
     );
 
   public membershipServiceGetProjectInviteSpecific =
     this.requestFunctionFactory(
-      operations.membershipServiceGetProjectInviteSpecific,
+      operations.membershipServiceGetProjectInviteSpecific
     );
 
   public membershipServiceGetProjectInviteSpecificDeprecated =
     this.requestFunctionFactory(
-      operations.membershipServiceGetProjectInviteSpecificDeprecated,
+      operations.membershipServiceGetProjectInviteSpecificDeprecated
     );
 
   public membershipServiceGetProjectMembershipForProjectAndUser =
     this.requestFunctionFactory(
-      operations.membershipServiceGetProjectMembershipForProjectAndUser,
+      operations.membershipServiceGetProjectMembershipForProjectAndUser
     );
 
   public membershipServiceGetProjectMembershipSpecific =
     this.requestFunctionFactory(
-      operations.membershipServiceGetProjectMembershipSpecific,
+      operations.membershipServiceGetProjectMembershipSpecific
     );
 
   public membershipServiceLeaveCustomer = this.requestFunctionFactory(
-    operations.membershipServiceLeaveCustomer,
+    operations.membershipServiceLeaveCustomer
   );
 
   public membershipServiceLeaveProject = this.requestFunctionFactory(
-    operations.membershipServiceLeaveProject,
+    operations.membershipServiceLeaveProject
   );
 
   public membershipServiceListCustomerInvitesForUserOrEmail =
     this.requestFunctionFactory(
-      operations.membershipServiceListCustomerInvitesForUserOrEmail,
+      operations.membershipServiceListCustomerInvitesForUserOrEmail
     );
 
   public membershipServiceListCustomerMembershipsForUser =
     this.requestFunctionFactory(
-      operations.membershipServiceListCustomerMembershipsForUser,
+      operations.membershipServiceListCustomerMembershipsForUser
     );
 
   public membershipServiceListInvitesForCustomer = this.requestFunctionFactory(
-    operations.membershipServiceListInvitesForCustomer,
+    operations.membershipServiceListInvitesForCustomer
   );
 
   public membershipServiceListInvitesForProject = this.requestFunctionFactory(
-    operations.membershipServiceListInvitesForProject,
+    operations.membershipServiceListInvitesForProject
   );
 
   public membershipServiceListMembershipsForCustomer =
     this.requestFunctionFactory(
-      operations.membershipServiceListMembershipsForCustomer,
+      operations.membershipServiceListMembershipsForCustomer
     );
 
   public membershipServiceListMembershipsForProject =
     this.requestFunctionFactory(
-      operations.membershipServiceListMembershipsForProject,
+      operations.membershipServiceListMembershipsForProject
     );
 
   public membershipServiceListOwnCustomerInvitesV2 =
     this.requestFunctionFactory(
-      operations.membershipServiceListOwnCustomerInvitesV2,
+      operations.membershipServiceListOwnCustomerInvitesV2
     );
 
   public membershipServiceListOwnProjectInvitesV2 = this.requestFunctionFactory(
-    operations.membershipServiceListOwnProjectInvitesV2,
+    operations.membershipServiceListOwnProjectInvitesV2
   );
 
   public membershipServiceListProjectInvitesForUserOrEmail =
     this.requestFunctionFactory(
-      operations.membershipServiceListProjectInvitesForUserOrEmail,
+      operations.membershipServiceListProjectInvitesForUserOrEmail
     );
 
   public membershipServiceListProjectMembershipsForUser =
     this.requestFunctionFactory(
-      operations.membershipServiceListProjectMembershipsForUser,
+      operations.membershipServiceListProjectMembershipsForUser
     );
 
   public membershipServiceResendCustomerInviteMail =
     this.requestFunctionFactory(
-      operations.membershipServiceResendCustomerInviteMail,
+      operations.membershipServiceResendCustomerInviteMail
     );
 
   public membershipServiceResendProjectInviteMail = this.requestFunctionFactory(
-    operations.membershipServiceResendProjectInviteMail,
+    operations.membershipServiceResendProjectInviteMail
   );
 
   public membershipServiceRevokeCustomerInvite = this.requestFunctionFactory(
-    operations.membershipServiceRevokeCustomerInvite,
+    operations.membershipServiceRevokeCustomerInvite
   );
 
   public membershipServiceRevokeProjectInvite = this.requestFunctionFactory(
-    operations.membershipServiceRevokeProjectInvite,
+    operations.membershipServiceRevokeProjectInvite
   );
 
   public messagingServiceCountUnreadNotifications = this.requestFunctionFactory(
-    operations.messagingServiceCountUnreadNotifications,
+    operations.messagingServiceCountUnreadNotifications
   );
 
   public messagingServiceListNotifications = this.requestFunctionFactory(
-    operations.messagingServiceListNotifications,
+    operations.messagingServiceListNotifications
   );
 
   public messagingServiceReadAllNotifications = this.requestFunctionFactory(
-    operations.messagingServiceReadAllNotifications,
+    operations.messagingServiceReadAllNotifications
   );
 
   public messagingServiceReadNotification = this.requestFunctionFactory(
-    operations.messagingServiceReadNotification,
+    operations.messagingServiceReadNotification
   );
 
   public newsletterGetInfoV2 = this.requestFunctionFactory(
-    operations.newsletterGetInfoV2,
+    operations.newsletterGetInfoV2
   );
 
   public newsletterUnsubscribeUserV2 = this.requestFunctionFactory(
-    operations.newsletterUnsubscribeUserV2,
+    operations.newsletterUnsubscribeUserV2
   );
 
   public newsletterSubscribeUserV2 = this.requestFunctionFactory(
-    operations.newsletterSubscribeUserV2,
+    operations.newsletterSubscribeUserV2
   );
 
   public orderServiceChangeProjecthostingV2 = this.requestFunctionFactory(
-    operations.orderServiceChangeProjecthostingV2,
+    operations.orderServiceChangeProjecthostingV2
   );
 
   public orderServiceChangeServerV2 = this.requestFunctionFactory(
-    operations.orderServiceChangeServerV2,
+    operations.orderServiceChangeServerV2
   );
 
   public orderServiceGetOrderV2 = this.requestFunctionFactory(
-    operations.orderServiceGetOrderV2,
+    operations.orderServiceGetOrderV2
   );
 
   public orderServiceListCustomerOrdersV2 = this.requestFunctionFactory(
-    operations.orderServiceListCustomerOrdersV2,
+    operations.orderServiceListCustomerOrdersV2
   );
 
   public orderServiceOrderDomainV2 = this.requestFunctionFactory(
-    operations.orderServiceOrderDomainV2,
+    operations.orderServiceOrderDomainV2
   );
 
   public orderServiceOrderProjecthostingV2 = this.requestFunctionFactory(
-    operations.orderServiceOrderProjecthostingV2,
+    operations.orderServiceOrderProjecthostingV2
   );
 
   public orderServiceOrderServerV2 = this.requestFunctionFactory(
-    operations.orderServiceOrderServerV2,
+    operations.orderServiceOrderServerV2
   );
 
   public orderServicePreviewChangeProjecthostingV2 =
     this.requestFunctionFactory(
-      operations.orderServicePreviewChangeProjecthostingV2,
+      operations.orderServicePreviewChangeProjecthostingV2
     );
 
   public orderServicePreviewChangeServerV2 = this.requestFunctionFactory(
-    operations.orderServicePreviewChangeServerV2,
+    operations.orderServicePreviewChangeServerV2
   );
 
   public orderServicePreviewOrderDomainV2 = this.requestFunctionFactory(
-    operations.orderServicePreviewOrderDomainV2,
+    operations.orderServicePreviewOrderDomainV2
   );
 
   public orderServicePreviewOrderProjecthostingV2 = this.requestFunctionFactory(
-    operations.orderServicePreviewOrderProjecthostingV2,
+    operations.orderServicePreviewOrderProjecthostingV2
   );
 
   public orderServicePreviewOrderServerV2 = this.requestFunctionFactory(
-    operations.orderServicePreviewOrderServerV2,
+    operations.orderServicePreviewOrderServerV2
   );
 
   public passwordValidationServiceGetPasswordPolicy =
     this.requestFunctionFactory(
-      operations.passwordValidationServiceGetPasswordPolicy,
+      operations.passwordValidationServiceGetPasswordPolicy
     );
 
   public projectServiceGetFsApiDirectories = this.requestFunctionFactory(
-    operations.projectServiceGetFsApiDirectories,
+    operations.projectServiceGetFsApiDirectories
   );
 
   public projectServiceGetFsApiFileContent = this.requestFunctionFactory(
-    operations.projectServiceGetFsApiFileContent,
+    operations.projectServiceGetFsApiFileContent
   );
 
   public projectServiceGetFsApiFiles = this.requestFunctionFactory(
-    operations.projectServiceGetFsApiFiles,
+    operations.projectServiceGetFsApiFiles
   );
 
   public projectServiceGetFsApiJwt = this.requestFunctionFactory(
-    operations.projectServiceGetFsApiJwt,
+    operations.projectServiceGetFsApiJwt
   );
 
   public projectServiceGetFsApiUsagesDisk = this.requestFunctionFactory(
-    operations.projectServiceGetFsApiUsagesDisk,
+    operations.projectServiceGetFsApiUsagesDisk
   );
 
   public projectServicePlacementgroupAvatarRemove = this.requestFunctionFactory(
-    operations.projectServicePlacementgroupAvatarRemove,
+    operations.projectServicePlacementgroupAvatarRemove
   );
 
   public projectServicePlacementgroupAvatarRequestUpload =
     this.requestFunctionFactory(
-      operations.projectServicePlacementgroupAvatarRequestUpload,
+      operations.projectServicePlacementgroupAvatarRequestUpload
     );
 
   public projectServicePlacementgroupDetails = this.requestFunctionFactory(
-    operations.projectServicePlacementgroupDetails,
+    operations.projectServicePlacementgroupDetails
   );
 
   public projectServicePlacementgroupList = this.requestFunctionFactory(
-    operations.projectServicePlacementgroupList,
+    operations.projectServicePlacementgroupList
   );
 
   public projectServicePlacementgroupSubprojectCreate =
     this.requestFunctionFactory(
-      operations.projectServicePlacementgroupSubprojectCreate,
+      operations.projectServicePlacementgroupSubprojectCreate
     );
 
   public projectServicePlacementgroupUpdateDescription =
     this.requestFunctionFactory(
-      operations.projectServicePlacementgroupUpdateDescription,
+      operations.projectServicePlacementgroupUpdateDescription
     );
 
   public projectServiceProjectAvatarRemove = this.requestFunctionFactory(
-    operations.projectServiceProjectAvatarRemove,
+    operations.projectServiceProjectAvatarRemove
   );
 
   public projectServiceProjectAvatarRequestUpload = this.requestFunctionFactory(
-    operations.projectServiceProjectAvatarRequestUpload,
+    operations.projectServiceProjectAvatarRequestUpload
   );
 
   public projectServiceProjectDelete = this.requestFunctionFactory(
-    operations.projectServiceProjectDelete,
+    operations.projectServiceProjectDelete
   );
 
   public projectServiceProjectGetSpecific = this.requestFunctionFactory(
-    operations.projectServiceProjectGetSpecific,
+    operations.projectServiceProjectGetSpecific
   );
 
   public projectServiceProjectUpdateDescription = this.requestFunctionFactory(
-    operations.projectServiceProjectUpdateDescription,
+    operations.projectServiceProjectUpdateDescription
   );
 
   public projectServiceProjectsGetList = this.requestFunctionFactory(
-    operations.projectServiceProjectsGetList,
+    operations.projectServiceProjectsGetList
   );
 
   public redirectusCreateRelocationV2 = this.requestFunctionFactory(
-    operations.redirectusCreateRelocationV2,
+    operations.redirectusCreateRelocationV2
   );
 
   public signupApiApiTokenCreate = this.requestFunctionFactory(
-    operations.signupApiApiTokenCreate,
+    operations.signupApiApiTokenCreate
   );
 
   public signupApiApiTokenList = this.requestFunctionFactory(
-    operations.signupApiApiTokenList,
+    operations.signupApiApiTokenList
   );
 
   public signupApiApiTokenDelete = this.requestFunctionFactory(
-    operations.signupApiApiTokenDelete,
+    operations.signupApiApiTokenDelete
   );
 
   public signupApiApiTokenEdit = this.requestFunctionFactory(
-    operations.signupApiApiTokenEdit,
+    operations.signupApiApiTokenEdit
   );
 
   public signupApiApiTokenGet = this.requestFunctionFactory(
-    operations.signupApiApiTokenGet,
+    operations.signupApiApiTokenGet
   );
 
   public signupApiAuthenticate = this.requestFunctionFactory(
-    operations.signupApiAuthenticate,
+    operations.signupApiAuthenticate
   );
 
   public signupApiAuthenticateLegacy = this.requestFunctionFactory(
-    operations.signupApiAuthenticateLegacy,
+    operations.signupApiAuthenticateLegacy
   );
 
   public signupApiAuthenticateMfa = this.requestFunctionFactory(
-    operations.signupApiAuthenticateMfa,
+    operations.signupApiAuthenticateMfa
   );
 
   public signupApiAvatarRemove = this.requestFunctionFactory(
-    operations.signupApiAvatarRemove,
+    operations.signupApiAvatarRemove
   );
 
   public signupApiAvatarRequestUpload = this.requestFunctionFactory(
-    operations.signupApiAvatarRequestUpload,
+    operations.signupApiAvatarRequestUpload
   );
 
   public signupApiEmailChange = this.requestFunctionFactory(
-    operations.signupApiEmailChange,
+    operations.signupApiEmailChange
   );
 
   public signupApiEmailGet = this.requestFunctionFactory(
-    operations.signupApiEmailGet,
+    operations.signupApiEmailGet
   );
 
   public signupApiEmailResend = this.requestFunctionFactory(
-    operations.signupApiEmailResend,
+    operations.signupApiEmailResend
   );
 
   public signupApiEmailVerify = this.requestFunctionFactory(
-    operations.signupApiEmailVerify,
+    operations.signupApiEmailVerify
   );
 
   public signupApiLogout = this.requestFunctionFactory(
-    operations.signupApiLogout,
+    operations.signupApiLogout
   );
 
   public signupApiMfaConfirm = this.requestFunctionFactory(
-    operations.signupApiMfaConfirm,
+    operations.signupApiMfaConfirm
   );
 
   public signupApiMfaDisable = this.requestFunctionFactory(
-    operations.signupApiMfaDisable,
+    operations.signupApiMfaDisable
   );
 
   public signupApiMfaGetStatus = this.requestFunctionFactory(
-    operations.signupApiMfaGetStatus,
+    operations.signupApiMfaGetStatus
   );
 
   public signupApiMfaInit = this.requestFunctionFactory(
-    operations.signupApiMfaInit,
+    operations.signupApiMfaInit
   );
 
   public signupApiPasswordChange = this.requestFunctionFactory(
-    operations.signupApiPasswordChange,
+    operations.signupApiPasswordChange
   );
 
   public signupApiPasswordGetUpdatedAt = this.requestFunctionFactory(
-    operations.signupApiPasswordGetUpdatedAt,
+    operations.signupApiPasswordGetUpdatedAt
   );
 
   public signupApiPasswordResetConfirm = this.requestFunctionFactory(
-    operations.signupApiPasswordResetConfirm,
+    operations.signupApiPasswordResetConfirm
   );
 
   public signupApiPasswordResetInit = this.requestFunctionFactory(
-    operations.signupApiPasswordResetInit,
+    operations.signupApiPasswordResetInit
   );
 
   public signupApiPhoneNumberDelete = this.requestFunctionFactory(
-    operations.signupApiPhoneNumberDelete,
+    operations.signupApiPhoneNumberDelete
   );
 
   public signupApiPhoneNumberGet = this.requestFunctionFactory(
-    operations.signupApiPhoneNumberGet,
+    operations.signupApiPhoneNumberGet
   );
 
   public signupApiPhoneNumberInitProcess = this.requestFunctionFactory(
-    operations.signupApiPhoneNumberInitProcess,
+    operations.signupApiPhoneNumberInitProcess
   );
 
   public signupApiPhoneNumberVerify = this.requestFunctionFactory(
-    operations.signupApiPhoneNumberVerify,
+    operations.signupApiPhoneNumberVerify
   );
 
   public signupApiProfileChange = this.requestFunctionFactory(
-    operations.signupApiProfileChange,
+    operations.signupApiProfileChange
   );
 
   public signupApiProfileDelete = this.requestFunctionFactory(
-    operations.signupApiProfileDelete,
+    operations.signupApiProfileDelete
   );
 
   public signupApiProfileGet = this.requestFunctionFactory(
-    operations.signupApiProfileGet,
+    operations.signupApiProfileGet
   );
 
   public signupApiRecoverycodesReset = this.requestFunctionFactory(
-    operations.signupApiRecoverycodesReset,
+    operations.signupApiRecoverycodesReset
   );
 
   public signupApiRegister = this.requestFunctionFactory(
-    operations.signupApiRegister,
+    operations.signupApiRegister
   );
 
   public signupApiRegistrationVerify = this.requestFunctionFactory(
-    operations.signupApiRegistrationVerify,
+    operations.signupApiRegistrationVerify
   );
 
   public signupApiSessionGet = this.requestFunctionFactory(
-    operations.signupApiSessionGet,
+    operations.signupApiSessionGet
   );
 
   public signupApiSessionTerminate = this.requestFunctionFactory(
-    operations.signupApiSessionTerminate,
+    operations.signupApiSessionTerminate
   );
 
   public signupApiSessionsList = this.requestFunctionFactory(
-    operations.signupApiSessionsList,
+    operations.signupApiSessionsList
   );
 
   public signupApiSessionsTerminateAll = this.requestFunctionFactory(
-    operations.signupApiSessionsTerminateAll,
+    operations.signupApiSessionsTerminateAll
   );
 
   public signupApiSshCreate = this.requestFunctionFactory(
-    operations.signupApiSshCreate,
+    operations.signupApiSshCreate
   );
 
   public signupApiSshList = this.requestFunctionFactory(
-    operations.signupApiSshList,
+    operations.signupApiSshList
   );
 
   public signupApiSshDelete = this.requestFunctionFactory(
-    operations.signupApiSshDelete,
+    operations.signupApiSshDelete
   );
 
   public signupApiSshEdit = this.requestFunctionFactory(
-    operations.signupApiSshEdit,
+    operations.signupApiSshEdit
   );
 
   public signupApiSshGet = this.requestFunctionFactory(
-    operations.signupApiSshGet,
+    operations.signupApiSshGet
   );
 
   public signupApiSupportCodeRequest = this.requestFunctionFactory(
-    operations.signupApiSupportCodeRequest,
+    operations.signupApiSupportCodeRequest
   );
 
   public signupApiTokenCheck = this.requestFunctionFactory(
-    operations.signupApiTokenCheck,
+    operations.signupApiTokenCheck
   );
 
   public sshuserServiceCreateSftpUser = this.requestFunctionFactory(
-    operations.sshuserServiceCreateSftpUser,
+    operations.sshuserServiceCreateSftpUser
   );
 
   public sshuserServiceListSftpUser = this.requestFunctionFactory(
-    operations.sshuserServiceListSftpUser,
+    operations.sshuserServiceListSftpUser
   );
 
   public sshuserServiceCreateSshUser = this.requestFunctionFactory(
-    operations.sshuserServiceCreateSshUser,
+    operations.sshuserServiceCreateSshUser
   );
 
   public sshuserServiceListSshUser = this.requestFunctionFactory(
-    operations.sshuserServiceListSshUser,
+    operations.sshuserServiceListSshUser
   );
 
   public sshuserServiceGetSftpUser = this.requestFunctionFactory(
-    operations.sshuserServiceGetSftpUser,
+    operations.sshuserServiceGetSftpUser
   );
 
   public sshuserServicePatchSftpUser = this.requestFunctionFactory(
-    operations.sshuserServicePatchSftpUser,
+    operations.sshuserServicePatchSftpUser
   );
 
   public sshuserServiceRemoveSftpUser = this.requestFunctionFactory(
-    operations.sshuserServiceRemoveSftpUser,
+    operations.sshuserServiceRemoveSftpUser
   );
 
   public sshuserServiceGetSshUser = this.requestFunctionFactory(
-    operations.sshuserServiceGetSshUser,
+    operations.sshuserServiceGetSshUser
   );
 
   public sshuserServicePatchSshUser = this.requestFunctionFactory(
-    operations.sshuserServicePatchSshUser,
+    operations.sshuserServicePatchSshUser
   );
 
   public sshuserServiceRemoveSshUser = this.requestFunctionFactory(
-    operations.sshuserServiceRemoveSshUser,
+    operations.sshuserServiceRemoveSshUser
   );
 
   public sshuserServiceUpdateAccessLevelOfSftpUser =
     this.requestFunctionFactory(
-      operations.sshuserServiceUpdateAccessLevelOfSftpUser,
+      operations.sshuserServiceUpdateAccessLevelOfSftpUser
     );
 
   public sshuserServiceUpdateActiveOfSftpUser = this.requestFunctionFactory(
-    operations.sshuserServiceUpdateActiveOfSftpUser,
+    operations.sshuserServiceUpdateActiveOfSftpUser
   );
 
   public sshuserServiceUpdateActiveOfSshUser = this.requestFunctionFactory(
-    operations.sshuserServiceUpdateActiveOfSshUser,
+    operations.sshuserServiceUpdateActiveOfSshUser
   );
 
   public sshuserServiceUpdateDescriptionOfSftpUser =
     this.requestFunctionFactory(
-      operations.sshuserServiceUpdateDescriptionOfSftpUser,
+      operations.sshuserServiceUpdateDescriptionOfSftpUser
     );
 
   public sshuserServiceUpdateDescriptionOfSshUser = this.requestFunctionFactory(
-    operations.sshuserServiceUpdateDescriptionOfSshUser,
+    operations.sshuserServiceUpdateDescriptionOfSshUser
   );
 
   public sshuserServiceUpdateDirectoriesOfSftpUser =
     this.requestFunctionFactory(
-      operations.sshuserServiceUpdateDirectoriesOfSftpUser,
+      operations.sshuserServiceUpdateDirectoriesOfSftpUser
     );
 
   public sshuserServiceUpdateExpiryOfSftpUser = this.requestFunctionFactory(
-    operations.sshuserServiceUpdateExpiryOfSftpUser,
+    operations.sshuserServiceUpdateExpiryOfSftpUser
   );
 
   public sshuserServiceUpdateExpiryOfSshUser = this.requestFunctionFactory(
-    operations.sshuserServiceUpdateExpiryOfSshUser,
+    operations.sshuserServiceUpdateExpiryOfSshUser
   );
 
   public sshuserServiceUpdatePasswordOfSftpUser = this.requestFunctionFactory(
-    operations.sshuserServiceUpdatePasswordOfSftpUser,
+    operations.sshuserServiceUpdatePasswordOfSftpUser
   );
 
   public sshuserServiceUpdatePasswordOfSshUser = this.requestFunctionFactory(
-    operations.sshuserServiceUpdatePasswordOfSshUser,
+    operations.sshuserServiceUpdatePasswordOfSshUser
   );
 
   public sshuserServiceUpdatePublicKeysOfSftpUser = this.requestFunctionFactory(
-    operations.sshuserServiceUpdatePublicKeysOfSftpUser,
+    operations.sshuserServiceUpdatePublicKeysOfSftpUser
   );
 
   public sshuserServiceUpdatePublicKeysOfSshUser = this.requestFunctionFactory(
-    operations.sshuserServiceUpdatePublicKeysOfSshUser,
+    operations.sshuserServiceUpdatePublicKeysOfSshUser
   );
 
   public storageStatisticsServiceStorageStatistics =
     this.requestFunctionFactory(
-      operations.storageStatisticsServiceStorageStatistics,
+      operations.storageStatisticsServiceStorageStatistics
     );
 
   public systemsoftwareGetSystemsoftwareV2 = this.requestFunctionFactory(
-    operations.systemsoftwareGetSystemsoftwareV2,
+    operations.systemsoftwareGetSystemsoftwareV2
   );
 
   public systemsoftwareGetSystemsoftwaresV2 = this.requestFunctionFactory(
-    operations.systemsoftwareGetSystemsoftwaresV2,
+    operations.systemsoftwareGetSystemsoftwaresV2
   );
 
   public systemsoftwareversionGetSystemsoftwareversionV2 =
     this.requestFunctionFactory(
-      operations.systemsoftwareversionGetSystemsoftwareversionV2,
+      operations.systemsoftwareversionGetSystemsoftwareversionV2
     );
 
   public systemsoftwareversionGetSystemsoftwareversionsV2 =
     this.requestFunctionFactory(
-      operations.systemsoftwareversionGetSystemsoftwareversionsV2,
+      operations.systemsoftwareversionGetSystemsoftwareversionsV2
     );
 
   public userServiceAvatarRemove = this.requestFunctionFactory(
-    operations.userServiceAvatarRemove,
+    operations.userServiceAvatarRemove
   );
 
   public userServiceAvatarRequestUpload = this.requestFunctionFactory(
-    operations.userServiceAvatarRequestUpload,
+    operations.userServiceAvatarRequestUpload
   );
 
   public userServiceFeedbackCreate = this.requestFunctionFactory(
-    operations.userServiceFeedbackCreate,
+    operations.userServiceFeedbackCreate
   );
 
   public userServiceFeedbackList = this.requestFunctionFactory(
-    operations.userServiceFeedbackList,
+    operations.userServiceFeedbackList
   );
 
   public userServiceIssueNew = this.requestFunctionFactory(
-    operations.userServiceIssueNew,
+    operations.userServiceIssueNew
   );
 
   public userServicePersonalInformationUpdate = this.requestFunctionFactory(
-    operations.userServicePersonalInformationUpdate,
+    operations.userServicePersonalInformationUpdate
   );
 
   public userServiceUserGet = this.requestFunctionFactory(
-    operations.userServiceUserGet,
+    operations.userServiceUserGet
   );
 
   public userServicePersonalizedSettingsGet = this.requestFunctionFactory(
-    operations.userServicePersonalizedSettingsGet,
+    operations.userServicePersonalizedSettingsGet
   );
 
   public userServicePersonalizedSettingsUpdate = this.requestFunctionFactory(
-    operations.userServicePersonalizedSettingsUpdate,
+    operations.userServicePersonalizedSettingsUpdate
   );
 
   public userServicePhoneNumberAdd = this.requestFunctionFactory(
-    operations.userServicePhoneNumberAdd,
+    operations.userServicePhoneNumberAdd
   );
 
   public userServicePhoneNumberRemove = this.requestFunctionFactory(
-    operations.userServicePhoneNumberRemove,
+    operations.userServicePhoneNumberRemove
   );
 
   public userServicePhoneNumberVerify = this.requestFunctionFactory(
-    operations.userServicePhoneNumberVerify,
+    operations.userServicePhoneNumberVerify
   );
 
   public userServiceUserGetOwn = this.requestFunctionFactory(
-    operations.userServiceUserGetOwn,
+    operations.userServiceUserGetOwn
   );
 
   public varnishServiceListValidators = this.requestFunctionFactory(
-    operations.varnishServiceListValidators,
+    operations.varnishServiceListValidators
   );
 
   public varnishServiceValidate = this.requestFunctionFactory(
-    operations.varnishServiceValidate,
+    operations.varnishServiceValidate
   );
 
   public varnishServiceSoftwareClearCache = this.requestFunctionFactory(
-    operations.varnishServiceSoftwareClearCache,
+    operations.varnishServiceSoftwareClearCache
   );
 
   public varnishServiceSoftwareConfigDeclare = this.requestFunctionFactory(
-    operations.varnishServiceSoftwareConfigDeclare,
+    operations.varnishServiceSoftwareConfigDeclare
   );
 
   public varnishServiceSoftwareConfigDelete = this.requestFunctionFactory(
-    operations.varnishServiceSoftwareConfigDelete,
+    operations.varnishServiceSoftwareConfigDelete
   );
 
   public varnishServiceSoftwareConfigDeleteRevision =
     this.requestFunctionFactory(
-      operations.varnishServiceSoftwareConfigDeleteRevision,
+      operations.varnishServiceSoftwareConfigDeleteRevision
     );
 
   public varnishServiceSoftwareConfigRevisionGetById =
     this.requestFunctionFactory(
-      operations.varnishServiceSoftwareConfigRevisionGetById,
+      operations.varnishServiceSoftwareConfigRevisionGetById
     );
 
   public varnishServiceSoftwareConfigRollback = this.requestFunctionFactory(
-    operations.varnishServiceSoftwareConfigRollback,
+    operations.varnishServiceSoftwareConfigRollback
   );
 
   public varnishServiceSoftwareConfigtemplateCreate =
     this.requestFunctionFactory(
-      operations.varnishServiceSoftwareConfigtemplateCreate,
+      operations.varnishServiceSoftwareConfigtemplateCreate
     );
 
   public varnishServiceSoftwareConfigtemplateGetList =
     this.requestFunctionFactory(
-      operations.varnishServiceSoftwareConfigtemplateGetList,
+      operations.varnishServiceSoftwareConfigtemplateGetList
     );
 
   public varnishServiceSoftwareConfigtemplateDelete =
     this.requestFunctionFactory(
-      operations.varnishServiceSoftwareConfigtemplateDelete,
+      operations.varnishServiceSoftwareConfigtemplateDelete
     );
 
   public varnishServiceSoftwareConfigtemplateGetSpecific =
     this.requestFunctionFactory(
-      operations.varnishServiceSoftwareConfigtemplateGetSpecific,
+      operations.varnishServiceSoftwareConfigtemplateGetSpecific
     );
 
   public varnishServiceSoftwareConfigtemplateListGlobals =
     this.requestFunctionFactory(
-      operations.varnishServiceSoftwareConfigtemplateListGlobals,
+      operations.varnishServiceSoftwareConfigtemplateListGlobals
     );
 
   public varnishServiceSoftwareGetById = this.requestFunctionFactory(
-    operations.varnishServiceSoftwareGetById,
+    operations.varnishServiceSoftwareGetById
   );
 
   public varnishServiceSoftwareLogs = this.requestFunctionFactory(
-    operations.varnishServiceSoftwareLogs,
+    operations.varnishServiceSoftwareLogs
   );
 
   public varnishServiceSoftwareSettingsDeclare = this.requestFunctionFactory(
-    operations.varnishServiceSoftwareSettingsDeclare,
+    operations.varnishServiceSoftwareSettingsDeclare
   );
 
   public fileServiceFileGetTypeRules = this.requestFunctionFactory(
-    operations.fileServiceFileGetTypeRules,
+    operations.fileServiceFileGetTypeRules
   );
 }
 

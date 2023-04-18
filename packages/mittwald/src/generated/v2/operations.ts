@@ -1,7 +1,9 @@
 /* eslint-disable */
 /* prettier-ignore */
 
-/** This file is auto-generated with openapi2ts (@mittwald/openapi-to-typescript) */
+/**
+* This file is auto-generated with openapi2ts (@mittwald/openapi-to-typescript)
+*/
 
 import { MittwaldApiV2 } from "./types";
 import { Simplify } from "@mittwald/api-client-commons/dist/type-fest";
