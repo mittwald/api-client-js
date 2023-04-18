@@ -2,6 +2,7 @@
   "name": "@mittwald/api-client-generator",
   "version": "1.0.0",
   "license": "UNLICENSED",
+  "repository": "https://github.com/mittwald/api-client.git",
   "main": "dist/index.js",
   "bin": {
     "acg": "./bin/cli.js"
