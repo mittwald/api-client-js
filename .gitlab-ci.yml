@@ -67,7 +67,7 @@ generate-client:
         git config user.email opensource@mittwald.de
         git config user.name "Mittwald Machine"
 
-        git add packages/mittwald
+        git add .
         git commit -m "Update generated client";
         git push
       fi
