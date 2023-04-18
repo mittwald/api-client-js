@@ -10,11 +10,10 @@ variables:
 before_script:
   - npm config set @mittwald:registry https://npm.pkg.github.com/ -Luser
   - npm config set //npm.pkg.github.com/:_authToken "${GITHUB_TOKEN}" -Luser
+  - yarn install
 
 typescript-compile:
   image: node:${NODE_VERSION}
-  before_script:
-    - yarn install
   script:
     - yarn compile
   artifacts:
@@ -46,3 +45,25 @@ publish-commons:
     - npm publish
   only:
     - tags
+
+generate-client:
+  image: node:${NODE_VERSION}
+  script:
+    - cd ${CI_PROJECT_DIR}/packages/mittwald
+    - yarn generate:client
+    - git status
+    - |
+      if [ $(git status --porcelain . | wc -l) -gt 0 ] ; then
+        npm version --no-workspaces-update --no-git-tag-version patch
+        npm publish
+
+        git config user.email opensource@mittwald.de
+        git config user.name "Mittwald Machine"
+
+        git add .
+        git commit -m "Update generated client";
+        git push
+      fi
+  only:
+    - schedules
+    - web
