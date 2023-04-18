@@ -69,7 +69,7 @@ generate-client:
 
         git add .
         git commit -m "Update generated client";
-        git push
+        git push origin HEAD:${CI_COMMIT_BRANCH}
       fi
   only:
     - schedules
