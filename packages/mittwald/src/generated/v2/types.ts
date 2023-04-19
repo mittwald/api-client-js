@@ -6505,7 +6505,12 @@ export declare module MittwaldApiV2 {
           }
 
           interface Query {
-            invoiceTypes?: ("REGULAR" | "REISSUE" | "CORRECTION")[];
+            invoiceTypes?: (
+              | "REGULAR"
+              | "REISSUE"
+              | "CORRECTION"
+              | "CANCELLATION"
+            )[];
             limit?: number;
             skip?: number;
             page?: number;
@@ -6522,51 +6527,6 @@ export declare module MittwaldApiV2 {
             namespace Content {
               type Application_Json =
                 MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Invoice_Invoice[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              type Application_Json =
-                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_ValidationErrors;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              type Application_Json =
-                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              type Application_Json =
-                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2_Customers_CustomerId_Invoicesettings_NextInvoiceCheck {
-      namespace Put {
-        namespace Parameters {
-          interface Path {
-            customerId: string;
-          }
-
-          interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              type Application_Json =
-                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Invoice_Dummy;
             }
           }
 

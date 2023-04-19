@@ -4328,38 +4328,6 @@ export const invoiceServiceListCustomerInvoices: OpenAPIOperation<
   operationId: "invoiceServiceListCustomerInvoices",
 };
 
-export const invoiceServiceUpdateNextInvoiceCheck: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V2_Customers_CustomerId_Invoicesettings_NextInvoiceCheck.Put.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Customers_CustomerId_Invoicesettings_NextInvoiceCheck.Put.Parameters.Header>
-  >,
-  | Response<
-      MittwaldApiV2.Paths.V2_Customers_CustomerId_Invoicesettings_NextInvoiceCheck.Put.Responses.$200.Content.Application_Json,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Customers_CustomerId_Invoicesettings_NextInvoiceCheck.Put.Responses.$400.Content.Application_Json,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Customers_CustomerId_Invoicesettings_NextInvoiceCheck.Put.Responses.$404.Content.Application_Json,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Customers_CustomerId_Invoicesettings_NextInvoiceCheck.Put.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/invoicesettings/nextInvoiceCheck",
-  method: "PUT",
-  operationId: "invoiceServiceUpdateNextInvoiceCheck",
-};
-
 export const mailServiceDeliveryboxCreate: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Deliveryboxes.Post.Parameters.RequestBody>,
