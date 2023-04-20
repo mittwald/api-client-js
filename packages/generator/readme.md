@@ -5,7 +5,8 @@ A CLI to generate an API client with typings.
 ## Install
 
 ```shell
-yarn add @mittwald/api-client-generator @mittwald/api-client-commons
+yarn add -D @mittwald/api-client-generator
+yarn add @mittwald/api-client-commons
 ```
 
 ## Code generation
