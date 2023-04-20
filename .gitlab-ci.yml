@@ -23,18 +23,6 @@ test:
   script:
     - yarn test
 
-publish-generator:
-  image: node:${NODE_VERSION}
-  needs:
-    - typescript-compile
-  script:
-    - cd ${CI_PROJECT_DIR}/packages/generator
-    - npm version ${CI_COMMIT_TAG} --git-tag-version false
-      --no-workspaces-update
-    - npm publish
-  only:
-    - tags
-
 publish-commons:
   image: node:${NODE_VERSION}
   needs:
