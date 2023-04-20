@@ -17,14 +17,13 @@ export const generateCmd = makeModule({
   handler: async (args) => {
     const {
       namespace,
-      output: outputFilename,
+      out: targetDirectory,
       autoAccept,
       validateNoChanges,
       displayErrors,
       skipValidation,
       noInteractive,
       force,
-      react,
       optionalHeaders,
       _: [ignoredCommandName, ...allFiles],
     } = args;
@@ -86,13 +85,12 @@ export const generateCmd = makeModule({
       }
     };
 
-    // eslint-disable-next-line @typescript-eslint/no-misused-promises
-    Spec.fromFiles(namespace, files, {
+    await Spec.fromFiles(namespace, files, {
       statusLog: new OraStatusLog(),
       throwErrors: displayErrors,
       skipValidation,
     })(async (spec) => {
-      const lockfileName = getSubFileName(outputFilename, ".spec.lock");
+      const lockfileName = getSubFileName(targetDirectory, ".spec.lock");
       const statusLog = getStatusLog();
 
       const lockfile =
@@ -226,13 +224,12 @@ export const generateCmd = makeModule({
       spec.updateSpec(specWithChanges);
 
       const exportOptions: ExportOptions = {
-        reactHooks: !!react,
         optionalHeaders: optionalHeaders?.filter(
           (h) => typeof h === "string",
         ) as string[] | undefined,
       };
 
-      spec.writeFiles(outputFilename, exportOptions);
+      spec.writeFiles(targetDirectory, exportOptions);
 
       lockfile.write(lockfileName);
     });

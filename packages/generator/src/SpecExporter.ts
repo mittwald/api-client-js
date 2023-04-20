@@ -11,7 +11,6 @@ import * as url from "url";
 const dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
 export interface ExportOptions {
-  reactHooks?: boolean;
   optionalHeaders?: string[];
 }
 
@@ -56,12 +55,7 @@ export class SpecExporter {
   public exportClient(namespace: string, opts?: ExportOptions): string {
     const jobLog = getStatusLog();
     jobLog?.start("rendering 'client'");
-    const result = this.export(
-      namespace,
-      "client/main.ejs",
-      { reactHooks: opts?.reactHooks ?? false },
-      opts,
-    );
+    const result = this.export(namespace, "client/main.ejs", {}, opts);
     jobLog?.succeed("'client' successfully rendered");
     return result;
   }

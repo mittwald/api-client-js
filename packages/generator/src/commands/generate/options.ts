@@ -2,10 +2,10 @@ import { Argv } from "yargs";
 
 export const options = <T extends Argv<unknown>>(yargs: T) =>
   yargs
-    .option("output", {
+    .option("out", {
       string: true,
       alias: "o",
-      description: "client output filename",
+      description: "target directory",
       demandOption: true,
       requiresArg: true,
     })
@@ -15,12 +15,6 @@ export const options = <T extends Argv<unknown>>(yargs: T) =>
       description: "auto-accept paths matching this glob and skip others",
       demandOption: false,
       requiresArg: true,
-    })
-    .option("react", {
-      boolean: true,
-      alias: "r",
-      description: "generate React hooks",
-      demandOption: false,
     })
     .option("validateNoChanges", {
       boolean: true,
