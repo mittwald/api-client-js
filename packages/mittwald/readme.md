@@ -28,6 +28,12 @@ const mittwaldApi = MittwaldApiClient.newWithToken("your-access-token");
 const projects = await mittwaldApi.projectServiceProjectsGetList();
 ```
 
+## API documentation
+
+The API documentation can be found at
+[https://api.mittwald.de/v2/docs/](https://api.mittwald.de/v2/docs/). You can
+find the operation ID on the right side of each operation.
+
 ## Accessing the underlying Axios instance
 
 The client uses the popular [Axios HTTP client](https://axios-http.com) under
