@@ -6,7 +6,7 @@
     "all": "yarn workspaces foreach -pvA --no-private $*",
     "compile": "yarn tsc --build $@",
     "format": "prettier --write $@ '{packages/**,apps/**}*.{ts,tsx,yaml,yml,json,md,mdx}'",
-    "license-check": "yarn pnpify license-checker-rseidelsohn $*",
+    "license-check": "yarn pnpify license-checker-rseidelsohn --excludePackages @mittwald/awesome-node-utils --excludePrivatePackages $*",
     "lint": "eslint . --cache",
     "test": "yarn lint && yarn format --check && yarn test:packages && yarn test:licenses",
     "test:licenses": "yarn license-check --summary --unknown && yarn license-check --unknown --failOn 'UNLICENSED;UNKNOWN'",
