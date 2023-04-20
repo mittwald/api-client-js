@@ -7,7 +7,7 @@ type UnsafeHttpMethod = "PUT" | "DELETE" | "POST" | "PATCH";
 export type HttpMethod = SafeHttpMethod | UnsafeHttpMethod;
 
 export type HttpHeaders = Partial<{
-  [TKey: string]: string;
+  [TKey: string]: string | number | boolean;
 }>;
 
 export type PathParameters = Record<string, string | number>;
