@@ -49,7 +49,7 @@ Also see GitHub docs
 Import the client:
 
 ```typescript
-import MittwaldApiClient from "@mittwald/api-client/v2";
+import MittwaldApiClient from "@mittwald/api-client/dist/v2";
 ```
 
 To create a client instance you can use one of the following factory method for
@@ -67,7 +67,7 @@ your profile settings.
 ## Example
 
 ```typescript
-import MittwaldApiClient from "@mittwald/api-client/v2";
+import MittwaldApiClient from "@mittwald/api-client/dist/v2.js";
 
 const mittwaldApi = MittwaldApiClient.newWithToken("your-access-token");
 
