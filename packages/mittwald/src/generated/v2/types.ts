@@ -8772,10 +8772,7 @@ export declare module MittwaldApiV2 {
           }
 
           namespace Default {
-            namespace Content {
-              type Application_Json =
-                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
-            }
+            namespace Content {}
           }
         }
       }
@@ -8803,10 +8800,7 @@ export declare module MittwaldApiV2 {
           }
 
           namespace Default {
-            namespace Content {
-              type Application_Json =
-                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
-            }
+            namespace Content {}
           }
         }
       }
