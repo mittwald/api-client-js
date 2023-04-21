@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "repository": "https://github.com/mittwald/node-api-client.git",
+  "type": "module",
   "scripts": {
     "test": "yarn test:tsd",
     "test:tsd": "pnpify run tsd"
@@ -12,7 +13,7 @@
   ],
   "dependencies": {
     "@types/parse-path": "^7.0.0",
-    "axios": "^1.3.5",
+    "axios": "^1.3.6",
     "parse-path": "^7.0.0",
     "path-to-regexp": "^6.2.1",
     "type-fest": "^3.8.0"
