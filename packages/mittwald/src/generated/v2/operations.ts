@@ -5,7 +5,7 @@
 * This file is auto-generated with openapi2ts (@mittwald/openapi-to-typescript)
 */
 
-import { MittwaldApiV2 } from "./types";
+import { MittwaldApiV2 } from "./types.js";
 import { Simplify } from "@mittwald/api-client-commons/dist/type-fest";
 import { Request } from "@mittwald/api-client-commons/dist/types/Request.js";
 import { Response } from "@mittwald/api-client-commons/dist/types/Response.js";
