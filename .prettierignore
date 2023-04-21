@@ -1,2 +1,3 @@
 .idea/
 dist/
+packages/mittwald/src/generated/**/*
