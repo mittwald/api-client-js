@@ -59,7 +59,7 @@ generate-client:
         
         git push "https://project:${PAT}@${CI_REPOSITORY_URL#*@}" "HEAD:${CI_COMMIT_BRANCH}"
 
-        npm publish
+        yarn npm publish
       fi
   only:
     - schedules

@@ -11,10 +11,10 @@
     "dist/**/*.{js,d.ts}"
   ],
   "dependencies": {
-    "@mittwald/api-client-commons": "*"
+    "@mittwald/api-client-commons": "workspace:*"
   },
   "devDependencies": {
-    "@mittwald/api-client-generator": "~1.0.0"
+    "@mittwald/api-client-generator": "workspace:*"
   },
   "types": "./dist/index.d.ts"
 }
