@@ -1590,7 +1590,7 @@ export const conversationServiceUpdateMessageV2: OpenAPIOperation<
   operationId: "conversationServiceUpdateMessageV2",
 };
 
-export const deprecatedCronjobAbortExecutionV2: OpenAPIOperation<
+export const cronjobServiceCronjobAbortExecution: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Executions_ExecutionId_Abort.Post.Parameters.Path>,
@@ -1614,10 +1614,42 @@ export const deprecatedCronjobAbortExecutionV2: OpenAPIOperation<
 > = {
   path: "/v2/cronjobs/{cronjobId}/executions/{executionId}/abort",
   method: "POST",
-  operationId: "deprecatedCronjobAbortExecutionV2",
+  operationId: "cronjobServiceCronjobAbortExecution",
 };
 
-export const cronjobListCronjobsV2: OpenAPIOperation<
+export const cronjobServiceCronjobCreate: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Cronjobs.Post.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Cronjobs.Post.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Cronjobs.Post.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Cronjobs.Post.Responses.$201.Content.Application_Json,
+      201,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Cronjobs.Post.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Cronjobs.Post.Responses.$412.Content.Application_Json,
+      412,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Cronjobs.Post.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/cronjobs",
+  method: "POST",
+  operationId: "cronjobServiceCronjobCreate",
+};
+
+export const cronjobServiceCronjobList: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Cronjobs.Get.Parameters.Path>,
@@ -1636,10 +1668,10 @@ export const cronjobListCronjobsV2: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/cronjobs",
   method: "GET",
-  operationId: "cronjobListCronjobsV2",
+  operationId: "cronjobServiceCronjobList",
 };
 
-export const cronjobCreateExecutionV2: OpenAPIOperation<
+export const cronjobServiceCronjobCreateExecution: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Executions.Post.Parameters.Path>,
@@ -1668,10 +1700,10 @@ export const cronjobCreateExecutionV2: OpenAPIOperation<
 > = {
   path: "/v2/cronjobs/{cronjobId}/executions",
   method: "POST",
-  operationId: "cronjobCreateExecutionV2",
+  operationId: "cronjobServiceCronjobCreateExecution",
 };
 
-export const cronjobListExecutionsV2: OpenAPIOperation<
+export const cronjobServiceCronjobListExecutions: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Executions.Get.Parameters.Path>,
@@ -1690,10 +1722,10 @@ export const cronjobListExecutionsV2: OpenAPIOperation<
 > = {
   path: "/v2/cronjobs/{cronjobId}/executions",
   method: "GET",
-  operationId: "cronjobListExecutionsV2",
+  operationId: "cronjobServiceCronjobListExecutions",
 };
 
-export const cronjobDeleteCronjobV2: OpenAPIOperation<
+export const cronjobServiceCronjobDelete: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId.Delete.Parameters.Path>,
@@ -1719,10 +1751,10 @@ export const cronjobDeleteCronjobV2: OpenAPIOperation<
 > = {
   path: "/v2/cronjobs/{cronjobId}",
   method: "DELETE",
-  operationId: "cronjobDeleteCronjobV2",
+  operationId: "cronjobServiceCronjobDelete",
 };
 
-export const cronjobGetCronjobV2: OpenAPIOperation<
+export const cronjobServiceCronjobGetSpecific: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId.Get.Parameters.Path>,
@@ -1746,10 +1778,10 @@ export const cronjobGetCronjobV2: OpenAPIOperation<
 > = {
   path: "/v2/cronjobs/{cronjobId}",
   method: "GET",
-  operationId: "cronjobGetCronjobV2",
+  operationId: "cronjobServiceCronjobGetSpecific",
 };
 
-export const cronjobUpdateCronjobV2: OpenAPIOperation<
+export const cronjobServiceCronjobPatch: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId.Patch.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId.Patch.Parameters.Path>,
@@ -1783,10 +1815,10 @@ export const cronjobUpdateCronjobV2: OpenAPIOperation<
 > = {
   path: "/v2/cronjobs/{cronjobId}",
   method: "PATCH",
-  operationId: "cronjobUpdateCronjobV2",
+  operationId: "cronjobServiceCronjobPatch",
 };
 
-export const cronjobGetExecutionV2: OpenAPIOperation<
+export const cronjobServiceCronjobGetSpecificExecution: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Executions_ExecutionId.Get.Parameters.Path>,
@@ -1810,7 +1842,7 @@ export const cronjobGetExecutionV2: OpenAPIOperation<
 > = {
   path: "/v2/cronjobs/{cronjobId}/executions/{executionId}",
   method: "GET",
-  operationId: "cronjobGetExecutionV2",
+  operationId: "cronjobServiceCronjobGetSpecificExecution",
 };
 
 export const customerServiceAvatarRemove: OpenAPIOperation<
@@ -9147,129 +9179,6 @@ export const fileServiceFileGetTypeRules: OpenAPIOperation<
   operationId: "fileServiceFileGetTypeRules",
 };
 
-export const cronjobAbortExecutionV2: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Executions_ExecutionId_Actions_Abort.Post.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Executions_ExecutionId_Actions_Abort.Post.Parameters.Header>
-  >,
-  | Response<
-      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Executions_ExecutionId_Actions_Abort.Post.Responses.$200.Content.Application_Json,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Executions_ExecutionId_Actions_Abort.Post.Responses.$404.Content.Application_Json,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Executions_ExecutionId_Actions_Abort.Post.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/cronjobs/{cronjobId}/executions/{executionId}/actions/abort",
-  method: "POST",
-  operationId: "cronjobAbortExecutionV2",
-};
-
-export const cronjobCreateCronjobV2: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldApiV2.Paths.V2_ProjectId_Cronjobs.Post.Parameters.RequestBody>,
-    Simplify<MittwaldApiV2.Paths.V2_ProjectId_Cronjobs.Post.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_ProjectId_Cronjobs.Post.Parameters.Header>
-  >,
-  | Response<
-      MittwaldApiV2.Paths.V2_ProjectId_Cronjobs.Post.Responses.$201.Content.Application_Json,
-      201,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_ProjectId_Cronjobs.Post.Responses.$400.Content.Application_Json,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_ProjectId_Cronjobs.Post.Responses.$412.Content.Application_Json,
-      412,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_ProjectId_Cronjobs.Post.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/{projectId}/cronjobs",
-  method: "POST",
-  operationId: "cronjobCreateCronjobV2",
-};
-
-export const cronjobUpdateCronjobAppIdV2: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Patch.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Patch.Parameters.Header>
-  >,
-  | Response<
-      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Patch.Responses.$201.Content.Application_Json,
-      201,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Patch.Responses.$400.Content.Application_Json,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Patch.Responses.$412.Content.Application_Json,
-      412,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Patch.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/cronjobs/{cronjobId}/appid",
-  method: "PATCH",
-  operationId: "cronjobUpdateCronjobAppIdV2",
-};
-
-export const deprecatedcronjobServiceCronjobAddAppid: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Put.Parameters.RequestBody>,
-    Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Put.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Put.Parameters.Header>
-  >,
-  | Response<
-      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Put.Responses.$201.Content.Application_Json,
-      201,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Put.Responses.$400.Content.Application_Json,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Put.Responses.$412.Content.Application_Json,
-      412,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Put.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/cronjobs/{cronjobId}/appid",
-  method: "PUT",
-  operationId: "deprecatedcronjobServiceCronjobAddAppid",
-};
-
 export const orderServiceListProjectOrdersV2: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -9290,4 +9199,36 @@ export const orderServiceListProjectOrdersV2: OpenAPIOperation<
   path: "/v2/projects/{projectId}/orders",
   method: "GET",
   operationId: "orderServiceListProjectOrdersV2",
+};
+
+export const cronjobServiceCronjobAddAppid: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Projects_Cronjobs_CronjobId_Appid.Put.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_Cronjobs_CronjobId_Appid.Put.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_Cronjobs_CronjobId_Appid.Put.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_Cronjobs_CronjobId_Appid.Put.Responses.$201.Content.Application_Json,
+      201,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_Cronjobs_CronjobId_Appid.Put.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_Cronjobs_CronjobId_Appid.Put.Responses.$412.Content.Application_Json,
+      412,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_Cronjobs_CronjobId_Appid.Put.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/cronjobs/{cronjobId}/appid",
+  method: "PUT",
+  operationId: "cronjobServiceCronjobAddAppid",
 };

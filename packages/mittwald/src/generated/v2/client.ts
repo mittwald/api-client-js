@@ -233,37 +233,42 @@ export class MittwaldApiV2Client extends ApiClientBase {
     operations.conversationServiceUpdateMessageV2
   );
 
-  public deprecatedCronjobAbortExecutionV2 = this.requestFunctionFactory(
-    operations.deprecatedCronjobAbortExecutionV2
+  public cronjobServiceCronjobAbortExecution = this.requestFunctionFactory(
+    operations.cronjobServiceCronjobAbortExecution
   );
 
-  public cronjobListCronjobsV2 = this.requestFunctionFactory(
-    operations.cronjobListCronjobsV2
+  public cronjobServiceCronjobCreate = this.requestFunctionFactory(
+    operations.cronjobServiceCronjobCreate
   );
 
-  public cronjobCreateExecutionV2 = this.requestFunctionFactory(
-    operations.cronjobCreateExecutionV2
+  public cronjobServiceCronjobList = this.requestFunctionFactory(
+    operations.cronjobServiceCronjobList
   );
 
-  public cronjobListExecutionsV2 = this.requestFunctionFactory(
-    operations.cronjobListExecutionsV2
+  public cronjobServiceCronjobCreateExecution = this.requestFunctionFactory(
+    operations.cronjobServiceCronjobCreateExecution
   );
 
-  public cronjobDeleteCronjobV2 = this.requestFunctionFactory(
-    operations.cronjobDeleteCronjobV2
+  public cronjobServiceCronjobListExecutions = this.requestFunctionFactory(
+    operations.cronjobServiceCronjobListExecutions
   );
 
-  public cronjobGetCronjobV2 = this.requestFunctionFactory(
-    operations.cronjobGetCronjobV2
+  public cronjobServiceCronjobDelete = this.requestFunctionFactory(
+    operations.cronjobServiceCronjobDelete
   );
 
-  public cronjobUpdateCronjobV2 = this.requestFunctionFactory(
-    operations.cronjobUpdateCronjobV2
+  public cronjobServiceCronjobGetSpecific = this.requestFunctionFactory(
+    operations.cronjobServiceCronjobGetSpecific
   );
 
-  public cronjobGetExecutionV2 = this.requestFunctionFactory(
-    operations.cronjobGetExecutionV2
+  public cronjobServiceCronjobPatch = this.requestFunctionFactory(
+    operations.cronjobServiceCronjobPatch
   );
+
+  public cronjobServiceCronjobGetSpecificExecution =
+    this.requestFunctionFactory(
+      operations.cronjobServiceCronjobGetSpecificExecution
+    );
 
   public customerServiceAvatarRemove = this.requestFunctionFactory(
     operations.customerServiceAvatarRemove
@@ -1430,24 +1435,12 @@ export class MittwaldApiV2Client extends ApiClientBase {
     operations.fileServiceFileGetTypeRules
   );
 
-  public cronjobAbortExecutionV2 = this.requestFunctionFactory(
-    operations.cronjobAbortExecutionV2
-  );
-
-  public cronjobCreateCronjobV2 = this.requestFunctionFactory(
-    operations.cronjobCreateCronjobV2
-  );
-
-  public cronjobUpdateCronjobAppIdV2 = this.requestFunctionFactory(
-    operations.cronjobUpdateCronjobAppIdV2
-  );
-
-  public deprecatedcronjobServiceCronjobAddAppid = this.requestFunctionFactory(
-    operations.deprecatedcronjobServiceCronjobAddAppid
-  );
-
   public orderServiceListProjectOrdersV2 = this.requestFunctionFactory(
     operations.orderServiceListProjectOrdersV2
+  );
+
+  public cronjobServiceCronjobAddAppid = this.requestFunctionFactory(
+    operations.cronjobServiceCronjobAddAppid
   );
 }
 

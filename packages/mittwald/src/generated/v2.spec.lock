@@ -2529,7 +2529,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/cronjobs/{cronjobId}/executions/{executionId}/abort:
       post:
-        operationId: deprecated-cronjob-abort-execution-v2
+        operationId: cronjob-service-cronjob-abort-execution
         parameters:
           path:
             type: object
@@ -2565,8 +2565,8 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects/{projectId}/cronjobs:
-      get:
-        operationId: cronjob-list-cronjobs-v2
+      post:
+        operationId: cronjob-service-cronjob-create
         parameters:
           path:
             type: object
@@ -2574,7 +2574,51 @@ spec:
               - projectId
             properties:
               projectId:
-                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+          requestBody:
+            $ref: '#/components/schemas/de.mittwald.v1.cronjob.CronjobRequest'
+        responses:
+          '201':
+            content:
+              application/json:
+                properties:
+                  id:
+                    format: uuid
+                    type: string
+                required:
+                  - id
+                type: object
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          '412':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+      get:
+        operationId: cronjob-service-cronjob-list
+        parameters:
+          path:
+            type: object
+            required:
+              - projectId
+            properties:
+              projectId:
                 type: string
           query:
             type: object
@@ -2612,7 +2656,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/cronjobs/{cronjobId}/executions:
       post:
-        operationId: cronjob-create-execution-v2
+        operationId: cronjob-service-cronjob-create-execution
         parameters:
           path:
             type: object
@@ -2620,7 +2664,6 @@ spec:
               - cronjobId
             properties:
               cronjobId:
-                format: uuid
                 type: string
           header:
             type: object
@@ -2657,7 +2700,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       get:
-        operationId: cronjob-list-executions-v2
+        operationId: cronjob-service-cronjob-list-executions
         parameters:
           path:
             type: object
@@ -2665,7 +2708,6 @@ spec:
               - cronjobId
             properties:
               cronjobId:
-                format: uuid
                 type: string
           query:
             type: object
@@ -2687,7 +2729,6 @@ spec:
                 format: date-time
                 type: string
               status:
-                example: Complete
                 type: string
           header:
             type: object
@@ -2712,7 +2753,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/cronjobs/{cronjobId}:
       delete:
-        operationId: cronjob-delete-cronjob-v2
+        operationId: cronjob-service-cronjob-delete
         parameters:
           path:
             type: object
@@ -2720,7 +2761,6 @@ spec:
               - cronjobId
             properties:
               cronjobId:
-                format: uuid
                 type: string
           header:
             type: object
@@ -2750,7 +2790,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       get:
-        operationId: cronjob-get-cronjob-v2
+        operationId: cronjob-service-cronjob-get-specific
         parameters:
           path:
             type: object
@@ -2758,7 +2798,6 @@ spec:
               - cronjobId
             properties:
               cronjobId:
-                format: uuid
                 type: string
           header:
             type: object
@@ -2784,7 +2823,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       patch:
-        operationId: cronjob-update-cronjob-v2
+        operationId: cronjob-service-cronjob-patch
         parameters:
           path:
             type: object
@@ -2792,7 +2831,6 @@ spec:
               - cronjobId
             properties:
               cronjobId:
-                format: uuid
                 type: string
           header:
             type: object
@@ -2809,7 +2847,6 @@ spec:
               active:
                 type: boolean
               description:
-                example: i am a cronjob
                 type: string
               destination:
                 oneOf:
@@ -2819,7 +2856,6 @@ spec:
                 format: email
                 type: string
               interval:
-                example: '*/5 * * * *'
                 type: string
             type: object
         responses:
@@ -2845,7 +2881,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/cronjobs/{cronjobId}/executions/{executionId}:
       get:
-        operationId: cronjob-get-execution-v2
+        operationId: cronjob-service-cronjob-get-specific-execution
         parameters:
           path:
             type: object
@@ -2856,7 +2892,6 @@ spec:
               executionId:
                 type: string
               cronjobId:
-                format: uuid
                 type: string
           header:
             type: object
@@ -15158,185 +15193,6 @@ spec:
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-    /v2/cronjobs/{cronjobId}/executions/{executionId}/actions/abort:
-      post:
-        operationId: cronjob-abort-execution-v2
-        parameters:
-          path:
-            type: object
-            required:
-              - cronjobId
-              - executionId
-            properties:
-              cronjobId:
-                format: uuid
-                type: string
-              executionId:
-                example: cron-bd26li-28027320
-                type: string
-          header:
-            type: object
-            required:
-              - x-access-token
-            properties:
-              x-access-token:
-                type: string
-              Accept:
-                type: string
-                enum: application/json
-        responses:
-          '200':
-            content:
-              application/json:
-                type: object
-          '404':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-          default:
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-    /v2/{projectId}/cronjobs:
-      post:
-        operationId: cronjob-create-cronjob-v2
-        parameters:
-          path:
-            type: object
-            required:
-              - projectId
-            properties:
-              projectId:
-                format: uuid
-                type: string
-          header:
-            type: object
-            required:
-              - x-access-token
-            properties:
-              x-access-token:
-                type: string
-              Accept:
-                type: string
-                enum: application/json
-          requestBody:
-            $ref: '#/components/schemas/de.mittwald.v1.cronjob.CronjobRequest'
-        responses:
-          '201':
-            content:
-              application/json:
-                properties:
-                  id:
-                    format: uuid
-                    type: string
-                required:
-                  - id
-                type: object
-          '400':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
-          '412':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-          default:
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-    /v2/cronjobs/{cronjobId}/appid:
-      patch:
-        operationId: cronjob-update-cronjob-app-id-v2
-        parameters:
-          path:
-            type: object
-            required:
-              - cronjobId
-            properties:
-              cronjobId:
-                format: uuid
-                type: string
-          header:
-            type: object
-            required:
-              - x-access-token
-            properties:
-              x-access-token:
-                type: string
-              Accept:
-                type: string
-                enum: application/json
-          requestBody:
-            properties:
-              appId:
-                format: uuid
-                type: string
-            required:
-              - appId
-            type: object
-        responses:
-          '201':
-            content:
-              application/json:
-                type: object
-          '400':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
-          '412':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-          default:
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-      put:
-        operationId: deprecatedcronjob-service-cronjob-add-appid
-        parameters:
-          path:
-            type: object
-            required:
-              - cronjobId
-            properties:
-              cronjobId:
-                format: uuid
-                type: string
-          header:
-            type: object
-            required:
-              - x-access-token
-            properties:
-              x-access-token:
-                type: string
-              Accept:
-                type: string
-                enum: application/json
-          requestBody:
-            properties:
-              appId:
-                format: uuid
-                type: string
-            required:
-              - appId
-            type: object
-        responses:
-          '201':
-            content:
-              application/json:
-                type: object
-          '400':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
-          '412':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-          default:
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects/{projectId}/orders:
       get:
         operationId: order-service-list-project-orders-v2
@@ -15390,6 +15246,53 @@ spec:
                 items:
                   $ref: '#/components/schemas/de.mittwald.v1.order.CustomerOrder'
                 type: array
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/projects/cronjobs/{cronjobId}/appid:
+      put:
+        operationId: cronjob-service-cronjob-add-appid
+        parameters:
+          path:
+            type: object
+            required:
+              - cronjobId
+            properties:
+              cronjobId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+          requestBody:
+            properties:
+              appId:
+                format: uuid
+                type: string
+            required:
+              - appId
+            type: object
+        responses:
+          '201':
+            content:
+              application/json:
+                type: object
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          '412':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
           default:
             content:
               application/json:
@@ -16657,7 +16560,6 @@ spec:
             format: date-time
             type: string
           description:
-            example: i am a cronjob
             type: string
           destination:
             oneOf:
@@ -16670,7 +16572,6 @@ spec:
             format: uuid
             type: string
           interval:
-            example: '*/5 * * * *'
             type: string
           latestExecution:
             $ref: '#/components/schemas/de.mittwald.v1.cronjob.CronjobExecution'
@@ -16678,10 +16579,8 @@ spec:
             format: date-time
             type: string
           projectId:
-            format: uuid
             type: string
           shortId:
-            example: cron-bd26li
             type: string
           updatedAt:
             format: date-time
@@ -16700,13 +16599,10 @@ spec:
       de.mittwald.v1.cronjob.CronjobCommand:
         properties:
           interpreter:
-            example: /usr/bin/bash
             type: string
           parameters:
-            example: '--debug'
             type: string
           path:
-            example: /html/my-wordpress/script.sh
             type: string
         required:
           - interpreter
@@ -16721,7 +16617,6 @@ spec:
                 type: string
             type: object
           durationInMilliseconds:
-            example: 12374
             format: int64
             type: integer
           executionEnd:
@@ -16731,10 +16626,11 @@ spec:
             format: date-time
             type: string
           id:
-            example: cron-bd26li-28027320
+            format: uuid
             type: string
           logPath:
-            example: /var/log/cronjobs/cron-bd26li-28027320.log
+            type: string
+          shortId:
             type: string
           status:
             enum:
@@ -16768,7 +16664,6 @@ spec:
             format: uuid
             type: string
           description:
-            example: i am a cronjob
             type: string
           destination:
             oneOf:
@@ -16778,7 +16673,6 @@ spec:
             format: email
             type: string
           interval:
-            example: '*/5 * * * *'
             type: string
         required:
           - appId
@@ -16798,7 +16692,6 @@ spec:
             format: date-time
             type: string
           description:
-            example: i am a cronjob
             type: string
           destination:
             oneOf:
@@ -16815,13 +16708,11 @@ spec:
             format: uuid
             type: string
           interval:
-            example: '*/5 * * * *'
             type: string
           nextExecutionTime:
             format: date-time
             type: string
           shortId:
-            example: cron-bd26li
             type: string
           updatedAt:
             format: date-time
@@ -16840,7 +16731,6 @@ spec:
       de.mittwald.v1.cronjob.CronjobUrl:
         properties:
           url:
-            example: https://mydomain.com
             type: string
         required:
           - url
