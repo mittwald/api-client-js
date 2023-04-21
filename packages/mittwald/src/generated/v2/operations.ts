@@ -7,9 +7,9 @@
 
 import { MittwaldApiV2 } from "./types";
 import { Simplify } from "@mittwald/api-client-commons/dist/type-fest";
-import { Request } from "@mittwald/api-client-commons/dist/types/Request";
-import { Response } from "@mittwald/api-client-commons/dist/types/Response";
-import { OpenAPIOperation } from "@mittwald/api-client-commons/dist/types/OpenAPIOperation";
+import { Request } from "@mittwald/api-client-commons/dist/types/Request.js";
+import { Response } from "@mittwald/api-client-commons/dist/types/Response.js";
+import { OpenAPIOperation } from "@mittwald/api-client-commons/dist/types/OpenAPIOperation.js";
 
 export const appGetAppV2: OpenAPIOperation<
   Request<

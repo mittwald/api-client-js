@@ -5,8 +5,8 @@
 * This file is auto-generated with openapi2ts (@mittwald/openapi-to-typescript)
 */
 
-import * as operations from "./operations";
-import ApiClientBase from "@mittwald/api-client-commons/dist/core/ApiClientBase";
+import * as operations from "./operations.js";
+import ApiClientBase from "@mittwald/api-client-commons/dist/core/ApiClientBase.js";
 
 export class MittwaldApiV2Client extends ApiClientBase {
   public appGetAppV2 = this.requestFunctionFactory(operations.appGetAppV2);
