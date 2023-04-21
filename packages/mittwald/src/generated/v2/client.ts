@@ -1,9 +1,9 @@
 /* eslint-disable */
 /* prettier-ignore */
 
-/**
-* This file is auto-generated with openapi2ts (@mittwald/openapi-to-typescript)
-*/
+// Trigger change
+
+/** This file is auto-generated with openapi2ts (@mittwald/openapi-to-typescript) */
 
 import * as operations from "./operations.js";
 import ApiClientBase from "@mittwald/api-client-commons/dist/core/ApiClientBase.js";
