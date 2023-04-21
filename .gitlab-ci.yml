@@ -1,12 +1,18 @@
 variables:
   NODE_VERSION: 18
 
+stages:
+  - build
+  - test
+  - publish
+
 before_script:
   - npm config set @mittwald:registry https://npm.pkg.github.com/ -Luser
   - npm config set //npm.pkg.github.com/:_authToken "${GITHUB_TOKEN}" -Luser
   - yarn install
 
 typescript-compile:
+  stage: build
   image: node:${NODE_VERSION}
   script:
     - yarn compile
@@ -17,16 +23,14 @@ typescript-compile:
     expire_in: 1 hour
 
 test:
+  stage: test
   image: node:${NODE_VERSION}
-  needs:
-    - typescript-compile
   script:
     - yarn test
 
 publish-commons:
+  stage: publish
   image: node:${NODE_VERSION}
-  needs:
-    - test
   script:
     - cd ${CI_PROJECT_DIR}/packages/commons
     - npm version ${CI_COMMIT_TAG} --git-tag-version false
@@ -35,10 +39,9 @@ publish-commons:
   only:
     - tags
 
-generate-client:
+update-client:
+  stage: publish
   image: node:${NODE_VERSION}
-  needs:
-    - test
   script:
     - git config user.name "${GITLAB_USER_NAME}"
     - git config user.email "${GITLAB_USER_EMAIL}"
