@@ -2502,6 +2502,53 @@ export declare module MittwaldApiV2 {
     }
 
     namespace V2_Projects_ProjectId_Cronjobs {
+      namespace Post {
+        namespace Parameters {
+          interface Path {
+            projectId: string;
+          }
+
+          interface Header {
+            "x-access-token"?: string;
+            Accept?: "application/json";
+          }
+
+          type RequestBody =
+            MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Cronjob_CronjobRequest;
+        }
+
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              interface Application_Json {
+                id: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_ValidationErrors;
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+        }
+      }
+
       namespace Get {
         namespace Parameters {
           interface Path {
@@ -14524,12 +14571,20 @@ export declare module MittwaldApiV2 {
       }
     }
 
-    namespace V2_Cronjobs_CronjobId_Executions_ExecutionId_Actions_Abort {
-      namespace Post {
+    namespace V2_Projects_ProjectId_Orders {
+      namespace Get {
         namespace Parameters {
           interface Path {
-            cronjobId: string;
-            executionId: string;
+            projectId: string;
+          }
+
+          interface Query {
+            limit?: number;
+            skip?: number;
+            page?: number;
+            includesStatus?: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Order_OrderStatus[];
+            excludesStatus?: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Order_OrderStatus[];
+            templateNames?: string[];
           }
 
           interface Header {
@@ -14541,14 +14596,8 @@ export declare module MittwaldApiV2 {
         namespace Responses {
           namespace $200 {
             namespace Content {
-              interface Application_Json {}
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
               type Application_Json =
-                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Order_CustomerOrder[];
             }
           }
 
@@ -14562,102 +14611,7 @@ export declare module MittwaldApiV2 {
       }
     }
 
-    namespace V2_ProjectId_Cronjobs {
-      namespace Post {
-        namespace Parameters {
-          interface Path {
-            projectId: string;
-          }
-
-          interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-
-          type RequestBody =
-            MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Cronjob_CronjobRequest;
-        }
-
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              interface Application_Json {
-                id: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              type Application_Json =
-                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_ValidationErrors;
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              type Application_Json =
-                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              type Application_Json =
-                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2_Cronjobs_CronjobId_Appid {
-      namespace Patch {
-        namespace Parameters {
-          interface Path {
-            cronjobId: string;
-          }
-
-          interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-
-          interface RequestBody {
-            appId: string;
-          }
-        }
-
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              interface Application_Json {}
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              type Application_Json =
-                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_ValidationErrors;
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              type Application_Json =
-                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              type Application_Json =
-                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
-            }
-          }
-        }
-      }
-
+    namespace V2_Projects_Cronjobs_CronjobId_Appid {
       namespace Put {
         namespace Parameters {
           interface Path {
@@ -14692,46 +14646,6 @@ export declare module MittwaldApiV2 {
             namespace Content {
               type Application_Json =
                 MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              type Application_Json =
-                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2_Projects_ProjectId_Orders {
-      namespace Get {
-        namespace Parameters {
-          interface Path {
-            projectId: string;
-          }
-
-          interface Query {
-            limit?: number;
-            skip?: number;
-            page?: number;
-            includesStatus?: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Order_OrderStatus[];
-            excludesStatus?: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Order_OrderStatus[];
-            templateNames?: string[];
-          }
-
-          interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              type Application_Json =
-                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Order_CustomerOrder[];
             }
           }
 
@@ -15296,6 +15210,7 @@ export declare module MittwaldApiV2 {
         executionStart?: string;
         id: string;
         logPath: string;
+        shortId: string;
         status:
           | "Complete"
           | "Failed"
