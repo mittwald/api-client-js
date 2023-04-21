@@ -8754,7 +8754,9 @@ spec:
                   - error
                 type: object
           default:
-            content: {}
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/notifications:
       get:
         operationId: messaging-service-list-notifications
@@ -8786,7 +8788,9 @@ spec:
                   $ref: '#/components/schemas/de.mittwald.v1.messaging.Notification'
                 type: array
           default:
-            content: {}
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/notifications/status:
       put:
         operationId: messaging-service-read-all-notifications

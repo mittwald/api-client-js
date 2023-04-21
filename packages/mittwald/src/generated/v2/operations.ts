@@ -5565,7 +5565,11 @@ export const messagingServiceCountUnreadNotifications: OpenAPIOperation<
       200,
       "application/json"
     >
-  | Response<null, 0, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Notifications_Unread_Counts.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
 > = {
   path: "/v2/notifications/unread-counts",
   method: "GET",
@@ -5583,7 +5587,11 @@ export const messagingServiceListNotifications: OpenAPIOperation<
       200,
       "application/json"
     >
-  | Response<null, 0, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Notifications.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
 > = {
   path: "/v2/notifications",
   method: "GET",
