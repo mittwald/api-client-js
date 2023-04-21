@@ -49,7 +49,7 @@ Also see GitHub docs
 Import the client:
 
 ```typescript
-import MittwaldApiClient from "@mittwald/api-client/dist/v2";
+import MittwaldApiClient from "@mittwald/api-client/dist/v2.js";
 ```
 
 To create a client instance you can use one of the following factory method for
