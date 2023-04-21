@@ -1450,6 +1450,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ts-interface-checker", "npm:1.0.2"],\
             ["ts-jest", "virtual:d90316dd9d75c6ada5439ae93fa03c8982cfb30de49e663b857ed442e3e300a68932d9dde1f468b8ebe3332d66de35fdc2d9b51bba35ae51d35700d36e0cb711#npm:29.1.0"],\
             ["type-fest", "npm:3.8.0"],\
+            ["typescript", "patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=85af82"],\
             ["verror", "npm:1.10.1"],\
             ["yargs", "npm:17.7.1"]\
           ],\
@@ -8231,7 +8232,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lodash.memoize", "npm:4.1.2"],\
             ["make-error", "npm:1.3.6"],\
             ["semver", "npm:7.4.0"],\
-            ["typescript", null],\
+            ["typescript", "patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=85af82"],\
             ["yargs-parser", "npm:21.1.1"]\
           ],\
           "packagePeers": [\
