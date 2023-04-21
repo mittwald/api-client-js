@@ -41,6 +41,9 @@ Now you can install the package as usual.
 yarn add @mittwald/api-client
 ```
 
+Also see GitHub docs
+[Working with the npm registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-to-github-packages);
+
 ## Usage
 
 Import the client:
