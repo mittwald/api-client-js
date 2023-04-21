@@ -26,7 +26,7 @@ test:
 publish-commons:
   image: node:${NODE_VERSION}
   needs:
-    - typescript-compile
+    - test
   script:
     - cd ${CI_PROJECT_DIR}/packages/commons
     - npm version ${CI_COMMIT_TAG} --git-tag-version false
@@ -38,7 +38,7 @@ publish-commons:
 generate-client:
   image: node:${NODE_VERSION}
   needs:
-    - typescript-compile
+    - test
   script:
     - git config user.name "${GITLAB_USER_NAME}"
     - git config user.email "${GITLAB_USER_EMAIL}"
