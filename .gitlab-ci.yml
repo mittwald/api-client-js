@@ -7,8 +7,6 @@ stages:
   - publish
 
 before_script:
-  - npm config set @mittwald:registry https://npm.pkg.github.com/ -Luser
-  - npm config set //npm.pkg.github.com/:_authToken "${GITHUB_TOKEN}" -Luser
   - yarn install
 
 typescript-compile:
@@ -62,6 +60,7 @@ update-client:
         
         git push "https://project:${PAT}@${CI_REPOSITORY_URL#*@}" "HEAD:${CI_COMMIT_BRANCH}"
 
+        yarn config set npmScopes.mittwald.npmAuthToken "${GITHUB_TOKEN}"
         yarn npm publish
       fi
   only:
