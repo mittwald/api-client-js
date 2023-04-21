@@ -1590,7 +1590,7 @@ export const conversationServiceUpdateMessageV2: OpenAPIOperation<
   operationId: "conversationServiceUpdateMessageV2",
 };
 
-export const cronjobServiceCronjobAbortExecution: OpenAPIOperation<
+export const deprecatedCronjobAbortExecutionV2: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Executions_ExecutionId_Abort.Post.Parameters.Path>,
@@ -1614,10 +1614,10 @@ export const cronjobServiceCronjobAbortExecution: OpenAPIOperation<
 > = {
   path: "/v2/cronjobs/{cronjobId}/executions/{executionId}/abort",
   method: "POST",
-  operationId: "cronjobServiceCronjobAbortExecution",
+  operationId: "deprecatedCronjobAbortExecutionV2",
 };
 
-export const cronjobServiceCronjobCreate: OpenAPIOperation<
+export const cronjobCreateCronjobV2: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Cronjobs.Post.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Cronjobs.Post.Parameters.Path>,
@@ -1646,10 +1646,10 @@ export const cronjobServiceCronjobCreate: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/cronjobs",
   method: "POST",
-  operationId: "cronjobServiceCronjobCreate",
+  operationId: "cronjobCreateCronjobV2",
 };
 
-export const cronjobServiceCronjobList: OpenAPIOperation<
+export const cronjobListCronjobsV2: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Cronjobs.Get.Parameters.Path>,
@@ -1668,10 +1668,10 @@ export const cronjobServiceCronjobList: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/cronjobs",
   method: "GET",
-  operationId: "cronjobServiceCronjobList",
+  operationId: "cronjobListCronjobsV2",
 };
 
-export const cronjobServiceCronjobCreateExecution: OpenAPIOperation<
+export const cronjobCreateExecutionV2: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Executions.Post.Parameters.Path>,
@@ -1700,10 +1700,10 @@ export const cronjobServiceCronjobCreateExecution: OpenAPIOperation<
 > = {
   path: "/v2/cronjobs/{cronjobId}/executions",
   method: "POST",
-  operationId: "cronjobServiceCronjobCreateExecution",
+  operationId: "cronjobCreateExecutionV2",
 };
 
-export const cronjobServiceCronjobListExecutions: OpenAPIOperation<
+export const cronjobListExecutionsV2: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Executions.Get.Parameters.Path>,
@@ -1722,10 +1722,10 @@ export const cronjobServiceCronjobListExecutions: OpenAPIOperation<
 > = {
   path: "/v2/cronjobs/{cronjobId}/executions",
   method: "GET",
-  operationId: "cronjobServiceCronjobListExecutions",
+  operationId: "cronjobListExecutionsV2",
 };
 
-export const cronjobServiceCronjobDelete: OpenAPIOperation<
+export const cronjobDeleteCronjobV2: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId.Delete.Parameters.Path>,
@@ -1751,10 +1751,10 @@ export const cronjobServiceCronjobDelete: OpenAPIOperation<
 > = {
   path: "/v2/cronjobs/{cronjobId}",
   method: "DELETE",
-  operationId: "cronjobServiceCronjobDelete",
+  operationId: "cronjobDeleteCronjobV2",
 };
 
-export const cronjobServiceCronjobGetSpecific: OpenAPIOperation<
+export const cronjobGetCronjobV2: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId.Get.Parameters.Path>,
@@ -1778,10 +1778,10 @@ export const cronjobServiceCronjobGetSpecific: OpenAPIOperation<
 > = {
   path: "/v2/cronjobs/{cronjobId}",
   method: "GET",
-  operationId: "cronjobServiceCronjobGetSpecific",
+  operationId: "cronjobGetCronjobV2",
 };
 
-export const cronjobServiceCronjobPatch: OpenAPIOperation<
+export const cronjobUpdateCronjobV2: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId.Patch.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId.Patch.Parameters.Path>,
@@ -1815,10 +1815,10 @@ export const cronjobServiceCronjobPatch: OpenAPIOperation<
 > = {
   path: "/v2/cronjobs/{cronjobId}",
   method: "PATCH",
-  operationId: "cronjobServiceCronjobPatch",
+  operationId: "cronjobUpdateCronjobV2",
 };
 
-export const cronjobServiceCronjobGetSpecificExecution: OpenAPIOperation<
+export const cronjobGetExecutionV2: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Executions_ExecutionId.Get.Parameters.Path>,
@@ -1842,7 +1842,7 @@ export const cronjobServiceCronjobGetSpecificExecution: OpenAPIOperation<
 > = {
   path: "/v2/cronjobs/{cronjobId}/executions/{executionId}",
   method: "GET",
-  operationId: "cronjobServiceCronjobGetSpecificExecution",
+  operationId: "cronjobGetExecutionV2",
 };
 
 export const customerServiceAvatarRemove: OpenAPIOperation<
@@ -8925,228 +8925,6 @@ export const varnishServiceValidate: OpenAPIOperation<
   operationId: "varnishServiceValidate",
 };
 
-export const varnishServiceSoftwareClearCache: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldApiV2.Paths.V1_5_Varnish_SoftwareId_ClearCache.Post.Parameters.RequestBody>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Varnish_SoftwareId_ClearCache.Post.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Varnish_SoftwareId_ClearCache.Post.Parameters.Header>
-  >,
-  Response<null, 200, null>
-> = {
-  path: "/v1.5/varnish/{softwareId}/clearCache",
-  method: "POST",
-  operationId: "varnishServiceSoftwareClearCache",
-};
-
-export const varnishServiceSoftwareConfigDeclare: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldApiV2.Paths.V1_5_Varnish_SoftwareId_Config.Post.Parameters.RequestBody>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Varnish_SoftwareId_Config.Post.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Varnish_SoftwareId_Config.Post.Parameters.Header>
-  >,
-  Response<
-    MittwaldApiV2.Paths.V1_5_Varnish_SoftwareId_Config.Post.Responses.$200.Content.Application_Json,
-    200,
-    "application/json"
-  >
-> = {
-  path: "/v1.5/varnish/{softwareId}/config",
-  method: "POST",
-  operationId: "varnishServiceSoftwareConfigDeclare",
-};
-
-export const varnishServiceSoftwareConfigDelete: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Varnish_SoftwareId_Config.Delete.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Varnish_SoftwareId_Config.Delete.Parameters.Header>
-  >,
-  Response<
-    MittwaldApiV2.Paths.V1_5_Varnish_SoftwareId_Config.Delete.Responses.$200.Content.Application_Json,
-    200,
-    "application/json"
-  >
-> = {
-  path: "/v1.5/varnish/{softwareId}/config",
-  method: "DELETE",
-  operationId: "varnishServiceSoftwareConfigDelete",
-};
-
-export const varnishServiceSoftwareConfigDeleteRevision: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Varnish_SoftwareId_Config_Revision_Revision.Delete.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Varnish_SoftwareId_Config_Revision_Revision.Delete.Parameters.Header>
-  >,
-  Response<null, 200, null>
-> = {
-  path: "/v1.5/varnish/{softwareId}/config/revision/{revision}",
-  method: "DELETE",
-  operationId: "varnishServiceSoftwareConfigDeleteRevision",
-};
-
-export const varnishServiceSoftwareConfigRevisionGetById: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Varnish_SoftwareId_Config_Revision_Revision.Get.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Varnish_SoftwareId_Config_Revision_Revision.Get.Parameters.Header>
-  >,
-  Response<
-    MittwaldApiV2.Paths.V1_5_Varnish_SoftwareId_Config_Revision_Revision.Get.Responses.$200.Content.Application_Json,
-    200,
-    "application/json"
-  >
-> = {
-  path: "/v1.5/varnish/{softwareId}/config/revision/{revision}",
-  method: "GET",
-  operationId: "varnishServiceSoftwareConfigRevisionGetById",
-};
-
-export const varnishServiceSoftwareConfigRollback: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldApiV2.Paths.V1_5_Varnish_Softwared_Config.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Varnish_Softwared_Config.Patch.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Varnish_Softwared_Config.Patch.Parameters.Header>
-  >,
-  Response<
-    MittwaldApiV2.Paths.V1_5_Varnish_Softwared_Config.Patch.Responses.$200.Content.Application_Json,
-    200,
-    "application/json"
-  >
-> = {
-  path: "/v1.5/varnish/{softwared}/config",
-  method: "PATCH",
-  operationId: "varnishServiceSoftwareConfigRollback",
-};
-
-export const varnishServiceSoftwareConfigtemplateCreate: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldApiV2.Paths.V1_5_Projects_ProjectId_Varnish_Config_Template.Post.Parameters.RequestBody>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Projects_ProjectId_Varnish_Config_Template.Post.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Projects_ProjectId_Varnish_Config_Template.Post.Parameters.Header>
-  >,
-  Response<
-    MittwaldApiV2.Paths.V1_5_Projects_ProjectId_Varnish_Config_Template.Post.Responses.$200.Content.Application_Json,
-    200,
-    "application/json"
-  >
-> = {
-  path: "/v1.5/projects/{projectId}/varnish/config/template",
-  method: "POST",
-  operationId: "varnishServiceSoftwareConfigtemplateCreate",
-};
-
-export const varnishServiceSoftwareConfigtemplateGetList: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Projects_ProjectId_Varnish_Config_Template.Get.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Projects_ProjectId_Varnish_Config_Template.Get.Parameters.Header>
-  >,
-  Response<
-    MittwaldApiV2.Paths.V1_5_Projects_ProjectId_Varnish_Config_Template.Get.Responses.$200.Content.Application_Json,
-    200,
-    "application/json"
-  >
-> = {
-  path: "/v1.5/projects/{projectId}/varnish/config/template",
-  method: "GET",
-  operationId: "varnishServiceSoftwareConfigtemplateGetList",
-};
-
-export const varnishServiceSoftwareConfigtemplateDelete: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Projects_ProjectId_Varnish_Config_Template_SoftwareConfigTemplateId.Delete.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Projects_ProjectId_Varnish_Config_Template_SoftwareConfigTemplateId.Delete.Parameters.Header>
-  >,
-  Response<null, 200, null>
-> = {
-  path: "/v1.5/projects/{projectId}/varnish/config/template/{softwareConfigTemplateId}",
-  method: "DELETE",
-  operationId: "varnishServiceSoftwareConfigtemplateDelete",
-};
-
-export const varnishServiceSoftwareConfigtemplateGetSpecific: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Projects_ProjectId_Varnish_Config_Template_SoftwareConfigTemplateId.Get.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Projects_ProjectId_Varnish_Config_Template_SoftwareConfigTemplateId.Get.Parameters.Header>
-  >,
-  Response<
-    MittwaldApiV2.Paths.V1_5_Projects_ProjectId_Varnish_Config_Template_SoftwareConfigTemplateId.Get.Responses.$200.Content.Application_Json,
-    200,
-    "application/json"
-  >
-> = {
-  path: "/v1.5/projects/{projectId}/varnish/config/template/{softwareConfigTemplateId}",
-  method: "GET",
-  operationId: "varnishServiceSoftwareConfigtemplateGetSpecific",
-};
-
-export const varnishServiceSoftwareConfigtemplateListGlobals: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Varnish_SoftwareTemplate_SoftwareTemplateId_Config_Templates.Get.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Varnish_SoftwareTemplate_SoftwareTemplateId_Config_Templates.Get.Parameters.Header>
-  >,
-  Response<
-    MittwaldApiV2.Paths.V1_5_Varnish_SoftwareTemplate_SoftwareTemplateId_Config_Templates.Get.Responses.$200.Content.Application_Json,
-    200,
-    "application/json"
-  >
-> = {
-  path: "/v1.5/varnish/softwareTemplate/{softwareTemplateId}/config-templates",
-  method: "GET",
-  operationId: "varnishServiceSoftwareConfigtemplateListGlobals",
-};
-
-export const varnishServiceSoftwareGetById: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Varnish_SoftwareId.Get.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Varnish_SoftwareId.Get.Parameters.Header>
-  >,
-  Response<
-    MittwaldApiV2.Paths.V1_5_Varnish_SoftwareId.Get.Responses.$200.Content.Application_Json,
-    200,
-    "application/json"
-  >
-> = {
-  path: "/v1.5/varnish/{softwareId}",
-  method: "GET",
-  operationId: "varnishServiceSoftwareGetById",
-};
-
-export const varnishServiceSoftwareLogs: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Varnish_SoftwareId_Logs.Post.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Varnish_SoftwareId_Logs.Post.Parameters.Header>
-  >,
-  Response<null, 200, null>
-> = {
-  path: "/v1.5/varnish/{softwareId}/logs",
-  method: "POST",
-  operationId: "varnishServiceSoftwareLogs",
-};
-
-export const varnishServiceSoftwareSettingsDeclare: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldApiV2.Paths.V1_5_Varnish_SoftwareId_Settings.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Varnish_SoftwareId_Settings.Patch.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V1_5_Varnish_SoftwareId_Settings.Patch.Parameters.Header>
-  >,
-  Response<
-    MittwaldApiV2.Paths.V1_5_Varnish_SoftwareId_Settings.Patch.Responses.$200.Content.Application_Json,
-    200,
-    "application/json"
-  >
-> = {
-  path: "/v1.5/varnish/{softwareId}/settings",
-  method: "PATCH",
-  operationId: "varnishServiceSoftwareSettingsDeclare",
-};
-
 export const fileServiceFileGetTypeRules: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -9201,7 +8979,7 @@ export const orderServiceListProjectOrdersV2: OpenAPIOperation<
   operationId: "orderServiceListProjectOrdersV2",
 };
 
-export const cronjobServiceCronjobAddAppid: OpenAPIOperation<
+export const deprecatedcronjobServiceCronjobAddAppid: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Projects_Cronjobs_CronjobId_Appid.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Projects_Cronjobs_CronjobId_Appid.Put.Parameters.Path>,
@@ -9230,5 +9008,64 @@ export const cronjobServiceCronjobAddAppid: OpenAPIOperation<
 > = {
   path: "/v2/projects/cronjobs/{cronjobId}/appid",
   method: "PUT",
-  operationId: "cronjobServiceCronjobAddAppid",
+  operationId: "deprecatedcronjobServiceCronjobAddAppid",
+};
+
+export const cronjobAbortExecutionV2: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Executions_ExecutionId_Actions_Abort.Post.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Executions_ExecutionId_Actions_Abort.Post.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Executions_ExecutionId_Actions_Abort.Post.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Executions_ExecutionId_Actions_Abort.Post.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Executions_ExecutionId_Actions_Abort.Post.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/cronjobs/{cronjobId}/executions/{executionId}/actions/abort",
+  method: "POST",
+  operationId: "cronjobAbortExecutionV2",
+};
+
+export const cronjobUpdateCronjobAppIdV2: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Patch.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Patch.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Patch.Responses.$201.Content.Application_Json,
+      201,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Patch.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Patch.Responses.$412.Content.Application_Json,
+      412,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Patch.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/cronjobs/{cronjobId}/appid",
+  method: "PATCH",
+  operationId: "cronjobUpdateCronjobAppIdV2",
 };

@@ -14171,361 +14171,6 @@ export declare module MittwaldApiV2 {
       }
     }
 
-    namespace V1_5_Varnish_SoftwareId_ClearCache {
-      namespace Post {
-        namespace Parameters {
-          interface Path {
-            softwareId: string;
-          }
-
-          type Header = {
-            Accept?: string;
-          };
-
-          interface RequestBody {
-            expression?: string;
-          }
-        }
-
-        namespace Responses {
-          namespace $200 {
-            namespace Content {}
-          }
-        }
-      }
-    }
-
-    namespace V1_5_Varnish_SoftwareId_Config {
-      namespace Post {
-        namespace Parameters {
-          interface Path {
-            softwareId: string;
-          }
-
-          type Header = {
-            Accept?: "application/json";
-          };
-
-          interface RequestBody {
-            files: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Varnish_ConfigFile[];
-            note?: string;
-            revision: number;
-          }
-        }
-
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              interface Application_Json {
-                configExpiration?: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Varnish_ConfigExpiration;
-                files: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Varnish_ConfigFileRef[];
-                note?: string;
-                revision: number;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Delete {
-        namespace Parameters {
-          interface Path {
-            softwareId: string;
-          }
-
-          type Header = {
-            Accept?: "application/json";
-          };
-        }
-
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              interface Application_Json {}
-            }
-          }
-        }
-      }
-    }
-
-    namespace V1_5_Varnish_SoftwareId_Config_Revision_Revision {
-      namespace Delete {
-        namespace Parameters {
-          interface Path {
-            softwareId: string;
-            revision: number;
-          }
-
-          type Header = {
-            Accept?: string;
-          };
-        }
-
-        namespace Responses {
-          namespace $200 {
-            namespace Content {}
-          }
-        }
-      }
-
-      namespace Get {
-        namespace Parameters {
-          interface Path {
-            softwareId: string;
-            revision: number;
-          }
-
-          type Header = {
-            Accept?: "application/json";
-          };
-        }
-
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              interface Application_Json {
-                revision: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Varnish_ConfigRevision;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V1_5_Varnish_Softwared_Config {
-      namespace Patch {
-        namespace Parameters {
-          interface Path {
-            softwareId: string;
-          }
-
-          type Header = {
-            Accept?: "application/json";
-          };
-
-          interface RequestBody {
-            revision?: string;
-          }
-        }
-
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              interface Application_Json {
-                files: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Varnish_ConfigFileRef[];
-                revision: number;
-                rollbackRef: number;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V1_5_Projects_ProjectId_Varnish_Config_Template {
-      namespace Post {
-        namespace Parameters {
-          interface Path {
-            projectId: string;
-          }
-
-          type Header = {
-            Accept?: "application/json";
-          };
-
-          interface RequestBody {
-            files: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Varnish_ConfigFile[];
-            note?: string;
-            softwareConfigTemplateId?: string;
-            softwareTemplateId: string;
-          }
-        }
-
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              interface Application_Json {}
-            }
-          }
-        }
-      }
-
-      namespace Get {
-        namespace Parameters {
-          interface Path {
-            projectId: string;
-          }
-
-          interface Query {
-            softwareTemplateId?: string;
-            includeGlobals?: boolean;
-            limit?: number;
-            skip?: number;
-          }
-
-          type Header = {
-            Accept?: "application/json";
-          };
-        }
-
-        namespace Responses {
-          namespace $200 {
-            interface Headers {
-              Link?: string;
-              "X-Pagination-Limit"?: number;
-              "X-Pagination-Skip"?: number;
-              "X-Pagination-TotalCount"?: number;
-            }
-
-            namespace Content {
-              interface Application_Json {
-                templates: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Varnish_ConfigTemplate[];
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V1_5_Projects_ProjectId_Varnish_Config_Template_SoftwareConfigTemplateId {
-      namespace Delete {
-        namespace Parameters {
-          interface Path {
-            projectId: string;
-            softwareConfigTemplateId: string;
-          }
-
-          type Header = {
-            Accept?: string;
-          };
-        }
-
-        namespace Responses {
-          namespace $200 {
-            namespace Content {}
-          }
-        }
-      }
-
-      namespace Get {
-        namespace Parameters {
-          interface Path {
-            projectId: string;
-            softwareConfigTemplateId: string;
-          }
-
-          type Header = {
-            Accept?: "application/json";
-          };
-        }
-
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              type Application_Json =
-                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Varnish_ConfigTemplate;
-            }
-          }
-        }
-      }
-    }
-
-    namespace V1_5_Varnish_SoftwareTemplate_SoftwareTemplateId_Config_Templates {
-      namespace Get {
-        namespace Parameters {
-          interface Path {
-            softwareTemplateId: string;
-          }
-
-          interface Query {
-            limit?: number;
-            skip?: number;
-          }
-
-          type Header = {
-            Accept?: "application/json";
-          };
-        }
-
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              type Application_Json =
-                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Varnish_GlobalConfigTemplate[];
-            }
-          }
-        }
-      }
-    }
-
-    namespace V1_5_Varnish_SoftwareId {
-      namespace Get {
-        namespace Parameters {
-          interface Path {
-            softwareId: string;
-          }
-
-          type Header = {
-            Accept?: "application/json";
-          };
-        }
-
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              type Application_Json =
-                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Varnish_Software;
-            }
-          }
-        }
-      }
-    }
-
-    namespace V1_5_Varnish_SoftwareId_Logs {
-      namespace Post {
-        namespace Parameters {
-          interface Path {
-            softwareId: string;
-          }
-
-          type Header = {
-            Accept?: string;
-          };
-        }
-
-        namespace Responses {
-          namespace $200 {
-            namespace Content {}
-          }
-        }
-      }
-    }
-
-    namespace V1_5_Varnish_SoftwareId_Settings {
-      namespace Patch {
-        namespace Parameters {
-          interface Path {
-            softwareId: string;
-          }
-
-          type Header = {
-            Accept?: "application/json";
-          };
-
-          type RequestBody =
-            MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Varnish_SoftwareSetting[];
-        }
-
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              interface Application_Json {}
-            }
-          }
-        }
-      }
-    }
-
     namespace V2_File_Type_Rules_Name {
       namespace Get {
         namespace Parameters {
@@ -14613,6 +14258,92 @@ export declare module MittwaldApiV2 {
 
     namespace V2_Projects_Cronjobs_CronjobId_Appid {
       namespace Put {
+        namespace Parameters {
+          interface Path {
+            cronjobId: string;
+          }
+
+          interface Header {
+            "x-access-token"?: string;
+            Accept?: "application/json";
+          }
+
+          interface RequestBody {
+            appId: string;
+          }
+        }
+
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              interface Application_Json {}
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_ValidationErrors;
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Cronjobs_CronjobId_Executions_ExecutionId_Actions_Abort {
+      namespace Post {
+        namespace Parameters {
+          interface Path {
+            cronjobId: string;
+            executionId: string;
+          }
+
+          interface Header {
+            "x-access-token"?: string;
+            Accept?: "application/json";
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              interface Application_Json {}
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Cronjobs_CronjobId_Appid {
+      namespace Patch {
         namespace Parameters {
           interface Path {
             cronjobId: string;
@@ -15210,7 +14941,6 @@ export declare module MittwaldApiV2 {
         executionStart?: string;
         id: string;
         logPath: string;
-        shortId: string;
         status:
           | "Complete"
           | "Failed"
@@ -15396,59 +15126,6 @@ export declare module MittwaldApiV2 {
         exportedAt: string;
         fileIds: string[];
         type: "debitor" | "invoice";
-      }
-
-      interface De_Mittwald_V1_Datev_TransactionImportErrorItem {
-        customerId?: string;
-        errorType: "INVOICE_NOT_FOUND" | "UNKNOWN_ERROR";
-        invoiceDate?: string;
-        invoiceId?: string;
-        invoiceNumber: string;
-        setNumber: string;
-        status: "FAILED";
-        transactionId: string;
-        transactionNumber: string;
-      }
-
-      interface De_Mittwald_V1_Datev_TransactionImportIgnoredItem {
-        customerId?: string;
-        errorType:
-          | "TRANSACTION_ALREADY_IMPORTED"
-          | "IGNORED"
-          | "MANUALLY_IGNORED";
-        invoiceDate?: string;
-        invoiceId?: string;
-        invoiceNumber: string;
-        setNumber: string;
-        status: "IGNORED";
-        transactionId: string;
-        transactionNumber: string;
-      }
-
-      type De_Mittwald_V1_Datev_TransactionImportResponseItem =
-        | MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Datev_TransactionImportSuccessItem
-        | MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Datev_TransactionImportErrorItem
-        | MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Datev_TransactionImportIgnoredItem;
-
-      interface De_Mittwald_V1_Datev_TransactionImportSuccessItem {
-        customerId: string;
-        invoiceDate: string;
-        invoiceId: string;
-        invoiceNumber: string;
-        setNumber: string;
-        status: "IMPORTED" | "UPDATED";
-        transactionId: string;
-        transactionNumber: string;
-      }
-
-      interface De_Mittwald_V1_Datev_TransactionInputItem {
-        contraAccount: string;
-        invoiceNumber: string;
-        setNumber: string;
-        sollHaben: "S" | "H";
-        transactionAmount: number;
-        transactionDate: string;
-        transactionNumber: string;
       }
 
       type De_Mittwald_V1_Dns_RecordCname =

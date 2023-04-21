@@ -233,42 +233,41 @@ export class MittwaldApiV2Client extends ApiClientBase {
     operations.conversationServiceUpdateMessageV2
   );
 
-  public cronjobServiceCronjobAbortExecution = this.requestFunctionFactory(
-    operations.cronjobServiceCronjobAbortExecution
+  public deprecatedCronjobAbortExecutionV2 = this.requestFunctionFactory(
+    operations.deprecatedCronjobAbortExecutionV2
   );
 
-  public cronjobServiceCronjobCreate = this.requestFunctionFactory(
-    operations.cronjobServiceCronjobCreate
+  public cronjobCreateCronjobV2 = this.requestFunctionFactory(
+    operations.cronjobCreateCronjobV2
   );
 
-  public cronjobServiceCronjobList = this.requestFunctionFactory(
-    operations.cronjobServiceCronjobList
+  public cronjobListCronjobsV2 = this.requestFunctionFactory(
+    operations.cronjobListCronjobsV2
   );
 
-  public cronjobServiceCronjobCreateExecution = this.requestFunctionFactory(
-    operations.cronjobServiceCronjobCreateExecution
+  public cronjobCreateExecutionV2 = this.requestFunctionFactory(
+    operations.cronjobCreateExecutionV2
   );
 
-  public cronjobServiceCronjobListExecutions = this.requestFunctionFactory(
-    operations.cronjobServiceCronjobListExecutions
+  public cronjobListExecutionsV2 = this.requestFunctionFactory(
+    operations.cronjobListExecutionsV2
   );
 
-  public cronjobServiceCronjobDelete = this.requestFunctionFactory(
-    operations.cronjobServiceCronjobDelete
+  public cronjobDeleteCronjobV2 = this.requestFunctionFactory(
+    operations.cronjobDeleteCronjobV2
   );
 
-  public cronjobServiceCronjobGetSpecific = this.requestFunctionFactory(
-    operations.cronjobServiceCronjobGetSpecific
+  public cronjobGetCronjobV2 = this.requestFunctionFactory(
+    operations.cronjobGetCronjobV2
   );
 
-  public cronjobServiceCronjobPatch = this.requestFunctionFactory(
-    operations.cronjobServiceCronjobPatch
+  public cronjobUpdateCronjobV2 = this.requestFunctionFactory(
+    operations.cronjobUpdateCronjobV2
   );
 
-  public cronjobServiceCronjobGetSpecificExecution =
-    this.requestFunctionFactory(
-      operations.cronjobServiceCronjobGetSpecificExecution
-    );
+  public cronjobGetExecutionV2 = this.requestFunctionFactory(
+    operations.cronjobGetExecutionV2
+  );
 
   public customerServiceAvatarRemove = this.requestFunctionFactory(
     operations.customerServiceAvatarRemove
@@ -1368,69 +1367,6 @@ export class MittwaldApiV2Client extends ApiClientBase {
     operations.varnishServiceValidate
   );
 
-  public varnishServiceSoftwareClearCache = this.requestFunctionFactory(
-    operations.varnishServiceSoftwareClearCache
-  );
-
-  public varnishServiceSoftwareConfigDeclare = this.requestFunctionFactory(
-    operations.varnishServiceSoftwareConfigDeclare
-  );
-
-  public varnishServiceSoftwareConfigDelete = this.requestFunctionFactory(
-    operations.varnishServiceSoftwareConfigDelete
-  );
-
-  public varnishServiceSoftwareConfigDeleteRevision =
-    this.requestFunctionFactory(
-      operations.varnishServiceSoftwareConfigDeleteRevision
-    );
-
-  public varnishServiceSoftwareConfigRevisionGetById =
-    this.requestFunctionFactory(
-      operations.varnishServiceSoftwareConfigRevisionGetById
-    );
-
-  public varnishServiceSoftwareConfigRollback = this.requestFunctionFactory(
-    operations.varnishServiceSoftwareConfigRollback
-  );
-
-  public varnishServiceSoftwareConfigtemplateCreate =
-    this.requestFunctionFactory(
-      operations.varnishServiceSoftwareConfigtemplateCreate
-    );
-
-  public varnishServiceSoftwareConfigtemplateGetList =
-    this.requestFunctionFactory(
-      operations.varnishServiceSoftwareConfigtemplateGetList
-    );
-
-  public varnishServiceSoftwareConfigtemplateDelete =
-    this.requestFunctionFactory(
-      operations.varnishServiceSoftwareConfigtemplateDelete
-    );
-
-  public varnishServiceSoftwareConfigtemplateGetSpecific =
-    this.requestFunctionFactory(
-      operations.varnishServiceSoftwareConfigtemplateGetSpecific
-    );
-
-  public varnishServiceSoftwareConfigtemplateListGlobals =
-    this.requestFunctionFactory(
-      operations.varnishServiceSoftwareConfigtemplateListGlobals
-    );
-
-  public varnishServiceSoftwareGetById = this.requestFunctionFactory(
-    operations.varnishServiceSoftwareGetById
-  );
-
-  public varnishServiceSoftwareLogs = this.requestFunctionFactory(
-    operations.varnishServiceSoftwareLogs
-  );
-
-  public varnishServiceSoftwareSettingsDeclare = this.requestFunctionFactory(
-    operations.varnishServiceSoftwareSettingsDeclare
-  );
-
   public fileServiceFileGetTypeRules = this.requestFunctionFactory(
     operations.fileServiceFileGetTypeRules
   );
@@ -1439,8 +1375,16 @@ export class MittwaldApiV2Client extends ApiClientBase {
     operations.orderServiceListProjectOrdersV2
   );
 
-  public cronjobServiceCronjobAddAppid = this.requestFunctionFactory(
-    operations.cronjobServiceCronjobAddAppid
+  public deprecatedcronjobServiceCronjobAddAppid = this.requestFunctionFactory(
+    operations.deprecatedcronjobServiceCronjobAddAppid
+  );
+
+  public cronjobAbortExecutionV2 = this.requestFunctionFactory(
+    operations.cronjobAbortExecutionV2
+  );
+
+  public cronjobUpdateCronjobAppIdV2 = this.requestFunctionFactory(
+    operations.cronjobUpdateCronjobAppIdV2
   );
 }
 
