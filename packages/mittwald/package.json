@@ -1,6 +1,6 @@
 {
   "name": "@mittwald/api-client",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT",
   "repository": "https://github.com/mittwald/node-api-client.git",
   "type": "module",
