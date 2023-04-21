@@ -1,4 +1,4 @@
-import { HttpMediaType, HttpPayload, HttpStatus } from "./http";
+import { HttpMediaType, HttpPayload, HttpStatus } from "./http.js";
 import { AxiosResponse } from "axios";
 
 export type Response<

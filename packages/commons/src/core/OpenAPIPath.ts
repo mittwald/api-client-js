@@ -1,4 +1,4 @@
-import { PathParameters } from "../types/http";
+import { PathParameters } from "../types/http.js";
 
 export class OpenAPIPath {
   private readonly rawPath: string;

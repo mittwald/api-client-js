@@ -1,6 +1,6 @@
-import { AnyResponse, Response } from "./Response";
-import { AnyRequest, Request } from "./Request";
-import { HttpMethod } from "./http";
+import { AnyResponse, Response } from "./Response.js";
+import { AnyRequest, Request } from "./Request.js";
+import { HttpMethod } from "./http.js";
 
 export interface OpenAPIOperation<
   TIgnoredRequest extends AnyRequest = Request,

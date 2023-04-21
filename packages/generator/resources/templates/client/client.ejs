@@ -1,5 +1,5 @@
-import * as operations from "./operations";
-import ApiClientBase from "@mittwald/api-client-commons/dist/core/ApiClientBase";
+import * as operations from "./operations.js";
+import ApiClientBase from "@mittwald/api-client-commons/dist/core/ApiClientBase.js";
 
 export class <%- rootNamespace %>Client extends ApiClientBase {
     <% Object.entries(paths).forEach(([path, operations]) => { %>

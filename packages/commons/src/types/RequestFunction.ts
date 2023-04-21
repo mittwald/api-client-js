@@ -2,8 +2,8 @@ import {
   OpenAPIOperation,
   InferredRequestType,
   InferredResponseType,
-} from "./OpenAPIOperation";
-import { NullableOnNoRequiredKeysDeep } from "./NullableOnNoRequiredKeysDeep";
+} from "./OpenAPIOperation.js";
+import { NullableOnNoRequiredKeysDeep } from "./NullableOnNoRequiredKeysDeep.js";
 
 export type RequestConfig<TOp extends OpenAPIOperation> =
   NullableOnNoRequiredKeysDeep<InferredRequestType<TOp>>;

@@ -1,4 +1,4 @@
-import { HttpHeaders, HttpPayload, PathParameters } from "./http";
+import { HttpHeaders, HttpPayload, PathParameters } from "./http.js";
 
 type RequestWithData<TData> = TData extends null
   ? object

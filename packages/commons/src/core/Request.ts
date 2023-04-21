@@ -1,6 +1,6 @@
-import { OpenAPIOperation } from "../types/OpenAPIOperation";
-import { RequestConfig, ResponsePromise } from "../types/RequestFunction";
-import OpenAPIPath from "./OpenAPIPath";
+import { OpenAPIOperation } from "../types/OpenAPIOperation.js";
+import { RequestConfig, ResponsePromise } from "../types/RequestFunction.js";
+import OpenAPIPath from "./OpenAPIPath.js";
 import { AxiosInstance, AxiosRequestConfig } from "axios";
 
 export class Request<TOp extends OpenAPIOperation> {

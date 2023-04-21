@@ -1,6 +1,6 @@
 import { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from "axios";
-import { OpenAPIOperation } from "../types/OpenAPIOperation";
-import { AnyResponse } from "../types/Response";
+import { OpenAPIOperation } from "../types/OpenAPIOperation.js";
+import { AnyResponse } from "../types/Response.js";
 
 export class ApiClientError<T = unknown, D = unknown> extends AxiosError<T, D> {
   public constructor(

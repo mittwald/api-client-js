@@ -1,5 +1,5 @@
-import MittwaldApiClientV2 from "./generated/v2/client";
-import ApiClientError from "@mittwald/api-client-commons/dist/core/ApiClientError";
+import MittwaldApiClientV2 from "./generated/v2/client.js";
+import ApiClientError from "@mittwald/api-client-commons/dist/core/ApiClientError.js";
 
 export * from "./generated/v2/types";
 

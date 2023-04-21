@@ -1,7 +1,7 @@
 import axios, { Axios, AxiosInstance, CreateAxiosDefaults } from "axios";
-import { RequestConfig, RequestFunction } from "../types/RequestFunction";
-import { OpenAPIOperation } from "../types/OpenAPIOperation";
-import Request from "./Request";
+import { RequestConfig, RequestFunction } from "../types/RequestFunction.js";
+import { OpenAPIOperation } from "../types/OpenAPIOperation.js";
+import Request from "./Request.js";
 
 export abstract class ApiClientBase {
   public axios: AxiosInstance;
