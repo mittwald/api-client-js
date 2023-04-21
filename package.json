@@ -5,7 +5,7 @@
     "all": "yarn workspaces foreach -tv --exclude root $*",
     "compile": "yarn tsc --build $@",
     "format": "prettier --write $@ '{packages/**,apps/**}*.{ts,tsx,yaml,yml,json,md,mdx}'",
-    "license-check": "yarn pnpify license-checker-rseidelsohn --excludePrivatePackages $*",
+    "license-check": "yarn pnpify license-checker-rseidelsohn --excludePackages '@mittwald/awesome-node-utils;@mittwald/api-client-generator;root' $*",
     "lint": "eslint . --cache",
     "test": "yarn lint && yarn format --check && yarn test:packages && yarn test:licenses",
     "test:licenses": "yarn license-check --summary --unknown && yarn license-check --unknown --failOn 'UNLICENSED;UNKNOWN'",
