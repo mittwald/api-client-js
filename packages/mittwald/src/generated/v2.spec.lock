@@ -2529,7 +2529,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/cronjobs/{cronjobId}/executions/{executionId}/abort:
       post:
-        operationId: cronjob-service-cronjob-abort-execution
+        operationId: deprecated-cronjob-abort-execution-v2
         parameters:
           path:
             type: object
@@ -2564,101 +2564,9 @@ spec:
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-    /v2/projects/cronjobs/{cronjobId}/appid:
-      put:
-        operationId: cronjob-service-cronjob-add-appid
-        parameters:
-          path:
-            type: object
-            required:
-              - cronjobId
-            properties:
-              cronjobId:
-                format: uuid
-                type: string
-          header:
-            type: object
-            required:
-              - x-access-token
-            properties:
-              x-access-token:
-                type: string
-              Accept:
-                type: string
-                enum: application/json
-          requestBody:
-            properties:
-              appId:
-                format: uuid
-                type: string
-            required:
-              - appId
-            type: object
-        responses:
-          '201':
-            content:
-              application/json:
-                type: object
-          '400':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
-          '412':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-          default:
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects/{projectId}/cronjobs:
-      post:
-        operationId: cronjob-service-cronjob-create
-        parameters:
-          path:
-            type: object
-            required:
-              - projectId
-            properties:
-              projectId:
-                type: string
-          header:
-            type: object
-            required:
-              - x-access-token
-            properties:
-              x-access-token:
-                type: string
-              Accept:
-                type: string
-                enum: application/json
-          requestBody:
-            $ref: '#/components/schemas/de.mittwald.v1.cronjob.CronjobRequest'
-        responses:
-          '201':
-            content:
-              application/json:
-                properties:
-                  id:
-                    format: uuid
-                    type: string
-                required:
-                  - id
-                type: object
-          '400':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
-          '412':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-          default:
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       get:
-        operationId: cronjob-service-cronjob-list
+        operationId: cronjob-list-cronjobs-v2
         parameters:
           path:
             type: object
@@ -2666,6 +2574,7 @@ spec:
               - projectId
             properties:
               projectId:
+                format: uuid
                 type: string
           query:
             type: object
@@ -2703,7 +2612,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/cronjobs/{cronjobId}/executions:
       post:
-        operationId: cronjob-service-cronjob-create-execution
+        operationId: cronjob-create-execution-v2
         parameters:
           path:
             type: object
@@ -2711,6 +2620,7 @@ spec:
               - cronjobId
             properties:
               cronjobId:
+                format: uuid
                 type: string
           header:
             type: object
@@ -2747,7 +2657,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       get:
-        operationId: cronjob-service-cronjob-list-executions
+        operationId: cronjob-list-executions-v2
         parameters:
           path:
             type: object
@@ -2755,6 +2665,7 @@ spec:
               - cronjobId
             properties:
               cronjobId:
+                format: uuid
                 type: string
           query:
             type: object
@@ -2776,6 +2687,7 @@ spec:
                 format: date-time
                 type: string
               status:
+                example: Complete
                 type: string
           header:
             type: object
@@ -2800,7 +2712,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/cronjobs/{cronjobId}:
       delete:
-        operationId: cronjob-service-cronjob-delete
+        operationId: cronjob-delete-cronjob-v2
         parameters:
           path:
             type: object
@@ -2808,6 +2720,7 @@ spec:
               - cronjobId
             properties:
               cronjobId:
+                format: uuid
                 type: string
           header:
             type: object
@@ -2837,7 +2750,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       get:
-        operationId: cronjob-service-cronjob-get-specific
+        operationId: cronjob-get-cronjob-v2
         parameters:
           path:
             type: object
@@ -2845,6 +2758,7 @@ spec:
               - cronjobId
             properties:
               cronjobId:
+                format: uuid
                 type: string
           header:
             type: object
@@ -2870,7 +2784,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       patch:
-        operationId: cronjob-service-cronjob-patch
+        operationId: cronjob-update-cronjob-v2
         parameters:
           path:
             type: object
@@ -2878,6 +2792,7 @@ spec:
               - cronjobId
             properties:
               cronjobId:
+                format: uuid
                 type: string
           header:
             type: object
@@ -2894,6 +2809,7 @@ spec:
               active:
                 type: boolean
               description:
+                example: i am a cronjob
                 type: string
               destination:
                 oneOf:
@@ -2903,6 +2819,7 @@ spec:
                 format: email
                 type: string
               interval:
+                example: '*/5 * * * *'
                 type: string
             type: object
         responses:
@@ -2928,7 +2845,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/cronjobs/{cronjobId}/executions/{executionId}:
       get:
-        operationId: cronjob-service-cronjob-get-specific-execution
+        operationId: cronjob-get-execution-v2
         parameters:
           path:
             type: object
@@ -2939,6 +2856,7 @@ spec:
               executionId:
                 type: string
               cronjobId:
+                format: uuid
                 type: string
           header:
             type: object
@@ -3741,8 +3659,8 @@ spec:
             content:
               application/json:
                 description: >-
-                  A list of MySQL character sets and collations for the given
-                  version
+                  A list of available MySQL character sets and collations for
+                  the given version.
                 type: object
           '400':
             content:
@@ -3775,8 +3693,8 @@ spec:
             content:
               application/json:
                 description: >-
-                  A map of MySQL versions with the complete suite of character
-                  sets and collations for it
+                  A map of MySQLVersions with the complete suite of available
+                  character sets and collations for it.
                 type: object
           '400':
             content:
@@ -3860,7 +3778,6 @@ spec:
           '200':
             content:
               application/json:
-                description: A set of MySQL databases
                 items:
                   $ref: '#/components/schemas/de.mittwald.v1.database.MySqlDatabase'
                 type: array
@@ -3900,6 +3817,8 @@ spec:
                 enum: application/json
         responses:
           '200':
+            content: {}
+          '204':
             content: {}
           '400':
             content:
@@ -4174,7 +4093,6 @@ spec:
           '200':
             content:
               application/json:
-                description: A set of MySQL users
                 items:
                   $ref: '#/components/schemas/de.mittwald.v1.database.MySqlUser'
                 type: array
@@ -4214,6 +4132,8 @@ spec:
                 enum: application/json
         responses:
           '200':
+            content: {}
+          '204':
             content: {}
           '400':
             content:
@@ -4498,7 +4418,6 @@ spec:
           '200':
             content:
               application/json:
-                description: A set of MySQL versions
                 items:
                   $ref: '#/components/schemas/de.mittwald.v1.database.MySqlVersion'
                 type: array
@@ -4536,10 +4455,15 @@ spec:
                 type: string
                 enum: application/json
           requestBody:
+            example:
+              description: My first RedisDatabase!
+              version: '7.0'
             properties:
               description:
+                description: A description for the database.
                 type: string
               version:
+                description: The version the database should use.
                 type: string
             required:
               - description
@@ -4592,7 +4516,6 @@ spec:
           '200':
             content:
               application/json:
-                description: A set of Redis databases
                 items:
                   $ref: '#/components/schemas/de.mittwald.v1.database.RedisDatabase'
                 type: array
@@ -4632,6 +4555,8 @@ spec:
                 enum: application/json
         responses:
           '200':
+            content: {}
+          '204':
             content: {}
           '400':
             content:
@@ -4762,7 +4687,6 @@ spec:
           '200':
             content:
               application/json:
-                description: A set of Redis versions
                 items:
                   $ref: '#/components/schemas/de.mittwald.v1.database.RedisVersion'
                 type: array
@@ -5866,7 +5790,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/files/{token}:
       post:
-        operationId: file-service--file-create-legacy
+        operationId: file-service-file-create-deprecated
         parameters:
           path:
             type: object
@@ -5902,7 +5826,7 @@ spec:
           '400':
             content:
               application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
           '500':
             content:
               application/json:
@@ -5918,10 +5842,11 @@ spec:
           header:
             type: object
             required:
-              - token
+              - Token
               - x-access-token
             properties:
-              token:
+              Token:
+                example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
                 format: uuid
                 type: string
               x-access-token:
@@ -5937,7 +5862,7 @@ spec:
           '400':
             content:
               application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
           '500':
             content:
               application/json:
@@ -5956,6 +5881,7 @@ spec:
               - id
             properties:
               id:
+                example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
                 format: uuid
                 type: string
           header:
@@ -5963,14 +5889,18 @@ spec:
             required:
               - x-access-token
             properties:
-              x-access-token:
-                type: string
               Accept:
                 type: string
                 enum:
                   - - application/octet-stream
                     - base64
                   - application/json
+              Download:
+                default: false
+                example: false
+                type: boolean
+              x-access-token:
+                type: string
         responses:
           '200':
             content:
@@ -6004,6 +5934,7 @@ spec:
               - id
             properties:
               id:
+                example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
                 format: uuid
                 type: string
           header:
@@ -6021,10 +5952,6 @@ spec:
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.file.FileMeta'
-          '400':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
           '404':
             content:
               application/json:
@@ -6043,6 +5970,7 @@ spec:
               - token
             properties:
               token:
+                example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
                 format: uuid
                 type: string
           header:
@@ -6060,7 +5988,7 @@ spec:
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.file.FileUploadRules'
-          '400':
+          '404':
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
@@ -6257,9 +6185,7 @@ spec:
             type: array
         responses:
           '204':
-            content:
-              application/json:
-                type: object
+            content: {}
           '404':
             content:
               application/json:
@@ -15216,7 +15142,7 @@ spec:
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.file.FileUploadRules'
-          '400':
+          '404':
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
@@ -15228,19 +15154,266 @@ spec:
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/cronjobs/{cronjobId}/executions/{executionId}/actions/abort:
+      post:
+        operationId: cronjob-abort-execution-v2
+        parameters:
+          path:
+            type: object
+            required:
+              - cronjobId
+              - executionId
+            properties:
+              cronjobId:
+                format: uuid
+                type: string
+              executionId:
+                example: cron-bd26li-28027320
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '200':
+            content:
+              application/json:
+                type: object
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/{projectId}/cronjobs:
+      post:
+        operationId: cronjob-create-cronjob-v2
+        parameters:
+          path:
+            type: object
+            required:
+              - projectId
+            properties:
+              projectId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+          requestBody:
+            $ref: '#/components/schemas/de.mittwald.v1.cronjob.CronjobRequest'
+        responses:
+          '201':
+            content:
+              application/json:
+                properties:
+                  id:
+                    format: uuid
+                    type: string
+                required:
+                  - id
+                type: object
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          '412':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/cronjobs/{cronjobId}/appid:
+      patch:
+        operationId: cronjob-update-cronjob-app-id-v2
+        parameters:
+          path:
+            type: object
+            required:
+              - cronjobId
+            properties:
+              cronjobId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+          requestBody:
+            properties:
+              appId:
+                format: uuid
+                type: string
+            required:
+              - appId
+            type: object
+        responses:
+          '201':
+            content:
+              application/json:
+                type: object
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          '412':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+      put:
+        operationId: deprecatedcronjob-service-cronjob-add-appid
+        parameters:
+          path:
+            type: object
+            required:
+              - cronjobId
+            properties:
+              cronjobId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+          requestBody:
+            properties:
+              appId:
+                format: uuid
+                type: string
+            required:
+              - appId
+            type: object
+        responses:
+          '201':
+            content:
+              application/json:
+                type: object
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          '412':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/projects/{projectId}/orders:
+      get:
+        operationId: order-service-list-project-orders-v2
+        parameters:
+          path:
+            type: object
+            required:
+              - projectId
+            properties:
+              projectId:
+                type: string
+          query:
+            type: object
+            required: []
+            properties:
+              limit:
+                minimum: 0
+                type: integer
+              skip:
+                minimum: 0
+                type: integer
+              page:
+                minimum: 0
+                type: integer
+              includesStatus:
+                items:
+                  $ref: '#/components/schemas/de.mittwald.v1.order.OrderStatus'
+                type: array
+              excludesStatus:
+                items:
+                  $ref: '#/components/schemas/de.mittwald.v1.order.OrderStatus'
+                type: array
+              templateNames:
+                items:
+                  type: string
+                type: array
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '200':
+            content:
+              application/json:
+                items:
+                  $ref: '#/components/schemas/de.mittwald.v1.order.CustomerOrder'
+                type: array
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
   components:
     schemas:
       de.mittwald.v1.app.Action:
+        description: >-
+          An `Action` is a string that describes a runtime concerning action
+          which can be executed on an `AppInstallation` or an `App` can be
+          capable of
         enum:
           - start
           - stop
           - restart
         type: string
       de.mittwald.v1.app.ActionCapabilities:
+        description: >-
+          `ActionCapabilities` is an array that contains supported actions of an
+          `App`
         items:
           $ref: '#/components/schemas/de.mittwald.v1.app.Action'
         type: array
       de.mittwald.v1.app.App:
+        description: >-
+          An `App` is to be understood as a manifest for `AppInstallations`.
+          E.g. "WordPress" only exists inside our ecosystem, because there is an
+          `App`-Manifest for it
         properties:
           actionCapabilities:
             $ref: '#/components/schemas/de.mittwald.v1.app.ActionCapabilities'
@@ -15259,6 +15432,9 @@ spec:
           - images
         type: object
       de.mittwald.v1.app.AppInstallationStatus:
+        description: >-
+          `AppInstallationStatus` describes the overall runtime status of an
+          `AppInstallation`
         properties:
           lastExitCode:
             type: number
@@ -15276,36 +15452,19 @@ spec:
           - state
           - logFileLocation
         type: object
-      de.mittwald.v1.app.AppJobImage:
-        properties:
-          imageTemplate:
-            type: string
-        required:
-          - imageTemplate
-        type: object
-      de.mittwald.v1.app.AppJobImages:
-        properties:
-          reconfigureImage:
-            $ref: '#/components/schemas/de.mittwald.v1.app.AppJobImage'
-          setupImage:
-            $ref: '#/components/schemas/de.mittwald.v1.app.AppJobImage'
-          uninstallImage:
-            $ref: '#/components/schemas/de.mittwald.v1.app.AppJobImage'
-          upgradeImage:
-            $ref: '#/components/schemas/de.mittwald.v1.app.AppJobImage'
-        required:
-          - setupImage
-          - upgradeImage
-          - uninstallImage
-          - reconfigureImage
-        type: object
       de.mittwald.v1.app.AppUpdatePolicy:
+        description: >-
+          `AppUpdatePolicy` describes which updates should be applied
+          automatically by our systems
         enum:
           - none
           - patchLevel
           - all
         type: string
       de.mittwald.v1.app.AppInstallation:
+        description: >-
+          An `AppInstallation` is a concrete manifestation of an `App` in a
+          specific `AppVersion`.
         properties:
           appId:
             format: uuid
@@ -15356,12 +15515,20 @@ spec:
           - installationPath
         type: object
       de.mittwald.v1.app.AppInstallationLifecycle:
+        description: >-
+          The `AppInstallationLifecycle` can be used to express a specific point
+          in the `AppInstallation` Lifecycle, e.g. while installing a new
+          `AppInstallation`
         enum:
           - installation
           - update
           - reconfigure
         type: string
       de.mittwald.v1.app.AppVersion:
+        description: >-
+          An `AppVersion` is an officially supported version of an `App`,
+          containing the necessary and recommended configuration und
+          dependencies
         properties:
           breakingNote:
             $ref: '#/components/schemas/de.mittwald.v1.app.BreakingNote'
@@ -15448,10 +15615,6 @@ spec:
             $ref: '#/components/schemas/de.mittwald.v1.app.VersionStatus'
           updatePolicy:
             $ref: '#/components/schemas/de.mittwald.v1.app.SystemSoftwareUpdatePolicy'
-          userInputs:
-            items:
-              $ref: '#/components/schemas/de.mittwald.v1.app.SavedUserInput'
-            type: array
         required:
           - systemSoftwareId
           - updatePolicy
@@ -15543,6 +15706,10 @@ spec:
           - tags
         type: object
       de.mittwald.v1.app.SystemSoftwareVersion:
+        description: >-
+          A `SystemSoftwareVersion` is an officially  supported version of a
+          `SystemSoftware`, containing the necessary and recommended
+          configuration und dependencies
         properties:
           externalVersion:
             type: string
@@ -16486,6 +16653,7 @@ spec:
             format: date-time
             type: string
           description:
+            example: i am a cronjob
             type: string
           destination:
             oneOf:
@@ -16498,6 +16666,7 @@ spec:
             format: uuid
             type: string
           interval:
+            example: '*/5 * * * *'
             type: string
           latestExecution:
             $ref: '#/components/schemas/de.mittwald.v1.cronjob.CronjobExecution'
@@ -16505,8 +16674,10 @@ spec:
             format: date-time
             type: string
           projectId:
+            format: uuid
             type: string
           shortId:
+            example: cron-bd26li
             type: string
           updatedAt:
             format: date-time
@@ -16525,10 +16696,13 @@ spec:
       de.mittwald.v1.cronjob.CronjobCommand:
         properties:
           interpreter:
+            example: /usr/bin/bash
             type: string
           parameters:
+            example: '--debug'
             type: string
           path:
+            example: /html/my-wordpress/script.sh
             type: string
         required:
           - interpreter
@@ -16543,6 +16717,7 @@ spec:
                 type: string
             type: object
           durationInMilliseconds:
+            example: 12374
             format: int64
             type: integer
           executionEnd:
@@ -16552,11 +16727,10 @@ spec:
             format: date-time
             type: string
           id:
-            format: uuid
+            example: cron-bd26li-28027320
             type: string
           logPath:
-            type: string
-          shortId:
+            example: /var/log/cronjobs/cron-bd26li-28027320.log
             type: string
           status:
             enum:
@@ -16590,6 +16764,7 @@ spec:
             format: uuid
             type: string
           description:
+            example: i am a cronjob
             type: string
           destination:
             oneOf:
@@ -16599,6 +16774,7 @@ spec:
             format: email
             type: string
           interval:
+            example: '*/5 * * * *'
             type: string
         required:
           - appId
@@ -16618,6 +16794,7 @@ spec:
             format: date-time
             type: string
           description:
+            example: i am a cronjob
             type: string
           destination:
             oneOf:
@@ -16634,11 +16811,13 @@ spec:
             format: uuid
             type: string
           interval:
+            example: '*/5 * * * *'
             type: string
           nextExecutionTime:
             format: date-time
             type: string
           shortId:
+            example: cron-bd26li
             type: string
           updatedAt:
             format: date-time
@@ -16657,6 +16836,7 @@ spec:
       de.mittwald.v1.cronjob.CronjobUrl:
         properties:
           url:
+            example: https://mydomain.com
             type: string
         required:
           - url
@@ -16939,6 +17119,24 @@ spec:
           - disabled
         type: object
       de.mittwald.v1.database.RedisDatabase:
+        example:
+          configuration:
+            additionalFlags:
+              - '--tcp-keepalive'
+              - '300'
+            maxMemory: 16Mi
+            maxMemoryPolicy: allkeys-lru
+          createdAt: '2023-03-28T13:15:00.000Z'
+          description: My first RedisDatabase!
+          finalizers:
+            - app:appinstallation:28471edf-d266-4d79-8ca8-169e330746db
+          hostname: redis-xxxxxx.pg-example.db.example.com
+          id: fcfe9aea-84d5-46eb-ac6f-a0ccffa908b1
+          name: redis_xxxxxx
+          port: 6379
+          projectId: 9f2bddf1-dea6-4441-b4fe-a22ff39caff8
+          updatedAt: '2023-03-29T15:50:10.000Z'
+          version: '7.0'
         properties:
           configuration:
             $ref: >-
@@ -16984,16 +17182,20 @@ spec:
           - name
         type: object
       de.mittwald.v1.database.RedisDatabaseConfiguration:
+        description: The configuration for a RedisDatabase.
         properties:
           additionalFlags:
+            description: Additional flags passed to the database.
             items:
               minLength: 1
               type: string
             type: array
             uniqueItems: true
           maxMemory:
+            description: The database's maximum memory.
             type: string
           maxMemoryPolicy:
+            description: The database's key eviction policy.
             type: string
         type: object
       de.mittwald.v1.database.RedisVersion:
@@ -17638,8 +17840,8 @@ spec:
         properties:
           dnsValidationErrors:
             description: >-
-              a list of errors that occured while validating the ingress's dns
-              before requesting a certificate
+              A list of errors that occurred while validating the ingress's dns
+              before requesting a certificate.
             items:
               enum:
                 - ERROR_UNSPECIFIED
@@ -17734,7 +17936,7 @@ spec:
       de.mittwald.v1.ingress.TlsAcme:
         properties:
           acme:
-            description: has to be `true`, as ssl cannot be deactivated
+            description: Has to be `true`, as ssl cannot be deactivated.
             type: boolean
         required:
           - acme
