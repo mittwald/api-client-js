@@ -33,7 +33,8 @@ publish-commons:
     - cd ${CI_PROJECT_DIR}/packages/commons
     - npm version ${CI_COMMIT_TAG} --git-tag-version false
       --no-workspaces-update
-    - npm publish
+    - yarn config set npmScopes.mittwald.npmAuthToken "${GITHUB_TOKEN}"
+    - yarn npm publish
   only:
     - tags
 
