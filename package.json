@@ -1,8 +1,8 @@
 {
-  "name": "@mittwald/api",
+  "name": "root",
   "version": "1.0.0",
   "scripts": {
-    "all": "yarn workspaces foreach -pvA --no-private $*",
+    "all": "yarn workspaces foreach -tv --exclude root $*",
     "compile": "yarn tsc --build $@",
     "format": "prettier --write $@ '{packages/**,apps/**}*.{ts,tsx,yaml,yml,json,md,mdx}'",
     "license-check": "yarn pnpify license-checker-rseidelsohn --excludePrivatePackages $*",
