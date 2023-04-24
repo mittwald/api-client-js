@@ -695,46 +695,6 @@ spec:
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-    /v2/articles/{articleId}/orderable:
-      get:
-        operationId: article-service-get-orderable-article-v2
-        parameters:
-          path:
-            type: object
-            required:
-              - articleId
-            properties:
-              articleId:
-                type: string
-          query:
-            type: object
-            required: []
-            properties:
-              customerId:
-                type: string
-          header:
-            type: object
-            required:
-              - x-access-token
-            properties:
-              x-access-token:
-                type: string
-              Accept:
-                type: string
-                enum: application/json
-        responses:
-          '200':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.article.ReadableArticle'
-          '404':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-          default:
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/articles:
       get:
         operationId: article-service-list-articles-v2
@@ -794,58 +754,9 @@ spec:
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-    /v2/articles/orderable:
-      get:
-        operationId: article-service-list-orderable-articles-v2
-        parameters:
-          query:
-            type: object
-            required: []
-            properties:
-              customerId:
-                type: string
-              limit:
-                minimum: 0
-                type: integer
-              skip:
-                minimum: 0
-                type: integer
-              page:
-                minimum: 0
-                type: integer
-              tags:
-                items:
-                  type: string
-                type: array
-              templateNames:
-                items:
-                  type: string
-                type: array
-              articleIds:
-                items:
-                  type: string
-                type: array
-              name:
-                type: string
-          header:
-            properties:
-              Accept:
-                type: string
-                enum: application/json
-        responses:
-          '200':
-            content:
-              application/json:
-                items:
-                  $ref: '#/components/schemas/de.mittwald.v1.article.ReadableArticle'
-                type: array
-          default:
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects/{projectId}/projectbackups:
       post:
-        operationId: backup-service-create-project-backup
+        operationId: deprecated-backup-service-create-project-backup
         parameters:
           path:
             type: object
@@ -868,8 +779,10 @@ spec:
           requestBody:
             properties:
               description:
+                description: Description of the ProjectBackup.
                 type: string
               expirationTime:
+                description: Time when to expire the ProjectBackup.
                 format: date-time
                 type: string
             required:
@@ -893,7 +806,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       get:
-        operationId: backup-service-list-project-backups
+        operationId: deprecated-backup-service-list-project-backups
         parameters:
           path:
             type: object
@@ -926,7 +839,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects/{projectId}/schedules:
       post:
-        operationId: backup-service-create-project-backup-schedule
+        operationId: deprecated-backup-service-create-project-backup-schedule
         parameters:
           path:
             type: object
@@ -949,10 +862,15 @@ spec:
           requestBody:
             properties:
               description:
+                description: Description of the BackupSchedule.
                 type: string
               schedule:
+                description: Execution schedule in crontab notation.
+                example: 5 4 * * *
                 type: string
               ttl:
+                description: TTL of the BackupSchedule as time string.
+                example: 7d
                 type: string
             required:
               - ttl
@@ -962,7 +880,8 @@ spec:
           '201':
             content:
               application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.backup.BackupSchedule'
+                $ref: >-
+                  #/components/schemas/de.mittwald.v1.backup.BackupScheduleDeprecated
           '400':
             content:
               application/json:
@@ -976,7 +895,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       get:
-        operationId: backup-service-list-project-backup-schedules
+        operationId: deprecated-backup-service-list-project-backup-schedules
         parameters:
           path:
             type: object
@@ -1001,7 +920,8 @@ spec:
             content:
               application/json:
                 items:
-                  $ref: '#/components/schemas/de.mittwald.v1.backup.BackupSchedule'
+                  $ref: >-
+                    #/components/schemas/de.mittwald.v1.backup.BackupScheduleDeprecated
                 type: array
           default:
             content:
@@ -1009,7 +929,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projectbackups/{backupId}:
       delete:
-        operationId: backup-service-delete-project-backup
+        operationId: deprecated-backup-service-delete-project-backup
         parameters:
           path:
             type: object
@@ -1045,7 +965,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       get:
-        operationId: backup-service-get-project-backup
+        operationId: deprecated-backup-service-get-project-backup
         parameters:
           path:
             type: object
@@ -1084,7 +1004,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projectbackups/{backupId}/export:
       delete:
-        operationId: backup-service-delete-project-backup-export
+        operationId: deprecated-backup-service-delete-project-backup-export
         parameters:
           path:
             type: object
@@ -1120,7 +1040,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       post:
-        operationId: backup-service-request-project-backup-export
+        operationId: deprecated-backup-service-request-project-backup-export
         parameters:
           path:
             type: object
@@ -1143,11 +1063,13 @@ spec:
           requestBody:
             properties:
               format:
+                description: The desired format to export the ProjectBackup in.
                 enum:
                   - tar
                   - zip
                 type: string
               password:
+                description: Password to use to protect the archive.
                 type: string
             required:
               - format
@@ -1173,7 +1095,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/backupschedules/{scheduleId}:
       delete:
-        operationId: backup-service-delete-project-backup-schedule
+        operationId: deprecated-backup-service-delete-project-backup-schedule
         parameters:
           path:
             type: object
@@ -1209,7 +1131,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       get:
-        operationId: backup-service-get-project-backup-schedule
+        operationId: deprecated-backup-service-get-project-backup-schedule
         parameters:
           path:
             type: object
@@ -1233,7 +1155,8 @@ spec:
           '200':
             content:
               application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.backup.BackupSchedule'
+                $ref: >-
+                  #/components/schemas/de.mittwald.v1.backup.BackupScheduleDeprecated
           '403':
             content:
               application/json:
@@ -1247,7 +1170,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       patch:
-        operationId: backup-service-patch-backup-schedule
+        operationId: deprecated-backup-service-patch-backup-schedule
         parameters:
           path:
             type: object
@@ -1270,10 +1193,15 @@ spec:
           requestBody:
             properties:
               description:
+                description: Description of the BackupSchedule.
                 type: string
               schedule:
+                description: Execution schedule in crontab notation.
+                example: 5 4 * * *
                 type: string
               ttl:
+                description: TTL of the BackupSchedule as time string.
+                example: 7d
                 type: string
             type: object
         responses:
@@ -1297,7 +1225,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/backupschedules/{scheduleId}/ttl:
       put:
-        operationId: backup-service-put-system-backup-ttl
+        operationId: deprecated-backup-service-put-system-backup-ttl
         parameters:
           path:
             type: object
@@ -1320,6 +1248,8 @@ spec:
           requestBody:
             properties:
               ttl:
+                description: TTL of the BackupSchedule as time string.
+                example: 7d
                 type: string
             required:
               - ttl
@@ -1344,7 +1274,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projectbackups/{backupId}/description:
       put:
-        operationId: backup-service-set-project-backup-description
+        operationId: deprecated-backup-service-set-project-backup-description
         parameters:
           path:
             type: object
@@ -1367,6 +1297,7 @@ spec:
           requestBody:
             properties:
               description:
+                description: Description of the ProjectBackup.
                 type: string
             type: object
         responses:
@@ -5471,9 +5402,7 @@ spec:
           requestBody:
             properties:
               transit:
-                description: >-
-                  The delete process should be a transit? Only possible for de
-                  domains
+                description: If true, Domain is in grace period.
                 type: boolean
             type: object
         responses:
@@ -14914,7 +14843,532 @@ spec:
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-    /v2/cronjobs/{cronjobId}/appid:
+    /v2/projects/{projectId}/backups:
+      post:
+        operationId: backup-service-create-project-backup
+        parameters:
+          path:
+            type: object
+            required:
+              - projectId
+            properties:
+              projectId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+          requestBody:
+            properties:
+              description:
+                description: Description of the Backup.
+                example: I'm a ProjectBackup
+                type: string
+              expirationTime:
+                description: Time when to expire the Backup.
+                format: date-time
+                type: string
+            required:
+              - expirationTime
+            type: object
+        responses:
+          '201':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.backup.ProjectBackup'
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+      get:
+        operationId: backup-service-list-project-backups
+        parameters:
+          path:
+            type: object
+            required:
+              - projectId
+            properties:
+              projectId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '200':
+            content:
+              application/json:
+                items:
+                  $ref: '#/components/schemas/de.mittwald.v1.backup.ProjectBackup'
+                type: array
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/projects/{projectId}/backup-schedules:
+      post:
+        operationId: backup-service-create-project-backup-schedule
+        parameters:
+          path:
+            type: object
+            required:
+              - projectId
+            properties:
+              projectId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+          requestBody:
+            properties:
+              description:
+                description: Description of the BackupSchedule.
+                type: string
+              schedule:
+                description: Execution schedule in crontab notation.
+                example: 5 4 * * *
+                type: string
+              ttl:
+                description: TTL of the BackupSchedule as time string.
+                example: 7d
+                type: string
+            required:
+              - ttl
+              - schedule
+            type: object
+        responses:
+          '201':
+            content:
+              application/json:
+                $ref: >-
+                  #/components/schemas/de.mittwald.v1.backup.ProjectBackupSchedule
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+      get:
+        operationId: backup-service-list-project-backup-schedules
+        parameters:
+          path:
+            type: object
+            required:
+              - projectId
+            properties:
+              projectId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '200':
+            content:
+              application/json:
+                items:
+                  $ref: >-
+                    #/components/schemas/de.mittwald.v1.backup.ProjectBackupSchedule
+                type: array
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/project-backups/{projectBackupId}:
+      delete:
+        operationId: backup-service-delete-project-backup
+        parameters:
+          path:
+            type: object
+            required:
+              - projectBackupId
+            properties:
+              projectBackupId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '204':
+            content: {}
+          '403':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+      get:
+        operationId: backup-service-get-project-backup
+        parameters:
+          path:
+            type: object
+            required:
+              - projectBackupId
+            properties:
+              projectBackupId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '200':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.backup.ProjectBackup'
+          '403':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/project-backups/{projectBackupId}/export:
+      delete:
+        operationId: backup-service-delete-project-backup-export
+        parameters:
+          path:
+            type: object
+            required:
+              - projectBackupId
+            properties:
+              projectBackupId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '204':
+            content: {}
+          '403':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+      post:
+        operationId: backup-service-request-project-backup-export
+        parameters:
+          path:
+            type: object
+            required:
+              - projectBackupId
+            properties:
+              projectBackupId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+          requestBody:
+            properties:
+              format:
+                description: The desired format to export the ProjectBackup in.
+                enum:
+                  - tar
+                  - zip
+                example: tar
+                type: string
+              password:
+                description: Password to use to protect the archive.
+                example: password
+                type: string
+            required:
+              - format
+            type: object
+        responses:
+          '204':
+            content: {}
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          '403':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/project-backup-schedules/{projectBackupScheduleId}:
+      delete:
+        operationId: backup-service-delete-project-backup-schedule
+        parameters:
+          path:
+            type: object
+            required:
+              - projectBackupScheduleId
+            properties:
+              projectBackupScheduleId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '204':
+            content: {}
+          '403':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+      get:
+        operationId: backup-service-get-project-backup-schedule
+        parameters:
+          path:
+            type: object
+            required:
+              - projectBackupScheduleId
+            properties:
+              projectBackupScheduleId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '200':
+            content:
+              application/json:
+                $ref: >-
+                  #/components/schemas/de.mittwald.v1.backup.ProjectBackupSchedule
+          '403':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+      patch:
+        operationId: backup-service-patch-backup-schedule
+        parameters:
+          path:
+            type: object
+            required:
+              - projectBackupScheduleId
+            properties:
+              projectBackupScheduleId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+          requestBody:
+            properties:
+              description:
+                description: >-
+                  Description of the ProjectBackupSchedule. Note that the
+                  description of isSystemBackup true items cannot be changed.
+                example: I'm a ProjectBackupSchedule
+                type: string
+              schedule:
+                description: >-
+                  Execution schedule in crontab notation. Note that the schedule
+                  of isSystemBackup true items cannot be changed.
+                example: 5 4 * * *
+                type: string
+              ttl:
+                description: TTL of the ProjectBackupSchedule as time string.
+                example: 7d
+                type: string
+            type: object
+        responses:
+          '200':
+            content: {}
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          '412':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/project-backups/{projectBackupId}/description:
+      patch:
+        operationId: backup-service-set-project-backup-description
+        parameters:
+          path:
+            type: object
+            required:
+              - projectBackupId
+            properties:
+              projectBackupId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+          requestBody:
+            properties:
+              description:
+                description: Description of the ProjectBackup.
+                example: I'm a ProjectBackup
+                type: string
+            type: object
+        responses:
+          '204':
+            content: {}
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          '403':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/cronjobs/{cronjobId}/app-id:
       patch:
         operationId: cronjob-update-cronjob-app-id-v2
         parameters:
@@ -15626,35 +16080,6 @@ spec:
         required:
           - expirationTime
         type: object
-      de.mittwald.v1.backup.BackupSchedule:
-        properties:
-          backupTtl:
-            type: string
-          createdAt:
-            format: date-time
-            type: string
-          description:
-            type: string
-          id:
-            format: uuid
-            type: string
-          isSystemBackup:
-            type: boolean
-          projectId:
-            format: uuid
-            type: string
-          schedule:
-            type: string
-          updatedAt:
-            format: date-time
-            type: string
-        required:
-          - id
-          - projectId
-          - schedule
-          - backupSettings
-          - isSystemBackup
-        type: object
       de.mittwald.v1.backup.DatabaseReference:
         properties:
           kind:
@@ -15664,30 +16089,6 @@ spec:
         required:
           - kind
           - name
-        type: object
-      de.mittwald.v1.backup.Export:
-        properties:
-          downloadURL:
-            type: string
-          expiresAt:
-            format: date-time
-            type: string
-          format:
-            type: string
-          phase:
-            enum:
-              - ''
-              - Pending
-              - Exporting
-              - Failed
-              - Completed
-              - Expired
-            type: string
-          withPassword:
-            type: boolean
-        required:
-          - format
-          - withPassword
         type: object
       de.mittwald.v1.backup.IgnoredSources:
         properties:
@@ -15708,12 +16109,13 @@ spec:
           deletable:
             type: boolean
           description:
+            example: I'm a ProjectBackup
             type: string
           expiresAt:
             format: date-time
             type: string
           export:
-            $ref: '#/components/schemas/de.mittwald.v1.backup.Export'
+            $ref: '#/components/schemas/de.mittwald.v1.backup.ProjectBackupExport'
           id:
             format: uuid
             type: string
@@ -15724,6 +16126,7 @@ spec:
             format: uuid
             type: string
           status:
+            example: Completed
             type: string
         required:
           - id
@@ -17141,11 +17544,13 @@ spec:
         type: object
       de.mittwald.v1.domain.ProcessState:
         enum:
+          - UNSPECIFIED
           - REQUESTED
           - FAILED
         type: string
       de.mittwald.v1.domain.ProcessType:
         enum:
+          - UNSPECIFIED
           - REGISTER
           - TRANSFER
           - DELETE
@@ -17153,6 +17558,8 @@ spec:
           - RESTORE
           - UPDATE
           - TRANSFER_OUT
+          - OWNER_CHANGE
+          - DECLARE_REQUESTED
         type: string
       de.mittwald.v1.domain.Registrar:
         enum:
@@ -19075,6 +19482,111 @@ spec:
             items:
               $ref: >-
                 #/components/schemas/de.mittwald.v1.commons.ValidationErrorSchema
+      de.mittwald.v1.backup.ProjectBackupExport:
+        properties:
+          downloadURL:
+            format: url
+            type: string
+          expiresAt:
+            format: date-time
+            type: string
+          format:
+            example: tar
+            type: string
+          phase:
+            enum:
+              - ''
+              - Pending
+              - Exporting
+              - Failed
+              - Completed
+              - Expired
+            example: Completed
+            type: string
+          withPassword:
+            type: boolean
+        required:
+          - format
+          - withPassword
+        type: object
+      de.mittwald.v1.backup.ProjectBackupSchedule:
+        properties:
+          createdAt:
+            format: date-time
+            type: string
+          description:
+            description: Description of this ProjectBackupSchedule.
+            example: I'm a ProjectBackupSchedule
+            type: string
+          id:
+            description: ID of this ProjectBackupSchedule.
+            format: uuid
+            type: string
+          isSystemBackup:
+            description: >-
+              True if this ProjectBackupSchedule was created and is managed by
+              mittwald.
+            type: boolean
+          projectId:
+            description: ID of the Project this ProjectBackupSchedule belongs to.
+            format: uuid
+            type: string
+          schedule:
+            description: Execution schedule in crontab notation.
+            example: 5 4 * * *
+            type: string
+          ttl:
+            description: TTL of the ProjectBackupSchedule as time string.
+            example: 7d
+            type: string
+          updatedAt:
+            format: date-time
+            type: string
+        required:
+          - id
+          - projectId
+          - schedule
+          - isSystemBackup
+        type: object
+      de.mittwald.v1.backup.BackupScheduleDeprecated:
+        properties:
+          backupTtl:
+            description: TTL of the BackupSchedule as time string.
+            example: 7d
+            type: string
+          createdAt:
+            format: date-time
+            type: string
+          description:
+            description: Description of this BackupSchedule.
+            type: string
+          id:
+            description: ID of this BackupSchedule.
+            format: uuid
+            type: string
+          isSystemBackup:
+            description: >-
+              True if this BackupSchedule was created and is managed by
+              mittwald.
+            type: boolean
+          projectId:
+            description: ID of the Project this BackupSchedule belongs to.
+            format: uuid
+            type: string
+          schedule:
+            description: Execution schedule in crontab notation.
+            example: 5 4 * * *
+            type: string
+          updatedAt:
+            format: date-time
+            type: string
+        required:
+          - id
+          - projectId
+          - schedule
+          - backupSettings
+          - isSystemBackup
+        type: object
     parameters: {}
     responses:
       de.mittwald.v1.app.GenericResponse:

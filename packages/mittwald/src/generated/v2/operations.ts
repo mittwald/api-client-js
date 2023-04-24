@@ -400,33 +400,6 @@ export const articleServiceGetArticleV2: OpenAPIOperation<
   operationId: "articleServiceGetArticleV2",
 };
 
-export const articleServiceGetOrderableArticleV2: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V2_Articles_ArticleId_Orderable.Get.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Articles_ArticleId_Orderable.Get.Parameters.Header>
-  >,
-  | Response<
-      MittwaldApiV2.Paths.V2_Articles_ArticleId_Orderable.Get.Responses.$200.Content.Application_Json,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Articles_ArticleId_Orderable.Get.Responses.$404.Content.Application_Json,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Articles_ArticleId_Orderable.Get.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/articles/{articleId}/orderable",
-  method: "GET",
-  operationId: "articleServiceGetOrderableArticleV2",
-};
-
 export const articleServiceListArticlesV2: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -449,29 +422,7 @@ export const articleServiceListArticlesV2: OpenAPIOperation<
   operationId: "articleServiceListArticlesV2",
 };
 
-export const articleServiceListOrderableArticlesV2: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V2_Articles_Orderable.Get.Parameters.Header>
-  >,
-  | Response<
-      MittwaldApiV2.Paths.V2_Articles_Orderable.Get.Responses.$200.Content.Application_Json,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Articles_Orderable.Get.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/articles/orderable",
-  method: "GET",
-  operationId: "articleServiceListOrderableArticlesV2",
-};
-
-export const backupServiceCreateProjectBackup: OpenAPIOperation<
+export const deprecatedBackupServiceCreateProjectBackup: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Projectbackups.Post.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Projectbackups.Post.Parameters.Path>,
@@ -500,10 +451,10 @@ export const backupServiceCreateProjectBackup: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/projectbackups",
   method: "POST",
-  operationId: "backupServiceCreateProjectBackup",
+  operationId: "deprecatedBackupServiceCreateProjectBackup",
 };
 
-export const backupServiceListProjectBackups: OpenAPIOperation<
+export const deprecatedBackupServiceListProjectBackups: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Projectbackups.Get.Parameters.Path>,
@@ -522,10 +473,10 @@ export const backupServiceListProjectBackups: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/projectbackups",
   method: "GET",
-  operationId: "backupServiceListProjectBackups",
+  operationId: "deprecatedBackupServiceListProjectBackups",
 };
 
-export const backupServiceCreateProjectBackupSchedule: OpenAPIOperation<
+export const deprecatedBackupServiceCreateProjectBackupSchedule: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Schedules.Post.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Schedules.Post.Parameters.Path>,
@@ -554,10 +505,10 @@ export const backupServiceCreateProjectBackupSchedule: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/schedules",
   method: "POST",
-  operationId: "backupServiceCreateProjectBackupSchedule",
+  operationId: "deprecatedBackupServiceCreateProjectBackupSchedule",
 };
 
-export const backupServiceListProjectBackupSchedules: OpenAPIOperation<
+export const deprecatedBackupServiceListProjectBackupSchedules: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Schedules.Get.Parameters.Path>,
@@ -576,10 +527,10 @@ export const backupServiceListProjectBackupSchedules: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/schedules",
   method: "GET",
-  operationId: "backupServiceListProjectBackupSchedules",
+  operationId: "deprecatedBackupServiceListProjectBackupSchedules",
 };
 
-export const backupServiceDeleteProjectBackup: OpenAPIOperation<
+export const deprecatedBackupServiceDeleteProjectBackup: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Projectbackups_BackupId.Delete.Parameters.Path>,
@@ -604,10 +555,10 @@ export const backupServiceDeleteProjectBackup: OpenAPIOperation<
 > = {
   path: "/v2/projectbackups/{backupId}",
   method: "DELETE",
-  operationId: "backupServiceDeleteProjectBackup",
+  operationId: "deprecatedBackupServiceDeleteProjectBackup",
 };
 
-export const backupServiceGetProjectBackup: OpenAPIOperation<
+export const deprecatedBackupServiceGetProjectBackup: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Projectbackups_BackupId.Get.Parameters.Path>,
@@ -636,10 +587,10 @@ export const backupServiceGetProjectBackup: OpenAPIOperation<
 > = {
   path: "/v2/projectbackups/{backupId}",
   method: "GET",
-  operationId: "backupServiceGetProjectBackup",
+  operationId: "deprecatedBackupServiceGetProjectBackup",
 };
 
-export const backupServiceDeleteProjectBackupExport: OpenAPIOperation<
+export const deprecatedBackupServiceDeleteProjectBackupExport: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Projectbackups_BackupId_Export.Delete.Parameters.Path>,
@@ -664,10 +615,10 @@ export const backupServiceDeleteProjectBackupExport: OpenAPIOperation<
 > = {
   path: "/v2/projectbackups/{backupId}/export",
   method: "DELETE",
-  operationId: "backupServiceDeleteProjectBackupExport",
+  operationId: "deprecatedBackupServiceDeleteProjectBackupExport",
 };
 
-export const backupServiceRequestProjectBackupExport: OpenAPIOperation<
+export const deprecatedBackupServiceRequestProjectBackupExport: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Projectbackups_BackupId_Export.Post.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Projectbackups_BackupId_Export.Post.Parameters.Path>,
@@ -697,10 +648,10 @@ export const backupServiceRequestProjectBackupExport: OpenAPIOperation<
 > = {
   path: "/v2/projectbackups/{backupId}/export",
   method: "POST",
-  operationId: "backupServiceRequestProjectBackupExport",
+  operationId: "deprecatedBackupServiceRequestProjectBackupExport",
 };
 
-export const backupServiceDeleteProjectBackupSchedule: OpenAPIOperation<
+export const deprecatedBackupServiceDeleteProjectBackupSchedule: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId.Delete.Parameters.Path>,
@@ -725,10 +676,10 @@ export const backupServiceDeleteProjectBackupSchedule: OpenAPIOperation<
 > = {
   path: "/v2/backupschedules/{scheduleId}",
   method: "DELETE",
-  operationId: "backupServiceDeleteProjectBackupSchedule",
+  operationId: "deprecatedBackupServiceDeleteProjectBackupSchedule",
 };
 
-export const backupServiceGetProjectBackupSchedule: OpenAPIOperation<
+export const deprecatedBackupServiceGetProjectBackupSchedule: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId.Get.Parameters.Path>,
@@ -757,10 +708,10 @@ export const backupServiceGetProjectBackupSchedule: OpenAPIOperation<
 > = {
   path: "/v2/backupschedules/{scheduleId}",
   method: "GET",
-  operationId: "backupServiceGetProjectBackupSchedule",
+  operationId: "deprecatedBackupServiceGetProjectBackupSchedule",
 };
 
-export const backupServicePatchBackupSchedule: OpenAPIOperation<
+export const deprecatedBackupServicePatchBackupSchedule: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId.Patch.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId.Patch.Parameters.Path>,
@@ -790,10 +741,10 @@ export const backupServicePatchBackupSchedule: OpenAPIOperation<
 > = {
   path: "/v2/backupschedules/{scheduleId}",
   method: "PATCH",
-  operationId: "backupServicePatchBackupSchedule",
+  operationId: "deprecatedBackupServicePatchBackupSchedule",
 };
 
-export const backupServicePutSystemBackupTtl: OpenAPIOperation<
+export const deprecatedBackupServicePutSystemBackupTtl: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId_Ttl.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId_Ttl.Put.Parameters.Path>,
@@ -823,10 +774,10 @@ export const backupServicePutSystemBackupTtl: OpenAPIOperation<
 > = {
   path: "/v2/backupschedules/{scheduleId}/ttl",
   method: "PUT",
-  operationId: "backupServicePutSystemBackupTtl",
+  operationId: "deprecatedBackupServicePutSystemBackupTtl",
 };
 
-export const backupServiceSetProjectBackupDescription: OpenAPIOperation<
+export const deprecatedBackupServiceSetProjectBackupDescription: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Projectbackups_BackupId_Description.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Projectbackups_BackupId_Description.Put.Parameters.Path>,
@@ -856,7 +807,7 @@ export const backupServiceSetProjectBackupDescription: OpenAPIOperation<
 > = {
   path: "/v2/projectbackups/{backupId}/description",
   method: "PUT",
-  operationId: "backupServiceSetProjectBackupDescription",
+  operationId: "deprecatedBackupServiceSetProjectBackupDescription",
 };
 
 export const contractServiceBaseItemOfContract: OpenAPIOperation<
@@ -9038,34 +8989,389 @@ export const cronjobAbortExecutionV2: OpenAPIOperation<
   operationId: "cronjobAbortExecutionV2",
 };
 
-export const cronjobUpdateCronjobAppIdV2: OpenAPIOperation<
+export const backupServiceCreateProjectBackup: OpenAPIOperation<
   Request<
-    Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Patch.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Patch.Parameters.Header>
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Backups.Post.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Backups.Post.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Backups.Post.Parameters.Header>
   >,
   | Response<
-      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Patch.Responses.$201.Content.Application_Json,
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Backups.Post.Responses.$201.Content.Application_Json,
       201,
       "application/json"
     >
   | Response<
-      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Patch.Responses.$400.Content.Application_Json,
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Backups.Post.Responses.$400.Content.Application_Json,
       400,
       "application/json"
     >
   | Response<
-      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Patch.Responses.$412.Content.Application_Json,
-      412,
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Backups.Post.Responses.$404.Content.Application_Json,
+      404,
       "application/json"
     >
   | Response<
-      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Appid.Patch.Responses.Default.Content.Application_Json,
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Backups.Post.Responses.Default.Content.Application_Json,
       0,
       "application/json"
     >
 > = {
-  path: "/v2/cronjobs/{cronjobId}/appid",
+  path: "/v2/projects/{projectId}/backups",
+  method: "POST",
+  operationId: "backupServiceCreateProjectBackup",
+};
+
+export const backupServiceListProjectBackups: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Backups.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Backups.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Backups.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Backups.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/backups",
+  method: "GET",
+  operationId: "backupServiceListProjectBackups",
+};
+
+export const backupServiceCreateProjectBackupSchedule: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Backup_Schedules.Post.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Backup_Schedules.Post.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Backup_Schedules.Post.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Backup_Schedules.Post.Responses.$201.Content.Application_Json,
+      201,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Backup_Schedules.Post.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Backup_Schedules.Post.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Backup_Schedules.Post.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/backup-schedules",
+  method: "POST",
+  operationId: "backupServiceCreateProjectBackupSchedule",
+};
+
+export const backupServiceListProjectBackupSchedules: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Backup_Schedules.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Backup_Schedules.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Backup_Schedules.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Backup_Schedules.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/backup-schedules",
+  method: "GET",
+  operationId: "backupServiceListProjectBackupSchedules",
+};
+
+export const backupServiceDeleteProjectBackup: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId.Delete.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId.Delete.Parameters.Header>
+  >,
+  | Response<null, 204, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId.Delete.Responses.$403.Content.Application_Json,
+      403,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId.Delete.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId.Delete.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/project-backups/{projectBackupId}",
+  method: "DELETE",
+  operationId: "backupServiceDeleteProjectBackup",
+};
+
+export const backupServiceGetProjectBackup: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId.Get.Responses.$403.Content.Application_Json,
+      403,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/project-backups/{projectBackupId}",
+  method: "GET",
+  operationId: "backupServiceGetProjectBackup",
+};
+
+export const backupServiceDeleteProjectBackupExport: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId_Export.Delete.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId_Export.Delete.Parameters.Header>
+  >,
+  | Response<null, 204, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId_Export.Delete.Responses.$403.Content.Application_Json,
+      403,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId_Export.Delete.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId_Export.Delete.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/project-backups/{projectBackupId}/export",
+  method: "DELETE",
+  operationId: "backupServiceDeleteProjectBackupExport",
+};
+
+export const backupServiceRequestProjectBackupExport: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId_Export.Post.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId_Export.Post.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId_Export.Post.Parameters.Header>
+  >,
+  | Response<null, 204, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId_Export.Post.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId_Export.Post.Responses.$403.Content.Application_Json,
+      403,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId_Export.Post.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId_Export.Post.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/project-backups/{projectBackupId}/export",
+  method: "POST",
+  operationId: "backupServiceRequestProjectBackupExport",
+};
+
+export const backupServiceDeleteProjectBackupSchedule: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Backup_Schedules_ProjectBackupScheduleId.Delete.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Backup_Schedules_ProjectBackupScheduleId.Delete.Parameters.Header>
+  >,
+  | Response<null, 204, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backup_Schedules_ProjectBackupScheduleId.Delete.Responses.$403.Content.Application_Json,
+      403,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backup_Schedules_ProjectBackupScheduleId.Delete.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backup_Schedules_ProjectBackupScheduleId.Delete.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/project-backup-schedules/{projectBackupScheduleId}",
+  method: "DELETE",
+  operationId: "backupServiceDeleteProjectBackupSchedule",
+};
+
+export const backupServiceGetProjectBackupSchedule: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Backup_Schedules_ProjectBackupScheduleId.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Backup_Schedules_ProjectBackupScheduleId.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backup_Schedules_ProjectBackupScheduleId.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backup_Schedules_ProjectBackupScheduleId.Get.Responses.$403.Content.Application_Json,
+      403,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backup_Schedules_ProjectBackupScheduleId.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backup_Schedules_ProjectBackupScheduleId.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/project-backup-schedules/{projectBackupScheduleId}",
+  method: "GET",
+  operationId: "backupServiceGetProjectBackupSchedule",
+};
+
+export const backupServicePatchBackupSchedule: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Project_Backup_Schedules_ProjectBackupScheduleId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Backup_Schedules_ProjectBackupScheduleId.Patch.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Backup_Schedules_ProjectBackupScheduleId.Patch.Parameters.Header>
+  >,
+  | Response<null, 200, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backup_Schedules_ProjectBackupScheduleId.Patch.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backup_Schedules_ProjectBackupScheduleId.Patch.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backup_Schedules_ProjectBackupScheduleId.Patch.Responses.$412.Content.Application_Json,
+      412,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backup_Schedules_ProjectBackupScheduleId.Patch.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/project-backup-schedules/{projectBackupScheduleId}",
+  method: "PATCH",
+  operationId: "backupServicePatchBackupSchedule",
+};
+
+export const backupServiceSetProjectBackupDescription: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId_Description.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId_Description.Patch.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId_Description.Patch.Parameters.Header>
+  >,
+  | Response<null, 204, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId_Description.Patch.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId_Description.Patch.Responses.$403.Content.Application_Json,
+      403,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId_Description.Patch.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Backups_ProjectBackupId_Description.Patch.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/project-backups/{projectBackupId}/description",
+  method: "PATCH",
+  operationId: "backupServiceSetProjectBackupDescription",
+};
+
+export const cronjobUpdateCronjobAppIdV2: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_App_Id.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_App_Id.Patch.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_App_Id.Patch.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_App_Id.Patch.Responses.$201.Content.Application_Json,
+      201,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_App_Id.Patch.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_App_Id.Patch.Responses.$412.Content.Application_Json,
+      412,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_App_Id.Patch.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/cronjobs/{cronjobId}/app-id",
   method: "PATCH",
   operationId: "cronjobUpdateCronjobAppIdV2",
 };

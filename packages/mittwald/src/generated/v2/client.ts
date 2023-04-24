@@ -70,69 +70,73 @@ export class MittwaldApiV2Client extends ApiClientBase {
     operations.articleServiceGetArticleV2
   );
 
-  public articleServiceGetOrderableArticleV2 = this.requestFunctionFactory(
-    operations.articleServiceGetOrderableArticleV2
-  );
-
   public articleServiceListArticlesV2 = this.requestFunctionFactory(
     operations.articleServiceListArticlesV2
   );
 
-  public articleServiceListOrderableArticlesV2 = this.requestFunctionFactory(
-    operations.articleServiceListOrderableArticlesV2
+  public deprecatedBackupServiceCreateProjectBackup =
+    this.requestFunctionFactory(
+      operations.deprecatedBackupServiceCreateProjectBackup
+    );
+
+  public deprecatedBackupServiceListProjectBackups =
+    this.requestFunctionFactory(
+      operations.deprecatedBackupServiceListProjectBackups
+    );
+
+  public deprecatedBackupServiceCreateProjectBackupSchedule =
+    this.requestFunctionFactory(
+      operations.deprecatedBackupServiceCreateProjectBackupSchedule
+    );
+
+  public deprecatedBackupServiceListProjectBackupSchedules =
+    this.requestFunctionFactory(
+      operations.deprecatedBackupServiceListProjectBackupSchedules
+    );
+
+  public deprecatedBackupServiceDeleteProjectBackup =
+    this.requestFunctionFactory(
+      operations.deprecatedBackupServiceDeleteProjectBackup
+    );
+
+  public deprecatedBackupServiceGetProjectBackup = this.requestFunctionFactory(
+    operations.deprecatedBackupServiceGetProjectBackup
   );
 
-  public backupServiceCreateProjectBackup = this.requestFunctionFactory(
-    operations.backupServiceCreateProjectBackup
-  );
+  public deprecatedBackupServiceDeleteProjectBackupExport =
+    this.requestFunctionFactory(
+      operations.deprecatedBackupServiceDeleteProjectBackupExport
+    );
 
-  public backupServiceListProjectBackups = this.requestFunctionFactory(
-    operations.backupServiceListProjectBackups
-  );
+  public deprecatedBackupServiceRequestProjectBackupExport =
+    this.requestFunctionFactory(
+      operations.deprecatedBackupServiceRequestProjectBackupExport
+    );
 
-  public backupServiceCreateProjectBackupSchedule = this.requestFunctionFactory(
-    operations.backupServiceCreateProjectBackupSchedule
-  );
+  public deprecatedBackupServiceDeleteProjectBackupSchedule =
+    this.requestFunctionFactory(
+      operations.deprecatedBackupServiceDeleteProjectBackupSchedule
+    );
 
-  public backupServiceListProjectBackupSchedules = this.requestFunctionFactory(
-    operations.backupServiceListProjectBackupSchedules
-  );
+  public deprecatedBackupServiceGetProjectBackupSchedule =
+    this.requestFunctionFactory(
+      operations.deprecatedBackupServiceGetProjectBackupSchedule
+    );
 
-  public backupServiceDeleteProjectBackup = this.requestFunctionFactory(
-    operations.backupServiceDeleteProjectBackup
-  );
+  public deprecatedBackupServicePatchBackupSchedule =
+    this.requestFunctionFactory(
+      operations.deprecatedBackupServicePatchBackupSchedule
+    );
 
-  public backupServiceGetProjectBackup = this.requestFunctionFactory(
-    operations.backupServiceGetProjectBackup
-  );
+  public deprecatedBackupServicePutSystemBackupTtl =
+    this.requestFunctionFactory(
+      operations.deprecatedBackupServicePutSystemBackupTtl
+    );
 
-  public backupServiceDeleteProjectBackupExport = this.requestFunctionFactory(
-    operations.backupServiceDeleteProjectBackupExport
-  );
-
-  public backupServiceRequestProjectBackupExport = this.requestFunctionFactory(
-    operations.backupServiceRequestProjectBackupExport
-  );
-
-  public backupServiceDeleteProjectBackupSchedule = this.requestFunctionFactory(
-    operations.backupServiceDeleteProjectBackupSchedule
-  );
-
-  public backupServiceGetProjectBackupSchedule = this.requestFunctionFactory(
-    operations.backupServiceGetProjectBackupSchedule
-  );
-
-  public backupServicePatchBackupSchedule = this.requestFunctionFactory(
-    operations.backupServicePatchBackupSchedule
-  );
-
-  public backupServicePutSystemBackupTtl = this.requestFunctionFactory(
-    operations.backupServicePutSystemBackupTtl
-  );
-
-  public backupServiceSetProjectBackupDescription = this.requestFunctionFactory(
-    operations.backupServiceSetProjectBackupDescription
-  );
+  public deprecatedBackupServiceSetProjectBackupDescription =
+    this.requestFunctionFactory(
+      operations.deprecatedBackupServiceSetProjectBackupDescription
+    );
 
   public contractServiceBaseItemOfContract = this.requestFunctionFactory(
     operations.contractServiceBaseItemOfContract
@@ -1381,6 +1385,54 @@ export class MittwaldApiV2Client extends ApiClientBase {
 
   public cronjobAbortExecutionV2 = this.requestFunctionFactory(
     operations.cronjobAbortExecutionV2
+  );
+
+  public backupServiceCreateProjectBackup = this.requestFunctionFactory(
+    operations.backupServiceCreateProjectBackup
+  );
+
+  public backupServiceListProjectBackups = this.requestFunctionFactory(
+    operations.backupServiceListProjectBackups
+  );
+
+  public backupServiceCreateProjectBackupSchedule = this.requestFunctionFactory(
+    operations.backupServiceCreateProjectBackupSchedule
+  );
+
+  public backupServiceListProjectBackupSchedules = this.requestFunctionFactory(
+    operations.backupServiceListProjectBackupSchedules
+  );
+
+  public backupServiceDeleteProjectBackup = this.requestFunctionFactory(
+    operations.backupServiceDeleteProjectBackup
+  );
+
+  public backupServiceGetProjectBackup = this.requestFunctionFactory(
+    operations.backupServiceGetProjectBackup
+  );
+
+  public backupServiceDeleteProjectBackupExport = this.requestFunctionFactory(
+    operations.backupServiceDeleteProjectBackupExport
+  );
+
+  public backupServiceRequestProjectBackupExport = this.requestFunctionFactory(
+    operations.backupServiceRequestProjectBackupExport
+  );
+
+  public backupServiceDeleteProjectBackupSchedule = this.requestFunctionFactory(
+    operations.backupServiceDeleteProjectBackupSchedule
+  );
+
+  public backupServiceGetProjectBackupSchedule = this.requestFunctionFactory(
+    operations.backupServiceGetProjectBackupSchedule
+  );
+
+  public backupServicePatchBackupSchedule = this.requestFunctionFactory(
+    operations.backupServicePatchBackupSchedule
+  );
+
+  public backupServiceSetProjectBackupDescription = this.requestFunctionFactory(
+    operations.backupServiceSetProjectBackupDescription
   );
 
   public cronjobUpdateCronjobAppIdV2 = this.requestFunctionFactory(
