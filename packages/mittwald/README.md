@@ -1,3 +1,15 @@
+# mittwald API JavaScript client
+
+This package contains a (mostly auto-generated) JavaScript client for the
+mittwald API.
+
+## License
+
+Copyright (c) 2023 Mittwald CM Service GmbH & Co. KG and contributors
+
+This project (and all NPM packages) therein is licensed under the MIT License;
+see the [LICENSE](../../LICENSE) file for details.
+
 ## Installing
 
 ### With Yarn
@@ -21,8 +33,8 @@ configure the `mittwald` scope.
 yarn config set npmScopes.mittwald.npmRegistryServer https://npm.pkg.github.com
 ```
 
-Login to the registry. **You need a personal access token with with the 'repo',
-'write:packages', and 'read:packages' permissions.**
+Login to the registry. **You need a personal access token with with the `repo`,
+`write:packages`, and `read:packages` permissions.**
 
 ```shell
 yarn npm login --scope mittwald
@@ -41,8 +53,8 @@ Now you can install the package as usual.
 yarn add @mittwald/api-client
 ```
 
-Also see GitHub docs
-[Working with the npm registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-to-github-packages);
+Also see the section on [working with the npm registry][pkg-auth] in the Github
+docs.
 
 ## Usage
 
@@ -60,9 +72,8 @@ different types of authentication:
 3. `MittwaldApiClient.newWithCredentials(email: string, password: string)` (does
    actually perform a login in the background and thus returns a promise)
 
-To create an API token, login to the [mStudio](https://studio.mittwald.de) and
-navigate to [_API-Token_](https://studio.mittwald.de/app/profile/api-tokens) in
-your profile settings.
+Have a look at our [API introduction][api-getting-started] for more information
+on how to obtain an API token and how to get started with the API.
 
 ## Example
 
@@ -89,3 +100,7 @@ the hood. You may access the Axios instance with the clients `axios` property.
 
 To intercept requests or responses you can use
 [Axios' interceptors](https://axios-http.com/docs/interceptors).
+
+[pkg-auth]:
+  https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-to-github-packages
+[api-getting-started]: https://developer.mittwald.de/docs/v2/api/intro

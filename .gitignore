@@ -18,4 +18,5 @@ coverage/
 # Other
 *.log
 .idea/workspace.xml
+.idea/runConfigurations
 .eslintcache
