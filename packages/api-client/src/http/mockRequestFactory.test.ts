@@ -1,7 +1,7 @@
-import { Request as ClientRequest, Response } from "./Client";
-import { mockRequestFactory, MockRequestFactoryResponse, PartialRequest, resetAllRequestMocks } from "./mockRequestFactory";
-import { KyClient } from "./KyClient";
-import { OperationDescriptor } from "../OperationDescriptor";
+import { Request as ClientRequest, Response } from "./Client.js";
+import { mockRequestFactory, MockRequestFactoryResponse, PartialRequest, resetAllRequestMocks } from "./mockRequestFactory.js";
+import { KyClient } from "./KyClient.js";
+import { OperationDescriptor } from "../OperationDescriptor.js";
 
 const client = new KyClient({
     ky: {

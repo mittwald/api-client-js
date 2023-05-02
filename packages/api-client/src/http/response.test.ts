@@ -1,15 +1,15 @@
-import { mapResponse } from "./response";
+import { mapResponse } from "./response.js";
 import { Response as NodeResponse } from "node-fetch";
 
 describe("mapResponse()", () => {
     test("does not fail on empty response", () => {
         return expect(mapResponse(new NodeResponse() as any, { method: "get", operationId: "test", path: "/test" })).resolves
             .toMatchInlineSnapshot(`
-                    Object {
+                    {
                       "content": "",
-                      "headers": Object {},
+                      "headers": {},
                       "mediaType": undefined,
-                      "operation": Object {
+                      "operation": {
                         "method": "get",
                         "operationId": "test",
                         "path": "/test",

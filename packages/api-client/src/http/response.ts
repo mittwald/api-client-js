@@ -1,7 +1,7 @@
-import * as Client from "./Client";
-import { mapHeaders } from "./headers";
-import debug from "../debug";
-import * as Descriptor from "../OperationDescriptor";
+import * as Client from "./Client.js";
+import { mapHeaders } from "./headers.js";
+import debug from "../debug.js";
+import * as Descriptor from "../OperationDescriptor.js";
 
 const d = debug.extend("mapResponse");
 

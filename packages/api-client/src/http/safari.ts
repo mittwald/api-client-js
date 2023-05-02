@@ -8,7 +8,7 @@ const isSafari = typeof navigator === "object" && navigator.vendor === "Apple Co
  * which causes trouble during request mocking.
  */
 export const patchedFetchForSafari: Fetch = async (input, init) => {
-    if (isSafari && typeof input === "object" && ["POST", "PUT", "PATCH", "DELETE"].includes(input.method)) {
+    if (isSafari && typeof input === "object" && "method" in input && ["POST", "PUT", "PATCH", "DELETE"].includes(input.method)) {
         const clonedInput = input.clone();
         const body = await clonedInput.text();
         // eslint-disable-next-line no-undef

@@ -1,12 +1,12 @@
-import { OperationDescriptor } from "../OperationDescriptor";
-import { Request as ClientRequest, Response } from "./Client";
+import { OperationDescriptor } from "../OperationDescriptor.js";
+import { Request as ClientRequest, Response } from "./Client.js";
 import fetchMock, { MockOptions, MockRequest, MockResponse } from "fetch-mock";
-import { buildPathParamsMatcher, setPathParams } from "./path";
-import { mapBody } from "./response";
-import { mapHeaders } from "./headers";
+import { buildPathParamsMatcher, setPathParams } from "./path.js";
+import { mapBody } from "./response.js";
+import { mapHeaders } from "./headers.js";
 import queryString from "querystring";
-import debug from "../debug";
-import globals from "../globals";
+import debug from "../debug.js";
+import globals from "../globals.js";
 
 export type DeepPartial<T> = {
     [TKey in keyof T]?: DeepPartial<T[TKey]>;

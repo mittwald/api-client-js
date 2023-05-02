@@ -1,4 +1,4 @@
-import { objectEntries } from "@mittwald/awesome-node-utils/object/entries";
+import { objectEntries } from "@mittwald/awesome-node-utils/object/entries.js";
 import { match } from "path-to-regexp";
 import parsePath from "parse-path";
 

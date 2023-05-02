@@ -1,11 +1,11 @@
-import * as Client from "./Client";
-import debug from "../debug";
+import * as Client from "./Client.js";
+import debug from "../debug.js";
 import got, { Got, Method, RequestError as GotRequestError, Response, Options } from "got";
-import { Headers, OperationDescriptor } from "../OperationDescriptor";
-import { setPathParams } from "./path";
-import { convertQueryToUrlSearchParams } from "./request";
+import { Headers, OperationDescriptor } from "../OperationDescriptor.js";
+import { setPathParams } from "./path.js";
+import { convertQueryToUrlSearchParams } from "./request.js";
 import { URLSearchParams } from "url";
-import RequestError from "../RequestError";
+import RequestError from "../RequestError.js";
 
 const d = debug.extend("GotHTTPClient");
 

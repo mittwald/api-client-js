@@ -1,6 +1,6 @@
-const defaultConfig = require("./jest.config.default");
+import defaultConfig from "./jest.config.default.js";
 
-module.exports = {
+export default {
     ...defaultConfig,
     // put your custom config here
 };

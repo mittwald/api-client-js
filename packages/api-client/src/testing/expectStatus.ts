@@ -1,5 +1,5 @@
-import assertStatus from "../types/assertStatus";
-import { Response } from "../http/Client";
+import assertStatus from "../types/assertStatus.js";
+import { Response } from "../http/Client.js";
 
 export function expectStatus<T extends Partial<Response>, S extends T["status"]>(
     response: T,
