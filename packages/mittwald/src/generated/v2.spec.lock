@@ -3,7 +3,7 @@ spec:
   paths:
     /v2/apps/{appId}:
       get:
-        operationId: app-get-app-v2
+        operationId: app-get-app
         parameters:
           path:
             type: object
@@ -38,7 +38,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/apps:
       get:
-        operationId: app-get-apps-v2
+        operationId: app-get-apps
         parameters:
           query:
             type: object
@@ -76,7 +76,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/appinstallations/{appInstallationId}/actions/{action}:
       post:
-        operationId: appinstallation-execute-action-v2
+        operationId: appinstallation-execute-action
         parameters:
           path:
             type: object
@@ -113,7 +113,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/appinstallations/{appInstallationId}:
       get:
-        operationId: appinstallation-get-appinstallation-v2
+        operationId: appinstallation-get-appinstallation
         parameters:
           path:
             type: object
@@ -147,7 +147,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       patch:
-        operationId: appinstallation-patch-appinstallation-v2
+        operationId: appinstallation-patch-appinstallation
         parameters:
           path:
             type: object
@@ -205,7 +205,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       delete:
-        operationId: appinstallation-uninstall-appinstallation-v2
+        operationId: appinstallation-uninstall-appinstallation
         parameters:
           path:
             type: object
@@ -238,7 +238,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects/{projectId}/appinstallations:
       get:
-        operationId: appinstallation-get-appinstallations-v2
+        operationId: appinstallation-get-appinstallations
         parameters:
           query:
             type: object
@@ -283,7 +283,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       post:
-        operationId: appinstallation-request-appinstallation-v2
+        operationId: appinstallation-request-appinstallation
         parameters:
           path:
             type: object
@@ -347,7 +347,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/appinstallations/{appInstallationId}/databases:
       put:
-        operationId: appinstallation-link-database-v2
+        operationId: appinstallation-link-database
         parameters:
           path:
             type: object
@@ -399,7 +399,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/appinstallations/{appInstallationId}/status:
       get:
-        operationId: appinstallation-retrieve-status-v2
+        operationId: appinstallation-retrieve-status
         parameters:
           path:
             type: object
@@ -433,7 +433,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/appinstallations/{appInstallationId}/databases/{databaseId}:
       put:
-        operationId: appinstallation-set-database-users-v2
+        operationId: appinstallation-set-database-users
         parameters:
           path:
             type: object
@@ -478,7 +478,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       delete:
-        operationId: appinstallation-unlink-database-v2
+        operationId: appinstallation-unlink-database
         parameters:
           path:
             type: object
@@ -515,7 +515,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/appinstallations/{id}/actions/update-status:
       post:
-        operationId: appinstallation-update-status-v2
+        operationId: appinstallation-update-status
         parameters:
           path:
             type: object
@@ -567,7 +567,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/app/{appId}/versions/{appVersionId}:
       get:
-        operationId: appversion-get-appversion-v2
+        operationId: appversion-get-appversion
         parameters:
           path:
             type: object
@@ -606,7 +606,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/app/{appId}/versions:
       get:
-        operationId: appversion-get-appversions-v2
+        operationId: appversion-get-appversions
         parameters:
           path:
             type: object
@@ -616,19 +616,6 @@ spec:
               appId:
                 format: uuid
                 type: string
-          query:
-            type: object
-            required: []
-            properties:
-              limit:
-                minimum: 0
-                type: integer
-              page:
-                minimum: 0
-                type: integer
-              skip:
-                minimum: 0
-                type: integer
           header:
             type: object
             required:
@@ -662,7 +649,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/articles/{articleId}:
       get:
-        operationId: article-service-get-article-v2
+        operationId: article-service-get-article
         parameters:
           path:
             type: object
@@ -697,7 +684,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/articles:
       get:
-        operationId: article-service-list-articles-v2
+        operationId: article-service-list-articles
         parameters:
           query:
             type: object
@@ -1319,51 +1306,9 @@ spec:
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-    /v2/contracts/{contractId}/baseItem:
-      get:
-        operationId: contract-service-base-item-of-contract
-        parameters:
-          path:
-            type: object
-            required:
-              - contractId
-            properties:
-              contractId:
-                type: string
-          header:
-            type: object
-            required:
-              - x-access-token
-            properties:
-              x-access-token:
-                type: string
-              Accept:
-                type: string
-                enum: application/json
-        responses:
-          '200':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.contract.ContractItem'
-          '404':
-            content:
-              application/json:
-                properties:
-                  msg:
-                    type: string
-          '500':
-            content:
-              application/json:
-                properties:
-                  msg:
-                    type: string
-          default:
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/contracts/{contractId}/items/{contractItemId}/termination:
       delete:
-        operationId: contract-service-cancel-contract-item-termination
+        operationId: deprecated-contract-cancel-contract-item-termination
         parameters:
           path:
             type: object
@@ -1372,8 +1317,10 @@ spec:
               - contractItemId
             properties:
               contractId:
+                format: uuid
                 type: string
               contractItemId:
+                format: uuid
                 type: string
           header:
             type: object
@@ -1410,72 +1357,9 @@ spec:
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-      post:
-        operationId: contract-service-terminate-contract-item
-        parameters:
-          path:
-            type: object
-            required:
-              - contractId
-              - contractItemId
-            properties:
-              contractId:
-                type: string
-              contractItemId:
-                type: string
-          header:
-            type: object
-            required:
-              - x-access-token
-            properties:
-              x-access-token:
-                type: string
-              Accept:
-                type: string
-                enum: application/json
-          requestBody:
-            properties:
-              reason:
-                description: A reason for the termination can be given as plain text.
-                type: string
-              terminationTargetDate:
-                description: >-
-                  The termination date has to be a valid date according to
-                  activation and contract period of the contract item. If none
-                  given, the next possible termination date will be used.
-                format: date-time
-                type: string
-        responses:
-          '201':
-            content:
-              application/json:
-                properties:
-                  contractId:
-                    format: uuid
-                    type: string
-                  contractItemId:
-                    format: uuid
-                    type: string
-                  reason:
-                    type: string
-                  terminationTargetDate:
-                    format: date
-                    type: string
-          '400':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
-          '404':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-          default:
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/contracts/{contractId}/items/{contractItemId}/tariff-change:
       delete:
-        operationId: contract-service-cancel-contract-tariff-change
+        operationId: deprecated-contract-cancel-contract-tariff-change
         parameters:
           path:
             type: object
@@ -1484,8 +1368,10 @@ spec:
               - contractItemId
             properties:
               contractId:
+                format: uuid
                 type: string
               contractItemId:
+                format: uuid
                 type: string
           header:
             type: object
@@ -1524,7 +1410,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/contracts/{contractId}/termination:
       delete:
-        operationId: contract-service-cancel-contract-termination
+        operationId: deprecated-contract-cancel-contract-termination
         parameters:
           path:
             type: object
@@ -1532,6 +1418,7 @@ spec:
               - contractId
             properties:
               contractId:
+                format: uuid
                 type: string
           header:
             type: object
@@ -1566,7 +1453,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       post:
-        operationId: contract-service-terminate-contract
+        operationId: deprecated-contract-terminate-contract
         parameters:
           path:
             type: object
@@ -1574,6 +1461,7 @@ spec:
               - contractId
             properties:
               contractId:
+                format: uuid
                 type: string
           header:
             type: object
@@ -1589,11 +1477,12 @@ spec:
             properties:
               reason:
                 description: A reason for the termination can be given as plain text.
+                example: Projekt wird nicht mehr benötigt
                 type: string
               terminationTargetDate:
                 description: >-
                   The termination date has to be a valid date according to
-                  activation and contract period of the base contract item. If
+                  activation and contract period of the base ContractItem. If
                   none given, the next possible termination date will be used.
                 format: date-time
                 type: string
@@ -1611,6 +1500,7 @@ spec:
                       type: string
                     type: array
                   reason:
+                    example: Projekt wird nicht mehr benötigt
                     type: string
                   terminationTargetDate:
                     format: date
@@ -1629,7 +1519,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/contracts/{contractId}:
       get:
-        operationId: contract-service-detail-of-contract
+        operationId: contract-get-detail-of-contract
         parameters:
           path:
             type: object
@@ -1637,6 +1527,7 @@ spec:
               - contractId
             properties:
               contractId:
+                format: uuid
                 type: string
           header:
             type: object
@@ -1653,35 +1544,34 @@ spec:
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.contract.Contract'
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
           '404':
             content:
               application/json:
-                properties:
-                  msg:
-                    type: string
-          '500':
-            content:
-              application/json:
-                properties:
-                  msg:
-                    type: string
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
           default:
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/contracts:
       get:
-        operationId: contract-service-detail-of-contract-by-aggregate
+        operationId: contract-get-detail-of-contract-by-aggregate
         parameters:
           query:
             type: object
             required: []
             properties:
               projectId:
+                format: uuid
                 type: string
               placementgroupId:
+                format: uuid
                 type: string
               domainId:
+                format: uuid
                 type: string
               projectHostingId:
                 type: string
@@ -1700,25 +1590,21 @@ spec:
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.contract.Contract'
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
           '404':
             content:
               application/json:
-                properties:
-                  msg:
-                    type: string
-          '500':
-            content:
-              application/json:
-                properties:
-                  msg:
-                    type: string
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
           default:
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/customers/{customerId}/contracts/{contractId}:
       get:
-        operationId: contract-service-detail-of-contract-deprecated
+        operationId: deprecated-contract-detail-of-contract
         parameters:
           path:
             type: object
@@ -1763,7 +1649,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/contracts/{contractId}/items/{contractItemId}:
       get:
-        operationId: contract-service-detail-of-contract-item
+        operationId: contract-get-detail-of-contract-item
         parameters:
           path:
             type: object
@@ -1772,8 +1658,10 @@ spec:
               - contractItemId
             properties:
               contractId:
+                format: uuid
                 type: string
               contractItemId:
+                format: uuid
                 type: string
           header:
             type: object
@@ -1790,25 +1678,21 @@ spec:
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.contract.ContractItem'
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
           '404':
             content:
               application/json:
-                properties:
-                  msg:
-                    type: string
-          '500':
-            content:
-              application/json:
-                properties:
-                  msg:
-                    type: string
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
           default:
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/customers/{customerId}/contracts:
       get:
-        operationId: contract-service-list-contracts
+        operationId: contract-list-contracts
         parameters:
           path:
             type: object
@@ -1816,6 +1700,7 @@ spec:
               - customerId
             properties:
               customerId:
+                format: uuid
                 type: string
           query:
             type: object
@@ -1844,25 +1729,21 @@ spec:
                 items:
                   $ref: '#/components/schemas/de.mittwald.v1.contract.Contract'
                 type: array
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
           '404':
             content:
               application/json:
-                properties:
-                  msg:
-                    type: string
-          '500':
-            content:
-              application/json:
-                properties:
-                  msg:
-                    type: string
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
           default:
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/contracts/{contractId}/items/{contractItemId}/next-termination-date:
       get:
-        operationId: contract-service-next-termination-date-for-item
+        operationId: deprecated-contract-get-next-termination-date-for-item
         parameters:
           path:
             type: object
@@ -1871,8 +1752,10 @@ spec:
               - contractItemId
             properties:
               contractId:
+                format: uuid
                 type: string
               contractItemId:
+                format: uuid
                 type: string
           header:
             type: object
@@ -1898,25 +1781,21 @@ spec:
                 required:
                   - contractItemId
                   - nextTerminationDate
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
           '404':
             content:
               application/json:
-                properties:
-                  msg:
-                    type: string
-          '500':
-            content:
-              application/json:
-                properties:
-                  msg:
-                    type: string
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
           default:
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/conversations:
       post:
-        operationId: conversation-service-create-conversation-v2
+        operationId: conversation-service-create-conversation
         parameters:
           header:
             type: object
@@ -1961,7 +1840,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       get:
-        operationId: conversation-service-get-conversations-v2
+        operationId: conversation-service-get-conversations
         parameters:
           header:
             type: object
@@ -1987,7 +1866,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/conversations/{conversationId}/messages:
       post:
-        operationId: conversation-service-create-message-v2
+        operationId: conversation-service-create-message
         parameters:
           path:
             type: object
@@ -2048,7 +1927,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       get:
-        operationId: conversation-service-get-messages-by-conversation-v2
+        operationId: conversation-service-get-messages-by-conversation
         parameters:
           path:
             type: object
@@ -2092,7 +1971,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/conversation-categories:
       get:
-        operationId: conversation-service-get-categories-v2
+        operationId: conversation-service-get-categories
         parameters:
           query:
             type: object
@@ -2123,7 +2002,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/conversation-categories/{categoryId}:
       get:
-        operationId: conversation-service-get-category-v2
+        operationId: conversation-service-get-category
         parameters:
           path:
             type: object
@@ -2162,7 +2041,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/conversations/{conversationId}:
       get:
-        operationId: conversation-service-get-conversation-v2
+        operationId: conversation-service-get-conversation
         parameters:
           path:
             type: object
@@ -2204,7 +2083,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       put:
-        operationId: conversation-service-update-conversation-v2
+        operationId: conversation-service-update-conversation
         parameters:
           path:
             type: object
@@ -2265,7 +2144,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/conversations/{conversationId}/files:
       post:
-        operationId: conversation-service-request-file-upload-v2
+        operationId: conversation-service-request-file-upload
         parameters:
           path:
             type: object
@@ -2344,7 +2223,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/conversations/{conversationId}/status:
       put:
-        operationId: conversation-service-set-conversation-status-v2
+        operationId: conversation-service-set-conversation-status
         parameters:
           path:
             type: object
@@ -2403,7 +2282,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/conversations/{conversationId}/messages/{messageId}:
       patch:
-        operationId: conversation-service-update-message-v2
+        operationId: conversation-service-update-message
         parameters:
           path:
             type: object
@@ -2460,7 +2339,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/cronjobs/{cronjobId}/executions/{executionId}/abort:
       post:
-        operationId: deprecated-cronjob-abort-execution-v2
+        operationId: deprecated-cronjob-abort-execution
         parameters:
           path:
             type: object
@@ -2497,7 +2376,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects/{projectId}/cronjobs:
       post:
-        operationId: cronjob-create-cronjob-v2
+        operationId: cronjob-create-cronjob
         parameters:
           path:
             type: object
@@ -2543,7 +2422,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       get:
-        operationId: cronjob-list-cronjobs-v2
+        operationId: cronjob-list-cronjobs
         parameters:
           path:
             type: object
@@ -2589,7 +2468,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/cronjobs/{cronjobId}/executions:
       post:
-        operationId: cronjob-create-execution-v2
+        operationId: cronjob-create-execution
         parameters:
           path:
             type: object
@@ -2634,7 +2513,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       get:
-        operationId: cronjob-list-executions-v2
+        operationId: cronjob-list-executions
         parameters:
           path:
             type: object
@@ -2689,7 +2568,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/cronjobs/{cronjobId}:
       delete:
-        operationId: cronjob-delete-cronjob-v2
+        operationId: cronjob-delete-cronjob
         parameters:
           path:
             type: object
@@ -2727,7 +2606,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       get:
-        operationId: cronjob-get-cronjob-v2
+        operationId: cronjob-get-cronjob
         parameters:
           path:
             type: object
@@ -2761,7 +2640,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       patch:
-        operationId: cronjob-update-cronjob-v2
+        operationId: cronjob-update-cronjob
         parameters:
           path:
             type: object
@@ -2822,7 +2701,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/cronjobs/{cronjobId}/executions/{executionId}:
       get:
-        operationId: cronjob-get-execution-v2
+        operationId: cronjob-get-execution
         parameters:
           path:
             type: object
@@ -2972,7 +2851,7 @@ spec:
                 type: object
     /v2/customercategories:
       post:
-        operationId: customer-service-create-category
+        operationId: customer-service-create-category-deprecated
         parameters:
           header:
             type: object
@@ -3013,7 +2892,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       get:
-        operationId: customer-service-list-of-customer-categories
+        operationId: customer-service-list-of-customer-categories-deprecated
         parameters:
           header:
             type: object
@@ -3281,7 +3160,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/customercategories/{categoryId}:
       delete:
-        operationId: customer-service-delete-category
+        operationId: customer-service-delete-category-deprecated
         parameters:
           path:
             type: object
@@ -3310,7 +3189,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       get:
-        operationId: customer-service-detail-of-customer-category
+        operationId: customer-service-detail-of-customer-category-deprecated
         parameters:
           path:
             type: object
@@ -3339,7 +3218,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       put:
-        operationId: customer-service-update-category
+        operationId: customer-service-update-category-deprecated
         parameters:
           path:
             type: object
@@ -4945,7 +4824,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects/{projectId}/dns/zones:
       get:
-        operationId: dns-zones-for-project-v2
+        operationId: dns-zones-for-project
         parameters:
           path:
             type: object
@@ -4982,7 +4861,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/domains/{domainId}/declarations:
       delete:
-        operationId: domain-service-abort-declare-process-v2
+        operationId: domain-service-abort-declare-process
         parameters:
           path:
             type: object
@@ -5019,7 +4898,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/domains/{domainId}/handles/ownerc:
       put:
-        operationId: domain-service-change-ownerc-of-domain-v2
+        operationId: domain-service-change-ownerc-of-domain
         parameters:
           path:
             type: object
@@ -5072,7 +4951,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/domains/{domainId}/projectId:
       put:
-        operationId: domain-service-change-project-of-domain-v2
+        operationId: domain-service-change-project-of-domain
         parameters:
           path:
             type: object
@@ -5114,7 +4993,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/domains:
       post:
-        operationId: domain-service-check-domain-availability-v2
+        operationId: domain-service-check-domain-availability
         parameters:
           header:
             properties:
@@ -5148,7 +5027,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/domains/{domainId}/actions/create-authcode:
       post:
-        operationId: domain-service-create-authcode-for-domain-v2
+        operationId: domain-service-create-authcode-for-domain
         parameters:
           path:
             type: object
@@ -5192,7 +5071,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/domains/{domainId}/actions/create-authcode2:
       post:
-        operationId: domain-service-create-authcode2-for-domain-v2
+        operationId: domain-service-create-authcode2-for-domain
         parameters:
           path:
             type: object
@@ -5229,7 +5108,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/domains/{domainId}/nameservers:
       put:
-        operationId: domain-service-declare-nameservers-v2
+        operationId: domain-service-declare-nameservers
         parameters:
           path:
             type: object
@@ -5275,7 +5154,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/domains/{domainId}/declarations/authcode:
       put:
-        operationId: domain-service-declare-process-change-authcode-v2
+        operationId: domain-service-declare-process-change-authcode
         parameters:
           path:
             type: object
@@ -5326,7 +5205,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/domains/{domainId}/declarations/handles:
       put:
-        operationId: domain-service-declare-process-change-handles-v2
+        operationId: domain-service-declare-process-change-handles
         parameters:
           path:
             type: object
@@ -5379,7 +5258,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/domains/{domainId}:
       delete:
-        operationId: domain-service-delete-domain-v2
+        operationId: domain-service-delete-domain
         parameters:
           path:
             type: object
@@ -5428,7 +5307,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       get:
-        operationId: domain-service-get-domain-v2
+        operationId: domain-service-get-domain
         parameters:
           path:
             type: object
@@ -5467,7 +5346,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/domains/handle-schema/{domainName}:
       get:
-        operationId: domain-service-get-handle-fields-v2
+        operationId: domain-service-get-handle-fields
         parameters:
           path:
             type: object
@@ -5500,7 +5379,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/domain-ownerships/{domainOwnershipId}:
       get:
-        operationId: domain-service-get-specific-domain-ownership-v2
+        operationId: domain-service-get-specific-domain-ownership
         parameters:
           path:
             type: object
@@ -5538,7 +5417,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       post:
-        operationId: domain-service-verify-domain-ownership-v2
+        operationId: domain-service-verify-domain-ownership
         parameters:
           path:
             type: object
@@ -5575,7 +5454,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/toplevel-domains/{tld}:
       get:
-        operationId: domain-service-get-toplevel-domain-v2
+        operationId: domain-service-get-toplevel-domain
         parameters:
           path:
             type: object
@@ -5613,7 +5492,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects/{projectId}/domain-ownerships:
       get:
-        operationId: domain-service-list-domain-ownerships-v2
+        operationId: domain-service-list-domain-ownerships
         parameters:
           path:
             type: object
@@ -5650,7 +5529,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects/{projectId}/domains:
       get:
-        operationId: domain-service-list-domains-v2
+        operationId: domain-service-list-domains
         parameters:
           path:
             type: object
@@ -5699,7 +5578,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/toplevel-domains:
       get:
-        operationId: domain-service-list-toplevel-domains-v2
+        operationId: domain-service-list-toplevel-domains
         parameters:
           header:
             type: object
@@ -5728,7 +5607,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/domains/{domainId}/actions/resend-email:
       post:
-        operationId: domain-service-resend-domain-email-v2
+        operationId: domain-service-resend-domain-email
         parameters:
           path:
             type: object
@@ -5812,7 +5691,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/files:
       post:
-        operationId: file-service-file-create
+        operationId: file-create-file
         parameters:
           header:
             type: object
@@ -5848,7 +5727,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/files/{id}:
       get:
-        operationId: file-service-file-get
+        operationId: file-get-file
         parameters:
           path:
             type: object
@@ -5901,7 +5780,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/files/{id}/meta:
       get:
-        operationId: file-service-file-get-meta
+        operationId: file-get-file-meta
         parameters:
           path:
             type: object
@@ -5937,7 +5816,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/file-token-rules/{token}:
       get:
-        operationId: file-service-file-get-token-rules
+        operationId: file-get-file-token-rules
         parameters:
           path:
             type: object
@@ -6210,7 +6089,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/customers/{customerId}/invoices/{invoiceId}:
       get:
-        operationId: invoice-service-detail-of-invoice
+        operationId: invoice-detail-of-invoice
         parameters:
           path:
             type: object
@@ -6221,6 +6100,7 @@ spec:
               customerId:
                 type: string
               invoiceId:
+                format: uuid
                 type: string
           header:
             type: object
@@ -6251,7 +6131,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/customers/{customerId}/invoicesettings:
       get:
-        operationId: invoice-service-invoice-settings
+        operationId: deprecated-invoice-invoice-settings
         parameters:
           path:
             type: object
@@ -6288,7 +6168,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       put:
-        operationId: invoice-service-update-invoice-settings
+        operationId: deprecated-invoice-update-invoice-settings
         parameters:
           path:
             type: object
@@ -6315,6 +6195,7 @@ spec:
                   type: string
                 type: array
               invoicePeriod:
+                example: 1
                 minimum: 0
                 type: integer
               paymentSettings:
@@ -6326,6 +6207,7 @@ spec:
               recipientSameAsOwner:
                 type: boolean
               targetDay:
+                example: 15
                 maximum: 28
                 minimum: 0
                 type: integer
@@ -6337,7 +6219,7 @@ spec:
           '200':
             content:
               application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.invoice.Dummy'
+                $ref: '#/components/schemas/de.mittwald.v1.invoice.InvoiceSettings'
           '400':
             content:
               application/json:
@@ -6352,7 +6234,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/customers/{customerId}/invoices:
       get:
-        operationId: invoice-service-list-customer-invoices
+        operationId: invoice-list-customer-invoices
         parameters:
           path:
             type: object
@@ -7231,7 +7113,7 @@ spec:
             content: {}
     /v2/invites/customer/{inviteId}/accept:
       post:
-        operationId: membership-service-accept-customer-invite
+        operationId: customer-accept-customer-invite
         parameters:
           path:
             type: object
@@ -7254,6 +7136,7 @@ spec:
           requestBody:
             properties:
               invitationToken:
+                description: Token contained in the invite for authentication.
                 type: string
             type: object
         responses:
@@ -7277,7 +7160,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/customer/accept/:
       post:
-        operationId: membership-service-accept-customer-invite-with-token
+        operationId: customer-accept-customer-invite-with-token
         parameters:
           header:
             type: object
@@ -7292,6 +7175,7 @@ spec:
           requestBody:
             properties:
               invitationToken:
+                description: Token contained in the invite for authentication.
                 type: string
             type: object
         responses:
@@ -7319,7 +7203,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/project/{inviteId}/accept:
       post:
-        operationId: membership-service-accept-project-invite
+        operationId: project-accept-project-invite
         parameters:
           path:
             type: object
@@ -7342,6 +7226,7 @@ spec:
           requestBody:
             properties:
               invitationToken:
+                description: Token contained in the invite for authentication.
                 type: string
             type: object
         responses:
@@ -7365,7 +7250,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/project/accept/:
       post:
-        operationId: membership-service-accept-project-invite-with-token
+        operationId: project-accept-project-invite-with-token
         parameters:
           header:
             type: object
@@ -7380,6 +7265,7 @@ spec:
           requestBody:
             properties:
               invitationToken:
+                description: Token contained in the invite for authentication.
                 type: string
             type: object
         responses:
@@ -7407,7 +7293,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/memberships/customer/{membershipId}:
       put:
-        operationId: membership-service-change-customer-membership
+        operationId: customer-change-customer-membership
         parameters:
           path:
             type: object
@@ -7430,6 +7316,7 @@ spec:
           requestBody:
             properties:
               expiresAt:
+                description: Time the CustomerMembership should expire at.
                 format: date-time
                 type: string
               role:
@@ -7445,7 +7332,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       delete:
-        operationId: membership-service-delete-customer-membership
+        operationId: customer-delete-customer-membership
         parameters:
           path:
             type: object
@@ -7474,7 +7361,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/memberships/project/{membershipId}:
       put:
-        operationId: membership-service-change-project-membership
+        operationId: project-change-project-membership
         parameters:
           path:
             type: object
@@ -7497,6 +7384,7 @@ spec:
           requestBody:
             properties:
               expiresAt:
+                description: Time the ProjectMembership should expire at.
                 format: date-time
                 type: string
               role:
@@ -7512,7 +7400,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       delete:
-        operationId: membership-service-delete-project-membership
+        operationId: project-delete-project-membership
         parameters:
           path:
             type: object
@@ -7541,7 +7429,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/customer:
       post:
-        operationId: membership-service-create-customer-invite
+        operationId: customer-create-customer-invite
         parameters:
           header:
             type: object
@@ -7556,14 +7444,18 @@ spec:
           requestBody:
             properties:
               customerId:
+                description: ID of the Customer this invite is for.
                 type: string
               mailAddress:
+                description: Mail-address of the person to be invited.
                 format: email
                 type: string
               membershipExpiresAt:
+                description: Time the resulting CustomerMembership should expire at.
                 format: date-time
                 type: string
               message:
+                description: Message contained in the CustomerInvite.
                 type: string
               role:
                 $ref: '#/components/schemas/de.mittwald.v1.membership.CustomerRoles'
@@ -7591,7 +7483,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/project:
       post:
-        operationId: membership-service-create-project-invite
+        operationId: project-create-project-invite
         parameters:
           header:
             type: object
@@ -7606,14 +7498,18 @@ spec:
           requestBody:
             properties:
               mailAddress:
+                description: Mail-address of the person to be invited.
                 format: email
                 type: string
               membershipExpiresAt:
+                description: Time the resulting ProjectMembership should expire at.
                 format: date-time
                 type: string
               message:
+                description: Message contained in the ProjectInvite.
                 type: string
               projectId:
+                description: ID of the Project this invite is for.
                 type: string
               role:
                 $ref: '#/components/schemas/de.mittwald.v1.membership.ProjectRoles'
@@ -7641,7 +7537,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/customer/{inviteId}/decline:
       delete:
-        operationId: membership-service-decline-customer-invite
+        operationId: customer-decline-customer-invite
         parameters:
           path:
             type: object
@@ -7670,7 +7566,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/project/{inviteId}/decline:
       delete:
-        operationId: membership-service-decline-project-invite
+        operationId: project-decline-project-invite
         parameters:
           path:
             type: object
@@ -7699,7 +7595,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/customers/specific/{inviteId}:
       get:
-        operationId: membership-service-get-customer-invite-specific
+        operationId: customer-get-customer-invite-specific
         parameters:
           path:
             type: object
@@ -7707,43 +7603,6 @@ spec:
               - inviteId
             properties:
               inviteId:
-                type: string
-          header:
-            type: object
-            required:
-              - x-access-token
-            properties:
-              x-access-token:
-                type: string
-              Accept:
-                type: string
-                enum: application/json
-        responses:
-          '200':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.membership.CustomerInvite'
-          '404':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-          default:
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-    /v2/invites/customers/{customerId}/specific/{inviteId}:
-      get:
-        operationId: membership-service-get-customer-invite-specific-deprecated
-        parameters:
-          path:
-            type: object
-            required:
-              - inviteId
-              - customerId
-            properties:
-              inviteId:
-                type: string
-              customerId:
                 type: string
           header:
             type: object
@@ -7770,7 +7629,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/memberships/customers/{customerId}/specific/{membershipId}:
       get:
-        operationId: membership-service-get-customer-membership-specific
+        operationId: customer-get-customer-membership-specific
         parameters:
           path:
             type: object
@@ -7808,7 +7667,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects/{projectId}/memberships/me:
       get:
-        operationId: membership-service-get-own-membership-for-project-v2
+        operationId: project-get-own-membership-for-project
         parameters:
           path:
             type: object
@@ -7843,7 +7702,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/projects/specific/{inviteId}:
       get:
-        operationId: membership-service-get-project-invite-specific
+        operationId: project-get-project-invite-specific
         parameters:
           path:
             type: object
@@ -7867,81 +7726,6 @@ spec:
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.membership.ProjectInvite'
-          '404':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-          default:
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-    /v2/invites/projects/{projectId}/specific/{inviteId}:
-      get:
-        operationId: membership-service-get-project-invite-specific-deprecated
-        parameters:
-          path:
-            type: object
-            required:
-              - inviteId
-              - projectId
-            properties:
-              inviteId:
-                type: string
-              projectId:
-                type: string
-          header:
-            type: object
-            required:
-              - x-access-token
-            properties:
-              x-access-token:
-                type: string
-              Accept:
-                type: string
-                enum: application/json
-        responses:
-          '200':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.membership.ProjectInvite'
-          '404':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-          default:
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-    /v2/projects/{projectId}/users/{userId}/membership:
-      get:
-        operationId: membership-service-get-project-membership-for-project-and-user
-        parameters:
-          path:
-            type: object
-            required:
-              - userId
-              - projectId
-            properties:
-              userId:
-                type: string
-              projectId:
-                type: string
-          header:
-            type: object
-            required:
-              - x-access-token
-            properties:
-              x-access-token:
-                type: string
-              Accept:
-                type: string
-                enum: application/json
-        responses:
-          '200':
-            content:
-              application/json:
-                $ref: >-
-                  #/components/schemas/de.mittwald.v1.membership.ProjectMembership
           '404':
             content:
               application/json:
@@ -7952,7 +7736,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/memberships/projects/{projectId}/specific/{membershipId}:
       get:
-        operationId: membership-service-get-project-membership-specific
+        operationId: project-get-project-membership-specific
         parameters:
           path:
             type: object
@@ -7990,7 +7774,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/memberships/customer/{membershipId}/leave:
       delete:
-        operationId: membership-service-leave-customer
+        operationId: customer-leave-customer
         parameters:
           path:
             type: object
@@ -8019,7 +7803,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/memberships/project/{membershipId}/leave:
       delete:
-        operationId: membership-service-leave-project
+        operationId: project-leave-project
         parameters:
           path:
             type: object
@@ -8046,63 +7830,9 @@ spec:
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-    /v2/invites/customers:
-      get:
-        operationId: membership-service-list-customer-invites-for-user-or-email
-        parameters:
-          query:
-            type: object
-            required: []
-            properties:
-              emailAddress:
-                format: email
-                type: string
-              userId:
-                format: uuid
-                type: string
-              limit:
-                type: integer
-              skip:
-                type: integer
-          header:
-            type: object
-            required:
-              - x-access-token
-            properties:
-              x-access-token:
-                type: string
-              Accept:
-                type: string
-                enum: application/json
-        responses:
-          '200':
-            content:
-              application/json:
-                items:
-                  $ref: >-
-                    #/components/schemas/de.mittwald.v1.membership.CustomerInvite
-                type: array
-            headers:
-              type: object
-              required: []
-              properties:
-                X-Pagination-Limit:
-                  type: number
-                X-Pagination-Skip:
-                  type: number
-                X-Pagination-TotalCount:
-                  type: number
-          '404':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-          default:
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/memberships/customers:
       get:
-        operationId: membership-service-list-customer-memberships-for-user
+        operationId: customer-list-customer-memberships-for-user
         parameters:
           query:
             type: object
@@ -8150,7 +7880,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/customers/{customerId}:
       get:
-        operationId: membership-service-list-invites-for-customer
+        operationId: customer-list-invites-for-customer
         parameters:
           path:
             type: object
@@ -8205,7 +7935,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/projects/{projectId}:
       get:
-        operationId: membership-service-list-invites-for-project
+        operationId: project-list-invites-for-project
         parameters:
           path:
             type: object
@@ -8259,7 +7989,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/memberships/customers/{customerId}:
       get:
-        operationId: membership-service-list-memberships-for-customer
+        operationId: customer-list-memberships-for-customer
         parameters:
           path:
             type: object
@@ -8314,7 +8044,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/memberships/projects/{projectId}:
       get:
-        operationId: membership-service-list-memberships-for-project
+        operationId: project-list-memberships-for-project
         parameters:
           path:
             type: object
@@ -8369,7 +8099,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/customers/me:
       get:
-        operationId: membership-service-list-own-customer-invites-v2
+        operationId: customer-list-own-customer-invites
         parameters:
           query:
             type: object
@@ -8417,65 +8147,12 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/projects/me:
       get:
-        operationId: membership-service-list-own-project-invites-v2
+        operationId: project-list-own-project-invites
         parameters:
           query:
             type: object
             required: []
             properties:
-              limit:
-                type: integer
-              skip:
-                type: integer
-          header:
-            type: object
-            required:
-              - x-access-token
-            properties:
-              x-access-token:
-                type: string
-              Accept:
-                type: string
-                enum: application/json
-        responses:
-          '200':
-            content:
-              application/json:
-                items:
-                  $ref: '#/components/schemas/de.mittwald.v1.membership.ProjectInvite'
-                type: array
-            headers:
-              type: object
-              required: []
-              properties:
-                X-Pagination-Limit:
-                  type: number
-                X-Pagination-Skip:
-                  type: number
-                X-Pagination-TotalCount:
-                  type: number
-          '404':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-          default:
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-    /v2/invites/projects/:
-      get:
-        operationId: membership-service-list-project-invites-for-user-or-email
-        parameters:
-          query:
-            type: object
-            required: []
-            properties:
-              emailAddress:
-                format: email
-                type: string
-              userId:
-                format: uuid
-                type: string
               limit:
                 type: integer
               skip:
@@ -8517,7 +8194,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/memberships/projects:
       get:
-        operationId: membership-service-list-project-memberships-for-user
+        operationId: project-list-project-memberships-for-user
         parameters:
           query:
             type: object
@@ -8565,7 +8242,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/customer/{inviteId}/resend:
       post:
-        operationId: membership-service-resend-customer-invite-mail
+        operationId: customer-resend-customer-invite-mail
         parameters:
           path:
             type: object
@@ -8598,7 +8275,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/project/{inviteId}/resend:
       post:
-        operationId: membership-service-resend-project-invite-mail
+        operationId: project-resend-project-invite-mail
         parameters:
           path:
             type: object
@@ -8631,7 +8308,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/customer/{inviteId}:
       delete:
-        operationId: membership-service-revoke-customer-invite
+        operationId: customer-revoke-customer-invite
         parameters:
           path:
             type: object
@@ -8660,7 +8337,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/project/{inviteId}:
       delete:
-        operationId: membership-service-revoke-project-invite
+        operationId: project-revoke-project-invite
         parameters:
           path:
             type: object
@@ -8852,7 +8529,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/newsletter/subscriptions/{email}:
       get:
-        operationId: newsletter-get-info-v2
+        operationId: newsletter-get-info
         parameters:
           path:
             type: object
@@ -8892,7 +8569,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       delete:
-        operationId: newsletter-unsubscribe-user-v2
+        operationId: newsletter-unsubscribe-user
         parameters:
           path:
             type: object
@@ -8920,7 +8597,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/newsletter/subscriptions:
       post:
-        operationId: newsletter-subscribe-user-v2
+        operationId: newsletter-subscribe-user
         parameters:
           header:
             type: object
@@ -8965,7 +8642,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/orders/actions/change-projecthosting:
       post:
-        operationId: order-service-change-projecthosting-v2
+        operationId: order-service-change-projecthosting
         parameters:
           header:
             type: object
@@ -9011,7 +8688,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/orders/actions/change-server:
       post:
-        operationId: order-service-change-server-v2
+        operationId: order-service-change-server
         parameters:
           header:
             type: object
@@ -9055,7 +8732,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/orders/{orderId}:
       get:
-        operationId: order-service-get-order-v2
+        operationId: order-service-get-order
         parameters:
           path:
             type: object
@@ -9085,7 +8762,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/customers/{customerId}/orders:
       get:
-        operationId: order-service-list-customer-orders-v2
+        operationId: order-service-list-customer-orders
         parameters:
           path:
             type: object
@@ -9142,7 +8819,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/orders/actions/order-domain:
       post:
-        operationId: order-service-order-domain-v2
+        operationId: order-service-order-domain
         parameters:
           header:
             type: object
@@ -9206,7 +8883,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/orders/actions/order-projecthosting:
       post:
-        operationId: order-service-order-projecthosting-v2
+        operationId: order-service-order-projecthosting
         parameters:
           header:
             type: object
@@ -9255,7 +8932,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/orders/actions/order-server:
       post:
-        operationId: order-service-order-server-v2
+        operationId: order-service-order-server
         parameters:
           header:
             type: object
@@ -9304,7 +8981,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/orders/actions/preview-change-projecthosting:
       post:
-        operationId: order-service-preview-change-projecthosting-v2
+        operationId: order-service-preview-change-projecthosting
         parameters:
           header:
             type: object
@@ -9356,7 +9033,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/orders/actions/preview-change-server:
       post:
-        operationId: order-service-preview-change-server-v2
+        operationId: order-service-preview-change-server
         parameters:
           header:
             type: object
@@ -9406,7 +9083,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/orders/actions/preview-order-domain:
       post:
-        operationId: order-service-preview-order-domain-v2
+        operationId: order-service-preview-order-domain
         parameters:
           header:
             type: object
@@ -9452,7 +9129,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/orders/actions/preview-order-projecthosting:
       post:
-        operationId: order-service-preview-order-projecthosting-v2
+        operationId: order-service-preview-order-projecthosting
         parameters:
           header:
             properties:
@@ -9500,7 +9177,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/orders/actions/preview-order-server:
       post:
-        operationId: order-service-preview-order-server-v2
+        operationId: order-service-preview-order-server
         parameters:
           header:
             properties:
@@ -10336,7 +10013,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/relocation:
       post:
-        operationId: redirectus-create-relocation-v2
+        operationId: redirectus-create-relocation
         parameters:
           header:
             properties:
@@ -10491,14 +10168,24 @@ spec:
           requestBody:
             properties:
               description:
+                example: Api Token - read
                 type: string
               expiresAt:
                 format: date-time
                 type: string
               roles:
+                description: determines the access rights of the ApiToken
+                example:
+                  value:
+                    - api_read
                 items:
+                  enum:
+                    - api_read
+                    - api_write
                   type: string
+                minItems: 1
                 type: array
+                uniqueItems: true
             required:
               - roles
               - description
@@ -10509,6 +10196,7 @@ spec:
               application/json:
                 properties:
                   token:
+                    description: The `ApiToken`
                     type: string
                 required:
                   - token
@@ -10516,7 +10204,7 @@ spec:
           '400':
             content:
               application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.common.ValidationErrors'
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
           '401':
             content:
               application/json:
@@ -10612,7 +10300,7 @@ spec:
           '400':
             content:
               application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.common.ValidationErrors'
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
           '401':
             content:
               application/json:
@@ -10646,6 +10334,7 @@ spec:
               - apiTokenId
             properties:
               apiTokenId:
+                format: uuid
                 type: string
           header:
             type: object
@@ -10660,6 +10349,7 @@ spec:
           requestBody:
             properties:
               description:
+                example: Api Token for ...
                 type: string
               expiresAt:
                 format: date-time
@@ -10673,7 +10363,7 @@ spec:
           '400':
             content:
               application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.common.ValidationErrors'
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
           '401':
             content:
               application/json:
@@ -10707,6 +10397,7 @@ spec:
               - apiTokenId
             properties:
               apiTokenId:
+                format: uuid
                 type: string
           header:
             type: object
@@ -12868,17 +12559,18 @@ spec:
               application/json:
                 properties:
                   id:
+                    format: uuid
                     type: string
                   publicToken:
                     type: string
                 required:
-                  - publicToken
                   - id
+                  - publicToken
                 type: object
           '400':
             content:
               application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.common.ValidationErrors'
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
           '401':
             content:
               application/json:
@@ -13851,7 +13543,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/systemsoftwares/{systemSoftwareId}:
       get:
-        operationId: systemsoftware-get-systemsoftware-v2
+        operationId: systemsoftware-get-systemsoftware
         parameters:
           path:
             type: object
@@ -13886,7 +13578,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/systemsoftwares:
       get:
-        operationId: systemsoftware-get-systemsoftwares-v2
+        operationId: systemsoftware-get-systemsoftwares
         parameters:
           query:
             type: object
@@ -13934,7 +13626,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/systemsoftware/{systemSoftwareId}/versions/{systemSoftwareVersionId}:
       get:
-        operationId: systemsoftwareversion-get-systemsoftwareversion-v2
+        operationId: systemsoftwareversion-get-systemsoftwareversion
         parameters:
           path:
             type: object
@@ -13973,7 +13665,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/systemsoftware/{systemSoftwareId}/versions:
       get:
-        operationId: systemsoftwareversion-get-systemsoftwareversions-v2
+        operationId: systemsoftwareversion-get-systemsoftwareversions
         parameters:
           path:
             type: object
@@ -14660,7 +14352,7 @@ spec:
                 type: object
     /v2/file-type-rules/{name}:
       get:
-        operationId: file-service-file-get-type-rules
+        operationId: file-get-file-type-rules
         parameters:
           path:
             type: object
@@ -14702,7 +14394,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects/{projectId}/orders:
       get:
-        operationId: order-service-list-project-orders-v2
+        operationId: order-service-list-project-orders
         parameters:
           path:
             type: object
@@ -14806,7 +14498,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/cronjobs/{cronjobId}/executions/{executionId}/actions/abort:
       post:
-        operationId: cronjob-abort-execution-v2
+        operationId: cronjob-abort-execution
         parameters:
           path:
             type: object
@@ -14845,7 +14537,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects/{projectId}/backups:
       post:
-        operationId: backup-service-create-project-backup
+        operationId: backup-create-project-backup
         parameters:
           path:
             type: object
@@ -14896,7 +14588,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       get:
-        operationId: backup-service-list-project-backups
+        operationId: backup-list-project-backups
         parameters:
           path:
             type: object
@@ -14929,7 +14621,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects/{projectId}/backup-schedules:
       post:
-        operationId: backup-service-create-project-backup-schedule
+        operationId: backup-create-project-backup-schedule
         parameters:
           path:
             type: object
@@ -14985,7 +14677,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       get:
-        operationId: backup-service-list-project-backup-schedules
+        operationId: backup-list-project-backup-schedules
         parameters:
           path:
             type: object
@@ -15019,7 +14711,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/project-backups/{projectBackupId}:
       delete:
-        operationId: backup-service-delete-project-backup
+        operationId: backup-delete-project-backup
         parameters:
           path:
             type: object
@@ -15055,7 +14747,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       get:
-        operationId: backup-service-get-project-backup
+        operationId: backup-get-project-backup
         parameters:
           path:
             type: object
@@ -15093,44 +14785,8 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/project-backups/{projectBackupId}/export:
-      delete:
-        operationId: backup-service-delete-project-backup-export
-        parameters:
-          path:
-            type: object
-            required:
-              - projectBackupId
-            properties:
-              projectBackupId:
-                format: uuid
-                type: string
-          header:
-            type: object
-            required:
-              - x-access-token
-            properties:
-              x-access-token:
-                type: string
-              Accept:
-                type: string
-                enum: application/json
-        responses:
-          '204':
-            content: {}
-          '403':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-          '404':
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
-          default:
-            content:
-              application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       post:
-        operationId: backup-service-request-project-backup-export
+        operationId: backup-create-project-backup-export
         parameters:
           path:
             type: object
@@ -15185,9 +14841,45 @@ spec:
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+      delete:
+        operationId: backup-delete-project-backup-export
+        parameters:
+          path:
+            type: object
+            required:
+              - projectBackupId
+            properties:
+              projectBackupId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '204':
+            content: {}
+          '403':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/project-backup-schedules/{projectBackupScheduleId}:
       delete:
-        operationId: backup-service-delete-project-backup-schedule
+        operationId: backup-delete-project-backup-schedule
         parameters:
           path:
             type: object
@@ -15223,7 +14915,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       get:
-        operationId: backup-service-get-project-backup-schedule
+        operationId: backup-get-project-backup-schedule
         parameters:
           path:
             type: object
@@ -15262,7 +14954,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       patch:
-        operationId: backup-service-patch-backup-schedule
+        operationId: backup-update-project-backup-schedule
         parameters:
           path:
             type: object
@@ -15322,7 +15014,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/project-backups/{projectBackupId}/description:
       patch:
-        operationId: backup-service-set-project-backup-description
+        operationId: backup-update-project-backup-description
         parameters:
           path:
             type: object
@@ -15370,7 +15062,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/cronjobs/{cronjobId}/app-id:
       patch:
-        operationId: cronjob-update-cronjob-app-id-v2
+        operationId: cronjob-update-cronjob-app-id
         parameters:
           path:
             type: object
@@ -15408,6 +15100,698 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
           '412':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/contracts/{contractId}/items/{contractItemId}/terminations:
+      delete:
+        operationId: contract-cancel-contract-item-termination
+        parameters:
+          path:
+            type: object
+            required:
+              - contractId
+              - contractItemId
+            properties:
+              contractId:
+                format: uuid
+                type: string
+              contractItemId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '200':
+            content:
+              application/json:
+                properties:
+                  contractId:
+                    format: uuid
+                    type: string
+                  contractItemId:
+                    format: uuid
+                    type: string
+                  isCancelled:
+                    type: boolean
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+      post:
+        operationId: deprecated-contract-terminate-contract-item
+        parameters:
+          path:
+            type: object
+            required:
+              - contractId
+              - contractItemId
+            properties:
+              contractId:
+                format: uuid
+                type: string
+              contractItemId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+          requestBody:
+            properties:
+              reason:
+                description: A reason for the Termination can be given as plain text.
+                example: Server wird nicht mehr benötigt
+                type: string
+              terminationTargetDate:
+                description: >-
+                  The termination date has to be a valid date according to
+                  activation and contract period of the ContractItem. If none
+                  given, the next possible termination date will be used.
+                format: date-time
+                type: string
+        responses:
+          '201':
+            content:
+              application/json:
+                properties:
+                  contractId:
+                    format: uuid
+                    type: string
+                  contractItemId:
+                    format: uuid
+                    type: string
+                  reason:
+                    example: Server wird nicht mehr benötigt
+                    type: string
+                  terminationTargetDate:
+                    format: date-time
+                    type: string
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/contracts/{contractId}/items/{contractItemId}/tariff-changes:
+      delete:
+        operationId: contract-cancel-contract-tariff-change
+        parameters:
+          path:
+            type: object
+            required:
+              - contractId
+              - contractItemId
+            properties:
+              contractId:
+                format: uuid
+                type: string
+              contractItemId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '200':
+            content:
+              application/json:
+                properties:
+                  contractId:
+                    format: uuid
+                    type: string
+                  contractItemId:
+                    format: uuid
+                    type: string
+                  isCancelled:
+                    type: boolean
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/contracts/{contractId}/terminations:
+      delete:
+        operationId: contract-cancel-contract-termination
+        parameters:
+          path:
+            type: object
+            required:
+              - contractId
+            properties:
+              contractId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '200':
+            content:
+              application/json:
+                properties:
+                  contractId:
+                    format: uuid
+                    type: string
+                  isCancelled:
+                    type: boolean
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+      post:
+        operationId: contract-terminate-contract
+        parameters:
+          path:
+            type: object
+            required:
+              - contractId
+            properties:
+              contractId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+          requestBody:
+            properties:
+              reason:
+                description: A reason for the termination can be given as plain text.
+                example: Projekt wird nicht mehr benötigt
+                type: string
+              terminationTargetDate:
+                description: >-
+                  The termination date has to be a valid date according to
+                  activation and contract period of the base ContractItem. If
+                  none given, the next possible termination date will be used.
+                format: date-time
+                type: string
+        responses:
+          '201':
+            content:
+              application/json:
+                properties:
+                  contractId:
+                    format: uuid
+                    type: string
+                  itemsScheduledForTermination:
+                    items:
+                      format: uuid
+                      type: string
+                    type: array
+                  reason:
+                    example: Projekt wird nicht mehr benötigt
+                    type: string
+                  terminationTargetDate:
+                    format: date
+                    type: string
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/contracts/{contractId}/base-items:
+      get:
+        operationId: contract-get-base-item-of-contract
+        parameters:
+          path:
+            type: object
+            required:
+              - contractId
+            properties:
+              contractId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '200':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.contract.ContractItem'
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/contracts/{contractId}/items/{contractItemId}/next-termination-dates:
+      get:
+        operationId: contract-get-next-termination-date-for-item
+        parameters:
+          path:
+            type: object
+            required:
+              - contractId
+              - contractItemId
+            properties:
+              contractId:
+                format: uuid
+                type: string
+              contractItemId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '200':
+            content:
+              application/json:
+                properties:
+                  contractItemId:
+                    format: uuid
+                    type: string
+                  nextTerminationDate:
+                    format: date
+                    type: string
+                required:
+                  - contractItemId
+                  - nextTerminationDate
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/customer-categories:
+      post:
+        operationId: customer-service-create-category
+        parameters:
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+          requestBody:
+            $ref: '#/components/schemas/de.mittwald.v1.customer.Category'
+        responses:
+          '201':
+            content:
+              application/json:
+                properties:
+                  customerId:
+                    type: string
+                  isPublic:
+                    type: boolean
+                  name:
+                    type: string
+                  useAgencyDomainPrices:
+                    type: boolean
+                  useAgencySslPrices:
+                    type: boolean
+                required:
+                  - categoryId
+                type: object
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+      get:
+        operationId: customer-service-list-of-customer-categories
+        parameters:
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '200':
+            content:
+              application/json:
+                properties:
+                  categories:
+                    items:
+                      $ref: '#/components/schemas/de.mittwald.v1.customer.Category'
+                    type: array
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/customer-categories/{categoryId}:
+      delete:
+        operationId: customer-service-delete-category
+        parameters:
+          path:
+            type: object
+            required:
+              - categoryId
+            properties:
+              categoryId:
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '200':
+            content:
+              application/json:
+                type: object
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+      get:
+        operationId: customer-service-detail-of-customer-category
+        parameters:
+          path:
+            type: object
+            required:
+              - categoryId
+            properties:
+              categoryId:
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '200':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.customer.Category'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+      put:
+        operationId: customer-service-update-category
+        parameters:
+          path:
+            type: object
+            required:
+              - categoryId
+            properties:
+              categoryId:
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+          requestBody:
+            $ref: '#/components/schemas/de.mittwald.v1.customer.Category'
+        responses:
+          '200':
+            content:
+              application/json:
+                properties:
+                  customerId:
+                    type: string
+                  isPublic:
+                    type: boolean
+                  name:
+                    type: string
+                  useAgencyDomainPrices:
+                    type: boolean
+                  useAgencySslPrices:
+                    type: boolean
+                required:
+                  - categoryId
+                type: object
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/contracts/{contractId}/base-item:
+      get:
+        operationId: deprecated-contract-get-base-item-of-contract
+        parameters:
+          path:
+            type: object
+            required:
+              - contractId
+            properties:
+              contractId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '200':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.contract.ContractItem'
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/customers/{customerId}/invoice-settings:
+      get:
+        operationId: invoice-get-detail-of-invoice-settings
+        parameters:
+          path:
+            type: object
+            required:
+              - customerId
+            properties:
+              customerId:
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '200':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.invoice.InvoiceSettings'
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+      put:
+        operationId: invoice-update-invoice-settings
+        parameters:
+          path:
+            type: object
+            required:
+              - customerId
+            properties:
+              customerId:
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+          requestBody:
+            properties:
+              additionalEmailRecipients:
+                example:
+                  - hallo@test.de
+                items:
+                  format: email
+                  type: string
+                type: array
+              invoicePeriod:
+                example: 1
+                minimum: 0
+                type: integer
+              paymentSettings:
+                $ref: '#/components/schemas/de.mittwald.v1.invoice.PaymentSettings'
+              printedInvoices:
+                type: boolean
+              recipient:
+                $ref: '#/components/schemas/de.mittwald.v1.invoice.Recipient'
+              recipientSameAsOwner:
+                type: boolean
+              targetDay:
+                example: 15
+                maximum: 28
+                minimum: 0
+                type: integer
+            required:
+              - invoicePeriod
+              - paymentSettings
+            type: object
+        responses:
+          '200':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.invoice.InvoiceSettings'
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          '404':
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
@@ -15500,6 +15884,9 @@ spec:
             type: string
           description:
             type: string
+          disabled:
+            default: false
+            type: boolean
           id:
             format: uuid
             type: string
@@ -15538,6 +15925,7 @@ spec:
           - appVersion
           - description
           - installationPath
+          - disabled
         type: object
       de.mittwald.v1.app.AppInstallationLifecycle:
         description: >-
@@ -16134,32 +16522,16 @@ spec:
           - status
           - deletable
         type: object
-      de.mittwald.v1.contract.Address:
-        properties:
-          city:
-            type: string
-          countryCode:
-            type: string
-          houseNumber:
-            type: string
-          street:
-            type: string
-          zip:
-            type: string
-        required:
-          - street
-          - houseNumber
-          - city
-          - zip
-          - countryCode
-        type: object
       de.mittwald.v1.contract.AggregateReference:
         properties:
           aggregate:
+            example: project
             type: string
           domain:
+            example: project
             type: string
           id:
+            example: a1b8f0e9-904f-4716-a1c0-81ccf5342a56
             type: string
         required:
           - id
@@ -16169,15 +16541,20 @@ spec:
       de.mittwald.v1.contract.Article:
         properties:
           amount:
+            example: 1
             minimum: 1
             type: integer
           articleTemplateId:
+            example: a1b8f0e9-904f-4716-a1c0-81ccf5342a56
             type: string
           description:
+            example: Musterbeschreibung
             type: string
           id:
+            example: a1b8f0e9-904f-4716-a1c0-81ccf5342a56
             type: string
           name:
+            example: Musterartikel
             type: string
           unitPrice:
             $ref: '#/components/schemas/de.mittwald.v1.contract.Price'
@@ -16192,22 +16569,28 @@ spec:
       de.mittwald.v1.contract.Contact:
         properties:
           address:
-            $ref: '#/components/schemas/de.mittwald.v1.contract.Address'
+            $ref: '#/components/schemas/de.mittwald.v1.commons.Address'
           company:
+            example: Musterfirma
             type: string
           emailAddress:
+            format: email
             type: string
           firstName:
+            example: Max
             type: string
           lastName:
+            example: Mustermann
             type: string
           phoneNumbers:
             items:
+              example: +49 123 4567890
               type: string
             type: array
           salutation:
-            type: integer
+            $ref: '#/components/schemas/de.mittwald.v1.commons.Salutation'
           title:
+            example: Dr.
             type: string
           useFormalTerm:
             type: boolean
@@ -16227,13 +16610,17 @@ spec:
               $ref: '#/components/schemas/de.mittwald.v1.contract.Article'
             type: array
           contractPeriod:
+            example: 1
             minimum: 0
             type: number
           description:
+            example: 'Space-Server: "Mein Space-Server"'
             type: string
           groupByProjectId:
+            format: uuid
             type: string
           invoicingPeriod:
+            example: 1
             minimum: 1
             type: number
           isActivated:
@@ -16289,10 +16676,13 @@ spec:
           baseItem:
             $ref: '#/components/schemas/de.mittwald.v1.contract.ContractItem'
           contractId:
+            format: uuid
             type: string
           contractNumber:
+            example: V1234567
             type: string
           customerId:
+            example: 3a201faa-5160-47e0-a758-325ba794b543
             type: string
           isInvoicingDeactivated:
             type: boolean
@@ -16312,8 +16702,10 @@ spec:
       de.mittwald.v1.contract.Error:
         properties:
           message:
+            example: Something went wrong
             type: string
           type:
+            example: InternalServerError
             type: string
         required:
           - type
@@ -16326,6 +16718,7 @@ spec:
               - EUR
             type: string
           value:
+            example: 100
             type: integer
         required:
           - value
@@ -16347,6 +16740,7 @@ spec:
             format: date-time
             type: string
           scheduledByUserId:
+            format: uuid
             type: string
           targetDate:
             format: date-time
@@ -16359,11 +16753,13 @@ spec:
       de.mittwald.v1.contract.Termination:
         properties:
           reason:
+            example: Not needed anymore
             type: string
           scheduledAtDate:
             format: date
             type: string
           scheduledByUserId:
+            format: uuid
             type: string
           targetDate:
             format: date
@@ -17188,28 +17584,6 @@ spec:
           - number
           - disabled
         type: object
-      de.mittwald.v1.datev.ExportFile:
-        properties:
-          exportId:
-            type: string
-          exportedAt:
-            format: date-time
-            type: string
-          fileIds:
-            items:
-              type: string
-            type: array
-          type:
-            enum:
-              - debitor
-              - invoice
-            type: string
-        required:
-          - exportId
-          - fileIds
-          - exportedAt
-          - type
-        type: object
       de.mittwald.v1.dns.RecordCNAME:
         oneOf:
           - $ref: '#/components/schemas/de.mittwald.v1.dns.RecordUnset'
@@ -17765,35 +18139,19 @@ spec:
         required:
           - certificateId
         type: object
-      de.mittwald.v1.invoice.Address:
-        properties:
-          city:
-            type: string
-          countryCode:
-            type: string
-          houseNumber:
-            type: string
-          street:
-            type: string
-          zip:
-            type: string
-        required:
-          - street
-          - houseNumber
-          - city
-          - zip
-          - countryCode
-        type: object
       de.mittwald.v1.invoice.Cancellation:
         properties:
           cancelledAt:
             format: date
             type: string
           correctionNumber:
+            example: RG1234567
             type: string
           pdfId:
+            format: uuid
             type: string
           reason:
+            example: Kulanz
             type: string
         required:
           - pdfId
@@ -17803,6 +18161,7 @@ spec:
       de.mittwald.v1.invoice.ContractInvoiceDefinition:
         properties:
           contractId:
+            format: uuid
             type: string
           items:
             items:
@@ -17816,6 +18175,7 @@ spec:
       de.mittwald.v1.invoice.ContractItemInvoiceDefinition:
         properties:
           contractItemId:
+            format: uuid
             type: string
           isDue:
             type: boolean
@@ -17824,6 +18184,7 @@ spec:
           servicePeriod:
             $ref: '#/components/schemas/de.mittwald.v1.invoice.DatePeriod'
           vatRate:
+            example: 19
             type: integer
         required:
           - contractItemId
@@ -17833,6 +18194,7 @@ spec:
       de.mittwald.v1.invoice.CorrectionDefinition:
         properties:
           contractItemId:
+            format: uuid
             type: string
           creditPeriod:
             $ref: '#/components/schemas/de.mittwald.v1.invoice.DatePeriod'
@@ -17843,28 +18205,22 @@ spec:
       de.mittwald.v1.invoice.DatePeriod:
         properties:
           end:
+            format: date-time
             type: string
           start:
+            format: date-time
             type: string
         required:
           - start
           - end
         type: object
-      de.mittwald.v1.invoice.Dummy:
-        properties:
-          errorProps:
-            type: object
-          errorReason:
-            type: string
-        required:
-          - errorReason
-          - errorProps
-        type: object
       de.mittwald.v1.invoice.Error:
         properties:
           message:
+            example: Whoops, something went wrong.
             type: string
           type:
+            example: InternalServerError
             type: string
         required:
           - type
@@ -17873,10 +18229,13 @@ spec:
       de.mittwald.v1.invoice.InvoiceItem:
         properties:
           additionalDescription:
+            example: 'Short-ID: "s-123456"'
             type: string
           contractItemId:
+            format: uuid
             type: string
           description:
+            example: 'Space-Server: "Mein Space-Server"'
             type: string
           id:
             format: uuid
@@ -17886,8 +18245,10 @@ spec:
           reference:
             properties:
               sourceInvoiceId:
+                format: uuid
                 type: string
               sourceInvoiceItemId:
+                format: uuid
                 type: string
             required:
               - sourceInvoiceId
@@ -17898,6 +18259,7 @@ spec:
           servicePeriod:
             $ref: '#/components/schemas/de.mittwald.v1.invoice.DatePeriod'
           vatRate:
+            example: 19
             type: number
         required:
           - id
@@ -17909,24 +18271,31 @@ spec:
       de.mittwald.v1.invoice.Invoice:
         properties:
           amountPaid:
+            example: 500
             type: number
           cancellation:
             $ref: '#/components/schemas/de.mittwald.v1.invoice.Cancellation'
           cancellationOf:
             description: The ID of the invoice that this invoice cancels.
+            format: uuid
             type: string
           currency:
+            example: EUR
             type: string
           customerId:
+            example: e0a3b0e0-0e0e-0e0e-0e0e-0e0e0e0e0e0e
             type: string
           date:
+            format: date-time
             type: string
           groups:
             items:
               properties:
                 contractId:
+                  format: uuid
                   type: string
                 description:
+                  example: 'Space-Server: "Mein Space-Server"'
                   type: string
                 items:
                   items:
@@ -17938,8 +18307,10 @@ spec:
               type: object
             type: array
           id:
+            format: uuid
             type: string
           invoiceNumber:
+            example: RG1234567
             type: string
           invoiceType:
             enum:
@@ -17951,6 +18322,7 @@ spec:
           paymentSettings:
             $ref: '#/components/schemas/de.mittwald.v1.invoice.PaymentSettings'
           pdfId:
+            format: uuid
             type: string
           recipient:
             $ref: '#/components/schemas/de.mittwald.v1.invoice.Recipient'
@@ -17961,12 +18333,16 @@ spec:
               - DENIED
               - PAID
               - PARTIALLY_PAID
+              - OVERPAID
             type: string
           totalGross:
+            example: 595
             type: number
           totalNet:
+            example: 500
             type: number
           vatId:
+            example: DE123456789
             type: string
         required:
           - id
@@ -17987,13 +18363,17 @@ spec:
         properties:
           additionalEmailRecipients:
             items:
+              format: email
               type: string
             type: array
           id:
+            example: 5f9b9b9b-9b9b-9b9b-9b9b-9b9b9b9b9b9b
             type: string
           invoicePeriod:
+            example: 1
             type: integer
           nextInvoiceCheck:
+            format: date-time
             type: string
           paymentSettings:
             $ref: '#/components/schemas/de.mittwald.v1.invoice.PaymentSettings'
@@ -18004,6 +18384,7 @@ spec:
           recipientSameAsOwner:
             type: boolean
           targetDay:
+            example: 15
             type: integer
         required:
           - id
@@ -18011,10 +18392,13 @@ spec:
       de.mittwald.v1.invoice.PaymentSettingsDebit:
         properties:
           accountHolder:
+            example: Max Mustermann
             type: string
           bic:
+            example: DEUTDEDB123
             type: string
           iban:
+            example: DE12345678901234567890
             type: string
           method:
             enum:
@@ -18046,6 +18430,7 @@ spec:
               - EUR
             type: string
           value:
+            example: 1000
             type: integer
         required:
           - value
@@ -18054,43 +18439,34 @@ spec:
       de.mittwald.v1.invoice.Recipient:
         properties:
           address:
-            $ref: '#/components/schemas/de.mittwald.v1.invoice.Address'
+            $ref: '#/components/schemas/de.mittwald.v1.commons.Address'
           company:
+            example: Mittwald CM Service GmbH & Co. KG
             type: string
           emailAddress:
             format: email
             type: string
           firstName:
+            example: Max
             type: string
           lastName:
+            example: Mustermann
             type: string
           phoneNumbers:
             items:
+              example: +49 123 4567890
               type: string
             type: array
           salutation:
-            enum:
-              - male
-              - female
-              - hello
-            type: string
+            $ref: '#/components/schemas/de.mittwald.v1.commons.Salutation'
           title:
+            example: Dr.
             type: string
           useFormalTerm:
             type: boolean
         required:
           - address
           - salutation
-        type: object
-      de.mittwald.v1.invoice.Reference:
-        properties:
-          id:
-            type: string
-          type:
-            type: integer
-        required:
-          - type
-          - id
         type: object
       de.mittwald.v1.invoice.ServiceDate:
         format: date
@@ -18290,24 +18666,31 @@ spec:
       de.mittwald.v1.membership.CustomerInvite:
         properties:
           avatarRefId:
+            description: Reference to the Customer's avatar.
             type: string
           customerId:
+            description: ID of the Customer the invite is for.
             format: uuid
             type: string
           customerName:
+            description: Name of the Customer the user is invited to.
             type: string
           id:
+            description: ID of the CustomerInvite.
             format: uuid
             type: string
           information:
             $ref: '#/components/schemas/de.mittwald.v1.membership.InviteInformation'
           mailAddress:
+            description: Mail-address of the user the invite is for.
             format: email
             type: string
           membershipExpiresAt:
+            description: Time the CustomerMembership should expire at.
             format: date-time
             type: string
           message:
+            description: Message contained in the CustomerInvite.
             type: string
           role:
             $ref: '#/components/schemas/de.mittwald.v1.membership.CustomerRoles'
@@ -18324,23 +18707,29 @@ spec:
       de.mittwald.v1.membership.CustomerMembership:
         properties:
           customerId:
+            description: ID of the Customer the CustomerMembership is for.
             format: uuid
             type: string
           expiresAt:
+            description: Time the CustomerMembership should expire at.
             format: date-time
             type: string
           id:
+            description: ID of the CustomerMembership.
             format: uuid
             type: string
           inviteId:
+            description: ID of the CustomerInvite the membership was created from.
             format: uuid
             type: string
           memberSince:
+            description: Date the CustomerMembership was created at.
             format: date-time
             type: string
           role:
             $ref: '#/components/schemas/de.mittwald.v1.membership.CustomerRoles'
           userId:
+            description: ID of the user the CustomerMembership is for.
             format: uuid
             type: string
         required:
@@ -18359,11 +18748,14 @@ spec:
       de.mittwald.v1.membership.InviteInformation:
         properties:
           invitationToken:
+            description: Token for authentication purposes.
             type: string
           invitedBy:
+            description: ID of the user that created the invite.
             format: uuid
             type: string
           userId:
+            description: ID of the user this invite is for.
             format: uuid
             type: string
         required:
@@ -18374,21 +18766,27 @@ spec:
       de.mittwald.v1.membership.ProjectInvite:
         properties:
           id:
+            description: ID of the ProjectInvite.
             format: uuid
             type: string
           information:
             $ref: '#/components/schemas/de.mittwald.v1.membership.InviteInformation'
           mailAddress:
+            description: Mail-address of the user the ProjectInvite is for.
             format: email
             type: string
           membershipExpiresAt:
+            description: Time the ProjectMembership should expire at.
             format: date-time
             type: string
           message:
+            description: Message contained in the ProjectInvite.
             type: string
           projectDescription:
+            description: Description of the Project the invite is created for.
             type: string
           projectId:
+            description: ID of the Project the invitation is for.
             format: uuid
             type: string
           role:
@@ -18405,25 +18803,34 @@ spec:
       de.mittwald.v1.membership.ProjectMembership:
         properties:
           expiresAt:
+            description: Time the ProjectMembership should expire at.
             format: date-time
             type: string
           id:
+            description: ID of the ProjectMembership.
             format: uuid
             type: string
           inherited:
+            description: >-
+              Whether the ProjectMembership was inherited from a
+              CustomerMembership.
             type: boolean
           inviteId:
+            description: ID of the ProjectInvite the membership was created from.
             format: uuid
             type: string
           memberSince:
+            description: Date the projectMembership was created at.
             format: date-time
             type: string
           projectId:
+            description: ID of the Project the membership is for.
             format: uuid
             type: string
           role:
             $ref: '#/components/schemas/de.mittwald.v1.membership.ProjectRoles'
           userId:
+            description: ID of the user the ProjectMembership is for.
             format: uuid
             type: string
         required:
@@ -18785,6 +19192,8 @@ spec:
             additionalProperties:
               type: string
             type: object
+          disableReason:
+            $ref: '#/components/schemas/de.mittwald.v1.project.DisableReason'
           enabled:
             type: boolean
           id:
@@ -18798,6 +19207,8 @@ spec:
             format: uuid
             type: string
           serverId:
+            type: string
+          serverShortId:
             type: string
           shortId:
             type: string
@@ -18927,12 +19338,16 @@ spec:
             format: date-time
             type: string
           description:
+            example: Api Token - read
             type: string
           expiresAt:
             format: date-time
             type: string
           roles:
             items:
+              enum:
+                - api_read
+                - api_write
               type: string
             type: array
         required:
@@ -19433,8 +19848,10 @@ spec:
         properties:
           message:
             type: string
+            example: Something went wrong
           type:
             type: string
+            example: InternalServerError
       de.mittwald.v1.commons.ValidationErrorSchema:
         type: object
         required:
@@ -19445,18 +19862,23 @@ spec:
           message:
             type: string
             description: The standard error message
+            example: should be string
           path:
             type: string
             description: >
               The path to the part of the data that was validated. JavaScript
               property access notation (e.g., ".prop[1].subProp") is used.
+            example: .address.street
           type:
             type: string
             description: >-
               ajv validation error type (e.g. "format", "required", "type") or
               own validation error types
+            example: format
           context:
             type: object
+            example:
+              format: email
             description: >
               The object with the additional information about the error that
               can be used to create custom error messages. Keys depend on the
@@ -19477,6 +19899,7 @@ spec:
               - ValidationError
           message:
             type: string
+            example: Validation failed
           validationErrors:
             type: array
             items:
@@ -19587,6 +20010,58 @@ spec:
           - backupSettings
           - isSystemBackup
         type: object
+      de.mittwald.v1.project.DisableReason:
+        enum:
+          - maliciousCode
+          - illegalContent
+          - maliciousConduct
+        type: string
+      de.mittwald.v1.commons.Address:
+        type: object
+        properties:
+          street:
+            type: string
+            example: Musterstraße
+          houseNumber:
+            type: string
+            example: 42a
+          city:
+            type: string
+            example: Espelkamp
+          zip:
+            type: string
+            example: '32339'
+          countryCode:
+            type: string
+            example: DE
+            description: ISO 3166-1 alpha-2 country code
+        required:
+          - street
+          - houseNumber
+          - city
+          - zip
+          - countryCode
+      de.mittwald.v1.commons.Person:
+        type: object
+        description: The users personal information, e.g. first name.
+        properties:
+          firstName:
+            type: string
+            description: The users first name
+          lastName:
+            type: string
+            description: the users last name
+          title:
+            $ref: '#/components/schemas/de.mittwald.v1.commons.Salutation'
+        required:
+          - lastName
+          - firstName
+      de.mittwald.v1.commons.Salutation:
+        type: string
+        enum:
+          - mr
+          - ms
+          - other
     parameters: {}
     responses:
       de.mittwald.v1.app.GenericResponse:

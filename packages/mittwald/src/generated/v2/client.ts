@@ -9,69 +9,68 @@ import * as operations from "./operations.js";
 import ApiClientBase from "@mittwald/api-client-commons/dist/core/ApiClientBase.js";
 
 export class MittwaldApiV2Client extends ApiClientBase {
-  public appGetAppV2 = this.requestFunctionFactory(operations.appGetAppV2);
+  public appGetApp = this.requestFunctionFactory(operations.appGetApp);
 
-  public appGetAppsV2 = this.requestFunctionFactory(operations.appGetAppsV2);
+  public appGetApps = this.requestFunctionFactory(operations.appGetApps);
 
-  public appinstallationExecuteActionV2 = this.requestFunctionFactory(
-    operations.appinstallationExecuteActionV2
+  public appinstallationExecuteAction = this.requestFunctionFactory(
+    operations.appinstallationExecuteAction
   );
 
-  public appinstallationGetAppinstallationV2 = this.requestFunctionFactory(
-    operations.appinstallationGetAppinstallationV2
+  public appinstallationGetAppinstallation = this.requestFunctionFactory(
+    operations.appinstallationGetAppinstallation
   );
 
-  public appinstallationPatchAppinstallationV2 = this.requestFunctionFactory(
-    operations.appinstallationPatchAppinstallationV2
+  public appinstallationPatchAppinstallation = this.requestFunctionFactory(
+    operations.appinstallationPatchAppinstallation
   );
 
-  public appinstallationUninstallAppinstallationV2 =
-    this.requestFunctionFactory(
-      operations.appinstallationUninstallAppinstallationV2
-    );
-
-  public appinstallationGetAppinstallationsV2 = this.requestFunctionFactory(
-    operations.appinstallationGetAppinstallationsV2
+  public appinstallationUninstallAppinstallation = this.requestFunctionFactory(
+    operations.appinstallationUninstallAppinstallation
   );
 
-  public appinstallationRequestAppinstallationV2 = this.requestFunctionFactory(
-    operations.appinstallationRequestAppinstallationV2
+  public appinstallationGetAppinstallations = this.requestFunctionFactory(
+    operations.appinstallationGetAppinstallations
   );
 
-  public appinstallationLinkDatabaseV2 = this.requestFunctionFactory(
-    operations.appinstallationLinkDatabaseV2
+  public appinstallationRequestAppinstallation = this.requestFunctionFactory(
+    operations.appinstallationRequestAppinstallation
   );
 
-  public appinstallationRetrieveStatusV2 = this.requestFunctionFactory(
-    operations.appinstallationRetrieveStatusV2
+  public appinstallationLinkDatabase = this.requestFunctionFactory(
+    operations.appinstallationLinkDatabase
   );
 
-  public appinstallationSetDatabaseUsersV2 = this.requestFunctionFactory(
-    operations.appinstallationSetDatabaseUsersV2
+  public appinstallationRetrieveStatus = this.requestFunctionFactory(
+    operations.appinstallationRetrieveStatus
   );
 
-  public appinstallationUnlinkDatabaseV2 = this.requestFunctionFactory(
-    operations.appinstallationUnlinkDatabaseV2
+  public appinstallationSetDatabaseUsers = this.requestFunctionFactory(
+    operations.appinstallationSetDatabaseUsers
   );
 
-  public appinstallationUpdateStatusV2 = this.requestFunctionFactory(
-    operations.appinstallationUpdateStatusV2
+  public appinstallationUnlinkDatabase = this.requestFunctionFactory(
+    operations.appinstallationUnlinkDatabase
   );
 
-  public appversionGetAppversionV2 = this.requestFunctionFactory(
-    operations.appversionGetAppversionV2
+  public appinstallationUpdateStatus = this.requestFunctionFactory(
+    operations.appinstallationUpdateStatus
   );
 
-  public appversionGetAppversionsV2 = this.requestFunctionFactory(
-    operations.appversionGetAppversionsV2
+  public appversionGetAppversion = this.requestFunctionFactory(
+    operations.appversionGetAppversion
   );
 
-  public articleServiceGetArticleV2 = this.requestFunctionFactory(
-    operations.articleServiceGetArticleV2
+  public appversionGetAppversions = this.requestFunctionFactory(
+    operations.appversionGetAppversions
   );
 
-  public articleServiceListArticlesV2 = this.requestFunctionFactory(
-    operations.articleServiceListArticlesV2
+  public articleServiceGetArticle = this.requestFunctionFactory(
+    operations.articleServiceGetArticle
+  );
+
+  public articleServiceListArticles = this.requestFunctionFactory(
+    operations.articleServiceListArticles
   );
 
   public deprecatedBackupServiceCreateProjectBackup =
@@ -138,139 +137,129 @@ export class MittwaldApiV2Client extends ApiClientBase {
       operations.deprecatedBackupServiceSetProjectBackupDescription
     );
 
-  public contractServiceBaseItemOfContract = this.requestFunctionFactory(
-    operations.contractServiceBaseItemOfContract
-  );
-
-  public contractServiceCancelContractItemTermination =
+  public deprecatedContractCancelContractItemTermination =
     this.requestFunctionFactory(
-      operations.contractServiceCancelContractItemTermination
+      operations.deprecatedContractCancelContractItemTermination
     );
 
-  public contractServiceTerminateContractItem = this.requestFunctionFactory(
-    operations.contractServiceTerminateContractItem
-  );
-
-  public contractServiceCancelContractTariffChange =
+  public deprecatedContractCancelContractTariffChange =
     this.requestFunctionFactory(
-      operations.contractServiceCancelContractTariffChange
+      operations.deprecatedContractCancelContractTariffChange
     );
 
-  public contractServiceCancelContractTermination = this.requestFunctionFactory(
-    operations.contractServiceCancelContractTermination
-  );
-
-  public contractServiceTerminateContract = this.requestFunctionFactory(
-    operations.contractServiceTerminateContract
-  );
-
-  public contractServiceDetailOfContract = this.requestFunctionFactory(
-    operations.contractServiceDetailOfContract
-  );
-
-  public contractServiceDetailOfContractByAggregate =
+  public deprecatedContractCancelContractTermination =
     this.requestFunctionFactory(
-      operations.contractServiceDetailOfContractByAggregate
+      operations.deprecatedContractCancelContractTermination
     );
 
-  public contractServiceDetailOfContractDeprecated =
+  public deprecatedContractTerminateContract = this.requestFunctionFactory(
+    operations.deprecatedContractTerminateContract
+  );
+
+  public contractGetDetailOfContract = this.requestFunctionFactory(
+    operations.contractGetDetailOfContract
+  );
+
+  public contractGetDetailOfContractByAggregate = this.requestFunctionFactory(
+    operations.contractGetDetailOfContractByAggregate
+  );
+
+  public deprecatedContractDetailOfContract = this.requestFunctionFactory(
+    operations.deprecatedContractDetailOfContract
+  );
+
+  public contractGetDetailOfContractItem = this.requestFunctionFactory(
+    operations.contractGetDetailOfContractItem
+  );
+
+  public contractListContracts = this.requestFunctionFactory(
+    operations.contractListContracts
+  );
+
+  public deprecatedContractGetNextTerminationDateForItem =
     this.requestFunctionFactory(
-      operations.contractServiceDetailOfContractDeprecated
+      operations.deprecatedContractGetNextTerminationDateForItem
     );
 
-  public contractServiceDetailOfContractItem = this.requestFunctionFactory(
-    operations.contractServiceDetailOfContractItem
+  public conversationServiceCreateConversation = this.requestFunctionFactory(
+    operations.conversationServiceCreateConversation
   );
 
-  public contractServiceListContracts = this.requestFunctionFactory(
-    operations.contractServiceListContracts
+  public conversationServiceGetConversations = this.requestFunctionFactory(
+    operations.conversationServiceGetConversations
   );
 
-  public contractServiceNextTerminationDateForItem =
+  public conversationServiceCreateMessage = this.requestFunctionFactory(
+    operations.conversationServiceCreateMessage
+  );
+
+  public conversationServiceGetMessagesByConversation =
     this.requestFunctionFactory(
-      operations.contractServiceNextTerminationDateForItem
+      operations.conversationServiceGetMessagesByConversation
     );
 
-  public conversationServiceCreateConversationV2 = this.requestFunctionFactory(
-    operations.conversationServiceCreateConversationV2
+  public conversationServiceGetCategories = this.requestFunctionFactory(
+    operations.conversationServiceGetCategories
   );
 
-  public conversationServiceGetConversationsV2 = this.requestFunctionFactory(
-    operations.conversationServiceGetConversationsV2
+  public conversationServiceGetCategory = this.requestFunctionFactory(
+    operations.conversationServiceGetCategory
   );
 
-  public conversationServiceCreateMessageV2 = this.requestFunctionFactory(
-    operations.conversationServiceCreateMessageV2
+  public conversationServiceGetConversation = this.requestFunctionFactory(
+    operations.conversationServiceGetConversation
   );
 
-  public conversationServiceGetMessagesByConversationV2 =
-    this.requestFunctionFactory(
-      operations.conversationServiceGetMessagesByConversationV2
-    );
-
-  public conversationServiceGetCategoriesV2 = this.requestFunctionFactory(
-    operations.conversationServiceGetCategoriesV2
+  public conversationServiceUpdateConversation = this.requestFunctionFactory(
+    operations.conversationServiceUpdateConversation
   );
 
-  public conversationServiceGetCategoryV2 = this.requestFunctionFactory(
-    operations.conversationServiceGetCategoryV2
+  public conversationServiceRequestFileUpload = this.requestFunctionFactory(
+    operations.conversationServiceRequestFileUpload
   );
 
-  public conversationServiceGetConversationV2 = this.requestFunctionFactory(
-    operations.conversationServiceGetConversationV2
+  public conversationServiceSetConversationStatus = this.requestFunctionFactory(
+    operations.conversationServiceSetConversationStatus
   );
 
-  public conversationServiceUpdateConversationV2 = this.requestFunctionFactory(
-    operations.conversationServiceUpdateConversationV2
+  public conversationServiceUpdateMessage = this.requestFunctionFactory(
+    operations.conversationServiceUpdateMessage
   );
 
-  public conversationServiceRequestFileUploadV2 = this.requestFunctionFactory(
-    operations.conversationServiceRequestFileUploadV2
+  public deprecatedCronjobAbortExecution = this.requestFunctionFactory(
+    operations.deprecatedCronjobAbortExecution
   );
 
-  public conversationServiceSetConversationStatusV2 =
-    this.requestFunctionFactory(
-      operations.conversationServiceSetConversationStatusV2
-    );
-
-  public conversationServiceUpdateMessageV2 = this.requestFunctionFactory(
-    operations.conversationServiceUpdateMessageV2
+  public cronjobCreateCronjob = this.requestFunctionFactory(
+    operations.cronjobCreateCronjob
   );
 
-  public deprecatedCronjobAbortExecutionV2 = this.requestFunctionFactory(
-    operations.deprecatedCronjobAbortExecutionV2
+  public cronjobListCronjobs = this.requestFunctionFactory(
+    operations.cronjobListCronjobs
   );
 
-  public cronjobCreateCronjobV2 = this.requestFunctionFactory(
-    operations.cronjobCreateCronjobV2
+  public cronjobCreateExecution = this.requestFunctionFactory(
+    operations.cronjobCreateExecution
   );
 
-  public cronjobListCronjobsV2 = this.requestFunctionFactory(
-    operations.cronjobListCronjobsV2
+  public cronjobListExecutions = this.requestFunctionFactory(
+    operations.cronjobListExecutions
   );
 
-  public cronjobCreateExecutionV2 = this.requestFunctionFactory(
-    operations.cronjobCreateExecutionV2
+  public cronjobDeleteCronjob = this.requestFunctionFactory(
+    operations.cronjobDeleteCronjob
   );
 
-  public cronjobListExecutionsV2 = this.requestFunctionFactory(
-    operations.cronjobListExecutionsV2
+  public cronjobGetCronjob = this.requestFunctionFactory(
+    operations.cronjobGetCronjob
   );
 
-  public cronjobDeleteCronjobV2 = this.requestFunctionFactory(
-    operations.cronjobDeleteCronjobV2
+  public cronjobUpdateCronjob = this.requestFunctionFactory(
+    operations.cronjobUpdateCronjob
   );
 
-  public cronjobGetCronjobV2 = this.requestFunctionFactory(
-    operations.cronjobGetCronjobV2
-  );
-
-  public cronjobUpdateCronjobV2 = this.requestFunctionFactory(
-    operations.cronjobUpdateCronjobV2
-  );
-
-  public cronjobGetExecutionV2 = this.requestFunctionFactory(
-    operations.cronjobGetExecutionV2
+  public cronjobGetExecution = this.requestFunctionFactory(
+    operations.cronjobGetExecution
   );
 
   public customerServiceAvatarRemove = this.requestFunctionFactory(
@@ -281,13 +270,14 @@ export class MittwaldApiV2Client extends ApiClientBase {
     operations.customerServiceAvatarRequestUpload
   );
 
-  public customerServiceCreateCategory = this.requestFunctionFactory(
-    operations.customerServiceCreateCategory
+  public customerServiceCreateCategoryDeprecated = this.requestFunctionFactory(
+    operations.customerServiceCreateCategoryDeprecated
   );
 
-  public customerServiceListOfCustomerCategories = this.requestFunctionFactory(
-    operations.customerServiceListOfCustomerCategories
-  );
+  public customerServiceListOfCustomerCategoriesDeprecated =
+    this.requestFunctionFactory(
+      operations.customerServiceListOfCustomerCategoriesDeprecated
+    );
 
   public customerServiceCreateCustomer = this.requestFunctionFactory(
     operations.customerServiceCreateCustomer
@@ -310,16 +300,17 @@ export class MittwaldApiV2Client extends ApiClientBase {
       operations.customerServiceCustomerIsLegallyCompetent
     );
 
-  public customerServiceDeleteCategory = this.requestFunctionFactory(
-    operations.customerServiceDeleteCategory
+  public customerServiceDeleteCategoryDeprecated = this.requestFunctionFactory(
+    operations.customerServiceDeleteCategoryDeprecated
   );
 
-  public customerServiceDetailOfCustomerCategory = this.requestFunctionFactory(
-    operations.customerServiceDetailOfCustomerCategory
-  );
+  public customerServiceDetailOfCustomerCategoryDeprecated =
+    this.requestFunctionFactory(
+      operations.customerServiceDetailOfCustomerCategoryDeprecated
+    );
 
-  public customerServiceUpdateCategory = this.requestFunctionFactory(
-    operations.customerServiceUpdateCategory
+  public customerServiceUpdateCategoryDeprecated = this.requestFunctionFactory(
+    operations.customerServiceUpdateCategoryDeprecated
   );
 
   public customerServiceDeleteCustomer = this.requestFunctionFactory(
@@ -474,107 +465,103 @@ export class MittwaldApiV2Client extends ApiClientBase {
     operations.dnsZoneGetSpecific
   );
 
-  public dnsZonesForProjectV2 = this.requestFunctionFactory(
-    operations.dnsZonesForProjectV2
+  public dnsZonesForProject = this.requestFunctionFactory(
+    operations.dnsZonesForProject
   );
 
-  public domainServiceAbortDeclareProcessV2 = this.requestFunctionFactory(
-    operations.domainServiceAbortDeclareProcessV2
+  public domainServiceAbortDeclareProcess = this.requestFunctionFactory(
+    operations.domainServiceAbortDeclareProcess
   );
 
-  public domainServiceChangeOwnercOfDomainV2 = this.requestFunctionFactory(
-    operations.domainServiceChangeOwnercOfDomainV2
+  public domainServiceChangeOwnercOfDomain = this.requestFunctionFactory(
+    operations.domainServiceChangeOwnercOfDomain
   );
 
-  public domainServiceChangeProjectOfDomainV2 = this.requestFunctionFactory(
-    operations.domainServiceChangeProjectOfDomainV2
+  public domainServiceChangeProjectOfDomain = this.requestFunctionFactory(
+    operations.domainServiceChangeProjectOfDomain
   );
 
-  public domainServiceCheckDomainAvailabilityV2 = this.requestFunctionFactory(
-    operations.domainServiceCheckDomainAvailabilityV2
+  public domainServiceCheckDomainAvailability = this.requestFunctionFactory(
+    operations.domainServiceCheckDomainAvailability
   );
 
-  public domainServiceCreateAuthcodeForDomainV2 = this.requestFunctionFactory(
-    operations.domainServiceCreateAuthcodeForDomainV2
+  public domainServiceCreateAuthcodeForDomain = this.requestFunctionFactory(
+    operations.domainServiceCreateAuthcodeForDomain
   );
 
-  public domainServiceCreateAuthcode2ForDomainV2 = this.requestFunctionFactory(
-    operations.domainServiceCreateAuthcode2ForDomainV2
+  public domainServiceCreateAuthcode2ForDomain = this.requestFunctionFactory(
+    operations.domainServiceCreateAuthcode2ForDomain
   );
 
-  public domainServiceDeclareNameserversV2 = this.requestFunctionFactory(
-    operations.domainServiceDeclareNameserversV2
+  public domainServiceDeclareNameservers = this.requestFunctionFactory(
+    operations.domainServiceDeclareNameservers
   );
 
-  public domainServiceDeclareProcessChangeAuthcodeV2 =
+  public domainServiceDeclareProcessChangeAuthcode =
     this.requestFunctionFactory(
-      operations.domainServiceDeclareProcessChangeAuthcodeV2
+      operations.domainServiceDeclareProcessChangeAuthcode
     );
 
-  public domainServiceDeclareProcessChangeHandlesV2 =
-    this.requestFunctionFactory(
-      operations.domainServiceDeclareProcessChangeHandlesV2
-    );
-
-  public domainServiceDeleteDomainV2 = this.requestFunctionFactory(
-    operations.domainServiceDeleteDomainV2
+  public domainServiceDeclareProcessChangeHandles = this.requestFunctionFactory(
+    operations.domainServiceDeclareProcessChangeHandles
   );
 
-  public domainServiceGetDomainV2 = this.requestFunctionFactory(
-    operations.domainServiceGetDomainV2
+  public domainServiceDeleteDomain = this.requestFunctionFactory(
+    operations.domainServiceDeleteDomain
   );
 
-  public domainServiceGetHandleFieldsV2 = this.requestFunctionFactory(
-    operations.domainServiceGetHandleFieldsV2
+  public domainServiceGetDomain = this.requestFunctionFactory(
+    operations.domainServiceGetDomain
   );
 
-  public domainServiceGetSpecificDomainOwnershipV2 =
-    this.requestFunctionFactory(
-      operations.domainServiceGetSpecificDomainOwnershipV2
-    );
-
-  public domainServiceVerifyDomainOwnershipV2 = this.requestFunctionFactory(
-    operations.domainServiceVerifyDomainOwnershipV2
+  public domainServiceGetHandleFields = this.requestFunctionFactory(
+    operations.domainServiceGetHandleFields
   );
 
-  public domainServiceGetToplevelDomainV2 = this.requestFunctionFactory(
-    operations.domainServiceGetToplevelDomainV2
+  public domainServiceGetSpecificDomainOwnership = this.requestFunctionFactory(
+    operations.domainServiceGetSpecificDomainOwnership
   );
 
-  public domainServiceListDomainOwnershipsV2 = this.requestFunctionFactory(
-    operations.domainServiceListDomainOwnershipsV2
+  public domainServiceVerifyDomainOwnership = this.requestFunctionFactory(
+    operations.domainServiceVerifyDomainOwnership
   );
 
-  public domainServiceListDomainsV2 = this.requestFunctionFactory(
-    operations.domainServiceListDomainsV2
+  public domainServiceGetToplevelDomain = this.requestFunctionFactory(
+    operations.domainServiceGetToplevelDomain
   );
 
-  public domainServiceListToplevelDomainsV2 = this.requestFunctionFactory(
-    operations.domainServiceListToplevelDomainsV2
+  public domainServiceListDomainOwnerships = this.requestFunctionFactory(
+    operations.domainServiceListDomainOwnerships
   );
 
-  public domainServiceResendDomainEmailV2 = this.requestFunctionFactory(
-    operations.domainServiceResendDomainEmailV2
+  public domainServiceListDomains = this.requestFunctionFactory(
+    operations.domainServiceListDomains
+  );
+
+  public domainServiceListToplevelDomains = this.requestFunctionFactory(
+    operations.domainServiceListToplevelDomains
+  );
+
+  public domainServiceResendDomainEmail = this.requestFunctionFactory(
+    operations.domainServiceResendDomainEmail
   );
 
   public fileServiceFileCreateDeprecated = this.requestFunctionFactory(
     operations.fileServiceFileCreateDeprecated
   );
 
-  public fileServiceFileCreate = this.requestFunctionFactory(
-    operations.fileServiceFileCreate
+  public fileCreateFile = this.requestFunctionFactory(
+    operations.fileCreateFile
   );
 
-  public fileServiceFileGet = this.requestFunctionFactory(
-    operations.fileServiceFileGet
+  public fileGetFile = this.requestFunctionFactory(operations.fileGetFile);
+
+  public fileGetFileMeta = this.requestFunctionFactory(
+    operations.fileGetFileMeta
   );
 
-  public fileServiceFileGetMeta = this.requestFunctionFactory(
-    operations.fileServiceFileGetMeta
-  );
-
-  public fileServiceFileGetTokenRules = this.requestFunctionFactory(
-    operations.fileServiceFileGetTokenRules
+  public fileGetFileTokenRules = this.requestFunctionFactory(
+    operations.fileGetFileTokenRules
   );
 
   public ingressServiceCreate = this.requestFunctionFactory(
@@ -601,20 +588,20 @@ export class MittwaldApiV2Client extends ApiClientBase {
     operations.ingressServiceTls
   );
 
-  public invoiceServiceDetailOfInvoice = this.requestFunctionFactory(
-    operations.invoiceServiceDetailOfInvoice
+  public invoiceDetailOfInvoice = this.requestFunctionFactory(
+    operations.invoiceDetailOfInvoice
   );
 
-  public invoiceServiceInvoiceSettings = this.requestFunctionFactory(
-    operations.invoiceServiceInvoiceSettings
+  public deprecatedInvoiceInvoiceSettings = this.requestFunctionFactory(
+    operations.deprecatedInvoiceInvoiceSettings
   );
 
-  public invoiceServiceUpdateInvoiceSettings = this.requestFunctionFactory(
-    operations.invoiceServiceUpdateInvoiceSettings
+  public deprecatedInvoiceUpdateInvoiceSettings = this.requestFunctionFactory(
+    operations.deprecatedInvoiceUpdateInvoiceSettings
   );
 
-  public invoiceServiceListCustomerInvoices = this.requestFunctionFactory(
-    operations.invoiceServiceListCustomerInvoices
+  public invoiceListCustomerInvoices = this.requestFunctionFactory(
+    operations.invoiceListCustomerInvoices
   );
 
   public mailServiceDeliveryboxCreate = this.requestFunctionFactory(
@@ -700,168 +687,128 @@ export class MittwaldApiV2Client extends ApiClientBase {
     operations.mailServiceProjectsettingUpdateWhitelist
   );
 
-  public membershipServiceAcceptCustomerInvite = this.requestFunctionFactory(
-    operations.membershipServiceAcceptCustomerInvite
+  public customerAcceptCustomerInvite = this.requestFunctionFactory(
+    operations.customerAcceptCustomerInvite
   );
 
-  public membershipServiceAcceptCustomerInviteWithToken =
-    this.requestFunctionFactory(
-      operations.membershipServiceAcceptCustomerInviteWithToken
-    );
-
-  public membershipServiceAcceptProjectInvite = this.requestFunctionFactory(
-    operations.membershipServiceAcceptProjectInvite
+  public customerAcceptCustomerInviteWithToken = this.requestFunctionFactory(
+    operations.customerAcceptCustomerInviteWithToken
   );
 
-  public membershipServiceAcceptProjectInviteWithToken =
-    this.requestFunctionFactory(
-      operations.membershipServiceAcceptProjectInviteWithToken
-    );
-
-  public membershipServiceChangeCustomerMembership =
-    this.requestFunctionFactory(
-      operations.membershipServiceChangeCustomerMembership
-    );
-
-  public membershipServiceDeleteCustomerMembership =
-    this.requestFunctionFactory(
-      operations.membershipServiceDeleteCustomerMembership
-    );
-
-  public membershipServiceChangeProjectMembership = this.requestFunctionFactory(
-    operations.membershipServiceChangeProjectMembership
+  public projectAcceptProjectInvite = this.requestFunctionFactory(
+    operations.projectAcceptProjectInvite
   );
 
-  public membershipServiceDeleteProjectMembership = this.requestFunctionFactory(
-    operations.membershipServiceDeleteProjectMembership
+  public projectAcceptProjectInviteWithToken = this.requestFunctionFactory(
+    operations.projectAcceptProjectInviteWithToken
   );
 
-  public membershipServiceCreateCustomerInvite = this.requestFunctionFactory(
-    operations.membershipServiceCreateCustomerInvite
+  public customerChangeCustomerMembership = this.requestFunctionFactory(
+    operations.customerChangeCustomerMembership
   );
 
-  public membershipServiceCreateProjectInvite = this.requestFunctionFactory(
-    operations.membershipServiceCreateProjectInvite
+  public customerDeleteCustomerMembership = this.requestFunctionFactory(
+    operations.customerDeleteCustomerMembership
   );
 
-  public membershipServiceDeclineCustomerInvite = this.requestFunctionFactory(
-    operations.membershipServiceDeclineCustomerInvite
+  public projectChangeProjectMembership = this.requestFunctionFactory(
+    operations.projectChangeProjectMembership
   );
 
-  public membershipServiceDeclineProjectInvite = this.requestFunctionFactory(
-    operations.membershipServiceDeclineProjectInvite
+  public projectDeleteProjectMembership = this.requestFunctionFactory(
+    operations.projectDeleteProjectMembership
   );
 
-  public membershipServiceGetCustomerInviteSpecific =
-    this.requestFunctionFactory(
-      operations.membershipServiceGetCustomerInviteSpecific
-    );
-
-  public membershipServiceGetCustomerInviteSpecificDeprecated =
-    this.requestFunctionFactory(
-      operations.membershipServiceGetCustomerInviteSpecificDeprecated
-    );
-
-  public membershipServiceGetCustomerMembershipSpecific =
-    this.requestFunctionFactory(
-      operations.membershipServiceGetCustomerMembershipSpecific
-    );
-
-  public membershipServiceGetOwnMembershipForProjectV2 =
-    this.requestFunctionFactory(
-      operations.membershipServiceGetOwnMembershipForProjectV2
-    );
-
-  public membershipServiceGetProjectInviteSpecific =
-    this.requestFunctionFactory(
-      operations.membershipServiceGetProjectInviteSpecific
-    );
-
-  public membershipServiceGetProjectInviteSpecificDeprecated =
-    this.requestFunctionFactory(
-      operations.membershipServiceGetProjectInviteSpecificDeprecated
-    );
-
-  public membershipServiceGetProjectMembershipForProjectAndUser =
-    this.requestFunctionFactory(
-      operations.membershipServiceGetProjectMembershipForProjectAndUser
-    );
-
-  public membershipServiceGetProjectMembershipSpecific =
-    this.requestFunctionFactory(
-      operations.membershipServiceGetProjectMembershipSpecific
-    );
-
-  public membershipServiceLeaveCustomer = this.requestFunctionFactory(
-    operations.membershipServiceLeaveCustomer
+  public customerCreateCustomerInvite = this.requestFunctionFactory(
+    operations.customerCreateCustomerInvite
   );
 
-  public membershipServiceLeaveProject = this.requestFunctionFactory(
-    operations.membershipServiceLeaveProject
+  public projectCreateProjectInvite = this.requestFunctionFactory(
+    operations.projectCreateProjectInvite
   );
 
-  public membershipServiceListCustomerInvitesForUserOrEmail =
-    this.requestFunctionFactory(
-      operations.membershipServiceListCustomerInvitesForUserOrEmail
-    );
-
-  public membershipServiceListCustomerMembershipsForUser =
-    this.requestFunctionFactory(
-      operations.membershipServiceListCustomerMembershipsForUser
-    );
-
-  public membershipServiceListInvitesForCustomer = this.requestFunctionFactory(
-    operations.membershipServiceListInvitesForCustomer
+  public customerDeclineCustomerInvite = this.requestFunctionFactory(
+    operations.customerDeclineCustomerInvite
   );
 
-  public membershipServiceListInvitesForProject = this.requestFunctionFactory(
-    operations.membershipServiceListInvitesForProject
+  public projectDeclineProjectInvite = this.requestFunctionFactory(
+    operations.projectDeclineProjectInvite
   );
 
-  public membershipServiceListMembershipsForCustomer =
-    this.requestFunctionFactory(
-      operations.membershipServiceListMembershipsForCustomer
-    );
-
-  public membershipServiceListMembershipsForProject =
-    this.requestFunctionFactory(
-      operations.membershipServiceListMembershipsForProject
-    );
-
-  public membershipServiceListOwnCustomerInvitesV2 =
-    this.requestFunctionFactory(
-      operations.membershipServiceListOwnCustomerInvitesV2
-    );
-
-  public membershipServiceListOwnProjectInvitesV2 = this.requestFunctionFactory(
-    operations.membershipServiceListOwnProjectInvitesV2
+  public customerGetCustomerInviteSpecific = this.requestFunctionFactory(
+    operations.customerGetCustomerInviteSpecific
   );
 
-  public membershipServiceListProjectInvitesForUserOrEmail =
-    this.requestFunctionFactory(
-      operations.membershipServiceListProjectInvitesForUserOrEmail
-    );
-
-  public membershipServiceListProjectMembershipsForUser =
-    this.requestFunctionFactory(
-      operations.membershipServiceListProjectMembershipsForUser
-    );
-
-  public membershipServiceResendCustomerInviteMail =
-    this.requestFunctionFactory(
-      operations.membershipServiceResendCustomerInviteMail
-    );
-
-  public membershipServiceResendProjectInviteMail = this.requestFunctionFactory(
-    operations.membershipServiceResendProjectInviteMail
+  public customerGetCustomerMembershipSpecific = this.requestFunctionFactory(
+    operations.customerGetCustomerMembershipSpecific
   );
 
-  public membershipServiceRevokeCustomerInvite = this.requestFunctionFactory(
-    operations.membershipServiceRevokeCustomerInvite
+  public projectGetOwnMembershipForProject = this.requestFunctionFactory(
+    operations.projectGetOwnMembershipForProject
   );
 
-  public membershipServiceRevokeProjectInvite = this.requestFunctionFactory(
-    operations.membershipServiceRevokeProjectInvite
+  public projectGetProjectInviteSpecific = this.requestFunctionFactory(
+    operations.projectGetProjectInviteSpecific
+  );
+
+  public projectGetProjectMembershipSpecific = this.requestFunctionFactory(
+    operations.projectGetProjectMembershipSpecific
+  );
+
+  public customerLeaveCustomer = this.requestFunctionFactory(
+    operations.customerLeaveCustomer
+  );
+
+  public projectLeaveProject = this.requestFunctionFactory(
+    operations.projectLeaveProject
+  );
+
+  public customerListCustomerMembershipsForUser = this.requestFunctionFactory(
+    operations.customerListCustomerMembershipsForUser
+  );
+
+  public customerListInvitesForCustomer = this.requestFunctionFactory(
+    operations.customerListInvitesForCustomer
+  );
+
+  public projectListInvitesForProject = this.requestFunctionFactory(
+    operations.projectListInvitesForProject
+  );
+
+  public customerListMembershipsForCustomer = this.requestFunctionFactory(
+    operations.customerListMembershipsForCustomer
+  );
+
+  public projectListMembershipsForProject = this.requestFunctionFactory(
+    operations.projectListMembershipsForProject
+  );
+
+  public customerListOwnCustomerInvites = this.requestFunctionFactory(
+    operations.customerListOwnCustomerInvites
+  );
+
+  public projectListOwnProjectInvites = this.requestFunctionFactory(
+    operations.projectListOwnProjectInvites
+  );
+
+  public projectListProjectMembershipsForUser = this.requestFunctionFactory(
+    operations.projectListProjectMembershipsForUser
+  );
+
+  public customerResendCustomerInviteMail = this.requestFunctionFactory(
+    operations.customerResendCustomerInviteMail
+  );
+
+  public projectResendProjectInviteMail = this.requestFunctionFactory(
+    operations.projectResendProjectInviteMail
+  );
+
+  public customerRevokeCustomerInvite = this.requestFunctionFactory(
+    operations.customerRevokeCustomerInvite
+  );
+
+  public projectRevokeProjectInvite = this.requestFunctionFactory(
+    operations.projectRevokeProjectInvite
   );
 
   public messagingServiceCountUnreadNotifications = this.requestFunctionFactory(
@@ -880,65 +827,64 @@ export class MittwaldApiV2Client extends ApiClientBase {
     operations.messagingServiceReadNotification
   );
 
-  public newsletterGetInfoV2 = this.requestFunctionFactory(
-    operations.newsletterGetInfoV2
+  public newsletterGetInfo = this.requestFunctionFactory(
+    operations.newsletterGetInfo
   );
 
-  public newsletterUnsubscribeUserV2 = this.requestFunctionFactory(
-    operations.newsletterUnsubscribeUserV2
+  public newsletterUnsubscribeUser = this.requestFunctionFactory(
+    operations.newsletterUnsubscribeUser
   );
 
-  public newsletterSubscribeUserV2 = this.requestFunctionFactory(
-    operations.newsletterSubscribeUserV2
+  public newsletterSubscribeUser = this.requestFunctionFactory(
+    operations.newsletterSubscribeUser
   );
 
-  public orderServiceChangeProjecthostingV2 = this.requestFunctionFactory(
-    operations.orderServiceChangeProjecthostingV2
+  public orderServiceChangeProjecthosting = this.requestFunctionFactory(
+    operations.orderServiceChangeProjecthosting
   );
 
-  public orderServiceChangeServerV2 = this.requestFunctionFactory(
-    operations.orderServiceChangeServerV2
+  public orderServiceChangeServer = this.requestFunctionFactory(
+    operations.orderServiceChangeServer
   );
 
-  public orderServiceGetOrderV2 = this.requestFunctionFactory(
-    operations.orderServiceGetOrderV2
+  public orderServiceGetOrder = this.requestFunctionFactory(
+    operations.orderServiceGetOrder
   );
 
-  public orderServiceListCustomerOrdersV2 = this.requestFunctionFactory(
-    operations.orderServiceListCustomerOrdersV2
+  public orderServiceListCustomerOrders = this.requestFunctionFactory(
+    operations.orderServiceListCustomerOrders
   );
 
-  public orderServiceOrderDomainV2 = this.requestFunctionFactory(
-    operations.orderServiceOrderDomainV2
+  public orderServiceOrderDomain = this.requestFunctionFactory(
+    operations.orderServiceOrderDomain
   );
 
-  public orderServiceOrderProjecthostingV2 = this.requestFunctionFactory(
-    operations.orderServiceOrderProjecthostingV2
+  public orderServiceOrderProjecthosting = this.requestFunctionFactory(
+    operations.orderServiceOrderProjecthosting
   );
 
-  public orderServiceOrderServerV2 = this.requestFunctionFactory(
-    operations.orderServiceOrderServerV2
+  public orderServiceOrderServer = this.requestFunctionFactory(
+    operations.orderServiceOrderServer
   );
 
-  public orderServicePreviewChangeProjecthostingV2 =
-    this.requestFunctionFactory(
-      operations.orderServicePreviewChangeProjecthostingV2
-    );
-
-  public orderServicePreviewChangeServerV2 = this.requestFunctionFactory(
-    operations.orderServicePreviewChangeServerV2
+  public orderServicePreviewChangeProjecthosting = this.requestFunctionFactory(
+    operations.orderServicePreviewChangeProjecthosting
   );
 
-  public orderServicePreviewOrderDomainV2 = this.requestFunctionFactory(
-    operations.orderServicePreviewOrderDomainV2
+  public orderServicePreviewChangeServer = this.requestFunctionFactory(
+    operations.orderServicePreviewChangeServer
   );
 
-  public orderServicePreviewOrderProjecthostingV2 = this.requestFunctionFactory(
-    operations.orderServicePreviewOrderProjecthostingV2
+  public orderServicePreviewOrderDomain = this.requestFunctionFactory(
+    operations.orderServicePreviewOrderDomain
   );
 
-  public orderServicePreviewOrderServerV2 = this.requestFunctionFactory(
-    operations.orderServicePreviewOrderServerV2
+  public orderServicePreviewOrderProjecthosting = this.requestFunctionFactory(
+    operations.orderServicePreviewOrderProjecthosting
+  );
+
+  public orderServicePreviewOrderServer = this.requestFunctionFactory(
+    operations.orderServicePreviewOrderServer
   );
 
   public passwordValidationServiceGetPasswordPolicy =
@@ -1017,8 +963,8 @@ export class MittwaldApiV2Client extends ApiClientBase {
     operations.projectServiceProjectsGetList
   );
 
-  public redirectusCreateRelocationV2 = this.requestFunctionFactory(
-    operations.redirectusCreateRelocationV2
+  public redirectusCreateRelocation = this.requestFunctionFactory(
+    operations.redirectusCreateRelocation
   );
 
   public signupApiApiTokenCreate = this.requestFunctionFactory(
@@ -1293,22 +1239,22 @@ export class MittwaldApiV2Client extends ApiClientBase {
       operations.storageStatisticsServiceStorageStatistics
     );
 
-  public systemsoftwareGetSystemsoftwareV2 = this.requestFunctionFactory(
-    operations.systemsoftwareGetSystemsoftwareV2
+  public systemsoftwareGetSystemsoftware = this.requestFunctionFactory(
+    operations.systemsoftwareGetSystemsoftware
   );
 
-  public systemsoftwareGetSystemsoftwaresV2 = this.requestFunctionFactory(
-    operations.systemsoftwareGetSystemsoftwaresV2
+  public systemsoftwareGetSystemsoftwares = this.requestFunctionFactory(
+    operations.systemsoftwareGetSystemsoftwares
   );
 
-  public systemsoftwareversionGetSystemsoftwareversionV2 =
+  public systemsoftwareversionGetSystemsoftwareversion =
     this.requestFunctionFactory(
-      operations.systemsoftwareversionGetSystemsoftwareversionV2
+      operations.systemsoftwareversionGetSystemsoftwareversion
     );
 
-  public systemsoftwareversionGetSystemsoftwareversionsV2 =
+  public systemsoftwareversionGetSystemsoftwareversions =
     this.requestFunctionFactory(
-      operations.systemsoftwareversionGetSystemsoftwareversionsV2
+      operations.systemsoftwareversionGetSystemsoftwareversions
     );
 
   public userServiceAvatarRemove = this.requestFunctionFactory(
@@ -1371,72 +1317,132 @@ export class MittwaldApiV2Client extends ApiClientBase {
     operations.varnishServiceValidate
   );
 
-  public fileServiceFileGetTypeRules = this.requestFunctionFactory(
-    operations.fileServiceFileGetTypeRules
+  public fileGetFileTypeRules = this.requestFunctionFactory(
+    operations.fileGetFileTypeRules
   );
 
-  public orderServiceListProjectOrdersV2 = this.requestFunctionFactory(
-    operations.orderServiceListProjectOrdersV2
+  public orderServiceListProjectOrders = this.requestFunctionFactory(
+    operations.orderServiceListProjectOrders
   );
 
   public deprecatedcronjobServiceCronjobAddAppid = this.requestFunctionFactory(
     operations.deprecatedcronjobServiceCronjobAddAppid
   );
 
-  public cronjobAbortExecutionV2 = this.requestFunctionFactory(
-    operations.cronjobAbortExecutionV2
+  public cronjobAbortExecution = this.requestFunctionFactory(
+    operations.cronjobAbortExecution
   );
 
-  public backupServiceCreateProjectBackup = this.requestFunctionFactory(
-    operations.backupServiceCreateProjectBackup
+  public backupCreateProjectBackup = this.requestFunctionFactory(
+    operations.backupCreateProjectBackup
   );
 
-  public backupServiceListProjectBackups = this.requestFunctionFactory(
-    operations.backupServiceListProjectBackups
+  public backupListProjectBackups = this.requestFunctionFactory(
+    operations.backupListProjectBackups
   );
 
-  public backupServiceCreateProjectBackupSchedule = this.requestFunctionFactory(
-    operations.backupServiceCreateProjectBackupSchedule
+  public backupCreateProjectBackupSchedule = this.requestFunctionFactory(
+    operations.backupCreateProjectBackupSchedule
   );
 
-  public backupServiceListProjectBackupSchedules = this.requestFunctionFactory(
-    operations.backupServiceListProjectBackupSchedules
+  public backupListProjectBackupSchedules = this.requestFunctionFactory(
+    operations.backupListProjectBackupSchedules
   );
 
-  public backupServiceDeleteProjectBackup = this.requestFunctionFactory(
-    operations.backupServiceDeleteProjectBackup
+  public backupDeleteProjectBackup = this.requestFunctionFactory(
+    operations.backupDeleteProjectBackup
   );
 
-  public backupServiceGetProjectBackup = this.requestFunctionFactory(
-    operations.backupServiceGetProjectBackup
+  public backupGetProjectBackup = this.requestFunctionFactory(
+    operations.backupGetProjectBackup
   );
 
-  public backupServiceDeleteProjectBackupExport = this.requestFunctionFactory(
-    operations.backupServiceDeleteProjectBackupExport
+  public backupCreateProjectBackupExport = this.requestFunctionFactory(
+    operations.backupCreateProjectBackupExport
   );
 
-  public backupServiceRequestProjectBackupExport = this.requestFunctionFactory(
-    operations.backupServiceRequestProjectBackupExport
+  public backupDeleteProjectBackupExport = this.requestFunctionFactory(
+    operations.backupDeleteProjectBackupExport
   );
 
-  public backupServiceDeleteProjectBackupSchedule = this.requestFunctionFactory(
-    operations.backupServiceDeleteProjectBackupSchedule
+  public backupDeleteProjectBackupSchedule = this.requestFunctionFactory(
+    operations.backupDeleteProjectBackupSchedule
   );
 
-  public backupServiceGetProjectBackupSchedule = this.requestFunctionFactory(
-    operations.backupServiceGetProjectBackupSchedule
+  public backupGetProjectBackupSchedule = this.requestFunctionFactory(
+    operations.backupGetProjectBackupSchedule
   );
 
-  public backupServicePatchBackupSchedule = this.requestFunctionFactory(
-    operations.backupServicePatchBackupSchedule
+  public backupUpdateProjectBackupSchedule = this.requestFunctionFactory(
+    operations.backupUpdateProjectBackupSchedule
   );
 
-  public backupServiceSetProjectBackupDescription = this.requestFunctionFactory(
-    operations.backupServiceSetProjectBackupDescription
+  public backupUpdateProjectBackupDescription = this.requestFunctionFactory(
+    operations.backupUpdateProjectBackupDescription
   );
 
-  public cronjobUpdateCronjobAppIdV2 = this.requestFunctionFactory(
-    operations.cronjobUpdateCronjobAppIdV2
+  public cronjobUpdateCronjobAppId = this.requestFunctionFactory(
+    operations.cronjobUpdateCronjobAppId
+  );
+
+  public contractCancelContractItemTermination = this.requestFunctionFactory(
+    operations.contractCancelContractItemTermination
+  );
+
+  public deprecatedContractTerminateContractItem = this.requestFunctionFactory(
+    operations.deprecatedContractTerminateContractItem
+  );
+
+  public contractCancelContractTariffChange = this.requestFunctionFactory(
+    operations.contractCancelContractTariffChange
+  );
+
+  public contractCancelContractTermination = this.requestFunctionFactory(
+    operations.contractCancelContractTermination
+  );
+
+  public contractTerminateContract = this.requestFunctionFactory(
+    operations.contractTerminateContract
+  );
+
+  public contractGetBaseItemOfContract = this.requestFunctionFactory(
+    operations.contractGetBaseItemOfContract
+  );
+
+  public contractGetNextTerminationDateForItem = this.requestFunctionFactory(
+    operations.contractGetNextTerminationDateForItem
+  );
+
+  public customerServiceCreateCategory = this.requestFunctionFactory(
+    operations.customerServiceCreateCategory
+  );
+
+  public customerServiceListOfCustomerCategories = this.requestFunctionFactory(
+    operations.customerServiceListOfCustomerCategories
+  );
+
+  public customerServiceDeleteCategory = this.requestFunctionFactory(
+    operations.customerServiceDeleteCategory
+  );
+
+  public customerServiceDetailOfCustomerCategory = this.requestFunctionFactory(
+    operations.customerServiceDetailOfCustomerCategory
+  );
+
+  public customerServiceUpdateCategory = this.requestFunctionFactory(
+    operations.customerServiceUpdateCategory
+  );
+
+  public deprecatedContractGetBaseItemOfContract = this.requestFunctionFactory(
+    operations.deprecatedContractGetBaseItemOfContract
+  );
+
+  public invoiceGetDetailOfInvoiceSettings = this.requestFunctionFactory(
+    operations.invoiceGetDetailOfInvoiceSettings
+  );
+
+  public invoiceUpdateInvoiceSettings = this.requestFunctionFactory(
+    operations.invoiceUpdateInvoiceSettings
   );
 }
 
