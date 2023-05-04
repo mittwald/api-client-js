@@ -9253,7 +9253,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects/{projectId}/filesystem/directories:
       get:
-        operationId: project-service-get-fs-api-directories
+        operationId: project-file-system-get-directories
         parameters:
           path:
             type: object
@@ -9314,7 +9314,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects/{projectId}/filesystem/files/raw:
       get:
-        operationId: project-service-get-fs-api-file-content
+        operationId: project-file-system-get-file-content
         parameters:
           path:
             type: object
@@ -9322,12 +9322,14 @@ spec:
               - projectId
             properties:
               projectId:
+                format: uuid
                 type: string
           query:
             type: object
             required: []
             properties:
               file:
+                example: /home/example.log
                 type: string
               inline:
                 type: boolean
@@ -9366,7 +9368,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects/{projectId}/filesystem/files:
       get:
-        operationId: project-service-get-fs-api-files
+        operationId: project-file-system-list-files
         parameters:
           path:
             type: object
@@ -9374,12 +9376,14 @@ spec:
               - projectId
             properties:
               projectId:
+                format: uuid
                 type: string
           query:
             type: object
             required: []
             properties:
               file:
+                example: /home/example.log
                 type: string
           header:
             type: object
@@ -9415,7 +9419,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects/{projectId}/jwt:
       get:
-        operationId: project-service-get-fs-api-jwt
+        operationId: project-file-system-get-jwt
         parameters:
           path:
             type: object
@@ -9453,7 +9457,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects/{projectId}/filesystem/usages/disk:
       get:
-        operationId: project-service-get-fs-api-usages-disk
+        operationId: project-file-system-get-disk-usage
         parameters:
           path:
             type: object
@@ -9461,12 +9465,14 @@ spec:
               - projectId
             properties:
               projectId:
+                format: uuid
                 type: string
           query:
             type: object
             required: []
             properties:
               directory:
+                example: /home/example.log
                 type: string
           header:
             type: object
@@ -9502,7 +9508,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/placementgroups/{placementGroupId}/avatar:
       delete:
-        operationId: project-service-placementgroup-avatar-remove
+        operationId: deprecated-placement-group-placementgroup-avatar-remove
         parameters:
           path:
             type: object
@@ -9534,7 +9540,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       post:
-        operationId: project-service-placementgroup-avatar-request-upload
+        operationId: deprecated-placement-group-placementgroup-avatar-request-upload
         parameters:
           path:
             type: object
@@ -9578,7 +9584,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/placementgroups/{placementGroupId}:
       get:
-        operationId: project-service-placementgroup-details
+        operationId: deprecated-placement-group-placementgroup-details
         parameters:
           path:
             type: object
@@ -9612,7 +9618,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/placementgroups:
       get:
-        operationId: project-service-placementgroup-list
+        operationId: deprecated-placement-group-placementgroup-list
         parameters:
           query:
             type: object
@@ -9652,7 +9658,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/placementgroups/{placementGroupId}/projects:
       post:
-        operationId: project-service-placementgroup-subproject-create
+        operationId: deprecated-project-create-subproject
         parameters:
           path:
             type: object
@@ -9704,8 +9710,8 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/placementgroups/{placementGroupId}/description:
-      put:
-        operationId: project-service-placementgroup-update-description
+      patch:
+        operationId: deprecated-placement-group-placementgroup-update-description
         parameters:
           path:
             type: object
@@ -9740,7 +9746,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
     /v2/projects/{projectId}/avatar:
       delete:
-        operationId: project-service-project-avatar-remove
+        operationId: project-delete-project-avatar
         parameters:
           path:
             type: object
@@ -9772,7 +9778,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       post:
-        operationId: project-service-project-avatar-request-upload
+        operationId: project-request-project-avatar-upload
         parameters:
           path:
             type: object
@@ -9816,7 +9822,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects/{projectId}:
       delete:
-        operationId: project-service-project-delete
+        operationId: project-delete-project
         parameters:
           path:
             type: object
@@ -9860,7 +9866,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects/{id}:
       get:
-        operationId: project-service-project-get-specific
+        operationId: project-get-project
         parameters:
           path:
             type: object
@@ -9868,6 +9874,7 @@ spec:
               - id
             properties:
               id:
+                format: uuid
                 type: string
           header:
             type: object
@@ -9894,7 +9901,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects/{id}/description:
       put:
-        operationId: project-service-project-update-description
+        operationId: deprecated-project-update-description
         parameters:
           path:
             type: object
@@ -9917,6 +9924,50 @@ spec:
           requestBody:
             properties:
               description:
+                example: My new description!
+                type: string
+            required:
+              - description
+        responses:
+          '200':
+            content: {}
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+      patch:
+        operationId: project-update-project-description
+        parameters:
+          path:
+            type: object
+            required:
+              - id
+            properties:
+              id:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+          requestBody:
+            properties:
+              description:
+                example: My new description!
                 type: string
             required:
               - description
@@ -9937,15 +9988,17 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects:
       get:
-        operationId: project-service-projects-get-list
+        operationId: project-list-projects
         parameters:
           query:
             type: object
             required: []
             properties:
               customerId:
+                example: 15b8a787-8d46-43b0-907e-01af35032c0a
                 type: string
-              placementGroupId:
+              serverId:
+                format: uuid
                 type: string
           header:
             type: object
@@ -15799,6 +15852,246 @@ spec:
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/servers/{serverId}/projects:
+      post:
+        operationId: project-create-project
+        parameters:
+          path:
+            type: object
+            required:
+              - serverId
+            properties:
+              serverId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+          requestBody:
+            properties:
+              description:
+                description: Name of the Project as it is displayed in the mStudio.
+                example: My first Project!
+                type: string
+            required:
+              - description
+            type: object
+        responses:
+          '201':
+            content:
+              application/json:
+                properties:
+                  id:
+                    format: uuid
+                    type: string
+                required:
+                  - id
+                type: object
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          '412':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/servers/{serverId}/avatar:
+      delete:
+        operationId: project-delete-server-avatar
+        parameters:
+          path:
+            type: object
+            required:
+              - serverId
+            properties:
+              serverId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '204':
+            content: {}
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+      post:
+        operationId: project-request-server-avatar-upload
+        parameters:
+          path:
+            type: object
+            required:
+              - serverId
+            properties:
+              serverId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '200':
+            content:
+              application/json:
+                properties:
+                  refId:
+                    format: uuid
+                    type: string
+                  rules:
+                    $ref: '#/components/schemas/de.mittwald.v1.project.AvatarRules'
+                required:
+                  - refId
+                  - rules
+                type: object
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/servers/{serverId}:
+      get:
+        operationId: project-get-server
+        parameters:
+          path:
+            type: object
+            required:
+              - serverId
+            properties:
+              serverId:
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '200':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.project.Server'
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/servers:
+      get:
+        operationId: project-list-servers
+        parameters:
+          query:
+            type: object
+            required: []
+            properties:
+              customerId:
+                type: string
+              limit:
+                minimum: 0
+                type: integer
+              page:
+                minimum: 0
+                type: integer
+              skip:
+                minimum: 0
+                type: integer
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '200':
+            content:
+              application/json:
+                items:
+                  $ref: '#/components/schemas/de.mittwald.v1.project.Server'
+                type: array
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/servers/{serverId}/description:
+      patch:
+        operationId: project-update-server-description
+        parameters:
+          path:
+            type: object
+            required:
+              - serverId
+            properties:
+              serverId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+          requestBody:
+            properties:
+              description:
+                example: My first Server!
+                type: string
+            required:
+              - description
+        responses:
+          '200':
+            content: {}
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
   components:
     schemas:
       de.mittwald.v1.app.Action:
@@ -19103,8 +19396,12 @@ spec:
       de.mittwald.v1.project.AvatarRules:
         properties:
           maxSizeInKB:
+            example: 3000
             type: integer
           mimeTypes:
+            example:
+              - image/jpeg
+              - image/png
             items:
               type: string
             type: array
@@ -19135,10 +19432,13 @@ spec:
       de.mittwald.v1.project.MachineType:
         properties:
           cpu:
+            example: '2'
             type: string
           memory:
+            example: 4Gi
             type: string
           name:
+            example: shared.large
             type: string
         required:
           - name
@@ -19177,20 +19477,26 @@ spec:
       de.mittwald.v1.project.Project:
         properties:
           clusterDomain:
+            example: project.host
             format: hostname
             type: string
           clusterID:
+            example: espelkamp
             type: string
           createdAt:
             format: date-time
             type: string
           customerId:
+            example: f282f1a8-2b15-4b08-9850-6788e3b20136
             type: string
           description:
+            example: My first Project!
             type: string
           directories:
             additionalProperties:
               type: string
+            example:
+              Home: /home/p-4e7tz3
             type: object
           disableReason:
             $ref: '#/components/schemas/de.mittwald.v1.project.DisableReason'
@@ -19200,6 +19506,7 @@ spec:
             format: uuid
             type: string
           imageRefId:
+            format: uuid
             type: string
           isReady:
             type: boolean
@@ -19207,10 +19514,12 @@ spec:
             format: uuid
             type: string
           serverId:
+            format: uuid
             type: string
           serverShortId:
             type: string
           shortId:
+            example: s-4e7tz3
             type: string
           spec:
             oneOf:
@@ -19229,6 +19538,8 @@ spec:
       de.mittwald.v1.project.FsApiJwt:
         properties:
           jwt:
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFkYSBMb3ZlbGFjZSIsImlhdCI6MTUxNjIzOTAyMn0.sMjBP_p34T5mbJTVdEWQ8i2hQPVxsmlt8L6-rKpCczo
             type: string
         required:
           - jwt
@@ -19273,10 +19584,13 @@ spec:
       de.mittwald.v1.project.HardwareSpec:
         properties:
           cpu:
+            example: '2'
             type: string
           mem:
+            example: 4Gi
             type: string
           storage:
+            example: 50Gi
             type: string
         required:
           - cpu
@@ -20062,6 +20376,39 @@ spec:
           - mr
           - ms
           - other
+      de.mittwald.v1.project.Server:
+        properties:
+          customerId:
+            example: 673c107f-75e1-451c-8eaa-5bf101bd2b2c
+            type: string
+          description:
+            example: My first Server!
+            type: string
+          id:
+            format: uuid
+            type: string
+          imageRefId:
+            format: uuid
+            type: string
+          isReady:
+            type: boolean
+          machineType:
+            $ref: '#/components/schemas/de.mittwald.v1.project.MachineType'
+          shortId:
+            example: s-4e7tz3
+            type: string
+          storage:
+            example: 50Gi
+            type: string
+        required:
+          - id
+          - shortId
+          - customerId
+          - machineType
+          - storage
+          - description
+          - isReady
+        type: object
     parameters: {}
     responses:
       de.mittwald.v1.app.GenericResponse:

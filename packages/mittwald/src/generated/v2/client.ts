@@ -892,75 +892,81 @@ export class MittwaldApiV2Client extends ApiClientBase {
       operations.passwordValidationServiceGetPasswordPolicy
     );
 
-  public projectServiceGetFsApiDirectories = this.requestFunctionFactory(
-    operations.projectServiceGetFsApiDirectories
+  public projectFileSystemGetDirectories = this.requestFunctionFactory(
+    operations.projectFileSystemGetDirectories
   );
 
-  public projectServiceGetFsApiFileContent = this.requestFunctionFactory(
-    operations.projectServiceGetFsApiFileContent
+  public projectFileSystemGetFileContent = this.requestFunctionFactory(
+    operations.projectFileSystemGetFileContent
   );
 
-  public projectServiceGetFsApiFiles = this.requestFunctionFactory(
-    operations.projectServiceGetFsApiFiles
+  public projectFileSystemListFiles = this.requestFunctionFactory(
+    operations.projectFileSystemListFiles
   );
 
-  public projectServiceGetFsApiJwt = this.requestFunctionFactory(
-    operations.projectServiceGetFsApiJwt
+  public projectFileSystemGetJwt = this.requestFunctionFactory(
+    operations.projectFileSystemGetJwt
   );
 
-  public projectServiceGetFsApiUsagesDisk = this.requestFunctionFactory(
-    operations.projectServiceGetFsApiUsagesDisk
+  public projectFileSystemGetDiskUsage = this.requestFunctionFactory(
+    operations.projectFileSystemGetDiskUsage
   );
 
-  public projectServicePlacementgroupAvatarRemove = this.requestFunctionFactory(
-    operations.projectServicePlacementgroupAvatarRemove
-  );
-
-  public projectServicePlacementgroupAvatarRequestUpload =
+  public deprecatedPlacementGroupPlacementgroupAvatarRemove =
     this.requestFunctionFactory(
-      operations.projectServicePlacementgroupAvatarRequestUpload
+      operations.deprecatedPlacementGroupPlacementgroupAvatarRemove
     );
 
-  public projectServicePlacementgroupDetails = this.requestFunctionFactory(
-    operations.projectServicePlacementgroupDetails
-  );
-
-  public projectServicePlacementgroupList = this.requestFunctionFactory(
-    operations.projectServicePlacementgroupList
-  );
-
-  public projectServicePlacementgroupSubprojectCreate =
+  public deprecatedPlacementGroupPlacementgroupAvatarRequestUpload =
     this.requestFunctionFactory(
-      operations.projectServicePlacementgroupSubprojectCreate
+      operations.deprecatedPlacementGroupPlacementgroupAvatarRequestUpload
     );
 
-  public projectServicePlacementgroupUpdateDescription =
+  public deprecatedPlacementGroupPlacementgroupDetails =
     this.requestFunctionFactory(
-      operations.projectServicePlacementgroupUpdateDescription
+      operations.deprecatedPlacementGroupPlacementgroupDetails
     );
 
-  public projectServiceProjectAvatarRemove = this.requestFunctionFactory(
-    operations.projectServiceProjectAvatarRemove
+  public deprecatedPlacementGroupPlacementgroupList =
+    this.requestFunctionFactory(
+      operations.deprecatedPlacementGroupPlacementgroupList
+    );
+
+  public deprecatedProjectCreateSubproject = this.requestFunctionFactory(
+    operations.deprecatedProjectCreateSubproject
   );
 
-  public projectServiceProjectAvatarRequestUpload = this.requestFunctionFactory(
-    operations.projectServiceProjectAvatarRequestUpload
+  public deprecatedPlacementGroupPlacementgroupUpdateDescription =
+    this.requestFunctionFactory(
+      operations.deprecatedPlacementGroupPlacementgroupUpdateDescription
+    );
+
+  public projectDeleteProjectAvatar = this.requestFunctionFactory(
+    operations.projectDeleteProjectAvatar
   );
 
-  public projectServiceProjectDelete = this.requestFunctionFactory(
-    operations.projectServiceProjectDelete
+  public projectRequestProjectAvatarUpload = this.requestFunctionFactory(
+    operations.projectRequestProjectAvatarUpload
   );
 
-  public projectServiceProjectGetSpecific = this.requestFunctionFactory(
-    operations.projectServiceProjectGetSpecific
+  public projectDeleteProject = this.requestFunctionFactory(
+    operations.projectDeleteProject
   );
 
-  public projectServiceProjectUpdateDescription = this.requestFunctionFactory(
-    operations.projectServiceProjectUpdateDescription
+  public projectGetProject = this.requestFunctionFactory(
+    operations.projectGetProject
   );
 
-  public projectServiceProjectsGetList = this.requestFunctionFactory(
-    operations.projectServiceProjectsGetList
+  public deprecatedProjectUpdateDescription = this.requestFunctionFactory(
+    operations.deprecatedProjectUpdateDescription
+  );
+
+  public projectUpdateProjectDescription = this.requestFunctionFactory(
+    operations.projectUpdateProjectDescription
+  );
+
+  public projectListProjects = this.requestFunctionFactory(
+    operations.projectListProjects
   );
 
   public redirectusCreateRelocation = this.requestFunctionFactory(
@@ -1443,6 +1449,30 @@ export class MittwaldApiV2Client extends ApiClientBase {
 
   public invoiceUpdateInvoiceSettings = this.requestFunctionFactory(
     operations.invoiceUpdateInvoiceSettings
+  );
+
+  public projectCreateProject = this.requestFunctionFactory(
+    operations.projectCreateProject
+  );
+
+  public projectDeleteServerAvatar = this.requestFunctionFactory(
+    operations.projectDeleteServerAvatar
+  );
+
+  public projectRequestServerAvatarUpload = this.requestFunctionFactory(
+    operations.projectRequestServerAvatarUpload
+  );
+
+  public projectGetServer = this.requestFunctionFactory(
+    operations.projectGetServer
+  );
+
+  public projectListServers = this.requestFunctionFactory(
+    operations.projectListServers
+  );
+
+  public projectUpdateServerDescription = this.requestFunctionFactory(
+    operations.projectUpdateServerDescription
   );
 }
 
