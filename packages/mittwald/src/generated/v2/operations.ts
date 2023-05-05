@@ -60,7 +60,7 @@ export const appGetApps: OpenAPIOperation<
   operationId: "appGetApps",
 };
 
-export const appinstallationExecuteAction: OpenAPIOperation<
+export const appExecuteAction: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Appinstallations_AppInstallationId_Actions_Action.Post.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Appinstallations_AppInstallationId_Actions_Action.Post.Parameters.Path>,
@@ -80,10 +80,10 @@ export const appinstallationExecuteAction: OpenAPIOperation<
 > = {
   path: "/v2/appinstallations/{appInstallationId}/actions/{action}",
   method: "POST",
-  operationId: "appinstallationExecuteAction",
+  operationId: "appExecuteAction",
 };
 
-export const appinstallationGetAppinstallation: OpenAPIOperation<
+export const appGetAppinstallation: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Appinstallations_AppInstallationId.Get.Parameters.Path>,
@@ -107,10 +107,10 @@ export const appinstallationGetAppinstallation: OpenAPIOperation<
 > = {
   path: "/v2/appinstallations/{appInstallationId}",
   method: "GET",
-  operationId: "appinstallationGetAppinstallation",
+  operationId: "appGetAppinstallation",
 };
 
-export const appinstallationPatchAppinstallation: OpenAPIOperation<
+export const appPatchAppinstallation: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Appinstallations_AppInstallationId.Patch.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Appinstallations_AppInstallationId.Patch.Parameters.Path>,
@@ -130,10 +130,10 @@ export const appinstallationPatchAppinstallation: OpenAPIOperation<
 > = {
   path: "/v2/appinstallations/{appInstallationId}",
   method: "PATCH",
-  operationId: "appinstallationPatchAppinstallation",
+  operationId: "appPatchAppinstallation",
 };
 
-export const appinstallationUninstallAppinstallation: OpenAPIOperation<
+export const appUninstallAppinstallation: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Appinstallations_AppInstallationId.Delete.Parameters.Path>,
@@ -153,10 +153,10 @@ export const appinstallationUninstallAppinstallation: OpenAPIOperation<
 > = {
   path: "/v2/appinstallations/{appInstallationId}",
   method: "DELETE",
-  operationId: "appinstallationUninstallAppinstallation",
+  operationId: "appUninstallAppinstallation",
 };
 
-export const appinstallationGetAppinstallations: OpenAPIOperation<
+export const appGetAppinstallations: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Appinstallations.Get.Parameters.Path>,
@@ -175,10 +175,10 @@ export const appinstallationGetAppinstallations: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/appinstallations",
   method: "GET",
-  operationId: "appinstallationGetAppinstallations",
+  operationId: "appGetAppinstallations",
 };
 
-export const appinstallationRequestAppinstallation: OpenAPIOperation<
+export const appRequestAppinstallation: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Appinstallations.Post.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Appinstallations.Post.Parameters.Path>,
@@ -202,10 +202,10 @@ export const appinstallationRequestAppinstallation: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/appinstallations",
   method: "POST",
-  operationId: "appinstallationRequestAppinstallation",
+  operationId: "appRequestAppinstallation",
 };
 
-export const appinstallationLinkDatabase: OpenAPIOperation<
+export const appLinkDatabase: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Appinstallations_AppInstallationId_Databases.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Appinstallations_AppInstallationId_Databases.Put.Parameters.Path>,
@@ -225,10 +225,10 @@ export const appinstallationLinkDatabase: OpenAPIOperation<
 > = {
   path: "/v2/appinstallations/{appInstallationId}/databases",
   method: "PUT",
-  operationId: "appinstallationLinkDatabase",
+  operationId: "appLinkDatabase",
 };
 
-export const appinstallationRetrieveStatus: OpenAPIOperation<
+export const appRetrieveStatus: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Appinstallations_AppInstallationId_Status.Get.Parameters.Path>,
@@ -252,10 +252,10 @@ export const appinstallationRetrieveStatus: OpenAPIOperation<
 > = {
   path: "/v2/appinstallations/{appInstallationId}/status",
   method: "GET",
-  operationId: "appinstallationRetrieveStatus",
+  operationId: "appRetrieveStatus",
 };
 
-export const appinstallationSetDatabaseUsers: OpenAPIOperation<
+export const appSetDatabaseUsers: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Appinstallations_AppInstallationId_Databases_DatabaseId.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Appinstallations_AppInstallationId_Databases_DatabaseId.Put.Parameters.Path>,
@@ -275,10 +275,10 @@ export const appinstallationSetDatabaseUsers: OpenAPIOperation<
 > = {
   path: "/v2/appinstallations/{appInstallationId}/databases/{databaseId}",
   method: "PUT",
-  operationId: "appinstallationSetDatabaseUsers",
+  operationId: "appSetDatabaseUsers",
 };
 
-export const appinstallationUnlinkDatabase: OpenAPIOperation<
+export const appUnlinkDatabase: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Appinstallations_AppInstallationId_Databases_DatabaseId.Delete.Parameters.Path>,
@@ -298,10 +298,10 @@ export const appinstallationUnlinkDatabase: OpenAPIOperation<
 > = {
   path: "/v2/appinstallations/{appInstallationId}/databases/{databaseId}",
   method: "DELETE",
-  operationId: "appinstallationUnlinkDatabase",
+  operationId: "appUnlinkDatabase",
 };
 
-export const appinstallationUpdateStatus: OpenAPIOperation<
+export const appUpdateStatus: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Appinstallations_Id_Actions_Update_Status.Post.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Appinstallations_Id_Actions_Update_Status.Post.Parameters.Path>,
@@ -321,10 +321,10 @@ export const appinstallationUpdateStatus: OpenAPIOperation<
 > = {
   path: "/v2/appinstallations/{id}/actions/update-status",
   method: "POST",
-  operationId: "appinstallationUpdateStatus",
+  operationId: "appUpdateStatus",
 };
 
-export const appversionGetAppversion: OpenAPIOperation<
+export const appGetAppversion: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_App_AppId_Versions_AppVersionId.Get.Parameters.Path>,
@@ -348,10 +348,10 @@ export const appversionGetAppversion: OpenAPIOperation<
 > = {
   path: "/v2/app/{appId}/versions/{appVersionId}",
   method: "GET",
-  operationId: "appversionGetAppversion",
+  operationId: "appGetAppversion",
 };
 
-export const appversionGetAppversions: OpenAPIOperation<
+export const appGetAppversions: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_App_AppId_Versions.Get.Parameters.Path>,
@@ -370,7 +370,7 @@ export const appversionGetAppversions: OpenAPIOperation<
 > = {
   path: "/v2/app/{appId}/versions",
   method: "GET",
-  operationId: "appversionGetAppversions",
+  operationId: "appGetAppversions",
 };
 
 export const articleServiceGetArticle: OpenAPIOperation<
@@ -8240,7 +8240,7 @@ export const storageStatisticsServiceStorageStatistics: OpenAPIOperation<
   operationId: "storageStatisticsServiceStorageStatistics",
 };
 
-export const systemsoftwareGetSystemsoftware: OpenAPIOperation<
+export const appGetSystemsoftware: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Systemsoftwares_SystemSoftwareId.Get.Parameters.Path>,
@@ -8264,10 +8264,10 @@ export const systemsoftwareGetSystemsoftware: OpenAPIOperation<
 > = {
   path: "/v2/systemsoftwares/{systemSoftwareId}",
   method: "GET",
-  operationId: "systemsoftwareGetSystemsoftware",
+  operationId: "appGetSystemsoftware",
 };
 
-export const systemsoftwareGetSystemsoftwares: OpenAPIOperation<
+export const appGetSystemsoftwares: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<null>,
@@ -8286,10 +8286,10 @@ export const systemsoftwareGetSystemsoftwares: OpenAPIOperation<
 > = {
   path: "/v2/systemsoftwares",
   method: "GET",
-  operationId: "systemsoftwareGetSystemsoftwares",
+  operationId: "appGetSystemsoftwares",
 };
 
-export const systemsoftwareversionGetSystemsoftwareversion: OpenAPIOperation<
+export const appGetSystemsoftwareversion: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Systemsoftware_SystemSoftwareId_Versions_SystemSoftwareVersionId.Get.Parameters.Path>,
@@ -8313,10 +8313,10 @@ export const systemsoftwareversionGetSystemsoftwareversion: OpenAPIOperation<
 > = {
   path: "/v2/systemsoftware/{systemSoftwareId}/versions/{systemSoftwareVersionId}",
   method: "GET",
-  operationId: "systemsoftwareversionGetSystemsoftwareversion",
+  operationId: "appGetSystemsoftwareversion",
 };
 
-export const systemsoftwareversionGetSystemsoftwareversions: OpenAPIOperation<
+export const appGetSystemsoftwareversions: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Systemsoftware_SystemSoftwareId_Versions.Get.Parameters.Path>,
@@ -8335,7 +8335,7 @@ export const systemsoftwareversionGetSystemsoftwareversions: OpenAPIOperation<
 > = {
   path: "/v2/systemsoftware/{systemSoftwareId}/versions",
   method: "GET",
-  operationId: "systemsoftwareversionGetSystemsoftwareversions",
+  operationId: "appGetSystemsoftwareversions",
 };
 
 export const userServiceAvatarRemove: OpenAPIOperation<

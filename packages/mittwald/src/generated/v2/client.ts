@@ -13,56 +13,56 @@ export class MittwaldApiV2Client extends ApiClientBase {
 
   public appGetApps = this.requestFunctionFactory(operations.appGetApps);
 
-  public appinstallationExecuteAction = this.requestFunctionFactory(
-    operations.appinstallationExecuteAction
+  public appExecuteAction = this.requestFunctionFactory(
+    operations.appExecuteAction
   );
 
-  public appinstallationGetAppinstallation = this.requestFunctionFactory(
-    operations.appinstallationGetAppinstallation
+  public appGetAppinstallation = this.requestFunctionFactory(
+    operations.appGetAppinstallation
   );
 
-  public appinstallationPatchAppinstallation = this.requestFunctionFactory(
-    operations.appinstallationPatchAppinstallation
+  public appPatchAppinstallation = this.requestFunctionFactory(
+    operations.appPatchAppinstallation
   );
 
-  public appinstallationUninstallAppinstallation = this.requestFunctionFactory(
-    operations.appinstallationUninstallAppinstallation
+  public appUninstallAppinstallation = this.requestFunctionFactory(
+    operations.appUninstallAppinstallation
   );
 
-  public appinstallationGetAppinstallations = this.requestFunctionFactory(
-    operations.appinstallationGetAppinstallations
+  public appGetAppinstallations = this.requestFunctionFactory(
+    operations.appGetAppinstallations
   );
 
-  public appinstallationRequestAppinstallation = this.requestFunctionFactory(
-    operations.appinstallationRequestAppinstallation
+  public appRequestAppinstallation = this.requestFunctionFactory(
+    operations.appRequestAppinstallation
   );
 
-  public appinstallationLinkDatabase = this.requestFunctionFactory(
-    operations.appinstallationLinkDatabase
+  public appLinkDatabase = this.requestFunctionFactory(
+    operations.appLinkDatabase
   );
 
-  public appinstallationRetrieveStatus = this.requestFunctionFactory(
-    operations.appinstallationRetrieveStatus
+  public appRetrieveStatus = this.requestFunctionFactory(
+    operations.appRetrieveStatus
   );
 
-  public appinstallationSetDatabaseUsers = this.requestFunctionFactory(
-    operations.appinstallationSetDatabaseUsers
+  public appSetDatabaseUsers = this.requestFunctionFactory(
+    operations.appSetDatabaseUsers
   );
 
-  public appinstallationUnlinkDatabase = this.requestFunctionFactory(
-    operations.appinstallationUnlinkDatabase
+  public appUnlinkDatabase = this.requestFunctionFactory(
+    operations.appUnlinkDatabase
   );
 
-  public appinstallationUpdateStatus = this.requestFunctionFactory(
-    operations.appinstallationUpdateStatus
+  public appUpdateStatus = this.requestFunctionFactory(
+    operations.appUpdateStatus
   );
 
-  public appversionGetAppversion = this.requestFunctionFactory(
-    operations.appversionGetAppversion
+  public appGetAppversion = this.requestFunctionFactory(
+    operations.appGetAppversion
   );
 
-  public appversionGetAppversions = this.requestFunctionFactory(
-    operations.appversionGetAppversions
+  public appGetAppversions = this.requestFunctionFactory(
+    operations.appGetAppversions
   );
 
   public articleServiceGetArticle = this.requestFunctionFactory(
@@ -1245,23 +1245,21 @@ export class MittwaldApiV2Client extends ApiClientBase {
       operations.storageStatisticsServiceStorageStatistics
     );
 
-  public systemsoftwareGetSystemsoftware = this.requestFunctionFactory(
-    operations.systemsoftwareGetSystemsoftware
+  public appGetSystemsoftware = this.requestFunctionFactory(
+    operations.appGetSystemsoftware
   );
 
-  public systemsoftwareGetSystemsoftwares = this.requestFunctionFactory(
-    operations.systemsoftwareGetSystemsoftwares
+  public appGetSystemsoftwares = this.requestFunctionFactory(
+    operations.appGetSystemsoftwares
   );
 
-  public systemsoftwareversionGetSystemsoftwareversion =
-    this.requestFunctionFactory(
-      operations.systemsoftwareversionGetSystemsoftwareversion
-    );
+  public appGetSystemsoftwareversion = this.requestFunctionFactory(
+    operations.appGetSystemsoftwareversion
+  );
 
-  public systemsoftwareversionGetSystemsoftwareversions =
-    this.requestFunctionFactory(
-      operations.systemsoftwareversionGetSystemsoftwareversions
-    );
+  public appGetSystemsoftwareversions = this.requestFunctionFactory(
+    operations.appGetSystemsoftwareversions
+  );
 
   public userServiceAvatarRemove = this.requestFunctionFactory(
     operations.userServiceAvatarRemove

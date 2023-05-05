@@ -76,7 +76,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/appinstallations/{appInstallationId}/actions/{action}:
       post:
-        operationId: appinstallation-execute-action
+        operationId: app-execute-action
         parameters:
           path:
             type: object
@@ -113,7 +113,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/appinstallations/{appInstallationId}:
       get:
-        operationId: appinstallation-get-appinstallation
+        operationId: app-get-appinstallation
         parameters:
           path:
             type: object
@@ -147,7 +147,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       patch:
-        operationId: appinstallation-patch-appinstallation
+        operationId: app-patch-appinstallation
         parameters:
           path:
             type: object
@@ -205,7 +205,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       delete:
-        operationId: appinstallation-uninstall-appinstallation
+        operationId: app-uninstall-appinstallation
         parameters:
           path:
             type: object
@@ -238,7 +238,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects/{projectId}/appinstallations:
       get:
-        operationId: appinstallation-get-appinstallations
+        operationId: app-get-appinstallations
         parameters:
           query:
             type: object
@@ -283,7 +283,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       post:
-        operationId: appinstallation-request-appinstallation
+        operationId: app-request-appinstallation
         parameters:
           path:
             type: object
@@ -347,7 +347,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/appinstallations/{appInstallationId}/databases:
       put:
-        operationId: appinstallation-link-database
+        operationId: app-link-database
         parameters:
           path:
             type: object
@@ -399,7 +399,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/appinstallations/{appInstallationId}/status:
       get:
-        operationId: appinstallation-retrieve-status
+        operationId: app-retrieve-status
         parameters:
           path:
             type: object
@@ -433,7 +433,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/appinstallations/{appInstallationId}/databases/{databaseId}:
       put:
-        operationId: appinstallation-set-database-users
+        operationId: app-set-database-users
         parameters:
           path:
             type: object
@@ -478,7 +478,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       delete:
-        operationId: appinstallation-unlink-database
+        operationId: app-unlink-database
         parameters:
           path:
             type: object
@@ -515,7 +515,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/appinstallations/{id}/actions/update-status:
       post:
-        operationId: appinstallation-update-status
+        operationId: app-update-status
         parameters:
           path:
             type: object
@@ -567,7 +567,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/app/{appId}/versions/{appVersionId}:
       get:
-        operationId: appversion-get-appversion
+        operationId: app-get-appversion
         parameters:
           path:
             type: object
@@ -606,7 +606,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/app/{appId}/versions:
       get:
-        operationId: appversion-get-appversions
+        operationId: app-get-appversions
         parameters:
           path:
             type: object
@@ -13596,7 +13596,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/systemsoftwares/{systemSoftwareId}:
       get:
-        operationId: systemsoftware-get-systemsoftware
+        operationId: app-get-systemsoftware
         parameters:
           path:
             type: object
@@ -13631,7 +13631,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/systemsoftwares:
       get:
-        operationId: systemsoftware-get-systemsoftwares
+        operationId: app-get-systemsoftwares
         parameters:
           query:
             type: object
@@ -13679,7 +13679,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/systemsoftware/{systemSoftwareId}/versions/{systemSoftwareVersionId}:
       get:
-        operationId: systemsoftwareversion-get-systemsoftwareversion
+        operationId: app-get-systemsoftwareversion
         parameters:
           path:
             type: object
@@ -13718,7 +13718,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/systemsoftware/{systemSoftwareId}/versions:
       get:
-        operationId: systemsoftwareversion-get-systemsoftwareversions
+        operationId: app-get-systemsoftwareversions
         parameters:
           path:
             type: object
