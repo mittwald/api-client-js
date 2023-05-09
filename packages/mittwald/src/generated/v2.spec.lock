@@ -38,7 +38,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/apps:
       get:
-        operationId: app-get-apps
+        operationId: app-list-apps
         parameters:
           query:
             type: object
@@ -238,7 +238,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/projects/{projectId}/appinstallations:
       get:
-        operationId: app-get-appinstallations
+        operationId: app-list-appinstallations
         parameters:
           query:
             type: object
@@ -606,7 +606,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/app/{appId}/versions:
       get:
-        operationId: app-get-appversions
+        operationId: app-list-appversions
         parameters:
           path:
             type: object
@@ -7113,7 +7113,7 @@ spec:
             content: {}
     /v2/invites/customer/{inviteId}/accept:
       post:
-        operationId: customer-accept-customer-invite
+        operationId: deprecated-customer-accept-customer-invite
         parameters:
           path:
             type: object
@@ -7160,7 +7160,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/customer/accept/:
       post:
-        operationId: customer-accept-customer-invite-with-token
+        operationId: deprecated-customer-accept-customer-invite-with-token
         parameters:
           header:
             type: object
@@ -7203,7 +7203,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/project/{inviteId}/accept:
       post:
-        operationId: project-accept-project-invite
+        operationId: deprecated-project-accept-project-invite
         parameters:
           path:
             type: object
@@ -7250,7 +7250,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/project/accept/:
       post:
-        operationId: project-accept-project-invite-with-token
+        operationId: deprecated-project-accept-project-invite-with-token
         parameters:
           header:
             type: object
@@ -7293,7 +7293,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/memberships/customer/{membershipId}:
       put:
-        operationId: customer-change-customer-membership
+        operationId: deprecated-customer-change-customer-membership
         parameters:
           path:
             type: object
@@ -7332,7 +7332,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       delete:
-        operationId: customer-delete-customer-membership
+        operationId: deprecated-customer-delete-customer-membership
         parameters:
           path:
             type: object
@@ -7361,7 +7361,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/memberships/project/{membershipId}:
       put:
-        operationId: project-change-project-membership
+        operationId: deprecated-project-change-project-membership
         parameters:
           path:
             type: object
@@ -7400,7 +7400,7 @@ spec:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
       delete:
-        operationId: project-delete-project-membership
+        operationId: deprecated-project-delete-project-membership
         parameters:
           path:
             type: object
@@ -7537,7 +7537,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/customer/{inviteId}/decline:
       delete:
-        operationId: customer-decline-customer-invite
+        operationId: deprecated-customer-decline-customer-invite
         parameters:
           path:
             type: object
@@ -7566,7 +7566,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/project/{inviteId}/decline:
       delete:
-        operationId: project-decline-project-invite
+        operationId: deprecated-project-decline-project-invite
         parameters:
           path:
             type: object
@@ -7595,7 +7595,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/customers/specific/{inviteId}:
       get:
-        operationId: customer-get-customer-invite-specific
+        operationId: deprecated-customer-get-customer-invite-specific
         parameters:
           path:
             type: object
@@ -7629,7 +7629,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/memberships/customers/{customerId}/specific/{membershipId}:
       get:
-        operationId: customer-get-customer-membership-specific
+        operationId: deprecated-customer-get-customer-membership-specific
         parameters:
           path:
             type: object
@@ -7702,7 +7702,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/projects/specific/{inviteId}:
       get:
-        operationId: project-get-project-invite-specific
+        operationId: deprecated-project-get-project-invite-specific
         parameters:
           path:
             type: object
@@ -7736,7 +7736,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/memberships/projects/{projectId}/specific/{membershipId}:
       get:
-        operationId: project-get-project-membership-specific
+        operationId: deprecated-project-get-project-membership-specific
         parameters:
           path:
             type: object
@@ -7774,7 +7774,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/memberships/customer/{membershipId}/leave:
       delete:
-        operationId: customer-leave-customer
+        operationId: deprecated-customer-leave-customer
         parameters:
           path:
             type: object
@@ -7803,7 +7803,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/memberships/project/{membershipId}/leave:
       delete:
-        operationId: project-leave-project
+        operationId: deprecated-project-leave-project
         parameters:
           path:
             type: object
@@ -7832,7 +7832,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/memberships/customers:
       get:
-        operationId: customer-list-customer-memberships-for-user
+        operationId: deprecated-customer-list-customer-memberships-for-user
         parameters:
           query:
             type: object
@@ -8099,7 +8099,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/customers/me:
       get:
-        operationId: customer-list-own-customer-invites
+        operationId: deprecated-customer-list-own-customer-invites
         parameters:
           query:
             type: object
@@ -8147,7 +8147,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/projects/me:
       get:
-        operationId: project-list-own-project-invites
+        operationId: deprecated-project-list-own-project-invites
         parameters:
           query:
             type: object
@@ -8194,7 +8194,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/memberships/projects:
       get:
-        operationId: project-list-project-memberships-for-user
+        operationId: deprecated-project-list-project-memberships-for-user
         parameters:
           query:
             type: object
@@ -8242,7 +8242,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/customer/{inviteId}/resend:
       post:
-        operationId: customer-resend-customer-invite-mail
+        operationId: deprecated-customer-resend-customer-invite-mail
         parameters:
           path:
             type: object
@@ -8262,6 +8262,7 @@ spec:
               Accept:
                 type: string
                 enum: application/json
+          requestBody: {}
         responses:
           '200':
             content: {}
@@ -8275,7 +8276,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/project/{inviteId}/resend:
       post:
-        operationId: project-resend-project-invite-mail
+        operationId: deprecated-project-resend-project-invite-mail
         parameters:
           path:
             type: object
@@ -8295,6 +8296,7 @@ spec:
               Accept:
                 type: string
                 enum: application/json
+          requestBody: {}
         responses:
           '200':
             content: {}
@@ -8308,7 +8310,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/customer/{inviteId}:
       delete:
-        operationId: customer-revoke-customer-invite
+        operationId: deprecated-customer-revoke-customer-invite
         parameters:
           path:
             type: object
@@ -8337,7 +8339,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/invites/project/{inviteId}:
       delete:
-        operationId: project-revoke-project-invite
+        operationId: deprecated-project-revoke-project-invite
         parameters:
           path:
             type: object
@@ -9607,7 +9609,8 @@ spec:
           '200':
             content:
               application/json:
-                $ref: '#/components/schemas/de.mittwald.v1.project.PlacementGroup'
+                $ref: >-
+                  #/components/schemas/de.mittwald.v1.project.DeprecatedPlacementGroup
           '404':
             content:
               application/json:
@@ -9650,7 +9653,8 @@ spec:
             content:
               application/json:
                 items:
-                  $ref: '#/components/schemas/de.mittwald.v1.project.PlacementGroup'
+                  $ref: >-
+                    #/components/schemas/de.mittwald.v1.project.DeprecatedPlacementGroup
                 type: array
           default:
             content:
@@ -13631,7 +13635,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/systemsoftwares:
       get:
-        operationId: app-get-systemsoftwares
+        operationId: app-list-systemsoftwares
         parameters:
           query:
             type: object
@@ -13718,7 +13722,7 @@ spec:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
     /v2/systemsoftware/{systemSoftwareId}/versions:
       get:
-        operationId: app-get-systemsoftwareversions
+        operationId: app-list-systemsoftwareversions
         parameters:
           path:
             type: object
@@ -16092,6 +16096,531 @@ spec:
             content:
               application/json:
                 $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+    /v2/customer/{customerId}/memberships/{membershipId}:
+      put:
+        operationId: customer-change-customer-membership
+        parameters:
+          path:
+            type: object
+            required:
+              - membershipId
+              - customerId
+            properties:
+              membershipId:
+                format: uuid
+                type: string
+              customerId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+          requestBody:
+            properties:
+              expiresAt:
+                description: Time the CustomerMembership should expire at.
+                format: date-time
+                type: string
+              role:
+                $ref: '#/components/schemas/de.mittwald.v1.membership.CustomerRoles'
+            required:
+              - role
+            type: object
+        responses:
+          '200':
+            content: {}
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/invites/{inviteId}/actions/accept:
+      post:
+        operationId: membership-accept-invite
+        parameters:
+          path:
+            type: object
+            required:
+              - inviteId
+            properties:
+              inviteId:
+                format: uuid
+                type: string
+          query:
+            type: object
+            required:
+              - type
+            properties:
+              type:
+                $ref: '#/components/schemas/de.mittwald.v1.membership.EntityTypes'
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+          requestBody:
+            properties:
+              invitationToken:
+                description: Token contained in the invite for authentication.
+                type: string
+            type: object
+        responses:
+          '204':
+            content: {}
+          '400':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.ValidationErrors'
+          '403':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          '412':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/invites/{inviteId}/actions/decline:
+      post:
+        operationId: membership-decline-invite
+        parameters:
+          path:
+            type: object
+            required:
+              - inviteId
+            properties:
+              inviteId:
+                format: uuid
+                type: string
+          query:
+            type: object
+            required:
+              - type
+            properties:
+              type:
+                $ref: '#/components/schemas/de.mittwald.v1.membership.EntityTypes'
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+          requestBody: {}
+        responses:
+          '204':
+            content: {}
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/memberships/{membershipId}:
+      delete:
+        operationId: membership-delete-membership
+        parameters:
+          path:
+            type: object
+            required:
+              - membershipId
+            properties:
+              membershipId:
+                format: uuid
+                type: string
+          query:
+            type: object
+            required:
+              - type
+            properties:
+              type:
+                $ref: '#/components/schemas/de.mittwald.v1.membership.EntityTypes'
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '204':
+            content: {}
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+      get:
+        operationId: membership-get-membership
+        parameters:
+          path:
+            type: object
+            required:
+              - membershipId
+            properties:
+              membershipId:
+                type: string
+          query:
+            type: object
+            required:
+              - type
+            properties:
+              type:
+                $ref: '#/components/schemas/de.mittwald.v1.membership.EntityTypes'
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '200':
+            content:
+              application/json:
+                oneOf:
+                  - $ref: >-
+                      #/components/schemas/de.mittwald.v1.membership.ProjectMembership
+                  - $ref: >-
+                      #/components/schemas/de.mittwald.v1.membership.CustomerMembership
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/invites/{inviteIdentifier}:
+      get:
+        operationId: membership-get-invite
+        parameters:
+          path:
+            type: object
+            required:
+              - inviteIdentifier
+            properties:
+              inviteIdentifier:
+                type: string
+          query:
+            type: object
+            required:
+              - type
+              - identifierType
+            properties:
+              type:
+                $ref: '#/components/schemas/de.mittwald.v1.membership.EntityTypes'
+              identifierType:
+                $ref: '#/components/schemas/de.mittwald.v1.membership.IdentifierTypes'
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '200':
+            content:
+              application/json:
+                oneOf:
+                  - $ref: >-
+                      #/components/schemas/de.mittwald.v1.membership.CustomerInvite
+                  - $ref: >-
+                      #/components/schemas/de.mittwald.v1.membership.ProjectInvite
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/memberships/{membershipId}/actions/leave:
+      post:
+        operationId: membership-leave-membership
+        parameters:
+          path:
+            type: object
+            required:
+              - membershipId
+            properties:
+              membershipId:
+                format: uuid
+                type: string
+          query:
+            type: object
+            required:
+              - type
+            properties:
+              type:
+                $ref: '#/components/schemas/de.mittwald.v1.membership.EntityTypes'
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+          requestBody: {}
+        responses:
+          '204':
+            content: {}
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/invites:
+      get:
+        operationId: membership-list-invites
+        parameters:
+          query:
+            type: object
+            required:
+              - type
+            properties:
+              type:
+                $ref: '#/components/schemas/de.mittwald.v1.membership.EntityTypes'
+              limit:
+                type: integer
+              skip:
+                type: integer
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '200':
+            content:
+              application/json:
+                oneOf:
+                  - $ref: >-
+                      #/components/schemas/de.mittwald.v1.membership.CustomerInviteList
+                  - $ref: >-
+                      #/components/schemas/de.mittwald.v1.membership.ProjectInviteList
+            headers:
+              type: object
+              required: []
+              properties:
+                X-Pagination-Limit:
+                  type: number
+                X-Pagination-Skip:
+                  type: number
+                X-Pagination-TotalCount:
+                  type: number
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/memberships:
+      get:
+        operationId: membership-list-memberships
+        parameters:
+          query:
+            type: object
+            required:
+              - type
+            properties:
+              type:
+                $ref: '#/components/schemas/de.mittwald.v1.membership.EntityTypes'
+              limit:
+                type: integer
+              skip:
+                type: integer
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '200':
+            content:
+              application/json:
+                oneOf:
+                  - $ref: >-
+                      #/components/schemas/de.mittwald.v1.membership.CustomerMembershipList
+                  - $ref: >-
+                      #/components/schemas/de.mittwald.v1.membership.ProjectMembershipList
+            headers:
+              type: object
+              required: []
+              properties:
+                X-Pagination-Limit:
+                  type: number
+                X-Pagination-Skip:
+                  type: number
+                X-Pagination-TotalCount:
+                  type: number
+          '404':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/invites/{inviteId}/actions/resend:
+      post:
+        operationId: membership-resend-invite-mail
+        parameters:
+          path:
+            type: object
+            required:
+              - inviteId
+            properties:
+              inviteId:
+                format: uuid
+                type: string
+          query:
+            type: object
+            required:
+              - type
+            properties:
+              type:
+                $ref: '#/components/schemas/de.mittwald.v1.membership.EntityTypes'
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+          requestBody: {}
+        responses:
+          '204':
+            content: {}
+          '403':
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/invites/{inviteId}:
+      delete:
+        operationId: membership-revoke-invite
+        parameters:
+          path:
+            type: object
+            required:
+              - inviteId
+            properties:
+              inviteId:
+                format: uuid
+                type: string
+          query:
+            type: object
+            required:
+              - type
+            properties:
+              type:
+                $ref: '#/components/schemas/de.mittwald.v1.membership.EntityTypes'
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+        responses:
+          '204':
+            content: {}
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
+    /v2/project/{projectId}/memberships/{membershipId}:
+      put:
+        operationId: project-change-project-membership
+        parameters:
+          path:
+            type: object
+            required:
+              - membershipId
+              - projectId
+            properties:
+              membershipId:
+                format: uuid
+                type: string
+              projectId:
+                format: uuid
+                type: string
+          header:
+            type: object
+            required:
+              - x-access-token
+            properties:
+              x-access-token:
+                type: string
+              Accept:
+                type: string
+                enum: application/json
+          requestBody:
+            properties:
+              expiresAt:
+                description: Time the ProjectMembership should expire at.
+                format: date-time
+                type: string
+              role:
+                $ref: '#/components/schemas/de.mittwald.v1.membership.ProjectRoles'
+            required:
+              - role
+            type: object
+        responses:
+          '200':
+            content: {}
+          default:
+            content:
+              application/json:
+                $ref: '#/components/schemas/de.mittwald.v1.commons.Error'
   components:
     schemas:
       de.mittwald.v1.app.Action:
@@ -19445,35 +19974,6 @@ spec:
           - cpu
           - memory
         type: object
-      de.mittwald.v1.project.PlacementGroup:
-        properties:
-          customerId:
-            type: string
-          description:
-            type: string
-          id:
-            format: uuid
-            type: string
-          imageRefId:
-            format: uuid
-            type: string
-          isReady:
-            type: boolean
-          machineType:
-            $ref: '#/components/schemas/de.mittwald.v1.project.MachineType'
-          shortId:
-            type: string
-          storage:
-            type: string
-        required:
-          - id
-          - shortId
-          - customerId
-          - machineType
-          - storage
-          - description
-          - isReady
-        type: object
       de.mittwald.v1.project.Project:
         properties:
           clusterDomain:
@@ -20409,6 +20909,98 @@ spec:
           - description
           - isReady
         type: object
+      de.mittwald.v1.membership.CustomerInviteList:
+        items:
+          $ref: '#/components/schemas/de.mittwald.v1.membership.CustomerInvite'
+        type: array
+      de.mittwald.v1.membership.CustomerMembershipList:
+        items:
+          $ref: '#/components/schemas/de.mittwald.v1.membership.CustomerMembership'
+        type: array
+      de.mittwald.v1.project.DeprecatedPlacementGroup:
+        properties:
+          customerId:
+            type: string
+          description:
+            type: string
+          id:
+            format: uuid
+            type: string
+          imageRefId:
+            format: uuid
+            type: string
+          isReady:
+            type: boolean
+          machineType:
+            $ref: '#/components/schemas/de.mittwald.v1.project.MachineType'
+          shortId:
+            type: string
+          storage:
+            type: string
+        required:
+          - id
+          - shortId
+          - customerId
+          - machineType
+          - storage
+          - description
+          - isReady
+        type: object
+      de.mittwald.v1.project.DeprecatedFilesystemDirectoryListing:
+        properties:
+          absolutePath:
+            type: string
+          isDirectory:
+            type: boolean
+          isExecutable:
+            type: boolean
+          isFile:
+            type: boolean
+          isSymlink:
+            type: boolean
+          items:
+            items:
+              $ref: >-
+                #/components/schemas/de.mittwald.v1.project.FilesystemDirectoryListing
+            type: array
+          name:
+            type: string
+          size:
+            type: integer
+          target:
+            type: string
+        required:
+          - absolutePath
+          - name
+          - size
+        type: object
+      de.mittwald.v1.project.DeprecatedFilesystemUsagesDisk:
+        properties:
+          path:
+            type: string
+          totalBytes:
+            type: integer
+          usedBytes:
+            type: integer
+        type: object
+      de.mittwald.v1.membership.EntityTypes:
+        enum:
+          - project
+          - customer
+        type: string
+      de.mittwald.v1.membership.IdentifierTypes:
+        enum:
+          - id
+          - token
+        type: string
+      de.mittwald.v1.membership.ProjectInviteList:
+        items:
+          $ref: '#/components/schemas/de.mittwald.v1.membership.ProjectInvite'
+        type: array
+      de.mittwald.v1.membership.ProjectMembershipList:
+        items:
+          $ref: '#/components/schemas/de.mittwald.v1.membership.ProjectMembership'
+        type: array
     parameters: {}
     responses:
       de.mittwald.v1.app.GenericResponse:

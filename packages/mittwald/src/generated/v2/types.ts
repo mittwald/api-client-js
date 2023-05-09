@@ -8275,6 +8275,8 @@ export declare module MittwaldApiV2 {
             "x-access-token"?: string;
             Accept?: "application/json";
           }
+
+          type RequestBody = any;
         }
 
         namespace Responses {
@@ -8310,6 +8312,8 @@ export declare module MittwaldApiV2 {
             "x-access-token"?: string;
             Accept?: "application/json";
           }
+
+          type RequestBody = any;
         }
 
         namespace Responses {
@@ -9536,7 +9540,7 @@ export declare module MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               type Application_Json =
-                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Project_PlacementGroup;
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Project_DeprecatedPlacementGroup;
             }
           }
 
@@ -9577,7 +9581,7 @@ export declare module MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               type Application_Json =
-                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Project_PlacementGroup[];
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Project_DeprecatedPlacementGroup[];
             }
           }
 
@@ -15447,6 +15451,483 @@ export declare module MittwaldApiV2 {
         }
       }
     }
+
+    namespace V2_Customer_CustomerId_Memberships_MembershipId {
+      namespace Put {
+        namespace Parameters {
+          interface Path {
+            membershipId: string;
+            customerId: string;
+          }
+
+          interface Header {
+            "x-access-token"?: string;
+            Accept?: "application/json";
+          }
+
+          interface RequestBody {
+            expiresAt?: string;
+            role: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_CustomerRoles;
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Invites_InviteId_Actions_Accept {
+      namespace Post {
+        namespace Parameters {
+          interface Path {
+            inviteId: string;
+          }
+
+          interface Query {
+            type: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_EntityTypes;
+          }
+
+          interface Header {
+            "x-access-token"?: string;
+            Accept?: "application/json";
+          }
+
+          interface RequestBody {
+            invitationToken?: string;
+          }
+        }
+
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_ValidationErrors;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Invites_InviteId_Actions_Decline {
+      namespace Post {
+        namespace Parameters {
+          interface Path {
+            inviteId: string;
+          }
+
+          interface Query {
+            type: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_EntityTypes;
+          }
+
+          interface Header {
+            "x-access-token"?: string;
+            Accept?: "application/json";
+          }
+
+          type RequestBody = any;
+        }
+
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Memberships_MembershipId {
+      namespace Delete {
+        namespace Parameters {
+          interface Path {
+            membershipId: string;
+          }
+
+          interface Query {
+            type: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_EntityTypes;
+          }
+
+          interface Header {
+            "x-access-token"?: string;
+            Accept?: "application/json";
+          }
+        }
+
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+        }
+      }
+
+      namespace Get {
+        namespace Parameters {
+          interface Path {
+            membershipId: string;
+          }
+
+          interface Query {
+            type: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_EntityTypes;
+          }
+
+          interface Header {
+            "x-access-token"?: string;
+            Accept?: "application/json";
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              type Application_Json =
+                | MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_ProjectMembership
+                | MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_CustomerMembership;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Invites_InviteIdentifier {
+      namespace Get {
+        namespace Parameters {
+          interface Path {
+            inviteIdentifier: string;
+          }
+
+          interface Query {
+            type: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_EntityTypes;
+            identifierType: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_IdentifierTypes;
+          }
+
+          interface Header {
+            "x-access-token"?: string;
+            Accept?: "application/json";
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              type Application_Json =
+                | MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_CustomerInvite
+                | MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_ProjectInvite;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Memberships_MembershipId_Actions_Leave {
+      namespace Post {
+        namespace Parameters {
+          interface Path {
+            membershipId: string;
+          }
+
+          interface Query {
+            type: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_EntityTypes;
+          }
+
+          interface Header {
+            "x-access-token"?: string;
+            Accept?: "application/json";
+          }
+
+          type RequestBody = any;
+        }
+
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Invites {
+      namespace Get {
+        namespace Parameters {
+          interface Query {
+            type: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_EntityTypes;
+            limit?: number;
+            skip?: number;
+          }
+
+          interface Header {
+            "x-access-token"?: string;
+            Accept?: "application/json";
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            interface Headers {
+              "X-Pagination-Limit"?: number;
+              "X-Pagination-Skip"?: number;
+              "X-Pagination-TotalCount"?: number;
+            }
+
+            namespace Content {
+              type Application_Json =
+                | MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_CustomerInviteList
+                | MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_ProjectInviteList;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Memberships {
+      namespace Get {
+        namespace Parameters {
+          interface Query {
+            type: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_EntityTypes;
+            limit?: number;
+            skip?: number;
+          }
+
+          interface Header {
+            "x-access-token"?: string;
+            Accept?: "application/json";
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            interface Headers {
+              "X-Pagination-Limit"?: number;
+              "X-Pagination-Skip"?: number;
+              "X-Pagination-TotalCount"?: number;
+            }
+
+            namespace Content {
+              type Application_Json =
+                | MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_CustomerMembershipList
+                | MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_ProjectMembershipList;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Invites_InviteId_Actions_Resend {
+      namespace Post {
+        namespace Parameters {
+          interface Path {
+            inviteId: string;
+          }
+
+          interface Query {
+            type: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_EntityTypes;
+          }
+
+          interface Header {
+            "x-access-token"?: string;
+            Accept?: "application/json";
+          }
+
+          type RequestBody = any;
+        }
+
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace $403 {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Invites_InviteId {
+      namespace Delete {
+        namespace Parameters {
+          interface Path {
+            inviteId: string;
+          }
+
+          interface Query {
+            type: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_EntityTypes;
+          }
+
+          interface Header {
+            "x-access-token"?: string;
+            Accept?: "application/json";
+          }
+        }
+
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2_Project_ProjectId_Memberships_MembershipId {
+      namespace Put {
+        namespace Parameters {
+          interface Path {
+            membershipId: string;
+            projectId: string;
+          }
+
+          interface Header {
+            "x-access-token"?: string;
+            Accept?: "application/json";
+          }
+
+          interface RequestBody {
+            expiresAt?: string;
+            role: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_ProjectRoles;
+          }
+        }
+
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {
+              type Application_Json =
+                MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Commons_Error;
+            }
+          }
+        }
+      }
+    }
   }
 
   namespace Components {
@@ -16795,17 +17276,6 @@ export declare module MittwaldApiV2 {
         name: string;
       }
 
-      interface De_Mittwald_V1_Project_PlacementGroup {
-        customerId: string;
-        description: string;
-        id: string;
-        imageRefId?: string;
-        isReady: boolean;
-        machineType: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Project_MachineType;
-        shortId: string;
-        storage: string;
-      }
-
       interface De_Mittwald_V1_Project_Project {
         clusterDomain?: string;
         clusterID?: string;
@@ -17172,6 +17642,51 @@ export declare module MittwaldApiV2 {
         shortId: string;
         storage: string;
       }
+
+      type De_Mittwald_V1_Membership_CustomerInviteList =
+        MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_CustomerInvite[];
+
+      type De_Mittwald_V1_Membership_CustomerMembershipList =
+        MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_CustomerMembership[];
+
+      interface De_Mittwald_V1_Project_DeprecatedPlacementGroup {
+        customerId: string;
+        description: string;
+        id: string;
+        imageRefId?: string;
+        isReady: boolean;
+        machineType: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Project_MachineType;
+        shortId: string;
+        storage: string;
+      }
+
+      interface De_Mittwald_V1_Project_DeprecatedFilesystemDirectoryListing {
+        absolutePath: string;
+        isDirectory?: boolean;
+        isExecutable?: boolean;
+        isFile?: boolean;
+        isSymlink?: boolean;
+        items?: MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Project_FilesystemDirectoryListing[];
+        name: string;
+        size: number;
+        target?: string;
+      }
+
+      interface De_Mittwald_V1_Project_DeprecatedFilesystemUsagesDisk {
+        path?: string;
+        totalBytes?: number;
+        usedBytes?: number;
+      }
+
+      type De_Mittwald_V1_Membership_EntityTypes = "project" | "customer";
+
+      type De_Mittwald_V1_Membership_IdentifierTypes = "id" | "token";
+
+      type De_Mittwald_V1_Membership_ProjectInviteList =
+        MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_ProjectInvite[];
+
+      type De_Mittwald_V1_Membership_ProjectMembershipList =
+        MittwaldApiV2.Components.Schemas.De_Mittwald_V1_Membership_ProjectMembership[];
     }
 
     namespace Parameters {}

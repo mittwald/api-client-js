@@ -11,7 +11,7 @@ import ApiClientBase from "@mittwald/api-client-commons/dist/core/ApiClientBase.
 export class MittwaldApiV2Client extends ApiClientBase {
   public appGetApp = this.requestFunctionFactory(operations.appGetApp);
 
-  public appGetApps = this.requestFunctionFactory(operations.appGetApps);
+  public appListApps = this.requestFunctionFactory(operations.appListApps);
 
   public appExecuteAction = this.requestFunctionFactory(
     operations.appExecuteAction
@@ -29,8 +29,8 @@ export class MittwaldApiV2Client extends ApiClientBase {
     operations.appUninstallAppinstallation
   );
 
-  public appGetAppinstallations = this.requestFunctionFactory(
-    operations.appGetAppinstallations
+  public appListAppinstallations = this.requestFunctionFactory(
+    operations.appListAppinstallations
   );
 
   public appRequestAppinstallation = this.requestFunctionFactory(
@@ -61,8 +61,8 @@ export class MittwaldApiV2Client extends ApiClientBase {
     operations.appGetAppversion
   );
 
-  public appGetAppversions = this.requestFunctionFactory(
-    operations.appGetAppversions
+  public appListAppversions = this.requestFunctionFactory(
+    operations.appListAppversions
   );
 
   public articleServiceGetArticle = this.requestFunctionFactory(
@@ -687,36 +687,40 @@ export class MittwaldApiV2Client extends ApiClientBase {
     operations.mailServiceProjectsettingUpdateWhitelist
   );
 
-  public customerAcceptCustomerInvite = this.requestFunctionFactory(
-    operations.customerAcceptCustomerInvite
+  public deprecatedCustomerAcceptCustomerInvite = this.requestFunctionFactory(
+    operations.deprecatedCustomerAcceptCustomerInvite
   );
 
-  public customerAcceptCustomerInviteWithToken = this.requestFunctionFactory(
-    operations.customerAcceptCustomerInviteWithToken
+  public deprecatedCustomerAcceptCustomerInviteWithToken =
+    this.requestFunctionFactory(
+      operations.deprecatedCustomerAcceptCustomerInviteWithToken
+    );
+
+  public deprecatedProjectAcceptProjectInvite = this.requestFunctionFactory(
+    operations.deprecatedProjectAcceptProjectInvite
   );
 
-  public projectAcceptProjectInvite = this.requestFunctionFactory(
-    operations.projectAcceptProjectInvite
+  public deprecatedProjectAcceptProjectInviteWithToken =
+    this.requestFunctionFactory(
+      operations.deprecatedProjectAcceptProjectInviteWithToken
+    );
+
+  public deprecatedCustomerChangeCustomerMembership =
+    this.requestFunctionFactory(
+      operations.deprecatedCustomerChangeCustomerMembership
+    );
+
+  public deprecatedCustomerDeleteCustomerMembership =
+    this.requestFunctionFactory(
+      operations.deprecatedCustomerDeleteCustomerMembership
+    );
+
+  public deprecatedProjectChangeProjectMembership = this.requestFunctionFactory(
+    operations.deprecatedProjectChangeProjectMembership
   );
 
-  public projectAcceptProjectInviteWithToken = this.requestFunctionFactory(
-    operations.projectAcceptProjectInviteWithToken
-  );
-
-  public customerChangeCustomerMembership = this.requestFunctionFactory(
-    operations.customerChangeCustomerMembership
-  );
-
-  public customerDeleteCustomerMembership = this.requestFunctionFactory(
-    operations.customerDeleteCustomerMembership
-  );
-
-  public projectChangeProjectMembership = this.requestFunctionFactory(
-    operations.projectChangeProjectMembership
-  );
-
-  public projectDeleteProjectMembership = this.requestFunctionFactory(
-    operations.projectDeleteProjectMembership
+  public deprecatedProjectDeleteProjectMembership = this.requestFunctionFactory(
+    operations.deprecatedProjectDeleteProjectMembership
   );
 
   public customerCreateCustomerInvite = this.requestFunctionFactory(
@@ -727,45 +731,50 @@ export class MittwaldApiV2Client extends ApiClientBase {
     operations.projectCreateProjectInvite
   );
 
-  public customerDeclineCustomerInvite = this.requestFunctionFactory(
-    operations.customerDeclineCustomerInvite
+  public deprecatedCustomerDeclineCustomerInvite = this.requestFunctionFactory(
+    operations.deprecatedCustomerDeclineCustomerInvite
   );
 
-  public projectDeclineProjectInvite = this.requestFunctionFactory(
-    operations.projectDeclineProjectInvite
+  public deprecatedProjectDeclineProjectInvite = this.requestFunctionFactory(
+    operations.deprecatedProjectDeclineProjectInvite
   );
 
-  public customerGetCustomerInviteSpecific = this.requestFunctionFactory(
-    operations.customerGetCustomerInviteSpecific
-  );
+  public deprecatedCustomerGetCustomerInviteSpecific =
+    this.requestFunctionFactory(
+      operations.deprecatedCustomerGetCustomerInviteSpecific
+    );
 
-  public customerGetCustomerMembershipSpecific = this.requestFunctionFactory(
-    operations.customerGetCustomerMembershipSpecific
-  );
+  public deprecatedCustomerGetCustomerMembershipSpecific =
+    this.requestFunctionFactory(
+      operations.deprecatedCustomerGetCustomerMembershipSpecific
+    );
 
   public projectGetOwnMembershipForProject = this.requestFunctionFactory(
     operations.projectGetOwnMembershipForProject
   );
 
-  public projectGetProjectInviteSpecific = this.requestFunctionFactory(
-    operations.projectGetProjectInviteSpecific
+  public deprecatedProjectGetProjectInviteSpecific =
+    this.requestFunctionFactory(
+      operations.deprecatedProjectGetProjectInviteSpecific
+    );
+
+  public deprecatedProjectGetProjectMembershipSpecific =
+    this.requestFunctionFactory(
+      operations.deprecatedProjectGetProjectMembershipSpecific
+    );
+
+  public deprecatedCustomerLeaveCustomer = this.requestFunctionFactory(
+    operations.deprecatedCustomerLeaveCustomer
   );
 
-  public projectGetProjectMembershipSpecific = this.requestFunctionFactory(
-    operations.projectGetProjectMembershipSpecific
+  public deprecatedProjectLeaveProject = this.requestFunctionFactory(
+    operations.deprecatedProjectLeaveProject
   );
 
-  public customerLeaveCustomer = this.requestFunctionFactory(
-    operations.customerLeaveCustomer
-  );
-
-  public projectLeaveProject = this.requestFunctionFactory(
-    operations.projectLeaveProject
-  );
-
-  public customerListCustomerMembershipsForUser = this.requestFunctionFactory(
-    operations.customerListCustomerMembershipsForUser
-  );
+  public deprecatedCustomerListCustomerMembershipsForUser =
+    this.requestFunctionFactory(
+      operations.deprecatedCustomerListCustomerMembershipsForUser
+    );
 
   public customerListInvitesForCustomer = this.requestFunctionFactory(
     operations.customerListInvitesForCustomer
@@ -783,32 +792,34 @@ export class MittwaldApiV2Client extends ApiClientBase {
     operations.projectListMembershipsForProject
   );
 
-  public customerListOwnCustomerInvites = this.requestFunctionFactory(
-    operations.customerListOwnCustomerInvites
+  public deprecatedCustomerListOwnCustomerInvites = this.requestFunctionFactory(
+    operations.deprecatedCustomerListOwnCustomerInvites
   );
 
-  public projectListOwnProjectInvites = this.requestFunctionFactory(
-    operations.projectListOwnProjectInvites
+  public deprecatedProjectListOwnProjectInvites = this.requestFunctionFactory(
+    operations.deprecatedProjectListOwnProjectInvites
   );
 
-  public projectListProjectMembershipsForUser = this.requestFunctionFactory(
-    operations.projectListProjectMembershipsForUser
+  public deprecatedProjectListProjectMembershipsForUser =
+    this.requestFunctionFactory(
+      operations.deprecatedProjectListProjectMembershipsForUser
+    );
+
+  public deprecatedCustomerResendCustomerInviteMail =
+    this.requestFunctionFactory(
+      operations.deprecatedCustomerResendCustomerInviteMail
+    );
+
+  public deprecatedProjectResendProjectInviteMail = this.requestFunctionFactory(
+    operations.deprecatedProjectResendProjectInviteMail
   );
 
-  public customerResendCustomerInviteMail = this.requestFunctionFactory(
-    operations.customerResendCustomerInviteMail
+  public deprecatedCustomerRevokeCustomerInvite = this.requestFunctionFactory(
+    operations.deprecatedCustomerRevokeCustomerInvite
   );
 
-  public projectResendProjectInviteMail = this.requestFunctionFactory(
-    operations.projectResendProjectInviteMail
-  );
-
-  public customerRevokeCustomerInvite = this.requestFunctionFactory(
-    operations.customerRevokeCustomerInvite
-  );
-
-  public projectRevokeProjectInvite = this.requestFunctionFactory(
-    operations.projectRevokeProjectInvite
+  public deprecatedProjectRevokeProjectInvite = this.requestFunctionFactory(
+    operations.deprecatedProjectRevokeProjectInvite
   );
 
   public messagingServiceCountUnreadNotifications = this.requestFunctionFactory(
@@ -1249,16 +1260,16 @@ export class MittwaldApiV2Client extends ApiClientBase {
     operations.appGetSystemsoftware
   );
 
-  public appGetSystemsoftwares = this.requestFunctionFactory(
-    operations.appGetSystemsoftwares
+  public appListSystemsoftwares = this.requestFunctionFactory(
+    operations.appListSystemsoftwares
   );
 
   public appGetSystemsoftwareversion = this.requestFunctionFactory(
     operations.appGetSystemsoftwareversion
   );
 
-  public appGetSystemsoftwareversions = this.requestFunctionFactory(
-    operations.appGetSystemsoftwareversions
+  public appListSystemsoftwareversions = this.requestFunctionFactory(
+    operations.appListSystemsoftwareversions
   );
 
   public userServiceAvatarRemove = this.requestFunctionFactory(
@@ -1471,6 +1482,54 @@ export class MittwaldApiV2Client extends ApiClientBase {
 
   public projectUpdateServerDescription = this.requestFunctionFactory(
     operations.projectUpdateServerDescription
+  );
+
+  public customerChangeCustomerMembership = this.requestFunctionFactory(
+    operations.customerChangeCustomerMembership
+  );
+
+  public membershipAcceptInvite = this.requestFunctionFactory(
+    operations.membershipAcceptInvite
+  );
+
+  public membershipDeclineInvite = this.requestFunctionFactory(
+    operations.membershipDeclineInvite
+  );
+
+  public membershipDeleteMembership = this.requestFunctionFactory(
+    operations.membershipDeleteMembership
+  );
+
+  public membershipGetMembership = this.requestFunctionFactory(
+    operations.membershipGetMembership
+  );
+
+  public membershipGetInvite = this.requestFunctionFactory(
+    operations.membershipGetInvite
+  );
+
+  public membershipLeaveMembership = this.requestFunctionFactory(
+    operations.membershipLeaveMembership
+  );
+
+  public membershipListInvites = this.requestFunctionFactory(
+    operations.membershipListInvites
+  );
+
+  public membershipListMemberships = this.requestFunctionFactory(
+    operations.membershipListMemberships
+  );
+
+  public membershipResendInviteMail = this.requestFunctionFactory(
+    operations.membershipResendInviteMail
+  );
+
+  public membershipRevokeInvite = this.requestFunctionFactory(
+    operations.membershipRevokeInvite
+  );
+
+  public projectChangeProjectMembership = this.requestFunctionFactory(
+    operations.projectChangeProjectMembership
   );
 }
 
