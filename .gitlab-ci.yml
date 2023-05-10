@@ -54,7 +54,10 @@ update-client:
 
         cd ${CI_PROJECT_DIR}/packages/mittwald
 
-        npm version --no-workspaces-update --no-git-tag-version patch
+        # TODO: Re-enable as soon as we have a stability guarantee
+        # npm version --no-workspaces-update --no-git-tag-version patch
+      
+        npm version --no-workspaces-update --no-git-tag-version --preid alpha prerelease
 
         git add .
         git commit -m "Update generated client";
