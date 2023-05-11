@@ -42,12 +42,18 @@ update-client:
   stage: publish
   image: node:${NODE_VERSION}
   script:
-    - git config user.name "${GITLAB_USER_NAME}"
-    - git config user.email "${GITLAB_USER_EMAIL}"
     - cd ${CI_PROJECT_DIR}/packages/mittwald
     - yarn generate:client
     - git status
     - |
+      if [ ${CI_PIPELINE_SOURCE} == "schedule" ] ; then
+        git config user.name "Mittwald Machine"
+        git config user.email "opensource@mittwald.de"
+      else
+        git config user.name "${GITLAB_USER_NAME}"
+        git config user.email "${GITLAB_USER_EMAIL}"
+      fi
+      
       if [ $(git status --porcelain . | wc -l) -gt 0 ] ; then
         cd ${CI_PROJECT_DIR}
         yarn compile
