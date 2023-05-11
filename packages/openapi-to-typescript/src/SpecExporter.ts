@@ -1,11 +1,13 @@
 import { join } from "path";
 import { readFileSync } from "fs";
 import ejs, { Options, TemplateFunction } from "ejs";
-import { NormalizedSpec } from "./NormalizedSpec";
-import { viewHelpersFactory } from "./viewHelpers";
+import { NormalizedSpec } from "./NormalizedSpec.js";
+import { viewHelpersFactory } from "./viewHelpers.js";
 import prettier from "prettier";
-import { getStatusLog } from "./statusLog";
-import { wrapError } from "@mittwald/awesome-node-utils/error/wrapError";
+import { getStatusLog } from "./statusLog.js";
+import { wrapError } from "@mittwald/awesome-node-utils/error/wrapError.js";
+import { URL } from "url";
+import * as url from "url";
 
 export interface ExportOptions {
     reactHooks?: boolean;
@@ -24,7 +26,8 @@ export class SpecExporter {
     }
 
     private static compileTemplate(templateFileName: string, options: Options = {}): TemplateFunction {
-        const templateFilename = join(__dirname, `../resources/templates/${templateFileName}`);
+        const dirname = url.fileURLToPath(new URL(".", import.meta.url));
+        const templateFilename = join(dirname, `../resources/templates/${templateFileName}`);
         const templateContent = readFileSync(templateFilename, "utf8");
 
         return ejs.compile(templateContent, {

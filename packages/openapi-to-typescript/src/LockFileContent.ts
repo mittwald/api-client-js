@@ -1,4 +1,4 @@
-import { NormalizedSpec } from "./NormalizedSpec";
+import { NormalizedSpec } from "./NormalizedSpec.js";
 
 export interface LockFileContent {
     version: "v1";

@@ -1,4 +1,4 @@
-import { createUseContext } from "@mittwald/awesome-node-utils/context/use";
+import { createUseContext } from "@mittwald/awesome-node-utils/context/use.js";
 import ora from "ora";
 
 export class OraStatusLog implements StatusLog {

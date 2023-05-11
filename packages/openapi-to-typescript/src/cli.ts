@@ -1,8 +1,8 @@
 import yargs from "yargs";
-import { Spec } from "./Spec";
-import { getStatusLog, OraStatusLog } from "./statusLog";
-import { CompareResult, LockFile } from "./LockFile";
-import { getSubFileName } from "./lib";
+import { Spec } from "./Spec.js";
+import { getStatusLog, OraStatusLog } from "./statusLog.js";
+import { CompareResult, LockFile } from "./LockFile.js";
+import { getSubFileName } from "./lib.js";
 import inquirer, { ChoiceCollection } from "inquirer";
 import "colors";
 import multimatch from "multimatch";

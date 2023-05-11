@@ -1,19 +1,19 @@
-import { transformOpenAPIExpression } from "./jsonata/transforms";
-import { ExportOptions, SpecExporter } from "./SpecExporter";
+import { transformOpenAPIExpression } from "./jsonata/transforms.js";
+import { ExportOptions, SpecExporter } from "./SpecExporter.js";
 import OpenAPISchemaValidator from "openapi-schema-validator";
 import VError from "verror";
-import { getStatusLog, StatusLog, useStatusLog } from "./statusLog";
-import { NormalizedSpec } from "./NormalizedSpec";
-import { runWithContext } from "@mittwald/awesome-node-utils/context/run";
-import { objectEntries } from "@mittwald/awesome-node-utils/object/entries";
+import { getStatusLog, StatusLog, useStatusLog } from "./statusLog.js";
+import { NormalizedSpec } from "./NormalizedSpec.js";
+import { runWithContext } from "@mittwald/awesome-node-utils/context/run.js";
+import { objectEntries } from "@mittwald/awesome-node-utils/object/entries.js";
 import deepmerge from "deepmerge";
-import { loadSpec } from "./loadSpec";
+import { loadSpec } from "./loadSpec.js";
 import jp from "fs-jetpack";
 import jsyaml from "js-yaml";
-import debug from "./debug";
+import debug from "./debug.js";
 import SwaggerParser from "@apidevtools/swagger-parser";
 import path from "path";
-import { getSubFileName } from "./lib";
+import { getSubFileName } from "./lib.js";
 
 interface SpecOptions {
     statusLog?: StatusLog;
@@ -106,7 +106,7 @@ export class Spec {
                 );
             }
         } else {
-            const result = new OpenAPISchemaValidator({ version: 3 }).validate(spec);
+            const result = new OpenAPISchemaValidator.default({ version: 3 }).validate(spec);
 
             if (result.errors.length > 0) {
                 throw new VError(

@@ -8,6 +8,7 @@
   "bin": {
     "openapi2ts": "./bin/cli.js"
   },
+  "type": "module",
   "scripts": {
     "precommit:format": "run-s test:staged-formatted",
     "precommit": "run-s precommit:*",

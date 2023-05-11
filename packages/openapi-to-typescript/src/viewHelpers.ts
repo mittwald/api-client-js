@@ -1,8 +1,8 @@
-import { schemaToTypeTS } from "@mittwald/awesome-node-utils/mapping/schemaToTs";
-import { Schema } from "@mittwald/awesome-node-utils/types/schema";
-import { camelCase, pascalCase } from "@mittwald/awesome-node-utils/text/formatter";
-import { objectEntries } from "@mittwald/awesome-node-utils/object/entries";
-import { Operation } from "./NormalizedSpec";
+import { schemaToTypeTS } from "@mittwald/awesome-node-utils/mapping/schemaToTs.js";
+import { Schema } from "@mittwald/awesome-node-utils/types/schema.js";
+import { camelCase, pascalCase } from "@mittwald/awesome-node-utils/text/formatter.js";
+import { objectEntries } from "@mittwald/awesome-node-utils/object/entries.js";
+import { Operation } from "./NormalizedSpec.js";
 
 const namespaceNameSeparator = "_";
 
@@ -28,7 +28,11 @@ export const viewHelpersFactory = (namespace: string, opts: ViewHelpersOptions =
     function replaceRefsTypeNames(rootNamespace: string, ts: string): string {
         return ts.replace(/"(#.+?)"/gm, (_, match) => {
             // eslint-disable-next-line prettier/prettier
-            return `${rootNamespace}.${match.substring(2).split("/").map(transformNamespaceName).join(".")}`;
+            return `${rootNamespace}.${match
+                .substring(2)
+                .split("/")
+                .map(transformNamespaceName)
+                .join(".")}`;
         });
     }
 
