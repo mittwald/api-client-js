@@ -11,5 +11,8 @@
       "**/@types/*",
       "**/react-scripts"
     ]
+  },
+  "resolutions": {
+    "typescript": "5.0.4"
   }
 }
