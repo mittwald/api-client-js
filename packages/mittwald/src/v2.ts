@@ -1,9 +1,7 @@
-import MittwaldApiClientV2 from "./generated/v2/client.js";
 import ApiClientError from "@mittwald/api-client-commons/dist/core/ApiClientError.js";
+import MittwaldAPIV2Client from "./generated/v2/client.js";
 
-export * from "./generated/v2/types.js";
-
-export class MittwaldApiClient extends MittwaldApiClientV2 {
+export class MittwaldApiClient extends MittwaldAPIV2Client {
   private readonly apiToken: string | undefined;
 
   private constructor(apiToken?: string) {
@@ -38,7 +36,7 @@ export class MittwaldApiClient extends MittwaldApiClientV2 {
   ): Promise<MittwaldApiClient> {
     const client = MittwaldApiClient.newUnauthenticated();
 
-    const authResult = await client.signupApiAuthenticate({
+    const authResult = await client.user.signupApiAuthenticate({
       data: {
         email,
         password,

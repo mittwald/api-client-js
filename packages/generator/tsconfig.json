@@ -2,11 +2,9 @@
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src",
-    "composite": true,
-    "module": "ESNext",
-    "moduleResolution": "Node"
+    "composite": true
   },
-  "exclude": ["test-d/**/*", "*.test.ts"],
+  "exclude": ["*.test.ts"],
   "extends": "../../tsconfig.packages.json",
   "include": ["src/**/*.ts"]
 }

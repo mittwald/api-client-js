@@ -1,5 +1,0 @@
-Request<
-    Simplify<<%- operation.parameters.requestBody ? joinNamespace(rootNamespace, "paths", pathname, method, "parameters", "requestBody") : "null" %>>,
-    Simplify<<%- operation.parameters.path ? joinNamespace(rootNamespace, "paths", pathname, method, "parameters", "path") : "null" %>>,
-    Simplify<<%- operation.parameters.header ? joinNamespace(rootNamespace, "paths", pathname, method, "parameters", "header") : "null" %>>
->

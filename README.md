@@ -14,7 +14,7 @@ The following packages are relevant:
 The following packages are not relevant for users of the auto-generated client,
 but may be of interest if you are interested in contributing to the project:
 
-- [`@mittwald/api-client-generator`](packages/generator/README.md) contains the
+- [`@mittwald/api-code-generator`](packages/generator/README.md) contains the
   necessary tools to _build_ the auto-generated client. Note that, as a user,
   you usually should not have any reason to directly use this package.
 

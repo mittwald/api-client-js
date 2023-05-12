@@ -38,23 +38,44 @@ publish-commons:
   only:
     - tags
 
-update-client:
+publish-generator:
   stage: publish
   image: node:${NODE_VERSION}
   script:
-    - git config user.name "${GITLAB_USER_NAME}"
-    - git config user.email "${GITLAB_USER_EMAIL}"
+    - cd ${CI_PROJECT_DIR}/packages/generator
+    - npm version ${CI_COMMIT_TAG} --git-tag-version false
+      --no-workspaces-update
+    - yarn config set npmScopes.mittwald.npmAuthToken "${GITHUB_TOKEN}"
+    - yarn npm publish
+  only:
+    - tags
+
+publish-client:
+  stage: publish
+  image: node:${NODE_VERSION}
+  script:
     - cd ${CI_PROJECT_DIR}/packages/mittwald
     - yarn generate:client
     - git status
     - |
+      if [ ${CI_PIPELINE_SOURCE} == "schedule" ] ; then
+        git config user.name "Mittwald Machine"
+        git config user.email "opensource@mittwald.de"
+      else
+        git config user.name "${GITLAB_USER_NAME}"
+        git config user.email "${GITLAB_USER_EMAIL}"
+      fi
+
       if [ $(git status --porcelain . | wc -l) -gt 0 ] ; then
         cd ${CI_PROJECT_DIR}
         yarn compile
 
         cd ${CI_PROJECT_DIR}/packages/mittwald
 
-        npm version --no-workspaces-update --no-git-tag-version patch
+        # TODO: Re-enable as soon as we have a stability guarantee
+        # npm version --no-workspaces-update --no-git-tag-version patch
+
+        npm version --no-workspaces-update --no-git-tag-version --preid alpha prerelease
 
         git add .
         git commit -m "Update generated client";

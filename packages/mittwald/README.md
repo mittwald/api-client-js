@@ -10,6 +10,14 @@ Copyright (c) 2023 Mittwald CM Service GmbH & Co. KG and contributors
 This project (and all NPM packages) therein is licensed under the MIT License;
 see the [LICENSE](../../LICENSE) file for details.
 
+## ⚠️ STABILITY NOTICE
+
+This package is currently in an early stage of development. While our API is
+generally stable, the client is not. Especially the operation IDs (which are
+used as method names) are SUBJECT TO CHANGE in the future. Since the underlying
+API routes are stable, the client will continue to work, but you may need to
+update your code with subsequent versions.
+
 ## Installing
 
 ### With Yarn
@@ -82,7 +90,7 @@ import MittwaldApiClient from "@mittwald/api-client/dist/v2.js";
 
 const mittwaldApi = MittwaldApiClient.newWithToken("your-access-token");
 
-const projects = await mittwaldApi.projectServiceProjectsGetList();
+const projects = await mittwaldApi.project.listProjects();
 ```
 
 ## API documentation

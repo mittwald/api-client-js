@@ -1,0 +1,223 @@
+/* try this out at https://try.jsonata.org */
+(
+    /* map over the objects values */
+    $mapValues := function($obj, $fn)<o,f:o> {
+        $obj ? ($obj ~> $spread){
+            $k($): * ~> $fn
+        } : { }
+    };
+
+
+    /* returns the $obj as array */
+    $asArray := function($obj)<x:a> {
+        [$obj]
+    };
+
+    /* returns the first key of $ctx */
+    $k := function($ctx)<o:s>{
+        ($ctx ~> $keys)[0]
+    };
+
+    /* gets the prop by dot-notation from the root object ($$) */
+    $resolvePath := function($path)<a:o>{
+        $path ~> $reduce(
+            $lookup,
+            $$
+        )
+    };
+
+    /* splits a ref in its path segments */
+    $splitRef := function($ref)<s:a>{
+        $ref ~> $substring(2) ~> $split("/")
+    };
+
+    /* finds the ref in the root object */
+    $resolveRef := function($ref)<s:o>{
+        $ref ~> $splitRef ~> $resolvePath
+    };
+
+    /* just checks for a ref in the $val */
+    $hasRef := function($val)<o:b>{
+        "$ref" in $val.$keys()
+    };
+
+    $resolveSecurityScheme := function($obj)<o:o> {
+        $resolvePath(["components", "securitySchemes", $k($obj)])
+    };
+
+    /* if $value is falsy return $or otherwise $value */
+    $or := function($value, $or)<x:x> {
+        $value ? $value : $or
+    };
+
+    /* finds refs in the root object and spreads the refs content into the current node */
+    $resolveRefs := function($obj)<j:o>{
+        (
+            /* spreads the refs content into $obj */
+            $mergeInResolvedRef := function($obj){
+                $merge([
+                    $resolveRef($obj.`$ref`),
+                    { "$ref": $obj.`$ref` }
+                ])
+            };
+
+            $resolveRefsInObj := function($obj){
+                $obj ~> $hasRef ?
+                    $mergeInResolvedRef($obj) :
+                    $obj ~> $mapValues($resolveRefs)
+            };
+
+            $resolveRefsInArray := function($obj){
+                [$map($obj, function($item){
+                    $resolveRefs($item)
+                })]
+            };
+
+            /* final resolving */
+            $type($obj) = "object" ?
+                /* object */
+                $resolveRefsInObj($obj) :
+                $type($obj) = "array" ?
+                    /* array */
+                    $resolveRefsInArray($obj) :
+                    /* other */
+                    $obj
+
+        )
+    };
+
+    /* first we resolve all refs in the root object */
+    $resolveRefs($$).(
+        /* ...  and go further with the result */
+
+        $schemaWithRef := function($obj)<o:o>{
+            $obj ~> $hasRef ?
+                /* merge in $ref name */
+                [
+                    $obj.schema,
+                    { "$ref": $obj.`$ref` }
+                ] ~> $merge :
+                /* no need to merge */
+                $obj.schema
+        };
+
+
+        $collectResponseContentTypes := function($responses)<o:a> {
+            $each($responses, function($response) {
+                $response.content ~> $keys
+            })
+        };
+
+        /* fn to construct 'parameters' (header, path, query, ...) */
+        $constructParams := function($params)<x:o>{
+            $params ? $params{
+                in: {
+                    "type": "object",
+                    "required": [$[required=true].name],
+                    "properties": {
+                        name: $ ~> $schemaWithRef
+                    }
+                }
+            } : { }
+        };
+
+        /* find all keys in the $obj where $obj[k].required */
+        $getRequiredNames := function($obj)<o:a> {
+            $obj.(
+                $isRequired := function($o)<o:b> {
+                    $o.required
+                };
+
+                /* return as array */
+                [$obj ~> $sift($isRequired) ~> $keys]
+            )
+        };
+
+        /* fn to construct 'responses' (200, 404, ...) */
+        $constructResponses := function($responses)<o:a>{
+            $responses.(
+                $constructHeaders := function($headers)<o:o>{
+                    {
+                        "type": "object",
+                        "required": $headers ~> $getRequiredNames,
+                        "properties": $headers ~> $mapValues($schemaWithRef)
+                    }
+                };
+
+                $construct := function($response) {
+                    /* response does have header and content */
+                    $response{
+                        /* $response is used as fallback to cover Swagger structure */
+                        "content": content ~> $mapValues($schemaWithRef),
+                        "headers": headers ? $constructHeaders(headers)
+                    }
+                };
+
+                $mapValues($, $construct)
+            )
+        };
+
+        /* deep-merge "header.properties.Accept" into the parameters (idea: recursive function) */
+        $mergeInResponseContentTypeAcceptHeader := function($parameters, $responses)<o,o:o> {
+            [$parameters ~> $spread, {
+                "header": [
+                    $parameters.header ~> $spread, {
+                        "properties": [
+                            $parameters.header.properties ~> $spread, {
+                                "Accept": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    $responses ~> $collectResponseContentTypes ? {
+                                        "enum": $responses ~> $collectResponseContentTypes ~> $distinct ~> $asArray
+                                    } : { }
+                                ] ~> $merge
+                            }
+                    ] ~> $merge}
+                ] ~> $merge
+            }] ~> $merge
+        };
+
+        $getApiKeyParams := function($security)<a:o> {
+            $security.(
+                $buildParam := function($schema) {
+                    [
+                        { "schema": {"type": "string"}, "required": true },
+                        $schema
+                    ] ~> $merge
+                };
+
+                ($ ~> $map($resolveSecurityScheme))[type="apiKey"] ~> $map($buildParam) ~> $asArray
+            )
+        };
+
+        /* here we build the final object */
+        {
+            "tags": tags,
+            "paths": paths ~> $mapValues(function ($path) {
+                $path ~> $mapValues(function($method) {
+                    $method{
+                        "operationId": operationId,
+                        "parameters": [
+                            $constructParams([parameters, $getApiKeyParams($exists(security) ? security : $$.security)]) ~> $mergeInResponseContentTypeAcceptHeader(responses),
+                            {
+                                "requestBody": requestBody.content.`application/json` ~> $schemaWithRef
+                            }
+                        ] ~> $merge,
+                        "responses": responses ? $constructResponses(responses) : { },
+                        "summary": summary,
+                        "tags": tags
+                    }
+                })
+            }),
+            "components": (components ? components : { }){
+                "schemas": schemas ? schemas : { },
+                "parameters": parameters ~> $mapValues($schemaWithRef),
+                "responses": responses ? responses : { },
+                "requestBodies": requestBodies ? requestBodies : { }
+            },
+            /* definitions are used by Swagger */
+            "definitions": definitions ? definitions : { }
+        }
+    )
+)
