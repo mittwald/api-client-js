@@ -1,12 +1,12 @@
 /* eslint-disable */
 /* prettier-ignore */
 /* This file is auto-generated with acg (@mittwald/api-code-generator) */
-import { Simplify } from "@mittwald/api-client-commons/dist/type-fest";
+import { Simplify } from "@mittwald/api-client-commons/dist/type-fest.js";
 import { Request } from "@mittwald/api-client-commons/dist/types/Request.js";
 import { Response } from "@mittwald/api-client-commons/dist/types/Response.js";
 import { OpenAPIOperation } from "@mittwald/api-client-commons/dist/types/OpenAPIOperation.js";
 
-/** execute a runtime concerning action on a specific `AppInstallation` */
+/** Execute a runtime concerning action on a specific `AppInstallation` */
 export const appExecuteAction: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdActionsAction.Post.Parameters.RequestBody>,
@@ -19,7 +19,7 @@ export const appExecuteAction: OpenAPIOperation<
   operationId: "app-execute-action",
 };
 
-/** get a specific `App` */
+/** Get a specific `App` */
 export const appGetApp: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -37,7 +37,7 @@ export const appGetApp: OpenAPIOperation<
   operationId: "app-get-app",
 };
 
-/** get a specific `AppInstallation` */
+/** Get a specific `AppInstallation` */
 export const appGetAppinstallation: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -55,7 +55,7 @@ export const appGetAppinstallation: OpenAPIOperation<
   operationId: "app-get-appinstallation",
 };
 
-/** start uninstallation process for a specific `AppInstallation` */
+/** Start uninstallation process for a specific `AppInstallation` */
 export const appUninstallAppinstallation: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -68,7 +68,7 @@ export const appUninstallAppinstallation: OpenAPIOperation<
   operationId: "app-uninstall-appinstallation",
 };
 
-/** patch desired properties of a specific `AppInstallation` */
+/** Patch desired properties of a specific `AppInstallation` */
 export const appPatchAppinstallation: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Patch.Parameters.RequestBody>,
@@ -81,7 +81,7 @@ export const appPatchAppinstallation: OpenAPIOperation<
   operationId: "app-patch-appinstallation",
 };
 
-/** get a specific `AppVersion` */
+/** Get a specific `AppVersion` */
 export const appGetAppversion: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -99,7 +99,7 @@ export const appGetAppversion: OpenAPIOperation<
   operationId: "app-get-appversion",
 };
 
-/** get a specific `SystemSoftware` */
+/** Get a specific `SystemSoftware` */
 export const appGetSystemsoftware: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -117,7 +117,7 @@ export const appGetSystemsoftware: OpenAPIOperation<
   operationId: "app-get-systemsoftware",
 };
 
-/** get a specific `SystemSoftwareVersion` */
+/** Get a specific `SystemSoftwareVersion` */
 export const appGetSystemsoftwareversion: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -135,7 +135,7 @@ export const appGetSystemsoftwareversion: OpenAPIOperation<
   operationId: "app-get-systemsoftwareversion",
 };
 
-/** create linkage between an `AppInstallation` and a `Database` */
+/** Create linkage between an `AppInstallation` and a `Database` */
 export const appLinkDatabase: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabases.Put.Parameters.RequestBody>,
@@ -148,7 +148,7 @@ export const appLinkDatabase: OpenAPIOperation<
   operationId: "app-link-database",
 };
 
-/** get all `AppInstallations` inside a specific `Project` */
+/** Get all `AppInstallations` inside a specific `Project` */
 export const appListAppinstallations: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -166,7 +166,7 @@ export const appListAppinstallations: OpenAPIOperation<
   operationId: "app-list-appinstallations",
 };
 
-/** request a new `AppInstallation` */
+/** Request a new `AppInstallation` */
 export const appRequestAppinstallation: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Post.Parameters.RequestBody>,
@@ -184,7 +184,7 @@ export const appRequestAppinstallation: OpenAPIOperation<
   operationId: "app-request-appinstallation",
 };
 
-/** get all available `Apps` */
+/** Get all available `Apps` */
 export const appListApps: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -202,7 +202,7 @@ export const appListApps: OpenAPIOperation<
   operationId: "app-list-apps",
 };
 
-/** get all `AppVersions` of a specific `App` */
+/** Get all `AppVersions` of a specific `App` */
 export const appListAppversions: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -220,7 +220,7 @@ export const appListAppversions: OpenAPIOperation<
   operationId: "app-list-appversions",
 };
 
-/** get all available `SystemSoftware` */
+/** Get all available `SystemSoftware` */
 export const appListSystemsoftwares: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -238,7 +238,7 @@ export const appListSystemsoftwares: OpenAPIOperation<
   operationId: "app-list-systemsoftwares",
 };
 
-/** get all available `SystemSoftwareVersions` of a specific `SystemSoftware` */
+/** Get all available `SystemSoftwareVersions` of a specific `SystemSoftware` */
 export const appListSystemsoftwareversions: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -256,7 +256,7 @@ export const appListSystemsoftwareversions: OpenAPIOperation<
   operationId: "app-list-systemsoftwareversions",
 };
 
-/** get runtime status of a specific `AppInstallation` */
+/** Get runtime status of a specific `AppInstallation` */
 export const appRetrieveStatus: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -274,7 +274,7 @@ export const appRetrieveStatus: OpenAPIOperation<
   operationId: "app-retrieve-status",
 };
 
-/** create linkage between an `AppInstallation` and `DatabaseUsers` */
+/** Create linkage between an `AppInstallation` and `DatabaseUsers` */
 export const appSetDatabaseUsers: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.RequestBody>,
@@ -287,7 +287,7 @@ export const appSetDatabaseUsers: OpenAPIOperation<
   operationId: "app-set-database-users",
 };
 
-/** remove linkage between an `AppInstallation` and a `Database` */
+/** Remove linkage between an `AppInstallation` and a `Database` */
 export const appUnlinkDatabase: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -300,7 +300,10 @@ export const appUnlinkDatabase: OpenAPIOperation<
   operationId: "app-unlink-database",
 };
 
-/** trigger `AppInstallation` to retrieve current installation status based on an appJob */
+/**
+ * Trigger `AppInstallation` to retrieve current installation status based on an
+ * appJob
+ */
 export const appUpdateStatus: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsUpdateStatus.Post.Parameters.RequestBody>,
@@ -2021,7 +2024,10 @@ export const databaseGetMysqlUserPhpMyAdminUrl: OpenAPIOperation<
   operationId: "database-get-mysql-user-php-my-admin-url",
 };
 
-/** List available MySQL character sets and collations, optionally filtered by a MySQLVersion. */
+/**
+ * List available MySQL character sets and collations, optionally filtered by a
+ * MySQLVersion.
+ */
 export const databaseListMysqlCharsets: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -2166,7 +2172,7 @@ export const databaseUpdateRedisDatabaseDescription: OpenAPIOperation<
   operationId: "database-update-redis-database-description",
 };
 
-/** get a specific `AppVersion` */
+/** Get a specific `AppVersion` */
 export const deprecatedAppGetAppversion: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -2184,7 +2190,7 @@ export const deprecatedAppGetAppversion: OpenAPIOperation<
   operationId: "deprecated-app-get-appversion",
 };
 
-/** get all `AppVersions` of a specific `App` */
+/** Get all `AppVersions` of a specific `App` */
 export const deprecatedAppListAppversions: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -3429,7 +3435,7 @@ export const deprecatedProjectUpdateProjectMembership: OpenAPIOperation<
   operationId: "deprecated-project-update-project-membership",
 };
 
-/** updates a-records for a specific zone */
+/** Updates a-records for a specific zone */
 export const dnsRecordAsetCustom: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedCustom.Put.Parameters.RequestBody>,
@@ -3442,7 +3448,7 @@ export const dnsRecordAsetCustom: OpenAPIOperation<
   operationId: "dns-record-a-set-custom",
 };
 
-/** set a-records managed by ingress for a specific zone */
+/** Set a-records managed by ingress for a specific zone */
 export const dnsRecordAsetManagedByIngress: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Parameters.RequestBody>,
@@ -3460,7 +3466,7 @@ export const dnsRecordAsetManagedByIngress: OpenAPIOperation<
   operationId: "dns-record-a-set-managed-by-ingress",
 };
 
-/** updates cname-record for a specific zone */
+/** Updates cname-record for a specific zone */
 export const dnsRecordCnameSet: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetCname.Put.Parameters.RequestBody>,
@@ -3473,7 +3479,7 @@ export const dnsRecordCnameSet: OpenAPIOperation<
   operationId: "dns-record-cname-set",
 };
 
-/** updates mx-records for a specific zone */
+/** Updates mx-records for a specific zone */
 export const dnsRecordMxSetCustom: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxCustom.Put.Parameters.RequestBody>,
@@ -3486,7 +3492,7 @@ export const dnsRecordMxSetCustom: OpenAPIOperation<
   operationId: "dns-record-mx-set-custom",
 };
 
-/** sets mx-records to managed for a specific zone */
+/** Sets mx-records to managed for a specific zone */
 export const dnsRecordMxSetManaged: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxManaged.Post.Parameters.RequestBody>,
@@ -3499,7 +3505,7 @@ export const dnsRecordMxSetManaged: OpenAPIOperation<
   operationId: "dns-record-mx-set-managed",
 };
 
-/** updates txt-records for a specific zone */
+/** Updates txt-records for a specific zone */
 export const dnsRecordTxtSet: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetTxt.Put.Parameters.RequestBody>,
@@ -3512,7 +3518,7 @@ export const dnsRecordTxtSet: OpenAPIOperation<
   operationId: "dns-record-txt-set",
 };
 
-/** gets a specific zone */
+/** Gets a specific zone */
 export const dnsZoneGetSpecific: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -3530,7 +3536,7 @@ export const dnsZoneGetSpecific: OpenAPIOperation<
   operationId: "dns-zone-get-specific",
 };
 
-/** gets all dns zones by project id */
+/** Gets all dns zones by project id */
 export const dnsZonesForProject: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -4400,7 +4406,7 @@ export const mailServiceProjectsettingUpdateWhitelist: OpenAPIOperation<
   operationId: "mail-service-projectsetting-update-whitelist",
 };
 
-/** getting the subscription status of the subscription */
+/** Getting the subscription status of the subscription */
 export const newsletterGetInfo: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -4418,7 +4424,7 @@ export const newsletterGetInfo: OpenAPIOperation<
   operationId: "newsletter-get-info",
 };
 
-/** unsubscribe a user from the mStudio newsletter */
+/** Unsubscribe a user from the mStudio newsletter */
 export const newsletterUnsubscribeUser: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -4431,7 +4437,7 @@ export const newsletterUnsubscribeUser: OpenAPIOperation<
   operationId: "newsletter-unsubscribe-user",
 };
 
-/** subscribe a user to the mStudio newsletter */
+/** Subscribe a user to the mStudio newsletter */
 export const newsletterSubscribeUser: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptions.Post.Parameters.RequestBody>,
@@ -5445,7 +5451,10 @@ export const signupApiAuthenticate: OpenAPIOperation<
   operationId: "signup-api-authenticate",
 };
 
-/** Authenticate yourself against your legacy account to migrate it with the '/registration'-Route */
+/**
+ * Authenticate yourself against your legacy account to migrate it with the
+ * '/registration'-Route
+ */
 export const signupApiAuthenticateLegacy: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2SignupAuthenticationLegacy.Post.Parameters.RequestBody>,
@@ -5668,7 +5677,10 @@ export const signupApiMfaGetStatus: OpenAPIOperation<
   operationId: "signup-api-mfa-get-status",
 };
 
-/** Initialize Multi Factor Authentication. If successfull, it needs to be confirmed, before usage of mfa. */
+/**
+ * Initialize Multi Factor Authentication. If successfull, it needs to be
+ * confirmed, before usage of mfa.
+ */
 export const signupApiMfaInit: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -5945,8 +5957,7 @@ export const signupApiRecoverycodesReset: OpenAPIOperation<
   operationId: "signup-api-recoverycodes-reset",
 };
 
-/** Register with email and password.
- */
+/** Register with email and password. */
 export const signupApiRegister: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2SignupRegistration.Post.Parameters.RequestBody>,
@@ -6159,7 +6170,7 @@ export const signupApiSshDelete: OpenAPIOperation<
   operationId: "signup-api-ssh-delete",
 };
 
-/** request a support code */
+/** Request a support code */
 export const signupApiSupportCodeRequest: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -6565,7 +6576,6 @@ export const userServiceFeedbackList: OpenAPIOperation<
   operationId: "user-service-feedback-list",
 };
 
-/**  */
 export const userServiceFeedbackCreate: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2UserFeedback.Post.Parameters.RequestBody>,
@@ -6583,7 +6593,7 @@ export const userServiceFeedbackCreate: OpenAPIOperation<
   operationId: "user-service-feedback-create",
 };
 
-/** create a new issue */
+/** Create a new issue */
 export const userServiceIssueNew: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2UserIssues.Post.Parameters.RequestBody>,
@@ -6645,7 +6655,7 @@ export const userServicePersonalizedSettingsGet: OpenAPIOperation<
   operationId: "user-service-personalized-settings-get",
 };
 
-/** update personalized settings */
+/** Update personalized settings */
 export const userServicePersonalizedSettingsUpdate: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2UserSettings.Put.Parameters.RequestBody>,
@@ -6733,7 +6743,10 @@ export const varnishServiceListValidators: OpenAPIOperation<
   operationId: "varnish-service-list-validators",
 };
 
-/** validate a set of config files with a named validator against a specific version */
+/**
+ * Validate a set of config files with a named validator against a specific
+ * version
+ */
 export const varnishServiceValidate: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2VarnishConfigValidate.Post.Parameters.RequestBody>,

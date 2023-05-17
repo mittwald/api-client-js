@@ -51,7 +51,7 @@ export class Paths {
     };
 
     return `\
-      import { Simplify } from "@mittwald/api-client-commons/dist/type-fest";
+      import { Simplify } from "@mittwald/api-client-commons/dist/type-fest.js";
       import { Request } from "@mittwald/api-client-commons/dist/types/Request.js";
       import { Response } from "@mittwald/api-client-commons/dist/types/Response.js";
       import { OpenAPIOperation } from "@mittwald/api-client-commons/dist/types/OpenAPIOperation.js";    

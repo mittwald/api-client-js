@@ -1,16 +1,10 @@
 import { OpenAPIV3 } from "openapi-types";
-import OpenAPISchemaValidatorDefault from "openapi-schema-validator";
 import { OpenAPISchemaValidationError } from "./OpenAPISchemaValidationError.js";
 import VError from "verror";
 import { makeError } from "../lib/makeError.js";
+import OpenAPISchemaValidator from "openapi-schema-validator";
 
-// Fixes issue on ESM import
-const { default: OpenAPISchemaValidator } =
-  OpenAPISchemaValidatorDefault as unknown as {
-    default: typeof OpenAPISchemaValidatorDefault;
-  };
-
-const validator = new OpenAPISchemaValidator({
+const validator = new OpenAPISchemaValidator.default({
   version: 3,
 });
 
