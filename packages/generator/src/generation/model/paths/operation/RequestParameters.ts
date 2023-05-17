@@ -1,10 +1,11 @@
-import { JSONSchema as JSONSchemaType } from "json-schema-to-typescript";
+import { JSONSchema as JSONSchemaObject } from "json-schema-to-typescript";
 import { JSONSchema } from "../../global/JSONSchema.js";
 import { Operation } from "./Operation.js";
 import { Name } from "../../global/Name.js";
 import { TypeCompilationOptions } from "../../CodeGenerationModel.js";
 import { OpenAPIV3 } from "openapi-types";
 import { assertNoRefs } from "../../assertNoRefs.js";
+import { SecurityScheme } from "../../components/SecurityScheme.js";
 
 export class RequestParameters {
   public static readonly ns = "Parameters";
@@ -33,8 +34,9 @@ export class RequestParameters {
     name: Name,
     $in: string,
     parameters: OpenAPIV3.OperationObject["parameters"] = [],
+    securitySchemes: SecurityScheme[],
   ): JSONSchema {
-    const properties: Record<string, JSONSchemaType> = {};
+    const properties: Record<string, JSONSchemaObject> = {};
     const required: string[] = [];
 
     for (const parameter of parameters) {
@@ -48,11 +50,18 @@ export class RequestParameters {
       }
     }
 
-    return new JSONSchema(new Name($in, name), {
-      type: "object",
-      required,
-      properties,
-    });
+    const securitySchemesJSONSchemas = securitySchemes
+      .filter((s) => s.in === $in)
+      .map((s) => s.jsonSchema.asCustomTypeRef());
+
+    const jsonSchemaObject: JSONSchemaObject = {
+      allOf: [
+        { type: "object", required, properties },
+        ...securitySchemesJSONSchemas,
+      ],
+    };
+
+    return new JSONSchema(new Name($in, name), jsonSchemaObject);
   }
 
   public static fromDoc(
@@ -66,27 +75,43 @@ export class RequestParameters {
         ? doc.requestBody.content
         : doc.requestBody;
 
-    return new RequestParameters(
-      operation,
-      requestBodySchema
-        ? new JSONSchema(new Name("requestBody", name), requestBodySchema)
-        : undefined,
-      RequestParameters.constructParametersSchema(name, "path", doc.parameters),
-      RequestParameters.constructParametersSchema(
-        name,
-        "query",
-        doc.parameters,
-      ),
-      RequestParameters.constructParametersSchema(
-        name,
-        "header",
-        doc.parameters,
-      ),
+    const body = requestBodySchema
+      ? new JSONSchema(new Name("requestBody", name), requestBodySchema)
+      : undefined;
+
+    const requiredSecuritySchemeNames =
+      doc.security?.flatMap((obj) => Object.keys(obj)) ?? [];
+
+    const requiredSecuritySchemes = requiredSecuritySchemeNames.map((name) =>
+      operation.path.paths.model.components.securitySchemes.requireScheme(name),
     );
+
+    const path = RequestParameters.constructParametersSchema(
+      name,
+      "path",
+      doc.parameters,
+      requiredSecuritySchemes,
+    );
+
+    const header = RequestParameters.constructParametersSchema(
+      name,
+      "header",
+      doc.parameters,
+      requiredSecuritySchemes,
+    );
+
+    const query = RequestParameters.constructParametersSchema(
+      name,
+      "query",
+      doc.parameters,
+      requiredSecuritySchemes,
+    );
+
+    return new RequestParameters(operation, body, path, query, header);
   }
 
   public async compileTypes(opts: TypeCompilationOptions): Promise<string> {
-    const header = this.header?.setOptionalProperties(
+    const header = this.header?.cloneWithOptionalProperties(
       opts.optionalHeaders ?? [],
     );
 

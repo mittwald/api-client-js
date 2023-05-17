@@ -24,9 +24,9 @@ export class CodeGenerationModel {
       doc,
     ) as OpenAPIV3.Document;
 
+    this.components = new Components(this);
     this.tags = this.doc.tags?.map((doc) => Tag.fromDoc(doc)) ?? [];
     this.paths = new Paths(this, this.doc.paths);
-    this.components = new Components(this);
   }
 
   public static fromDoc(

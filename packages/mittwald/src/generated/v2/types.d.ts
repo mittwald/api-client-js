@@ -618,7 +618,7 @@ declare namespace MittwaldAPIV2 {
           | "Pending"
           | "Running"
           | "AbortedByUser";
-        successful?: boolean;
+        successful: boolean;
         triggeredBy?: {
           id?: string;
         };
@@ -701,12 +701,6 @@ declare namespace MittwaldAPIV2 {
         vatId?: string;
         vatIdValidationState?: "valid" | "invalid" | "pending" | "unspecified";
       }
-
-      export type DeMittwaldV1MembershipCustomerInviteList =
-        MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite[];
-
-      export type DeMittwaldV1MembershipCustomerMembershipList =
-        MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembership[];
 
       export interface DeMittwaldV1CustomerNote {
         author: string;
@@ -808,6 +802,22 @@ declare namespace MittwaldAPIV2 {
         name: string;
         number: string;
       }
+
+      export type DeMittwaldV1MembershipCustomerInviteList =
+        MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite[];
+
+      export type DeMittwaldV1MembershipCustomerMembershipList =
+        MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembership[];
+
+      export type DeMittwaldV1MembershipEntityTypes = "project" | "customer";
+
+      export type DeMittwaldV1MembershipIdentifierTypes = "id" | "token";
+
+      export type DeMittwaldV1MembershipProjectInviteList =
+        MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite[];
+
+      export type DeMittwaldV1MembershipProjectMembershipList =
+        MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership[];
 
       export interface DeMittwaldV1ProjectDeprecatedPlacementGroup {
         customerId: string;
@@ -1344,10 +1354,6 @@ declare namespace MittwaldAPIV2 {
         updatedAt: string;
       }
 
-      export type DeMittwaldV1MembershipEntityTypes = "project" | "customer";
-
-      export type DeMittwaldV1MembershipIdentifierTypes = "id" | "token";
-
       export type DeMittwaldV1MembershipCustomerInheritedRoles =
         | "notset"
         | "owner"
@@ -1667,17 +1673,11 @@ declare namespace MittwaldAPIV2 {
         storage: string;
       }
 
-      export type DeMittwaldV1MembershipProjectInviteList =
-        MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite[];
-
       export interface DeMittwaldV1ProjectMachineType {
         cpu: string;
         memory: string;
         name: string;
       }
-
-      export type DeMittwaldV1MembershipProjectMembershipList =
-        MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership[];
 
       export interface DeMittwaldV1ProjectProject {
         clusterDomain?: string;
@@ -2207,24 +2207,47 @@ declare namespace MittwaldAPIV2 {
         }
       }
     }
+
+    namespace SecuritySchemes {
+      /**
+       * Access Token is required in header
+       */
+      export interface DeMittwaldV1CommonAccessToken {
+        "x-access-token"?: string;
+      }
+
+      /**
+       * Legacy Access Token is required in header
+       */
+      export interface DeMittwaldV1CommonLegacyAccessToken {
+        Authorization: string;
+      }
+
+      /**
+       * Access Token is required in header
+       */
+      export interface DeMittwaldV1CommonsAccessToken {
+        "x-access-token"?: string;
+      }
+    }
   }
 
   namespace Paths {
     namespace V2AppinstallationsAppInstallationIdActionsAction {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             appInstallationId: string;
             action: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppAction;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -2245,13 +2268,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2AppsAppId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             appId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -2275,13 +2299,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2AppinstallationsAppInstallationId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             appInstallationId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -2303,13 +2328,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             appInstallationId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -2328,17 +2354,17 @@ declare namespace MittwaldAPIV2 {
 
       namespace Patch {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             appInstallationId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -2359,14 +2385,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2AppsAppIdVersionsAppVersionId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             appId: string;
             appVersionId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -2390,13 +2417,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2SystemsoftwaresSystemSoftwareId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             systemSoftwareId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -2420,14 +2448,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2SystemsoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             systemSoftwareId: string;
             systemSoftwareVersionId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -2451,17 +2480,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2AppinstallationsAppInstallationIdDatabases {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             appInstallationId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -2482,17 +2512,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdAppinstallations {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             limit?: number;
             page?: number;
             skip?: number;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -2510,17 +2541,17 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -2546,15 +2577,16 @@ declare namespace MittwaldAPIV2 {
     namespace V2Apps {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             limit?: number;
             page?: number;
             skip?: number;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -2574,13 +2606,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2AppsAppIdVersions {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             appId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -2600,15 +2633,16 @@ declare namespace MittwaldAPIV2 {
     namespace V2Systemsoftwares {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             limit?: number;
             page?: number;
             skip?: number;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -2628,15 +2662,16 @@ declare namespace MittwaldAPIV2 {
     namespace V2SystemsoftwareSystemSoftwareIdVersions {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             systemSoftwareId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             versionRange?: string;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -2656,13 +2691,13 @@ declare namespace MittwaldAPIV2 {
     namespace V2AppinstallationsAppInstallationIdStatus {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             appInstallationId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -2686,18 +2721,19 @@ declare namespace MittwaldAPIV2 {
     namespace V2AppinstallationsAppInstallationIdDatabasesDatabaseId {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             appInstallationId: string;
             databaseId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -2716,14 +2752,15 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             appInstallationId: string;
             databaseId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -2744,17 +2781,17 @@ declare namespace MittwaldAPIV2 {
     namespace V2AppinstallationsIdActionsUpdateStatus {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -2775,15 +2812,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2ArticlesArticleId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             articleId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {
+          export type Query = {
             customerId?: string;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -2807,11 +2844,11 @@ declare namespace MittwaldAPIV2 {
     namespace V2Articles {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {
+          export type Query = {
             customerId?: string;
             limit?: number;
             skip?: number;
@@ -2827,7 +2864,7 @@ declare namespace MittwaldAPIV2 {
               | "deprecated"
             )[];
             name?: string;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -2847,17 +2884,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectBackupsProjectBackupIdExport {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectBackupId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -2884,13 +2922,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectBackupId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -2915,13 +2954,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdBackupSchedules {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -2939,17 +2979,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -2977,13 +3018,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdBackups {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -3001,17 +3043,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -3039,13 +3082,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectBackupSchedulesProjectBackupScheduleId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectBackupScheduleId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -3071,13 +3115,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectBackupScheduleId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -3100,17 +3145,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Patch {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectBackupScheduleId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -3139,13 +3185,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectBackupsProjectBackupId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectBackupId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -3171,13 +3218,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectBackupId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -3202,17 +3250,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectBackupsProjectBackupIdDescription {
       namespace Patch {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectBackupId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -3241,18 +3290,19 @@ declare namespace MittwaldAPIV2 {
     namespace V2ContractsContractIdItemsContractItemIdTermination {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             contractId: string;
             contractItemId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -3282,18 +3332,19 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             contractId: string;
             contractItemId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -3324,18 +3375,19 @@ declare namespace MittwaldAPIV2 {
     namespace V2ContractsContractIdItemsContractItemIdTariffChange {
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             contractId: string;
             contractItemId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -3366,17 +3418,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2ContractsContractIdTermination {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             contractId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -3406,17 +3459,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             contractId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -3446,13 +3500,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ContractsContractIdBaseItems {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             contractId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -3480,13 +3535,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2DomainsDomainIdContracts {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             domainId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -3514,13 +3570,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ServersServerIdContracts {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             serverId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -3548,13 +3605,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdContracts {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -3582,14 +3640,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2ContractsContractIdItemsContractItemId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             contractId: string;
             contractItemId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -3617,13 +3676,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ContractsContractId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             contractId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -3651,14 +3711,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2ContractsContractIdItemsContractItemIdNextTerminationDates {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             contractId: string;
             contractItemId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -3688,17 +3749,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2CustomersCustomerIdContracts {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             customerId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             limit?: number;
             skip?: number;
             page?: number;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -3726,11 +3788,12 @@ declare namespace MittwaldAPIV2 {
     namespace V2Conversations {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -3748,15 +3811,16 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -3781,13 +3845,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ConversationsConversationIdMessages {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             conversationId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -3815,17 +3880,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             conversationId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -3859,13 +3925,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ConversationCategories {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             includeSubCategories?: boolean;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -3885,13 +3952,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ConversationCategoriesCategoryId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             categoryId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -3919,13 +3987,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ConversationsConversationId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             conversationId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -3955,17 +4024,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             conversationId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -3998,17 +4068,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2ConversationsConversationIdFiles {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             conversationId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -4050,17 +4121,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2ConversationsConversationIdStatus {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             conversationId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -4093,18 +4165,19 @@ declare namespace MittwaldAPIV2 {
     namespace V2ConversationsConversationIdMessagesMessageId {
       namespace Patch {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             conversationId: string;
             messageId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -4137,18 +4210,19 @@ declare namespace MittwaldAPIV2 {
     namespace V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             cronjobId: string;
             executionId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -4171,17 +4245,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdCronjobs {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             limit?: number;
             skip?: number;
             page?: number;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -4199,17 +4274,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -4238,20 +4314,21 @@ declare namespace MittwaldAPIV2 {
     namespace V2CronjobsCronjobIdExecutions {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             cronjobId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             limit?: number;
             skip?: number;
             page?: number;
             since?: string;
             until?: string;
             status?: string;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -4269,17 +4346,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             cronjobId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -4311,13 +4389,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2CronjobsCronjobId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             cronjobId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -4339,13 +4418,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             cronjobId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -4372,17 +4452,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Patch {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             cronjobId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -4413,14 +4494,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2CronjobsCronjobIdExecutionsExecutionId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             executionId: string;
             cronjobId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -4444,23 +4526,28 @@ declare namespace MittwaldAPIV2 {
     namespace V2CronjobsCronjobIdAppId {
       namespace Patch {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             cronjobId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
             namespace Content {
               export interface ApplicationJson {}
             }
+          }
+
+          namespace $204 {
+            namespace Content {}
           }
 
           namespace $400 {
@@ -4478,24 +4565,36 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2CustomerCustomerIdMembershipsMembershipId {
-      namespace Put {
+    namespace V2CustomerInvitesInviteIdActionsAccept {
+      namespace Post {
         namespace Parameters {
-          export interface Path {
-            membershipId: string;
-            customerId: string;
-          }
+          export type Path = {
+            inviteId: string;
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $403 {
+            namespace Content {}
+          }
+
+          namespace $412 {
             namespace Content {}
           }
 
@@ -4509,11 +4608,12 @@ declare namespace MittwaldAPIV2 {
     namespace V2Customercategories {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -4532,15 +4632,16 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -4569,11 +4670,12 @@ declare namespace MittwaldAPIV2 {
     namespace V2CustomerCategories {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -4592,15 +4694,16 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -4626,18 +4729,21 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2InvitesCustomer {
+    namespace V2CustomerCustomerIdInvites {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {
+            customerId: string;
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -4665,16 +4771,17 @@ declare namespace MittwaldAPIV2 {
     namespace V2Customers {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             role?: string;
             limit?: number;
             skip?: number;
             page?: number;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -4692,15 +4799,16 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -4727,17 +4835,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2CustomersCustomerIdNotes {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             customerId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             limit?: number;
             skip?: number;
             page?: number;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -4759,17 +4868,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             customerId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -4796,16 +4906,45 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
+    namespace V2CustomerInvitesInviteIdActionsDecline {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            inviteId: string;
+          };
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
     namespace V2CustomercategoriesCategoryId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             categoryId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -4823,17 +4962,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             categoryId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -4864,13 +5004,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             categoryId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -4887,13 +5028,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2CustomerCategoriesCategoryId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             categoryId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -4911,17 +5053,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             categoryId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -4952,13 +5095,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             categoryId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -4972,16 +5116,149 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
+    namespace V2CustomerInvitesInviteId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            inviteId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            inviteId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2CustomerMembershipsMembershipId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            membershipId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembership;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            membershipId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            membershipId: string;
+          };
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
     namespace V2CustomersCustomerId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             customerId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -5003,17 +5280,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             customerId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -5042,13 +5320,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             customerId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -5069,17 +5348,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2CustomersCustomerIdNotesNoteId {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             customerId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -5107,14 +5387,15 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             customerId: string;
             noteId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -5132,16 +5413,47 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
+    namespace V2CustomerTokenInvite {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {
+            token: string;
+          } & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
     namespace V2CustomersCustomerIdLegallyCompetent {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             customerId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -5167,19 +5479,46 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2InvitesCustomersCustomerId {
+    namespace V2CustomerCustomerIdActionsLeave {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2CustomerInvites {
       namespace Get {
         namespace Parameters {
-          export interface Path {
-            customerId: string;
-          }
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             limit?: number;
             skip?: number;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -5200,19 +5539,86 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2MembershipsCustomersCustomerId {
+    namespace V2CustomerMemberships {
       namespace Get {
         namespace Parameters {
-          export interface Path {
-            customerId: string;
-          }
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             limit?: number;
             skip?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembership[];
+            }
           }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2CustomersCustomerIdInvites {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite[];
+            }
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2CustomersCustomerIdMemberships {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -5236,17 +5642,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2CustomersCustomerIdAvatar {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             customerId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -5293,13 +5700,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             customerId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -5323,16 +5731,49 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
+    namespace V2CustomerInvitesInviteIdActionsResend {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            inviteId: string;
+          };
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace $403 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
     namespace V2ProjectsProjectIdMysqlDatabases {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -5358,17 +5799,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $202 {
@@ -5397,13 +5839,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2MysqlDatabasesDatabaseIdUsers {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             databaseId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -5429,17 +5872,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             databaseId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -5468,13 +5912,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdRedisDatabases {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -5500,17 +5945,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -5539,13 +5985,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2MysqlDatabasesId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -5575,13 +6022,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -5618,13 +6066,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2MysqlUsersId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -5650,17 +6099,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -5683,13 +6133,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -5718,13 +6169,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2RedisDatabasesId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -5754,13 +6206,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -5797,13 +6250,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2MysqlUsersIdActionsDisable {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -5828,13 +6282,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2MysqlUsersIdActionsEnable {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -5859,13 +6314,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2MysqlUsersIdPhpMyAdminUrl {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -5893,13 +6349,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2MysqlCharsets {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             version: string;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -5927,13 +6384,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2MysqlVersions {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             projectId: string;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -5961,13 +6419,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2RedisVersions {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             projectId: string;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -5995,17 +6454,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2MysqlDatabasesIdDefaultCharset {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -6028,17 +6488,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Patch {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -6063,17 +6524,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2MysqlDatabasesIdDescription {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -6096,17 +6558,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Patch {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -6131,17 +6594,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2MysqlUsersIdPassword {
       namespace Patch {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -6166,17 +6630,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2RedisDatabasesIdDescription {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -6199,17 +6664,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Patch {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -6234,14 +6700,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2AppAppIdVersionsAppVersionId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             appId: string;
             appVersionId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -6265,13 +6732,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2AppAppIdVersions {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             appId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -6291,18 +6759,19 @@ declare namespace MittwaldAPIV2 {
     namespace V2ContractsContractIdItemsContractItemIdTerminations {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             contractId: string;
             contractItemId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -6332,18 +6801,19 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             contractId: string;
             contractItemId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -6374,18 +6844,19 @@ declare namespace MittwaldAPIV2 {
     namespace V2ContractsContractIdItemsContractItemIdTariffChanges {
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             contractId: string;
             contractItemId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -6416,17 +6887,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2ContractsContractIdTerminations {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             contractId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -6456,17 +6928,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             contractId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -6496,14 +6969,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2CustomersCustomerIdContractsContractId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             customerId: string;
             contractId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -6539,13 +7013,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ContractsContractIdBaseItem {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             contractId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -6573,16 +7048,17 @@ declare namespace MittwaldAPIV2 {
     namespace V2Contracts {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             projectId?: string;
             placementgroupId?: string;
             domainId?: string;
             projectHostingId?: string;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -6610,14 +7086,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2ContractsContractIdItemsContractItemIdNextTerminationDate {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             contractId: string;
             contractItemId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -6644,54 +7121,21 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2CronjobsCronjobIdExecutionsExecutionIdAbort {
-      namespace Post {
-        namespace Parameters {
-          export interface Path {
-            cronjobId: string;
-            executionId: string;
-          }
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
-          export interface Header {}
-
-          export interface Query {}
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {}
-            }
-          }
-
-          namespace $404 {
-            namespace Content {}
-          }
-
-          namespace Default {
-            namespace Content {}
-          }
-        }
-      }
-    }
-
     namespace V2InvitesCustomerInviteIdAccept {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             inviteId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -6720,15 +7164,16 @@ declare namespace MittwaldAPIV2 {
     namespace V2InvitesCustomerAccept {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -6761,17 +7206,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2MembershipsCustomerMembershipId {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             membershipId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -6786,13 +7232,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             membershipId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -6806,16 +7253,54 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
+    namespace V2InvitesCustomer {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $409 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
     namespace V2InvitesCustomerInviteIdDecline {
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             inviteId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -6832,13 +7317,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2InvitesCustomersSpecificInviteId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             inviteId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -6862,14 +7348,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2MembershipsCustomersCustomerIdSpecificMembershipId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             membershipId: string;
             customerId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -6893,13 +7380,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2MembershipsCustomerMembershipIdLeave {
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             membershipId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -6916,14 +7404,83 @@ declare namespace MittwaldAPIV2 {
     namespace V2MembershipsCustomers {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             limit?: number;
             skip?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembership[];
+            }
           }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2InvitesCustomersCustomerId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite[];
+            }
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2MembershipsCustomersCustomerId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -6947,14 +7504,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2InvitesCustomersMe {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             limit?: number;
             skip?: number;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -6978,17 +7536,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2InvitesCustomerInviteIdResend {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             inviteId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7009,13 +7568,43 @@ declare namespace MittwaldAPIV2 {
     namespace V2InvitesCustomerInviteId {
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             inviteId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
           }
 
-          export interface Header {}
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
 
-          export interface Query {}
+    namespace V2CustomerCustomerIdMembershipsMembershipId {
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            membershipId: string;
+            customerId: string;
+          };
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7032,13 +7621,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdDatabaseMysqlDatabases {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7064,17 +7654,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -7103,17 +7694,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdDatabaseMysqlDatabasesWithUser {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $202 {
@@ -7142,13 +7734,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdDatabaseRedisDatabases {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7174,17 +7767,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -7213,13 +7807,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2MysqlDatabasesUsersUserId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             userId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7245,17 +7840,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             userId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7278,13 +7874,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             userId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7313,13 +7910,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2MysqlDatabasesUsersUserIdDisable {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             userId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7344,13 +7942,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2MysqlDatabasesUsersUserIdEnable {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             userId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7375,13 +7974,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2MysqlDatabasesUsersUserIdPhpMyAdmin {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             userId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7409,13 +8009,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2MysqlCharsetsVersion {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             version: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7445,13 +8046,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdDatabaseMysqlVersions {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7479,13 +8081,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdDatabaseRedisVersions {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7513,17 +8116,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2MysqlDatabasesUsersUserIdPassword {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             userId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7546,17 +8150,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Patch {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             userId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7581,13 +8186,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2CustomersCustomerIdInvoicesettings {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             customerId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7613,17 +8219,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             customerId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7648,20 +8255,344 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2PlacementgroupsPlacementGroupIdAvatar {
+    namespace V2InvitesInviteIdActionsAccept {
       namespace Post {
         namespace Parameters {
-          export interface Path {
-            placementGroupId: string;
-          }
+          export type Path = {
+            inviteId: string;
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {
+            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
+          };
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $403 {
+            namespace Content {}
+          }
+
+          namespace $412 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2InvitesInviteIdActionsDecline {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            inviteId: string;
+          };
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {
+            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
+          };
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2MembershipsMembershipId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            membershipId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {
+            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership
+                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembership;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            membershipId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {
+            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
+          };
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2InvitesInviteIdentifier {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            inviteIdentifier: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {
+            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
+            identifierType: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipIdentifierTypes;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite
+                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2MembershipsMembershipIdActionsLeave {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            membershipId: string;
+          };
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {
+            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
+          };
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2Invites {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {
+            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
+            limit?: number;
+            skip?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerInviteList
+                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectInviteList;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2Memberships {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {
+            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
+            limit?: number;
+            skip?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembershipList
+                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectMembershipList;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2InvitesInviteIdActionsResend {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            inviteId: string;
+          };
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {
+            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
+          };
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace $403 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2InvitesInviteId {
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            inviteId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {
+            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
+          };
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2PlacementgroupsPlacementGroupIdAvatar {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            placementGroupId: string;
+          };
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7685,13 +8616,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             placementGroupId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -7712,13 +8644,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2PlacementgroupsPlacementGroupId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             placementGroupId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7742,16 +8675,17 @@ declare namespace MittwaldAPIV2 {
     namespace V2Placementgroups {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             customerId?: string;
             limit?: number;
             page?: number;
             skip?: number;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -7771,17 +8705,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2PlacementgroupsPlacementGroupIdDescription {
       namespace Patch {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             placementGroupId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7798,17 +8733,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2InvitesProjectInviteIdAccept {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             inviteId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7837,15 +8773,16 @@ declare namespace MittwaldAPIV2 {
     namespace V2InvitesProjectAccept {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7878,17 +8815,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2MembershipsProjectMembershipId {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             membershipId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7903,13 +8841,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             membershipId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7923,20 +8862,58 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2PlacementgroupsPlacementGroupIdProjects {
+    namespace V2InvitesProject {
       namespace Post {
         namespace Parameters {
-          export interface Path {
-            placementGroupId: string;
-          }
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $409 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2PlacementgroupsPlacementGroupIdProjects {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            placementGroupId: string;
+          };
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -7965,13 +8942,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2InvitesProjectInviteIdDecline {
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             inviteId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -7988,13 +8966,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2InvitesProjectsSpecificInviteId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             inviteId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -8018,14 +8997,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2MembershipsProjectsProjectIdSpecificMembershipId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             membershipId: string;
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -8049,13 +9029,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2MembershipsProjectMembershipIdLeave {
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             membershipId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -8069,17 +9050,86 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
+    namespace V2InvitesProjectsProjectId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite[];
+            }
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2MembershipsProjectsProjectId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership[];
+            }
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
     namespace V2InvitesProjectsMe {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             limit?: number;
             skip?: number;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -8103,14 +9153,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2MembershipsProjects {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             limit?: number;
             skip?: number;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -8134,17 +9185,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2InvitesProjectInviteIdResend {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             inviteId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -8165,13 +9217,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2InvitesProjectInviteId {
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             inviteId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -8188,17 +9241,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsIdDescription {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -8221,17 +9275,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Patch {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -8253,33 +9308,25 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsCronjobsCronjobIdAppid {
+    namespace V2ProjectProjectIdMembershipsMembershipId {
       namespace Put {
         namespace Parameters {
-          export interface Path {
-            cronjobId: string;
-          }
+          export type Path = {
+            membershipId: string;
+            projectId: string;
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {}
-            }
-          }
-
-          namespace $400 {
-            namespace Content {}
-          }
-
-          namespace $412 {
+          namespace $200 {
             namespace Content {}
           }
 
@@ -8293,17 +9340,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2DnsZonesZoneIdRecordsetAcombinedCustom {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             zoneId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -8324,17 +9372,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2DnsZonesZoneIdRecordsetAcombinedManagedIngress {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             zoneId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -8359,17 +9408,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2DnsZonesZoneIdRecordsetCname {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             zoneId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -8390,17 +9440,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2DnsZonesZoneIdRecordsetMxCustom {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             zoneId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -8421,17 +9472,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2DnsZonesZoneIdRecordsetMxManaged {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             zoneId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -8452,17 +9504,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2DnsZonesZoneIdRecordsetTxt {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             zoneId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -8483,13 +9536,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2DnsZonesZoneId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             zoneId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -8513,13 +9567,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdDnsZones {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -8543,13 +9598,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2DomainsDomainIdDeclarations {
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             domainId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -8574,17 +9630,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2DomainsDomainIdHandlesOwnerc {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             domainId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -8609,17 +9666,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2DomainsDomainIdProjectId {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             domainId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -8644,15 +9702,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2Domains {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -8677,17 +9735,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2DomainsDomainIdActionsCreateAuthcode {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             domainId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -8716,17 +9775,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2DomainsDomainIdActionsCreateAuthcode2 {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             domainId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -8751,17 +9811,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2DomainsDomainIdNameservers {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             domainId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -8786,17 +9847,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2DomainsDomainIdDeclarationsAuthcode {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             domainId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -8821,17 +9883,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2DomainsDomainIdDeclarationsHandles {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             domainId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -8856,13 +9919,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2DomainsDomainId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             domainId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -8888,17 +9952,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             domainId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -8923,13 +9988,13 @@ declare namespace MittwaldAPIV2 {
     namespace V2DomainsHandleSchemaDomainName {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             domainName: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -8951,13 +10016,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2DomainOwnershipsDomainOwnershipId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             domainOwnershipId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -8983,17 +10049,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             domainOwnershipId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -9018,13 +10085,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ToplevelDomainsTld {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             tld: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -9052,13 +10120,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdDomainOwnerships {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -9082,17 +10151,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdDomains {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             page?: number;
             limit?: number;
             domainSearchName?: string;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -9116,11 +10186,12 @@ declare namespace MittwaldAPIV2 {
     namespace V2ToplevelDomains {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -9144,17 +10215,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2DomainsDomainIdActionsResendEmail {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             domainId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -9179,17 +10251,17 @@ declare namespace MittwaldAPIV2 {
     namespace V2Files {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {
+          export type Header = {
             Token: string;
-          }
+          };
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -9217,13 +10289,13 @@ declare namespace MittwaldAPIV2 {
     namespace V2FilesIdMeta {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -9247,13 +10319,13 @@ declare namespace MittwaldAPIV2 {
     namespace V2FileTokenRulesToken {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             token: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -9281,13 +10353,13 @@ declare namespace MittwaldAPIV2 {
     namespace V2FileTypeRulesName {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             name: "avatar" | "conversation";
-          }
+          };
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -9315,16 +10387,16 @@ declare namespace MittwaldAPIV2 {
     namespace V2FilesId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
-          export interface Header {
+          export type Header = {
             Accept?: "binary" | "base64";
             Download?: boolean;
-          }
+          };
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -9353,15 +10425,16 @@ declare namespace MittwaldAPIV2 {
     namespace V2Ingresses {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -9386,13 +10459,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2IngressesIngressId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             ingressId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -9414,13 +10488,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             ingressId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -9441,13 +10516,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2Ingresses {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             projectId: string;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -9471,17 +10547,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2IngressesIngressIdPaths {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             ingressId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -9502,17 +10579,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2IngressesIngressIdTls {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             ingressId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -9535,14 +10613,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2CustomersCustomerIdInvoicesInvoiceId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             customerId: string;
             invoiceId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -9570,13 +10649,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2CustomersCustomerIdInvoiceSettings {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             customerId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -9602,17 +10682,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             customerId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -9640,13 +10721,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2CustomersCustomerIdInvoices {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             customerId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             invoiceTypes?: (
               | "REGULAR"
               | "REISSUE"
@@ -9656,7 +10738,7 @@ declare namespace MittwaldAPIV2 {
             limit?: number;
             skip?: number;
             page?: number;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -9684,13 +10766,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdDeliveryboxes {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -9723,17 +10806,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -9766,13 +10850,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2DeliveryboxesId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -9802,13 +10887,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -9837,17 +10923,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2DeliveryboxesIdDescription {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -9876,17 +10963,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2DeliveryboxesIdPassword {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -9915,13 +11003,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdMailaddresses {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -9954,17 +11043,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -10001,13 +11091,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2MailaddressesId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -10037,13 +11128,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -10072,17 +11164,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2MailaddressesIdAddress {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -10111,17 +11204,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2MailaddressesIdAutoResponder {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -10150,17 +11244,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2MailaddressesIdCatchAll {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -10193,17 +11288,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2MailaddressesIdForwardaddresses {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -10232,17 +11328,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2MailaddressesIdPassword {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -10271,17 +11368,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2MailaddressesIdQuota {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -10310,17 +11408,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2MailaddressesIdSpamprotection {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -10349,13 +11448,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdMailsettings {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -10390,17 +11490,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdMailsettingsBlacklist {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -10429,17 +11530,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdMailsettingsWhitelist {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -10465,329 +11567,17 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2InvitesInviteIdActionsAccept {
-      namespace Post {
-        namespace Parameters {
-          export interface Path {
-            inviteId: string;
-          }
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
-          export interface Header {}
-
-          export interface Query {
-            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
-          }
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {}
-          }
-
-          namespace $400 {
-            namespace Content {}
-          }
-
-          namespace $403 {
-            namespace Content {}
-          }
-
-          namespace $412 {
-            namespace Content {}
-          }
-
-          namespace Default {
-            namespace Content {}
-          }
-        }
-      }
-    }
-
-    namespace V2InvitesInviteIdActionsDecline {
-      namespace Post {
-        namespace Parameters {
-          export interface Path {
-            inviteId: string;
-          }
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
-          export interface Header {}
-
-          export interface Query {
-            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
-          }
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {}
-          }
-
-          namespace Default {
-            namespace Content {}
-          }
-        }
-      }
-    }
-
-    namespace V2MembershipsMembershipId {
-      namespace Get {
-        namespace Parameters {
-          export interface Path {
-            membershipId: string;
-          }
-
-          export interface Header {}
-
-          export interface Query {
-            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership
-                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembership;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {}
-          }
-
-          namespace Default {
-            namespace Content {}
-          }
-        }
-      }
-
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            membershipId: string;
-          }
-
-          export interface Header {}
-
-          export interface Query {
-            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
-          }
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {}
-          }
-
-          namespace Default {
-            namespace Content {}
-          }
-        }
-      }
-    }
-
-    namespace V2InvitesInviteIdentifier {
-      namespace Get {
-        namespace Parameters {
-          export interface Path {
-            inviteIdentifier: string;
-          }
-
-          export interface Header {}
-
-          export interface Query {
-            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
-            identifierType: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipIdentifierTypes;
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite
-                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {}
-          }
-
-          namespace Default {
-            namespace Content {}
-          }
-        }
-      }
-    }
-
-    namespace V2MembershipsMembershipIdActionsLeave {
-      namespace Post {
-        namespace Parameters {
-          export interface Path {
-            membershipId: string;
-          }
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
-          export interface Header {}
-
-          export interface Query {
-            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
-          }
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {}
-          }
-
-          namespace Default {
-            namespace Content {}
-          }
-        }
-      }
-    }
-
-    namespace V2Invites {
-      namespace Get {
-        namespace Parameters {
-          export interface Path {}
-
-          export interface Header {}
-
-          export interface Query {
-            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
-            limit?: number;
-            skip?: number;
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerInviteList
-                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectInviteList;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {}
-          }
-
-          namespace Default {
-            namespace Content {}
-          }
-        }
-      }
-    }
-
-    namespace V2Memberships {
-      namespace Get {
-        namespace Parameters {
-          export interface Path {}
-
-          export interface Header {}
-
-          export interface Query {
-            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
-            limit?: number;
-            skip?: number;
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembershipList
-                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectMembershipList;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {}
-          }
-
-          namespace Default {
-            namespace Content {}
-          }
-        }
-      }
-    }
-
-    namespace V2InvitesInviteIdActionsResend {
-      namespace Post {
-        namespace Parameters {
-          export interface Path {
-            inviteId: string;
-          }
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
-          export interface Header {}
-
-          export interface Query {
-            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
-          }
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {}
-          }
-
-          namespace $403 {
-            namespace Content {}
-          }
-
-          namespace Default {
-            namespace Content {}
-          }
-        }
-      }
-    }
-
-    namespace V2InvitesInviteId {
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            inviteId: string;
-          }
-
-          export interface Header {}
-
-          export interface Query {
-            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
-          }
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {}
-          }
-
-          namespace Default {
-            namespace Content {}
-          }
-        }
-      }
-    }
-
     namespace V2NewsletterSubscriptionsEmail {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             email: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -10808,13 +11598,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             email: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -10831,15 +11622,16 @@ declare namespace MittwaldAPIV2 {
     namespace V2NewsletterSubscriptions {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -10869,11 +11661,12 @@ declare namespace MittwaldAPIV2 {
     namespace V2NotificationsUnreadCounts {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -10898,13 +11691,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2Notifications {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             status?: "unread" | "read";
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -10924,15 +11718,16 @@ declare namespace MittwaldAPIV2 {
     namespace V2NotificationsStatus {
       namespace Put {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -10957,17 +11752,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2NotificationsMessageIdStatus {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             messageId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -10992,15 +11788,16 @@ declare namespace MittwaldAPIV2 {
     namespace V2OrdersActionsChangeProjecthosting {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -11025,15 +11822,16 @@ declare namespace MittwaldAPIV2 {
     namespace V2OrdersActionsChangeServer {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -11058,13 +11856,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2OrdersOrderId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             orderId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -11084,20 +11883,21 @@ declare namespace MittwaldAPIV2 {
     namespace V2CustomersCustomerIdOrders {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             customerId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             limit?: number;
             skip?: number;
             page?: number;
             includesStatus?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderOrderStatus[];
             excludesStatus?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderOrderStatus[];
             templateNames?: string[];
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -11117,20 +11917,21 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdOrders {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             limit?: number;
             skip?: number;
             page?: number;
             includesStatus?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderOrderStatus[];
             excludesStatus?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderOrderStatus[];
             templateNames?: string[];
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -11150,15 +11951,16 @@ declare namespace MittwaldAPIV2 {
     namespace V2OrdersActionsOrderDomain {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -11184,15 +11986,16 @@ declare namespace MittwaldAPIV2 {
     namespace V2OrdersActionsOrderProjecthosting {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -11217,15 +12020,16 @@ declare namespace MittwaldAPIV2 {
     namespace V2OrdersActionsOrderServer {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -11250,15 +12054,16 @@ declare namespace MittwaldAPIV2 {
     namespace V2OrdersActionsPreviewChangeProjecthosting {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -11285,15 +12090,16 @@ declare namespace MittwaldAPIV2 {
     namespace V2OrdersActionsPreviewChangeServer {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -11320,15 +12126,16 @@ declare namespace MittwaldAPIV2 {
     namespace V2OrdersActionsPreviewOrderDomain {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -11355,15 +12162,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2OrdersActionsPreviewOrderProjecthosting {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -11390,15 +12197,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2OrdersActionsPreviewOrderServer {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -11425,17 +12232,17 @@ declare namespace MittwaldAPIV2 {
     namespace V2PasswordPoliciesPath {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             path: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -11452,24 +12259,36 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectProjectIdMembershipsMembershipId {
-      namespace Put {
+    namespace V2ProjectInvitesInviteIdActionsAccept {
+      namespace Post {
         namespace Parameters {
-          export interface Path {
-            membershipId: string;
-            projectId: string;
-          }
+          export type Path = {
+            inviteId: string;
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $403 {
+            namespace Content {}
+          }
+
+          namespace $412 {
             namespace Content {}
           }
 
@@ -11480,18 +12299,21 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2InvitesProject {
+    namespace V2ProjectProjectIdInvites {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {
+            projectId: string;
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -11519,17 +12341,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2ServersServerIdProjects {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             serverId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -11555,20 +12378,49 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsProjectIdAvatar {
+    namespace V2ProjectInvitesInviteIdActionsDecline {
       namespace Post {
         namespace Parameters {
-          export interface Path {
-            projectId: string;
-          }
+          export type Path = {
+            inviteId: string;
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectsProjectIdAvatar {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -11592,13 +12444,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -11616,16 +12469,149 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
+    namespace V2ProjectInvitesInviteId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            inviteId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            inviteId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectMembershipsMembershipId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            membershipId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            membershipId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            membershipId: string;
+          };
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
     namespace V2ProjectsProjectId {
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -11660,17 +12646,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2ServersServerIdAvatar {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             serverId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -11694,13 +12681,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             serverId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -11721,20 +12709,21 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdFilesystemDirectories {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             directory?: string;
             name?: string;
             max_depth?: number;
             type?: string[];
             executable?: boolean;
             hidden?: boolean;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -11766,15 +12755,16 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdFilesystemUsagesDisk {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             directory?: string;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -11806,16 +12796,17 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdFilesystemFilesRaw {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             file?: string;
             inline?: boolean;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -11846,13 +12837,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdJwt {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -11880,15 +12872,16 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdFilesystemFiles {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             file?: string;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -11920,13 +12913,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdMembershipsMe {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -11947,16 +12941,47 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
+    namespace V2ProjectTokenInvite {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {
+            token: string;
+          } & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
     namespace V2ProjectsId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             id: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -11980,13 +13005,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2ServersServerId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             serverId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -12007,19 +13033,48 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2InvitesProjectsProjectId {
+    namespace V2ProjectsProjectIdLeave {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectsProjectIdInvites {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             limit?: number;
             skip?: number;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -12040,19 +13095,84 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2MembershipsProjectsProjectId {
+    namespace V2ProjectsProjectIdMemberships {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             limit?: number;
             skip?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership[];
+            }
           }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectInvites {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite[];
+            }
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectMemberships {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -12076,14 +13196,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2Projects {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             customerId?: string;
             serverId?: string;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -12120,16 +13241,17 @@ declare namespace MittwaldAPIV2 {
     namespace V2Servers {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             customerId?: string;
             limit?: number;
             page?: number;
             skip?: number;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -12146,20 +13268,53 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2ServersServerIdDescription {
-      namespace Patch {
+    namespace V2ProjectInvitesInviteIdActionsResend {
+      namespace Post {
         namespace Parameters {
-          export interface Path {
-            serverId: string;
-          }
+          export type Path = {
+            inviteId: string;
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace $403 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+    }
+
+    namespace V2ServersServerIdDescription {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            serverId: string;
+          };
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -12176,15 +13331,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2Relocation {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -12205,11 +13360,12 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupTokenApi {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -12235,15 +13391,16 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -12282,13 +13439,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupTokenApiApiTokenId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             apiTokenId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -12314,17 +13472,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             apiTokenId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -12354,13 +13513,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             apiTokenId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -12392,15 +13552,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupAuthentication {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -12455,15 +13615,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupAuthenticationLegacy {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -12491,15 +13651,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupAuthenticationMfa {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -12547,11 +13707,12 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupAvatar {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -12585,11 +13746,12 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -12621,11 +13783,12 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupEmail {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -12652,15 +13815,16 @@ declare namespace MittwaldAPIV2 {
 
       namespace Put {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -12692,15 +13856,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupEmailResend {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -12728,15 +13892,16 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupEmailVerify {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -12775,11 +13940,12 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupLogout {
       namespace Put {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -12807,15 +13973,16 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupMfaConfirm {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -12851,11 +14018,12 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupMfa {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -12883,11 +14051,12 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -12932,15 +14101,16 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -12972,11 +14142,12 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupPassword {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -13003,15 +14174,16 @@ declare namespace MittwaldAPIV2 {
 
       namespace Put {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -13058,15 +14230,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupPasswordResetConfirm {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -13094,15 +14266,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupPasswordReset {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -13130,11 +14302,12 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupPhone {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -13171,15 +14344,16 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -13209,15 +14383,16 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -13249,15 +14424,16 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupPhoneVerify {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -13296,11 +14472,12 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupProfile {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -13326,15 +14503,16 @@ declare namespace MittwaldAPIV2 {
 
       namespace Put {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -13364,15 +14542,16 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -13412,15 +14591,16 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupMfaResetRecoverycodes {
       namespace Put {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -13456,15 +14636,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupRegistration {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -13505,15 +14685,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupRegistrationVerification {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -13550,13 +14730,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupSessionsTokenId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             tokenId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -13589,13 +14770,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             tokenId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -13627,11 +14809,12 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupSessions {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -13657,11 +14840,12 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -13686,11 +14870,12 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupSsh {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -13717,15 +14902,16 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -13757,13 +14943,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupSshSshKeyId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             sshKeyId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -13799,17 +14986,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             sshKeyId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -13839,13 +15027,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             sshKeyId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -13870,13 +15059,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupSupportcode {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             forceRecreate?: boolean;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -13908,11 +15098,12 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupTokenCheck {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -13949,16 +15140,17 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdSshuserSftp {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             limit?: number;
             skip?: number;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -13980,17 +15172,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -14014,16 +15207,17 @@ declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdSshuserSsh {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             limit?: number;
             skip?: number;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -14045,17 +15239,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             projectId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -14079,13 +15274,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2SshuserSftpSftpUserId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             sftpUserId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -14107,13 +15303,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             sftpUserId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -14128,17 +15325,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Patch {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             sftpUserId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -14159,13 +15357,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2SshuserSshSshUserId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             sshUserId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -14187,13 +15386,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             sshUserId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -14208,17 +15408,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Patch {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             sshUserId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -14239,17 +15440,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2SshuserSftpSftpUserIdAccessLevel {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             sftpUserId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -14270,17 +15472,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2SshuserSftpSftpUserIdActive {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             sftpUserId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -14301,17 +15504,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2SshuserSshSshUserIdActive {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             sshUserId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -14332,17 +15536,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2SshuserSftpSftpUserIdDescription {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             sftpUserId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -14363,17 +15568,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2SshuserSshSshUserIdDescription {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             sshUserId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -14394,17 +15600,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2SshuserSftpSftpUserIdDirectories {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             sftpUserId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -14425,17 +15632,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2SshuserSftpSftpUserIdExpiry {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             sftpUserId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -14456,17 +15664,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2SshuserSshSshUserIdExpiry {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             sshUserId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -14487,17 +15696,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2SshuserSftpSftpUserIdPassword {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             sftpUserId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -14518,17 +15728,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2SshuserSshSshUserIdPassword {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             sshUserId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -14549,17 +15760,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2SshuserSftpSftpUserIdPublicKeys {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             sftpUserId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -14580,17 +15792,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2SshuserSshSshUserIdPublicKeys {
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             sshUserId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -14611,13 +15824,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2UserUserIdAvatar {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             userId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -14656,13 +15870,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             userId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -14683,13 +15898,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2UserFeedback {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {
+          export type Query = {
             subject?: string;
-          }
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -14707,15 +15923,16 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -14742,15 +15959,16 @@ declare namespace MittwaldAPIV2 {
     namespace V2UserIssues {
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $201 {
@@ -14767,13 +15985,14 @@ declare namespace MittwaldAPIV2 {
     namespace V2UserUserId {
       namespace Get {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             userId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -14803,17 +16022,18 @@ declare namespace MittwaldAPIV2 {
 
       namespace Put {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             userId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -14834,11 +16054,12 @@ declare namespace MittwaldAPIV2 {
     namespace V2UserSettings {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -14857,15 +16078,16 @@ declare namespace MittwaldAPIV2 {
 
       namespace Put {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -14886,17 +16108,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2UserUserIdPhone {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             userId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -14919,13 +16142,14 @@ declare namespace MittwaldAPIV2 {
 
       namespace Delete {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             userId: string;
-          }
+          };
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -14946,17 +16170,18 @@ declare namespace MittwaldAPIV2 {
     namespace V2UserUserIdPhoneVerify {
       namespace Post {
         namespace Parameters {
-          export interface Path {
+          export type Path = {
             userId: string;
-          }
+          };
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $204 {
@@ -14985,11 +16210,12 @@ declare namespace MittwaldAPIV2 {
     namespace V2User {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -15009,11 +16235,11 @@ declare namespace MittwaldAPIV2 {
     namespace V2VarnishConfigValidate {
       namespace Get {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
@@ -15035,15 +16261,15 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
-          export interface Path {}
+          export type Path = {};
 
           export interface RequestBody {
             [k: string]: unknown;
           }
 
-          export interface Header {}
+          export type Header = {};
 
-          export interface Query {}
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {

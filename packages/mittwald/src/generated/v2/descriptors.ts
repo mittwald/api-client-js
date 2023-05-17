@@ -1142,17 +1142,17 @@ export const cronjobUpdateCronjobAppId: OpenAPIOperation<
   operationId: "cronjob-update-cronjob-app-id",
 };
 
-/** Update a CustomerMembership. */
-export const customerChangeCustomerMembership: OpenAPIOperation<
+/** Accept a CustomerInvite. */
+export const customerAcceptCustomerInvite: OpenAPIOperation<
   Request<
-    Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdMembershipsMembershipId.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdMembershipsMembershipId.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdMembershipsMembershipId.Put.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteIdActionsAccept.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteIdActionsAccept.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteIdActionsAccept.Post.Parameters.Header>
   >
 > = {
-  path: "/v2/customer/{customerId}/memberships/{membershipId}",
-  method: "PUT",
-  operationId: "customer-change-customer-membership",
+  path: "/v2/customer-invites/{inviteId}/actions/accept",
+  method: "POST",
+  operationId: "customer-accept-customer-invite",
 };
 
 /** Get all customer categories. */
@@ -1230,17 +1230,17 @@ export const customerCreateCategory: OpenAPIOperation<
 /** Create a CustomerInvite. */
 export const customerCreateCustomerInvite: OpenAPIOperation<
   Request<
-    Simplify<MittwaldAPIV2.Paths.V2InvitesCustomer.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2InvitesCustomer.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2InvitesCustomer.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdInvites.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdInvites.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdInvites.Post.Parameters.Header>
   >,
   Response<
-    MittwaldAPIV2.Paths.V2InvitesCustomer.Post.Responses.$201.Content.ApplicationJson,
+    MittwaldAPIV2.Paths.V2CustomerCustomerIdInvites.Post.Responses.$201.Content.ApplicationJson,
     201,
     "application/json"
   >
 > = {
-  path: "/v2/invites/customer",
+  path: "/v2/customer/{customerId}/invites",
   method: "POST",
   operationId: "customer-create-customer-invite",
 };
@@ -1315,6 +1315,19 @@ export const customerCreateNote: OpenAPIOperation<
   path: "/v2/customers/{customerId}/notes",
   method: "POST",
   operationId: "customer-create-note",
+};
+
+/** Decline a CustomerInvite. */
+export const customerDeclineCustomerInvite: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteIdActionsDecline.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteIdActionsDecline.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteIdActionsDecline.Post.Parameters.Header>
+  >
+> = {
+  path: "/v2/customer-invites/{inviteId}/actions/decline",
+  method: "POST",
+  operationId: "customer-decline-customer-invite",
 };
 
 /** Get a customer category. */
@@ -1415,6 +1428,81 @@ export const customerDeleteCategory: OpenAPIOperation<
   operationId: "customer-delete-category",
 };
 
+/** Get a CustomerInvite. */
+export const customerGetCustomerInvite: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteId.Get.Parameters.Header>
+  >,
+  Response<
+    MittwaldAPIV2.Paths.V2CustomerInvitesInviteId.Get.Responses.$200.Content.ApplicationJson,
+    200,
+    "application/json"
+  >
+> = {
+  path: "/v2/customer-invites/{inviteId}",
+  method: "GET",
+  operationId: "customer-get-customer-invite",
+};
+
+/** Delete a CustomerInvite. */
+export const customerDeleteCustomerInvite: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteId.Delete.Parameters.Header>
+  >
+> = {
+  path: "/v2/customer-invites/{inviteId}",
+  method: "DELETE",
+  operationId: "customer-delete-customer-invite",
+};
+
+/** Get a CustomerMembership. */
+export const customerGetCustomerMembership: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsMembershipId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsMembershipId.Get.Parameters.Header>
+  >,
+  Response<
+    MittwaldAPIV2.Paths.V2CustomerMembershipsMembershipId.Get.Responses.$200.Content.ApplicationJson,
+    200,
+    "application/json"
+  >
+> = {
+  path: "/v2/customer-memberships/{membershipId}",
+  method: "GET",
+  operationId: "customer-get-customer-membership",
+};
+
+/** Delete a CustomerMembership. */
+export const customerDeleteCustomerMembership: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsMembershipId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsMembershipId.Delete.Parameters.Header>
+  >
+> = {
+  path: "/v2/customer-memberships/{membershipId}",
+  method: "DELETE",
+  operationId: "customer-delete-customer-membership",
+};
+
+/** Update a CustomerMembership. */
+export const customerUpdateCustomerMembership: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsMembershipId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsMembershipId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsMembershipId.Patch.Parameters.Header>
+  >
+> = {
+  path: "/v2/customer-memberships/{membershipId}",
+  method: "PATCH",
+  operationId: "customer-update-customer-membership",
+};
+
 /** Get a customer profile. */
 export const customerGetCustomer: OpenAPIOperation<
   Request<
@@ -1495,6 +1583,24 @@ export const customerDeleteNote: OpenAPIOperation<
   operationId: "customer-delete-note",
 };
 
+/** Get a CustomerInvite by token. */
+export const customerGetCustomerTokenInvite: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerTokenInvite.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerTokenInvite.Get.Parameters.Header>
+  >,
+  Response<
+    MittwaldAPIV2.Paths.V2CustomerTokenInvite.Get.Responses.$200.Content.ApplicationJson,
+    200,
+    "application/json"
+  >
+> = {
+  path: "/v2/customer-token-invite",
+  method: "GET",
+  operationId: "customer-get-customer-token-invite",
+};
+
 /** Check if the customer profile has a valid contract partner configured. */
 export const customerIsCustomerLegallyCompetent: OpenAPIOperation<
   Request<
@@ -1513,20 +1619,69 @@ export const customerIsCustomerLegallyCompetent: OpenAPIOperation<
   operationId: "customer-is-customer-legally-competent",
 };
 
-/** List all invites for a Customer. */
-export const customerListInvitesForCustomer: OpenAPIOperation<
+/** Leave a Customer. */
+export const customerLeaveCustomer: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdActionsLeave.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdActionsLeave.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdActionsLeave.Post.Parameters.Header>
+  >
+> = {
+  path: "/v2/customer/{customerId}/actions/leave",
+  method: "POST",
+  operationId: "customer-leave-customer",
+};
+
+/** List all CustomerInvites for the executing user. */
+export const customerListCustomerInvites: OpenAPIOperation<
   Request<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2InvitesCustomersCustomerId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2InvitesCustomersCustomerId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvites.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvites.Get.Parameters.Header>
   >,
   Response<
-    MittwaldAPIV2.Paths.V2InvitesCustomersCustomerId.Get.Responses.$200.Content.ApplicationJson,
+    MittwaldAPIV2.Paths.V2CustomerInvites.Get.Responses.$200.Content.ApplicationJson,
     200,
     "application/json"
   >
 > = {
-  path: "/v2/invites/customers/{customerId}",
+  path: "/v2/customer-invites",
+  method: "GET",
+  operationId: "customer-list-customer-invites",
+};
+
+/** List all CustomerMemberships for the executing user. */
+export const customerListCustomerMemberships: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerMemberships.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerMemberships.Get.Parameters.Header>
+  >,
+  Response<
+    MittwaldAPIV2.Paths.V2CustomerMemberships.Get.Responses.$200.Content.ApplicationJson,
+    200,
+    "application/json"
+  >
+> = {
+  path: "/v2/customer-memberships",
+  method: "GET",
+  operationId: "customer-list-customer-memberships",
+};
+
+/** List all invites for a Customer. */
+export const customerListInvitesForCustomer: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Get.Parameters.Header>
+  >,
+  Response<
+    MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Get.Responses.$200.Content.ApplicationJson,
+    200,
+    "application/json"
+  >
+> = {
+  path: "/v2/customers/{customerId}/invites",
   method: "GET",
   operationId: "customer-list-invites-for-customer",
 };
@@ -1535,16 +1690,16 @@ export const customerListInvitesForCustomer: OpenAPIOperation<
 export const customerListMembershipsForCustomer: OpenAPIOperation<
   Request<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2MembershipsCustomersCustomerId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MembershipsCustomersCustomerId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdMemberships.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdMemberships.Get.Parameters.Header>
   >,
   Response<
-    MittwaldAPIV2.Paths.V2MembershipsCustomersCustomerId.Get.Responses.$200.Content.ApplicationJson,
+    MittwaldAPIV2.Paths.V2CustomersCustomerIdMemberships.Get.Responses.$200.Content.ApplicationJson,
     200,
     "application/json"
   >
 > = {
-  path: "/v2/memberships/customers/{customerId}",
+  path: "/v2/customers/{customerId}/memberships",
   method: "GET",
   operationId: "customer-list-memberships-for-customer",
 };
@@ -1593,6 +1748,19 @@ export const customerRemoveAvatar: OpenAPIOperation<
   path: "/v2/customers/{customerId}/avatar",
   method: "DELETE",
   operationId: "customer-remove-avatar",
+};
+
+/** Resend the mail for a CustomerInvite. */
+export const customerResendCustomerInviteMail: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteIdActionsResend.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteIdActionsResend.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteIdActionsResend.Post.Parameters.Header>
+  >
+> = {
+  path: "/v2/customer-invites/{inviteId}/actions/resend",
+  method: "POST",
+  operationId: "customer-resend-customer-invite-mail",
 };
 
 /** List MySQLDatabases belonging to a Project. */
@@ -2206,24 +2374,6 @@ export const deprecatedContractGetNextTerminationDateForItem: OpenAPIOperation<
   operationId: "deprecated-contract-get-next-termination-date-for-item",
 };
 
-/** Abort a CronjobExecution. */
-export const deprecatedCronjobAbortExecution: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdAbort.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdAbort.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdAbort.Post.Parameters.Header>
-  >,
-  Response<
-    MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdAbort.Post.Responses.$200.Content.ApplicationJson,
-    200,
-    "application/json"
-  >
-> = {
-  path: "/v2/cronjobs/{cronjobId}/executions/{executionId}/abort",
-  method: "POST",
-  operationId: "deprecated-cronjob-abort-execution",
-};
-
 /** Accept a CustomerInvite. */
 export const deprecatedCustomerAcceptCustomerInvite: OpenAPIOperation<
   Request<
@@ -2274,6 +2424,24 @@ export const deprecatedCustomerDeleteCustomerMembership: OpenAPIOperation<
   path: "/v2/memberships/customer/{membershipId}",
   method: "DELETE",
   operationId: "deprecated-customer-delete-customer-membership",
+};
+
+/** Create a CustomerInvite. */
+export const deprecatedCustomerCreateCustomerInvite: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2InvitesCustomer.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2InvitesCustomer.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2InvitesCustomer.Post.Parameters.Header>
+  >,
+  Response<
+    MittwaldAPIV2.Paths.V2InvitesCustomer.Post.Responses.$201.Content.ApplicationJson,
+    201,
+    "application/json"
+  >
+> = {
+  path: "/v2/invites/customer",
+  method: "POST",
+  operationId: "deprecated-customer-create-customer-invite",
 };
 
 /** Decline a CustomerInvite. */
@@ -2356,6 +2524,42 @@ export const deprecatedCustomerListCustomerMembershipsForUser: OpenAPIOperation<
   operationId: "deprecated-customer-list-customer-memberships-for-user",
 };
 
+/** List all invites for a Customer. */
+export const deprecatedCustomerListInvitesForCustomer: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2InvitesCustomersCustomerId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2InvitesCustomersCustomerId.Get.Parameters.Header>
+  >,
+  Response<
+    MittwaldAPIV2.Paths.V2InvitesCustomersCustomerId.Get.Responses.$200.Content.ApplicationJson,
+    200,
+    "application/json"
+  >
+> = {
+  path: "/v2/invites/customers/{customerId}",
+  method: "GET",
+  operationId: "deprecated-customer-list-invites-for-customer",
+};
+
+/** List all memberships belonging to a Customer. */
+export const deprecatedCustomerListMembershipsForCustomer: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2MembershipsCustomersCustomerId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MembershipsCustomersCustomerId.Get.Parameters.Header>
+  >,
+  Response<
+    MittwaldAPIV2.Paths.V2MembershipsCustomersCustomerId.Get.Responses.$200.Content.ApplicationJson,
+    200,
+    "application/json"
+  >
+> = {
+  path: "/v2/memberships/customers/{customerId}",
+  method: "GET",
+  operationId: "deprecated-customer-list-memberships-for-customer",
+};
+
 /** List all CustomerInvites for the executing user. */
 export const deprecatedCustomerListOwnCustomerInvites: OpenAPIOperation<
   Request<
@@ -2398,6 +2602,19 @@ export const deprecatedCustomerRevokeCustomerInvite: OpenAPIOperation<
   path: "/v2/invites/customer/{inviteId}",
   method: "DELETE",
   operationId: "deprecated-customer-revoke-customer-invite",
+};
+
+/** Update a CustomerMembership. */
+export const deprecatedCustomerUpdateCustomerMembership: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdMembershipsMembershipId.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdMembershipsMembershipId.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdMembershipsMembershipId.Put.Parameters.Header>
+  >
+> = {
+  path: "/v2/customer/{customerId}/memberships/{membershipId}",
+  method: "PUT",
+  operationId: "deprecated-customer-update-customer-membership",
 };
 
 /** List MySQLDatabases belonging to a Project. */
@@ -2694,6 +2911,156 @@ export const deprecatedInvoiceUpdateInvoiceSettings: OpenAPIOperation<
   operationId: "deprecated-invoice-update-invoice-settings",
 };
 
+/** Accept an invite. */
+export const deprecatedMembershipAcceptInvite: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteIdActionsAccept.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteIdActionsAccept.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteIdActionsAccept.Post.Parameters.Header>
+  >
+> = {
+  path: "/v2/invites/{inviteId}/actions/accept",
+  method: "POST",
+  operationId: "deprecated-membership-accept-invite",
+};
+
+/** Decline an invite. */
+export const deprecatedMembershipDeclineInvite: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteIdActionsDecline.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteIdActionsDecline.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteIdActionsDecline.Post.Parameters.Header>
+  >
+> = {
+  path: "/v2/invites/{inviteId}/actions/decline",
+  method: "POST",
+  operationId: "deprecated-membership-decline-invite",
+};
+
+/** Get a membership */
+export const deprecatedMembershipGetMembership: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2MembershipsMembershipId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MembershipsMembershipId.Get.Parameters.Header>
+  >,
+  Response<
+    MittwaldAPIV2.Paths.V2MembershipsMembershipId.Get.Responses.$200.Content.ApplicationJson,
+    200,
+    "application/json"
+  >
+> = {
+  path: "/v2/memberships/{membershipId}",
+  method: "GET",
+  operationId: "deprecated-membership-get-membership",
+};
+
+/** Delete a membership. */
+export const deprecatedMembershipDeleteMembership: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2MembershipsMembershipId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MembershipsMembershipId.Delete.Parameters.Header>
+  >
+> = {
+  path: "/v2/memberships/{membershipId}",
+  method: "DELETE",
+  operationId: "deprecated-membership-delete-membership",
+};
+
+/** Get an invite. */
+export const deprecatedMembershipGetInvite: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteIdentifier.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteIdentifier.Get.Parameters.Header>
+  >,
+  Response<
+    MittwaldAPIV2.Paths.V2InvitesInviteIdentifier.Get.Responses.$200.Content.ApplicationJson,
+    200,
+    "application/json"
+  >
+> = {
+  path: "/v2/invites/{inviteIdentifier}",
+  method: "GET",
+  operationId: "deprecated-membership-get-invite",
+};
+
+/** Leave a membership. */
+export const deprecatedMembershipLeaveMembership: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2MembershipsMembershipIdActionsLeave.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MembershipsMembershipIdActionsLeave.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MembershipsMembershipIdActionsLeave.Post.Parameters.Header>
+  >
+> = {
+  path: "/v2/memberships/{membershipId}/actions/leave",
+  method: "POST",
+  operationId: "deprecated-membership-leave-membership",
+};
+
+/** List invites for the user. */
+export const deprecatedMembershipListInvites: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2Invites.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2Invites.Get.Parameters.Header>
+  >,
+  Response<
+    MittwaldAPIV2.Paths.V2Invites.Get.Responses.$200.Content.ApplicationJson,
+    200,
+    "application/json"
+  >
+> = {
+  path: "/v2/invites",
+  method: "GET",
+  operationId: "deprecated-membership-list-invites",
+};
+
+/** List all memberships for the user. */
+export const deprecatedMembershipListMemberships: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2Memberships.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2Memberships.Get.Parameters.Header>
+  >,
+  Response<
+    MittwaldAPIV2.Paths.V2Memberships.Get.Responses.$200.Content.ApplicationJson,
+    200,
+    "application/json"
+  >
+> = {
+  path: "/v2/memberships",
+  method: "GET",
+  operationId: "deprecated-membership-list-memberships",
+};
+
+/** Resend the mail for an invite. */
+export const deprecatedMembershipResendInviteMail: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteIdActionsResend.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteIdActionsResend.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteIdActionsResend.Post.Parameters.Header>
+  >
+> = {
+  path: "/v2/invites/{inviteId}/actions/resend",
+  method: "POST",
+  operationId: "deprecated-membership-resend-invite-mail",
+};
+
+/** Revoke an invite. */
+export const deprecatedMembershipRevokeInvite: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteId.Delete.Parameters.Header>
+  >
+> = {
+  path: "/v2/invites/{inviteId}",
+  method: "DELETE",
+  operationId: "deprecated-membership-revoke-invite",
+};
+
 /** Request a PlacementGroup avatar upload. */
 export const deprecatedPlacementGroupPlacementgroupAvatarRequestUpload: OpenAPIOperation<
   Request<
@@ -2827,6 +3194,24 @@ export const deprecatedProjectDeleteProjectMembership: OpenAPIOperation<
   operationId: "deprecated-project-delete-project-membership",
 };
 
+/** Create a ProjectInvite. */
+export const deprecatedProjectCreateProjectInvite: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2InvitesProject.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2InvitesProject.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2InvitesProject.Post.Parameters.Header>
+  >,
+  Response<
+    MittwaldAPIV2.Paths.V2InvitesProject.Post.Responses.$201.Content.ApplicationJson,
+    201,
+    "application/json"
+  >
+> = {
+  path: "/v2/invites/project",
+  method: "POST",
+  operationId: "deprecated-project-create-project-invite",
+};
+
 /** Create a Project belonging to a PlacementGroup. */
 export const deprecatedProjectCreateSubproject: OpenAPIOperation<
   Request<
@@ -2905,6 +3290,42 @@ export const deprecatedProjectLeaveProject: OpenAPIOperation<
   path: "/v2/memberships/project/{membershipId}/leave",
   method: "DELETE",
   operationId: "deprecated-project-leave-project",
+};
+
+/** List all invites belonging to a Project. */
+export const deprecatedProjectListInvitesForProject: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2InvitesProjectsProjectId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2InvitesProjectsProjectId.Get.Parameters.Header>
+  >,
+  Response<
+    MittwaldAPIV2.Paths.V2InvitesProjectsProjectId.Get.Responses.$200.Content.ApplicationJson,
+    200,
+    "application/json"
+  >
+> = {
+  path: "/v2/invites/projects/{projectId}",
+  method: "GET",
+  operationId: "deprecated-project-list-invites-for-project",
+};
+
+/** List all memberships for a Project. */
+export const deprecatedProjectListMembershipsForProject: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2MembershipsProjectsProjectId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MembershipsProjectsProjectId.Get.Parameters.Header>
+  >,
+  Response<
+    MittwaldAPIV2.Paths.V2MembershipsProjectsProjectId.Get.Responses.$200.Content.ApplicationJson,
+    200,
+    "application/json"
+  >
+> = {
+  path: "/v2/memberships/projects/{projectId}",
+  method: "GET",
+  operationId: "deprecated-project-list-memberships-for-project",
 };
 
 /** List all ProjectInvites for the executing user. */
@@ -2995,22 +3416,17 @@ export const projectUpdateProjectDescription: OpenAPIOperation<
   operationId: "project-update-project-description",
 };
 
-/** Update a Cronjob's app id. */
-export const deprecatedcronjobServiceCronjobAddAppid: OpenAPIOperation<
+/** Update a ProjectMembership. */
+export const deprecatedProjectUpdateProjectMembership: OpenAPIOperation<
   Request<
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsCronjobsCronjobIdAppid.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsCronjobsCronjobIdAppid.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsCronjobsCronjobIdAppid.Put.Parameters.Header>
-  >,
-  Response<
-    MittwaldAPIV2.Paths.V2ProjectsCronjobsCronjobIdAppid.Put.Responses.$201.Content.ApplicationJson,
-    201,
-    "application/json"
+    Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdMembershipsMembershipId.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdMembershipsMembershipId.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdMembershipsMembershipId.Put.Parameters.Header>
   >
 > = {
-  path: "/v2/projects/cronjobs/{cronjobId}/appid",
+  path: "/v2/project/{projectId}/memberships/{membershipId}",
   method: "PUT",
-  operationId: "deprecatedcronjob-service-cronjob-add-appid",
+  operationId: "deprecated-project-update-project-membership",
 };
 
 /** updates a-records for a specific zone */
@@ -3984,156 +4400,6 @@ export const mailServiceProjectsettingUpdateWhitelist: OpenAPIOperation<
   operationId: "mail-service-projectsetting-update-whitelist",
 };
 
-/** Accept an invite. */
-export const membershipAcceptInvite: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteIdActionsAccept.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteIdActionsAccept.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteIdActionsAccept.Post.Parameters.Header>
-  >
-> = {
-  path: "/v2/invites/{inviteId}/actions/accept",
-  method: "POST",
-  operationId: "membership-accept-invite",
-};
-
-/** Decline an invite. */
-export const membershipDeclineInvite: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteIdActionsDecline.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteIdActionsDecline.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteIdActionsDecline.Post.Parameters.Header>
-  >
-> = {
-  path: "/v2/invites/{inviteId}/actions/decline",
-  method: "POST",
-  operationId: "membership-decline-invite",
-};
-
-/** Get a membership */
-export const membershipGetMembership: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2MembershipsMembershipId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MembershipsMembershipId.Get.Parameters.Header>
-  >,
-  Response<
-    MittwaldAPIV2.Paths.V2MembershipsMembershipId.Get.Responses.$200.Content.ApplicationJson,
-    200,
-    "application/json"
-  >
-> = {
-  path: "/v2/memberships/{membershipId}",
-  method: "GET",
-  operationId: "membership-get-membership",
-};
-
-/** Delete a membership. */
-export const membershipDeleteMembership: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2MembershipsMembershipId.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MembershipsMembershipId.Delete.Parameters.Header>
-  >
-> = {
-  path: "/v2/memberships/{membershipId}",
-  method: "DELETE",
-  operationId: "membership-delete-membership",
-};
-
-/** Get an invite. */
-export const membershipGetInvite: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteIdentifier.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteIdentifier.Get.Parameters.Header>
-  >,
-  Response<
-    MittwaldAPIV2.Paths.V2InvitesInviteIdentifier.Get.Responses.$200.Content.ApplicationJson,
-    200,
-    "application/json"
-  >
-> = {
-  path: "/v2/invites/{inviteIdentifier}",
-  method: "GET",
-  operationId: "membership-get-invite",
-};
-
-/** Leave a membership. */
-export const membershipLeaveMembership: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldAPIV2.Paths.V2MembershipsMembershipIdActionsLeave.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2MembershipsMembershipIdActionsLeave.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MembershipsMembershipIdActionsLeave.Post.Parameters.Header>
-  >
-> = {
-  path: "/v2/memberships/{membershipId}/actions/leave",
-  method: "POST",
-  operationId: "membership-leave-membership",
-};
-
-/** List invites for the user. */
-export const membershipListInvites: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2Invites.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2Invites.Get.Parameters.Header>
-  >,
-  Response<
-    MittwaldAPIV2.Paths.V2Invites.Get.Responses.$200.Content.ApplicationJson,
-    200,
-    "application/json"
-  >
-> = {
-  path: "/v2/invites",
-  method: "GET",
-  operationId: "membership-list-invites",
-};
-
-/** List all memberships for the user. */
-export const membershipListMemberships: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2Memberships.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2Memberships.Get.Parameters.Header>
-  >,
-  Response<
-    MittwaldAPIV2.Paths.V2Memberships.Get.Responses.$200.Content.ApplicationJson,
-    200,
-    "application/json"
-  >
-> = {
-  path: "/v2/memberships",
-  method: "GET",
-  operationId: "membership-list-memberships",
-};
-
-/** Resend the mail for an invite. */
-export const membershipResendInviteMail: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteIdActionsResend.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteIdActionsResend.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteIdActionsResend.Post.Parameters.Header>
-  >
-> = {
-  path: "/v2/invites/{inviteId}/actions/resend",
-  method: "POST",
-  operationId: "membership-resend-invite-mail",
-};
-
-/** Revoke an invite. */
-export const membershipRevokeInvite: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteId.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2InvitesInviteId.Delete.Parameters.Header>
-  >
-> = {
-  path: "/v2/invites/{inviteId}",
-  method: "DELETE",
-  operationId: "membership-revoke-invite",
-};
-
 /** getting the subscription status of the subscription */
 export const newsletterGetInfo: OpenAPIOperation<
   Request<
@@ -4512,33 +4778,33 @@ export const passwordValidationServiceGetPasswordPolicy: OpenAPIOperation<
   operationId: "password-validation-service-get-password-policy",
 };
 
-/** Update a ProjectMembership. */
-export const projectChangeProjectMembership: OpenAPIOperation<
+/** Accept a ProjectInvite. */
+export const projectAcceptProjectInvite: OpenAPIOperation<
   Request<
-    Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdMembershipsMembershipId.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdMembershipsMembershipId.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdMembershipsMembershipId.Put.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteIdActionsAccept.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteIdActionsAccept.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteIdActionsAccept.Post.Parameters.Header>
   >
 > = {
-  path: "/v2/project/{projectId}/memberships/{membershipId}",
-  method: "PUT",
-  operationId: "project-change-project-membership",
+  path: "/v2/project-invites/{inviteId}/actions/accept",
+  method: "POST",
+  operationId: "project-accept-project-invite",
 };
 
 /** Create a ProjectInvite. */
 export const projectCreateProjectInvite: OpenAPIOperation<
   Request<
-    Simplify<MittwaldAPIV2.Paths.V2InvitesProject.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2InvitesProject.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2InvitesProject.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdInvites.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdInvites.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdInvites.Post.Parameters.Header>
   >,
   Response<
-    MittwaldAPIV2.Paths.V2InvitesProject.Post.Responses.$201.Content.ApplicationJson,
+    MittwaldAPIV2.Paths.V2ProjectProjectIdInvites.Post.Responses.$201.Content.ApplicationJson,
     201,
     "application/json"
   >
 > = {
-  path: "/v2/invites/project",
+  path: "/v2/project/{projectId}/invites",
   method: "POST",
   operationId: "project-create-project-invite",
 };
@@ -4559,6 +4825,19 @@ export const projectCreateProject: OpenAPIOperation<
   path: "/v2/servers/{serverId}/projects",
   method: "POST",
   operationId: "project-create-project",
+};
+
+/** Decline a ProjectInvite. */
+export const projectDeclineProjectInvite: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteIdActionsDecline.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteIdActionsDecline.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteIdActionsDecline.Post.Parameters.Header>
+  >
+> = {
+  path: "/v2/project-invites/{inviteId}/actions/decline",
+  method: "POST",
+  operationId: "project-decline-project-invite",
 };
 
 /** Request a Project avatar upload. */
@@ -4590,6 +4869,81 @@ export const projectDeleteProjectAvatar: OpenAPIOperation<
   path: "/v2/projects/{projectId}/avatar",
   method: "DELETE",
   operationId: "project-delete-project-avatar",
+};
+
+/** Get a ProjectInvite. */
+export const projectGetProjectInvite: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteId.Get.Parameters.Header>
+  >,
+  Response<
+    MittwaldAPIV2.Paths.V2ProjectInvitesInviteId.Get.Responses.$200.Content.ApplicationJson,
+    200,
+    "application/json"
+  >
+> = {
+  path: "/v2/project-invites/{inviteId}",
+  method: "GET",
+  operationId: "project-get-project-invite",
+};
+
+/** Delete a ProjectInvite. */
+export const projectDeleteProjectInvite: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteId.Delete.Parameters.Header>
+  >
+> = {
+  path: "/v2/project-invites/{inviteId}",
+  method: "DELETE",
+  operationId: "project-delete-project-invite",
+};
+
+/** Get a ProjectMembership */
+export const projectGetProjectMembership: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsMembershipId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsMembershipId.Get.Parameters.Header>
+  >,
+  Response<
+    MittwaldAPIV2.Paths.V2ProjectMembershipsMembershipId.Get.Responses.$200.Content.ApplicationJson,
+    200,
+    "application/json"
+  >
+> = {
+  path: "/v2/project-memberships/{membershipId}",
+  method: "GET",
+  operationId: "project-get-project-membership",
+};
+
+/** Delete a ProjectMembership. */
+export const projectDeleteProjectMembership: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsMembershipId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsMembershipId.Delete.Parameters.Header>
+  >
+> = {
+  path: "/v2/project-memberships/{membershipId}",
+  method: "DELETE",
+  operationId: "project-delete-project-membership",
+};
+
+/** Update a ProjectMembership. */
+export const projectUpdateProjectMembership: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsMembershipId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsMembershipId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsMembershipId.Patch.Parameters.Header>
+  >
+> = {
+  path: "/v2/project-memberships/{membershipId}",
+  method: "PATCH",
+  operationId: "project-update-project-membership",
 };
 
 /** Delete a Project. */
@@ -4749,6 +5103,24 @@ export const projectGetOwnMembershipForProject: OpenAPIOperation<
   operationId: "project-get-own-membership-for-project",
 };
 
+/** Get a ProjectInvite by token. */
+export const projectGetProjectTokenInvite: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectTokenInvite.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectTokenInvite.Get.Parameters.Header>
+  >,
+  Response<
+    MittwaldAPIV2.Paths.V2ProjectTokenInvite.Get.Responses.$200.Content.ApplicationJson,
+    200,
+    "application/json"
+  >
+> = {
+  path: "/v2/project-token-invite",
+  method: "GET",
+  operationId: "project-get-project-token-invite",
+};
+
 /** Get a Project. */
 export const projectGetProject: OpenAPIOperation<
   Request<
@@ -4785,20 +5157,33 @@ export const projectGetServer: OpenAPIOperation<
   operationId: "project-get-server",
 };
 
+/** Leave a Project. */
+export const projectLeaveProject: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLeave.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLeave.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLeave.Post.Parameters.Header>
+  >
+> = {
+  path: "/v2/projects/{projectId}/leave",
+  method: "POST",
+  operationId: "project-leave-project",
+};
+
 /** List all invites belonging to a Project. */
 export const projectListInvitesForProject: OpenAPIOperation<
   Request<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2InvitesProjectsProjectId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2InvitesProjectsProjectId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Get.Parameters.Header>
   >,
   Response<
-    MittwaldAPIV2.Paths.V2InvitesProjectsProjectId.Get.Responses.$200.Content.ApplicationJson,
+    MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Get.Responses.$200.Content.ApplicationJson,
     200,
     "application/json"
   >
 > = {
-  path: "/v2/invites/projects/{projectId}",
+  path: "/v2/projects/{projectId}/invites",
   method: "GET",
   operationId: "project-list-invites-for-project",
 };
@@ -4807,18 +5192,54 @@ export const projectListInvitesForProject: OpenAPIOperation<
 export const projectListMembershipsForProject: OpenAPIOperation<
   Request<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2MembershipsProjectsProjectId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MembershipsProjectsProjectId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMemberships.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMemberships.Get.Parameters.Header>
   >,
   Response<
-    MittwaldAPIV2.Paths.V2MembershipsProjectsProjectId.Get.Responses.$200.Content.ApplicationJson,
+    MittwaldAPIV2.Paths.V2ProjectsProjectIdMemberships.Get.Responses.$200.Content.ApplicationJson,
     200,
     "application/json"
   >
 > = {
-  path: "/v2/memberships/projects/{projectId}",
+  path: "/v2/projects/{projectId}/memberships",
   method: "GET",
   operationId: "project-list-memberships-for-project",
+};
+
+/** List all ProjectInvites for the executing user. */
+export const projectListProjectInvites: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvites.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvites.Get.Parameters.Header>
+  >,
+  Response<
+    MittwaldAPIV2.Paths.V2ProjectInvites.Get.Responses.$200.Content.ApplicationJson,
+    200,
+    "application/json"
+  >
+> = {
+  path: "/v2/project-invites",
+  method: "GET",
+  operationId: "project-list-project-invites",
+};
+
+/** List ProjectMemberships belonging to the executing user. */
+export const projectListProjectMemberships: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectMemberships.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectMemberships.Get.Parameters.Header>
+  >,
+  Response<
+    MittwaldAPIV2.Paths.V2ProjectMemberships.Get.Responses.$200.Content.ApplicationJson,
+    200,
+    "application/json"
+  >
+> = {
+  path: "/v2/project-memberships",
+  method: "GET",
+  operationId: "project-list-project-memberships",
 };
 
 /** List Project's for an Organization or Server. */
@@ -4855,6 +5276,19 @@ export const projectListServers: OpenAPIOperation<
   path: "/v2/servers",
   method: "GET",
   operationId: "project-list-servers",
+};
+
+/** Resend the mail for a ProjectInvite. */
+export const projectResendProjectInviteMail: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteIdActionsResend.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteIdActionsResend.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteIdActionsResend.Post.Parameters.Header>
+  >
+> = {
+  path: "/v2/project-invites/{inviteId}/actions/resend",
+  method: "POST",
+  operationId: "project-resend-project-invite-mail",
 };
 
 /** Update a Servers's description. */

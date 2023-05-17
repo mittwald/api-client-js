@@ -69,15 +69,15 @@ docs.
 Import the client:
 
 ```typescript
-import MittwaldApiClient from "@mittwald/api-client/dist/v2.js";
+import MittwaldAPIClient from "@mittwald/api-client/dist/v2.js";
 ```
 
 To create a client instance you can use one of the following factory method for
 different types of authentication:
 
-1. `MittwaldApiClient.newUnauthenticated()`
-2. `MittwaldApiClient.newWithToken(apiToken: string)` (recommended)
-3. `MittwaldApiClient.newWithCredentials(email: string, password: string)` (does
+1. `MittwaldAPIClient.newUnauthenticated()`
+2. `MittwaldAPIClient.newWithToken(apiToken: string)` (recommended)
+3. `MittwaldAPIClient.newWithCredentials(email: string, password: string)` (does
    actually perform a login in the background and thus returns a promise)
 
 Have a look at our [API introduction][api-getting-started] for more information
@@ -86,9 +86,9 @@ on how to obtain an API token and how to get started with the API.
 ## Example
 
 ```typescript
-import MittwaldApiClient from "@mittwald/api-client/dist/v2.js";
+import MittwaldAPIClient from "@mittwald/api-client/dist/v2.js";
 
-const mittwaldApi = MittwaldApiClient.newWithToken("your-access-token");
+const mittwaldApi = MittwaldAPIClient.newWithToken("your-access-token");
 
 const projects = await mittwaldApi.project.listProjects();
 ```

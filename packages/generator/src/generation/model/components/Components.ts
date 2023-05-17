@@ -7,12 +7,14 @@ import { Schemas } from "./Schemas.js";
 import { Parameters } from "./Parameters.js";
 import { RequestBodies } from "./RequestBodies.js";
 import { Responses } from "./Responses.js";
+import { SecuritySchemes } from "./SecuritySchemes.js";
 
 export class Components {
   public static readonly ns = "Components";
 
   public name: Name;
   public schemas: Schemas;
+  public securitySchemes: SecuritySchemes;
   public parameters: Parameters;
   public requestBodies: RequestBodies;
   public responses: Responses;
@@ -21,6 +23,10 @@ export class Components {
     this.name = new Name(Components.ns, model.rootNamespace);
 
     this.schemas = new Schemas(this, model.doc.components?.schemas ?? {});
+    this.securitySchemes = new SecuritySchemes(
+      this,
+      model.doc.components?.securitySchemes ?? {},
+    );
 
     this.parameters = new Parameters(
       this,
@@ -42,6 +48,7 @@ export class Components {
       parameters: await this.parameters.compileTypes(opts),
       requestBodies: await this.requestBodies.compileTypes(opts),
       responses: await this.responses.compileTypes(opts),
+      securitySchemes: await this.securitySchemes.compileTypes(opts),
     };
 
     return `\
@@ -50,6 +57,7 @@ export class Components {
         ${t.parameters}
         ${t.requestBodies}
         ${t.responses}
+        ${t.securitySchemes}
       }
     `;
   }
