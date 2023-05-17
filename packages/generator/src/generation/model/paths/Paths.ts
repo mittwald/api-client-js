@@ -3,11 +3,11 @@ import {
   CodeGenerationModel,
   TypeCompilationOptions,
 } from "../CodeGenerationModel.js";
-import * as Doc from "../../../transformation/TransformedOpenApiDocument.js";
 import { Path } from "./Path.js";
 import { asyncStringMap } from "../../asyncStringMap.js";
 import { Operation } from "./operation/Operation.js";
 import { Tag } from "../tags/Tag.js";
+import { OpenAPIV3 } from "openapi-types";
 
 export class Paths {
   public static readonly ns = "Paths";
@@ -16,12 +16,16 @@ export class Paths {
   public readonly model: CodeGenerationModel;
   public readonly name: Name;
 
-  public constructor(model: CodeGenerationModel, paths: Doc.Paths) {
+  public constructor(model: CodeGenerationModel, paths: OpenAPIV3.PathsObject) {
     this.model = model;
     this.name = new Name(Paths.ns, model.rootNamespace);
-    this.paths = Object.entries(paths ?? {}).map(([name, pathDoc]) =>
-      Path.fromDoc(this, name, pathDoc),
-    );
+    this.paths = Object.entries(paths ?? {})
+      .map(([name, pathDoc]) => {
+        if (pathDoc) {
+          return Path.fromDoc(this, name, pathDoc);
+        }
+      })
+      .filter((p): p is Path => !!p);
   }
 
   public async compileTypes(opts: TypeCompilationOptions): Promise<string> {

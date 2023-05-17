@@ -8,7 +8,7 @@ export class JSONSchema {
   public readonly data: JSONSchemaType;
   public readonly name: Name;
 
-  public constructor(name: Name, data: JSONSchemaType) {
+  public constructor(name: Name, data: JSONSchemaType = { type: "any" }) {
     this.name = name;
     this.data = data;
   }

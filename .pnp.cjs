@@ -1418,6 +1418,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@oclif/plugin-plugins", "npm:3.0.1"],\
             ["@sindresorhus/is", "npm:5.3.0"],\
             ["@types/clone-deep", "npm:4.0.1"],\
+            ["@types/invariant", "npm:2.2.35"],\
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/prettier", "npm:2.7.2"],\
             ["@types/verror", "npm:1.10.6"],\
@@ -1426,6 +1427,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["camelcase", "npm:7.0.1"],\
             ["clone-deep", "npm:4.0.1"],\
             ["fs-jetpack", "npm:5.1.0"],\
+            ["invariant", "npm:2.2.4"],\
             ["jest", "virtual:c806312c909ada0ed265736a6af40332d2accb083795ab196b921d4f525eaa216b5e743a115a866243d43c53d134d2f487232e8b22a59cccd45e185864151961#npm:29.5.0"],\
             ["js-yaml", "npm:4.1.0"],\
             ["json-schema-to-typescript", "npm:13.0.1"],\
@@ -2062,6 +2064,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-http-cache-semantics-npm-4.0.1-90863c7a3e-1048aacf62.zip/node_modules/@types/http-cache-semantics/",\
           "packageDependencies": [\
             ["@types/http-cache-semantics", "npm:4.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/invariant", [\
+        ["npm:2.2.35", {\
+          "packageLocation": "./.yarn/cache/@types-invariant-npm-2.2.35-4dde8d7c77-af1b624057.zip/node_modules/@types/invariant/",\
+          "packageDependencies": [\
+            ["@types/invariant", "npm:2.2.35"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -5375,6 +5386,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["invariant", [\
+        ["npm:2.2.4", {\
+          "packageLocation": "./.yarn/cache/invariant-npm-2.2.4-717fbdb119-cc3182d793.zip/node_modules/invariant/",\
+          "packageDependencies": [\
+            ["invariant", "npm:2.2.4"],\
+            ["loose-envify", "npm:1.4.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["ip", [\
         ["npm:2.0.0", {\
           "packageLocation": "./.yarn/cache/ip-npm-2.0.0-204facb3cc-cfcfac6b87.zip/node_modules/ip/",\
@@ -6709,6 +6730,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["log-symbols", "npm:4.1.0"],\
             ["chalk", "npm:4.1.2"],\
             ["is-unicode-supported", "npm:0.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["loose-envify", [\
+        ["npm:1.4.0", {\
+          "packageLocation": "./.yarn/cache/loose-envify-npm-1.4.0-6307b72ccf-6517e24e0c.zip/node_modules/loose-envify/",\
+          "packageDependencies": [\
+            ["loose-envify", "npm:1.4.0"],\
+            ["js-tokens", "npm:4.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\

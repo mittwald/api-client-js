@@ -1,8 +1,10 @@
-import * as Doc from "../../../../transformation/TransformedOpenApiDocument.js";
+import { JSONSchema as JSONSchemaType } from "json-schema-to-typescript";
 import { JSONSchema } from "../../global/JSONSchema.js";
 import { Operation } from "./Operation.js";
 import { Name } from "../../global/Name.js";
 import { TypeCompilationOptions } from "../../CodeGenerationModel.js";
+import { OpenAPIV3 } from "openapi-types";
+import { assertNoRefs } from "../../assertNoRefs.js";
 
 export class RequestParameters {
   public static readonly ns = "Parameters";
@@ -27,24 +29,59 @@ export class RequestParameters {
     this.body = body;
   }
 
+  private static constructParametersSchema(
+    name: Name,
+    $in: string,
+    parameters: OpenAPIV3.OperationObject["parameters"] = [],
+  ): JSONSchema {
+    const properties: Record<string, JSONSchemaType> = {};
+    const required: string[] = [];
+
+    for (const parameter of parameters) {
+      assertNoRefs(parameter);
+
+      if (parameter.in === $in && parameter.schema) {
+        properties[parameter.name] = parameter.schema;
+      }
+      if (parameter.required) {
+        required.push(parameter.name);
+      }
+    }
+
+    return new JSONSchema(new Name($in, name), {
+      type: "object",
+      required,
+      properties,
+    });
+  }
+
   public static fromDoc(
     operation: Operation,
-    doc: Doc.OperationParameters,
+    doc: OpenAPIV3.OperationObject,
   ): RequestParameters {
     const name = new Name(RequestParameters.ns, operation.httpMethod);
 
+    const requestBodySchema =
+      doc.requestBody && "content" in doc.requestBody
+        ? doc.requestBody.content
+        : doc.requestBody;
+
     return new RequestParameters(
       operation,
-      doc.requestBody
-        ? new JSONSchema(new Name("requestBody", name), doc.requestBody)
+      requestBodySchema
+        ? new JSONSchema(new Name("requestBody", name), requestBodySchema)
         : undefined,
-      doc.path ? new JSONSchema(new Name("path", name), doc.path) : undefined,
-      doc.query
-        ? new JSONSchema(new Name("query", name), doc.query)
-        : undefined,
-      doc.header
-        ? new JSONSchema(new Name("header", name), doc.header)
-        : undefined,
+      RequestParameters.constructParametersSchema(name, "path", doc.parameters),
+      RequestParameters.constructParametersSchema(
+        name,
+        "query",
+        doc.parameters,
+      ),
+      RequestParameters.constructParametersSchema(
+        name,
+        "header",
+        doc.parameters,
+      ),
     );
   }
 

@@ -1,9 +1,9 @@
-import { TransformedOpenApiDocument } from "../../transformation/TransformedOpenApiDocument.js";
 import { refsToCustomTypes } from "../refs/refsToCustomTypes.js";
 import { Name } from "./global/Name.js";
 import { Components } from "./components/Components.js";
 import { Paths } from "./paths/Paths.js";
 import { Tag } from "./tags/Tag.js";
+import { OpenAPIV3 } from "openapi-types";
 
 export interface TypeCompilationOptions {
   optionalHeaders?: string[];
@@ -14,24 +14,24 @@ export class CodeGenerationModel {
   public readonly paths: Paths;
   public readonly components: Components;
   public readonly tags: Tag[];
-  public readonly doc: TransformedOpenApiDocument;
+  public readonly doc: OpenAPIV3.Document;
 
-  private constructor(rootNamespace: string, doc: TransformedOpenApiDocument) {
+  private constructor(rootNamespace: string, doc: OpenAPIV3.Document) {
     this.rootNamespace = new Name(rootNamespace);
 
     this.doc = refsToCustomTypes(
       this.rootNamespace.tsType,
       doc,
-    ) as TransformedOpenApiDocument;
+    ) as OpenAPIV3.Document;
 
-    this.tags = this.doc.tags.map((doc) => Tag.fromDoc(doc));
+    this.tags = this.doc.tags?.map((doc) => Tag.fromDoc(doc)) ?? [];
     this.paths = new Paths(this, this.doc.paths);
     this.components = new Components(this);
   }
 
   public static fromDoc(
     rootNamespace: string,
-    doc: TransformedOpenApiDocument,
+    doc: OpenAPIV3.Document,
   ): CodeGenerationModel {
     return new CodeGenerationModel(rootNamespace, doc);
   }

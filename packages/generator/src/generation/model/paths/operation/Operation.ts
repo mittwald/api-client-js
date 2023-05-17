@@ -1,10 +1,11 @@
-import * as Doc from "../../../../transformation/TransformedOpenApiDocument.js";
 import { RequestParameters } from "./RequestParameters.js";
 import { Path } from "../Path.js";
 import { Name } from "../../global/Name.js";
 import { Responses } from "./responses/Responses.js";
 import { Tag } from "../../tags/Tag.js";
 import { TypeCompilationOptions } from "../../CodeGenerationModel.js";
+import { OpenAPIV3 } from "openapi-types";
+import invariant from "invariant";
 
 export class Operation {
   public readonly path: Path;
@@ -15,11 +16,19 @@ export class Operation {
   public readonly summary?: string;
   public readonly tags: Tag[];
 
-  private constructor(path: Path, httpMethod: Name, doc: Doc.Operation) {
+  private constructor(
+    path: Path,
+    httpMethod: Name,
+    doc: OpenAPIV3.OperationObject,
+  ) {
+    invariant(
+      doc.operationId !== undefined,
+      "Property 'operationId' does not exist in operation object",
+    );
     this.id = new Name(doc.operationId);
     this.path = path;
     this.httpMethod = httpMethod;
-    this.parameters = RequestParameters.fromDoc(this, doc.parameters ?? {});
+    this.parameters = RequestParameters.fromDoc(this, doc);
     this.responses = new Responses(this, doc.responses);
     this.summary = doc.summary;
     this.tags =
@@ -31,7 +40,7 @@ export class Operation {
   public static fromDoc(
     path: Path,
     httpMethod: string,
-    doc: Doc.Operation,
+    doc: OpenAPIV3.OperationObject,
   ): Operation {
     return new Operation(path, new Name(httpMethod, path.name), doc);
   }

@@ -1,9 +1,9 @@
 import { Name } from "../global/Name.js";
-import * as Doc from "../../../transformation/TransformedOpenApiDocument.js";
 import { ResponseContent } from "./ResponseContent.js";
 import { asyncStringMap } from "../../asyncStringMap.js";
 import { Responses } from "./Responses.js";
 import { TypeCompilationOptions } from "../CodeGenerationModel.js";
+import { OpenAPIV3 } from "openapi-types";
 
 export class Response {
   public readonly name: Name;
@@ -13,7 +13,7 @@ export class Response {
   public constructor(
     name: Name,
     responses: Responses,
-    mediaTypesDoc: Doc.ResponseMediaTypes,
+    mediaTypesDoc: OpenAPIV3.MediaTypeObject,
   ) {
     this.name = name;
     this.responses = responses;

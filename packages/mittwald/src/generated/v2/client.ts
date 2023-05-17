@@ -15,13 +15,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getAppinstallation: this.requestFunctionFactory(
       descriptors.appGetAppinstallation
     ),
-    /** patch desired properties of a specific `AppInstallation` */
-    patchAppinstallation: this.requestFunctionFactory(
-      descriptors.appPatchAppinstallation
-    ),
     /** start uninstallation process for a specific `AppInstallation` */
     uninstallAppinstallation: this.requestFunctionFactory(
       descriptors.appUninstallAppinstallation
+    ),
+    /** patch desired properties of a specific `AppInstallation` */
+    patchAppinstallation: this.requestFunctionFactory(
+      descriptors.appPatchAppinstallation
     ),
     /** get a specific `AppVersion` */
     getAppversion: this.requestFunctionFactory(descriptors.appGetAppversion),
@@ -87,25 +87,25 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     articleServiceListArticles: this.requestFunctionFactory(
       descriptors.articleServiceListArticles
     ),
-    /** Cancel the Termination for the referred ContractItem. */
-    cancelContractItemTermination: this.requestFunctionFactory(
-      descriptors.contractCancelContractItemTermination
-    ),
     /** Schedule the Termination of a ContractItem. */
     terminateContractItem: this.requestFunctionFactory(
       descriptors.contractTerminateContractItem
+    ),
+    /** Cancel the Termination for the referred ContractItem. */
+    cancelContractItemTermination: this.requestFunctionFactory(
+      descriptors.contractCancelContractItemTermination
     ),
     /** Cancel the TariffChange for the referred ContractItem. */
     cancelContractTariffChange: this.requestFunctionFactory(
       descriptors.contractCancelContractTariffChange
     ),
-    /** Cancel the Termination for the referred Contract. */
-    cancelContractTermination: this.requestFunctionFactory(
-      descriptors.contractCancelContractTermination
-    ),
     /** Schedule the Termination of a Contract. */
     terminateContract: this.requestFunctionFactory(
       descriptors.contractTerminateContract
+    ),
+    /** Cancel the Termination for the referred Contract. */
+    cancelContractTermination: this.requestFunctionFactory(
+      descriptors.contractCancelContractTermination
     ),
     /** Return the BaseItem of the Contract with the given ID. */
     getBaseItemOfContract: this.requestFunctionFactory(
@@ -139,26 +139,26 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listContracts: this.requestFunctionFactory(
       descriptors.contractListContracts
     ),
+    /** Schedule the Termination of a ContractItem. */
+    deprecatedContractTerminateContractItem: this.requestFunctionFactory(
+      descriptors.deprecatedContractTerminateContractItem
+    ),
     /** Cancel the Termination for the referred ContractItem. */
     deprecatedContractCancelContractItemTermination:
       this.requestFunctionFactory(
         descriptors.deprecatedContractCancelContractItemTermination
       ),
-    /** Schedule the Termination of a ContractItem. */
-    deprecatedContractTerminateContractItem: this.requestFunctionFactory(
-      descriptors.deprecatedContractTerminateContractItem
-    ),
     /** Cancel the TariffChange for the referred ContractItem. */
     deprecatedContractCancelContractTariffChange: this.requestFunctionFactory(
       descriptors.deprecatedContractCancelContractTariffChange
     ),
-    /** Cancel the Termination for the referred Contract. */
-    deprecatedContractCancelContractTermination: this.requestFunctionFactory(
-      descriptors.deprecatedContractCancelContractTermination
-    ),
     /** Schedule the Termination of a Contract. */
     deprecatedContractTerminateContract: this.requestFunctionFactory(
       descriptors.deprecatedContractTerminateContract
+    ),
+    /** Cancel the Termination for the referred Contract. */
+    deprecatedContractCancelContractTermination: this.requestFunctionFactory(
+      descriptors.deprecatedContractCancelContractTermination
     ),
     /** This route is deprecated, please use the new one. */
     deprecatedContractDetailOfContract: this.requestFunctionFactory(
@@ -260,124 +260,65 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteProjectBackupExport: this.requestFunctionFactory(
       descriptors.backupDeleteProjectBackupExport
     ),
-    /** Create a BackupSchedule for a Project. */
-    createProjectBackupSchedule: this.requestFunctionFactory(
-      descriptors.backupCreateProjectBackupSchedule
-    ),
     /** List BackupSchedules belonging to a given Project. */
     listProjectBackupSchedules: this.requestFunctionFactory(
       descriptors.backupListProjectBackupSchedules
     ),
-    /** Create a Backup of a Project. */
-    createProjectBackup: this.requestFunctionFactory(
-      descriptors.backupCreateProjectBackup
+    /** Create a BackupSchedule for a Project. */
+    createProjectBackupSchedule: this.requestFunctionFactory(
+      descriptors.backupCreateProjectBackupSchedule
     ),
     /** List Backups for a given Project. */
     listProjectBackups: this.requestFunctionFactory(
       descriptors.backupListProjectBackups
     ),
-    /** Delete a ProjectBackupSchedule. */
-    deleteProjectBackupSchedule: this.requestFunctionFactory(
-      descriptors.backupDeleteProjectBackupSchedule
+    /** Create a Backup of a Project. */
+    createProjectBackup: this.requestFunctionFactory(
+      descriptors.backupCreateProjectBackup
     ),
     /** Get a ProjectBackupSchedule. */
     getProjectBackupSchedule: this.requestFunctionFactory(
       descriptors.backupGetProjectBackupSchedule
     ),
+    /** Delete a ProjectBackupSchedule. */
+    deleteProjectBackupSchedule: this.requestFunctionFactory(
+      descriptors.backupDeleteProjectBackupSchedule
+    ),
     /** Update a ProjectBackupSchedule. */
     updateProjectBackupSchedule: this.requestFunctionFactory(
       descriptors.backupUpdateProjectBackupSchedule
-    ),
-    /** Delete a ProjectBackup. */
-    deleteProjectBackup: this.requestFunctionFactory(
-      descriptors.backupDeleteProjectBackup
     ),
     /** Get a ProjectBackup. */
     getProjectBackup: this.requestFunctionFactory(
       descriptors.backupGetProjectBackup
     ),
+    /** Delete a ProjectBackup. */
+    deleteProjectBackup: this.requestFunctionFactory(
+      descriptors.backupDeleteProjectBackup
+    ),
     /** Change the description of a ProjectBackup. */
     updateProjectBackupDescription: this.requestFunctionFactory(
       descriptors.backupUpdateProjectBackupDescription
     ),
-    /** Create a ProjectBackup of a Project. */
-    deprecatedBackupServiceCreateProjectBackup: this.requestFunctionFactory(
-      descriptors.deprecatedBackupServiceCreateProjectBackup
-    ),
-    /** List ProjectBackups for a given Project. */
-    deprecatedBackupServiceListProjectBackups: this.requestFunctionFactory(
-      descriptors.deprecatedBackupServiceListProjectBackups
-    ),
-    /** Create a BackupSchedule for a Project. */
-    deprecatedBackupServiceCreateProjectBackupSchedule:
-      this.requestFunctionFactory(
-        descriptors.deprecatedBackupServiceCreateProjectBackupSchedule
-      ),
-    /** List BackupSchedules belonging to a given Project. */
-    deprecatedBackupServiceListProjectBackupSchedules:
-      this.requestFunctionFactory(
-        descriptors.deprecatedBackupServiceListProjectBackupSchedules
-      ),
-    /** Delete a ProjectBackup. */
-    deprecatedBackupServiceDeleteProjectBackup: this.requestFunctionFactory(
-      descriptors.deprecatedBackupServiceDeleteProjectBackup
-    ),
-    /** Get a ProjectBackup. */
-    deprecatedBackupServiceGetProjectBackup: this.requestFunctionFactory(
-      descriptors.deprecatedBackupServiceGetProjectBackup
-    ),
-    /** Delete a ProjectBackupExport. */
-    deprecatedBackupServiceDeleteProjectBackupExport:
-      this.requestFunctionFactory(
-        descriptors.deprecatedBackupServiceDeleteProjectBackupExport
-      ),
-    /** Export a ProjectBackup for download. */
-    deprecatedBackupServiceRequestProjectBackupExport:
-      this.requestFunctionFactory(
-        descriptors.deprecatedBackupServiceRequestProjectBackupExport
-      ),
-    /** Delete a BackupSchedule. */
-    deprecatedBackupServiceDeleteProjectBackupSchedule:
-      this.requestFunctionFactory(
-        descriptors.deprecatedBackupServiceDeleteProjectBackupSchedule
-      ),
-    /** Get a BackupSchedule. */
-    deprecatedBackupServiceGetProjectBackupSchedule:
-      this.requestFunctionFactory(
-        descriptors.deprecatedBackupServiceGetProjectBackupSchedule
-      ),
-    /** Update a BackupSchedule. */
-    deprecatedBackupServicePatchBackupSchedule: this.requestFunctionFactory(
-      descriptors.deprecatedBackupServicePatchBackupSchedule
-    ),
-    /** Update the ttl of a BackupSchedule. */
-    deprecatedBackupServicePutSystemBackupTtl: this.requestFunctionFactory(
-      descriptors.deprecatedBackupServicePutSystemBackupTtl
-    ),
-    /** Change the description of a ProjectBackup. */
-    deprecatedBackupServiceSetProjectBackupDescription:
-      this.requestFunctionFactory(
-        descriptors.deprecatedBackupServiceSetProjectBackupDescription
-      ),
   };
 
   /** The conversation API allows you to manage your support conversations. */
   public readonly conversation = {
-    /** Create a conversation. */
-    serviceCreateConversation: this.requestFunctionFactory(
-      descriptors.conversationServiceCreateConversation
-    ),
     /** Get all conversation the authenticated user has created or has access to. */
     serviceGetConversations: this.requestFunctionFactory(
       descriptors.conversationServiceGetConversations
     ),
-    /** Send a new message in the conversation. */
-    serviceCreateMessage: this.requestFunctionFactory(
-      descriptors.conversationServiceCreateMessage
+    /** Create a conversation. */
+    serviceCreateConversation: this.requestFunctionFactory(
+      descriptors.conversationServiceCreateConversation
     ),
     /** Get all message of the conversation. */
     serviceGetMessagesByConversation: this.requestFunctionFactory(
       descriptors.conversationServiceGetMessagesByConversation
+    ),
+    /** Send a new message in the conversation. */
+    serviceCreateMessage: this.requestFunctionFactory(
+      descriptors.conversationServiceCreateMessage
     ),
     /** Get all conversation categories. */
     serviceGetCategories: this.requestFunctionFactory(
@@ -415,26 +356,26 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     abortExecution: this.requestFunctionFactory(
       descriptors.cronjobAbortExecution
     ),
+    /** List Cronjobs belonging to a Project. */
+    listCronjobs: this.requestFunctionFactory(descriptors.cronjobListCronjobs),
     /** Create a Cronjob. */
     createCronjob: this.requestFunctionFactory(
       descriptors.cronjobCreateCronjob
-    ),
-    /** List Cronjobs belonging to a Project. */
-    listCronjobs: this.requestFunctionFactory(descriptors.cronjobListCronjobs),
-    /** Trigger a Cronjob. */
-    createExecution: this.requestFunctionFactory(
-      descriptors.cronjobCreateExecution
     ),
     /** List CronjobExecutions belonging to a Cronjob. */
     listExecutions: this.requestFunctionFactory(
       descriptors.cronjobListExecutions
     ),
+    /** Trigger a Cronjob. */
+    createExecution: this.requestFunctionFactory(
+      descriptors.cronjobCreateExecution
+    ),
+    /** Get a Cronjob. */
+    getCronjob: this.requestFunctionFactory(descriptors.cronjobGetCronjob),
     /** Delete a Cronjob. */
     deleteCronjob: this.requestFunctionFactory(
       descriptors.cronjobDeleteCronjob
     ),
-    /** Get a Cronjob. */
-    getCronjob: this.requestFunctionFactory(descriptors.cronjobGetCronjob),
     /** Update a Cronjob. */
     updateCronjob: this.requestFunctionFactory(
       descriptors.cronjobUpdateCronjob
@@ -461,42 +402,38 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     changeCustomerMembership: this.requestFunctionFactory(
       descriptors.customerChangeCustomerMembership
     ),
-    /** Create a new customer category. */
-    createCategoryDeprecated: this.requestFunctionFactory(
-      descriptors.customerCreateCategoryDeprecated
-    ),
     /** Get all customer categories. */
     listOfCustomerCategoriesDeprecated: this.requestFunctionFactory(
       descriptors.customerListOfCustomerCategoriesDeprecated
     ),
     /** Create a new customer category. */
-    createCategory: this.requestFunctionFactory(
-      descriptors.customerCreateCategory
+    createCategoryDeprecated: this.requestFunctionFactory(
+      descriptors.customerCreateCategoryDeprecated
     ),
     /** Get all customer categories. */
     listOfCustomerCategories: this.requestFunctionFactory(
       descriptors.customerListOfCustomerCategories
     ),
+    /** Create a new customer category. */
+    createCategory: this.requestFunctionFactory(
+      descriptors.customerCreateCategory
+    ),
     /** Create a CustomerInvite. */
     createCustomerInvite: this.requestFunctionFactory(
       descriptors.customerCreateCustomerInvite
-    ),
-    /** Create a new customer profile. */
-    createCustomer: this.requestFunctionFactory(
-      descriptors.customerCreateCustomer
     ),
     /** Get all customer profiles the authenticated user has access to. */
     listCustomers: this.requestFunctionFactory(
       descriptors.customerListCustomers
     ),
-    /** Add a note to the customer profile. */
-    createNote: this.requestFunctionFactory(descriptors.customerCreateNote),
+    /** Create a new customer profile. */
+    createCustomer: this.requestFunctionFactory(
+      descriptors.customerCreateCustomer
+    ),
     /** Get all notes for the customer profile. */
     listOfNotes: this.requestFunctionFactory(descriptors.customerListOfNotes),
-    /** Delete a customer category. */
-    deleteCategoryDeprecated: this.requestFunctionFactory(
-      descriptors.customerDeleteCategoryDeprecated
-    ),
+    /** Add a note to the customer profile. */
+    createNote: this.requestFunctionFactory(descriptors.customerCreateNote),
     /** Get a customer category. */
     detailOfCustomerCategoryDeprecated: this.requestFunctionFactory(
       descriptors.customerDetailOfCustomerCategoryDeprecated
@@ -506,8 +443,8 @@ export class MittwaldAPIV2Client extends ApiClientBase {
       descriptors.customerUpdateCategoryDeprecated
     ),
     /** Delete a customer category. */
-    deleteCategory: this.requestFunctionFactory(
-      descriptors.customerDeleteCategory
+    deleteCategoryDeprecated: this.requestFunctionFactory(
+      descriptors.customerDeleteCategoryDeprecated
     ),
     /** Get a customer category. */
     getCustomerCategory: this.requestFunctionFactory(
@@ -517,9 +454,9 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateCategory: this.requestFunctionFactory(
       descriptors.customerUpdateCategory
     ),
-    /** Delete a customer profile. */
-    deleteCustomer: this.requestFunctionFactory(
-      descriptors.customerDeleteCustomer
+    /** Delete a customer category. */
+    deleteCategory: this.requestFunctionFactory(
+      descriptors.customerDeleteCategory
     ),
     /** Get a customer profile. */
     getCustomer: this.requestFunctionFactory(descriptors.customerGetCustomer),
@@ -527,10 +464,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateCustomer: this.requestFunctionFactory(
       descriptors.customerUpdateCustomer
     ),
-    /** Delete a note from customer profile. */
-    deleteNote: this.requestFunctionFactory(descriptors.customerDeleteNote),
+    /** Delete a customer profile. */
+    deleteCustomer: this.requestFunctionFactory(
+      descriptors.customerDeleteCustomer
+    ),
     /** Update a note of the customer profile. */
     updateNote: this.requestFunctionFactory(descriptors.customerUpdateNote),
+    /** Delete a note from customer profile. */
+    deleteNote: this.requestFunctionFactory(descriptors.customerDeleteNote),
     /** Check if the customer profile has a valid contract partner configured. */
     isCustomerLegallyCompetent: this.requestFunctionFactory(
       descriptors.customerIsCustomerLegallyCompetent
@@ -543,12 +484,12 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listMembershipsForCustomer: this.requestFunctionFactory(
       descriptors.customerListMembershipsForCustomer
     ),
-    /** Remove the avatar picture of the customer profile. */
-    removeAvatar: this.requestFunctionFactory(descriptors.customerRemoveAvatar),
     /** Request a new avatar upload for the customer profile. */
     requestAvatarUpload: this.requestFunctionFactory(
       descriptors.customerRequestAvatarUpload
     ),
+    /** Remove the avatar picture of the customer profile. */
+    removeAvatar: this.requestFunctionFactory(descriptors.customerRemoveAvatar),
     /** Accept a CustomerInvite. */
     deprecatedCustomerAcceptCustomerInvite: this.requestFunctionFactory(
       descriptors.deprecatedCustomerAcceptCustomerInvite
@@ -604,41 +545,37 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The database API allows you to manage your databases, like MySQL and Redis databases. */
   public readonly database = {
-    /** Create a MySQLDatabase with an optional MySQLUser */
-    createMysqlDatabase: this.requestFunctionFactory(
-      descriptors.databaseCreateMysqlDatabase
-    ),
     /** List MySQLDatabases belonging to a Project. */
     listMysqlDatabases: this.requestFunctionFactory(
       descriptors.databaseListMysqlDatabases
     ),
-    /** Create a MySQLUser. */
-    createMysqlUser: this.requestFunctionFactory(
-      descriptors.databaseCreateMysqlUser
+    /** Create a MySQLDatabase with an optional MySQLUser */
+    createMysqlDatabase: this.requestFunctionFactory(
+      descriptors.databaseCreateMysqlDatabase
     ),
     /** List MySQLUsers belonging to a database. */
     listMysqlUsers: this.requestFunctionFactory(
       descriptors.databaseListMysqlUsers
     ),
-    /** Create a RedisDatabase. */
-    createRedisDatabase: this.requestFunctionFactory(
-      descriptors.databaseCreateRedisDatabase
+    /** Create a MySQLUser. */
+    createMysqlUser: this.requestFunctionFactory(
+      descriptors.databaseCreateMysqlUser
     ),
     /** List RedisDatabases belonging to a project. */
     listRedisDatabases: this.requestFunctionFactory(
       descriptors.databaseListRedisDatabases
     ),
-    /** Delete a MySQLDatabase. */
-    deleteMysqlDatabase: this.requestFunctionFactory(
-      descriptors.databaseDeleteMysqlDatabase
+    /** Create a RedisDatabase. */
+    createRedisDatabase: this.requestFunctionFactory(
+      descriptors.databaseCreateRedisDatabase
     ),
     /** Get a MySQLDatabase. */
     getMysqlDatabase: this.requestFunctionFactory(
       descriptors.databaseGetMysqlDatabase
     ),
-    /** Delete a MySQLUser. */
-    deleteMysqlUser: this.requestFunctionFactory(
-      descriptors.databaseDeleteMysqlUser
+    /** Delete a MySQLDatabase. */
+    deleteMysqlDatabase: this.requestFunctionFactory(
+      descriptors.databaseDeleteMysqlDatabase
     ),
     /** Get a MySQLUser. */
     getMysqlUser: this.requestFunctionFactory(descriptors.databaseGetMysqlUser),
@@ -646,13 +583,17 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateMysqlUser: this.requestFunctionFactory(
       descriptors.databaseUpdateMysqlUser
     ),
-    /** Delete a RedisDatabase. */
-    deleteRedisDatabase: this.requestFunctionFactory(
-      descriptors.databaseDeleteRedisDatabase
+    /** Delete a MySQLUser. */
+    deleteMysqlUser: this.requestFunctionFactory(
+      descriptors.databaseDeleteMysqlUser
     ),
     /** Get a RedisDatabase. */
     getRedisDatabase: this.requestFunctionFactory(
       descriptors.databaseGetRedisDatabase
+    ),
+    /** Delete a RedisDatabase. */
+    deleteRedisDatabase: this.requestFunctionFactory(
+      descriptors.databaseDeleteRedisDatabase
     ),
     /** Disable a MySQLUser. */
     disableMysqlUser: this.requestFunctionFactory(
@@ -679,59 +620,55 @@ export class MittwaldAPIV2Client extends ApiClientBase {
       descriptors.databaseListRedisVersions
     ),
     /** Update a MySQLDatabase's default character settings. */
-    updateMysqlDatabaseDefaultCharset: this.requestFunctionFactory(
-      descriptors.databaseUpdateMysqlDatabaseDefaultCharset
-    ),
-    /** Update a MySQLDatabase's default character settings. */
     deprecatedDatabaseUpdateMysqlDatabaseDefaultCharset:
       this.requestFunctionFactory(
         descriptors.deprecatedDatabaseUpdateMysqlDatabaseDefaultCharset
       ),
-    /** Update a MySQLDatabase's description. */
-    updateMysqlDatabaseDescription: this.requestFunctionFactory(
-      descriptors.databaseUpdateMysqlDatabaseDescription
+    /** Update a MySQLDatabase's default character settings. */
+    updateMysqlDatabaseDefaultCharset: this.requestFunctionFactory(
+      descriptors.databaseUpdateMysqlDatabaseDefaultCharset
     ),
     /** Update a MySQLDatabase's description. */
     deprecatedDatabaseUpdateMysqlDatabaseDescription:
       this.requestFunctionFactory(
         descriptors.deprecatedDatabaseUpdateMysqlDatabaseDescription
       ),
+    /** Update a MySQLDatabase's description. */
+    updateMysqlDatabaseDescription: this.requestFunctionFactory(
+      descriptors.databaseUpdateMysqlDatabaseDescription
+    ),
     /** Update a MySQLUser's password. */
     updateMysqlUserPassword: this.requestFunctionFactory(
       descriptors.databaseUpdateMysqlUserPassword
-    ),
-    /** Update a RedisDatabase's description. */
-    updateRedisDatabaseDescription: this.requestFunctionFactory(
-      descriptors.databaseUpdateRedisDatabaseDescription
     ),
     /** Update a RedisDatabase's description. */
     deprecatedDatabaseUpdateRedisDatabaseDescription:
       this.requestFunctionFactory(
         descriptors.deprecatedDatabaseUpdateRedisDatabaseDescription
       ),
-    /** Create a MySQLDatabase. */
-    deprecatedDatabaseCreateMysqlDatabase: this.requestFunctionFactory(
-      descriptors.deprecatedDatabaseCreateMysqlDatabase
+    /** Update a RedisDatabase's description. */
+    updateRedisDatabaseDescription: this.requestFunctionFactory(
+      descriptors.databaseUpdateRedisDatabaseDescription
     ),
     /** List MySQLDatabases belonging to a Project. */
     deprecatedDatabaseListMysqlDatabases: this.requestFunctionFactory(
       descriptors.deprecatedDatabaseListMysqlDatabases
     ),
+    /** Create a MySQLDatabase. */
+    deprecatedDatabaseCreateMysqlDatabase: this.requestFunctionFactory(
+      descriptors.deprecatedDatabaseCreateMysqlDatabase
+    ),
     /** Create a MySQLDatabase with User. */
     deprecatedDatabaseCreateMysqlDatabaseWithUser: this.requestFunctionFactory(
       descriptors.deprecatedDatabaseCreateMysqlDatabaseWithUser
-    ),
-    /** Create a RedisDatabase. */
-    deprecatedDatabaseCreateRedisDatabase: this.requestFunctionFactory(
-      descriptors.deprecatedDatabaseCreateRedisDatabase
     ),
     /** List RedisDatabases belonging to a project. */
     deprecatedDatabaseListRedisDatabases: this.requestFunctionFactory(
       descriptors.deprecatedDatabaseListRedisDatabases
     ),
-    /** Delete a MySQLUser. */
-    deprecatedDatabaseDeleteMysqlUser: this.requestFunctionFactory(
-      descriptors.deprecatedDatabaseDeleteMysqlUser
+    /** Create a RedisDatabase. */
+    deprecatedDatabaseCreateRedisDatabase: this.requestFunctionFactory(
+      descriptors.deprecatedDatabaseCreateRedisDatabase
     ),
     /** Get a MySQLUser. */
     deprecatedDatabaseGetMysqlUser: this.requestFunctionFactory(
@@ -740,6 +677,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update a MySQLUser. */
     deprecatedDatabaseUpdateMysqlUser: this.requestFunctionFactory(
       descriptors.deprecatedDatabaseUpdateMysqlUser
+    ),
+    /** Delete a MySQLUser. */
+    deprecatedDatabaseDeleteMysqlUser: this.requestFunctionFactory(
+      descriptors.deprecatedDatabaseDeleteMysqlUser
     ),
     /** Disable a MySQLUser. */
     deprecatedDatabaseDisableMysqlUser: this.requestFunctionFactory(
@@ -777,15 +718,15 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The project API allows you to manage your projects, and also any kinds of user memberships concerning these projects. */
   public readonly project = {
-    /** Delete a PlacementGroup's avatar. */
-    deprecatedPlacementGroupPlacementgroupAvatarRemove:
-      this.requestFunctionFactory(
-        descriptors.deprecatedPlacementGroupPlacementgroupAvatarRemove
-      ),
     /** Request a PlacementGroup avatar upload. */
     deprecatedPlacementGroupPlacementgroupAvatarRequestUpload:
       this.requestFunctionFactory(
         descriptors.deprecatedPlacementGroupPlacementgroupAvatarRequestUpload
+      ),
+    /** Delete a PlacementGroup's avatar. */
+    deprecatedPlacementGroupPlacementgroupAvatarRemove:
+      this.requestFunctionFactory(
+        descriptors.deprecatedPlacementGroupPlacementgroupAvatarRemove
       ),
     /** Get a PlacementGroup. */
     deprecatedPlacementGroupPlacementgroupDetails: this.requestFunctionFactory(
@@ -872,25 +813,25 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     createProject: this.requestFunctionFactory(
       descriptors.projectCreateProject
     ),
-    /** Delete a Project's avatar. */
-    deleteProjectAvatar: this.requestFunctionFactory(
-      descriptors.projectDeleteProjectAvatar
-    ),
     /** Request a Project avatar upload. */
     requestProjectAvatarUpload: this.requestFunctionFactory(
       descriptors.projectRequestProjectAvatarUpload
+    ),
+    /** Delete a Project's avatar. */
+    deleteProjectAvatar: this.requestFunctionFactory(
+      descriptors.projectDeleteProjectAvatar
     ),
     /** Delete a Project. */
     deleteProject: this.requestFunctionFactory(
       descriptors.projectDeleteProject
     ),
-    /** Delete a Server's avatar. */
-    deleteServerAvatar: this.requestFunctionFactory(
-      descriptors.projectDeleteServerAvatar
-    ),
     /** Request a Server avatar upload. */
     requestServerAvatarUpload: this.requestFunctionFactory(
       descriptors.projectRequestServerAvatarUpload
+    ),
+    /** Delete a Server's avatar. */
+    deleteServerAvatar: this.requestFunctionFactory(
+      descriptors.projectDeleteServerAvatar
     ),
     /** Get the executing user's membership in a Project. */
     getOwnMembershipForProject: this.requestFunctionFactory(
@@ -915,10 +856,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update a Servers's description. */
     updateServerDescription: this.requestFunctionFactory(
       descriptors.projectUpdateServerDescription
-    ),
-    /** undefined */
-    storageStatisticsServiceStorageStatistics: this.requestFunctionFactory(
-      descriptors.storageStatisticsServiceStorageStatistics
     ),
   };
 
@@ -990,13 +927,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     serviceDeclareProcessChangeHandles: this.requestFunctionFactory(
       descriptors.domainServiceDeclareProcessChangeHandles
     ),
-    /** Delete a Domain. */
-    serviceDeleteDomain: this.requestFunctionFactory(
-      descriptors.domainServiceDeleteDomain
-    ),
     /** Get a Domain. */
     serviceGetDomain: this.requestFunctionFactory(
       descriptors.domainServiceGetDomain
+    ),
+    /** Delete a Domain. */
+    serviceDeleteDomain: this.requestFunctionFactory(
+      descriptors.domainServiceDeleteDomain
     ),
     /** Get a HandleSchema. */
     serviceGetHandleFields: this.requestFunctionFactory(
@@ -1034,13 +971,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ingressServiceCreate: this.requestFunctionFactory(
       descriptors.ingressServiceCreate
     ),
-    /** Delete an Ingress. */
-    ingressServiceDelete: this.requestFunctionFactory(
-      descriptors.ingressServiceDelete
-    ),
     /** Get an Ingress. */
     ingressServiceGetSpecific: this.requestFunctionFactory(
       descriptors.ingressServiceGetSpecific
+    ),
+    /** Delete an Ingress. */
+    ingressServiceDelete: this.requestFunctionFactory(
+      descriptors.ingressServiceDelete
     ),
     /** List Ingresses belonging to a project. */
     ingressServiceList: this.requestFunctionFactory(
@@ -1072,29 +1009,25 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get a File. */
     getFile: this.requestFunctionFactory(descriptors.fileGetFile),
-    /** Create a File. */
-    serviceFileCreateDeprecated: this.requestFunctionFactory(
-      descriptors.fileServiceFileCreateDeprecated
-    ),
   };
 
   /** The mail API allows you to manage your mail accounts. */
   public readonly mail = {
-    /** Create a new deliverybox */
-    serviceDeliveryboxCreate: this.requestFunctionFactory(
-      descriptors.mailServiceDeliveryboxCreate
-    ),
     /** Get all deliveryboxes by project ID */
     serviceDeliveryboxList: this.requestFunctionFactory(
       descriptors.mailServiceDeliveryboxList
     ),
-    /** Delete a specific deliverybox */
-    serviceDeliveryboxDelete: this.requestFunctionFactory(
-      descriptors.mailServiceDeliveryboxDelete
+    /** Create a new deliverybox */
+    serviceDeliveryboxCreate: this.requestFunctionFactory(
+      descriptors.mailServiceDeliveryboxCreate
     ),
     /** Get a specific deliverybox */
     serviceDeliveryboxGetSpecific: this.requestFunctionFactory(
       descriptors.mailServiceDeliveryboxGetSpecific
+    ),
+    /** Delete a specific deliverybox */
+    serviceDeliveryboxDelete: this.requestFunctionFactory(
+      descriptors.mailServiceDeliveryboxDelete
     ),
     /** Update the description of an deliverybox */
     serviceDeliveryboxUpdateDescription: this.requestFunctionFactory(
@@ -1104,21 +1037,21 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     serviceDeliveryboxUpdatePassword: this.requestFunctionFactory(
       descriptors.mailServiceDeliveryboxUpdatePassword
     ),
-    /** Create a new mail address */
-    serviceMailaddressCreate: this.requestFunctionFactory(
-      descriptors.mailServiceMailaddressCreate
-    ),
     /** Get all mail addresses for a project ID */
     serviceMailaddressList: this.requestFunctionFactory(
       descriptors.mailServiceMailaddressList
     ),
-    /** Delete a specific mail address */
-    serviceMailaddressDelete: this.requestFunctionFactory(
-      descriptors.mailServiceMailaddressDelete
+    /** Create a new mail address */
+    serviceMailaddressCreate: this.requestFunctionFactory(
+      descriptors.mailServiceMailaddressCreate
     ),
     /** Get a specific mail address */
     serviceMailaddressGetSpecific: this.requestFunctionFactory(
       descriptors.mailServiceMailaddressGetSpecific
+    ),
+    /** Delete a specific mail address */
+    serviceMailaddressDelete: this.requestFunctionFactory(
+      descriptors.mailServiceMailaddressDelete
     ),
     /** Update mail-address */
     serviceMailaddressUpdateAddress: this.requestFunctionFactory(
@@ -1172,13 +1105,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     declineInvite: this.requestFunctionFactory(
       descriptors.membershipDeclineInvite
     ),
-    /** Delete a membership. */
-    deleteMembership: this.requestFunctionFactory(
-      descriptors.membershipDeleteMembership
-    ),
     /** Get a membership */
     getMembership: this.requestFunctionFactory(
       descriptors.membershipGetMembership
+    ),
+    /** Delete a membership. */
+    deleteMembership: this.requestFunctionFactory(
+      descriptors.membershipDeleteMembership
     ),
     /** Get an invite. */
     getInvite: this.requestFunctionFactory(descriptors.membershipGetInvite),
@@ -1258,25 +1191,25 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The user API allows you to manage your own user and access information of other users that might be visible to you. */
   public readonly user = {
-    /** Store a new ApiToken */
-    signupApiApiTokenCreate: this.requestFunctionFactory(
-      descriptors.signupApiApiTokenCreate
-    ),
     /** List all ApiTokens of the user */
     signupApiApiTokenList: this.requestFunctionFactory(
       descriptors.signupApiApiTokenList
     ),
-    /** Deletes an ApiToken */
-    signupApiApiTokenDelete: this.requestFunctionFactory(
-      descriptors.signupApiApiTokenDelete
+    /** Store a new ApiToken */
+    signupApiApiTokenCreate: this.requestFunctionFactory(
+      descriptors.signupApiApiTokenCreate
+    ),
+    /** Get a specific ApiToken */
+    signupApiApiTokenGet: this.requestFunctionFactory(
+      descriptors.signupApiApiTokenGet
     ),
     /** Update an existing `ApiToken` */
     signupApiApiTokenEdit: this.requestFunctionFactory(
       descriptors.signupApiApiTokenEdit
     ),
-    /** Get a specific ApiToken */
-    signupApiApiTokenGet: this.requestFunctionFactory(
-      descriptors.signupApiApiTokenGet
+    /** Deletes an ApiToken */
+    signupApiApiTokenDelete: this.requestFunctionFactory(
+      descriptors.signupApiApiTokenDelete
     ),
     /** Authenticate yourself to get an access token. */
     signupApiAuthenticate: this.requestFunctionFactory(
@@ -1290,21 +1223,21 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     signupApiAuthenticateMfa: this.requestFunctionFactory(
       descriptors.signupApiAuthenticateMfa
     ),
-    /** Remove avatar */
-    signupApiAvatarRemove: this.requestFunctionFactory(
-      descriptors.signupApiAvatarRemove
-    ),
     /** Request a new avatar upload */
     signupApiAvatarRequestUpload: this.requestFunctionFactory(
       descriptors.signupApiAvatarRequestUpload
     ),
-    /** Change your email */
-    signupApiEmailChange: this.requestFunctionFactory(
-      descriptors.signupApiEmailChange
+    /** Remove avatar */
+    signupApiAvatarRemove: this.requestFunctionFactory(
+      descriptors.signupApiAvatarRemove
     ),
     /** Get your primary verified email address */
     signupApiEmailGet: this.requestFunctionFactory(
       descriptors.signupApiEmailGet
+    ),
+    /** Change your email */
+    signupApiEmailChange: this.requestFunctionFactory(
+      descriptors.signupApiEmailChange
     ),
     /** Resend the email address verification email */
     signupApiEmailResend: this.requestFunctionFactory(
@@ -1320,23 +1253,23 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     signupApiMfaConfirm: this.requestFunctionFactory(
       descriptors.signupApiMfaConfirm
     ),
-    /** Disable Multi Factor Authentication. */
-    signupApiMfaDisable: this.requestFunctionFactory(
-      descriptors.signupApiMfaDisable
-    ),
     /** Get your current multi factor auth status */
     signupApiMfaGetStatus: this.requestFunctionFactory(
       descriptors.signupApiMfaGetStatus
     ),
     /** Initialize Multi Factor Authentication. If successfull, it needs to be confirmed, before usage of mfa. */
     signupApiMfaInit: this.requestFunctionFactory(descriptors.signupApiMfaInit),
-    /** Change your password */
-    signupApiPasswordChange: this.requestFunctionFactory(
-      descriptors.signupApiPasswordChange
+    /** Disable Multi Factor Authentication. */
+    signupApiMfaDisable: this.requestFunctionFactory(
+      descriptors.signupApiMfaDisable
     ),
     /** Get timestamp of your latest password change */
     signupApiPasswordGetUpdatedAt: this.requestFunctionFactory(
       descriptors.signupApiPasswordGetUpdatedAt
+    ),
+    /** Change your password */
+    signupApiPasswordChange: this.requestFunctionFactory(
+      descriptors.signupApiPasswordChange
     ),
     /** Confirm password reset */
     signupApiPasswordResetConfirm: this.requestFunctionFactory(
@@ -1346,10 +1279,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     signupApiPasswordResetInit: this.requestFunctionFactory(
       descriptors.signupApiPasswordResetInit
     ),
-    /** Deletes phone number */
-    signupApiPhoneNumberDelete: this.requestFunctionFactory(
-      descriptors.signupApiPhoneNumberDelete
-    ),
     /** Get current phone number */
     signupApiPhoneNumberGet: this.requestFunctionFactory(
       descriptors.signupApiPhoneNumberGet
@@ -1358,9 +1287,17 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     signupApiPhoneNumberInitProcess: this.requestFunctionFactory(
       descriptors.signupApiPhoneNumberInitProcess
     ),
+    /** Deletes phone number */
+    signupApiPhoneNumberDelete: this.requestFunctionFactory(
+      descriptors.signupApiPhoneNumberDelete
+    ),
     /** Initialize phone number process */
     signupApiPhoneNumberVerify: this.requestFunctionFactory(
       descriptors.signupApiPhoneNumberVerify
+    ),
+    /** Get your profile information */
+    signupApiProfileGet: this.requestFunctionFactory(
+      descriptors.signupApiProfileGet
     ),
     /** Change your profile information */
     signupApiProfileChange: this.requestFunctionFactory(
@@ -1369,10 +1306,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Delete your profile and all your personal data */
     signupApiProfileDelete: this.requestFunctionFactory(
       descriptors.signupApiProfileDelete
-    ),
-    /** Get your profile information */
-    signupApiProfileGet: this.requestFunctionFactory(
-      descriptors.signupApiProfileGet
     ),
     /** Reset Recovery-Codes for MFA */
     signupApiRecoverycodesReset: this.requestFunctionFactory(
@@ -1403,20 +1336,20 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     signupApiSessionsTerminateAll: this.requestFunctionFactory(
       descriptors.signupApiSessionsTerminateAll
     ),
+    /** Get your stored ssh keys */
+    signupApiSshList: this.requestFunctionFactory(descriptors.signupApiSshList),
     /** Store a new SSH key */
     signupApiSshCreate: this.requestFunctionFactory(
       descriptors.signupApiSshCreate
     ),
     /** Get your stored ssh keys */
-    signupApiSshList: this.requestFunctionFactory(descriptors.signupApiSshList),
+    signupApiSshGet: this.requestFunctionFactory(descriptors.signupApiSshGet),
+    /** Edit an existing SSH key */
+    signupApiSshEdit: this.requestFunctionFactory(descriptors.signupApiSshEdit),
     /** Remove an existing SSH Key */
     signupApiSshDelete: this.requestFunctionFactory(
       descriptors.signupApiSshDelete
     ),
-    /** Edit an existing SSH key */
-    signupApiSshEdit: this.requestFunctionFactory(descriptors.signupApiSshEdit),
-    /** Get your stored ssh keys */
-    signupApiSshGet: this.requestFunctionFactory(descriptors.signupApiSshGet),
     /** request a support code */
     signupApiSupportCodeRequest: this.requestFunctionFactory(
       descriptors.signupApiSupportCodeRequest
@@ -1425,32 +1358,32 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     signupApiTokenCheck: this.requestFunctionFactory(
       descriptors.signupApiTokenCheck
     ),
-    /** Remove avatar */
-    serviceAvatarRemove: this.requestFunctionFactory(
-      descriptors.userServiceAvatarRemove
-    ),
     /** Request a new avatar upload */
     serviceAvatarRequestUpload: this.requestFunctionFactory(
       descriptors.userServiceAvatarRequestUpload
     ),
-    /**  */
-    serviceFeedbackCreate: this.requestFunctionFactory(
-      descriptors.userServiceFeedbackCreate
+    /** Remove avatar */
+    serviceAvatarRemove: this.requestFunctionFactory(
+      descriptors.userServiceAvatarRemove
     ),
     /** Returns your given feedback. */
     serviceFeedbackList: this.requestFunctionFactory(
       descriptors.userServiceFeedbackList
     ),
+    /**  */
+    serviceFeedbackCreate: this.requestFunctionFactory(
+      descriptors.userServiceFeedbackCreate
+    ),
     /** create a new issue */
     serviceIssueNew: this.requestFunctionFactory(
       descriptors.userServiceIssueNew
     ),
+    /** Get profile information for the specified user */
+    serviceUserGet: this.requestFunctionFactory(descriptors.userServiceUserGet),
     /** Change your personal information */
     servicePersonalInformationUpdate: this.requestFunctionFactory(
       descriptors.userServicePersonalInformationUpdate
     ),
-    /** Get profile information for the specified user */
-    serviceUserGet: this.requestFunctionFactory(descriptors.userServiceUserGet),
     /** Get personalized settings for the specified user */
     servicePersonalizedSettingsGet: this.requestFunctionFactory(
       descriptors.userServicePersonalizedSettingsGet
@@ -1479,45 +1412,45 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The SSH User API allows you to manage your SSH users within a project. */
   public readonly sshUser = {
-    /** Create an SFTPUser for a Project. */
-    sshuserServiceCreateSftpUser: this.requestFunctionFactory(
-      descriptors.sshuserServiceCreateSftpUser
-    ),
     /** Get all SFTPUsers for a Project. */
     sshuserServiceListSftpUser: this.requestFunctionFactory(
       descriptors.sshuserServiceListSftpUser
     ),
-    /** Create an SSHUser for a Project. */
-    sshuserServiceCreateSshUser: this.requestFunctionFactory(
-      descriptors.sshuserServiceCreateSshUser
+    /** Create an SFTPUser for a Project. */
+    sshuserServiceCreateSftpUser: this.requestFunctionFactory(
+      descriptors.sshuserServiceCreateSftpUser
     ),
     /** Get all SSHUsers for a Project. */
     sshuserServiceListSshUser: this.requestFunctionFactory(
       descriptors.sshuserServiceListSshUser
     ),
+    /** Create an SSHUser for a Project. */
+    sshuserServiceCreateSshUser: this.requestFunctionFactory(
+      descriptors.sshuserServiceCreateSshUser
+    ),
     /** Get an SFTPUser. */
     sshuserServiceGetSftpUser: this.requestFunctionFactory(
       descriptors.sshuserServiceGetSftpUser
-    ),
-    /** Update an SFTPUser. */
-    sshuserServicePatchSftpUser: this.requestFunctionFactory(
-      descriptors.sshuserServicePatchSftpUser
     ),
     /** Delete an SFTPUser. */
     sshuserServiceRemoveSftpUser: this.requestFunctionFactory(
       descriptors.sshuserServiceRemoveSftpUser
     ),
+    /** Update an SFTPUser. */
+    sshuserServicePatchSftpUser: this.requestFunctionFactory(
+      descriptors.sshuserServicePatchSftpUser
+    ),
     /** Get an SSHUser. */
     sshuserServiceGetSshUser: this.requestFunctionFactory(
       descriptors.sshuserServiceGetSshUser
     ),
-    /** Update an SSHUser. */
-    sshuserServicePatchSshUser: this.requestFunctionFactory(
-      descriptors.sshuserServicePatchSshUser
-    ),
     /** Delete an SSHUser. */
     sshuserServiceRemoveSshUser: this.requestFunctionFactory(
       descriptors.sshuserServiceRemoveSshUser
+    ),
+    /** Update an SSHUser. */
+    sshuserServicePatchSshUser: this.requestFunctionFactory(
+      descriptors.sshuserServicePatchSshUser
     ),
     /** Update access-level of an SFTPUser */
     sshuserServiceUpdateAccessLevelOfSftpUser: this.requestFunctionFactory(

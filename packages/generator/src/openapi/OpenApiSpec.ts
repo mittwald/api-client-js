@@ -1,4 +1,4 @@
-import { OpenAPI } from "openapi-types";
+import { OpenAPIV3 } from "openapi-types";
 import OpenAPISchemaValidatorDefault from "openapi-schema-validator";
 import { OpenAPISchemaValidationError } from "./OpenAPISchemaValidationError.js";
 import VError from "verror";
@@ -19,9 +19,9 @@ interface ParserOptions {
 }
 
 export class OpenApiSpec {
-  public readonly document: OpenAPI.Document;
+  public readonly document: OpenAPIV3.Document;
 
-  public constructor(document: OpenAPI.Document) {
+  public constructor(document: OpenAPIV3.Document) {
     this.document = document;
   }
 
@@ -39,7 +39,7 @@ export class OpenApiSpec {
         throw new OpenAPISchemaValidationError(validationResult.errors);
       }
 
-      return new OpenApiSpec(doc as OpenAPI.Document);
+      return new OpenApiSpec(doc as OpenAPIV3.Document);
     } catch (error) {
       throw new VError(
         { cause: makeError(error), name: "OpenAPIParserError" },

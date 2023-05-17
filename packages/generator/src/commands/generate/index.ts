@@ -1,7 +1,6 @@
 import { Args, Command, Flags, ux } from "@oclif/core";
 import { UniversalContentLoader } from "../../lib/UniversalContentLoader.js";
 import { OpenApiSpec } from "../../openapi/OpenApiSpec.js";
-import { TransformedOpenApiSpec } from "../../transformation/TransformedOpenApiSpec.js";
 import { CodeGenerationModel } from "../../generation/model/CodeGenerationModel.js";
 import jetpack from "fs-jetpack";
 import * as path from "path";
@@ -53,8 +52,7 @@ export default class Generate extends Command {
     ux.action.stop();
 
     ux.action.start("Building transformation model");
-    const transformed = await TransformedOpenApiSpec.transform(spec);
-    const model = CodeGenerationModel.fromDoc(flags.name, transformed.document);
+    const model = CodeGenerationModel.fromDoc(flags.name, spec.document);
     ux.action.stop();
 
     ux.action.start("Generating descriptors");

@@ -1,9 +1,9 @@
 import { Name } from "../../../global/Name.js";
-import * as Doc from "../../../../../transformation/TransformedOpenApiDocument.js";
 import { ResponseContent } from "./ResponseContent.js";
 import { Response } from "./Response.js";
 import { asyncStringMap } from "../../../../asyncStringMap.js";
 import { TypeCompilationOptions } from "../../../CodeGenerationModel.js";
+import { OpenAPIV3 } from "openapi-types";
 
 export class ResponseContentTypes {
   public static readonly ns = "Content";
@@ -12,11 +12,15 @@ export class ResponseContentTypes {
   public readonly name: Name;
   public readonly response: Response;
 
-  public constructor(response: Response, responseDoc: Doc.OperationResponse) {
+  public constructor(
+    response: Response,
+    responseDoc: OpenAPIV3.ResponseObject,
+  ) {
     this.response = response;
     this.name = new Name(ResponseContentTypes.ns, response.httpStatus);
     this.contentTypes = Object.entries(responseDoc.content ?? {}).map(
-      ([mediaType, schema]) => new ResponseContent(this, mediaType, schema),
+      ([mediaType, mediaTypeObject]) =>
+        new ResponseContent(this, mediaType, mediaTypeObject.schema),
     );
   }
 

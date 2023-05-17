@@ -1,9 +1,9 @@
-import * as Doc from "../../../transformation/TransformedOpenApiDocument.js";
 import { JSONSchema } from "../global/JSONSchema.js";
 import { Name } from "../global/Name.js";
 import { Components } from "./Components.js";
 import { asyncStringMap } from "../../asyncStringMap.js";
 import { TypeCompilationOptions } from "../CodeGenerationModel.js";
+import { OpenAPIV3 } from "openapi-types";
 
 export class RequestBodies {
   public static readonly ns = "RequestBodies";
@@ -12,7 +12,10 @@ export class RequestBodies {
   public readonly components: Components;
   public readonly name: Name;
 
-  public constructor(components: Components, schemas: Doc.Schemas) {
+  public constructor(
+    components: Components,
+    schemas: OpenAPIV3.ComponentsObject["requestBodies"],
+  ) {
     this.components = components;
     this.name = new Name(RequestBodies.ns, components.name);
     this.schemas = Object.entries(schemas ?? {}).map(

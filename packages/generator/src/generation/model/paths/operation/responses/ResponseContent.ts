@@ -11,7 +11,7 @@ export class ResponseContent {
   public constructor(
     contentTypes: ResponseContentTypes,
     mediaType: string,
-    schema: JSONSchemaType,
+    schema?: JSONSchemaType,
   ) {
     this.mediaType = new Name(mediaType, contentTypes.name);
     this.schema = new JSONSchema(this.mediaType, schema);

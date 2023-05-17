@@ -1,9 +1,9 @@
 import { Name } from "../../../global/Name.js";
-import * as Doc from "../../../../../transformation/TransformedOpenApiDocument.js";
 import { asyncStringMap } from "../../../../asyncStringMap.js";
 import { Response } from "./Response.js";
 import { Operation } from "../Operation.js";
 import { TypeCompilationOptions } from "../../../CodeGenerationModel.js";
+import { OpenAPIV3 } from "openapi-types";
 
 export class Responses {
   public static readonly ns = "Responses";
@@ -12,7 +12,10 @@ export class Responses {
   public readonly operation: Operation;
   public readonly name: Name;
 
-  public constructor(operation: Operation, responses: Doc.OperationResponses) {
+  public constructor(
+    operation: Operation,
+    responses: OpenAPIV3.ResponsesObject,
+  ) {
     this.operation = operation;
     this.name = new Name(Responses.ns, operation.httpMethod);
     this.responses = Object.entries(responses ?? {}).map(([name, response]) =>

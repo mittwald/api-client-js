@@ -809,35 +809,6 @@ declare namespace MittwaldAPIV2 {
         number: string;
       }
 
-      export interface DeMittwaldV1BackupBackupScheduleDeprecated {
-        /**
-         * TTL of the BackupSchedule as time string.
-         */
-        backupTtl?: string;
-        createdAt?: string;
-        /**
-         * Description of this BackupSchedule.
-         */
-        description?: string;
-        /**
-         * ID of this BackupSchedule.
-         */
-        id: string;
-        /**
-         * True if this BackupSchedule was created and is managed by mittwald.
-         */
-        isSystemBackup: boolean;
-        /**
-         * ID of the Project this BackupSchedule belongs to.
-         */
-        projectId: string;
-        /**
-         * Execution schedule in crontab notation.
-         */
-        schedule: string;
-        updatedAt?: string;
-      }
-
       export interface DeMittwaldV1ProjectDeprecatedPlacementGroup {
         customerId: string;
         description: string;
@@ -2247,12 +2218,13 @@ declare namespace MittwaldAPIV2 {
             action: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppAction;
           }
 
-          export interface RequestBody {}
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -2260,17 +2232,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -2283,10 +2249,9 @@ declare namespace MittwaldAPIV2 {
             appId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -2297,17 +2262,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -2320,10 +2279,9 @@ declare namespace MittwaldAPIV2 {
             appInstallationId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -2334,17 +2292,36 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {
+            appInstallationId: string;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
@@ -2356,23 +2333,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            appVersionId?: string;
-            customDocumentRoot?: string;
-            description?: string;
-            systemSoftware?: {
-              [k: string]: {
-                systemSoftwareVersion?: string;
-                updatePolicy?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppSystemSoftwareUpdatePolicy;
-              };
-            };
-            updatePolicy?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppAppUpdatePolicy;
-            userInputs?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppSavedUserInput[];
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -2380,49 +2346,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            appInstallationId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $204 {
             namespace Content {}
           }
 
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -2436,10 +2364,9 @@ declare namespace MittwaldAPIV2 {
             appVersionId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -2450,17 +2377,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -2473,10 +2394,9 @@ declare namespace MittwaldAPIV2 {
             systemSoftwareId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -2487,17 +2407,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -2511,10 +2425,9 @@ declare namespace MittwaldAPIV2 {
             systemSoftwareVersionId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -2525,17 +2438,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -2549,17 +2456,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            databaseId: string;
-            databaseUserIds?: {
-              [k: string]: string;
-            };
-            purpose: "primary" | "cache" | "custom";
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -2567,17 +2469,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -2590,10 +2486,7 @@ declare namespace MittwaldAPIV2 {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             limit?: number;
@@ -2610,10 +2503,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -2625,16 +2515,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            appVersionId: string;
-            description: string;
-            updatePolicy: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppAppUpdatePolicy;
-            userInputs: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppSavedUserInput[];
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -2647,17 +2533,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -2666,10 +2546,9 @@ declare namespace MittwaldAPIV2 {
     namespace V2Apps {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
 
           export interface Query {
             limit?: number;
@@ -2686,10 +2565,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -2702,10 +2578,9 @@ declare namespace MittwaldAPIV2 {
             appId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -2716,10 +2591,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -2728,10 +2600,9 @@ declare namespace MittwaldAPIV2 {
     namespace V2Systemsoftwares {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
 
           export interface Query {
             limit?: number;
@@ -2748,10 +2619,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -2764,10 +2632,7 @@ declare namespace MittwaldAPIV2 {
             systemSoftwareId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             versionRange?: string;
@@ -2782,10 +2647,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -2798,10 +2660,9 @@ declare namespace MittwaldAPIV2 {
             appInstallationId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -2812,17 +2673,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -2837,15 +2692,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            databaseUserIds: {
-              [k: string]: string;
-            };
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -2853,17 +2705,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -2875,10 +2721,9 @@ declare namespace MittwaldAPIV2 {
             databaseId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -2886,17 +2731,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -2910,18 +2749,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            status: {
-              appJob: {
-                name: string;
-                namespace: string;
-              };
-            };
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -2929,17 +2762,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -2952,9 +2779,7 @@ declare namespace MittwaldAPIV2 {
             articleId: string;
           }
 
-          export interface Header {
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             customerId?: string;
@@ -2969,17 +2794,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -2988,9 +2807,9 @@ declare namespace MittwaldAPIV2 {
     namespace V2Articles {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
 
           export interface Query {
             customerId?: string;
@@ -3019,10 +2838,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -3036,20 +2852,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            /**
-             * The desired format to export the ProjectBackup in.
-             */
-            format: "tar" | "zip";
-            /**
-             * Password to use to protect the archive.
-             */
-            password?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -3057,31 +2865,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -3092,10 +2888,9 @@ declare namespace MittwaldAPIV2 {
             projectBackupId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -3103,97 +2898,30 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2ProjectsProjectIdBackupSchedules {
-      namespace Post {
-        namespace Parameters {
-          export interface Path {
-            projectId: string;
-          }
-
-          export interface RequestBody {
-            /**
-             * Description of the BackupSchedule.
-             */
-            description?: string;
-            /**
-             * Execution schedule in crontab notation.
-             */
-            schedule: string;
-            /**
-             * TTL of the BackupSchedule as time string.
-             */
-            ttl: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1BackupProjectBackupSchedule;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
           export interface Path {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -3204,16 +2932,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
-    }
 
-    namespace V2ProjectsProjectIdBackups {
       namespace Post {
         namespace Parameters {
           export interface Path {
@@ -3221,62 +2944,46 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            /**
-             * Description of the Backup.
-             */
-            description?: string;
-            /**
-             * Time when to expire the Backup.
-             */
-            expirationTime: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1BackupProjectBackup;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1BackupProjectBackupSchedule;
             }
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
+    }
 
+    namespace V2ProjectsProjectIdBackups {
       namespace Get {
         namespace Parameters {
           export interface Path {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -3287,65 +2994,58 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export interface Path {
+            projectId: string;
+          }
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $201 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1BackupProjectBackup;
             }
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2ProjectBackupSchedulesProjectBackupScheduleId {
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            projectBackupScheduleId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {}
-          }
-
-          namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
           export interface Path {
             projectBackupScheduleId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -3356,24 +3056,44 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {
+            projectBackupScheduleId: string;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace $403 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
@@ -3385,24 +3105,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            /**
-             * Description of the ProjectBackupSchedule. Note that the description of isSystemBackup true items cannot be changed.
-             */
-            description?: string;
-            /**
-             * Execution schedule in crontab notation. Note that the schedule of isSystemBackup true items cannot be changed.
-             */
-            schedule?: string;
-            /**
-             * TTL of the ProjectBackupSchedule as time string.
-             */
-            ttl?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -3410,86 +3118,34 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $412 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2ProjectBackupsProjectBackupId {
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            projectBackupId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {}
-          }
-
-          namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
           export interface Path {
             projectBackupId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -3500,24 +3156,44 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {
+            projectBackupId: string;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace $403 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
@@ -3531,16 +3207,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            /**
-             * Description of the ProjectBackup.
-             */
-            description?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -3548,83 +3220,25 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2ContractsContractIdItemsContractItemIdTermination {
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            contractId: string;
-            contractItemId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                contractId?: string;
-                contractItemId?: string;
-                isCancelled?: boolean;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Post {
         namespace Parameters {
           export interface Path {
@@ -3633,20 +3247,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            /**
-             * A reason for the Termination can be given as plain text.
-             */
-            reason?: string;
-            /**
-             * The termination date has to be a valid date according to activation and contract period of the ContractItem. If none given, the next possible termination date will be used.
-             */
-            terminationTargetDate?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -3661,30 +3267,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
-    }
 
-    namespace V2ContractsContractIdItemsContractItemIdTariffChange {
       namespace Delete {
         namespace Parameters {
           export interface Path {
@@ -3692,10 +3287,13 @@ declare namespace MittwaldAPIV2 {
             contractItemId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -3709,74 +3307,63 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
-    namespace V2ContractsContractIdTermination {
+    namespace V2ContractsContractIdItemsContractItemIdTariffChange {
       namespace Delete {
         namespace Parameters {
           export interface Path {
             contractId: string;
+            contractItemId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
             namespace Content {
               export interface ApplicationJson {
                 contractId?: string;
+                contractItemId?: string;
                 isCancelled?: boolean;
               }
             }
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
+    }
 
+    namespace V2ContractsContractIdTermination {
       namespace Post {
         namespace Parameters {
           export interface Path {
@@ -3784,20 +3371,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            /**
-             * A reason for the termination can be given as plain text.
-             */
-            reason?: string;
-            /**
-             * The termination date has to be a valid date according to activation and contract period of the base ContractItem. If none given, the next possible termination date will be used.
-             */
-            terminationTargetDate?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -3812,24 +3391,53 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {
+            contractId: string;
+          }
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
+              export interface ApplicationJson {
+                contractId?: string;
+                isCancelled?: boolean;
+              }
             }
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
@@ -3842,10 +3450,9 @@ declare namespace MittwaldAPIV2 {
             contractId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -3856,24 +3463,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -3886,10 +3484,9 @@ declare namespace MittwaldAPIV2 {
             domainId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -3900,24 +3497,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -3930,10 +3518,9 @@ declare namespace MittwaldAPIV2 {
             serverId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -3944,24 +3531,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -3974,10 +3552,9 @@ declare namespace MittwaldAPIV2 {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -3988,24 +3565,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -4019,10 +3587,9 @@ declare namespace MittwaldAPIV2 {
             contractItemId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -4033,24 +3600,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -4063,10 +3621,9 @@ declare namespace MittwaldAPIV2 {
             contractId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -4077,24 +3634,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -4108,10 +3656,9 @@ declare namespace MittwaldAPIV2 {
             contractItemId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -4124,24 +3671,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -4154,10 +3692,7 @@ declare namespace MittwaldAPIV2 {
             customerId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             limit?: number;
@@ -4174,74 +3709,28 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2Conversations {
-      namespace Post {
-        namespace Parameters {
-          export interface RequestBody {
-            categoryId?: string;
-            relatedTo?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ConversationAggregateReference;
-            title: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                conversationId: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -4252,82 +3741,53 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
-    }
 
-    namespace V2ConversationsConversationIdMessages {
       namespace Post {
         namespace Parameters {
-          export interface Path {
-            conversationId: string;
-          }
+          export interface Path {}
 
           export interface RequestBody {
-            fileIds?: string[];
-            messageContent?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
             namespace Content {
               export interface ApplicationJson {
                 conversationId: string;
-                messageId: string;
               }
             }
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
+    }
 
+    namespace V2ConversationsConversationIdMessages {
       namespace Get {
         namespace Parameters {
           export interface Path {
             conversationId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -4340,24 +3800,57 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export interface Path {
+            conversationId: string;
+          }
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $201 {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
+              export interface ApplicationJson {
+                conversationId: string;
+                messageId: string;
+              }
             }
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $403 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
@@ -4366,10 +3859,9 @@ declare namespace MittwaldAPIV2 {
     namespace V2ConversationCategories {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
 
           export interface Query {
             includeSubCategories?: boolean;
@@ -4384,10 +3876,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -4400,10 +3889,9 @@ declare namespace MittwaldAPIV2 {
             categoryId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -4414,24 +3902,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -4444,10 +3923,9 @@ declare namespace MittwaldAPIV2 {
             conversationId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -4458,31 +3936,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -4494,15 +3960,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            categoryId?: string;
-            relatedTo?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ConversationAggregateReference;
-            title?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -4514,31 +3977,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -4551,12 +4002,13 @@ declare namespace MittwaldAPIV2 {
             conversationId: string;
           }
 
-          export interface RequestBody {}
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -4585,17 +4037,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -4609,13 +4055,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            status: "open" | "answered" | "closed";
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -4627,31 +4072,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -4666,13 +4099,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            messageContent?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -4684,31 +4116,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -4722,10 +4142,13 @@ declare namespace MittwaldAPIV2 {
             executionId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -4735,79 +4158,24 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2ProjectsProjectIdCronjobs {
-      namespace Post {
-        namespace Parameters {
-          export interface Path {
-            projectId: string;
-          }
-
-          export type RequestBody =
-            MittwaldAPIV2.Components.Schemas.DeMittwaldV1CronjobCronjobRequest;
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                id: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
           export interface Path {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             limit?: number;
@@ -4824,72 +4192,57 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export interface Path {
+            projectId: string;
+          }
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $201 {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
+              export interface ApplicationJson {
+                id: string;
+              }
             }
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $412 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2CronjobsCronjobIdExecutions {
-      namespace Post {
-        namespace Parameters {
-          export interface Path {
-            cronjobId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                /**
-                 * execution-id
-                 */
-                id: string;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
           export interface Path {
             cronjobId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             limit?: number;
@@ -4909,26 +4262,90 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export interface Path {
+            cronjobId: string;
+          }
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $201 {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
+              export interface ApplicationJson {
+                /**
+                 * execution-id
+                 */
+                id: string;
+              }
             }
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace $412 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2CronjobsCronjobId {
+      namespace Get {
+        namespace Parameters {
+          export interface Path {
+            cronjobId: string;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CronjobCronjob;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
       namespace Delete {
         namespace Parameters {
           export interface Path {
             cronjobId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -4940,59 +4357,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $412 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
-      namespace Get {
-        namespace Parameters {
-          export interface Path {
-            cronjobId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CronjobCronjob;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -5004,19 +4377,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            active?: boolean;
-            description?: string;
-            destination?:
-              | MittwaldAPIV2.Components.Schemas.DeMittwaldV1CronjobCronjobUrl
-              | MittwaldAPIV2.Components.Schemas.DeMittwaldV1CronjobCronjobCommand;
-            email?: string;
-            interval?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -5026,31 +4392,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $412 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -5064,10 +4418,9 @@ declare namespace MittwaldAPIV2 {
             cronjobId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -5078,17 +4431,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -5102,13 +4449,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            appId: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -5118,24 +4464,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $412 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -5150,17 +4487,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            /**
-             * Time the CustomerMembership should expire at.
-             */
-            expiresAt?: string;
-            role: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerRoles;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -5168,25 +4500,47 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2Customercategories {
+      namespace Get {
+        namespace Parameters {
+          export interface Path {}
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                categories?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1CustomerCategory[];
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
       namespace Post {
         namespace Parameters {
-          export type RequestBody =
-            MittwaldAPIV2.Components.Schemas.DeMittwaldV1CustomerCategory;
+          export interface Path {}
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -5202,57 +4556,51 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
-      namespace Get {
-        namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                categories?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1CustomerCategory[];
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2CustomerCategories {
+      namespace Get {
+        namespace Parameters {
+          export interface Path {}
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                categories?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1CustomerCategory[];
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
       namespace Post {
         namespace Parameters {
-          export type RequestBody =
-            MittwaldAPIV2.Components.Schemas.DeMittwaldV1CustomerCategory;
+          export interface Path {}
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -5268,42 +4616,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
-      namespace Get {
-        namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                categories?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1CustomerCategory[];
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -5312,30 +4629,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2InvitesCustomer {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            /**
-             * ID of the Customer this invite is for.
-             */
-            customerId: string;
-            /**
-             * Mail-address of the person to be invited.
-             */
-            mailAddress: string;
-            /**
-             * Time the resulting CustomerMembership should expire at.
-             */
-            membershipExpiresAt?: string;
-            /**
-             * Message contained in the CustomerInvite.
-             */
-            message?: string;
-            role: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerRoles;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -5346,77 +4648,26 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $409 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2Customers {
-      namespace Post {
-        namespace Parameters {
-          export interface RequestBody {
-            categoryId?: string;
-            name: string;
-            owner?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1CustomerContact;
-            vatId?: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                customerId: string;
-                customerNumber: string;
-                name: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
 
           export interface Query {
             role?: string;
@@ -5434,73 +4685,53 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export interface Path {}
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $201 {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
+              export interface ApplicationJson {
+                customerId: string;
+                customerNumber: string;
+                name: string;
+              }
             }
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2CustomersCustomerIdNotes {
-      namespace Post {
-        namespace Parameters {
-          export interface Path {
-            customerId: string;
-          }
-
-          export interface RequestBody {
-            isImportant?: boolean;
-            message: string;
-            subject: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                author?: string;
-                customerId: string;
-                isImportant?: boolean;
-                message?: string;
-                noteId: string;
-                subject?: string;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
           export interface Path {
             customerId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             limit?: number;
@@ -5517,60 +4748,64 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export interface Path {
+            customerId: string;
+          }
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $201 {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
+              export interface ApplicationJson {
+                author?: string;
+                customerId: string;
+                isImportant?: boolean;
+                message?: string;
+                noteId: string;
+                subject?: string;
+              }
             }
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2CustomercategoriesCategoryId {
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            categoryId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {}
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
           export interface Path {
             categoryId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -5581,10 +4816,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -5595,13 +4827,13 @@ declare namespace MittwaldAPIV2 {
             categoryId: string;
           }
 
-          export type RequestBody =
-            MittwaldAPIV2.Components.Schemas.DeMittwaldV1CustomerCategory;
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -5617,67 +4849,51 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {
+            categoryId: string;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2CustomerCategoriesCategoryId {
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            categoryId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {}
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
           export interface Path {
             categoryId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -5688,10 +4904,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -5702,13 +4915,13 @@ declare namespace MittwaldAPIV2 {
             categoryId: string;
           }
 
-          export type RequestBody =
-            MittwaldAPIV2.Components.Schemas.DeMittwaldV1CustomerCategory;
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -5724,74 +4937,51 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {
+            categoryId: string;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2CustomersCustomerId {
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            customerId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {}
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
           export interface Path {
             customerId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -5802,17 +4992,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -5824,17 +5008,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            categoryId?: string;
-            customerId: string;
-            name: string;
-            owner?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1CustomerContact;
-            vatId?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -5848,78 +5027,59 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {
+            customerId: string;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2CustomersCustomerIdNotesNoteId {
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            customerId: string;
-            noteId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {}
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Post {
         namespace Parameters {
           export interface Path {
             customerId: string;
           }
 
-          export type RequestBody =
-            MittwaldAPIV2.Components.Schemas.DeMittwaldV1CustomerNote;
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -5936,17 +5096,37 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {
+            customerId: string;
+            noteId: string;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
@@ -5959,10 +5139,9 @@ declare namespace MittwaldAPIV2 {
             customerId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -5974,24 +5153,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -6004,10 +5174,7 @@ declare namespace MittwaldAPIV2 {
             customerId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             limit?: number;
@@ -6023,17 +5190,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -6046,10 +5207,7 @@ declare namespace MittwaldAPIV2 {
             customerId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             limit?: number;
@@ -6065,71 +5223,30 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2CustomersCustomerIdAvatar {
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            customerId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {}
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace $401 {
-            namespace Content {
-              export interface ApplicationJson {}
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Post {
         namespace Parameters {
           export interface Path {
             customerId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -6157,10 +5274,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $401 {
@@ -6176,9 +5290,72 @@ declare namespace MittwaldAPIV2 {
           }
         }
       }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {
+            customerId: string;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $401 {
+            namespace Content {
+              export interface ApplicationJson {}
+            }
+          }
+
+          namespace $500 {
+            namespace Content {}
+          }
+        }
+      }
     }
 
     namespace V2ProjectsProjectIdMysqlDatabases {
+      namespace Get {
+        namespace Parameters {
+          export interface Path {
+            projectId: string;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseMySqlDatabase[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
       namespace Post {
         namespace Parameters {
           export interface Path {
@@ -6186,14 +5363,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            database: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseMySqlDatabase;
-            user?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseMySqlUser;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $202 {
@@ -6205,128 +5380,30 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
-      namespace Get {
-        namespace Parameters {
-          export interface Path {
-            projectId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseMySqlDatabase[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2MysqlDatabasesDatabaseIdUsers {
-      namespace Post {
-        namespace Parameters {
-          export interface Path {
-            databaseId: string;
-          }
-
-          export type RequestBody =
-            MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseMySqlUser;
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                id: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
           export interface Path {
             databaseId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -6337,51 +5414,32 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
-    }
 
-    namespace V2ProjectsProjectIdRedisDatabases {
       namespace Post {
         namespace Parameters {
           export interface Path {
-            projectId: string;
+            databaseId: string;
           }
 
           export interface RequestBody {
-            /**
-             * A description for the database.
-             */
-            description: string;
-            /**
-             * The version the database should use.
-             */
-            version: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -6393,38 +5451,30 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
+    }
 
+    namespace V2ProjectsProjectIdRedisDatabases {
       namespace Get {
         namespace Parameters {
           export interface Path {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -6435,97 +5485,67 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export interface Path {
+            projectId: string;
+          }
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $201 {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
+              export interface ApplicationJson {
+                id: string;
+              }
             }
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2MysqlDatabasesId {
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            id: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {}
-          }
-
-          namespace $204 {
-            namespace Content {}
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace $503 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
           export interface Path {
             id: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -6536,47 +5556,32 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
-    }
 
-    namespace V2MysqlUsersId {
       namespace Delete {
         namespace Parameters {
           export interface Path {
             id: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -6588,38 +5593,38 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+          namespace $412 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {}
+          }
+
+          namespace $503 {
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
+    }
 
+    namespace V2MysqlUsersId {
       namespace Get {
         namespace Parameters {
           export interface Path {
             id: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -6630,24 +5635,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -6659,16 +5655,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            accessIpMask?: string;
-            accessLevel: "full" | "readonly";
-            description: string;
-            externalAccess?: boolean;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -6676,40 +5668,28 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
-    }
 
-    namespace V2RedisDatabasesId {
       namespace Delete {
         namespace Parameters {
           export interface Path {
             id: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -6721,52 +5701,30 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
-          namespace $412 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace $503 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+          namespace $404 {
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
+    }
 
+    namespace V2RedisDatabasesId {
       namespace Get {
         namespace Parameters {
           export interface Path {
             id: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -6777,31 +5735,60 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {
+            id: string;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $412 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {}
+          }
+
+          namespace $503 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
@@ -6814,10 +5801,9 @@ declare namespace MittwaldAPIV2 {
             id: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -6825,24 +5811,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -6855,10 +5832,9 @@ declare namespace MittwaldAPIV2 {
             id: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -6866,24 +5842,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -6896,10 +5863,9 @@ declare namespace MittwaldAPIV2 {
             id: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -6910,24 +5876,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -6936,10 +5893,9 @@ declare namespace MittwaldAPIV2 {
     namespace V2MysqlCharsets {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
 
           export interface Query {
             version: string;
@@ -6954,24 +5910,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -6980,10 +5927,9 @@ declare namespace MittwaldAPIV2 {
     namespace V2MysqlVersions {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
 
           export interface Query {
             projectId: string;
@@ -6998,24 +5944,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -7024,10 +5961,9 @@ declare namespace MittwaldAPIV2 {
     namespace V2RedisVersions {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
 
           export interface Query {
             projectId: string;
@@ -7042,73 +5978,21 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2MysqlDatabasesIdDefaultCharset {
-      namespace Patch {
-        namespace Parameters {
-          export interface Path {
-            id: string;
-          }
-
-          export interface RequestBody {
-            characterSettings: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseCharacterSettings;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {}
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Put {
         namespace Parameters {
           export interface Path {
@@ -7116,13 +6000,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            characterSettings: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseCharacterSettings;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -7130,73 +6013,54 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Patch {
+        namespace Parameters {
+          export interface Path {
+            id: string;
+          }
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2MysqlDatabasesIdDescription {
-      namespace Patch {
-        namespace Parameters {
-          export interface Path {
-            id: string;
-          }
-
-          export interface RequestBody {
-            description: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {}
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Put {
         namespace Parameters {
           export interface Path {
@@ -7204,13 +6068,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            description: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -7218,24 +6081,48 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Patch {
+        namespace Parameters {
+          export interface Path {
+            id: string;
+          }
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
@@ -7249,13 +6136,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            password: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -7263,73 +6149,21 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2RedisDatabasesIdDescription {
-      namespace Patch {
-        namespace Parameters {
-          export interface Path {
-            id: string;
-          }
-
-          export interface RequestBody {
-            description: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {}
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Put {
         namespace Parameters {
           export interface Path {
@@ -7337,13 +6171,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            description: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -7351,24 +6184,48 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Patch {
+        namespace Parameters {
+          export interface Path {
+            id: string;
+          }
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
@@ -7382,10 +6239,9 @@ declare namespace MittwaldAPIV2 {
             appVersionId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -7396,17 +6252,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -7419,10 +6269,9 @@ declare namespace MittwaldAPIV2 {
             appId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -7433,667 +6282,13 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectsProjectIdProjectbackups {
-      namespace Post {
-        namespace Parameters {
-          export interface Path {
-            projectId: string;
-          }
-
-          export interface RequestBody {
-            /**
-             * Description of the ProjectBackup.
-             */
-            description?: string;
-            /**
-             * Time when to expire the ProjectBackup.
-             */
-            expirationTime: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1BackupProjectBackup;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
-      namespace Get {
-        namespace Parameters {
-          export interface Path {
-            projectId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1BackupProjectBackup[];
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectsProjectIdSchedules {
-      namespace Post {
-        namespace Parameters {
-          export interface Path {
-            projectId: string;
-          }
-
-          export interface RequestBody {
-            /**
-             * Description of the BackupSchedule.
-             */
-            description?: string;
-            /**
-             * Execution schedule in crontab notation.
-             */
-            schedule: string;
-            /**
-             * TTL of the BackupSchedule as time string.
-             */
-            ttl: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1BackupBackupScheduleDeprecated;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
-      namespace Get {
-        namespace Parameters {
-          export interface Path {
-            projectId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1BackupBackupScheduleDeprecated[];
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectbackupsBackupId {
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            backupId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $204 {
             namespace Content {}
-          }
-
-          namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
-      namespace Get {
-        namespace Parameters {
-          export interface Path {
-            backupId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1BackupProjectBackup;
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectbackupsBackupIdExport {
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            backupId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {}
-          }
-
-          namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
-      namespace Post {
-        namespace Parameters {
-          export interface Path {
-            backupId: string;
-          }
-
-          export interface RequestBody {
-            /**
-             * The desired format to export the ProjectBackup in.
-             */
-            format: "tar" | "zip";
-            /**
-             * Password to use to protect the archive.
-             */
-            password?: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {}
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2BackupschedulesScheduleId {
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            scheduleId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {}
-          }
-
-          namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
-      namespace Get {
-        namespace Parameters {
-          export interface Path {
-            scheduleId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1BackupBackupScheduleDeprecated;
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
-      namespace Patch {
-        namespace Parameters {
-          export interface Path {
-            scheduleId: string;
-          }
-
-          export interface RequestBody {
-            /**
-             * Description of the BackupSchedule.
-             */
-            description?: string;
-            /**
-             * Execution schedule in crontab notation.
-             */
-            schedule?: string;
-            /**
-             * TTL of the BackupSchedule as time string.
-             */
-            ttl?: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {}
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2BackupschedulesScheduleIdTtl {
-      namespace Put {
-        namespace Parameters {
-          export interface Path {
-            scheduleId: string;
-          }
-
-          export interface RequestBody {
-            /**
-             * TTL of the BackupSchedule as time string.
-             */
-            ttl: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {}
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectbackupsBackupIdDescription {
-      namespace Put {
-        namespace Parameters {
-          export interface Path {
-            backupId: string;
-          }
-
-          export interface RequestBody {
-            /**
-             * Description of the ProjectBackup.
-             */
-            description?: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {}
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
           }
         }
       }
     }
 
     namespace V2ContractsContractIdItemsContractItemIdTerminations {
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            contractId: string;
-            contractItemId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                contractId?: string;
-                contractItemId?: string;
-                isCancelled?: boolean;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Post {
         namespace Parameters {
           export interface Path {
@@ -8102,20 +6297,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            /**
-             * A reason for the Termination can be given as plain text.
-             */
-            reason?: string;
-            /**
-             * The termination date has to be a valid date according to activation and contract period of the ContractItem. If none given, the next possible termination date will be used.
-             */
-            terminationTargetDate?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -8130,30 +6317,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
-    }
 
-    namespace V2ContractsContractIdItemsContractItemIdTariffChanges {
       namespace Delete {
         namespace Parameters {
           export interface Path {
@@ -8161,10 +6337,13 @@ declare namespace MittwaldAPIV2 {
             contractItemId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -8178,74 +6357,63 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
-    namespace V2ContractsContractIdTerminations {
+    namespace V2ContractsContractIdItemsContractItemIdTariffChanges {
       namespace Delete {
         namespace Parameters {
           export interface Path {
             contractId: string;
+            contractItemId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
             namespace Content {
               export interface ApplicationJson {
                 contractId?: string;
+                contractItemId?: string;
                 isCancelled?: boolean;
               }
             }
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
+    }
 
+    namespace V2ContractsContractIdTerminations {
       namespace Post {
         namespace Parameters {
           export interface Path {
@@ -8253,20 +6421,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            /**
-             * A reason for the termination can be given as plain text.
-             */
-            reason?: string;
-            /**
-             * The termination date has to be a valid date according to activation and contract period of the base ContractItem. If none given, the next possible termination date will be used.
-             */
-            terminationTargetDate?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -8281,24 +6441,53 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {
+            contractId: string;
+          }
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
+              export interface ApplicationJson {
+                contractId?: string;
+                isCancelled?: boolean;
+              }
             }
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
@@ -8312,10 +6501,9 @@ declare namespace MittwaldAPIV2 {
             contractId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -8342,10 +6530,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -8358,10 +6543,9 @@ declare namespace MittwaldAPIV2 {
             contractId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -8372,24 +6556,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -8398,10 +6573,9 @@ declare namespace MittwaldAPIV2 {
     namespace V2Contracts {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
 
           export interface Query {
             projectId?: string;
@@ -8419,24 +6593,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -8450,10 +6615,9 @@ declare namespace MittwaldAPIV2 {
             contractItemId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -8466,24 +6630,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -8497,10 +6652,13 @@ declare namespace MittwaldAPIV2 {
             executionId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -8510,17 +6668,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -8534,16 +6686,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            /**
-             * Token contained in the invite for authentication.
-             */
-            invitationToken?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -8551,31 +6699,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $412 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -8584,17 +6720,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2InvitesCustomerAccept {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            /**
-             * Token contained in the invite for authentication.
-             */
-            invitationToken?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -8602,38 +6736,23 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $412 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -8647,17 +6766,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            /**
-             * Time the CustomerMembership should expire at.
-             */
-            expiresAt?: string;
-            role: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerRoles;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -8665,10 +6779,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -8679,10 +6790,9 @@ declare namespace MittwaldAPIV2 {
             membershipId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -8690,10 +6800,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -8706,10 +6813,9 @@ declare namespace MittwaldAPIV2 {
             inviteId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -8717,10 +6823,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -8733,10 +6836,9 @@ declare namespace MittwaldAPIV2 {
             inviteId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -8747,17 +6849,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -8771,10 +6867,9 @@ declare namespace MittwaldAPIV2 {
             customerId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -8785,17 +6880,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -8808,10 +6897,9 @@ declare namespace MittwaldAPIV2 {
             membershipId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -8819,10 +6907,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -8831,10 +6916,9 @@ declare namespace MittwaldAPIV2 {
     namespace V2MembershipsCustomers {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
 
           export interface Query {
             limit?: number;
@@ -8850,17 +6934,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -8869,10 +6947,9 @@ declare namespace MittwaldAPIV2 {
     namespace V2InvitesCustomersMe {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
 
           export interface Query {
             limit?: number;
@@ -8888,17 +6965,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -8915,10 +6986,9 @@ declare namespace MittwaldAPIV2 {
             [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -8926,17 +6996,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -8949,10 +7013,9 @@ declare namespace MittwaldAPIV2 {
             inviteId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -8960,29 +7023,58 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2ProjectsProjectIdDatabaseMysqlDatabases {
+      namespace Get {
+        namespace Parameters {
+          export interface Path {
+            projectId: string;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseMySqlDatabase[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
       namespace Post {
         namespace Parameters {
           export interface Path {
             projectId: string;
           }
 
-          export type RequestBody =
-            MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseMySqlDatabase;
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -8994,66 +7086,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
-      namespace Get {
-        namespace Parameters {
-          export interface Path {
-            projectId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseMySqlDatabase[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -9067,14 +7108,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            database: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseMySqlDatabase;
-            user: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseMySqlUser;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $202 {
@@ -9086,30 +7125,53 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2ProjectsProjectIdDatabaseRedisDatabases {
+      namespace Get {
+        namespace Parameters {
+          export interface Path {
+            projectId: string;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseRedisDatabase[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
       namespace Post {
         namespace Parameters {
           export interface Path {
@@ -9117,20 +7179,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            /**
-             * A description for the database.
-             */
-            description: string;
-            /**
-             * The version the database should use.
-             */
-            version: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -9142,125 +7196,30 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
-      namespace Get {
-        namespace Parameters {
-          export interface Path {
-            projectId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseRedisDatabase[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2MysqlDatabasesUsersUserId {
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            userId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {}
-          }
-
-          namespace $204 {
-            namespace Content {}
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
           export interface Path {
             userId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -9271,24 +7230,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -9300,16 +7250,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            accessIpMask?: string;
-            accessLevel: "full" | "readonly";
-            description: string;
-            externalAccess?: boolean;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -9317,24 +7263,48 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {
+            userId: string;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
@@ -9347,10 +7317,9 @@ declare namespace MittwaldAPIV2 {
             userId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -9358,24 +7327,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -9388,10 +7348,9 @@ declare namespace MittwaldAPIV2 {
             userId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -9399,24 +7358,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -9429,10 +7379,9 @@ declare namespace MittwaldAPIV2 {
             userId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -9443,24 +7392,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -9473,10 +7413,9 @@ declare namespace MittwaldAPIV2 {
             version: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -9489,24 +7428,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -9519,10 +7449,9 @@ declare namespace MittwaldAPIV2 {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -9533,24 +7462,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -9563,10 +7483,9 @@ declare namespace MittwaldAPIV2 {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -9577,24 +7496,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -9608,13 +7518,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            password: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -9622,24 +7531,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -9651,13 +7551,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            password: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -9665,24 +7564,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -9695,10 +7585,9 @@ declare namespace MittwaldAPIV2 {
             customerId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -9709,24 +7598,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -9738,19 +7618,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            additionalEmailRecipients?: string[];
-            invoicePeriod: number;
-            paymentSettings: MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoicePaymentSettings;
-            printedInvoices?: boolean;
-            recipient?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoiceRecipient;
-            recipientSameAsOwner?: boolean;
-            targetDay?: number;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -9761,72 +7634,34 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2PlacementgroupsPlacementGroupIdAvatar {
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            placementGroupId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {}
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Post {
         namespace Parameters {
           export interface Path {
             placementGroupId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -9839,17 +7674,36 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {
+            placementGroupId: string;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
@@ -9862,10 +7716,9 @@ declare namespace MittwaldAPIV2 {
             placementGroupId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -9876,17 +7729,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -9895,10 +7742,9 @@ declare namespace MittwaldAPIV2 {
     namespace V2Placementgroups {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
 
           export interface Query {
             customerId?: string;
@@ -9916,10 +7762,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -9933,13 +7776,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            description: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -9947,10 +7789,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
         }
       }
@@ -9964,16 +7803,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            /**
-             * Token contained in the invite for authentication.
-             */
-            invitationToken?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -9981,31 +7816,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $412 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10014,17 +7837,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2InvitesProjectAccept {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            /**
-             * Token contained in the invite for authentication.
-             */
-            invitationToken?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -10032,38 +7853,23 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $412 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10077,17 +7883,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            /**
-             * Time the ProjectMembership should expire at.
-             */
-            expiresAt?: string;
-            role: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectRoles;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -10095,10 +7896,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10109,10 +7907,9 @@ declare namespace MittwaldAPIV2 {
             membershipId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -10120,10 +7917,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10137,16 +7931,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            /**
-             * Name of the Project as it is displayed in the mStudio.
-             */
-            description: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -10158,24 +7948,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $412 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10188,10 +7969,9 @@ declare namespace MittwaldAPIV2 {
             inviteId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -10199,10 +7979,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10215,10 +7992,9 @@ declare namespace MittwaldAPIV2 {
             inviteId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -10229,17 +8005,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10253,10 +8023,9 @@ declare namespace MittwaldAPIV2 {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -10267,17 +8036,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10290,10 +8053,9 @@ declare namespace MittwaldAPIV2 {
             membershipId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -10301,10 +8063,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10313,10 +8072,9 @@ declare namespace MittwaldAPIV2 {
     namespace V2InvitesProjectsMe {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
 
           export interface Query {
             limit?: number;
@@ -10332,17 +8090,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10351,10 +8103,9 @@ declare namespace MittwaldAPIV2 {
     namespace V2MembershipsProjects {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
 
           export interface Query {
             limit?: number;
@@ -10370,17 +8121,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10397,10 +8142,9 @@ declare namespace MittwaldAPIV2 {
             [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -10408,17 +8152,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10431,10 +8169,9 @@ declare namespace MittwaldAPIV2 {
             inviteId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -10442,10 +8179,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10459,13 +8193,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            description: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -10473,24 +8206,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10502,13 +8226,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            description: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -10516,24 +8239,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10547,13 +8261,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            appId: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -10563,24 +8276,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $412 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10593,14 +8297,13 @@ declare namespace MittwaldAPIV2 {
             zoneId: string;
           }
 
-          export type RequestBody =
-            | MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordUnset
-            | MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsCombinedACustom;
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -10608,17 +8311,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10631,12 +8328,13 @@ declare namespace MittwaldAPIV2 {
             zoneId: string;
           }
 
-          export interface RequestBody {}
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -10648,17 +8346,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10671,14 +8363,13 @@ declare namespace MittwaldAPIV2 {
             zoneId: string;
           }
 
-          export type RequestBody =
-            | MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordUnset
-            | MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordCNAMEComponent;
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -10686,17 +8377,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10709,14 +8394,13 @@ declare namespace MittwaldAPIV2 {
             zoneId: string;
           }
 
-          export type RequestBody =
-            | MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordUnset
-            | MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordMXCustom;
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -10724,17 +8408,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10747,12 +8425,13 @@ declare namespace MittwaldAPIV2 {
             zoneId: string;
           }
 
-          export interface RequestBody {}
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -10760,17 +8439,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10783,14 +8456,13 @@ declare namespace MittwaldAPIV2 {
             zoneId: string;
           }
 
-          export type RequestBody =
-            | MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordUnset
-            | MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordTXTComponent;
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -10798,17 +8470,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10821,10 +8487,9 @@ declare namespace MittwaldAPIV2 {
             zoneId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -10835,17 +8500,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10858,10 +8517,9 @@ declare namespace MittwaldAPIV2 {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -10872,17 +8530,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10895,10 +8547,9 @@ declare namespace MittwaldAPIV2 {
             domainId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -10906,24 +8557,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10937,49 +8579,28 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            /**
-             * @minItems 1
-             */
-            ownerC: [
-              MittwaldAPIV2.Components.Schemas.DeMittwaldV1DomainHandleField,
-              ...MittwaldAPIV2.Components.Schemas.DeMittwaldV1DomainHandleField[]
-            ];
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                isAsync?: boolean;
-                transactionId?: string;
-              }
-            }
+            namespace Content {}
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -10993,13 +8614,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            projectId?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -11007,24 +8627,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -11033,13 +8644,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2Domains {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            domain: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -11051,17 +8664,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -11074,10 +8681,13 @@ declare namespace MittwaldAPIV2 {
             domainId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -11089,24 +8699,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -11119,10 +8720,13 @@ declare namespace MittwaldAPIV2 {
             domainId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -11130,24 +8734,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -11161,16 +8756,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            /**
-             * @minItems 2
-             */
-            nameservers?: [string, string, ...string[]];
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -11178,24 +8769,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -11209,43 +8791,28 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            authCode: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                isAsync?: boolean;
-                transactionId?: string;
-              }
-            }
+            namespace Content {}
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -11259,116 +8826,43 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            /**
-             * @minItems 1
-             */
-            ownerC: [
-              MittwaldAPIV2.Components.Schemas.DeMittwaldV1DomainHandleField,
-              ...MittwaldAPIV2.Components.Schemas.DeMittwaldV1DomainHandleField[]
-            ];
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                isAsync?: boolean;
-                transactionId?: string;
-              }
-            }
+            namespace Content {}
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2DomainsDomainId {
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            domainId: string;
-          }
-
-          export interface RequestBody {
-            /**
-             * If true, Domain is in grace period.
-             */
-            transit?: boolean;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                isAsync?: boolean;
-                transactionId?: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
           export interface Path {
             domainId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -11379,24 +8873,48 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {
+            domainId: string;
+          }
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
@@ -11409,9 +8927,9 @@ declare namespace MittwaldAPIV2 {
             domainName: string;
           }
 
-          export interface Header {
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -11424,10 +8942,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -11440,10 +8955,9 @@ declare namespace MittwaldAPIV2 {
             domainOwnershipId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -11454,24 +8968,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -11482,10 +8987,13 @@ declare namespace MittwaldAPIV2 {
             domainOwnershipId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -11493,24 +9001,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -11523,10 +9022,9 @@ declare namespace MittwaldAPIV2 {
             tld: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -11537,24 +9035,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -11567,10 +9056,9 @@ declare namespace MittwaldAPIV2 {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -11581,17 +9069,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -11604,10 +9086,7 @@ declare namespace MittwaldAPIV2 {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             page?: number;
@@ -11624,17 +9103,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -11643,10 +9116,11 @@ declare namespace MittwaldAPIV2 {
     namespace V2ToplevelDomains {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -11657,17 +9131,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -11680,10 +9148,13 @@ declare namespace MittwaldAPIV2 {
             domainId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -11691,24 +9162,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -11717,11 +9179,17 @@ declare namespace MittwaldAPIV2 {
     namespace V2Files {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
           export interface Header {
             Token: string;
-            "x-access-token"?: string;
-            Accept?: "application/json";
           }
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -11732,24 +9200,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -11762,10 +9221,9 @@ declare namespace MittwaldAPIV2 {
             id: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -11776,17 +9234,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -11799,10 +9251,9 @@ declare namespace MittwaldAPIV2 {
             token: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -11813,24 +9264,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -11843,10 +9285,9 @@ declare namespace MittwaldAPIV2 {
             name: "avatar" | "conversation";
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -11857,24 +9298,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -11888,12 +9320,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface Header {
-            Accept?:
-              | ["application/octet-stream", "base64"]
-              | "application/json";
+            Accept?: "binary" | "base64";
             Download?: boolean;
-            "x-access-token"?: string;
           }
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -11905,72 +9336,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2FilesToken {
-      namespace Post {
-        namespace Parameters {
-          export interface Path {
-            token: string;
-          }
-
-          export interface RequestBody {
-            file: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1FileFileMeta;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -11979,19 +9353,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2Ingresses {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            hostname: string;
-            /**
-             * A list of paths. The default path `/` is always present and cannot be removed.
-             */
-            paths: MittwaldAPIV2.Components.Schemas.DeMittwaldV1IngressPath[];
-            projectId: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -12003,65 +9373,26 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2IngressesIngressId {
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            ingressId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {}
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
           export interface Path {
             ingressId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -12072,17 +9403,36 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {
+            ingressId: string;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
@@ -12091,10 +9441,9 @@ declare namespace MittwaldAPIV2 {
     namespace V2Ingresses {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
 
           export interface Query {
             projectId: string;
@@ -12109,17 +9458,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -12132,13 +9475,13 @@ declare namespace MittwaldAPIV2 {
             ingressId: string;
           }
 
-          export type RequestBody =
-            MittwaldAPIV2.Components.Schemas.DeMittwaldV1IngressPath[];
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -12146,17 +9489,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -12169,14 +9506,13 @@ declare namespace MittwaldAPIV2 {
             ingressId: string;
           }
 
-          export type RequestBody =
-            | MittwaldAPIV2.Components.Schemas.DeMittwaldV1IngressTlsAcme
-            | MittwaldAPIV2.Components.Schemas.DeMittwaldV1IngressTlsCertificate;
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -12186,17 +9522,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -12210,10 +9540,9 @@ declare namespace MittwaldAPIV2 {
             invoiceId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -12224,24 +9553,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -12254,10 +9574,9 @@ declare namespace MittwaldAPIV2 {
             customerId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -12268,24 +9587,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -12297,19 +9607,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            additionalEmailRecipients?: string[];
-            invoicePeriod: number;
-            paymentSettings: MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoicePaymentSettings;
-            printedInvoices?: boolean;
-            recipient?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoiceRecipient;
-            recipientSameAsOwner?: boolean;
-            targetDay?: number;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -12320,24 +9623,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -12350,10 +9644,7 @@ declare namespace MittwaldAPIV2 {
             customerId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             invoiceTypes?: (
@@ -12376,83 +9667,30 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2ProjectsProjectIdDeliveryboxes {
-      namespace Post {
-        namespace Parameters {
-          export interface Path {
-            projectId: string;
-          }
-
-          export interface RequestBody {
-            description: string;
-            password: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                id: string;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {}
-          }
-
-          namespace $404 {
-            namespace Content {}
-          }
-
-          namespace $500 {
-            namespace Content {}
-          }
-
-          namespace $503 {
-            namespace Content {}
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
           export interface Path {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -12482,23 +9720,66 @@ declare namespace MittwaldAPIV2 {
           }
         }
       }
+
+      namespace Post {
+        namespace Parameters {
+          export interface Path {
+            projectId: string;
+          }
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                id: string;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {}
+          }
+
+          namespace $503 {
+            namespace Content {}
+          }
+        }
+      }
     }
 
     namespace V2DeliveryboxesId {
-      namespace Delete {
+      namespace Get {
         namespace Parameters {
           export interface Path {
             id: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: string;
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MailDeliverybox;
+            }
           }
 
           namespace $403 {
@@ -12519,23 +9800,19 @@ declare namespace MittwaldAPIV2 {
         }
       }
 
-      namespace Get {
+      namespace Delete {
         namespace Parameters {
           export interface Path {
             id: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MailDeliverybox;
-            }
+            namespace Content {}
           }
 
           namespace $403 {
@@ -12565,13 +9842,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            description: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: string;
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -12605,13 +9881,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            password: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: string;
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -12638,65 +9913,15 @@ declare namespace MittwaldAPIV2 {
     }
 
     namespace V2ProjectsProjectIdMailaddresses {
-      namespace Post {
-        namespace Parameters {
-          export interface Path {
-            projectId: string;
-          }
-
-          export type RequestBody =
-            | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MailCreateForwardAddress
-            | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MailCreateMailAddress;
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                id: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace $403 {
-            namespace Content {}
-          }
-
-          namespace $404 {
-            namespace Content {}
-          }
-
-          namespace $500 {
-            namespace Content {}
-          }
-
-          namespace $503 {
-            namespace Content {}
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
           export interface Path {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -12726,22 +9951,31 @@ declare namespace MittwaldAPIV2 {
           }
         }
       }
-    }
 
-    namespace V2MailaddressesId {
-      namespace Delete {
+      namespace Post {
         namespace Parameters {
           export interface Path {
-            id: string;
+            projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: string;
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
-          namespace $200 {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                id: string;
+              }
+            }
+          }
+
+          namespace $400 {
             namespace Content {}
           }
 
@@ -12762,17 +9996,18 @@ declare namespace MittwaldAPIV2 {
           }
         }
       }
+    }
 
+    namespace V2MailaddressesId {
       namespace Get {
         namespace Parameters {
           export interface Path {
             id: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -12780,6 +10015,39 @@ declare namespace MittwaldAPIV2 {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.DeMittwaldV1MailMailAddress;
             }
+          }
+
+          namespace $403 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {}
+          }
+
+          namespace $503 {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {
+            id: string;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
           }
 
           namespace $403 {
@@ -12809,13 +10077,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            address: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: string;
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -12849,18 +10116,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            autoResponder: {
-              active: boolean;
-              expiresAt?: string;
-              message: string;
-              startsAt?: string;
-            };
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: string;
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -12894,13 +10155,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            active: boolean;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -12908,10 +10168,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $403 {
@@ -12941,13 +10198,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            forwardAddresses: string[];
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: string;
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -12981,13 +10237,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            password: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: string;
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -13021,13 +10276,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            quotaInBytes: number;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: string;
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -13061,18 +10315,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            spamProtection: {
-              active: boolean;
-              autoDeleteSpam: boolean;
-              folder: "inbox" | "spam";
-              relocationMinSpamScore: number;
-            };
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: string;
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -13105,10 +10353,9 @@ declare namespace MittwaldAPIV2 {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -13148,13 +10395,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            blacklist: string[];
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: string;
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -13188,13 +10434,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            whitelist: string[];
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: string;
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -13228,16 +10473,10 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            /**
-             * Token contained in the invite for authentication.
-             */
-            invitationToken?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
@@ -13249,31 +10488,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $412 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -13290,10 +10517,7 @@ declare namespace MittwaldAPIV2 {
             [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
@@ -13305,55 +10529,20 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2MembershipsMembershipId {
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            membershipId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-
-          export interface Query {
-            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
-          }
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {}
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
           export interface Path {
             membershipId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
@@ -13369,17 +10558,34 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {
+            membershipId: string;
+          }
+
+          export interface Header {}
+
+          export interface Query {
+            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
+          }
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
@@ -13392,10 +10598,7 @@ declare namespace MittwaldAPIV2 {
             inviteIdentifier: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
@@ -13412,17 +10615,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -13439,10 +10636,7 @@ declare namespace MittwaldAPIV2 {
             [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
@@ -13454,10 +10648,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -13466,10 +10657,9 @@ declare namespace MittwaldAPIV2 {
     namespace V2Invites {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
 
           export interface Query {
             type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
@@ -13487,17 +10677,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -13506,10 +10690,9 @@ declare namespace MittwaldAPIV2 {
     namespace V2Memberships {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
 
           export interface Query {
             type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
@@ -13527,17 +10710,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -13554,10 +10731,7 @@ declare namespace MittwaldAPIV2 {
             [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
@@ -13569,17 +10743,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -13592,10 +10760,7 @@ declare namespace MittwaldAPIV2 {
             inviteId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
@@ -13607,10 +10772,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -13623,10 +10785,9 @@ declare namespace MittwaldAPIV2 {
             email: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -13640,10 +10801,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -13654,10 +10812,9 @@ declare namespace MittwaldAPIV2 {
             email: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -13665,10 +10822,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -13677,14 +10831,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2NewsletterSubscriptions {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            email: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -13705,10 +10860,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -13717,10 +10869,11 @@ declare namespace MittwaldAPIV2 {
     namespace V2NotificationsUnreadCounts {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -13736,10 +10889,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -13748,10 +10898,9 @@ declare namespace MittwaldAPIV2 {
     namespace V2Notifications {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
 
           export interface Query {
             status?: "unread" | "read";
@@ -13766,10 +10915,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -13778,12 +10924,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2NotificationsStatus {
       namespace Put {
         namespace Parameters {
-          export interface RequestBody {}
+          export interface Path {}
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -13795,17 +10944,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -13819,13 +10962,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            status: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MessagingNotificationStatus;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -13837,17 +10979,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -13856,18 +10992,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2OrdersActionsChangeProjecthosting {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            contractId: string;
-            diskspaceInGiB: number;
-            spec:
-              | MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderMachineTypeSpec
-              | MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderHardwareSpec;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -13879,17 +11012,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -13898,16 +11025,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2OrdersActionsChangeServer {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            contractId: string;
-            diskspaceInGiB: number;
-            machineType: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -13919,17 +11045,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -13942,10 +11062,9 @@ declare namespace MittwaldAPIV2 {
             orderId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -13956,10 +11075,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -13972,10 +11088,7 @@ declare namespace MittwaldAPIV2 {
             customerId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             limit?: number;
@@ -13995,10 +11108,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -14011,10 +11121,7 @@ declare namespace MittwaldAPIV2 {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             limit?: number;
@@ -14034,10 +11141,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -14046,26 +11150,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2OrdersActionsOrderDomain {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            authCode?: string;
-            domain: string;
-            handleData: {
-              adminC?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderDomainHandleField[];
-              /**
-               * @minItems 1
-               */
-              ownerC: [
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderDomainHandleField,
-                ...MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderDomainHandleField[]
-              ];
-            };
-            projectId: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -14078,17 +11171,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -14097,19 +11184,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2OrdersActionsOrderProjecthosting {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            customerId: string;
-            description: string;
-            diskspaceInGiB: number;
-            spec:
-              | MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderMachineTypeSpec
-              | MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderHardwareSpec;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -14121,17 +11204,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -14140,18 +11217,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2OrdersActionsOrderServer {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            customerId: string;
-            description: string;
-            diskspaceInGiB: number;
-            machineType: string;
-            useFreeTrial?: boolean;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -14163,17 +11237,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -14182,18 +11250,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2OrdersActionsPreviewChangeProjecthosting {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            contractId: string;
-            diskspaceInGiB: number;
-            spec:
-              | MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderMachineTypeSpec
-              | MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderHardwareSpec;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -14207,17 +11272,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -14226,16 +11285,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2OrdersActionsPreviewChangeServer {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            contractId: string;
-            diskspaceInGiB: number;
-            machineType: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -14249,17 +11307,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -14268,16 +11320,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2OrdersActionsPreviewOrderDomain {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            authCode?: string;
-            domain: string;
-            projectId: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -14291,17 +11342,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -14310,18 +11355,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2OrdersActionsPreviewOrderProjecthosting {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            customerId?: string;
-            description?: string;
-            diskspaceInGiB: number;
-            spec:
-              | MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderMachineTypeSpec
-              | MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderHardwareSpec;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -14335,17 +11377,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -14354,16 +11390,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2OrdersActionsPreviewOrderServer {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            customerId?: string;
-            description?: string;
-            diskspaceInGiB: number;
-            machineType: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -14377,17 +11412,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -14400,10 +11429,13 @@ declare namespace MittwaldAPIV2 {
             path: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -14414,10 +11446,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -14432,17 +11461,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            /**
-             * Time the ProjectMembership should expire at.
-             */
-            expiresAt?: string;
-            role: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectRoles;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -14450,10 +11474,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -14462,30 +11483,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2InvitesProject {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            /**
-             * Mail-address of the person to be invited.
-             */
-            mailAddress: string;
-            /**
-             * Time the resulting ProjectMembership should expire at.
-             */
-            membershipExpiresAt?: string;
-            /**
-             * Message contained in the ProjectInvite.
-             */
-            message?: string;
-            /**
-             * ID of the Project this invite is for.
-             */
-            projectId: string;
-            role: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectRoles;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -14496,24 +11502,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $409 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -14527,16 +11524,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            /**
-             * Name of the Project as it is displayed in the mStudio.
-             */
-            description: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -14548,72 +11541,34 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $412 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2ProjectsProjectIdAvatar {
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            projectId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {}
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Post {
         namespace Parameters {
           export interface Path {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -14626,17 +11581,36 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {
+            projectId: string;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
@@ -14649,10 +11623,9 @@ declare namespace MittwaldAPIV2 {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -14666,79 +11639,38 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $412 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2ServersServerIdAvatar {
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            serverId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {}
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Post {
         namespace Parameters {
           export interface Path {
             serverId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          export interface RequestBody {
+            [k: string]: unknown;
           }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -14751,17 +11683,36 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {
+            serverId: string;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
@@ -14774,10 +11725,7 @@ declare namespace MittwaldAPIV2 {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             directory?: string;
@@ -14797,31 +11745,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $503 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -14834,10 +11770,7 @@ declare namespace MittwaldAPIV2 {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             directory?: string;
@@ -14852,31 +11785,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $503 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -14889,10 +11810,7 @@ declare namespace MittwaldAPIV2 {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "text/plain" | "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             file?: string;
@@ -14907,31 +11825,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $503 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -14944,10 +11850,9 @@ declare namespace MittwaldAPIV2 {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -14958,24 +11863,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $503 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -14988,10 +11884,7 @@ declare namespace MittwaldAPIV2 {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             file?: string;
@@ -15006,31 +11899,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $503 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -15043,10 +11924,9 @@ declare namespace MittwaldAPIV2 {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -15057,17 +11937,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -15080,10 +11954,9 @@ declare namespace MittwaldAPIV2 {
             id: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -15094,17 +11967,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -15117,10 +11984,9 @@ declare namespace MittwaldAPIV2 {
             serverId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -15131,17 +11997,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -15154,10 +12014,7 @@ declare namespace MittwaldAPIV2 {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             limit?: number;
@@ -15173,17 +12030,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -15196,10 +12047,7 @@ declare namespace MittwaldAPIV2 {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             limit?: number;
@@ -15215,17 +12063,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -15234,10 +12076,9 @@ declare namespace MittwaldAPIV2 {
     namespace V2Projects {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
 
           export interface Query {
             customerId?: string;
@@ -15266,17 +12107,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -15285,10 +12120,9 @@ declare namespace MittwaldAPIV2 {
     namespace V2Servers {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
 
           export interface Query {
             customerId?: string;
@@ -15306,10 +12140,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -15323,13 +12154,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            description: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -15337,10 +12167,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
         }
       }
@@ -15349,81 +12176,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2Relocation {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            /**
-             * Should all project releated domains should be transferred to mittwald?
-             */
-            allDomains?: boolean;
-            /**
-             * Has to be true. Do you accept that our mittwald team can change and get password from your current provider?
-             */
-            allowPasswordChange: boolean;
-            contact: {
-              email: string;
-              firstName: string;
-              lastName: string;
-              phoneNumber?: string;
-            };
-            /**
-             * List of domains which should be transferred (when allDomains is not checked).
-             */
-            domains?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DirectusDomain[];
-            /**
-             * Anything our customer service needs to know for the relocation process.
-             */
-            notes?: string;
-            provider: {
-              /**
-               * Url to the control panel of the provider
-               */
-              loginUrl: string;
-              /**
-               * Name of your provider
-               */
-              name: string | ("1und1" | "strato");
-              password: string;
-              /**
-               * Which account of your provider should be moved?
-               */
-              sourceAccount: string;
-              /**
-               * Login name to your provider
-               */
-              userName: string;
-            };
-            target: {
-              /**
-               * Your customer or organisation number
-               */
-              organisation: string;
-              /**
-               * Help our customer service finding your target account
-               */
-              product: (
-                | string
-                | (
-                    | "spaceServer"
-                    | "proSpace"
-                    | "agencyServer"
-                    | "cmsHosting"
-                    | "shopHosting"
-                  )
-              ) &
-                string;
-              /**
-               * In which p-account or short project id your project should be moved.
-               */
-              projectName: string;
-              /**
-               * Which mittwald system does the targetProject use?
-               */
-              system: "kc" | "mstudio";
-            };
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -15431,40 +12192,58 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2SignupTokenApi {
-      namespace Post {
+      namespace Get {
         namespace Parameters {
-          export interface RequestBody {
-            description: string;
-            expiresAt?: string;
-            /**
-             * determines the access rights of the ApiToken
-             *
-             * @minItems 1
-             */
-            roles: ["api_read" | "api_write", ...("api_read" | "api_write")[]];
+          export interface Path {}
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupApiToken[];
+            }
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          namespace $401 {
+            namespace Content {}
           }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export interface Path {}
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -15486,12 +12265,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $429 {
@@ -15499,87 +12273,33 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
-          }
-        }
-      }
-
-      namespace Get {
-        namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupApiToken[];
-            }
-          }
-
-          namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
-          }
-
-          namespace $429 {
             namespace Content {}
-          }
-
-          namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
           }
         }
       }
     }
 
     namespace V2SignupTokenApiApiTokenId {
-      namespace Delete {
+      namespace Get {
         namespace Parameters {
           export interface Path {
             apiTokenId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
-          }
-
-          namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupApiToken;
             }
           }
 
           namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $429 {
@@ -15587,12 +12307,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
@@ -15604,14 +12319,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            description: string;
-            expiresAt?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -15626,12 +12339,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $429 {
@@ -15639,42 +12347,35 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
 
-      namespace Get {
+      namespace Delete {
         namespace Parameters {
           export interface Path {
             apiTokenId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupApiToken;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
             }
           }
 
           namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $429 {
@@ -15682,12 +12383,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
@@ -15696,21 +12392,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupAuthentication {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            /**
-             * The users email address
-             */
-            email: string;
-            /**
-             * Password of the user
-             */
-            password: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -15756,12 +12446,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
@@ -15770,21 +12455,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupAuthenticationLegacy {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            /**
-             * The legacy account name
-             */
-            account: string;
-            /**
-             * The legacy account password
-             */
-            password: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -15803,12 +12482,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
@@ -15817,25 +12491,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupAuthenticationMfa {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            /**
-             * The email of the user
-             */
-            email?: string;
-            /**
-             * The second factor
-             */
-            multiFactorCode: string;
-            /**
-             * The password of the user
-             */
-            password?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -15874,67 +12538,20 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2SignupAvatar {
-      namespace Delete {
-        namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {}
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
-            }
-          }
-
-          namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
-          }
-
-          namespace $429 {
-            namespace Content {}
-          }
-
-          namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
-          }
-        }
-      }
-
       namespace Post {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -15953,12 +12570,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $429 {
@@ -15966,31 +12578,18 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
-    }
 
-    namespace V2SignupEmail {
-      namespace Put {
+      namespace Delete {
         namespace Parameters {
-          export interface RequestBody {
-            /**
-             * The new email address
-             */
-            email: string;
-          }
+          export interface Path {}
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -16005,12 +12604,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $429 {
@@ -16018,22 +12612,20 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
+    }
 
+    namespace V2SignupEmail {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -16045,12 +12637,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $429 {
@@ -16058,12 +12645,45 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Put {
+        namespace Parameters {
+          export interface Path {}
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
+          }
+
+          namespace $401 {
+            namespace Content {}
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {}
           }
         }
       }
@@ -16072,15 +12692,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupEmailResend {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            email?: string;
-            userId?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -16099,12 +12719,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
@@ -16113,21 +12728,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupEmailVerify {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            /**
-             * The email address to verify
-             */
-            email: string;
-            /**
-             * The token sent to the email that has been added
-             */
-            token?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -16142,12 +12751,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $404 {
@@ -16162,12 +12766,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
@@ -16176,10 +12775,11 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupLogout {
       namespace Put {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -16198,12 +12798,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
@@ -16212,17 +12807,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupMfaConfirm {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            /**
-             * Multi Factor Code to confirm MFA
-             */
-            multiFactorCode: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -16241,12 +12834,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $429 {
@@ -16254,74 +12842,20 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2SignupMfa {
-      namespace Delete {
-        namespace Parameters {
-          export interface RequestBody {
-            /**
-             * Multi Factor Code to confirm MFA
-             */
-            multiFactorCode: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {}
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
-            }
-          }
-
-          namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
-          }
-
-          namespace $429 {
-            namespace Content {}
-          }
-
-          namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -16334,12 +12868,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $429 {
@@ -16347,22 +12876,18 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
 
       namespace Post {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -16392,12 +12917,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $429 {
@@ -16405,41 +12925,93 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {}
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
+          }
+
+          namespace $401 {
+            namespace Content {}
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2SignupPassword {
-      namespace Put {
+      namespace Get {
         namespace Parameters {
-          export interface RequestBody {
-            /**
-             * Multi Factor Code to confirm MFA.
-             * This is optional, depending on the MFA activation status of the profile.
-             *
-             */
-            multiFactorCode?: string;
-            /**
-             * The new password
-             */
-            newPassword: string;
-            /**
-             * The old password
-             */
-            oldPassword: string;
+          export interface Path {}
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                passwordUpdatedAt: string;
+              }
+            }
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          namespace $401 {
+            namespace Content {}
           }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Put {
+        namespace Parameters {
+          export interface Path {}
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -16458,12 +13030,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $202 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "SecondFactorRequired";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $400 {
@@ -16474,12 +13041,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $429 {
@@ -16487,52 +13049,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
-          }
-        }
-      }
-
-      namespace Get {
-        namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                passwordUpdatedAt: string;
-              }
-            }
-          }
-
-          namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
-          }
-
-          namespace $429 {
             namespace Content {}
-          }
-
-          namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
           }
         }
       }
@@ -16541,25 +13058,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupPasswordResetConfirm {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            /**
-             * The new password
-             */
-            password: string;
-            /**
-             * Password reset token
-             */
-            token: string;
-            /**
-             * userId of the user to reset the password for
-             */
-            userId: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -16578,12 +13085,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
@@ -16592,17 +13094,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupPasswordReset {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            /**
-             * email address to reset the password for
-             */
-            email: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -16621,71 +13121,20 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2SignupPhone {
-      namespace Delete {
-        namespace Parameters {
-          export interface RequestBody {
-            phoneNumber: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {}
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
-            }
-          }
-
-          namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
-          }
-
-          namespace $429 {
-            namespace Content {}
-          }
-
-          namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -16707,12 +13156,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $429 {
@@ -16720,26 +13164,22 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
 
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            phoneNumber: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -16754,12 +13194,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $429 {
@@ -16767,12 +13202,45 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {}
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
+          }
+
+          namespace $401 {
+            namespace Content {}
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {}
           }
         }
       }
@@ -16781,15 +13249,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupPhoneVerify {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            code: string;
-            phoneNumber: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -16804,12 +13272,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $404 {
@@ -16824,140 +13287,20 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2SignupProfile {
-      namespace Put {
-        namespace Parameters {
-          export interface RequestBody {
-            person: MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupPerson;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {}
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
-            }
-          }
-
-          namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
-          }
-
-          namespace $429 {
-            namespace Content {}
-          }
-
-          namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
-          }
-        }
-      }
-
-      namespace Delete {
-        namespace Parameters {
-          export interface RequestBody {
-            /**
-             * Multi Factor Code to authorize your request
-             */
-            multiFactorCode?: string;
-            password: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {}
-          }
-
-          namespace $202 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "SecondFactorRequired";
-                };
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
-            }
-          }
-
-          namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "RemovingLastOwnerNotAllowedError";
-                };
-            }
-          }
-
-          namespace $429 {
-            namespace Content {}
-          }
-
-          namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -16968,12 +13311,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $429 {
@@ -16981,12 +13319,91 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Put {
+        namespace Parameters {
+          export interface Path {}
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
+          }
+
+          namespace $401 {
+            namespace Content {}
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {}
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $202 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+            }
+          }
+
+          namespace $401 {
+            namespace Content {}
+          }
+
+          namespace $403 {
+            namespace Content {}
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {}
           }
         }
       }
@@ -16995,17 +13412,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupMfaResetRecoverycodes {
       namespace Put {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            /**
-             * Multi Factor Code to authorize your request
-             */
-            multiFactorCode: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -17024,12 +13439,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $429 {
@@ -17037,12 +13447,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
@@ -17051,29 +13456,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupRegistration {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            /**
-             * The users email address
-             */
-            email: string;
-            /**
-             * Credentials for the Legacy-Account you want to import
-             */
-            legacyAccount?: {
-              account?: string;
-              password?: string;
-            };
-            /**
-             * The users password
-             */
-            password: string;
-            person: MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupPerson;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -17105,12 +13496,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
@@ -17119,25 +13505,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupRegistrationVerification {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            /**
-             * The users email address
-             */
-            email: string;
-            /**
-             * The token that was send to your email address
-             */
-            token: string;
-            /**
-             * UUID of the registered user
-             */
-            userId: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -17165,12 +13541,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
@@ -17183,10 +13554,9 @@ declare namespace MittwaldAPIV2 {
             tokenId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -17197,12 +13567,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $404 {
@@ -17217,12 +13582,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
@@ -17233,10 +13593,9 @@ declare namespace MittwaldAPIV2 {
             tokenId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -17244,12 +13603,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $404 {
@@ -17264,12 +13618,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
@@ -17278,10 +13627,11 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupSessions {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -17292,12 +13642,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $429 {
@@ -17305,22 +13650,18 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
 
       namespace Delete {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -17328,12 +13669,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $429 {
@@ -17341,29 +13677,55 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2SignupSsh {
-      namespace Post {
+      namespace Get {
         namespace Parameters {
-          export interface RequestBody {
-            expiresAt?: string;
-            publicKey: string;
+          export interface Path {}
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                sshKeys?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupSshKey[];
+              }
+            }
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
+          namespace $401 {
+            namespace Content {}
           }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export interface Path {}
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -17378,12 +13740,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $429 {
@@ -17391,160 +13748,22 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
-          }
-        }
-      }
-
-      namespace Get {
-        namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                sshKeys?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupSshKey[];
-              }
-            }
-          }
-
-          namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
-          }
-
-          namespace $429 {
             namespace Content {}
-          }
-
-          namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
           }
         }
       }
     }
 
     namespace V2SignupSshSshKeyId {
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            sshKeyId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {}
-          }
-
-          namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
-          }
-
-          namespace $429 {
-            namespace Content {}
-          }
-
-          namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
-          }
-        }
-      }
-
-      namespace Put {
-        namespace Parameters {
-          export interface Path {
-            sshKeyId: string;
-          }
-
-          export interface RequestBody {
-            comment: string;
-            expiresAt?: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {}
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
-            }
-          }
-
-          namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
-          }
-
-          namespace $429 {
-            namespace Content {}
-          }
-
-          namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
           export interface Path {
             sshKeyId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -17556,12 +13775,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $404 {
@@ -17578,12 +13792,76 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Put {
+        namespace Parameters {
+          export interface Path {
+            sshKeyId: string;
+          }
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
+          }
+
+          namespace $401 {
+            namespace Content {}
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {
+            sshKeyId: string;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace $401 {
+            namespace Content {}
+          }
+
+          namespace $429 {
+            namespace Content {}
+          }
+
+          namespace $500 {
+            namespace Content {}
           }
         }
       }
@@ -17592,10 +13870,9 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupSupportcode {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
 
           export interface Query {
             forceRecreate?: boolean;
@@ -17622,12 +13899,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
@@ -17636,10 +13908,11 @@ declare namespace MittwaldAPIV2 {
     namespace V2SignupTokenCheck {
       namespace Post {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -17659,12 +13932,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "NoAccessTokenProvided";
-                };
-            }
+            namespace Content {}
           }
 
           namespace $429 {
@@ -17672,74 +13940,20 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
-                  name?: "InternalServerError";
-                };
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2ProjectsProjectIdSshuserSftp {
-      namespace Post {
-        namespace Parameters {
-          export interface Path {
-            projectId: string;
-          }
-
-          export interface RequestBody {
-            accessLevel?: "read" | "full";
-            authentication: MittwaldAPIV2.Components.Schemas.DeMittwaldV1SshuserAuthentication;
-            description: string;
-            /**
-             * @minItems 1
-             */
-            directories: [string, ...string[]];
-            expiresAt?: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SshuserSftpUser;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
           export interface Path {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             limit?: number;
@@ -17755,23 +13969,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
-    }
 
-    namespace V2ProjectsProjectIdSshuserSsh {
       namespace Post {
         namespace Parameters {
           export interface Path {
@@ -17779,50 +13985,40 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            authentication: MittwaldAPIV2.Components.Schemas.DeMittwaldV1SshuserAuthentication;
-            description: string;
-            expiresAt?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SshuserSshUser;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SshuserSftpUser;
             }
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
+    }
 
+    namespace V2ProjectsProjectIdSshuserSsh {
       namespace Get {
         namespace Parameters {
           export interface Path {
             projectId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
 
           export interface Query {
             limit?: number;
@@ -17838,17 +14034,43 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export interface Path {
+            projectId: string;
+          }
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $201 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SshuserSshUser;
             }
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
@@ -17861,10 +14083,9 @@ declare namespace MittwaldAPIV2 {
             sftpUserId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -17875,17 +14096,32 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {
+            sftpUserId: string;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
@@ -17897,22 +14133,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            accessLevel?: "read" | "full";
-            active?: boolean;
-            description?: string;
-            /**
-             * @minItems 1
-             */
-            directories?: [string, ...string[]];
-            expiresAt?: string;
-            password?: string;
-            publicKeys?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1SshuserPublicKey[];
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -17920,42 +14146,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            sftpUserId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
             namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -17968,10 +14163,9 @@ declare namespace MittwaldAPIV2 {
             sshUserId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -17982,17 +14176,32 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {
+            sshUserId: string;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
@@ -18004,17 +14213,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            active?: boolean;
-            description?: string;
-            expiresAt?: string;
-            password?: string;
-            publicKeys?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1SshuserPublicKey[];
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -18022,42 +14226,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            sshUserId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
             namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -18071,13 +14244,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            accessLevel: "read" | "full";
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -18085,17 +14257,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -18109,13 +14275,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            active: boolean;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -18123,17 +14288,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -18147,13 +14306,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            active: boolean;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -18161,17 +14319,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -18185,13 +14337,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            description: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -18199,17 +14350,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -18223,13 +14368,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            description: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -18237,17 +14381,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -18261,16 +14399,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            /**
-             * @minItems 1
-             */
-            directories: [string, ...string[]];
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -18278,17 +14412,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -18302,13 +14430,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            expiresAt?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -18316,17 +14443,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -18340,13 +14461,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            expiresAt?: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -18354,17 +14474,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -18378,13 +14492,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            password: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -18392,17 +14505,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -18416,13 +14523,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            password: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -18430,17 +14536,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -18454,13 +14554,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            publicKeys?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1SshuserPublicKey[];
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -18468,17 +14567,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -18492,13 +14585,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            publicKeys?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1SshuserPublicKey[];
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -18506,99 +14598,26 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectsProjectIdStorage {
-      namespace Get {
-        namespace Parameters {
-          export interface Path {
-            projectId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                dataSourcesUsage?: {
-                  [k: string]: number;
-                };
-                sum?: number;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2UserUserIdAvatar {
-      namespace Delete {
-        namespace Parameters {
-          export interface Path {
-            userId: string;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {}
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Post {
         namespace Parameters {
           export interface Path {
             userId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -18626,73 +14645,47 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export interface Path {
+            userId: string;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2UserFeedback {
-      namespace Post {
-        namespace Parameters {
-          export interface RequestBody {
-            message?: string;
-            origin: string;
-            subject: string;
-            vote: number;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {}
-            }
-          }
-
-          namespace $401 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
 
           export interface Query {
             subject?: string;
@@ -18707,10 +14700,40 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export interface Path {}
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $201 {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
+              export interface ApplicationJson {}
             }
+          }
+
+          namespace $401 {
+            namespace Content {}
+          }
+
+          namespace $404 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
@@ -18719,17 +14742,15 @@ declare namespace MittwaldAPIV2 {
     namespace V2UserIssues {
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            message: string;
-            origin?: string;
-            subject?: string;
-            type: "feedback" | "bug";
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $201 {
@@ -18737,62 +14758,22 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
     }
 
     namespace V2UserUserId {
-      namespace Put {
-        namespace Parameters {
-          export interface Path {
-            userId: string;
-          }
-
-          export interface RequestBody {
-            person: MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupPerson;
-          }
-
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {}
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
-          }
-        }
-      }
-
       namespace Get {
         namespace Parameters {
           export interface Path {
             userId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -18803,31 +14784,48 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $412 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
+          }
+        }
+      }
+
+      namespace Put {
+        namespace Parameters {
+          export interface Path {
+            userId: string;
+          }
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export interface Header {}
+
+          export interface Query {}
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {}
+          }
+
+          namespace $400 {
+            namespace Content {}
+          }
+
+          namespace Default {
+            namespace Content {}
           }
         }
       }
@@ -18836,10 +14834,11 @@ declare namespace MittwaldAPIV2 {
     namespace V2UserSettings {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -18851,24 +14850,22 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
 
       namespace Put {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            settingsString: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -18876,17 +14873,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -18900,13 +14891,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            phoneNumber: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -18914,24 +14904,15 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $409 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -18942,10 +14923,9 @@ declare namespace MittwaldAPIV2 {
             userId: string;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -18953,17 +14933,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -18977,14 +14951,12 @@ declare namespace MittwaldAPIV2 {
           }
 
           export interface RequestBody {
-            code: string;
-            phoneNumber: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $204 {
@@ -18992,31 +14964,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
-            }
+            namespace Content {}
           }
 
           namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace $409 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -19025,10 +14985,11 @@ declare namespace MittwaldAPIV2 {
     namespace V2User {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -19039,10 +15000,7 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsError;
-            }
+            namespace Content {}
           }
         }
       }
@@ -19051,10 +15009,11 @@ declare namespace MittwaldAPIV2 {
     namespace V2VarnishConfigValidate {
       namespace Get {
         namespace Parameters {
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Path {}
+
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
@@ -19076,31 +15035,15 @@ declare namespace MittwaldAPIV2 {
 
       namespace Post {
         namespace Parameters {
+          export interface Path {}
+
           export interface RequestBody {
-            /**
-             * A set of config files.
-             */
-            files: {
-              content: string;
-              meta?: {
-                name: string;
-                path?: string;
-              };
-            }[];
-            /**
-             * The name of the specific validator that should be used.
-             */
-            name: string;
-            /**
-             * The exact version you want to validate against.
-             */
-            version: string;
+            [k: string]: unknown;
           }
 
-          export interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
+          export interface Header {}
+
+          export interface Query {}
         }
         namespace Responses {
           namespace $200 {
