@@ -1,5 +1,5 @@
 import { Name } from "../../../global/Name.js";
-import { asyncStringMap } from "../../../../asyncStringMap.js";
+import { asyncStringJoin } from "../../../../asyncStringJoin.js";
 import { Response } from "./Response.js";
 import { Operation } from "../Operation.js";
 import { TypeCompilationOptions } from "../../../CodeGenerationModel.js";
@@ -25,7 +25,7 @@ export class Responses {
 
   public async compileTypes(opts: TypeCompilationOptions): Promise<string> {
     const t = {
-      responses: await asyncStringMap(this.responses, (response) =>
+      responses: await asyncStringJoin(this.responses, (response) =>
         response.compileContentTypes(opts),
       ),
       ns: Responses.ns,

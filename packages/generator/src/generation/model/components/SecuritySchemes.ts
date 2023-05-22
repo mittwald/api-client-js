@@ -3,7 +3,7 @@ import { Components } from "./Components.js";
 import { OpenAPIV3 } from "openapi-types";
 import invariant from "invariant";
 import { assertNoRefs } from "../assertNoRefs.js";
-import { asyncStringMap } from "../../asyncStringMap.js";
+import { asyncStringJoin } from "../../asyncStringJoin.js";
 import { SecurityScheme } from "./SecurityScheme.js";
 import { TypeCompilationOptions } from "../CodeGenerationModel.js";
 
@@ -48,7 +48,7 @@ export class SecuritySchemes {
   public async compileTypes(opts: TypeCompilationOptions): Promise<string> {
     const t = {
       ns: SecuritySchemes.ns,
-      types: await asyncStringMap(this.schemes, (scheme) => {
+      types: await asyncStringJoin(this.schemes, (scheme) => {
         const { optionalHeaders } = opts;
 
         const mustSetOptionalHeaders =

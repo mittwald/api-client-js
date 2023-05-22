@@ -1,4 +1,4 @@
-export const asyncStringMap = async <T>(
+export const asyncStringJoin = async <T>(
   items: T[],
   contentGenerator: (item: T) => string | Promise<string>,
   separator = "\r\n",

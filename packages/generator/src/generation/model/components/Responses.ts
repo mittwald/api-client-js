@@ -1,6 +1,6 @@
 import { Name } from "../global/Name.js";
 import { Components } from "./Components.js";
-import { asyncStringMap } from "../../asyncStringMap.js";
+import { asyncStringJoin } from "../../asyncStringJoin.js";
 import { Response } from "./Response.js";
 import { TypeCompilationOptions } from "../CodeGenerationModel.js";
 import { OpenAPIV3 } from "openapi-types";
@@ -32,7 +32,7 @@ export class Responses {
   public async compileTypes(opts: TypeCompilationOptions): Promise<string> {
     const t = {
       ns: Responses.ns,
-      types: await asyncStringMap(this.responses, (response) =>
+      types: await asyncStringJoin(this.responses, (response) =>
         response.compileTypes(opts),
       ),
     };

@@ -1,6 +1,6 @@
 import { Operation } from "./operation/Operation.js";
 import { Name } from "../global/Name.js";
-import { asyncStringMap } from "../../asyncStringMap.js";
+import { asyncStringJoin } from "../../asyncStringJoin.js";
 import { Paths } from "./Paths.js";
 import { TypeCompilationOptions } from "../CodeGenerationModel.js";
 import { OpenAPIV3 } from "openapi-types";
@@ -37,7 +37,7 @@ export class Path {
   public async compileTypes(options: TypeCompilationOptions): Promise<string> {
     const t = {
       ns: this.name.tsType,
-      types: await asyncStringMap(this.operations, (operation) =>
+      types: await asyncStringJoin(this.operations, (operation) =>
         operation.compileTypes(options),
       ),
     };
