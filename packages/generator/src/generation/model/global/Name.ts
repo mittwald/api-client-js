@@ -14,9 +14,9 @@ export class Name {
     this.parent = parent;
   }
 
-  public get tsTypeWithNs(): string {
+  public get tsTypeWithNamespace(): string {
     if (this.parent) {
-      return `${this.parent.tsTypeWithNs}.${this.tsType}`;
+      return `${this.parent.tsTypeWithNamespace}.${this.tsType}`;
     }
     return this.tsType;
   }

@@ -135,9 +135,9 @@ export class RequestParameters {
 
   public compileDescriptorRequestType(): string {
     const t = {
-      body: this.body?.name.tsTypeWithNs ?? "null",
-      path: this.path?.name.tsTypeWithNs ?? "null",
-      header: this.header?.name.tsTypeWithNs ?? "null",
+      body: this.body?.name.tsTypeWithNamespace ?? "null",
+      path: this.path?.name.tsTypeWithNamespace ?? "null",
+      header: this.header?.name.tsTypeWithNamespace ?? "null",
     };
 
     return `\

@@ -56,7 +56,7 @@ export class JSONSchema {
 
   public asCustomTypeRef(): JSONSchemaObject {
     return {
-      tsType: this.name.tsTypeWithNs,
+      tsType: this.name.tsTypeWithNamespace,
       type: "object",
     };
   }

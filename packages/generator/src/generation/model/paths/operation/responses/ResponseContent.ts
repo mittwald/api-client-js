@@ -20,7 +20,7 @@ export class ResponseContent {
 
   public compileDescriptorsResponseContentType(): string {
     const t = {
-      type: this.mediaType.tsTypeWithNs,
+      type: this.mediaType.tsTypeWithNamespace,
       httpStatus:
         this.contentTypes.response.httpStatus.raw === "default"
           ? '"default"'
