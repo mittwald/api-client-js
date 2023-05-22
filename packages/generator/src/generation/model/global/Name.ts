@@ -1,4 +1,4 @@
-import { tsName } from "../../tsName.js";
+import { tsTypeName } from "../../tsTypeName.js";
 import camelcase from "camelcase";
 
 export class Name {
@@ -9,7 +9,7 @@ export class Name {
 
   public constructor(raw: string, parent?: Name) {
     this.raw = raw;
-    this.tsType = tsName(raw);
+    this.tsType = tsTypeName(raw);
     this.tsVar = camelcase(this.tsType);
     this.parent = parent;
   }

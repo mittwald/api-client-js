@@ -1,4 +1,4 @@
-import { tsName } from "./tsName.js";
+import { tsTypeName } from "./tsTypeName.js";
 
 export const tsNamespaceName = (...parts: string[]): string =>
-  parts.map(tsName).join(".");
+  parts.map(tsTypeName).join(".");
