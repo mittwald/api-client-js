@@ -1,10 +1,11 @@
 import { Args, Command, Flags, ux } from "@oclif/core";
-import { UniversalContentLoader } from "../../lib/UniversalContentLoader.js";
+import { UniversalContentLoader } from "../../loading/UniversalContentLoader.js";
 import { OpenApiSpec } from "../../openapi/OpenApiSpec.js";
 import { CodeGenerationModel } from "../../generation/model/CodeGenerationModel.js";
 import jetpack from "fs-jetpack";
 import * as path from "path";
 import { prepareTypeScriptOutput } from "../../generation/prepareTypeScriptOutput.js";
+import { UniversalFileLoader } from "../../loading/UniversalFileLoader.js";
 
 export default class Generate extends Command {
   static description = "Generate code from the provided OpenAPI spec.";
@@ -39,7 +40,9 @@ export default class Generate extends Command {
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(Generate);
 
-    const loader = new UniversalContentLoader(args.input);
+    const loader = new UniversalContentLoader(
+      new UniversalFileLoader(args.input),
+    );
 
     ux.action.start("Loading OpenAPI spec");
     const openApiDoc = await loader.load();

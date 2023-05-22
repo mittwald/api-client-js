@@ -1,6 +1,7 @@
 import { Args, Command } from "@oclif/core";
-import { UniversalContentLoader } from "../../lib/UniversalContentLoader.js";
+import { UniversalContentLoader } from "../../loading/UniversalContentLoader.js";
 import { OpenApiSpec } from "../../openapi/OpenApiSpec.js";
+import { UniversalFileLoader } from "../../loading/UniversalFileLoader.js";
 
 export default class Validate extends Command {
   static description = "Validate the provided OpenAPI spec.";
@@ -14,7 +15,9 @@ export default class Validate extends Command {
   public async run(): Promise<void> {
     const { args } = await this.parse(Validate);
 
-    const loader = new UniversalContentLoader(args.input);
+    const loader = new UniversalContentLoader(
+      new UniversalFileLoader(args.input),
+    );
     const openApiDoc = await loader.load();
     await OpenApiSpec.parse(openApiDoc, {
       skipValidation: false,

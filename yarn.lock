@@ -892,12 +892,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@mittwald/api-code-generator@workspace:packages/generator"
   dependencies:
+    "@jest/globals": ^29.5.0
     "@oclif/core": ^2.8.5
     "@oclif/plugin-help": ^5.2.9
     "@oclif/plugin-plugins": ^3.0.1
     "@sindresorhus/is": ^5.3.0
     "@types/clone-deep": ^4.0.1
     "@types/invariant": ^2
+    "@types/jest": ^29.5.1
     "@types/js-yaml": ^4.0.5
     "@types/prettier": ^2.7.2
     "@types/verror": ^1.10.6
@@ -905,6 +907,7 @@ __metadata:
     axios: ^1.4.0
     camelcase: ^7.0.1
     clone-deep: ^4.0.1
+    dot-prop: ^8.0.0
     fs-jetpack: ^5.1.0
     invariant: ^2.2.4
     jest: ^29.5.0
@@ -1513,6 +1516,16 @@ __metadata:
   dependencies:
     "@types/istanbul-lib-report": "*"
   checksum: f1ad54bc68f37f60b30c7915886b92f86b847033e597f9b34f2415acdbe5ed742fa559a0a40050d74cdba3b6a63c342cac1f3a64dba5b68b66a6941f4abd7903
+  languageName: node
+  linkType: hard
+
+"@types/jest@npm:^29.5.1":
+  version: 29.5.1
+  resolution: "@types/jest@npm:29.5.1"
+  dependencies:
+    expect: ^29.0.0
+    pretty-format: ^29.0.0
+  checksum: 0a22491dec86333c0e92b897be2c809c922a7b2b0aa5604ac369810d6b2360908b4a3f2c6892e8a237a54fa1f10ecefe0e823ec5fcb7915195af4dfe88d2197e
   languageName: node
   linkType: hard
 
@@ -3095,6 +3108,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dot-prop@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "dot-prop@npm:8.0.0"
+  dependencies:
+    type-fest: ^3.8.0
+  checksum: 438a54cdbda061f9c8f8ed3e46e513f4d9929f39eab8e30852e4f22459c8c0fa5104472cf498a63f25f9d5a3b2890c1370a588fd2f73e0ee9523ca1a9446aec4
+  languageName: node
+  linkType: hard
+
 "eastasianwidth@npm:^0.2.0":
   version: 0.2.0
   resolution: "eastasianwidth@npm:0.2.0"
@@ -3498,7 +3520,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expect@npm:^29.5.0":
+"expect@npm:^29.0.0, expect@npm:^29.5.0":
   version: 29.5.0
   resolution: "expect@npm:29.5.0"
   dependencies:
@@ -6872,7 +6894,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^29.5.0":
+"pretty-format@npm:^29.0.0, pretty-format@npm:^29.5.0":
   version: 29.5.0
   resolution: "pretty-format@npm:29.5.0"
   dependencies:
@@ -8063,6 +8085,13 @@ __metadata:
   peerDependencies:
     typescript: ">=4.7.0"
   checksum: df3bd25809ea79ac7712da7c11648251118c23f65b226eba263797e42be60ba34085874ec492202b8ecf2e5a2273b27ddcbfe3be2c275dfcef3f0e2ee90ea179
+  languageName: node
+  linkType: hard
+
+"type-fest@npm:^3.8.0":
+  version: 3.11.0
+  resolution: "type-fest@npm:3.11.0"
+  checksum: ebd7968301674d8022cd180aa34a685bda5962ad3c98da7280456f97468c1b12984f6a79d4eb4652f10e1f0ab42f7016121fd762068fd6255d4d0ccc069c2566
   languageName: node
   linkType: hard
 

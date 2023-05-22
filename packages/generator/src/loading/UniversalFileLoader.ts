@@ -1,9 +1,10 @@
 import axios from "axios";
 import jetpack from "fs-jetpack";
 import VError from "verror";
-import { makeError } from "./makeError.js";
+import { makeError } from "../lib/makeError.js";
+import { FileLoader } from "./types.js";
 
-export class UniversalFileLoader {
+export class UniversalFileLoader implements FileLoader {
   public readonly source: string;
 
   public constructor(source: string) {

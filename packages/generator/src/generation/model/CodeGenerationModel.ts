@@ -1,4 +1,4 @@
-import { refsToCustomTypes } from "../refs/refsToCustomTypes.js";
+import { componentRefsToCustomTypes } from "../refs/componentRefsToCustomTypes.js";
 import { Name } from "./global/Name.js";
 import { Components } from "./components/Components.js";
 import { Paths } from "./paths/Paths.js";
@@ -19,7 +19,7 @@ export class CodeGenerationModel {
   private constructor(rootNamespace: string, doc: OpenAPIV3.Document) {
     this.rootNamespace = new Name(rootNamespace);
 
-    this.doc = refsToCustomTypes(
+    this.doc = componentRefsToCustomTypes(
       this.rootNamespace.tsType,
       doc,
     ) as OpenAPIV3.Document;

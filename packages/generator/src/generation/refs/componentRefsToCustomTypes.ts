@@ -2,7 +2,7 @@ import { refNameToTSName } from "./refNameToTSName.js";
 import is from "@sindresorhus/is";
 import cloneDeep from "clone-deep";
 
-export const refsToCustomTypes = (
+export const componentRefsToCustomTypes = (
   rootNamespace: string,
   something: unknown,
   clone = true,
@@ -17,7 +17,7 @@ export const refsToCustomTypes = (
 
   if (is.array(something)) {
     return something.map((item) =>
-      refsToCustomTypes(rootNamespace, item, false),
+      componentRefsToCustomTypes(rootNamespace, item, false),
     );
   }
 
@@ -36,7 +36,7 @@ export const refsToCustomTypes = (
   return Object.fromEntries(
     Object.entries(something).map(([key, value]) => [
       key,
-      refsToCustomTypes(rootNamespace, value, false),
+      componentRefsToCustomTypes(rootNamespace, value, false),
     ]),
   );
 };

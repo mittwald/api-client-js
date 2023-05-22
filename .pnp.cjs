@@ -1413,12 +1413,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/generator/",\
           "packageDependencies": [\
             ["@mittwald/api-code-generator", "workspace:packages/generator"],\
+            ["@jest/globals", "npm:29.5.0"],\
             ["@oclif/core", "npm:2.8.5"],\
             ["@oclif/plugin-help", "npm:5.2.9"],\
             ["@oclif/plugin-plugins", "npm:3.0.1"],\
             ["@sindresorhus/is", "npm:5.3.0"],\
             ["@types/clone-deep", "npm:4.0.1"],\
             ["@types/invariant", "npm:2.2.35"],\
+            ["@types/jest", "npm:29.5.1"],\
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/prettier", "npm:2.7.2"],\
             ["@types/verror", "npm:1.10.6"],\
@@ -1426,6 +1428,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["axios", "npm:1.4.0"],\
             ["camelcase", "npm:7.0.1"],\
             ["clone-deep", "npm:4.0.1"],\
+            ["dot-prop", "npm:8.0.0"],\
             ["fs-jetpack", "npm:5.1.0"],\
             ["invariant", "npm:2.2.4"],\
             ["jest", "virtual:c806312c909ada0ed265736a6af40332d2accb083795ab196b921d4f525eaa216b5e743a115a866243d43c53d134d2f487232e8b22a59cccd45e185864151961#npm:29.5.0"],\
@@ -1572,7 +1575,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lru-cache", "npm:7.18.3"],\
             ["npm-pick-manifest", "npm:8.0.1"],\
             ["proc-log", "npm:3.0.0"],\
-            ["promise-inflight", "virtual:58b0cf13b7c80cd4bdc3eadb39a78d5f39fd31246346e535dcfe20dfe9c46130172994b57ce30d5d3ec140535837cef72abdf789e12a5913f700a76a6461d820#npm:1.0.1"],\
+            ["promise-inflight", "virtual:4e2088ed0df52533102f445d7e7aeba6560b7effa0cabbc7cc20dd1e36a86dd838cc541de4414688f4ce3ec77b0ad5298cea6de581350d934ceb35c3e0fe3462#npm:1.0.1"],\
             ["promise-retry", "npm:2.0.1"],\
             ["semver", "npm:7.5.1"],\
             ["which", "npm:3.0.1"]\
@@ -2102,6 +2105,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@types/istanbul-reports", "npm:3.0.1"],\
             ["@types/istanbul-lib-report", "npm:3.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/jest", [\
+        ["npm:29.5.1", {\
+          "packageLocation": "./.yarn/cache/@types-jest-npm-29.5.1-0eddfd7e9a-0a22491dec.zip/node_modules/@types/jest/",\
+          "packageDependencies": [\
+            ["@types/jest", "npm:29.5.1"],\
+            ["expect", "npm:29.5.0"],\
+            ["pretty-format", "npm:29.5.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -3316,7 +3330,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["minipass-pipeline", "npm:1.2.4"],\
             ["mkdirp", "npm:1.0.4"],\
             ["p-map", "npm:4.0.0"],\
-            ["promise-inflight", "virtual:58b0cf13b7c80cd4bdc3eadb39a78d5f39fd31246346e535dcfe20dfe9c46130172994b57ce30d5d3ec140535837cef72abdf789e12a5913f700a76a6461d820#npm:1.0.1"],\
+            ["promise-inflight", "virtual:4e2088ed0df52533102f445d7e7aeba6560b7effa0cabbc7cc20dd1e36a86dd838cc541de4414688f4ce3ec77b0ad5298cea6de581350d934ceb35c3e0fe3462#npm:1.0.1"],\
             ["rimraf", "npm:3.0.2"],\
             ["ssri", "npm:9.0.1"],\
             ["tar", "npm:6.1.14"],\
@@ -4077,6 +4091,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["doctrine", "npm:3.0.0"],\
             ["esutils", "npm:2.0.3"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["dot-prop", [\
+        ["npm:8.0.0", {\
+          "packageLocation": "./.yarn/cache/dot-prop-npm-8.0.0-00f38f137c-438a54cdbd.zip/node_modules/dot-prop/",\
+          "packageDependencies": [\
+            ["dot-prop", "npm:8.0.0"],\
+            ["type-fest", "npm:3.11.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -8424,10 +8448,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:58b0cf13b7c80cd4bdc3eadb39a78d5f39fd31246346e535dcfe20dfe9c46130172994b57ce30d5d3ec140535837cef72abdf789e12a5913f700a76a6461d820#npm:1.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/promise-inflight-virtual-3bf8914dfb/0/cache/promise-inflight-npm-1.0.1-5bb925afac-2274948309.zip/node_modules/promise-inflight/",\
+        ["virtual:4e2088ed0df52533102f445d7e7aeba6560b7effa0cabbc7cc20dd1e36a86dd838cc541de4414688f4ce3ec77b0ad5298cea6de581350d934ceb35c3e0fe3462#npm:1.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/promise-inflight-virtual-faec2dbb37/0/cache/promise-inflight-npm-1.0.1-5bb925afac-2274948309.zip/node_modules/promise-inflight/",\
           "packageDependencies": [\
-            ["promise-inflight", "virtual:58b0cf13b7c80cd4bdc3eadb39a78d5f39fd31246346e535dcfe20dfe9c46130172994b57ce30d5d3ec140535837cef72abdf789e12a5913f700a76a6461d820#npm:1.0.1"],\
+            ["promise-inflight", "virtual:4e2088ed0df52533102f445d7e7aeba6560b7effa0cabbc7cc20dd1e36a86dd838cc541de4414688f4ce3ec77b0ad5298cea6de581350d934ceb35c3e0fe3462#npm:1.0.1"],\
             ["@types/bluebird", null],\
             ["bluebird", null]\
           ],\
@@ -9483,7 +9507,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/babel-jest", null],\
             ["@types/babel__core", null],\
             ["@types/esbuild", null],\
-            ["@types/jest", null],\
+            ["@types/jest", "npm:29.5.1"],\
             ["@types/jest__types", null],\
             ["@types/typescript", null],\
             ["babel-jest", null],\
@@ -9754,6 +9778,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["type-fest", "npm:3.10.0"]\
           ],\
           "linkType": "SOFT"\
+        }],\
+        ["npm:3.11.0", {\
+          "packageLocation": "./.yarn/cache/type-fest-npm-3.11.0-3f1fc2d029-ebd7968301.zip/node_modules/type-fest/",\
+          "packageDependencies": [\
+            ["type-fest", "npm:3.11.0"]\
+          ],\
+          "linkType": "HARD"\
         }],\
         ["virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:3.10.0", {\
           "packageLocation": "./.yarn/__virtual__/type-fest-virtual-eaa7e3fe04/0/cache/type-fest-npm-3.10.0-13f126e7f8-df3bd25809.zip/node_modules/type-fest/",\

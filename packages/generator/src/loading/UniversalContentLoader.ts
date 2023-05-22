@@ -1,16 +1,16 @@
 import { load } from "js-yaml";
 import { parseAsync } from "yieldable-json";
-import { UniversalFileLoader } from "./UniversalFileLoader.js";
 import VError from "verror";
-import { makeError } from "./makeError.js";
+import { makeError } from "../lib/makeError.js";
+import { FileLoader } from "./types.js";
 
 type SourceFormat = "json" | "yaml";
 
 export class UniversalContentLoader {
-  public readonly fileLoader: UniversalFileLoader;
+  public readonly fileLoader: FileLoader;
 
-  public constructor(source: string) {
-    this.fileLoader = new UniversalFileLoader(source);
+  public constructor(fileLoader: FileLoader) {
+    this.fileLoader = fileLoader;
   }
 
   public async load(): Promise<unknown> {
@@ -23,11 +23,11 @@ export class UniversalContentLoader {
 
       switch (format) {
         case "yaml":
-          return UniversalContentLoader.parseYaml(fileContent);
+          return await UniversalContentLoader.parseYaml(fileContent);
         case "json":
-          return UniversalContentLoader.parseJson(fileContent);
+          return await UniversalContentLoader.parseJson(fileContent);
         default:
-          return UniversalContentLoader.tryParseUnknown(fileContent);
+          return await UniversalContentLoader.tryParseUnknown(fileContent);
       }
     } catch (error) {
       throw new VError(
@@ -50,12 +50,12 @@ export class UniversalContentLoader {
       : undefined;
   }
 
-  private static tryParseUnknown(content: string): Promise<unknown> {
+  private static async tryParseUnknown(content: string): Promise<unknown> {
     try {
-      return UniversalContentLoader.parseJson(content);
+      return await UniversalContentLoader.parseJson(content);
     } catch (error) {
       try {
-        return UniversalContentLoader.parseYaml(content);
+        return await UniversalContentLoader.parseYaml(content);
       } catch (error) {
         throw new Error("Content is not of supported format JSON/YAML.");
       }
