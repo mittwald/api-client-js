@@ -35,7 +35,7 @@ describe(".load()", () => {
   });
 
   test("Can load JSON file content", async () => {
-    const fileLoader = new TestFileLoader("test.foo", '{"foo": "bar"}');
+    const fileLoader = new TestFileLoader("test.json", '{"foo": "bar"}');
     const contentLoader = new UniversalContentLoader(fileLoader);
     const content = await contentLoader.load();
 
