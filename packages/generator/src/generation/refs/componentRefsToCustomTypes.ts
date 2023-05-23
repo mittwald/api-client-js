@@ -2,6 +2,16 @@ import { refNameToTSName } from "./refNameToTSName.js";
 import is from "@sindresorhus/is";
 import cloneDeep from "clone-deep";
 
+const getComponentRef = (something: object): string | undefined => {
+  if (
+    "$ref" in something &&
+    typeof something.$ref === "string" &&
+    something.$ref.startsWith("#/components/")
+  ) {
+    return something.$ref;
+  }
+};
+
 export const componentRefsToCustomTypes = (
   rootNamespace: string,
   something: unknown,
@@ -21,14 +31,12 @@ export const componentRefsToCustomTypes = (
     );
   }
 
-  if (
-    "$ref" in something &&
-    typeof something.$ref === "string" &&
-    something.$ref.startsWith("#/components/")
-  ) {
+  const componentRef = getComponentRef(something);
+
+  if (componentRef !== undefined) {
+    // see https://github.com/bcherny/json-schema-to-typescript#custom-schema-properties
     return {
-      // see https://github.com/bcherny/json-schema-to-typescript#custom-schema-properties
-      tsType: refNameToTSName(rootNamespace, something.$ref),
+      tsType: refNameToTSName(rootNamespace, componentRef),
       type: "object",
     };
   }
