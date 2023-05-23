@@ -324,7 +324,7 @@ export const appUpdateStatus: OpenAPIOperation<
   operationId: "appUpdateStatus",
 };
 
-export const appGetAppversion: OpenAPIOperation<
+export const deprecatedAppGetAppversion: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_App_AppId_Versions_AppVersionId.Get.Parameters.Path>,
@@ -348,10 +348,10 @@ export const appGetAppversion: OpenAPIOperation<
 > = {
   path: "/v2/app/{appId}/versions/{appVersionId}",
   method: "GET",
-  operationId: "appGetAppversion",
+  operationId: "deprecatedAppGetAppversion",
 };
 
-export const appListAppversions: OpenAPIOperation<
+export const deprecatedAppListAppversions: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_App_AppId_Versions.Get.Parameters.Path>,
@@ -370,7 +370,7 @@ export const appListAppversions: OpenAPIOperation<
 > = {
   path: "/v2/app/{appId}/versions",
   method: "GET",
-  operationId: "appListAppversions",
+  operationId: "deprecatedAppListAppversions",
 };
 
 export const articleServiceGetArticle: OpenAPIOperation<
@@ -422,395 +422,7 @@ export const articleServiceListArticles: OpenAPIOperation<
   operationId: "articleServiceListArticles",
 };
 
-export const deprecatedBackupServiceCreateProjectBackup: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Projectbackups.Post.Parameters.RequestBody>,
-    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Projectbackups.Post.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Projectbackups.Post.Parameters.Header>
-  >,
-  | Response<
-      MittwaldApiV2.Paths.V2_Projects_ProjectId_Projectbackups.Post.Responses.$201.Content.Application_Json,
-      201,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projects_ProjectId_Projectbackups.Post.Responses.$400.Content.Application_Json,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projects_ProjectId_Projectbackups.Post.Responses.$404.Content.Application_Json,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projects_ProjectId_Projectbackups.Post.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/{projectId}/projectbackups",
-  method: "POST",
-  operationId: "deprecatedBackupServiceCreateProjectBackup",
-};
-
-export const deprecatedBackupServiceListProjectBackups: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Projectbackups.Get.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Projectbackups.Get.Parameters.Header>
-  >,
-  | Response<
-      MittwaldApiV2.Paths.V2_Projects_ProjectId_Projectbackups.Get.Responses.$200.Content.Application_Json,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projects_ProjectId_Projectbackups.Get.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/{projectId}/projectbackups",
-  method: "GET",
-  operationId: "deprecatedBackupServiceListProjectBackups",
-};
-
-export const deprecatedBackupServiceCreateProjectBackupSchedule: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Schedules.Post.Parameters.RequestBody>,
-    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Schedules.Post.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Schedules.Post.Parameters.Header>
-  >,
-  | Response<
-      MittwaldApiV2.Paths.V2_Projects_ProjectId_Schedules.Post.Responses.$201.Content.Application_Json,
-      201,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projects_ProjectId_Schedules.Post.Responses.$400.Content.Application_Json,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projects_ProjectId_Schedules.Post.Responses.$404.Content.Application_Json,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projects_ProjectId_Schedules.Post.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/{projectId}/schedules",
-  method: "POST",
-  operationId: "deprecatedBackupServiceCreateProjectBackupSchedule",
-};
-
-export const deprecatedBackupServiceListProjectBackupSchedules: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Schedules.Get.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Schedules.Get.Parameters.Header>
-  >,
-  | Response<
-      MittwaldApiV2.Paths.V2_Projects_ProjectId_Schedules.Get.Responses.$200.Content.Application_Json,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projects_ProjectId_Schedules.Get.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/{projectId}/schedules",
-  method: "GET",
-  operationId: "deprecatedBackupServiceListProjectBackupSchedules",
-};
-
-export const deprecatedBackupServiceDeleteProjectBackup: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V2_Projectbackups_BackupId.Delete.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Projectbackups_BackupId.Delete.Parameters.Header>
-  >,
-  | Response<null, 204, null>
-  | Response<
-      MittwaldApiV2.Paths.V2_Projectbackups_BackupId.Delete.Responses.$403.Content.Application_Json,
-      403,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projectbackups_BackupId.Delete.Responses.$404.Content.Application_Json,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projectbackups_BackupId.Delete.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/projectbackups/{backupId}",
-  method: "DELETE",
-  operationId: "deprecatedBackupServiceDeleteProjectBackup",
-};
-
-export const deprecatedBackupServiceGetProjectBackup: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V2_Projectbackups_BackupId.Get.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Projectbackups_BackupId.Get.Parameters.Header>
-  >,
-  | Response<
-      MittwaldApiV2.Paths.V2_Projectbackups_BackupId.Get.Responses.$200.Content.Application_Json,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projectbackups_BackupId.Get.Responses.$403.Content.Application_Json,
-      403,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projectbackups_BackupId.Get.Responses.$404.Content.Application_Json,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projectbackups_BackupId.Get.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/projectbackups/{backupId}",
-  method: "GET",
-  operationId: "deprecatedBackupServiceGetProjectBackup",
-};
-
-export const deprecatedBackupServiceDeleteProjectBackupExport: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V2_Projectbackups_BackupId_Export.Delete.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Projectbackups_BackupId_Export.Delete.Parameters.Header>
-  >,
-  | Response<null, 204, null>
-  | Response<
-      MittwaldApiV2.Paths.V2_Projectbackups_BackupId_Export.Delete.Responses.$403.Content.Application_Json,
-      403,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projectbackups_BackupId_Export.Delete.Responses.$404.Content.Application_Json,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projectbackups_BackupId_Export.Delete.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/projectbackups/{backupId}/export",
-  method: "DELETE",
-  operationId: "deprecatedBackupServiceDeleteProjectBackupExport",
-};
-
-export const deprecatedBackupServiceRequestProjectBackupExport: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldApiV2.Paths.V2_Projectbackups_BackupId_Export.Post.Parameters.RequestBody>,
-    Simplify<MittwaldApiV2.Paths.V2_Projectbackups_BackupId_Export.Post.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Projectbackups_BackupId_Export.Post.Parameters.Header>
-  >,
-  | Response<null, 204, null>
-  | Response<
-      MittwaldApiV2.Paths.V2_Projectbackups_BackupId_Export.Post.Responses.$400.Content.Application_Json,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projectbackups_BackupId_Export.Post.Responses.$403.Content.Application_Json,
-      403,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projectbackups_BackupId_Export.Post.Responses.$404.Content.Application_Json,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projectbackups_BackupId_Export.Post.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/projectbackups/{backupId}/export",
-  method: "POST",
-  operationId: "deprecatedBackupServiceRequestProjectBackupExport",
-};
-
-export const deprecatedBackupServiceDeleteProjectBackupSchedule: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId.Delete.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId.Delete.Parameters.Header>
-  >,
-  | Response<null, 204, null>
-  | Response<
-      MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId.Delete.Responses.$403.Content.Application_Json,
-      403,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId.Delete.Responses.$404.Content.Application_Json,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId.Delete.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/backupschedules/{scheduleId}",
-  method: "DELETE",
-  operationId: "deprecatedBackupServiceDeleteProjectBackupSchedule",
-};
-
-export const deprecatedBackupServiceGetProjectBackupSchedule: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId.Get.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId.Get.Parameters.Header>
-  >,
-  | Response<
-      MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId.Get.Responses.$200.Content.Application_Json,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId.Get.Responses.$403.Content.Application_Json,
-      403,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId.Get.Responses.$404.Content.Application_Json,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId.Get.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/backupschedules/{scheduleId}",
-  method: "GET",
-  operationId: "deprecatedBackupServiceGetProjectBackupSchedule",
-};
-
-export const deprecatedBackupServicePatchBackupSchedule: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId.Patch.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId.Patch.Parameters.Header>
-  >,
-  | Response<null, 200, null>
-  | Response<
-      MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId.Patch.Responses.$400.Content.Application_Json,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId.Patch.Responses.$404.Content.Application_Json,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId.Patch.Responses.$412.Content.Application_Json,
-      412,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId.Patch.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/backupschedules/{scheduleId}",
-  method: "PATCH",
-  operationId: "deprecatedBackupServicePatchBackupSchedule",
-};
-
-export const deprecatedBackupServicePutSystemBackupTtl: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId_Ttl.Put.Parameters.RequestBody>,
-    Simplify<MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId_Ttl.Put.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId_Ttl.Put.Parameters.Header>
-  >,
-  | Response<null, 200, null>
-  | Response<
-      MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId_Ttl.Put.Responses.$400.Content.Application_Json,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId_Ttl.Put.Responses.$404.Content.Application_Json,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId_Ttl.Put.Responses.$412.Content.Application_Json,
-      412,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Backupschedules_ScheduleId_Ttl.Put.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/backupschedules/{scheduleId}/ttl",
-  method: "PUT",
-  operationId: "deprecatedBackupServicePutSystemBackupTtl",
-};
-
-export const deprecatedBackupServiceSetProjectBackupDescription: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldApiV2.Paths.V2_Projectbackups_BackupId_Description.Put.Parameters.RequestBody>,
-    Simplify<MittwaldApiV2.Paths.V2_Projectbackups_BackupId_Description.Put.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Projectbackups_BackupId_Description.Put.Parameters.Header>
-  >,
-  | Response<null, 204, null>
-  | Response<
-      MittwaldApiV2.Paths.V2_Projectbackups_BackupId_Description.Put.Responses.$400.Content.Application_Json,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projectbackups_BackupId_Description.Put.Responses.$403.Content.Application_Json,
-      403,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projectbackups_BackupId_Description.Put.Responses.$404.Content.Application_Json,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projectbackups_BackupId_Description.Put.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/projectbackups/{backupId}/description",
-  method: "PUT",
-  operationId: "deprecatedBackupServiceSetProjectBackupDescription",
-};
-
-export const deprecatedContractCancelContractItemTermination: OpenAPIOperation<
+export const contractCancelContractItemTermination: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Contracts_ContractId_Items_ContractItemId_Termination.Delete.Parameters.Path>,
@@ -839,10 +451,42 @@ export const deprecatedContractCancelContractItemTermination: OpenAPIOperation<
 > = {
   path: "/v2/contracts/{contractId}/items/{contractItemId}/termination",
   method: "DELETE",
-  operationId: "deprecatedContractCancelContractItemTermination",
+  operationId: "contractCancelContractItemTermination",
 };
 
-export const deprecatedContractCancelContractTariffChange: OpenAPIOperation<
+export const contractTerminateContractItem: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Contracts_ContractId_Items_ContractItemId_Termination.Post.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Contracts_ContractId_Items_ContractItemId_Termination.Post.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Contracts_ContractId_Items_ContractItemId_Termination.Post.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Contracts_ContractId_Items_ContractItemId_Termination.Post.Responses.$201.Content.Application_Json,
+      201,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Contracts_ContractId_Items_ContractItemId_Termination.Post.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Contracts_ContractId_Items_ContractItemId_Termination.Post.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Contracts_ContractId_Items_ContractItemId_Termination.Post.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/contracts/{contractId}/items/{contractItemId}/termination",
+  method: "POST",
+  operationId: "contractTerminateContractItem",
+};
+
+export const contractCancelContractTariffChange: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Contracts_ContractId_Items_ContractItemId_Tariff_Change.Delete.Parameters.Path>,
@@ -871,10 +515,10 @@ export const deprecatedContractCancelContractTariffChange: OpenAPIOperation<
 > = {
   path: "/v2/contracts/{contractId}/items/{contractItemId}/tariff-change",
   method: "DELETE",
-  operationId: "deprecatedContractCancelContractTariffChange",
+  operationId: "contractCancelContractTariffChange",
 };
 
-export const deprecatedContractCancelContractTermination: OpenAPIOperation<
+export const contractCancelContractTermination: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Contracts_ContractId_Termination.Delete.Parameters.Path>,
@@ -903,10 +547,10 @@ export const deprecatedContractCancelContractTermination: OpenAPIOperation<
 > = {
   path: "/v2/contracts/{contractId}/termination",
   method: "DELETE",
-  operationId: "deprecatedContractCancelContractTermination",
+  operationId: "contractCancelContractTermination",
 };
 
-export const deprecatedContractTerminateContract: OpenAPIOperation<
+export const contractTerminateContract: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Contracts_ContractId_Termination.Post.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Contracts_ContractId_Termination.Post.Parameters.Path>,
@@ -935,7 +579,7 @@ export const deprecatedContractTerminateContract: OpenAPIOperation<
 > = {
   path: "/v2/contracts/{contractId}/termination",
   method: "POST",
-  operationId: "deprecatedContractTerminateContract",
+  operationId: "contractTerminateContract",
 };
 
 export const contractGetDetailOfContract: OpenAPIOperation<
@@ -970,7 +614,7 @@ export const contractGetDetailOfContract: OpenAPIOperation<
   operationId: "contractGetDetailOfContract",
 };
 
-export const contractGetDetailOfContractByAggregate: OpenAPIOperation<
+export const deprecatedContractGetDetailOfContractByAggregate: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<null>,
@@ -999,7 +643,7 @@ export const contractGetDetailOfContractByAggregate: OpenAPIOperation<
 > = {
   path: "/v2/contracts",
   method: "GET",
-  operationId: "contractGetDetailOfContractByAggregate",
+  operationId: "deprecatedContractGetDetailOfContractByAggregate",
 };
 
 export const deprecatedContractDetailOfContract: OpenAPIOperation<
@@ -1130,7 +774,7 @@ export const deprecatedContractGetNextTerminationDateForItem: OpenAPIOperation<
   operationId: "deprecatedContractGetNextTerminationDateForItem",
 };
 
-export const conversationServiceCreateConversation: OpenAPIOperation<
+export const conversationCreateConversation: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Conversations.Post.Parameters.RequestBody>,
     Simplify<null>,
@@ -1154,10 +798,10 @@ export const conversationServiceCreateConversation: OpenAPIOperation<
 > = {
   path: "/v2/conversations",
   method: "POST",
-  operationId: "conversationServiceCreateConversation",
+  operationId: "conversationCreateConversation",
 };
 
-export const conversationServiceGetConversations: OpenAPIOperation<
+export const conversationListConversations: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<null>,
@@ -1176,10 +820,10 @@ export const conversationServiceGetConversations: OpenAPIOperation<
 > = {
   path: "/v2/conversations",
   method: "GET",
-  operationId: "conversationServiceGetConversations",
+  operationId: "conversationListConversations",
 };
 
-export const conversationServiceCreateMessage: OpenAPIOperation<
+export const conversationCreateMessage: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Conversations_ConversationId_Messages.Post.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Conversations_ConversationId_Messages.Post.Parameters.Path>,
@@ -1213,10 +857,10 @@ export const conversationServiceCreateMessage: OpenAPIOperation<
 > = {
   path: "/v2/conversations/{conversationId}/messages",
   method: "POST",
-  operationId: "conversationServiceCreateMessage",
+  operationId: "conversationCreateMessage",
 };
 
-export const conversationServiceGetMessagesByConversation: OpenAPIOperation<
+export const conversationListMessagesByConversation: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Conversations_ConversationId_Messages.Get.Parameters.Path>,
@@ -1245,10 +889,10 @@ export const conversationServiceGetMessagesByConversation: OpenAPIOperation<
 > = {
   path: "/v2/conversations/{conversationId}/messages",
   method: "GET",
-  operationId: "conversationServiceGetMessagesByConversation",
+  operationId: "conversationListMessagesByConversation",
 };
 
-export const conversationServiceGetCategories: OpenAPIOperation<
+export const conversationListCategories: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<null>,
@@ -1267,10 +911,10 @@ export const conversationServiceGetCategories: OpenAPIOperation<
 > = {
   path: "/v2/conversation-categories",
   method: "GET",
-  operationId: "conversationServiceGetCategories",
+  operationId: "conversationListCategories",
 };
 
-export const conversationServiceGetCategory: OpenAPIOperation<
+export const conversationGetCategory: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Conversation_Categories_CategoryId.Get.Parameters.Path>,
@@ -1299,10 +943,10 @@ export const conversationServiceGetCategory: OpenAPIOperation<
 > = {
   path: "/v2/conversation-categories/{categoryId}",
   method: "GET",
-  operationId: "conversationServiceGetCategory",
+  operationId: "conversationGetCategory",
 };
 
-export const conversationServiceGetConversation: OpenAPIOperation<
+export const conversationGetConversation: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Conversations_ConversationId.Get.Parameters.Path>,
@@ -1336,10 +980,10 @@ export const conversationServiceGetConversation: OpenAPIOperation<
 > = {
   path: "/v2/conversations/{conversationId}",
   method: "GET",
-  operationId: "conversationServiceGetConversation",
+  operationId: "conversationGetConversation",
 };
 
-export const conversationServiceUpdateConversation: OpenAPIOperation<
+export const conversationUpdateConversation: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Conversations_ConversationId.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Conversations_ConversationId.Put.Parameters.Path>,
@@ -1373,10 +1017,10 @@ export const conversationServiceUpdateConversation: OpenAPIOperation<
 > = {
   path: "/v2/conversations/{conversationId}",
   method: "PUT",
-  operationId: "conversationServiceUpdateConversation",
+  operationId: "conversationUpdateConversation",
 };
 
-export const conversationServiceRequestFileUpload: OpenAPIOperation<
+export const conversationRequestFileUpload: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Conversations_ConversationId_Files.Post.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Conversations_ConversationId_Files.Post.Parameters.Path>,
@@ -1400,10 +1044,10 @@ export const conversationServiceRequestFileUpload: OpenAPIOperation<
 > = {
   path: "/v2/conversations/{conversationId}/files",
   method: "POST",
-  operationId: "conversationServiceRequestFileUpload",
+  operationId: "conversationRequestFileUpload",
 };
 
-export const conversationServiceSetConversationStatus: OpenAPIOperation<
+export const conversationSetConversationStatus: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Conversations_ConversationId_Status.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Conversations_ConversationId_Status.Put.Parameters.Path>,
@@ -1437,10 +1081,10 @@ export const conversationServiceSetConversationStatus: OpenAPIOperation<
 > = {
   path: "/v2/conversations/{conversationId}/status",
   method: "PUT",
-  operationId: "conversationServiceSetConversationStatus",
+  operationId: "conversationSetConversationStatus",
 };
 
-export const conversationServiceUpdateMessage: OpenAPIOperation<
+export const conversationUpdateMessage: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Conversations_ConversationId_Messages_MessageId.Patch.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Conversations_ConversationId_Messages_MessageId.Patch.Parameters.Path>,
@@ -1474,34 +1118,7 @@ export const conversationServiceUpdateMessage: OpenAPIOperation<
 > = {
   path: "/v2/conversations/{conversationId}/messages/{messageId}",
   method: "PATCH",
-  operationId: "conversationServiceUpdateMessage",
-};
-
-export const deprecatedCronjobAbortExecution: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Executions_ExecutionId_Abort.Post.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Executions_ExecutionId_Abort.Post.Parameters.Header>
-  >,
-  | Response<
-      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Executions_ExecutionId_Abort.Post.Responses.$200.Content.Application_Json,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Executions_ExecutionId_Abort.Post.Responses.$404.Content.Application_Json,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_Executions_ExecutionId_Abort.Post.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/cronjobs/{cronjobId}/executions/{executionId}/abort",
-  method: "POST",
-  operationId: "deprecatedCronjobAbortExecution",
+  operationId: "conversationUpdateMessage",
 };
 
 export const cronjobCreateCronjob: OpenAPIOperation<
@@ -1732,7 +1349,7 @@ export const cronjobGetExecution: OpenAPIOperation<
   operationId: "cronjobGetExecution",
 };
 
-export const customerServiceAvatarRemove: OpenAPIOperation<
+export const customerRemoveAvatar: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Customers_CustomerId_Avatar.Delete.Parameters.Path>,
@@ -1757,10 +1374,10 @@ export const customerServiceAvatarRemove: OpenAPIOperation<
 > = {
   path: "/v2/customers/{customerId}/avatar",
   method: "DELETE",
-  operationId: "customerServiceAvatarRemove",
+  operationId: "customerRemoveAvatar",
 };
 
-export const customerServiceAvatarRequestUpload: OpenAPIOperation<
+export const customerRequestAvatarUpload: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Customers_CustomerId_Avatar.Post.Parameters.Path>,
@@ -1789,10 +1406,10 @@ export const customerServiceAvatarRequestUpload: OpenAPIOperation<
 > = {
   path: "/v2/customers/{customerId}/avatar",
   method: "POST",
-  operationId: "customerServiceAvatarRequestUpload",
+  operationId: "customerRequestAvatarUpload",
 };
 
-export const customerServiceCreateCategoryDeprecated: OpenAPIOperation<
+export const customerCreateCategoryDeprecated: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Customercategories.Post.Parameters.RequestBody>,
     Simplify<null>,
@@ -1816,10 +1433,10 @@ export const customerServiceCreateCategoryDeprecated: OpenAPIOperation<
 > = {
   path: "/v2/customercategories",
   method: "POST",
-  operationId: "customerServiceCreateCategoryDeprecated",
+  operationId: "customerCreateCategoryDeprecated",
 };
 
-export const customerServiceListOfCustomerCategoriesDeprecated: OpenAPIOperation<
+export const customerListOfCustomerCategoriesDeprecated: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<null>,
@@ -1838,10 +1455,10 @@ export const customerServiceListOfCustomerCategoriesDeprecated: OpenAPIOperation
 > = {
   path: "/v2/customercategories",
   method: "GET",
-  operationId: "customerServiceListOfCustomerCategoriesDeprecated",
+  operationId: "customerListOfCustomerCategoriesDeprecated",
 };
 
-export const customerServiceCreateCustomer: OpenAPIOperation<
+export const customerCreateCustomer: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Customers.Post.Parameters.RequestBody>,
     Simplify<null>,
@@ -1865,10 +1482,10 @@ export const customerServiceCreateCustomer: OpenAPIOperation<
 > = {
   path: "/v2/customers",
   method: "POST",
-  operationId: "customerServiceCreateCustomer",
+  operationId: "customerCreateCustomer",
 };
 
-export const customerServiceListCustomers: OpenAPIOperation<
+export const customerListCustomers: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<null>,
@@ -1887,10 +1504,10 @@ export const customerServiceListCustomers: OpenAPIOperation<
 > = {
   path: "/v2/customers",
   method: "GET",
-  operationId: "customerServiceListCustomers",
+  operationId: "customerListCustomers",
 };
 
-export const customerServiceCreateNote: OpenAPIOperation<
+export const customerCreateNote: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Customers_CustomerId_Notes.Post.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Customers_CustomerId_Notes.Post.Parameters.Path>,
@@ -1914,10 +1531,10 @@ export const customerServiceCreateNote: OpenAPIOperation<
 > = {
   path: "/v2/customers/{customerId}/notes",
   method: "POST",
-  operationId: "customerServiceCreateNote",
+  operationId: "customerCreateNote",
 };
 
-export const customerServiceListOfNotes: OpenAPIOperation<
+export const customerListOfNotes: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Customers_CustomerId_Notes.Get.Parameters.Path>,
@@ -1941,10 +1558,10 @@ export const customerServiceListOfNotes: OpenAPIOperation<
 > = {
   path: "/v2/customers/{customerId}/notes",
   method: "GET",
-  operationId: "customerServiceListOfNotes",
+  operationId: "customerListOfNotes",
 };
 
-export const customerServiceCustomerIsLegallyCompetent: OpenAPIOperation<
+export const customerIsCustomerLegallyCompetent: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Customers_CustomerId_Legally_Competent.Get.Parameters.Path>,
@@ -1973,10 +1590,10 @@ export const customerServiceCustomerIsLegallyCompetent: OpenAPIOperation<
 > = {
   path: "/v2/customers/{customerId}/legally-competent",
   method: "GET",
-  operationId: "customerServiceCustomerIsLegallyCompetent",
+  operationId: "customerIsCustomerLegallyCompetent",
 };
 
-export const customerServiceDeleteCategoryDeprecated: OpenAPIOperation<
+export const customerDeleteCategoryDeprecated: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Customercategories_CategoryId.Delete.Parameters.Path>,
@@ -1995,10 +1612,10 @@ export const customerServiceDeleteCategoryDeprecated: OpenAPIOperation<
 > = {
   path: "/v2/customercategories/{categoryId}",
   method: "DELETE",
-  operationId: "customerServiceDeleteCategoryDeprecated",
+  operationId: "customerDeleteCategoryDeprecated",
 };
 
-export const customerServiceDetailOfCustomerCategoryDeprecated: OpenAPIOperation<
+export const customerDetailOfCustomerCategoryDeprecated: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Customercategories_CategoryId.Get.Parameters.Path>,
@@ -2017,10 +1634,10 @@ export const customerServiceDetailOfCustomerCategoryDeprecated: OpenAPIOperation
 > = {
   path: "/v2/customercategories/{categoryId}",
   method: "GET",
-  operationId: "customerServiceDetailOfCustomerCategoryDeprecated",
+  operationId: "customerDetailOfCustomerCategoryDeprecated",
 };
 
-export const customerServiceUpdateCategoryDeprecated: OpenAPIOperation<
+export const customerUpdateCategoryDeprecated: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Customercategories_CategoryId.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Customercategories_CategoryId.Put.Parameters.Path>,
@@ -2049,10 +1666,10 @@ export const customerServiceUpdateCategoryDeprecated: OpenAPIOperation<
 > = {
   path: "/v2/customercategories/{categoryId}",
   method: "PUT",
-  operationId: "customerServiceUpdateCategoryDeprecated",
+  operationId: "customerUpdateCategoryDeprecated",
 };
 
-export const customerServiceDeleteCustomer: OpenAPIOperation<
+export const customerDeleteCustomer: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Customers_CustomerId.Delete.Parameters.Path>,
@@ -2076,10 +1693,10 @@ export const customerServiceDeleteCustomer: OpenAPIOperation<
 > = {
   path: "/v2/customers/{customerId}",
   method: "DELETE",
-  operationId: "customerServiceDeleteCustomer",
+  operationId: "customerDeleteCustomer",
 };
 
-export const customerServiceDetailsOfCustomer: OpenAPIOperation<
+export const customerGetCustomer: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Customers_CustomerId.Get.Parameters.Path>,
@@ -2103,10 +1720,10 @@ export const customerServiceDetailsOfCustomer: OpenAPIOperation<
 > = {
   path: "/v2/customers/{customerId}",
   method: "GET",
-  operationId: "customerServiceDetailsOfCustomer",
+  operationId: "customerGetCustomer",
 };
 
-export const customerServiceUpdateCustomer: OpenAPIOperation<
+export const customerUpdateCustomer: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Customers_CustomerId.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Customers_CustomerId.Put.Parameters.Path>,
@@ -2135,10 +1752,10 @@ export const customerServiceUpdateCustomer: OpenAPIOperation<
 > = {
   path: "/v2/customers/{customerId}",
   method: "PUT",
-  operationId: "customerServiceUpdateCustomer",
+  operationId: "customerUpdateCustomer",
 };
 
-export const customerServiceDeleteNote: OpenAPIOperation<
+export const customerDeleteNote: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Customers_CustomerId_Notes_NoteId.Delete.Parameters.Path>,
@@ -2162,10 +1779,10 @@ export const customerServiceDeleteNote: OpenAPIOperation<
 > = {
   path: "/v2/customers/{customerId}/notes/{noteId}",
   method: "DELETE",
-  operationId: "customerServiceDeleteNote",
+  operationId: "customerDeleteNote",
 };
 
-export const customerServiceUpdateNote: OpenAPIOperation<
+export const customerUpdateNote: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Customers_CustomerId_Notes_NoteId.Post.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Customers_CustomerId_Notes_NoteId.Post.Parameters.Path>,
@@ -2189,10 +1806,10 @@ export const customerServiceUpdateNote: OpenAPIOperation<
 > = {
   path: "/v2/customers/{customerId}/notes/{noteId}",
   method: "POST",
-  operationId: "customerServiceUpdateNote",
+  operationId: "customerUpdateNote",
 };
 
-export const databaseServiceMysqlCharsetList: OpenAPIOperation<
+export const deprecatedDatabaseListMysqlCharsets: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Mysql_Charsets_Version.Get.Parameters.Path>,
@@ -2221,10 +1838,10 @@ export const databaseServiceMysqlCharsetList: OpenAPIOperation<
 > = {
   path: "/v2/mysql-charsets/{version}",
   method: "GET",
-  operationId: "databaseServiceMysqlCharsetList",
+  operationId: "deprecatedDatabaseListMysqlCharsets",
 };
 
-export const databaseServiceMysqlCharsetListAll: OpenAPIOperation<
+export const databaseListMysqlCharsets: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<null>,
@@ -2253,10 +1870,10 @@ export const databaseServiceMysqlCharsetListAll: OpenAPIOperation<
 > = {
   path: "/v2/mysql-charsets",
   method: "GET",
-  operationId: "databaseServiceMysqlCharsetListAll",
+  operationId: "databaseListMysqlCharsets",
 };
 
-export const databaseServiceMysqlDatabaseCreate: OpenAPIOperation<
+export const deprecatedDatabaseCreateMysqlDatabase: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Database_Mysql_Databases.Post.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Database_Mysql_Databases.Post.Parameters.Path>,
@@ -2285,10 +1902,10 @@ export const databaseServiceMysqlDatabaseCreate: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/database/mysql-databases",
   method: "POST",
-  operationId: "databaseServiceMysqlDatabaseCreate",
+  operationId: "deprecatedDatabaseCreateMysqlDatabase",
 };
 
-export const databaseServiceMysqlDatabaseList: OpenAPIOperation<
+export const deprecatedDatabaseListMysqlDatabases: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Database_Mysql_Databases.Get.Parameters.Path>,
@@ -2317,10 +1934,10 @@ export const databaseServiceMysqlDatabaseList: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/database/mysql-databases",
   method: "GET",
-  operationId: "databaseServiceMysqlDatabaseList",
+  operationId: "deprecatedDatabaseListMysqlDatabases",
 };
 
-export const databaseServiceMysqlDatabaseDelete: OpenAPIOperation<
+export const databaseDeleteMysqlDatabase: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_Id.Delete.Parameters.Path>,
@@ -2356,10 +1973,10 @@ export const databaseServiceMysqlDatabaseDelete: OpenAPIOperation<
 > = {
   path: "/v2/mysql-databases/{id}",
   method: "DELETE",
-  operationId: "databaseServiceMysqlDatabaseDelete",
+  operationId: "databaseDeleteMysqlDatabase",
 };
 
-export const databaseServiceMysqlDatabaseGetSpecific: OpenAPIOperation<
+export const databaseGetMysqlDatabase: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_Id.Get.Parameters.Path>,
@@ -2393,10 +2010,38 @@ export const databaseServiceMysqlDatabaseGetSpecific: OpenAPIOperation<
 > = {
   path: "/v2/mysql-databases/{id}",
   method: "GET",
-  operationId: "databaseServiceMysqlDatabaseGetSpecific",
+  operationId: "databaseGetMysqlDatabase",
 };
 
-export const databaseServiceMysqlDatabaseUpdateDefaultCharset: OpenAPIOperation<
+export const databaseUpdateMysqlDatabaseDefaultCharset: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_Id_Default_Charset.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_Id_Default_Charset.Patch.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_Id_Default_Charset.Patch.Parameters.Header>
+  >,
+  | Response<null, 200, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Databases_Id_Default_Charset.Patch.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Databases_Id_Default_Charset.Patch.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Databases_Id_Default_Charset.Patch.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/mysql-databases/{id}/default-charset",
+  method: "PATCH",
+  operationId: "databaseUpdateMysqlDatabaseDefaultCharset",
+};
+
+export const deprecatedDatabaseUpdateMysqlDatabaseDefaultCharset: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_Id_Default_Charset.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_Id_Default_Charset.Put.Parameters.Path>,
@@ -2421,10 +2066,38 @@ export const databaseServiceMysqlDatabaseUpdateDefaultCharset: OpenAPIOperation<
 > = {
   path: "/v2/mysql-databases/{id}/default-charset",
   method: "PUT",
-  operationId: "databaseServiceMysqlDatabaseUpdateDefaultCharset",
+  operationId: "deprecatedDatabaseUpdateMysqlDatabaseDefaultCharset",
 };
 
-export const databaseServiceMysqlDatabaseUpdateDescription: OpenAPIOperation<
+export const databaseUpdateMysqlDatabaseDescription: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_Id_Description.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_Id_Description.Patch.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_Id_Description.Patch.Parameters.Header>
+  >,
+  | Response<null, 200, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Databases_Id_Description.Patch.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Databases_Id_Description.Patch.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Databases_Id_Description.Patch.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/mysql-databases/{id}/description",
+  method: "PATCH",
+  operationId: "databaseUpdateMysqlDatabaseDescription",
+};
+
+export const deprecatedDatabaseUpdateMysqlDatabaseDescription: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_Id_Description.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_Id_Description.Put.Parameters.Path>,
@@ -2449,10 +2122,10 @@ export const databaseServiceMysqlDatabaseUpdateDescription: OpenAPIOperation<
 > = {
   path: "/v2/mysql-databases/{id}/description",
   method: "PUT",
-  operationId: "databaseServiceMysqlDatabaseUpdateDescription",
+  operationId: "deprecatedDatabaseUpdateMysqlDatabaseDescription",
 };
 
-export const databaseServiceMysqlDatabaseWithUserCreate: OpenAPIOperation<
+export const deprecatedDatabaseCreateMysqlDatabaseWithUser: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Database_Mysql_Databases_With_User.Post.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Database_Mysql_Databases_With_User.Post.Parameters.Path>,
@@ -2481,10 +2154,10 @@ export const databaseServiceMysqlDatabaseWithUserCreate: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/database/mysql-databases-with-user",
   method: "POST",
-  operationId: "databaseServiceMysqlDatabaseWithUserCreate",
+  operationId: "deprecatedDatabaseCreateMysqlDatabaseWithUser",
 };
 
-export const databaseServiceMysqlUserCreate: OpenAPIOperation<
+export const databaseCreateMysqlUser: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_DatabaseId_Users.Post.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_DatabaseId_Users.Post.Parameters.Path>,
@@ -2513,10 +2186,10 @@ export const databaseServiceMysqlUserCreate: OpenAPIOperation<
 > = {
   path: "/v2/mysql-databases/{databaseId}/users",
   method: "POST",
-  operationId: "databaseServiceMysqlUserCreate",
+  operationId: "databaseCreateMysqlUser",
 };
 
-export const databaseServiceMysqlUserList: OpenAPIOperation<
+export const databaseListMysqlUsers: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_DatabaseId_Users.Get.Parameters.Path>,
@@ -2545,10 +2218,10 @@ export const databaseServiceMysqlUserList: OpenAPIOperation<
 > = {
   path: "/v2/mysql-databases/{databaseId}/users",
   method: "GET",
-  operationId: "databaseServiceMysqlUserList",
+  operationId: "databaseListMysqlUsers",
 };
 
-export const databaseServiceMysqlUserDelete: OpenAPIOperation<
+export const deprecatedDatabaseDeleteMysqlUser: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_Users_UserId.Delete.Parameters.Path>,
@@ -2574,10 +2247,10 @@ export const databaseServiceMysqlUserDelete: OpenAPIOperation<
 > = {
   path: "/v2/mysql-databases/users/{userId}",
   method: "DELETE",
-  operationId: "databaseServiceMysqlUserDelete",
+  operationId: "deprecatedDatabaseDeleteMysqlUser",
 };
 
-export const databaseServiceMysqlUserGetSpecific: OpenAPIOperation<
+export const deprecatedDatabaseGetMysqlUser: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_Users_UserId.Get.Parameters.Path>,
@@ -2606,10 +2279,10 @@ export const databaseServiceMysqlUserGetSpecific: OpenAPIOperation<
 > = {
   path: "/v2/mysql-databases/users/{userId}",
   method: "GET",
-  operationId: "databaseServiceMysqlUserGetSpecific",
+  operationId: "deprecatedDatabaseGetMysqlUser",
 };
 
-export const databaseServiceMysqlUserUpdate: OpenAPIOperation<
+export const deprecatedDatabaseUpdateMysqlUser: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_Users_UserId.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_Users_UserId.Put.Parameters.Path>,
@@ -2634,10 +2307,10 @@ export const databaseServiceMysqlUserUpdate: OpenAPIOperation<
 > = {
   path: "/v2/mysql-databases/users/{userId}",
   method: "PUT",
-  operationId: "databaseServiceMysqlUserUpdate",
+  operationId: "deprecatedDatabaseUpdateMysqlUser",
 };
 
-export const databaseServiceMysqlUserDisable: OpenAPIOperation<
+export const deprecatedDatabaseDisableMysqlUser: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_Users_UserId_Disable.Put.Parameters.Path>,
@@ -2662,10 +2335,10 @@ export const databaseServiceMysqlUserDisable: OpenAPIOperation<
 > = {
   path: "/v2/mysql-databases/users/{userId}/disable",
   method: "PUT",
-  operationId: "databaseServiceMysqlUserDisable",
+  operationId: "deprecatedDatabaseDisableMysqlUser",
 };
 
-export const databaseServiceMysqlUserEnable: OpenAPIOperation<
+export const deprecatedDatabaseEnableMysqlUser: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_Users_UserId_Enable.Put.Parameters.Path>,
@@ -2690,10 +2363,10 @@ export const databaseServiceMysqlUserEnable: OpenAPIOperation<
 > = {
   path: "/v2/mysql-databases/users/{userId}/enable",
   method: "PUT",
-  operationId: "databaseServiceMysqlUserEnable",
+  operationId: "deprecatedDatabaseEnableMysqlUser",
 };
 
-export const databaseServiceMysqlUserGetPhpMyAdminUrl: OpenAPIOperation<
+export const deprecatedDatabaseGetMysqlUserPhpMyAdminUrl: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_Users_UserId_Php_My_Admin.Get.Parameters.Path>,
@@ -2722,10 +2395,10 @@ export const databaseServiceMysqlUserGetPhpMyAdminUrl: OpenAPIOperation<
 > = {
   path: "/v2/mysql-databases/users/{userId}/php-my-admin",
   method: "GET",
-  operationId: "databaseServiceMysqlUserGetPhpMyAdminUrl",
+  operationId: "deprecatedDatabaseGetMysqlUserPhpMyAdminUrl",
 };
 
-export const databaseServiceMysqlUserSetPassword: OpenAPIOperation<
+export const deprecatedDatabaseSetMysqlUserPassword: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_Users_UserId_Password.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_Users_UserId_Password.Put.Parameters.Path>,
@@ -2750,10 +2423,38 @@ export const databaseServiceMysqlUserSetPassword: OpenAPIOperation<
 > = {
   path: "/v2/mysql-databases/users/{userId}/password",
   method: "PUT",
-  operationId: "databaseServiceMysqlUserSetPassword",
+  operationId: "deprecatedDatabaseSetMysqlUserPassword",
 };
 
-export const databaseServiceMysqlVersionList: OpenAPIOperation<
+export const deprecatedDatabaseUpdateMysqlUserPassword: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_Users_UserId_Password.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_Users_UserId_Password.Patch.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Databases_Users_UserId_Password.Patch.Parameters.Header>
+  >,
+  | Response<null, 200, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Databases_Users_UserId_Password.Patch.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Databases_Users_UserId_Password.Patch.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Databases_Users_UserId_Password.Patch.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/mysql-databases/users/{userId}/password",
+  method: "PATCH",
+  operationId: "deprecatedDatabaseUpdateMysqlUserPassword",
+};
+
+export const deprecatedDatabaseListMysqlVersions: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Database_Mysql_Versions.Get.Parameters.Path>,
@@ -2782,10 +2483,10 @@ export const databaseServiceMysqlVersionList: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/database/mysql-versions",
   method: "GET",
-  operationId: "databaseServiceMysqlVersionList",
+  operationId: "deprecatedDatabaseListMysqlVersions",
 };
 
-export const databaseServiceRedisDatabaseCreate: OpenAPIOperation<
+export const deprecatedDatabaseCreateRedisDatabase: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Database_Redis_Databases.Post.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Database_Redis_Databases.Post.Parameters.Path>,
@@ -2814,10 +2515,10 @@ export const databaseServiceRedisDatabaseCreate: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/database/redis-databases",
   method: "POST",
-  operationId: "databaseServiceRedisDatabaseCreate",
+  operationId: "deprecatedDatabaseCreateRedisDatabase",
 };
 
-export const databaseServiceRedisDatabaseList: OpenAPIOperation<
+export const deprecatedDatabaseListRedisDatabases: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Database_Redis_Databases.Get.Parameters.Path>,
@@ -2846,10 +2547,10 @@ export const databaseServiceRedisDatabaseList: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/database/redis-databases",
   method: "GET",
-  operationId: "databaseServiceRedisDatabaseList",
+  operationId: "deprecatedDatabaseListRedisDatabases",
 };
 
-export const databaseServiceRedisDatabaseDelete: OpenAPIOperation<
+export const databaseDeleteRedisDatabase: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Redis_Databases_Id.Delete.Parameters.Path>,
@@ -2885,10 +2586,10 @@ export const databaseServiceRedisDatabaseDelete: OpenAPIOperation<
 > = {
   path: "/v2/redis-databases/{id}",
   method: "DELETE",
-  operationId: "databaseServiceRedisDatabaseDelete",
+  operationId: "databaseDeleteRedisDatabase",
 };
 
-export const databaseServiceRedisDatabaseGetSpecific: OpenAPIOperation<
+export const databaseGetRedisDatabase: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Redis_Databases_Id.Get.Parameters.Path>,
@@ -2922,10 +2623,38 @@ export const databaseServiceRedisDatabaseGetSpecific: OpenAPIOperation<
 > = {
   path: "/v2/redis-databases/{id}",
   method: "GET",
-  operationId: "databaseServiceRedisDatabaseGetSpecific",
+  operationId: "databaseGetRedisDatabase",
 };
 
-export const databaseServiceRedisDatabaseUpdateDescription: OpenAPIOperation<
+export const databaseUpdateRedisDatabaseDescription: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Redis_Databases_Id_Description.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Redis_Databases_Id_Description.Patch.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Redis_Databases_Id_Description.Patch.Parameters.Header>
+  >,
+  | Response<null, 200, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Redis_Databases_Id_Description.Patch.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Redis_Databases_Id_Description.Patch.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Redis_Databases_Id_Description.Patch.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/redis-databases/{id}/description",
+  method: "PATCH",
+  operationId: "databaseUpdateRedisDatabaseDescription",
+};
+
+export const deprecatedDatabaseUpdateRedisDatabaseDescription: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Redis_Databases_Id_Description.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Redis_Databases_Id_Description.Put.Parameters.Path>,
@@ -2950,10 +2679,10 @@ export const databaseServiceRedisDatabaseUpdateDescription: OpenAPIOperation<
 > = {
   path: "/v2/redis-databases/{id}/description",
   method: "PUT",
-  operationId: "databaseServiceRedisDatabaseUpdateDescription",
+  operationId: "deprecatedDatabaseUpdateRedisDatabaseDescription",
 };
 
-export const databaseServiceRedisVersionList: OpenAPIOperation<
+export const deprecatedDatabaseListRedisVersions: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Database_Redis_Versions.Get.Parameters.Path>,
@@ -2982,7 +2711,7 @@ export const databaseServiceRedisVersionList: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/database/redis-versions",
   method: "GET",
-  operationId: "databaseServiceRedisVersionList",
+  operationId: "deprecatedDatabaseListRedisVersions",
 };
 
 export const dnsRecordASetCustom: OpenAPIOperation<
@@ -3735,38 +3464,6 @@ export const domainServiceResendDomainEmail: OpenAPIOperation<
   operationId: "domainServiceResendDomainEmail",
 };
 
-export const fileServiceFileCreateDeprecated: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldApiV2.Paths.V2_Files_Token.Post.Parameters.RequestBody>,
-    Simplify<MittwaldApiV2.Paths.V2_Files_Token.Post.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Files_Token.Post.Parameters.Header>
-  >,
-  | Response<
-      MittwaldApiV2.Paths.V2_Files_Token.Post.Responses.$201.Content.Application_Json,
-      201,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Files_Token.Post.Responses.$400.Content.Application_Json,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Files_Token.Post.Responses.$500.Content.Application_Json,
-      500,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Files_Token.Post.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/files/{token}",
-  method: "POST",
-  operationId: "fileServiceFileCreateDeprecated",
-};
-
 export const fileCreateFile: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -3972,7 +3669,7 @@ export const ingressServiceGetSpecific: OpenAPIOperation<
   operationId: "ingressServiceGetSpecific",
 };
 
-export const ingressServiceList: OpenAPIOperation<
+export const ingressServiceListAccessible: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<null>,
@@ -3996,7 +3693,7 @@ export const ingressServiceList: OpenAPIOperation<
 > = {
   path: "/v2/ingresses",
   method: "GET",
-  operationId: "ingressServiceList",
+  operationId: "ingressServiceListAccessible",
 };
 
 export const ingressServicePaths: OpenAPIOperation<
@@ -4769,7 +4466,7 @@ export const deprecatedProjectDeleteProjectMembership: OpenAPIOperation<
   operationId: "deprecatedProjectDeleteProjectMembership",
 };
 
-export const customerCreateCustomerInvite: OpenAPIOperation<
+export const deprecatedCustomerCreateCustomerInvite: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Invites_Customer.Post.Parameters.RequestBody>,
     Simplify<null>,
@@ -4798,10 +4495,10 @@ export const customerCreateCustomerInvite: OpenAPIOperation<
 > = {
   path: "/v2/invites/customer",
   method: "POST",
-  operationId: "customerCreateCustomerInvite",
+  operationId: "deprecatedCustomerCreateCustomerInvite",
 };
 
-export const projectCreateProjectInvite: OpenAPIOperation<
+export const deprecatedProjectCreateProjectInvite: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Invites_Project.Post.Parameters.RequestBody>,
     Simplify<null>,
@@ -4830,7 +4527,7 @@ export const projectCreateProjectInvite: OpenAPIOperation<
 > = {
   path: "/v2/invites/project",
   method: "POST",
-  operationId: "projectCreateProjectInvite",
+  operationId: "deprecatedProjectCreateProjectInvite",
 };
 
 export const deprecatedCustomerDeclineCustomerInvite: OpenAPIOperation<
@@ -5067,7 +4764,7 @@ export const deprecatedCustomerListCustomerMembershipsForUser: OpenAPIOperation<
   operationId: "deprecatedCustomerListCustomerMembershipsForUser",
 };
 
-export const customerListInvitesForCustomer: OpenAPIOperation<
+export const deprecatedCustomerListInvitesForCustomer: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Invites_Customers_CustomerId.Get.Parameters.Path>,
@@ -5091,10 +4788,10 @@ export const customerListInvitesForCustomer: OpenAPIOperation<
 > = {
   path: "/v2/invites/customers/{customerId}",
   method: "GET",
-  operationId: "customerListInvitesForCustomer",
+  operationId: "deprecatedCustomerListInvitesForCustomer",
 };
 
-export const projectListInvitesForProject: OpenAPIOperation<
+export const deprecatedProjectListInvitesForProject: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Invites_Projects_ProjectId.Get.Parameters.Path>,
@@ -5118,10 +4815,10 @@ export const projectListInvitesForProject: OpenAPIOperation<
 > = {
   path: "/v2/invites/projects/{projectId}",
   method: "GET",
-  operationId: "projectListInvitesForProject",
+  operationId: "deprecatedProjectListInvitesForProject",
 };
 
-export const customerListMembershipsForCustomer: OpenAPIOperation<
+export const deprecatedCustomerListMembershipsForCustomer: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Memberships_Customers_CustomerId.Get.Parameters.Path>,
@@ -5145,10 +4842,10 @@ export const customerListMembershipsForCustomer: OpenAPIOperation<
 > = {
   path: "/v2/memberships/customers/{customerId}",
   method: "GET",
-  operationId: "customerListMembershipsForCustomer",
+  operationId: "deprecatedCustomerListMembershipsForCustomer",
 };
 
-export const projectListMembershipsForProject: OpenAPIOperation<
+export const deprecatedProjectListMembershipsForProject: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Memberships_Projects_ProjectId.Get.Parameters.Path>,
@@ -5172,7 +4869,7 @@ export const projectListMembershipsForProject: OpenAPIOperation<
 > = {
   path: "/v2/memberships/projects/{projectId}",
   method: "GET",
-  operationId: "projectListMembershipsForProject",
+  operationId: "deprecatedProjectListMembershipsForProject",
 };
 
 export const deprecatedCustomerListOwnCustomerInvites: OpenAPIOperation<
@@ -5338,7 +5035,7 @@ export const deprecatedProjectRevokeProjectInvite: OpenAPIOperation<
   operationId: "deprecatedProjectRevokeProjectInvite",
 };
 
-export const messagingServiceCountUnreadNotifications: OpenAPIOperation<
+export const notificationsCountUnreadNotifications: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<null>,
@@ -5357,10 +5054,10 @@ export const messagingServiceCountUnreadNotifications: OpenAPIOperation<
 > = {
   path: "/v2/notifications/unread-counts",
   method: "GET",
-  operationId: "messagingServiceCountUnreadNotifications",
+  operationId: "notificationsCountUnreadNotifications",
 };
 
-export const messagingServiceListNotifications: OpenAPIOperation<
+export const notificationsListNotifications: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<null>,
@@ -5379,10 +5076,10 @@ export const messagingServiceListNotifications: OpenAPIOperation<
 > = {
   path: "/v2/notifications",
   method: "GET",
-  operationId: "messagingServiceListNotifications",
+  operationId: "notificationsListNotifications",
 };
 
-export const messagingServiceReadAllNotifications: OpenAPIOperation<
+export const notificationsReadAllNotifications: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Notifications_Status.Put.Parameters.RequestBody>,
     Simplify<null>,
@@ -5406,10 +5103,10 @@ export const messagingServiceReadAllNotifications: OpenAPIOperation<
 > = {
   path: "/v2/notifications/status",
   method: "PUT",
-  operationId: "messagingServiceReadAllNotifications",
+  operationId: "notificationsReadAllNotifications",
 };
 
-export const messagingServiceReadNotification: OpenAPIOperation<
+export const notificationsReadNotification: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Notifications_MessageId_Status.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Notifications_MessageId_Status.Put.Parameters.Path>,
@@ -5433,7 +5130,7 @@ export const messagingServiceReadNotification: OpenAPIOperation<
 > = {
   path: "/v2/notifications/{messageId}/status",
   method: "PUT",
-  operationId: "messagingServiceReadNotification",
+  operationId: "notificationsReadNotification",
 };
 
 export const newsletterGetInfo: OpenAPIOperation<
@@ -5503,7 +5200,7 @@ export const newsletterSubscribeUser: OpenAPIOperation<
   operationId: "newsletterSubscribeUser",
 };
 
-export const orderServiceChangeProjecthosting: OpenAPIOperation<
+export const orderChangeProjecthosting: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Orders_Actions_Change_Projecthosting.Post.Parameters.RequestBody>,
     Simplify<null>,
@@ -5527,10 +5224,10 @@ export const orderServiceChangeProjecthosting: OpenAPIOperation<
 > = {
   path: "/v2/orders/actions/change-projecthosting",
   method: "POST",
-  operationId: "orderServiceChangeProjecthosting",
+  operationId: "orderChangeProjecthosting",
 };
 
-export const orderServiceChangeServer: OpenAPIOperation<
+export const orderChangeServer: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Orders_Actions_Change_Server.Post.Parameters.RequestBody>,
     Simplify<null>,
@@ -5554,10 +5251,10 @@ export const orderServiceChangeServer: OpenAPIOperation<
 > = {
   path: "/v2/orders/actions/change-server",
   method: "POST",
-  operationId: "orderServiceChangeServer",
+  operationId: "orderChangeServer",
 };
 
-export const orderServiceGetOrder: OpenAPIOperation<
+export const orderGetOrder: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Orders_OrderId.Get.Parameters.Path>,
@@ -5576,10 +5273,10 @@ export const orderServiceGetOrder: OpenAPIOperation<
 > = {
   path: "/v2/orders/{orderId}",
   method: "GET",
-  operationId: "orderServiceGetOrder",
+  operationId: "orderGetOrder",
 };
 
-export const orderServiceListCustomerOrders: OpenAPIOperation<
+export const orderListCustomerOrders: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Customers_CustomerId_Orders.Get.Parameters.Path>,
@@ -5598,10 +5295,10 @@ export const orderServiceListCustomerOrders: OpenAPIOperation<
 > = {
   path: "/v2/customers/{customerId}/orders",
   method: "GET",
-  operationId: "orderServiceListCustomerOrders",
+  operationId: "orderListCustomerOrders",
 };
 
-export const orderServiceOrderDomain: OpenAPIOperation<
+export const orderOrderDomain: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Orders_Actions_Order_Domain.Post.Parameters.RequestBody>,
     Simplify<null>,
@@ -5625,10 +5322,10 @@ export const orderServiceOrderDomain: OpenAPIOperation<
 > = {
   path: "/v2/orders/actions/order-domain",
   method: "POST",
-  operationId: "orderServiceOrderDomain",
+  operationId: "orderOrderDomain",
 };
 
-export const orderServiceOrderProjecthosting: OpenAPIOperation<
+export const orderOrderProjecthosting: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Orders_Actions_Order_Projecthosting.Post.Parameters.RequestBody>,
     Simplify<null>,
@@ -5652,10 +5349,10 @@ export const orderServiceOrderProjecthosting: OpenAPIOperation<
 > = {
   path: "/v2/orders/actions/order-projecthosting",
   method: "POST",
-  operationId: "orderServiceOrderProjecthosting",
+  operationId: "orderOrderProjecthosting",
 };
 
-export const orderServiceOrderServer: OpenAPIOperation<
+export const orderOrderServer: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Orders_Actions_Order_Server.Post.Parameters.RequestBody>,
     Simplify<null>,
@@ -5679,10 +5376,10 @@ export const orderServiceOrderServer: OpenAPIOperation<
 > = {
   path: "/v2/orders/actions/order-server",
   method: "POST",
-  operationId: "orderServiceOrderServer",
+  operationId: "orderOrderServer",
 };
 
-export const orderServicePreviewChangeProjecthosting: OpenAPIOperation<
+export const orderPreviewChangeProjecthosting: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Orders_Actions_Preview_Change_Projecthosting.Post.Parameters.RequestBody>,
     Simplify<null>,
@@ -5706,10 +5403,10 @@ export const orderServicePreviewChangeProjecthosting: OpenAPIOperation<
 > = {
   path: "/v2/orders/actions/preview-change-projecthosting",
   method: "POST",
-  operationId: "orderServicePreviewChangeProjecthosting",
+  operationId: "orderPreviewChangeProjecthosting",
 };
 
-export const orderServicePreviewChangeServer: OpenAPIOperation<
+export const orderPreviewChangeServer: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Orders_Actions_Preview_Change_Server.Post.Parameters.RequestBody>,
     Simplify<null>,
@@ -5733,10 +5430,10 @@ export const orderServicePreviewChangeServer: OpenAPIOperation<
 > = {
   path: "/v2/orders/actions/preview-change-server",
   method: "POST",
-  operationId: "orderServicePreviewChangeServer",
+  operationId: "orderPreviewChangeServer",
 };
 
-export const orderServicePreviewOrderDomain: OpenAPIOperation<
+export const orderPreviewOrderDomain: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Orders_Actions_Preview_Order_Domain.Post.Parameters.RequestBody>,
     Simplify<null>,
@@ -5760,10 +5457,10 @@ export const orderServicePreviewOrderDomain: OpenAPIOperation<
 > = {
   path: "/v2/orders/actions/preview-order-domain",
   method: "POST",
-  operationId: "orderServicePreviewOrderDomain",
+  operationId: "orderPreviewOrderDomain",
 };
 
-export const orderServicePreviewOrderProjecthosting: OpenAPIOperation<
+export const orderPreviewOrderProjecthosting: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Orders_Actions_Preview_Order_Projecthosting.Post.Parameters.RequestBody>,
     Simplify<null>,
@@ -5787,10 +5484,10 @@ export const orderServicePreviewOrderProjecthosting: OpenAPIOperation<
 > = {
   path: "/v2/orders/actions/preview-order-projecthosting",
   method: "POST",
-  operationId: "orderServicePreviewOrderProjecthosting",
+  operationId: "orderPreviewOrderProjecthosting",
 };
 
-export const orderServicePreviewOrderServer: OpenAPIOperation<
+export const orderPreviewOrderServer: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Orders_Actions_Preview_Order_Server.Post.Parameters.RequestBody>,
     Simplify<null>,
@@ -5814,7 +5511,7 @@ export const orderServicePreviewOrderServer: OpenAPIOperation<
 > = {
   path: "/v2/orders/actions/preview-order-server",
   method: "POST",
-  operationId: "orderServicePreviewOrderServer",
+  operationId: "orderPreviewOrderServer",
 };
 
 export const passwordValidationServiceGetPasswordPolicy: OpenAPIOperation<
@@ -6019,155 +5716,6 @@ export const projectFileSystemGetDiskUsage: OpenAPIOperation<
   operationId: "projectFileSystemGetDiskUsage",
 };
 
-export const deprecatedPlacementGroupPlacementgroupAvatarRemove: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId_Avatar.Delete.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId_Avatar.Delete.Parameters.Header>
-  >,
-  | Response<null, 204, null>
-  | Response<
-      MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId_Avatar.Delete.Responses.$400.Content.Application_Json,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId_Avatar.Delete.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/placementgroups/{placementGroupId}/avatar",
-  method: "DELETE",
-  operationId: "deprecatedPlacementGroupPlacementgroupAvatarRemove",
-};
-
-export const deprecatedPlacementGroupPlacementgroupAvatarRequestUpload: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId_Avatar.Post.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId_Avatar.Post.Parameters.Header>
-  >,
-  | Response<
-      MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId_Avatar.Post.Responses.$200.Content.Application_Json,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId_Avatar.Post.Responses.$400.Content.Application_Json,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId_Avatar.Post.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/placementgroups/{placementGroupId}/avatar",
-  method: "POST",
-  operationId: "deprecatedPlacementGroupPlacementgroupAvatarRequestUpload",
-};
-
-export const deprecatedPlacementGroupPlacementgroupDetails: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId.Get.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId.Get.Parameters.Header>
-  >,
-  | Response<
-      MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId.Get.Responses.$200.Content.Application_Json,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId.Get.Responses.$404.Content.Application_Json,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId.Get.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/placementgroups/{placementGroupId}",
-  method: "GET",
-  operationId: "deprecatedPlacementGroupPlacementgroupDetails",
-};
-
-export const deprecatedPlacementGroupPlacementgroupList: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V2_Placementgroups.Get.Parameters.Header>
-  >,
-  | Response<
-      MittwaldApiV2.Paths.V2_Placementgroups.Get.Responses.$200.Content.Application_Json,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Placementgroups.Get.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/placementgroups",
-  method: "GET",
-  operationId: "deprecatedPlacementGroupPlacementgroupList",
-};
-
-export const deprecatedProjectCreateSubproject: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId_Projects.Post.Parameters.RequestBody>,
-    Simplify<MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId_Projects.Post.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId_Projects.Post.Parameters.Header>
-  >,
-  | Response<
-      MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId_Projects.Post.Responses.$201.Content.Application_Json,
-      201,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId_Projects.Post.Responses.$400.Content.Application_Json,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId_Projects.Post.Responses.$412.Content.Application_Json,
-      412,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId_Projects.Post.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/placementgroups/{placementGroupId}/projects",
-  method: "POST",
-  operationId: "deprecatedProjectCreateSubproject",
-};
-
-export const deprecatedPlacementGroupPlacementgroupUpdateDescription: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId_Description.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId_Description.Patch.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId_Description.Patch.Parameters.Header>
-  >,
-  | Response<null, 200, null>
-  | Response<
-      MittwaldApiV2.Paths.V2_Placementgroups_PlacementGroupId_Description.Patch.Responses.$400.Content.Application_Json,
-      400,
-      "application/json"
-    >
-> = {
-  path: "/v2/placementgroups/{placementGroupId}/description",
-  method: "PATCH",
-  operationId: "deprecatedPlacementGroupPlacementgroupUpdateDescription",
-};
-
 export const projectDeleteProjectAvatar: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -6281,34 +5829,6 @@ export const projectGetProject: OpenAPIOperation<
   path: "/v2/projects/{id}",
   method: "GET",
   operationId: "projectGetProject",
-};
-
-export const deprecatedProjectUpdateDescription: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldApiV2.Paths.V2_Projects_Id_Description.Put.Parameters.RequestBody>,
-    Simplify<MittwaldApiV2.Paths.V2_Projects_Id_Description.Put.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Projects_Id_Description.Put.Parameters.Header>
-  >,
-  | Response<null, 200, null>
-  | Response<
-      MittwaldApiV2.Paths.V2_Projects_Id_Description.Put.Responses.$400.Content.Application_Json,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projects_Id_Description.Put.Responses.$404.Content.Application_Json,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projects_Id_Description.Put.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/{id}/description",
-  method: "PUT",
-  operationId: "deprecatedProjectUpdateDescription",
 };
 
 export const projectUpdateProjectDescription: OpenAPIOperation<
@@ -7698,7 +7218,7 @@ export const signupApiTokenCheck: OpenAPIOperation<
   operationId: "signupApiTokenCheck",
 };
 
-export const sshuserServiceCreateSftpUser: OpenAPIOperation<
+export const deprecatedSshUserCreateSftpUser: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Sshuser_Sftp.Post.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Sshuser_Sftp.Post.Parameters.Path>,
@@ -7722,10 +7242,10 @@ export const sshuserServiceCreateSftpUser: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/sshuser/sftp",
   method: "POST",
-  operationId: "sshuserServiceCreateSftpUser",
+  operationId: "deprecatedSshUserCreateSftpUser",
 };
 
-export const sshuserServiceListSftpUser: OpenAPIOperation<
+export const deprecatedSshUserListSftpUser: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Sshuser_Sftp.Get.Parameters.Path>,
@@ -7749,10 +7269,10 @@ export const sshuserServiceListSftpUser: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/sshuser/sftp",
   method: "GET",
-  operationId: "sshuserServiceListSftpUser",
+  operationId: "deprecatedSshUserListSftpUser",
 };
 
-export const sshuserServiceCreateSshUser: OpenAPIOperation<
+export const deprecatedSshUserCreateSshUser: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Sshuser_Ssh.Post.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Sshuser_Ssh.Post.Parameters.Path>,
@@ -7776,10 +7296,10 @@ export const sshuserServiceCreateSshUser: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/sshuser/ssh",
   method: "POST",
-  operationId: "sshuserServiceCreateSshUser",
+  operationId: "deprecatedSshUserCreateSshUser",
 };
 
-export const sshuserServiceListSshUser: OpenAPIOperation<
+export const deprecatedSshUserListSshUser: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Sshuser_Ssh.Get.Parameters.Path>,
@@ -7803,10 +7323,10 @@ export const sshuserServiceListSshUser: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/sshuser/ssh",
   method: "GET",
-  operationId: "sshuserServiceListSshUser",
+  operationId: "deprecatedSshUserListSshUser",
 };
 
-export const sshuserServiceGetSftpUser: OpenAPIOperation<
+export const deprecatedSshUserGetSftpUser: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Sftp_SftpUserId.Get.Parameters.Path>,
@@ -7830,10 +7350,10 @@ export const sshuserServiceGetSftpUser: OpenAPIOperation<
 > = {
   path: "/v2/sshuser/sftp/{sftpUserId}",
   method: "GET",
-  operationId: "sshuserServiceGetSftpUser",
+  operationId: "deprecatedSshUserGetSftpUser",
 };
 
-export const sshuserServicePatchSftpUser: OpenAPIOperation<
+export const deprecatedSshUserPatchSftpUser: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Sftp_SftpUserId.Patch.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Sftp_SftpUserId.Patch.Parameters.Path>,
@@ -7853,16 +7373,17 @@ export const sshuserServicePatchSftpUser: OpenAPIOperation<
 > = {
   path: "/v2/sshuser/sftp/{sftpUserId}",
   method: "PATCH",
-  operationId: "sshuserServicePatchSftpUser",
+  operationId: "deprecatedSshUserPatchSftpUser",
 };
 
-export const sshuserServiceRemoveSftpUser: OpenAPIOperation<
+export const deprecatedSshUserRemoveSftpUser: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Sftp_SftpUserId.Delete.Parameters.Path>,
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Sftp_SftpUserId.Delete.Parameters.Header>
   >,
   | Response<null, 200, null>
+  | Response<null, 204, null>
   | Response<
       MittwaldApiV2.Paths.V2_Sshuser_Sftp_SftpUserId.Delete.Responses.Default.Content.Application_Json,
       0,
@@ -7871,10 +7392,10 @@ export const sshuserServiceRemoveSftpUser: OpenAPIOperation<
 > = {
   path: "/v2/sshuser/sftp/{sftpUserId}",
   method: "DELETE",
-  operationId: "sshuserServiceRemoveSftpUser",
+  operationId: "deprecatedSshUserRemoveSftpUser",
 };
 
-export const sshuserServiceGetSshUser: OpenAPIOperation<
+export const deprecatedSshUserGetSshUser: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Ssh_SshUserId.Get.Parameters.Path>,
@@ -7898,10 +7419,10 @@ export const sshuserServiceGetSshUser: OpenAPIOperation<
 > = {
   path: "/v2/sshuser/ssh/{sshUserId}",
   method: "GET",
-  operationId: "sshuserServiceGetSshUser",
+  operationId: "deprecatedSshUserGetSshUser",
 };
 
-export const sshuserServicePatchSshUser: OpenAPIOperation<
+export const deprecatedSshUserPatchSshUser: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Ssh_SshUserId.Patch.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Ssh_SshUserId.Patch.Parameters.Path>,
@@ -7921,16 +7442,17 @@ export const sshuserServicePatchSshUser: OpenAPIOperation<
 > = {
   path: "/v2/sshuser/ssh/{sshUserId}",
   method: "PATCH",
-  operationId: "sshuserServicePatchSshUser",
+  operationId: "deprecatedSshUserPatchSshUser",
 };
 
-export const sshuserServiceRemoveSshUser: OpenAPIOperation<
+export const deprecatedSshUserRemoveSshUser: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Ssh_SshUserId.Delete.Parameters.Path>,
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Ssh_SshUserId.Delete.Parameters.Header>
   >,
   | Response<null, 200, null>
+  | Response<null, 204, null>
   | Response<
       MittwaldApiV2.Paths.V2_Sshuser_Ssh_SshUserId.Delete.Responses.Default.Content.Application_Json,
       0,
@@ -7939,10 +7461,10 @@ export const sshuserServiceRemoveSshUser: OpenAPIOperation<
 > = {
   path: "/v2/sshuser/ssh/{sshUserId}",
   method: "DELETE",
-  operationId: "sshuserServiceRemoveSshUser",
+  operationId: "deprecatedSshUserRemoveSshUser",
 };
 
-export const sshuserServiceUpdateAccessLevelOfSftpUser: OpenAPIOperation<
+export const deprecatedSshUserUpdateAccessLevelOfSftpUser: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Sftp_SftpUserId_Access_Level.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Sftp_SftpUserId_Access_Level.Put.Parameters.Path>,
@@ -7962,10 +7484,10 @@ export const sshuserServiceUpdateAccessLevelOfSftpUser: OpenAPIOperation<
 > = {
   path: "/v2/sshuser/sftp/{sftpUserId}/access-level",
   method: "PUT",
-  operationId: "sshuserServiceUpdateAccessLevelOfSftpUser",
+  operationId: "deprecatedSshUserUpdateAccessLevelOfSftpUser",
 };
 
-export const sshuserServiceUpdateActiveOfSftpUser: OpenAPIOperation<
+export const deprecatedSshUserUpdateActiveOfSftpUser: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Sftp_SftpUserId_Active.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Sftp_SftpUserId_Active.Put.Parameters.Path>,
@@ -7985,10 +7507,10 @@ export const sshuserServiceUpdateActiveOfSftpUser: OpenAPIOperation<
 > = {
   path: "/v2/sshuser/sftp/{sftpUserId}/active",
   method: "PUT",
-  operationId: "sshuserServiceUpdateActiveOfSftpUser",
+  operationId: "deprecatedSshUserUpdateActiveOfSftpUser",
 };
 
-export const sshuserServiceUpdateActiveOfSshUser: OpenAPIOperation<
+export const deprecatedSshUserUpdateActiveOfSshUser: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Ssh_SshUserId_Active.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Ssh_SshUserId_Active.Put.Parameters.Path>,
@@ -8008,10 +7530,10 @@ export const sshuserServiceUpdateActiveOfSshUser: OpenAPIOperation<
 > = {
   path: "/v2/sshuser/ssh/{sshUserId}/active",
   method: "PUT",
-  operationId: "sshuserServiceUpdateActiveOfSshUser",
+  operationId: "deprecatedSshUserUpdateActiveOfSshUser",
 };
 
-export const sshuserServiceUpdateDescriptionOfSftpUser: OpenAPIOperation<
+export const deprecatedSshUserUpdateDescriptionOfSftpUser: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Sftp_SftpUserId_Description.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Sftp_SftpUserId_Description.Put.Parameters.Path>,
@@ -8031,10 +7553,10 @@ export const sshuserServiceUpdateDescriptionOfSftpUser: OpenAPIOperation<
 > = {
   path: "/v2/sshuser/sftp/{sftpUserId}/description",
   method: "PUT",
-  operationId: "sshuserServiceUpdateDescriptionOfSftpUser",
+  operationId: "deprecatedSshUserUpdateDescriptionOfSftpUser",
 };
 
-export const sshuserServiceUpdateDescriptionOfSshUser: OpenAPIOperation<
+export const deprecatedSshUserUpdateDescriptionOfSshUser: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Ssh_SshUserId_Description.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Ssh_SshUserId_Description.Put.Parameters.Path>,
@@ -8054,10 +7576,10 @@ export const sshuserServiceUpdateDescriptionOfSshUser: OpenAPIOperation<
 > = {
   path: "/v2/sshuser/ssh/{sshUserId}/description",
   method: "PUT",
-  operationId: "sshuserServiceUpdateDescriptionOfSshUser",
+  operationId: "deprecatedSshUserUpdateDescriptionOfSshUser",
 };
 
-export const sshuserServiceUpdateDirectoriesOfSftpUser: OpenAPIOperation<
+export const deprecatedSshUserUpdateDirectoriesOfSftpUser: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Sftp_SftpUserId_Directories.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Sftp_SftpUserId_Directories.Put.Parameters.Path>,
@@ -8077,10 +7599,10 @@ export const sshuserServiceUpdateDirectoriesOfSftpUser: OpenAPIOperation<
 > = {
   path: "/v2/sshuser/sftp/{sftpUserId}/directories",
   method: "PUT",
-  operationId: "sshuserServiceUpdateDirectoriesOfSftpUser",
+  operationId: "deprecatedSshUserUpdateDirectoriesOfSftpUser",
 };
 
-export const sshuserServiceUpdateExpiryOfSftpUser: OpenAPIOperation<
+export const deprecatedSshUserUpdateExpiryOfSftpUser: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Sftp_SftpUserId_Expiry.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Sftp_SftpUserId_Expiry.Put.Parameters.Path>,
@@ -8100,10 +7622,10 @@ export const sshuserServiceUpdateExpiryOfSftpUser: OpenAPIOperation<
 > = {
   path: "/v2/sshuser/sftp/{sftpUserId}/expiry",
   method: "PUT",
-  operationId: "sshuserServiceUpdateExpiryOfSftpUser",
+  operationId: "deprecatedSshUserUpdateExpiryOfSftpUser",
 };
 
-export const sshuserServiceUpdateExpiryOfSshUser: OpenAPIOperation<
+export const deprecatedSshUserUpdateExpiryOfSshUser: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Ssh_SshUserId_Expiry.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Ssh_SshUserId_Expiry.Put.Parameters.Path>,
@@ -8123,10 +7645,10 @@ export const sshuserServiceUpdateExpiryOfSshUser: OpenAPIOperation<
 > = {
   path: "/v2/sshuser/ssh/{sshUserId}/expiry",
   method: "PUT",
-  operationId: "sshuserServiceUpdateExpiryOfSshUser",
+  operationId: "deprecatedSshUserUpdateExpiryOfSshUser",
 };
 
-export const sshuserServiceUpdatePasswordOfSftpUser: OpenAPIOperation<
+export const deprecatedSshUserUpdatePasswordOfSftpUser: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Sftp_SftpUserId_Password.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Sftp_SftpUserId_Password.Put.Parameters.Path>,
@@ -8146,10 +7668,10 @@ export const sshuserServiceUpdatePasswordOfSftpUser: OpenAPIOperation<
 > = {
   path: "/v2/sshuser/sftp/{sftpUserId}/password",
   method: "PUT",
-  operationId: "sshuserServiceUpdatePasswordOfSftpUser",
+  operationId: "deprecatedSshUserUpdatePasswordOfSftpUser",
 };
 
-export const sshuserServiceUpdatePasswordOfSshUser: OpenAPIOperation<
+export const deprecatedSshUserUpdatePasswordOfSshUser: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Ssh_SshUserId_Password.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Ssh_SshUserId_Password.Put.Parameters.Path>,
@@ -8169,10 +7691,10 @@ export const sshuserServiceUpdatePasswordOfSshUser: OpenAPIOperation<
 > = {
   path: "/v2/sshuser/ssh/{sshUserId}/password",
   method: "PUT",
-  operationId: "sshuserServiceUpdatePasswordOfSshUser",
+  operationId: "deprecatedSshUserUpdatePasswordOfSshUser",
 };
 
-export const sshuserServiceUpdatePublicKeysOfSftpUser: OpenAPIOperation<
+export const deprecatedSshUserUpdatePublicKeysOfSftpUser: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Sftp_SftpUserId_Public_Keys.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Sftp_SftpUserId_Public_Keys.Put.Parameters.Path>,
@@ -8192,10 +7714,10 @@ export const sshuserServiceUpdatePublicKeysOfSftpUser: OpenAPIOperation<
 > = {
   path: "/v2/sshuser/sftp/{sftpUserId}/public-keys",
   method: "PUT",
-  operationId: "sshuserServiceUpdatePublicKeysOfSftpUser",
+  operationId: "deprecatedSshUserUpdatePublicKeysOfSftpUser",
 };
 
-export const sshuserServiceUpdatePublicKeysOfSshUser: OpenAPIOperation<
+export const deprecatedSshUserUpdatePublicKeysOfSshUser: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Ssh_SshUserId_Public_Keys.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Sshuser_Ssh_SshUserId_Public_Keys.Put.Parameters.Path>,
@@ -8215,29 +7737,7 @@ export const sshuserServiceUpdatePublicKeysOfSshUser: OpenAPIOperation<
 > = {
   path: "/v2/sshuser/ssh/{sshUserId}/public-keys",
   method: "PUT",
-  operationId: "sshuserServiceUpdatePublicKeysOfSshUser",
-};
-
-export const storageStatisticsServiceStorageStatistics: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Storage.Get.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Storage.Get.Parameters.Header>
-  >,
-  | Response<
-      MittwaldApiV2.Paths.V2_Projects_ProjectId_Storage.Get.Responses.$200.Content.Application_Json,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projects_ProjectId_Storage.Get.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/{projectId}/storage",
-  method: "GET",
-  operationId: "storageStatisticsServiceStorageStatistics",
+  operationId: "deprecatedSshUserUpdatePublicKeysOfSshUser",
 };
 
 export const appGetSystemsoftware: OpenAPIOperation<
@@ -8737,7 +8237,7 @@ export const fileGetFileTypeRules: OpenAPIOperation<
   operationId: "fileGetFileTypeRules",
 };
 
-export const orderServiceListProjectOrders: OpenAPIOperation<
+export const orderListProjectOrders: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Orders.Get.Parameters.Path>,
@@ -8756,39 +8256,7 @@ export const orderServiceListProjectOrders: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/orders",
   method: "GET",
-  operationId: "orderServiceListProjectOrders",
-};
-
-export const deprecatedcronjobServiceCronjobAddAppid: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldApiV2.Paths.V2_Projects_Cronjobs_CronjobId_Appid.Put.Parameters.RequestBody>,
-    Simplify<MittwaldApiV2.Paths.V2_Projects_Cronjobs_CronjobId_Appid.Put.Parameters.Path>,
-    Simplify<MittwaldApiV2.Paths.V2_Projects_Cronjobs_CronjobId_Appid.Put.Parameters.Header>
-  >,
-  | Response<
-      MittwaldApiV2.Paths.V2_Projects_Cronjobs_CronjobId_Appid.Put.Responses.$201.Content.Application_Json,
-      201,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projects_Cronjobs_CronjobId_Appid.Put.Responses.$400.Content.Application_Json,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projects_Cronjobs_CronjobId_Appid.Put.Responses.$412.Content.Application_Json,
-      412,
-      "application/json"
-    >
-  | Response<
-      MittwaldApiV2.Paths.V2_Projects_Cronjobs_CronjobId_Appid.Put.Responses.Default.Content.Application_Json,
-      0,
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/cronjobs/{cronjobId}/appid",
-  method: "PUT",
-  operationId: "deprecatedcronjobServiceCronjobAddAppid",
+  operationId: "orderListProjectOrders",
 };
 
 export const cronjobAbortExecution: OpenAPIOperation<
@@ -9184,6 +8652,7 @@ export const cronjobUpdateCronjobAppId: OpenAPIOperation<
       201,
       "application/json"
     >
+  | Response<null, 204, null>
   | Response<
       MittwaldApiV2.Paths.V2_Cronjobs_CronjobId_App_Id.Patch.Responses.$400.Content.Application_Json,
       400,
@@ -9205,7 +8674,7 @@ export const cronjobUpdateCronjobAppId: OpenAPIOperation<
   operationId: "cronjobUpdateCronjobAppId",
 };
 
-export const contractCancelContractItemTermination: OpenAPIOperation<
+export const deprecatedContractCancelContractItemTermination: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Contracts_ContractId_Items_ContractItemId_Terminations.Delete.Parameters.Path>,
@@ -9234,7 +8703,7 @@ export const contractCancelContractItemTermination: OpenAPIOperation<
 > = {
   path: "/v2/contracts/{contractId}/items/{contractItemId}/terminations",
   method: "DELETE",
-  operationId: "contractCancelContractItemTermination",
+  operationId: "deprecatedContractCancelContractItemTermination",
 };
 
 export const deprecatedContractTerminateContractItem: OpenAPIOperation<
@@ -9269,7 +8738,7 @@ export const deprecatedContractTerminateContractItem: OpenAPIOperation<
   operationId: "deprecatedContractTerminateContractItem",
 };
 
-export const contractCancelContractTariffChange: OpenAPIOperation<
+export const deprecatedContractCancelContractTariffChange: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Contracts_ContractId_Items_ContractItemId_Tariff_Changes.Delete.Parameters.Path>,
@@ -9298,10 +8767,10 @@ export const contractCancelContractTariffChange: OpenAPIOperation<
 > = {
   path: "/v2/contracts/{contractId}/items/{contractItemId}/tariff-changes",
   method: "DELETE",
-  operationId: "contractCancelContractTariffChange",
+  operationId: "deprecatedContractCancelContractTariffChange",
 };
 
-export const contractCancelContractTermination: OpenAPIOperation<
+export const deprecatedContractCancelContractTermination: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Contracts_ContractId_Terminations.Delete.Parameters.Path>,
@@ -9330,10 +8799,10 @@ export const contractCancelContractTermination: OpenAPIOperation<
 > = {
   path: "/v2/contracts/{contractId}/terminations",
   method: "DELETE",
-  operationId: "contractCancelContractTermination",
+  operationId: "deprecatedContractCancelContractTermination",
 };
 
-export const contractTerminateContract: OpenAPIOperation<
+export const deprecatedContractTerminateContract: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Contracts_ContractId_Terminations.Post.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Contracts_ContractId_Terminations.Post.Parameters.Path>,
@@ -9362,7 +8831,7 @@ export const contractTerminateContract: OpenAPIOperation<
 > = {
   path: "/v2/contracts/{contractId}/terminations",
   method: "POST",
-  operationId: "contractTerminateContract",
+  operationId: "deprecatedContractTerminateContract",
 };
 
 export const contractGetBaseItemOfContract: OpenAPIOperation<
@@ -9429,7 +8898,7 @@ export const contractGetNextTerminationDateForItem: OpenAPIOperation<
   operationId: "contractGetNextTerminationDateForItem",
 };
 
-export const customerServiceCreateCategory: OpenAPIOperation<
+export const customerCreateCategory: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Customer_Categories.Post.Parameters.RequestBody>,
     Simplify<null>,
@@ -9453,10 +8922,10 @@ export const customerServiceCreateCategory: OpenAPIOperation<
 > = {
   path: "/v2/customer-categories",
   method: "POST",
-  operationId: "customerServiceCreateCategory",
+  operationId: "customerCreateCategory",
 };
 
-export const customerServiceListOfCustomerCategories: OpenAPIOperation<
+export const customerListOfCustomerCategories: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<null>,
@@ -9475,10 +8944,10 @@ export const customerServiceListOfCustomerCategories: OpenAPIOperation<
 > = {
   path: "/v2/customer-categories",
   method: "GET",
-  operationId: "customerServiceListOfCustomerCategories",
+  operationId: "customerListOfCustomerCategories",
 };
 
-export const customerServiceDeleteCategory: OpenAPIOperation<
+export const customerDeleteCategory: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Customer_Categories_CategoryId.Delete.Parameters.Path>,
@@ -9497,10 +8966,10 @@ export const customerServiceDeleteCategory: OpenAPIOperation<
 > = {
   path: "/v2/customer-categories/{categoryId}",
   method: "DELETE",
-  operationId: "customerServiceDeleteCategory",
+  operationId: "customerDeleteCategory",
 };
 
-export const customerServiceDetailOfCustomerCategory: OpenAPIOperation<
+export const customerGetCustomerCategory: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Customer_Categories_CategoryId.Get.Parameters.Path>,
@@ -9519,10 +8988,10 @@ export const customerServiceDetailOfCustomerCategory: OpenAPIOperation<
 > = {
   path: "/v2/customer-categories/{categoryId}",
   method: "GET",
-  operationId: "customerServiceDetailOfCustomerCategory",
+  operationId: "customerGetCustomerCategory",
 };
 
-export const customerServiceUpdateCategory: OpenAPIOperation<
+export const customerUpdateCategory: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Customer_Categories_CategoryId.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Customer_Categories_CategoryId.Put.Parameters.Path>,
@@ -9551,7 +9020,7 @@ export const customerServiceUpdateCategory: OpenAPIOperation<
 > = {
   path: "/v2/customer-categories/{categoryId}",
   method: "PUT",
-  operationId: "customerServiceUpdateCategory",
+  operationId: "customerUpdateCategory",
 };
 
 export const deprecatedContractGetBaseItemOfContract: OpenAPIOperation<
@@ -9799,7 +9268,7 @@ export const projectUpdateServerDescription: OpenAPIOperation<
   operationId: "projectUpdateServerDescription",
 };
 
-export const customerChangeCustomerMembership: OpenAPIOperation<
+export const deprecatedCustomerUpdateCustomerMembership: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Customer_CustomerId_Memberships_MembershipId.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Customer_CustomerId_Memberships_MembershipId.Put.Parameters.Path>,
@@ -9814,10 +9283,10 @@ export const customerChangeCustomerMembership: OpenAPIOperation<
 > = {
   path: "/v2/customer/{customerId}/memberships/{membershipId}",
   method: "PUT",
-  operationId: "customerChangeCustomerMembership",
+  operationId: "deprecatedCustomerUpdateCustomerMembership",
 };
 
-export const membershipAcceptInvite: OpenAPIOperation<
+export const deprecatedMembershipAcceptInvite: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Invites_InviteId_Actions_Accept.Post.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Invites_InviteId_Actions_Accept.Post.Parameters.Path>,
@@ -9847,10 +9316,10 @@ export const membershipAcceptInvite: OpenAPIOperation<
 > = {
   path: "/v2/invites/{inviteId}/actions/accept",
   method: "POST",
-  operationId: "membershipAcceptInvite",
+  operationId: "deprecatedMembershipAcceptInvite",
 };
 
-export const membershipDeclineInvite: OpenAPIOperation<
+export const deprecatedMembershipDeclineInvite: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Invites_InviteId_Actions_Decline.Post.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Invites_InviteId_Actions_Decline.Post.Parameters.Path>,
@@ -9865,10 +9334,10 @@ export const membershipDeclineInvite: OpenAPIOperation<
 > = {
   path: "/v2/invites/{inviteId}/actions/decline",
   method: "POST",
-  operationId: "membershipDeclineInvite",
+  operationId: "deprecatedMembershipDeclineInvite",
 };
 
-export const membershipDeleteMembership: OpenAPIOperation<
+export const deprecatedMembershipDeleteMembership: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Memberships_MembershipId.Delete.Parameters.Path>,
@@ -9883,10 +9352,10 @@ export const membershipDeleteMembership: OpenAPIOperation<
 > = {
   path: "/v2/memberships/{membershipId}",
   method: "DELETE",
-  operationId: "membershipDeleteMembership",
+  operationId: "deprecatedMembershipDeleteMembership",
 };
 
-export const membershipGetMembership: OpenAPIOperation<
+export const deprecatedMembershipGetMembership: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Memberships_MembershipId.Get.Parameters.Path>,
@@ -9910,10 +9379,10 @@ export const membershipGetMembership: OpenAPIOperation<
 > = {
   path: "/v2/memberships/{membershipId}",
   method: "GET",
-  operationId: "membershipGetMembership",
+  operationId: "deprecatedMembershipGetMembership",
 };
 
-export const membershipGetInvite: OpenAPIOperation<
+export const deprecatedMembershipGetInvite: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Invites_InviteIdentifier.Get.Parameters.Path>,
@@ -9937,10 +9406,10 @@ export const membershipGetInvite: OpenAPIOperation<
 > = {
   path: "/v2/invites/{inviteIdentifier}",
   method: "GET",
-  operationId: "membershipGetInvite",
+  operationId: "deprecatedMembershipGetInvite",
 };
 
-export const membershipLeaveMembership: OpenAPIOperation<
+export const deprecatedMembershipLeaveMembership: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Memberships_MembershipId_Actions_Leave.Post.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Memberships_MembershipId_Actions_Leave.Post.Parameters.Path>,
@@ -9955,10 +9424,10 @@ export const membershipLeaveMembership: OpenAPIOperation<
 > = {
   path: "/v2/memberships/{membershipId}/actions/leave",
   method: "POST",
-  operationId: "membershipLeaveMembership",
+  operationId: "deprecatedMembershipLeaveMembership",
 };
 
-export const membershipListInvites: OpenAPIOperation<
+export const deprecatedMembershipListInvites: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<null>,
@@ -9982,10 +9451,10 @@ export const membershipListInvites: OpenAPIOperation<
 > = {
   path: "/v2/invites",
   method: "GET",
-  operationId: "membershipListInvites",
+  operationId: "deprecatedMembershipListInvites",
 };
 
-export const membershipListMemberships: OpenAPIOperation<
+export const deprecatedMembershipListMemberships: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<null>,
@@ -10009,10 +9478,10 @@ export const membershipListMemberships: OpenAPIOperation<
 > = {
   path: "/v2/memberships",
   method: "GET",
-  operationId: "membershipListMemberships",
+  operationId: "deprecatedMembershipListMemberships",
 };
 
-export const membershipResendInviteMail: OpenAPIOperation<
+export const deprecatedMembershipResendInviteMail: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Invites_InviteId_Actions_Resend.Post.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Invites_InviteId_Actions_Resend.Post.Parameters.Path>,
@@ -10032,10 +9501,10 @@ export const membershipResendInviteMail: OpenAPIOperation<
 > = {
   path: "/v2/invites/{inviteId}/actions/resend",
   method: "POST",
-  operationId: "membershipResendInviteMail",
+  operationId: "deprecatedMembershipResendInviteMail",
 };
 
-export const membershipRevokeInvite: OpenAPIOperation<
+export const deprecatedMembershipRevokeInvite: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldApiV2.Paths.V2_Invites_InviteId.Delete.Parameters.Path>,
@@ -10050,10 +9519,10 @@ export const membershipRevokeInvite: OpenAPIOperation<
 > = {
   path: "/v2/invites/{inviteId}",
   method: "DELETE",
-  operationId: "membershipRevokeInvite",
+  operationId: "deprecatedMembershipRevokeInvite",
 };
 
-export const projectChangeProjectMembership: OpenAPIOperation<
+export const deprecatedProjectUpdateProjectMembership: OpenAPIOperation<
   Request<
     Simplify<MittwaldApiV2.Paths.V2_Project_ProjectId_Memberships_MembershipId.Put.Parameters.RequestBody>,
     Simplify<MittwaldApiV2.Paths.V2_Project_ProjectId_Memberships_MembershipId.Put.Parameters.Path>,
@@ -10068,5 +9537,1552 @@ export const projectChangeProjectMembership: OpenAPIOperation<
 > = {
   path: "/v2/project/{projectId}/memberships/{membershipId}",
   method: "PUT",
-  operationId: "projectChangeProjectMembership",
+  operationId: "deprecatedProjectUpdateProjectMembership",
+};
+
+export const appGetAppversion: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Apps_AppId_Versions_AppVersionId.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Apps_AppId_Versions_AppVersionId.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Apps_AppId_Versions_AppVersionId.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Apps_AppId_Versions_AppVersionId.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Apps_AppId_Versions_AppVersionId.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/apps/{appId}/versions/{appVersionId}",
+  method: "GET",
+  operationId: "appGetAppversion",
+};
+
+export const appListAppversions: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Apps_AppId_Versions.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Apps_AppId_Versions.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Apps_AppId_Versions.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Apps_AppId_Versions.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/apps/{appId}/versions",
+  method: "GET",
+  operationId: "appListAppversions",
+};
+
+export const contractGetDetailOfContractByDomain: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Domains_DomainId_Contracts.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Domains_DomainId_Contracts.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Domains_DomainId_Contracts.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Domains_DomainId_Contracts.Get.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Domains_DomainId_Contracts.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Domains_DomainId_Contracts.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/contracts",
+  method: "GET",
+  operationId: "contractGetDetailOfContractByDomain",
+};
+
+export const contractGetDetailOfContractByPlacementGroup: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Servers_ServerId_Contracts.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Servers_ServerId_Contracts.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Servers_ServerId_Contracts.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Servers_ServerId_Contracts.Get.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Servers_ServerId_Contracts.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Servers_ServerId_Contracts.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/servers/{serverId}/contracts",
+  method: "GET",
+  operationId: "contractGetDetailOfContractByPlacementGroup",
+};
+
+export const contractGetDetailOfContractByProject: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Contracts.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Contracts.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Contracts.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Contracts.Get.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Contracts.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Contracts.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/contracts",
+  method: "GET",
+  operationId: "contractGetDetailOfContractByProject",
+};
+
+export const customerAcceptCustomerInvite: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Customer_Invites_InviteId_Actions_Accept.Post.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Customer_Invites_InviteId_Actions_Accept.Post.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Customer_Invites_InviteId_Actions_Accept.Post.Parameters.Header>
+  >,
+  | Response<null, 204, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Invites_InviteId_Actions_Accept.Post.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Invites_InviteId_Actions_Accept.Post.Responses.$403.Content.Application_Json,
+      403,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Invites_InviteId_Actions_Accept.Post.Responses.$412.Content.Application_Json,
+      412,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Invites_InviteId_Actions_Accept.Post.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/customer-invites/{inviteId}/actions/accept",
+  method: "POST",
+  operationId: "customerAcceptCustomerInvite",
+};
+
+export const customerCreateCustomerInvite: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Customer_CustomerId_Invites.Post.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Customer_CustomerId_Invites.Post.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Customer_CustomerId_Invites.Post.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_CustomerId_Invites.Post.Responses.$201.Content.Application_Json,
+      201,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_CustomerId_Invites.Post.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_CustomerId_Invites.Post.Responses.$409.Content.Application_Json,
+      409,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_CustomerId_Invites.Post.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/customer/{customerId}/invites",
+  method: "POST",
+  operationId: "customerCreateCustomerInvite",
+};
+
+export const customerDeclineCustomerInvite: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Customer_Invites_InviteId_Actions_Decline.Post.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Customer_Invites_InviteId_Actions_Decline.Post.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Customer_Invites_InviteId_Actions_Decline.Post.Parameters.Header>
+  >,
+  | Response<null, 204, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Invites_InviteId_Actions_Decline.Post.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/customer-invites/{inviteId}/actions/decline",
+  method: "POST",
+  operationId: "customerDeclineCustomerInvite",
+};
+
+export const customerDeleteCustomerInvite: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Customer_Invites_InviteId.Delete.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Customer_Invites_InviteId.Delete.Parameters.Header>
+  >,
+  | Response<null, 204, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Invites_InviteId.Delete.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/customer-invites/{inviteId}",
+  method: "DELETE",
+  operationId: "customerDeleteCustomerInvite",
+};
+
+export const customerGetCustomerInvite: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Customer_Invites_InviteId.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Customer_Invites_InviteId.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Invites_InviteId.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Invites_InviteId.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Invites_InviteId.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/customer-invites/{inviteId}",
+  method: "GET",
+  operationId: "customerGetCustomerInvite",
+};
+
+export const customerDeleteCustomerMembership: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Customer_Memberships_MembershipId.Delete.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Customer_Memberships_MembershipId.Delete.Parameters.Header>
+  >,
+  | Response<null, 204, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Memberships_MembershipId.Delete.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/customer-memberships/{membershipId}",
+  method: "DELETE",
+  operationId: "customerDeleteCustomerMembership",
+};
+
+export const customerGetCustomerMembership: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Customer_Memberships_MembershipId.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Customer_Memberships_MembershipId.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Memberships_MembershipId.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Memberships_MembershipId.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Memberships_MembershipId.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/customer-memberships/{membershipId}",
+  method: "GET",
+  operationId: "customerGetCustomerMembership",
+};
+
+export const customerUpdateCustomerMembership: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Customer_Memberships_MembershipId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Customer_Memberships_MembershipId.Patch.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Customer_Memberships_MembershipId.Patch.Parameters.Header>
+  >,
+  | Response<null, 204, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Memberships_MembershipId.Patch.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/customer-memberships/{membershipId}",
+  method: "PATCH",
+  operationId: "customerUpdateCustomerMembership",
+};
+
+export const customerGetCustomerTokenInvite: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Customer_Token_Invite.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Token_Invite.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Token_Invite.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Token_Invite.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/customer-token-invite",
+  method: "GET",
+  operationId: "customerGetCustomerTokenInvite",
+};
+
+export const customerLeaveCustomer: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Customer_CustomerId_Actions_Leave.Post.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Customer_CustomerId_Actions_Leave.Post.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Customer_CustomerId_Actions_Leave.Post.Parameters.Header>
+  >,
+  | Response<null, 204, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_CustomerId_Actions_Leave.Post.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/customer/{customerId}/actions/leave",
+  method: "POST",
+  operationId: "customerLeaveCustomer",
+};
+
+export const customerListCustomerInvites: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Customer_Invites.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Invites.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Invites.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Invites.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/customer-invites",
+  method: "GET",
+  operationId: "customerListCustomerInvites",
+};
+
+export const customerListCustomerMemberships: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Customer_Memberships.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Memberships.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Memberships.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Memberships.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/customer-memberships",
+  method: "GET",
+  operationId: "customerListCustomerMemberships",
+};
+
+export const customerListInvitesForCustomer: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Customers_CustomerId_Invites.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Customers_CustomerId_Invites.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Customers_CustomerId_Invites.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Customers_CustomerId_Invites.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Customers_CustomerId_Invites.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/invites",
+  method: "GET",
+  operationId: "customerListInvitesForCustomer",
+};
+
+export const customerListMembershipsForCustomer: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Customers_CustomerId_Memberships.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Customers_CustomerId_Memberships.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Customers_CustomerId_Memberships.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Customers_CustomerId_Memberships.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Customers_CustomerId_Memberships.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/memberships",
+  method: "GET",
+  operationId: "customerListMembershipsForCustomer",
+};
+
+export const customerResendCustomerInviteMail: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Customer_Invites_InviteId_Actions_Resend.Post.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Customer_Invites_InviteId_Actions_Resend.Post.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Customer_Invites_InviteId_Actions_Resend.Post.Parameters.Header>
+  >,
+  | Response<null, 204, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Invites_InviteId_Actions_Resend.Post.Responses.$403.Content.Application_Json,
+      403,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Customer_Invites_InviteId_Actions_Resend.Post.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/customer-invites/{inviteId}/actions/resend",
+  method: "POST",
+  operationId: "customerResendCustomerInviteMail",
+};
+
+export const databaseCreateMysqlDatabase: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Mysql_Databases.Post.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Mysql_Databases.Post.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Mysql_Databases.Post.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Mysql_Databases.Post.Responses.$202.Content.Application_Json,
+      202,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Mysql_Databases.Post.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Mysql_Databases.Post.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Mysql_Databases.Post.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/mysql-databases",
+  method: "POST",
+  operationId: "databaseCreateMysqlDatabase",
+};
+
+export const databaseListMysqlDatabases: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Mysql_Databases.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Mysql_Databases.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Mysql_Databases.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Mysql_Databases.Get.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Mysql_Databases.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Mysql_Databases.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/mysql-databases",
+  method: "GET",
+  operationId: "databaseListMysqlDatabases",
+};
+
+export const databaseCreateRedisDatabase: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Redis_Databases.Post.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Redis_Databases.Post.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Redis_Databases.Post.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Redis_Databases.Post.Responses.$201.Content.Application_Json,
+      201,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Redis_Databases.Post.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Redis_Databases.Post.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Redis_Databases.Post.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/redis-databases",
+  method: "POST",
+  operationId: "databaseCreateRedisDatabase",
+};
+
+export const databaseListRedisDatabases: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Redis_Databases.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Redis_Databases.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Redis_Databases.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Redis_Databases.Get.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Redis_Databases.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Redis_Databases.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/redis-databases",
+  method: "GET",
+  operationId: "databaseListRedisDatabases",
+};
+
+export const databaseDeleteMysqlUser: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Users_Id.Delete.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Users_Id.Delete.Parameters.Header>
+  >,
+  | Response<null, 200, null>
+  | Response<null, 204, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Users_Id.Delete.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Users_Id.Delete.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Users_Id.Delete.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/mysql-users/{id}",
+  method: "DELETE",
+  operationId: "databaseDeleteMysqlUser",
+};
+
+export const databaseGetMysqlUser: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Users_Id.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Users_Id.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Users_Id.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Users_Id.Get.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Users_Id.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Users_Id.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/mysql-users/{id}",
+  method: "GET",
+  operationId: "databaseGetMysqlUser",
+};
+
+export const databaseUpdateMysqlUser: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Users_Id.Put.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Users_Id.Put.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Users_Id.Put.Parameters.Header>
+  >,
+  | Response<null, 200, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Users_Id.Put.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Users_Id.Put.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Users_Id.Put.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/mysql-users/{id}",
+  method: "PUT",
+  operationId: "databaseUpdateMysqlUser",
+};
+
+export const databaseDisableMysqlUser: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Users_Id_Actions_Disable.Post.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Users_Id_Actions_Disable.Post.Parameters.Header>
+  >,
+  | Response<null, 200, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Users_Id_Actions_Disable.Post.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Users_Id_Actions_Disable.Post.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Users_Id_Actions_Disable.Post.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/mysql-users/{id}/actions/disable",
+  method: "POST",
+  operationId: "databaseDisableMysqlUser",
+};
+
+export const databaseEnableMysqlUser: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Users_Id_Actions_Enable.Post.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Users_Id_Actions_Enable.Post.Parameters.Header>
+  >,
+  | Response<null, 200, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Users_Id_Actions_Enable.Post.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Users_Id_Actions_Enable.Post.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Users_Id_Actions_Enable.Post.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/mysql-users/{id}/actions/enable",
+  method: "POST",
+  operationId: "databaseEnableMysqlUser",
+};
+
+export const databaseGetMysqlUserPhpMyAdminUrl: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Users_Id_Php_My_Admin_Url.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Users_Id_Php_My_Admin_Url.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Users_Id_Php_My_Admin_Url.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Users_Id_Php_My_Admin_Url.Get.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Users_Id_Php_My_Admin_Url.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Users_Id_Php_My_Admin_Url.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/mysql-users/{id}/php-my-admin-url",
+  method: "GET",
+  operationId: "databaseGetMysqlUserPhpMyAdminUrl",
+};
+
+export const databaseListMysqlVersions: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Versions.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Versions.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Versions.Get.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Versions.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Versions.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/mysql-versions",
+  method: "GET",
+  operationId: "databaseListMysqlVersions",
+};
+
+export const databaseListRedisVersions: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Redis_Versions.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Redis_Versions.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Redis_Versions.Get.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Redis_Versions.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Redis_Versions.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/redis-versions",
+  method: "GET",
+  operationId: "databaseListRedisVersions",
+};
+
+export const databaseUpdateMysqlUserPassword: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Users_Id_Password.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Users_Id_Password.Patch.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Mysql_Users_Id_Password.Patch.Parameters.Header>
+  >,
+  | Response<null, 200, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Users_Id_Password.Patch.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Users_Id_Password.Patch.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Mysql_Users_Id_Password.Patch.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/mysql-users/{id}/password",
+  method: "PATCH",
+  operationId: "databaseUpdateMysqlUserPassword",
+};
+
+export const ingressServiceListForProject: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Ingresses.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Ingresses.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Ingresses.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Ingresses.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Ingresses.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/ingresses",
+  method: "GET",
+  operationId: "ingressServiceListForProject",
+};
+
+export const projectAcceptProjectInvite: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Project_Invites_InviteId_Actions_Accept.Post.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Invites_InviteId_Actions_Accept.Post.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Invites_InviteId_Actions_Accept.Post.Parameters.Header>
+  >,
+  | Response<null, 204, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Invites_InviteId_Actions_Accept.Post.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Invites_InviteId_Actions_Accept.Post.Responses.$403.Content.Application_Json,
+      403,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Invites_InviteId_Actions_Accept.Post.Responses.$412.Content.Application_Json,
+      412,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Invites_InviteId_Actions_Accept.Post.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/project-invites/{inviteId}/actions/accept",
+  method: "POST",
+  operationId: "projectAcceptProjectInvite",
+};
+
+export const projectCreateProjectInvite: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Project_ProjectId_Invites.Post.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_ProjectId_Invites.Post.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_ProjectId_Invites.Post.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_ProjectId_Invites.Post.Responses.$201.Content.Application_Json,
+      201,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_ProjectId_Invites.Post.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_ProjectId_Invites.Post.Responses.$409.Content.Application_Json,
+      409,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_ProjectId_Invites.Post.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/project/{projectId}/invites",
+  method: "POST",
+  operationId: "projectCreateProjectInvite",
+};
+
+export const projectDeclineProjectInvite: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Project_Invites_InviteId_Actions_Decline.Post.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Invites_InviteId_Actions_Decline.Post.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Invites_InviteId_Actions_Decline.Post.Parameters.Header>
+  >,
+  | Response<null, 204, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Invites_InviteId_Actions_Decline.Post.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/project-invites/{inviteId}/actions/decline",
+  method: "POST",
+  operationId: "projectDeclineProjectInvite",
+};
+
+export const projectDeleteProjectInvite: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Invites_InviteId.Delete.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Invites_InviteId.Delete.Parameters.Header>
+  >,
+  | Response<null, 204, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Invites_InviteId.Delete.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/project-invites/{inviteId}",
+  method: "DELETE",
+  operationId: "projectDeleteProjectInvite",
+};
+
+export const projectGetProjectInvite: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Invites_InviteId.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Invites_InviteId.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Invites_InviteId.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Invites_InviteId.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Invites_InviteId.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/project-invites/{inviteId}",
+  method: "GET",
+  operationId: "projectGetProjectInvite",
+};
+
+export const projectDeleteProjectMembership: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Memberships_MembershipId.Delete.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Memberships_MembershipId.Delete.Parameters.Header>
+  >,
+  | Response<null, 204, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Memberships_MembershipId.Delete.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/project-memberships/{membershipId}",
+  method: "DELETE",
+  operationId: "projectDeleteProjectMembership",
+};
+
+export const projectGetProjectMembership: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Memberships_MembershipId.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Memberships_MembershipId.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Memberships_MembershipId.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Memberships_MembershipId.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Memberships_MembershipId.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/project-memberships/{membershipId}",
+  method: "GET",
+  operationId: "projectGetProjectMembership",
+};
+
+export const projectUpdateProjectMembership: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Project_Memberships_MembershipId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Memberships_MembershipId.Patch.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Memberships_MembershipId.Patch.Parameters.Header>
+  >,
+  | Response<null, 204, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Memberships_MembershipId.Patch.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/project-memberships/{membershipId}",
+  method: "PATCH",
+  operationId: "projectUpdateProjectMembership",
+};
+
+export const projectGetProjectTokenInvite: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Token_Invite.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Token_Invite.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Token_Invite.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Token_Invite.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/project-token-invite",
+  method: "GET",
+  operationId: "projectGetProjectTokenInvite",
+};
+
+export const projectLeaveProject: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Leave.Post.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Leave.Post.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Leave.Post.Parameters.Header>
+  >,
+  | Response<null, 204, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Leave.Post.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/leave",
+  method: "POST",
+  operationId: "projectLeaveProject",
+};
+
+export const projectListInvitesForProject: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Invites.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Invites.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Invites.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Invites.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Invites.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/invites",
+  method: "GET",
+  operationId: "projectListInvitesForProject",
+};
+
+export const projectListMembershipsForProject: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Memberships.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Memberships.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Memberships.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Memberships.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Memberships.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/memberships",
+  method: "GET",
+  operationId: "projectListMembershipsForProject",
+};
+
+export const projectListProjectInvites: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Invites.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Invites.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Invites.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Invites.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/project-invites",
+  method: "GET",
+  operationId: "projectListProjectInvites",
+};
+
+export const projectListProjectMemberships: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Memberships.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Memberships.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Memberships.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Memberships.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/project-memberships",
+  method: "GET",
+  operationId: "projectListProjectMemberships",
+};
+
+export const projectResendProjectInviteMail: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Project_Invites_InviteId_Actions_Resend.Post.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Invites_InviteId_Actions_Resend.Post.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_Invites_InviteId_Actions_Resend.Post.Parameters.Header>
+  >,
+  | Response<null, 204, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Invites_InviteId_Actions_Resend.Post.Responses.$403.Content.Application_Json,
+      403,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_Invites_InviteId_Actions_Resend.Post.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/project-invites/{inviteId}/actions/resend",
+  method: "POST",
+  operationId: "projectResendProjectInviteMail",
+};
+
+export const sftpUserCreateSftpUser: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Sftp_Users.Post.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Sftp_Users.Post.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Sftp_Users.Post.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Sftp_Users.Post.Responses.$201.Content.Application_Json,
+      201,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Sftp_Users.Post.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Sftp_Users.Post.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/sftp-users",
+  method: "POST",
+  operationId: "sftpUserCreateSftpUser",
+};
+
+export const sftpUserDeleteSftpUser: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Sftp_Users_SftpUserId.Delete.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Sftp_Users_SftpUserId.Delete.Parameters.Header>
+  >,
+  | Response<null, 204, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Sftp_Users_SftpUserId.Delete.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/sftp-users/{sftpUserId}",
+  method: "DELETE",
+  operationId: "sftpUserDeleteSftpUser",
+};
+
+export const sftpUserGetSftpUser: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Sftp_Users_SftpUserId.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Sftp_Users_SftpUserId.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Sftp_Users_SftpUserId.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Sftp_Users_SftpUserId.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Sftp_Users_SftpUserId.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/sftp-users/{sftpUserId}",
+  method: "GET",
+  operationId: "sftpUserGetSftpUser",
+};
+
+export const sftpUserUpdateSftpUser: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Sftp_Users_SftpUserId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Sftp_Users_SftpUserId.Patch.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Sftp_Users_SftpUserId.Patch.Parameters.Header>
+  >,
+  | Response<null, 204, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Sftp_Users_SftpUserId.Patch.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Sftp_Users_SftpUserId.Patch.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/sftp-users/{sftpUserId}",
+  method: "PATCH",
+  operationId: "sftpUserUpdateSftpUser",
+};
+
+export const sftpUserListSftpUsers: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_ProjectId_Sftp_Users.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Project_ProjectId_Sftp_Users.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_ProjectId_Sftp_Users.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_ProjectId_Sftp_Users.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Project_ProjectId_Sftp_Users.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/project/{projectId}/sftp-users",
+  method: "GET",
+  operationId: "sftpUserListSftpUsers",
+};
+
+export const sshUserCreateSshUser: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Ssh_Users.Post.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Ssh_Users.Post.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Ssh_Users.Post.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Ssh_Users.Post.Responses.$201.Content.Application_Json,
+      201,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Ssh_Users.Post.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Ssh_Users.Post.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/ssh-users",
+  method: "POST",
+  operationId: "sshUserCreateSshUser",
+};
+
+export const sshUserListSshUsers: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Ssh_Users.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Projects_ProjectId_Ssh_Users.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Ssh_Users.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Ssh_Users.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Projects_ProjectId_Ssh_Users.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/ssh-users",
+  method: "GET",
+  operationId: "sshUserListSshUsers",
+};
+
+export const sshUserDeleteSshUser: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Ssh_Users_SshUserId.Delete.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Ssh_Users_SshUserId.Delete.Parameters.Header>
+  >,
+  | Response<null, 204, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Ssh_Users_SshUserId.Delete.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/ssh-users/{sshUserId}",
+  method: "DELETE",
+  operationId: "sshUserDeleteSshUser",
+};
+
+export const sshUserGetSshUser: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldApiV2.Paths.V2_Ssh_Users_SshUserId.Get.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Ssh_Users_SshUserId.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldApiV2.Paths.V2_Ssh_Users_SshUserId.Get.Responses.$200.Content.Application_Json,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Ssh_Users_SshUserId.Get.Responses.$404.Content.Application_Json,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Ssh_Users_SshUserId.Get.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/ssh-users/{sshUserId}",
+  method: "GET",
+  operationId: "sshUserGetSshUser",
+};
+
+export const sshUserUpdateSshUser: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldApiV2.Paths.V2_Sshusers_SshUserId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldApiV2.Paths.V2_Sshusers_SshUserId.Patch.Parameters.Path>,
+    Simplify<MittwaldApiV2.Paths.V2_Sshusers_SshUserId.Patch.Parameters.Header>
+  >,
+  | Response<null, 204, null>
+  | Response<
+      MittwaldApiV2.Paths.V2_Sshusers_SshUserId.Patch.Responses.$400.Content.Application_Json,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldApiV2.Paths.V2_Sshusers_SshUserId.Patch.Responses.Default.Content.Application_Json,
+      0,
+      "application/json"
+    >
+> = {
+  path: "/v2/sshusers/{sshUserId}",
+  method: "PATCH",
+  operationId: "sshUserUpdateSshUser",
 };
