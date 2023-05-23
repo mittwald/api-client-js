@@ -1,12 +1,12 @@
 {
   "name": "@mittwald/api-client",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.2",
   "license": "MIT",
   "repository": "https://github.com/mittwald/api-client-js.git",
   "type": "module",
   "scripts": {
     "generate:client": "yarn generate:client:v2",
-    "generate:client:v2": "acg generate --name MittwaldAPIV2 https://api.mittwald.de/openapi src/generated/v2 --optionalHeader x-access-token"
+    "generate:client:v2": "acg generate --name MittwaldApiV2 https://api.mittwald.de/openapi src/generated/v2 --optionalHeader x-access-token"
   },
   "files": [
     "dist/**/*.{js,d.ts}"

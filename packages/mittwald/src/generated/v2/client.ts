@@ -4,7 +4,7 @@
 import * as descriptors from "./descriptors.js";
 import ApiClientBase from "@mittwald/api-client-commons/dist/core/ApiClientBase.js";
 
-export class MittwaldAPIV2Client extends ApiClientBase {
+export class MittwaldApiV2Client extends ApiClientBase {
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app = {
     /** execute a runtime concerning action on a specific `AppInstallation` */
@@ -305,48 +305,48 @@ export class MittwaldAPIV2Client extends ApiClientBase {
   /** The conversation API allows you to manage your support conversations. */
   public readonly conversation = {
     /** Get all conversation the authenticated user has created or has access to. */
-    serviceGetConversations: this.requestFunctionFactory(
-      descriptors.conversationServiceGetConversations
+    listConversations: this.requestFunctionFactory(
+      descriptors.conversationListConversations
     ),
     /** Create a conversation. */
-    serviceCreateConversation: this.requestFunctionFactory(
-      descriptors.conversationServiceCreateConversation
+    createConversation: this.requestFunctionFactory(
+      descriptors.conversationCreateConversation
     ),
     /** Get all message of the conversation. */
-    serviceGetMessagesByConversation: this.requestFunctionFactory(
-      descriptors.conversationServiceGetMessagesByConversation
+    listMessagesByConversation: this.requestFunctionFactory(
+      descriptors.conversationListMessagesByConversation
     ),
     /** Send a new message in the conversation. */
-    serviceCreateMessage: this.requestFunctionFactory(
-      descriptors.conversationServiceCreateMessage
-    ),
-    /** Get all conversation categories. */
-    serviceGetCategories: this.requestFunctionFactory(
-      descriptors.conversationServiceGetCategories
+    createMessage: this.requestFunctionFactory(
+      descriptors.conversationCreateMessage
     ),
     /** Get a specific conversation category. */
-    serviceGetCategory: this.requestFunctionFactory(
-      descriptors.conversationServiceGetCategory
+    getCategory: this.requestFunctionFactory(
+      descriptors.conversationGetCategory
     ),
     /** Get a support conversation. */
-    serviceGetConversation: this.requestFunctionFactory(
-      descriptors.conversationServiceGetConversation
+    getConversation: this.requestFunctionFactory(
+      descriptors.conversationGetConversation
     ),
     /** Update the basic properties of the conversation. */
-    serviceUpdateConversation: this.requestFunctionFactory(
-      descriptors.conversationServiceUpdateConversation
+    updateConversation: this.requestFunctionFactory(
+      descriptors.conversationUpdateConversation
+    ),
+    /** Get all conversation categories. */
+    listCategories: this.requestFunctionFactory(
+      descriptors.conversationListCategories
     ),
     /** Request a file upload token for the conversation. */
-    serviceRequestFileUpload: this.requestFunctionFactory(
-      descriptors.conversationServiceRequestFileUpload
+    requestFileUpload: this.requestFunctionFactory(
+      descriptors.conversationRequestFileUpload
     ),
     /** Update the status of a conversation. */
-    serviceSetConversationStatus: this.requestFunctionFactory(
-      descriptors.conversationServiceSetConversationStatus
+    setConversationStatus: this.requestFunctionFactory(
+      descriptors.conversationSetConversationStatus
     ),
     /** Update the content of the message */
-    serviceUpdateMessage: this.requestFunctionFactory(
-      descriptors.conversationServiceUpdateMessage
+    updateMessage: this.requestFunctionFactory(
+      descriptors.conversationUpdateMessage
     ),
   };
 
@@ -814,29 +814,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The project API allows you to manage your projects, and also any kinds of user memberships concerning these projects. */
   public readonly project = {
-    /** Request a PlacementGroup avatar upload. */
-    deprecatedPlacementGroupPlacementgroupAvatarRequestUpload:
-      this.requestFunctionFactory(
-        descriptors.deprecatedPlacementGroupPlacementgroupAvatarRequestUpload
-      ),
-    /** Delete a PlacementGroup's avatar. */
-    deprecatedPlacementGroupPlacementgroupAvatarRemove:
-      this.requestFunctionFactory(
-        descriptors.deprecatedPlacementGroupPlacementgroupAvatarRemove
-      ),
-    /** Get a PlacementGroup. */
-    deprecatedPlacementGroupPlacementgroupDetails: this.requestFunctionFactory(
-      descriptors.deprecatedPlacementGroupPlacementgroupDetails
-    ),
-    /** List PlacementGroups for an Organization or User. */
-    deprecatedPlacementGroupPlacementgroupList: this.requestFunctionFactory(
-      descriptors.deprecatedPlacementGroupPlacementgroupList
-    ),
-    /** Update a PlacementGroup's description. */
-    deprecatedPlacementGroupPlacementgroupUpdateDescription:
-      this.requestFunctionFactory(
-        descriptors.deprecatedPlacementGroupPlacementgroupUpdateDescription
-      ),
     /** Accept a ProjectInvite. */
     deprecatedProjectAcceptProjectInvite: this.requestFunctionFactory(
       descriptors.deprecatedProjectAcceptProjectInvite
@@ -856,10 +833,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Create a ProjectInvite. */
     deprecatedProjectCreateProjectInvite: this.requestFunctionFactory(
       descriptors.deprecatedProjectCreateProjectInvite
-    ),
-    /** Create a Project belonging to a PlacementGroup. */
-    deprecatedProjectCreateSubproject: this.requestFunctionFactory(
-      descriptors.deprecatedProjectCreateSubproject
     ),
     /** Decline a ProjectInvite. */
     deprecatedProjectDeclineProjectInvite: this.requestFunctionFactory(
@@ -900,14 +873,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Revoke a ProjectInvite. */
     deprecatedProjectRevokeProjectInvite: this.requestFunctionFactory(
       descriptors.deprecatedProjectRevokeProjectInvite
-    ),
-    /** Update a Project's description. */
-    deprecatedProjectUpdateDescription: this.requestFunctionFactory(
-      descriptors.deprecatedProjectUpdateDescription
-    ),
-    /** Update a Project's description. */
-    updateProjectDescription: this.requestFunctionFactory(
-      descriptors.projectUpdateProjectDescription
     ),
     /** Update a ProjectMembership. */
     deprecatedProjectUpdateProjectMembership: this.requestFunctionFactory(
@@ -1006,6 +971,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Resend the mail for a ProjectInvite. */
     resendProjectInviteMail: this.requestFunctionFactory(
       descriptors.projectResendProjectInviteMail
+    ),
+    /** Update a Project's description. */
+    updateProjectDescription: this.requestFunctionFactory(
+      descriptors.projectUpdateProjectDescription
     ),
     /** Update a Servers's description. */
     updateServerDescription: this.requestFunctionFactory(
@@ -1133,9 +1102,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ingressServiceDelete: this.requestFunctionFactory(
       descriptors.ingressServiceDelete
     ),
+    /** List Ingresses the user has access to. */
+    ingressServiceListAccessible: this.requestFunctionFactory(
+      descriptors.ingressServiceListAccessible
+    ),
     /** List Ingresses belonging to a project. */
-    ingressServiceList: this.requestFunctionFactory(
-      descriptors.ingressServiceList
+    ingressServiceListForProject: this.requestFunctionFactory(
+      descriptors.ingressServiceListForProject
     ),
     /** Update an Ingresses paths. */
     ingressServicePaths: this.requestFunctionFactory(
@@ -1526,93 +1499,21 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The SSH User API allows you to manage your SSH users within a project. */
   public readonly sshUser = {
-    /** Get all SFTPUsers for a Project. */
-    sshuserServiceListSftpUser: this.requestFunctionFactory(
-      descriptors.sshuserServiceListSftpUser
-    ),
-    /** Create an SFTPUser for a Project. */
-    sshuserServiceCreateSftpUser: this.requestFunctionFactory(
-      descriptors.sshuserServiceCreateSftpUser
-    ),
     /** Get all SSHUsers for a Project. */
-    sshuserServiceListSshUser: this.requestFunctionFactory(
-      descriptors.sshuserServiceListSshUser
-    ),
+    listSshUsers: this.requestFunctionFactory(descriptors.sshUserListSshUsers),
     /** Create an SSHUser for a Project. */
-    sshuserServiceCreateSshUser: this.requestFunctionFactory(
-      descriptors.sshuserServiceCreateSshUser
-    ),
-    /** Get an SFTPUser. */
-    sshuserServiceGetSftpUser: this.requestFunctionFactory(
-      descriptors.sshuserServiceGetSftpUser
-    ),
-    /** Delete an SFTPUser. */
-    sshuserServiceRemoveSftpUser: this.requestFunctionFactory(
-      descriptors.sshuserServiceRemoveSftpUser
-    ),
-    /** Update an SFTPUser. */
-    sshuserServicePatchSftpUser: this.requestFunctionFactory(
-      descriptors.sshuserServicePatchSftpUser
+    createSshUser: this.requestFunctionFactory(
+      descriptors.sshUserCreateSshUser
     ),
     /** Get an SSHUser. */
-    sshuserServiceGetSshUser: this.requestFunctionFactory(
-      descriptors.sshuserServiceGetSshUser
-    ),
+    getSshUser: this.requestFunctionFactory(descriptors.sshUserGetSshUser),
     /** Delete an SSHUser. */
-    sshuserServiceRemoveSshUser: this.requestFunctionFactory(
-      descriptors.sshuserServiceRemoveSshUser
+    deleteSshUser: this.requestFunctionFactory(
+      descriptors.sshUserDeleteSshUser
     ),
     /** Update an SSHUser. */
-    sshuserServicePatchSshUser: this.requestFunctionFactory(
-      descriptors.sshuserServicePatchSshUser
-    ),
-    /** Update access-level of an SFTPUser */
-    sshuserServiceUpdateAccessLevelOfSftpUser: this.requestFunctionFactory(
-      descriptors.sshuserServiceUpdateAccessLevelOfSftpUser
-    ),
-    /** Activate or deactivate an SFTPUser. */
-    sshuserServiceUpdateActiveOfSftpUser: this.requestFunctionFactory(
-      descriptors.sshuserServiceUpdateActiveOfSftpUser
-    ),
-    /** Activate or deactivate an SSHUser. */
-    sshuserServiceUpdateActiveOfSshUser: this.requestFunctionFactory(
-      descriptors.sshuserServiceUpdateActiveOfSshUser
-    ),
-    /** Update the description of an SFTPUser. */
-    sshuserServiceUpdateDescriptionOfSftpUser: this.requestFunctionFactory(
-      descriptors.sshuserServiceUpdateDescriptionOfSftpUser
-    ),
-    /** Update the description of an SSHUser. */
-    sshuserServiceUpdateDescriptionOfSshUser: this.requestFunctionFactory(
-      descriptors.sshuserServiceUpdateDescriptionOfSshUser
-    ),
-    /** Update the directories of an SFTPUser. */
-    sshuserServiceUpdateDirectoriesOfSftpUser: this.requestFunctionFactory(
-      descriptors.sshuserServiceUpdateDirectoriesOfSftpUser
-    ),
-    /** Update expire-date of an SFTPUser. */
-    sshuserServiceUpdateExpiryOfSftpUser: this.requestFunctionFactory(
-      descriptors.sshuserServiceUpdateExpiryOfSftpUser
-    ),
-    /** Update the expire-date of an SSHUser. */
-    sshuserServiceUpdateExpiryOfSshUser: this.requestFunctionFactory(
-      descriptors.sshuserServiceUpdateExpiryOfSshUser
-    ),
-    /** Update the password of an SFTPUser. */
-    sshuserServiceUpdatePasswordOfSftpUser: this.requestFunctionFactory(
-      descriptors.sshuserServiceUpdatePasswordOfSftpUser
-    ),
-    /** Update the password of an SSHUser. */
-    sshuserServiceUpdatePasswordOfSshUser: this.requestFunctionFactory(
-      descriptors.sshuserServiceUpdatePasswordOfSshUser
-    ),
-    /** Update public-keys of an SFTPUser. */
-    sshuserServiceUpdatePublicKeysOfSftpUser: this.requestFunctionFactory(
-      descriptors.sshuserServiceUpdatePublicKeysOfSftpUser
-    ),
-    /** Update the public-keys of an SSHUser. */
-    sshuserServiceUpdatePublicKeysOfSshUser: this.requestFunctionFactory(
-      descriptors.sshuserServiceUpdatePublicKeysOfSshUser
+    updateSshUser: this.requestFunctionFactory(
+      descriptors.sshUserUpdateSshUser
     ),
   };
 
@@ -1629,4 +1530,4 @@ export class MittwaldAPIV2Client extends ApiClientBase {
   };
 }
 
-export default MittwaldAPIV2Client;
+export default MittwaldApiV2Client;

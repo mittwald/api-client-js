@@ -1,7 +1,7 @@
 import ApiClientError from "@mittwald/api-client-commons/dist/core/ApiClientError.js";
-import MittwaldAPIV2Client from "./generated/v2/client.js";
+import MittwaldApiV2Client from "./generated/v2/client.js";
 
-export class MittwaldAPIClient extends MittwaldAPIV2Client {
+export class MittwaldAPIClient extends MittwaldApiV2Client {
   private readonly apiToken: string | undefined;
 
   private constructor(apiToken?: string) {
