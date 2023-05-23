@@ -128,6 +128,16 @@ export class LockFile {
       this.content.spec.components?.schemas,
       spec.components?.schemas,
     );
+    compareForTarget(
+      "response",
+      this.content.spec.components?.responses,
+      spec.components?.responses,
+    );
+    compareForTarget(
+      "requestBody",
+      this.content.spec.components?.requestBodies,
+      spec.components?.requestBodies,
+    );
 
     return result;
   }

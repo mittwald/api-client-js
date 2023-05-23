@@ -38,7 +38,7 @@ publish-commons:
   only:
     - tags
 
-update-client:
+publish-client:
   stage: publish
   image: node:${NODE_VERSION}
   script:
@@ -53,7 +53,7 @@ update-client:
         git config user.name "${GITLAB_USER_NAME}"
         git config user.email "${GITLAB_USER_EMAIL}"
       fi
-      
+
       if [ $(git status --porcelain . | wc -l) -gt 0 ] ; then
         cd ${CI_PROJECT_DIR}
         yarn compile
@@ -62,7 +62,7 @@ update-client:
 
         # TODO: Re-enable as soon as we have a stability guarantee
         # npm version --no-workspaces-update --no-git-tag-version patch
-      
+
         npm version --no-workspaces-update --no-git-tag-version --preid alpha prerelease
 
         git add .
@@ -76,3 +76,26 @@ update-client:
   only:
     - schedules
     - web
+
+publish-client-dev:
+  stage: publish
+  image: node:${NODE_VERSION}
+  script:
+    - yarn generate:client-dev
+    - cd ${CI_PROJECT_DIR}
+    - yarn compile
+    - |
+      yarn config set npmScopes.mittwald.npmPublishRegistry https://npm.mittwald.it
+      yarn config set npmAuthToken ${NPM_TOKEN}
+    - cd ${CI_PROJECT_DIR}/packages/mittwald
+    - npm version --no-workspaces-update --no-git-tag-version
+      1.0.0-alpha.${CI_JOB_ID}
+    - yarn npm publish
+  only:
+    - schedules
+    - web
+  tags:
+    - coab
+    - dev
+    - incluster
+    - kubernetes
