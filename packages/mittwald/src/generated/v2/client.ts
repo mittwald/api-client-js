@@ -67,14 +67,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
     /** trigger `AppInstallation` to retrieve current installation status based on an appJob */
     updateStatus: this.requestFunctionFactory(descriptors.appUpdateStatus),
-    /** get a specific `AppVersion` */
-    deprecatedAppGetAppversion: this.requestFunctionFactory(
-      descriptors.deprecatedAppGetAppversion
-    ),
-    /** get all `AppVersions` of a specific `App` */
-    deprecatedAppListAppversions: this.requestFunctionFactory(
-      descriptors.deprecatedAppListAppversions
-    ),
   };
 
   /** The contract API allows you to manage your contracts and orders */
@@ -526,73 +518,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     resendCustomerInviteMail: this.requestFunctionFactory(
       descriptors.customerResendCustomerInviteMail
     ),
-    /** Accept a CustomerInvite. */
-    deprecatedCustomerAcceptCustomerInvite: this.requestFunctionFactory(
-      descriptors.deprecatedCustomerAcceptCustomerInvite
-    ),
-    /** Accept a CustomerInvite via a token. */
-    deprecatedCustomerAcceptCustomerInviteWithToken:
-      this.requestFunctionFactory(
-        descriptors.deprecatedCustomerAcceptCustomerInviteWithToken
-      ),
-    /** Update a CustomerMembership. */
-    deprecatedCustomerChangeCustomerMembership: this.requestFunctionFactory(
-      descriptors.deprecatedCustomerChangeCustomerMembership
-    ),
-    /** Delete a CustomerMembership. */
-    deprecatedCustomerDeleteCustomerMembership: this.requestFunctionFactory(
-      descriptors.deprecatedCustomerDeleteCustomerMembership
-    ),
-    /** Create a CustomerInvite. */
-    deprecatedCustomerCreateCustomerInvite: this.requestFunctionFactory(
-      descriptors.deprecatedCustomerCreateCustomerInvite
-    ),
-    /** Decline a CustomerInvite. */
-    deprecatedCustomerDeclineCustomerInvite: this.requestFunctionFactory(
-      descriptors.deprecatedCustomerDeclineCustomerInvite
-    ),
-    /** Get a CustomerInvite. */
-    deprecatedCustomerGetCustomerInviteSpecific: this.requestFunctionFactory(
-      descriptors.deprecatedCustomerGetCustomerInviteSpecific
-    ),
-    /** Get a CustomerMembership. */
-    deprecatedCustomerGetCustomerMembershipSpecific:
-      this.requestFunctionFactory(
-        descriptors.deprecatedCustomerGetCustomerMembershipSpecific
-      ),
-    /** Leave a Customer. */
-    deprecatedCustomerLeaveCustomer: this.requestFunctionFactory(
-      descriptors.deprecatedCustomerLeaveCustomer
-    ),
-    /** List all CustomerMemberships for the executing user. */
-    deprecatedCustomerListCustomerMembershipsForUser:
-      this.requestFunctionFactory(
-        descriptors.deprecatedCustomerListCustomerMembershipsForUser
-      ),
-    /** List all invites for a Customer. */
-    deprecatedCustomerListInvitesForCustomer: this.requestFunctionFactory(
-      descriptors.deprecatedCustomerListInvitesForCustomer
-    ),
-    /** List all memberships belonging to a Customer. */
-    deprecatedCustomerListMembershipsForCustomer: this.requestFunctionFactory(
-      descriptors.deprecatedCustomerListMembershipsForCustomer
-    ),
-    /** List all CustomerInvites for the executing user. */
-    deprecatedCustomerListOwnCustomerInvites: this.requestFunctionFactory(
-      descriptors.deprecatedCustomerListOwnCustomerInvites
-    ),
-    /** Resend the mail for a CustomerInvite. */
-    deprecatedCustomerResendCustomerInviteMail: this.requestFunctionFactory(
-      descriptors.deprecatedCustomerResendCustomerInviteMail
-    ),
-    /** Revoke a CustomerInvite. */
-    deprecatedCustomerRevokeCustomerInvite: this.requestFunctionFactory(
-      descriptors.deprecatedCustomerRevokeCustomerInvite
-    ),
-    /** Update a CustomerMembership. */
-    deprecatedCustomerUpdateCustomerMembership: this.requestFunctionFactory(
-      descriptors.deprecatedCustomerUpdateCustomerMembership
-    ),
   };
 
   /** The database API allows you to manage your databases, like MySQL and Redis databases. */
@@ -672,19 +597,9 @@ export class MittwaldAPIV2Client extends ApiClientBase {
       descriptors.databaseListRedisVersions
     ),
     /** Update a MySQLDatabase's default character settings. */
-    deprecatedDatabaseUpdateMysqlDatabaseDefaultCharset:
-      this.requestFunctionFactory(
-        descriptors.deprecatedDatabaseUpdateMysqlDatabaseDefaultCharset
-      ),
-    /** Update a MySQLDatabase's default character settings. */
     updateMysqlDatabaseDefaultCharset: this.requestFunctionFactory(
       descriptors.databaseUpdateMysqlDatabaseDefaultCharset
     ),
-    /** Update a MySQLDatabase's description. */
-    deprecatedDatabaseUpdateMysqlDatabaseDescription:
-      this.requestFunctionFactory(
-        descriptors.deprecatedDatabaseUpdateMysqlDatabaseDescription
-      ),
     /** Update a MySQLDatabase's description. */
     updateMysqlDatabaseDescription: this.requestFunctionFactory(
       descriptors.databaseUpdateMysqlDatabaseDescription
@@ -694,291 +609,8 @@ export class MittwaldAPIV2Client extends ApiClientBase {
       descriptors.databaseUpdateMysqlUserPassword
     ),
     /** Update a RedisDatabase's description. */
-    deprecatedDatabaseUpdateRedisDatabaseDescription:
-      this.requestFunctionFactory(
-        descriptors.deprecatedDatabaseUpdateRedisDatabaseDescription
-      ),
-    /** Update a RedisDatabase's description. */
     updateRedisDatabaseDescription: this.requestFunctionFactory(
       descriptors.databaseUpdateRedisDatabaseDescription
-    ),
-    /** List MySQLDatabases belonging to a Project. */
-    deprecatedDatabaseListMysqlDatabases: this.requestFunctionFactory(
-      descriptors.deprecatedDatabaseListMysqlDatabases
-    ),
-    /** Create a MySQLDatabase. */
-    deprecatedDatabaseCreateMysqlDatabase: this.requestFunctionFactory(
-      descriptors.deprecatedDatabaseCreateMysqlDatabase
-    ),
-    /** Create a MySQLDatabase with User. */
-    deprecatedDatabaseCreateMysqlDatabaseWithUser: this.requestFunctionFactory(
-      descriptors.deprecatedDatabaseCreateMysqlDatabaseWithUser
-    ),
-    /** List RedisDatabases belonging to a project. */
-    deprecatedDatabaseListRedisDatabases: this.requestFunctionFactory(
-      descriptors.deprecatedDatabaseListRedisDatabases
-    ),
-    /** Create a RedisDatabase. */
-    deprecatedDatabaseCreateRedisDatabase: this.requestFunctionFactory(
-      descriptors.deprecatedDatabaseCreateRedisDatabase
-    ),
-    /** Get a MySQLUser. */
-    deprecatedDatabaseGetMysqlUser: this.requestFunctionFactory(
-      descriptors.deprecatedDatabaseGetMysqlUser
-    ),
-    /** Update a MySQLUser. */
-    deprecatedDatabaseUpdateMysqlUser: this.requestFunctionFactory(
-      descriptors.deprecatedDatabaseUpdateMysqlUser
-    ),
-    /** Delete a MySQLUser. */
-    deprecatedDatabaseDeleteMysqlUser: this.requestFunctionFactory(
-      descriptors.deprecatedDatabaseDeleteMysqlUser
-    ),
-    /** Disable a MySQLUser. */
-    deprecatedDatabaseDisableMysqlUser: this.requestFunctionFactory(
-      descriptors.deprecatedDatabaseDisableMysqlUser
-    ),
-    /** Enable a MySQLUser. */
-    deprecatedDatabaseEnableMysqlUser: this.requestFunctionFactory(
-      descriptors.deprecatedDatabaseEnableMysqlUser
-    ),
-    /** Get a MySQLUser's PhpMyAdmin-URL. */
-    deprecatedDatabaseGetMysqlUserPhpMyAdminUrl: this.requestFunctionFactory(
-      descriptors.deprecatedDatabaseGetMysqlUserPhpMyAdminUrl
-    ),
-    /** List available MySQL character sets and collations for a MySQLVersion. */
-    deprecatedDatabaseListMysqlCharsets: this.requestFunctionFactory(
-      descriptors.deprecatedDatabaseListMysqlCharsets
-    ),
-    /** List available MySQLVersions for a Project. */
-    deprecatedDatabaseListMysqlVersions: this.requestFunctionFactory(
-      descriptors.deprecatedDatabaseListMysqlVersions
-    ),
-    /** List available Redis versions for a project. */
-    deprecatedDatabaseListRedisVersions: this.requestFunctionFactory(
-      descriptors.deprecatedDatabaseListRedisVersions
-    ),
-    /** Update a MySQLUser's password. */
-    deprecatedDatabaseSetMysqlUserPassword: this.requestFunctionFactory(
-      descriptors.deprecatedDatabaseSetMysqlUserPassword
-    ),
-    /** Update a MySQLUser's password. */
-    deprecatedDatabaseUpdateMysqlUserPassword: this.requestFunctionFactory(
-      descriptors.deprecatedDatabaseUpdateMysqlUserPassword
-    ),
-  };
-
-  /** The membership API allows you to manage memberships and invites. */
-  public readonly membership = {
-    /** Accept an invite. */
-    deprecatedMembershipAcceptInvite: this.requestFunctionFactory(
-      descriptors.deprecatedMembershipAcceptInvite
-    ),
-    /** Decline an invite. */
-    deprecatedMembershipDeclineInvite: this.requestFunctionFactory(
-      descriptors.deprecatedMembershipDeclineInvite
-    ),
-    /** Get a membership */
-    deprecatedMembershipGetMembership: this.requestFunctionFactory(
-      descriptors.deprecatedMembershipGetMembership
-    ),
-    /** Delete a membership. */
-    deprecatedMembershipDeleteMembership: this.requestFunctionFactory(
-      descriptors.deprecatedMembershipDeleteMembership
-    ),
-    /** Get an invite. */
-    deprecatedMembershipGetInvite: this.requestFunctionFactory(
-      descriptors.deprecatedMembershipGetInvite
-    ),
-    /** Leave a membership. */
-    deprecatedMembershipLeaveMembership: this.requestFunctionFactory(
-      descriptors.deprecatedMembershipLeaveMembership
-    ),
-    /** List invites for the user. */
-    deprecatedMembershipListInvites: this.requestFunctionFactory(
-      descriptors.deprecatedMembershipListInvites
-    ),
-    /** List all memberships for the user. */
-    deprecatedMembershipListMemberships: this.requestFunctionFactory(
-      descriptors.deprecatedMembershipListMemberships
-    ),
-    /** Resend the mail for an invite. */
-    deprecatedMembershipResendInviteMail: this.requestFunctionFactory(
-      descriptors.deprecatedMembershipResendInviteMail
-    ),
-    /** Revoke an invite. */
-    deprecatedMembershipRevokeInvite: this.requestFunctionFactory(
-      descriptors.deprecatedMembershipRevokeInvite
-    ),
-  };
-
-  /** The project API allows you to manage your projects, and also any kinds of user memberships concerning these projects. */
-  public readonly project = {
-    /** Accept a ProjectInvite. */
-    deprecatedProjectAcceptProjectInvite: this.requestFunctionFactory(
-      descriptors.deprecatedProjectAcceptProjectInvite
-    ),
-    /** Accept a ProjectInvite via a token. */
-    deprecatedProjectAcceptProjectInviteWithToken: this.requestFunctionFactory(
-      descriptors.deprecatedProjectAcceptProjectInviteWithToken
-    ),
-    /** Update a ProjectMembership. */
-    deprecatedProjectChangeProjectMembership: this.requestFunctionFactory(
-      descriptors.deprecatedProjectChangeProjectMembership
-    ),
-    /** Delete a ProjectMembership. */
-    deprecatedProjectDeleteProjectMembership: this.requestFunctionFactory(
-      descriptors.deprecatedProjectDeleteProjectMembership
-    ),
-    /** Create a ProjectInvite. */
-    deprecatedProjectCreateProjectInvite: this.requestFunctionFactory(
-      descriptors.deprecatedProjectCreateProjectInvite
-    ),
-    /** Decline a ProjectInvite. */
-    deprecatedProjectDeclineProjectInvite: this.requestFunctionFactory(
-      descriptors.deprecatedProjectDeclineProjectInvite
-    ),
-    /** Get a ProjectInvite. */
-    deprecatedProjectGetProjectInviteSpecific: this.requestFunctionFactory(
-      descriptors.deprecatedProjectGetProjectInviteSpecific
-    ),
-    /** Get a ProjectMembership */
-    deprecatedProjectGetProjectMembershipSpecific: this.requestFunctionFactory(
-      descriptors.deprecatedProjectGetProjectMembershipSpecific
-    ),
-    /** Leave a Project. */
-    deprecatedProjectLeaveProject: this.requestFunctionFactory(
-      descriptors.deprecatedProjectLeaveProject
-    ),
-    /** List all invites belonging to a Project. */
-    deprecatedProjectListInvitesForProject: this.requestFunctionFactory(
-      descriptors.deprecatedProjectListInvitesForProject
-    ),
-    /** List all memberships for a Project. */
-    deprecatedProjectListMembershipsForProject: this.requestFunctionFactory(
-      descriptors.deprecatedProjectListMembershipsForProject
-    ),
-    /** List all ProjectInvites for the executing user. */
-    deprecatedProjectListOwnProjectInvites: this.requestFunctionFactory(
-      descriptors.deprecatedProjectListOwnProjectInvites
-    ),
-    /** List ProjectMemberships belonging to the executing user. */
-    deprecatedProjectListProjectMembershipsForUser: this.requestFunctionFactory(
-      descriptors.deprecatedProjectListProjectMembershipsForUser
-    ),
-    /** Resend the mail for a ProjectInvite. */
-    deprecatedProjectResendProjectInviteMail: this.requestFunctionFactory(
-      descriptors.deprecatedProjectResendProjectInviteMail
-    ),
-    /** Revoke a ProjectInvite. */
-    deprecatedProjectRevokeProjectInvite: this.requestFunctionFactory(
-      descriptors.deprecatedProjectRevokeProjectInvite
-    ),
-    /** Update a ProjectMembership. */
-    deprecatedProjectUpdateProjectMembership: this.requestFunctionFactory(
-      descriptors.deprecatedProjectUpdateProjectMembership
-    ),
-    /** Accept a ProjectInvite. */
-    acceptProjectInvite: this.requestFunctionFactory(
-      descriptors.projectAcceptProjectInvite
-    ),
-    /** Create a ProjectInvite. */
-    createProjectInvite: this.requestFunctionFactory(
-      descriptors.projectCreateProjectInvite
-    ),
-    /** Create a Project belonging to a Server. */
-    createProject: this.requestFunctionFactory(
-      descriptors.projectCreateProject
-    ),
-    /** Decline a ProjectInvite. */
-    declineProjectInvite: this.requestFunctionFactory(
-      descriptors.projectDeclineProjectInvite
-    ),
-    /** Request a Project avatar upload. */
-    requestProjectAvatarUpload: this.requestFunctionFactory(
-      descriptors.projectRequestProjectAvatarUpload
-    ),
-    /** Delete a Project's avatar. */
-    deleteProjectAvatar: this.requestFunctionFactory(
-      descriptors.projectDeleteProjectAvatar
-    ),
-    /** Get a ProjectInvite. */
-    getProjectInvite: this.requestFunctionFactory(
-      descriptors.projectGetProjectInvite
-    ),
-    /** Delete a ProjectInvite. */
-    deleteProjectInvite: this.requestFunctionFactory(
-      descriptors.projectDeleteProjectInvite
-    ),
-    /** Get a ProjectMembership */
-    getProjectMembership: this.requestFunctionFactory(
-      descriptors.projectGetProjectMembership
-    ),
-    /** Delete a ProjectMembership. */
-    deleteProjectMembership: this.requestFunctionFactory(
-      descriptors.projectDeleteProjectMembership
-    ),
-    /** Update a ProjectMembership. */
-    updateProjectMembership: this.requestFunctionFactory(
-      descriptors.projectUpdateProjectMembership
-    ),
-    /** Delete a Project. */
-    deleteProject: this.requestFunctionFactory(
-      descriptors.projectDeleteProject
-    ),
-    /** Request a Server avatar upload. */
-    requestServerAvatarUpload: this.requestFunctionFactory(
-      descriptors.projectRequestServerAvatarUpload
-    ),
-    /** Delete a Server's avatar. */
-    deleteServerAvatar: this.requestFunctionFactory(
-      descriptors.projectDeleteServerAvatar
-    ),
-    /** Get the executing user's membership in a Project. */
-    getOwnMembershipForProject: this.requestFunctionFactory(
-      descriptors.projectGetOwnMembershipForProject
-    ),
-    /** Get a ProjectInvite by token. */
-    getProjectTokenInvite: this.requestFunctionFactory(
-      descriptors.projectGetProjectTokenInvite
-    ),
-    /** Get a Project. */
-    getProject: this.requestFunctionFactory(descriptors.projectGetProject),
-    /** Get a Server. */
-    getServer: this.requestFunctionFactory(descriptors.projectGetServer),
-    /** Leave a Project. */
-    leaveProject: this.requestFunctionFactory(descriptors.projectLeaveProject),
-    /** List all invites belonging to a Project. */
-    listInvitesForProject: this.requestFunctionFactory(
-      descriptors.projectListInvitesForProject
-    ),
-    /** List all memberships for a Project. */
-    listMembershipsForProject: this.requestFunctionFactory(
-      descriptors.projectListMembershipsForProject
-    ),
-    /** List all ProjectInvites for the executing user. */
-    listProjectInvites: this.requestFunctionFactory(
-      descriptors.projectListProjectInvites
-    ),
-    /** List ProjectMemberships belonging to the executing user. */
-    listProjectMemberships: this.requestFunctionFactory(
-      descriptors.projectListProjectMemberships
-    ),
-    /** List Project's for an Organization or Server. */
-    listProjects: this.requestFunctionFactory(descriptors.projectListProjects),
-    /** List Servers for an Organization or User. */
-    listServers: this.requestFunctionFactory(descriptors.projectListServers),
-    /** Resend the mail for a ProjectInvite. */
-    resendProjectInviteMail: this.requestFunctionFactory(
-      descriptors.projectResendProjectInviteMail
-    ),
-    /** Update a Project's description. */
-    updateProjectDescription: this.requestFunctionFactory(
-      descriptors.projectUpdateProjectDescription
-    ),
-    /** Update a Servers's description. */
-    updateServerDescription: this.requestFunctionFactory(
-      descriptors.projectUpdateServerDescription
     ),
   };
 
@@ -1251,6 +883,112 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Mark notification as read. */
     sreadNotification: this.requestFunctionFactory(
       descriptors.notificationsReadNotification
+    ),
+  };
+
+  /** The project API allows you to manage your projects, and also any kinds of user memberships concerning these projects. */
+  public readonly project = {
+    /** Accept a ProjectInvite. */
+    acceptProjectInvite: this.requestFunctionFactory(
+      descriptors.projectAcceptProjectInvite
+    ),
+    /** Create a ProjectInvite. */
+    createProjectInvite: this.requestFunctionFactory(
+      descriptors.projectCreateProjectInvite
+    ),
+    /** Create a Project belonging to a Server. */
+    createProject: this.requestFunctionFactory(
+      descriptors.projectCreateProject
+    ),
+    /** Decline a ProjectInvite. */
+    declineProjectInvite: this.requestFunctionFactory(
+      descriptors.projectDeclineProjectInvite
+    ),
+    /** Request a Project avatar upload. */
+    requestProjectAvatarUpload: this.requestFunctionFactory(
+      descriptors.projectRequestProjectAvatarUpload
+    ),
+    /** Delete a Project's avatar. */
+    deleteProjectAvatar: this.requestFunctionFactory(
+      descriptors.projectDeleteProjectAvatar
+    ),
+    /** Get a ProjectInvite. */
+    getProjectInvite: this.requestFunctionFactory(
+      descriptors.projectGetProjectInvite
+    ),
+    /** Delete a ProjectInvite. */
+    deleteProjectInvite: this.requestFunctionFactory(
+      descriptors.projectDeleteProjectInvite
+    ),
+    /** Get a ProjectMembership */
+    getProjectMembership: this.requestFunctionFactory(
+      descriptors.projectGetProjectMembership
+    ),
+    /** Delete a ProjectMembership. */
+    deleteProjectMembership: this.requestFunctionFactory(
+      descriptors.projectDeleteProjectMembership
+    ),
+    /** Update a ProjectMembership. */
+    updateProjectMembership: this.requestFunctionFactory(
+      descriptors.projectUpdateProjectMembership
+    ),
+    /** Delete a Project. */
+    deleteProject: this.requestFunctionFactory(
+      descriptors.projectDeleteProject
+    ),
+    /** Request a Server avatar upload. */
+    requestServerAvatarUpload: this.requestFunctionFactory(
+      descriptors.projectRequestServerAvatarUpload
+    ),
+    /** Delete a Server's avatar. */
+    deleteServerAvatar: this.requestFunctionFactory(
+      descriptors.projectDeleteServerAvatar
+    ),
+    /** Get a ProjectInvite by token. */
+    getProjectTokenInvite: this.requestFunctionFactory(
+      descriptors.projectGetProjectTokenInvite
+    ),
+    /** Get a Project. */
+    getProject: this.requestFunctionFactory(descriptors.projectGetProject),
+    /** Get the executing user's membership in a Project. */
+    getSelfMembershipForProject: this.requestFunctionFactory(
+      descriptors.projectGetSelfMembershipForProject
+    ),
+    /** Get a Server. */
+    getServer: this.requestFunctionFactory(descriptors.projectGetServer),
+    /** Leave a Project. */
+    leaveProject: this.requestFunctionFactory(descriptors.projectLeaveProject),
+    /** List all invites belonging to a Project. */
+    listInvitesForProject: this.requestFunctionFactory(
+      descriptors.projectListInvitesForProject
+    ),
+    /** List all memberships for a Project. */
+    listMembershipsForProject: this.requestFunctionFactory(
+      descriptors.projectListMembershipsForProject
+    ),
+    /** List all ProjectInvites for the executing user. */
+    listProjectInvites: this.requestFunctionFactory(
+      descriptors.projectListProjectInvites
+    ),
+    /** List ProjectMemberships belonging to the executing user. */
+    listProjectMemberships: this.requestFunctionFactory(
+      descriptors.projectListProjectMemberships
+    ),
+    /** List Project's for an Organization or Server. */
+    listProjects: this.requestFunctionFactory(descriptors.projectListProjects),
+    /** List Servers for an Organization or User. */
+    listServers: this.requestFunctionFactory(descriptors.projectListServers),
+    /** Resend the mail for a ProjectInvite. */
+    resendProjectInviteMail: this.requestFunctionFactory(
+      descriptors.projectResendProjectInviteMail
+    ),
+    /** Update a Project's description. */
+    updateProjectDescription: this.requestFunctionFactory(
+      descriptors.projectUpdateProjectDescription
+    ),
+    /** Update a Servers's description. */
+    updateServerDescription: this.requestFunctionFactory(
+      descriptors.projectUpdateServerDescription
     ),
   };
 
