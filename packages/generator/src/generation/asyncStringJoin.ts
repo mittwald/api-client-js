@@ -3,11 +3,6 @@ export const asyncStringJoin = async <T>(
   contentGenerator: (item: T) => string | Promise<string>,
   separator = "\r\n",
 ) => {
-  const content: string[] = [];
-
-  for (const item of items) {
-    content.push(await contentGenerator(item));
-  }
-
-  return content.join(separator);
+  const mappedItems = await Promise.all(items.map(contentGenerator));
+  return mappedItems.join(separator);
 };
