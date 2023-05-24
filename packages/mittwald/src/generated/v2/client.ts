@@ -4,7 +4,7 @@
 import * as descriptors from "./descriptors.js";
 import ApiClientBase from "@mittwald/api-client-commons/dist/core/ApiClientBase.js";
 
-export class MittwaldApiV2Client extends ApiClientBase {
+export class MittwaldAPIV2Client extends ApiClientBase {
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app = {
     /** execute a runtime concerning action on a specific `AppInstallation` */
@@ -1530,4 +1530,4 @@ export class MittwaldApiV2Client extends ApiClientBase {
   };
 }
 
-export default MittwaldApiV2Client;
+export default MittwaldAPIV2Client;

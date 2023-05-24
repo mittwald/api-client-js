@@ -1,7 +1,7 @@
 /* eslint-disable */
 /* prettier-ignore */
 /* This file is auto-generated with acg (@mittwald/api-code-generator) */
-declare namespace MittwaldApiV2 {
+declare namespace MittwaldAPIV2 {
   namespace Components {
     namespace Schemas {
       /**
@@ -13,13 +13,13 @@ declare namespace MittwaldApiV2 {
        * `ActionCapabilities` is an array that contains supported actions of an `App`
        */
       export type DeMittwaldV1AppActionCapabilities =
-        MittwaldApiV2.Components.Schemas.DeMittwaldV1AppAction[];
+        MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppAction[];
 
       /**
        * An `App` is to be understood as a manifest for `AppInstallations`. E.g. "WordPress" only exists inside our ecosystem, because there is an `App`-Manifest for it
        */
       export interface DeMittwaldV1AppApp {
-        actionCapabilities?: MittwaldApiV2.Components.Schemas.DeMittwaldV1AppActionCapabilities;
+        actionCapabilities?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppActionCapabilities;
         id: string;
         name: string;
         tags: string[];
@@ -48,20 +48,20 @@ declare namespace MittwaldApiV2 {
        */
       export interface DeMittwaldV1AppAppInstallation {
         appId: string;
-        appVersion: MittwaldApiV2.Components.Schemas.DeMittwaldV1AppVersionStatus;
+        appVersion: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppVersionStatus;
         customDocumentRoot?: string;
         description: string;
         disabled: boolean;
         id: string;
         installationPath: string;
-        linkedDatabases?: MittwaldApiV2.Components.Schemas.DeMittwaldV1AppLinkedDatabase[];
+        linkedDatabases?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppLinkedDatabase[];
         processes?: string[];
         projectId?: string;
         screenshotId?: string;
         screenshotRef?: string;
-        systemSoftware?: MittwaldApiV2.Components.Schemas.DeMittwaldV1AppInstalledSystemSoftware[];
-        updatePolicy?: MittwaldApiV2.Components.Schemas.DeMittwaldV1AppAppUpdatePolicy;
-        userInputs?: MittwaldApiV2.Components.Schemas.DeMittwaldV1AppSavedUserInput[];
+        systemSoftware?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppInstalledSystemSoftware[];
+        updatePolicy?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppAppUpdatePolicy;
+        userInputs?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppSavedUserInput[];
       }
 
       /**
@@ -76,17 +76,17 @@ declare namespace MittwaldApiV2 {
        * An `AppVersion` is an officially supported version of an `App`, containing the necessary and recommended configuration und dependencies
        */
       export interface DeMittwaldV1AppAppVersion {
-        breakingNote?: MittwaldApiV2.Components.Schemas.DeMittwaldV1AppBreakingNote;
-        databases?: MittwaldApiV2.Components.Schemas.DeMittwaldV1AppDatabaseDependency[];
+        breakingNote?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppBreakingNote;
+        databases?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppDatabaseDependency[];
         docRoot: string;
         docRootUserEditable: boolean;
         externalVersion: string;
         id: string;
         internalVersion: string;
         recommended?: boolean;
-        requestHandler?: MittwaldApiV2.Components.Schemas.DeMittwaldV1AppRequestHandlerRequirement;
-        systemSoftwareDependencies?: MittwaldApiV2.Components.Schemas.DeMittwaldV1AppSystemSoftwareDependency[];
-        userInputs?: MittwaldApiV2.Components.Schemas.DeMittwaldV1AppUserInput[];
+        requestHandler?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppRequestHandlerRequirement;
+        systemSoftwareDependencies?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppSystemSoftwareDependency[];
+        userInputs?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppUserInput[];
       }
 
       export interface DeMittwaldV1AppBreakingNote {
@@ -109,8 +109,8 @@ declare namespace MittwaldApiV2 {
 
       export interface DeMittwaldV1AppInstalledSystemSoftware {
         systemSoftwareId: string;
-        systemSoftwareVersion: MittwaldApiV2.Components.Schemas.DeMittwaldV1AppVersionStatus;
-        updatePolicy: MittwaldApiV2.Components.Schemas.DeMittwaldV1AppSystemSoftwareUpdatePolicy;
+        systemSoftwareVersion: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppVersionStatus;
+        updatePolicy: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppSystemSoftwareUpdatePolicy;
       }
 
       export interface DeMittwaldV1AppLinkedDatabase {
@@ -123,7 +123,7 @@ declare namespace MittwaldApiV2 {
       }
 
       export interface DeMittwaldV1AppRequestHandlerRequirement {
-        exampleValues?: MittwaldApiV2.Components.Schemas.DeMittwaldV1AppSavedUserInput[];
+        exampleValues?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppSavedUserInput[];
         name: string;
         namespace: string;
         parametersTemplate: string;
@@ -159,8 +159,8 @@ declare namespace MittwaldApiV2 {
         id: string;
         internalVersion: string;
         recommended?: boolean;
-        systemSoftwareDependencies?: MittwaldApiV2.Components.Schemas.DeMittwaldV1AppSystemSoftwareDependency[];
-        userInputs?: MittwaldApiV2.Components.Schemas.DeMittwaldV1AppUserInput[];
+        systemSoftwareDependencies?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppSystemSoftwareDependency[];
+        userInputs?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppUserInput[];
       }
 
       export interface DeMittwaldV1AppUserInput {
@@ -168,12 +168,12 @@ declare namespace MittwaldApiV2 {
          * Optional field to tell the frontend, which data to put into the select
          */
         dataSource?: string;
-        dataType: MittwaldApiV2.Components.Schemas.DeMittwaldV1AppUserInputDataType;
+        dataType: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppUserInputDataType;
         defaultValue?: string;
-        format?: MittwaldApiV2.Components.Schemas.DeMittwaldV1AppUserInputFormat;
-        lifecycleConstraint: MittwaldApiV2.Components.Schemas.DeMittwaldV1AppAppInstallationLifecycle;
+        format?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppUserInputFormat;
+        lifecycleConstraint: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppAppInstallationLifecycle;
         name: string;
-        positionMeta?: MittwaldApiV2.Components.Schemas.DeMittwaldV1AppUserInputPositionMeta;
+        positionMeta?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppUserInputPositionMeta;
         required: boolean;
         /**
          * JSON Schema formatted (https://json-schema.org/)
@@ -255,14 +255,14 @@ declare namespace MittwaldApiV2 {
       }
 
       export interface DeMittwaldV1ArticleArticleTemplate {
-        additionalArticles?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ArticleReadableBookableArticleOptions[];
-        addons?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ArticleArticleAddons[];
-        attributes?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ArticleArticleAttributes[];
+        additionalArticles?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ArticleReadableBookableArticleOptions[];
+        addons?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ArticleArticleAddons[];
+        attributes?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ArticleArticleAttributes[];
         description?: string;
         id?: string;
         isManagedByDomain: boolean;
         isRecurring: boolean;
-        modifierArticles?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ArticleReadableModifierArticleOptions[];
+        modifierArticles?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ArticleReadableModifierArticleOptions[];
         name: string;
         type:
           | "miscellaneous"
@@ -273,10 +273,10 @@ declare namespace MittwaldApiV2 {
       }
 
       export interface DeMittwaldV1ArticleReadableArticle {
-        additionalArticles?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ArticleReadableBookableArticleOptions[];
-        addons?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ArticleArticleAddons[];
+        additionalArticles?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ArticleReadableBookableArticleOptions[];
+        addons?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ArticleArticleAddons[];
         articleId: string;
-        attributes?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ArticleArticleAttributes[];
+        attributes?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ArticleArticleAttributes[];
         balanceAddonKey?: string;
         contractDurationInMonth: number;
         description: string;
@@ -287,7 +287,7 @@ declare namespace MittwaldApiV2 {
           memory: string;
           name: string;
         };
-        modifierArticles?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ArticleReadableModifierArticleOptions[];
+        modifierArticles?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ArticleReadableModifierArticleOptions[];
         name: string;
         orderable:
           | "forbidden"
@@ -296,15 +296,15 @@ declare namespace MittwaldApiV2 {
           | "full"
           | "deprecated";
         picture?: string;
-        possibleArticleChanges?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ArticleReadableChangeArticleOptions[];
+        possibleArticleChanges?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ArticleReadableChangeArticleOptions[];
         price?: number;
-        tags?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ArticleArticleTag[];
-        template: MittwaldApiV2.Components.Schemas.DeMittwaldV1ArticleArticleTemplate;
+        tags?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ArticleArticleTag[];
+        template: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ArticleArticleTemplate;
       }
 
       export interface DeMittwaldV1BackupBackupTemplate {
         expirationTime: string;
-        ignoredSources?: MittwaldApiV2.Components.Schemas.DeMittwaldV1BackupIgnoredSources;
+        ignoredSources?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1BackupIgnoredSources;
       }
 
       export interface DeMittwaldV1BackupDatabaseReference {
@@ -313,7 +313,7 @@ declare namespace MittwaldApiV2 {
       }
 
       export interface DeMittwaldV1BackupIgnoredSources {
-        databases?: MittwaldApiV2.Components.Schemas.DeMittwaldV1BackupDatabaseReference[];
+        databases?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1BackupDatabaseReference[];
         files: boolean;
       }
 
@@ -322,7 +322,7 @@ declare namespace MittwaldApiV2 {
         deletable: boolean;
         description?: string;
         expiresAt?: string;
-        export?: MittwaldApiV2.Components.Schemas.DeMittwaldV1BackupProjectBackupExport;
+        export?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1BackupProjectBackupExport;
         id: string;
         parentId?: string;
         projectId: string;
@@ -384,25 +384,25 @@ declare namespace MittwaldApiV2 {
         description: string;
         id: string;
         name: string;
-        unitPrice: MittwaldApiV2.Components.Schemas.DeMittwaldV1ContractPrice;
+        unitPrice: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ContractPrice;
       }
 
       export interface DeMittwaldV1ContractContact {
-        address: MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonsAddress;
+        address: MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsAddress;
         company?: string;
         emailAddress?: string;
         firstName?: string;
         lastName?: string;
         phoneNumbers?: string[];
-        salutation: MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonsSalutation;
+        salutation: MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsSalutation;
         title?: string;
         useFormalTerm?: boolean;
       }
 
       export interface DeMittwaldV1ContractContractItem {
         activationDate?: string;
-        aggregateReference?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ContractAggregateReference;
-        articles: MittwaldApiV2.Components.Schemas.DeMittwaldV1ContractArticle[];
+        aggregateReference?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ContractAggregateReference;
+        articles: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ContractArticle[];
         contractPeriod: number;
         description: string;
         groupByProjectId?: string;
@@ -425,21 +425,21 @@ declare namespace MittwaldApiV2 {
         nextPossibleUpgradeDate?: string;
         orderDate: string;
         replacedByItem?: string;
-        tariffChange?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ContractTariffChange;
-        termination?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ContractTermination;
-        totalPrice: MittwaldApiV2.Components.Schemas.DeMittwaldV1ContractPrice;
+        tariffChange?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ContractTariffChange;
+        termination?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ContractTermination;
+        totalPrice: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ContractPrice;
       }
 
       export interface DeMittwaldV1ContractContract {
-        additionalItems?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ContractContractItem[];
-        baseItem: MittwaldApiV2.Components.Schemas.DeMittwaldV1ContractContractItem;
+        additionalItems?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ContractContractItem[];
+        baseItem: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ContractContractItem;
         contractId: string;
         contractNumber: string;
         customerId: string;
         isInvoicingDeactivated?: boolean;
         isInvoicingPaused?: boolean;
-        owner: MittwaldApiV2.Components.Schemas.DeMittwaldV1ContractContact;
-        termination?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ContractTermination;
+        owner: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ContractContact;
+        termination?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ContractTermination;
       }
 
       export interface DeMittwaldV1ContractError {
@@ -457,7 +457,7 @@ declare namespace MittwaldApiV2 {
          * This is only set if the tariff change has already been carried out.
          */
         executedAtDate?: string;
-        newArticles: MittwaldApiV2.Components.Schemas.DeMittwaldV1ContractArticle[];
+        newArticles: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ContractArticle[];
         scheduledAtDate: string;
         scheduledByUserId?: string;
         targetDate: string;
@@ -488,15 +488,15 @@ declare namespace MittwaldApiV2 {
       }
 
       export interface DeMittwaldV1ConversationConversation {
-        category?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ConversationCategory;
+        category?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ConversationCategory;
         conversationId: string;
         createdAt: string;
-        createdBy?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ConversationUser;
+        createdBy?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ConversationUser;
         lastMessageAt?: string;
-        lastMessageBy?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ConversationUser;
-        relatedTo?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ConversationAggregateReference;
-        relations?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ConversationAggregateReference[];
-        sharedWith?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ConversationAggregateReference;
+        lastMessageBy?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ConversationUser;
+        relatedTo?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ConversationAggregateReference;
+        relations?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ConversationAggregateReference[];
+        sharedWith?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ConversationAggregateReference;
         shortId: string;
         status: "open" | "closed" | "answered";
         title: string;
@@ -532,8 +532,8 @@ declare namespace MittwaldApiV2 {
       }
 
       export type DeMittwaldV1ConversationFile =
-        | MittwaldApiV2.Components.Schemas.DeMittwaldV1ConversationRequestedFile
-        | MittwaldApiV2.Components.Schemas.DeMittwaldV1ConversationUploadedFile;
+        | MittwaldAPIV2.Components.Schemas.DeMittwaldV1ConversationRequestedFile
+        | MittwaldAPIV2.Components.Schemas.DeMittwaldV1ConversationUploadedFile;
 
       export interface DeMittwaldV1ConversationUploadedFile {
         id: string;
@@ -545,15 +545,15 @@ declare namespace MittwaldApiV2 {
       export interface DeMittwaldV1ConversationMessageHistoryItem {
         content: string;
         updatedAt: string;
-        updatedBy?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ConversationUser;
+        updatedBy?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ConversationUser;
       }
 
       export interface DeMittwaldV1ConversationMessage {
         conversationId: string;
         createdAt: string;
-        createdBy?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ConversationUser;
-        files?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ConversationFile[];
-        history: MittwaldApiV2.Components.Schemas.DeMittwaldV1ConversationMessageHistoryItem[];
+        createdBy?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ConversationUser;
+        files?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ConversationFile[];
+        history: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ConversationMessageHistoryItem[];
         internal?: boolean;
         messageContent?: string;
         messageId: string;
@@ -566,7 +566,7 @@ declare namespace MittwaldApiV2 {
         internal?: boolean;
         messageContent: string;
         meta?: {
-          user?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ConversationUser;
+          user?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ConversationUser;
         };
         type: "STATUS_UPDATE";
       }
@@ -574,7 +574,7 @@ declare namespace MittwaldApiV2 {
       export interface DeMittwaldV1ConversationUser {
         avatarRefId?: string;
         clearName?: string;
-        department?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ConversationDepartment;
+        department?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ConversationDepartment;
         userId: string;
       }
 
@@ -590,12 +590,12 @@ declare namespace MittwaldApiV2 {
         createdAt: string;
         description: string;
         destination:
-          | MittwaldApiV2.Components.Schemas.DeMittwaldV1CronjobCronjobUrl
-          | MittwaldApiV2.Components.Schemas.DeMittwaldV1CronjobCronjobCommand;
+          | MittwaldAPIV2.Components.Schemas.DeMittwaldV1CronjobCronjobUrl
+          | MittwaldAPIV2.Components.Schemas.DeMittwaldV1CronjobCronjobCommand;
         email?: string;
         id: string;
         interval: string;
-        latestExecution?: MittwaldApiV2.Components.Schemas.DeMittwaldV1CronjobCronjobExecution;
+        latestExecution?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1CronjobCronjobExecution;
         nextExecutionTime?: string;
         projectId?: string;
         shortId: string;
@@ -629,8 +629,8 @@ declare namespace MittwaldApiV2 {
         appId: string;
         description: string;
         destination:
-          | MittwaldApiV2.Components.Schemas.DeMittwaldV1CronjobCronjobUrl
-          | MittwaldApiV2.Components.Schemas.DeMittwaldV1CronjobCronjobCommand;
+          | MittwaldAPIV2.Components.Schemas.DeMittwaldV1CronjobCronjobUrl
+          | MittwaldAPIV2.Components.Schemas.DeMittwaldV1CronjobCronjobCommand;
         email?: string;
         interval: string;
       }
@@ -641,10 +641,10 @@ declare namespace MittwaldApiV2 {
         createdAt: string;
         description: string;
         destination:
-          | MittwaldApiV2.Components.Schemas.DeMittwaldV1CronjobCronjobUrl
-          | MittwaldApiV2.Components.Schemas.DeMittwaldV1CronjobCronjobCommand;
+          | MittwaldAPIV2.Components.Schemas.DeMittwaldV1CronjobCronjobUrl
+          | MittwaldAPIV2.Components.Schemas.DeMittwaldV1CronjobCronjobCommand;
         email?: string;
-        executions?: MittwaldApiV2.Components.Schemas.DeMittwaldV1CronjobCronjobExecution[];
+        executions?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1CronjobCronjobExecution[];
         id: string;
         interval: string;
         nextExecutionTime?: string;
@@ -665,13 +665,13 @@ declare namespace MittwaldApiV2 {
       }
 
       export interface DeMittwaldV1CustomerContact {
-        address: MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonsAddress;
+        address: MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsAddress;
         company?: string;
         emailAddress?: string;
         firstName?: string;
         lastName?: string;
         phoneNumbers?: string[];
-        salutation: MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonsSalutation;
+        salutation: MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsSalutation;
         title?: string;
         useFormalTerm?: boolean;
       }
@@ -693,10 +693,10 @@ declare namespace MittwaldApiV2 {
         creationDate: string;
         customerId: string;
         customerNumber: string;
-        executingUserRoles?: MittwaldApiV2.Components.Schemas.DeMittwaldV1CustomerRole[];
+        executingUserRoles?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1CustomerRole[];
         memberCount: number;
         name: string;
-        owner?: MittwaldApiV2.Components.Schemas.DeMittwaldV1CustomerContact;
+        owner?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1CustomerContact;
         projectCount: number;
         vatId?: string;
         vatIdValidationState?: "valid" | "invalid" | "pending" | "unspecified";
@@ -723,7 +723,7 @@ declare namespace MittwaldApiV2 {
       }
 
       export interface DeMittwaldV1DatabaseMySqlDatabase {
-        characterSettings?: MittwaldApiV2.Components.Schemas.DeMittwaldV1DatabaseCharacterSettings;
+        characterSettings?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseCharacterSettings;
         createdAt?: string;
         description?: string;
         finalizers?: string[];
@@ -784,7 +784,7 @@ declare namespace MittwaldApiV2 {
       }
 
       export interface DeMittwaldV1DatabaseRedisDatabase {
-        configuration?: MittwaldApiV2.Components.Schemas.DeMittwaldV1DatabaseRedisDatabaseConfiguration;
+        configuration?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseRedisDatabaseConfiguration;
         createdAt: string;
         description: string;
         finalizers: string[];
@@ -805,34 +805,34 @@ declare namespace MittwaldApiV2 {
       }
 
       export type DeMittwaldV1MembershipCustomerInviteList =
-        MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite[];
+        MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite[];
 
       export type DeMittwaldV1MembershipCustomerMembershipList =
-        MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembership[];
+        MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembership[];
 
       export type DeMittwaldV1MembershipEntityTypes = "project" | "customer";
 
       export type DeMittwaldV1MembershipIdentifierTypes = "id" | "token";
 
       export type DeMittwaldV1MembershipProjectInviteList =
-        MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite[];
+        MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite[];
 
       export type DeMittwaldV1MembershipProjectMembershipList =
-        MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership[];
+        MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership[];
 
       export type DeMittwaldV1DnsRecordCNAME =
-        | MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordUnset
-        | MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordCNAMEComponent;
+        | MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordUnset
+        | MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordCNAMEComponent;
 
       export interface DeMittwaldV1DnsRecordCNAMEComponent {
         fqdn: string;
-        settings: MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordSettings;
+        settings: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordSettings;
       }
 
       export type DeMittwaldV1DnsRecordCombinedA =
-        | MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordUnset
-        | MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsCombinedACustom
-        | MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsCombinedAManaged;
+        | MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordUnset
+        | MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsCombinedACustom
+        | MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsCombinedAManaged;
 
       export type DeMittwaldV1DnsCombinedAManagedAAAARecord = string;
 
@@ -842,12 +842,12 @@ declare namespace MittwaldApiV2 {
         /**
          * @maxItems 6
          */
-        a: MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsCombinedAManagedARecord[];
+        a: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsCombinedAManagedARecord[];
         /**
          * @maxItems 6
          */
-        aaaa: MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsCombinedAManagedAAAARecord[];
-        settings: MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordSettings;
+        aaaa: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsCombinedAManagedAAAARecord[];
+        settings: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordSettings;
       }
 
       export interface DeMittwaldV1DnsCombinedAManaged {
@@ -857,9 +857,9 @@ declare namespace MittwaldApiV2 {
       }
 
       export type DeMittwaldV1DnsRecordMX =
-        | MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordUnset
-        | MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordMXManaged
-        | MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordMXCustom;
+        | MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordUnset
+        | MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordMXManaged
+        | MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordMXCustom;
 
       export interface DeMittwaldV1DnsRecordMXCustom {
         /**
@@ -867,30 +867,30 @@ declare namespace MittwaldApiV2 {
          * @maxItems 5
          */
         records:
-          | [MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord]
+          | [MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord]
           | [
-              MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord,
-              MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord
+              MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord,
+              MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord
             ]
           | [
-              MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord,
-              MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord,
-              MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord
+              MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord,
+              MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord,
+              MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord
             ]
           | [
-              MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord,
-              MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord,
-              MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord,
-              MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord
+              MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord,
+              MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord,
+              MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord,
+              MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord
             ]
           | [
-              MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord,
-              MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord,
-              MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord,
-              MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord,
-              MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord
+              MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord,
+              MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord,
+              MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord,
+              MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord,
+              MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordMXRecord
             ];
-        settings: MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordSettings;
+        settings: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordSettings;
       }
 
       export interface DeMittwaldV1DnsRecordMXManaged {
@@ -904,20 +904,20 @@ declare namespace MittwaldApiV2 {
 
       export interface DeMittwaldV1DnsRecordSettings {
         ttl?:
-          | MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsTtlSeconds
-          | MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsTtlAuto;
+          | MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsTtlSeconds
+          | MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsTtlAuto;
       }
 
       export type DeMittwaldV1DnsRecordTXT =
-        | MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordUnset
-        | MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordTXTComponent;
+        | MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordUnset
+        | MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordTXTComponent;
 
       export interface DeMittwaldV1DnsRecordTXTComponent {
         /**
          * @maxItems 20
          */
         entries: string[];
-        settings: MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordSettings;
+        settings: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordSettings;
       }
 
       export interface DeMittwaldV1DnsRecordUnset {}
@@ -937,10 +937,10 @@ declare namespace MittwaldApiV2 {
         domain: string;
         id: string;
         recordSet: {
-          cname: MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordCNAME;
-          combinedARecords: MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordCombinedA;
-          mx: MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordMX;
-          txt: MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsRecordTXT;
+          cname: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordCNAME;
+          combinedARecords: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordCombinedA;
+          mx: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordMX;
+          txt: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsRecordTXT;
         };
       }
 
@@ -954,8 +954,8 @@ declare namespace MittwaldApiV2 {
       }
 
       export interface DeMittwaldV1DomainCreateDomainHandleData {
-        adminC?: MittwaldApiV2.Components.Schemas.DeMittwaldV1DomainHandleField[];
-        ownerC: MittwaldApiV2.Components.Schemas.DeMittwaldV1DomainHandleField[];
+        adminC?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DomainHandleField[];
+        ownerC: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DomainHandleField[];
       }
 
       export interface DeMittwaldV1DomainDomainOwnership {
@@ -966,29 +966,29 @@ declare namespace MittwaldApiV2 {
       }
 
       export interface DeMittwaldV1DomainDomain {
-        authCode?: MittwaldApiV2.Components.Schemas.DeMittwaldV1DomainAuthCode;
-        authCode2?: MittwaldApiV2.Components.Schemas.DeMittwaldV1DomainAuthCode2;
+        authCode?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DomainAuthCode;
+        authCode2?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DomainAuthCode2;
         connected: boolean;
         deleted: boolean;
         domain: string;
         domainId: string;
         handles: {
-          adminC?: MittwaldApiV2.Components.Schemas.DeMittwaldV1DomainHandleReadable;
-          ownerC: MittwaldApiV2.Components.Schemas.DeMittwaldV1DomainHandleReadable;
+          adminC?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DomainHandleReadable;
+          ownerC: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DomainHandleReadable;
         };
         hasAuthCode: boolean;
         /**
          * @minItems 2
          */
         nameservers: [string, string, ...string[]];
-        processes?: MittwaldApiV2.Components.Schemas.DeMittwaldV1DomainProcess[];
+        processes?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DomainProcess[];
         projectId: string;
         transferInAuthCode?: string;
         usesDefaultNameserver: boolean;
       }
 
       export interface DeMittwaldV1DomainHandleData {
-        handleFields?: MittwaldApiV2.Components.Schemas.DeMittwaldV1DomainHandleField[];
+        handleFields?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DomainHandleField[];
         handleRef?: string;
       }
 
@@ -998,15 +998,15 @@ declare namespace MittwaldApiV2 {
       }
 
       export interface DeMittwaldV1DomainHandleReadable {
-        current: MittwaldApiV2.Components.Schemas.DeMittwaldV1DomainHandleData;
-        desired?: MittwaldApiV2.Components.Schemas.DeMittwaldV1DomainHandleData;
+        current: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DomainHandleData;
+        desired?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DomainHandleData;
       }
 
       export interface DeMittwaldV1DomainProcess {
         error?: string;
         lastUpdate: string;
-        processType: MittwaldApiV2.Components.Schemas.DeMittwaldV1DomainProcessType;
-        state: MittwaldApiV2.Components.Schemas.DeMittwaldV1DomainProcessState;
+        processType: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DomainProcessType;
+        state: MittwaldAPIV2.Components.Schemas.DeMittwaldV1DomainProcessState;
         status?: string;
         statusCode?: string;
         transactionId: string;
@@ -1094,19 +1094,19 @@ declare namespace MittwaldApiV2 {
         /**
          * A list of paths. The default path `/` is always present and cannot be removed.
          */
-        paths: MittwaldApiV2.Components.Schemas.DeMittwaldV1IngressPath[];
+        paths: MittwaldAPIV2.Components.Schemas.DeMittwaldV1IngressPath[];
         projectId: string;
         tls:
-          | MittwaldApiV2.Components.Schemas.DeMittwaldV1IngressTlsAcme
-          | MittwaldApiV2.Components.Schemas.DeMittwaldV1IngressTlsCertificate;
+          | MittwaldAPIV2.Components.Schemas.DeMittwaldV1IngressTlsAcme
+          | MittwaldAPIV2.Components.Schemas.DeMittwaldV1IngressTlsCertificate;
       }
 
       export interface DeMittwaldV1IngressPath {
         path: string;
         target:
-          | MittwaldApiV2.Components.Schemas.DeMittwaldV1IngressTargetDirectory
-          | MittwaldApiV2.Components.Schemas.DeMittwaldV1IngressTargetUrl
-          | MittwaldApiV2.Components.Schemas.DeMittwaldV1IngressTargetInstallation;
+          | MittwaldAPIV2.Components.Schemas.DeMittwaldV1IngressTargetDirectory
+          | MittwaldAPIV2.Components.Schemas.DeMittwaldV1IngressTargetUrl
+          | MittwaldAPIV2.Components.Schemas.DeMittwaldV1IngressTargetInstallation;
       }
 
       export interface DeMittwaldV1IngressTargetDirectory {
@@ -1141,20 +1141,20 @@ declare namespace MittwaldApiV2 {
 
       export interface DeMittwaldV1InvoiceContractInvoiceDefinition {
         contractId: string;
-        items: MittwaldApiV2.Components.Schemas.DeMittwaldV1InvoiceContractItemInvoiceDefinition[];
+        items: MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoiceContractItemInvoiceDefinition[];
       }
 
       export interface DeMittwaldV1InvoiceContractItemInvoiceDefinition {
         contractItemId: string;
         isDue?: boolean;
-        serviceDate?: MittwaldApiV2.Components.Schemas.DeMittwaldV1InvoiceServiceDate;
-        servicePeriod: MittwaldApiV2.Components.Schemas.DeMittwaldV1InvoiceDatePeriod;
+        serviceDate?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoiceServiceDate;
+        servicePeriod: MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoiceDatePeriod;
         vatRate: number;
       }
 
       export interface DeMittwaldV1InvoiceCorrectionDefinition {
         contractItemId: string;
-        creditPeriod: MittwaldApiV2.Components.Schemas.DeMittwaldV1InvoiceDatePeriod;
+        creditPeriod: MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoiceDatePeriod;
       }
 
       export interface DeMittwaldV1InvoiceDatePeriod {
@@ -1172,19 +1172,19 @@ declare namespace MittwaldApiV2 {
         contractItemId: string;
         description: string;
         id: string;
-        price: MittwaldApiV2.Components.Schemas.DeMittwaldV1InvoicePrice;
+        price: MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoicePrice;
         reference?: {
           sourceInvoiceId: string;
           sourceInvoiceItemId: string;
         };
-        serviceDate?: MittwaldApiV2.Components.Schemas.DeMittwaldV1InvoiceServiceDate;
-        servicePeriod?: MittwaldApiV2.Components.Schemas.DeMittwaldV1InvoiceDatePeriod;
+        serviceDate?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoiceServiceDate;
+        servicePeriod?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoiceDatePeriod;
         vatRate: number;
       }
 
       export interface DeMittwaldV1InvoiceInvoice {
         amountPaid: number;
-        cancellation?: MittwaldApiV2.Components.Schemas.DeMittwaldV1InvoiceCancellation;
+        cancellation?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoiceCancellation;
         /**
          * The ID of the invoice that this invoice cancels.
          */
@@ -1195,14 +1195,14 @@ declare namespace MittwaldApiV2 {
         groups: {
           contractId?: string;
           description: string;
-          items: MittwaldApiV2.Components.Schemas.DeMittwaldV1InvoiceInvoiceItem[];
+          items: MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoiceInvoiceItem[];
         }[];
         id: string;
         invoiceNumber: string;
         invoiceType: "REGULAR" | "REISSUE" | "CORRECTION" | "CANCELLATION";
-        paymentSettings?: MittwaldApiV2.Components.Schemas.DeMittwaldV1InvoicePaymentSettings;
+        paymentSettings?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoicePaymentSettings;
         pdfId: string;
-        recipient: MittwaldApiV2.Components.Schemas.DeMittwaldV1InvoiceRecipient;
+        recipient: MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoiceRecipient;
         status:
           | "NEW"
           | "CONFIRMED"
@@ -1220,9 +1220,9 @@ declare namespace MittwaldApiV2 {
         id: string;
         invoicePeriod?: number;
         nextInvoiceCheck?: string;
-        paymentSettings?: MittwaldApiV2.Components.Schemas.DeMittwaldV1InvoicePaymentSettings;
+        paymentSettings?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoicePaymentSettings;
         printedInvoices?: boolean;
-        recipient?: MittwaldApiV2.Components.Schemas.DeMittwaldV1InvoiceRecipient;
+        recipient?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoiceRecipient;
         recipientSameAsOwner?: boolean;
         targetDay?: number;
       }
@@ -1239,8 +1239,8 @@ declare namespace MittwaldApiV2 {
       }
 
       export type DeMittwaldV1InvoicePaymentSettings =
-        | MittwaldApiV2.Components.Schemas.DeMittwaldV1InvoicePaymentSettingsDebit
-        | MittwaldApiV2.Components.Schemas.DeMittwaldV1InvoicePaymentSettingsInvoice;
+        | MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoicePaymentSettingsDebit
+        | MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoicePaymentSettingsInvoice;
 
       export interface DeMittwaldV1InvoicePrice {
         currency: "EUR";
@@ -1248,13 +1248,13 @@ declare namespace MittwaldApiV2 {
       }
 
       export interface DeMittwaldV1InvoiceRecipient {
-        address: MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonsAddress;
+        address: MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsAddress;
         company?: string;
         emailAddress?: string;
         firstName?: string;
         lastName?: string;
         phoneNumbers?: string[];
-        salutation: MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonsSalutation;
+        salutation: MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsSalutation;
         title?: string;
         useFormalTerm?: boolean;
       }
@@ -1349,7 +1349,7 @@ declare namespace MittwaldApiV2 {
          * ID of the CustomerInvite.
          */
         id: string;
-        information: MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipInviteInformation;
+        information: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipInviteInformation;
         /**
          * Mail-address of the user the invite is for.
          */
@@ -1362,7 +1362,7 @@ declare namespace MittwaldApiV2 {
          * Message contained in the CustomerInvite.
          */
         message?: string;
-        role: MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipCustomerRoles;
+        role: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerRoles;
       }
 
       export interface DeMittwaldV1MembershipCustomerMembership {
@@ -1386,7 +1386,7 @@ declare namespace MittwaldApiV2 {
          * Date the CustomerMembership was created at.
          */
         memberSince?: string;
-        role: MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipCustomerRoles;
+        role: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerRoles;
         /**
          * ID of the user the CustomerMembership is for.
          */
@@ -1418,7 +1418,7 @@ declare namespace MittwaldApiV2 {
          * ID of the ProjectInvite.
          */
         id: string;
-        information: MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipInviteInformation;
+        information: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipInviteInformation;
         /**
          * Mail-address of the user the ProjectInvite is for.
          */
@@ -1439,7 +1439,7 @@ declare namespace MittwaldApiV2 {
          * ID of the Project the invitation is for.
          */
         projectId: string;
-        role: MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipProjectRoles;
+        role: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectRoles;
       }
 
       export interface DeMittwaldV1MembershipProjectMembership {
@@ -1467,7 +1467,7 @@ declare namespace MittwaldApiV2 {
          * ID of the Project the membership is for.
          */
         projectId: string;
-        role: MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipProjectRoles;
+        role: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectRoles;
         /**
          * ID of the user the ProjectMembership is for.
          */
@@ -1490,7 +1490,7 @@ declare namespace MittwaldApiV2 {
         createdAt: string;
         id: string;
         read: boolean;
-        reference: MittwaldApiV2.Components.Schemas.DeMittwaldV1MessagingAggregateReference;
+        reference: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MessagingAggregateReference;
         severity: "success" | "info" | "warning" | "error";
         type: string;
       }
@@ -1521,16 +1521,16 @@ declare namespace MittwaldApiV2 {
         customerId: string;
         dueDate?: string;
         invoicingPeriod: number;
-        items: MittwaldApiV2.Components.Schemas.DeMittwaldV1OrderOrderItem[];
+        items: MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderOrderItem[];
         offerId?: string;
         orderDate: string;
         orderId: string;
         orderNumber: string;
-        profile?: MittwaldApiV2.Components.Schemas.DeMittwaldV1OrderProfile;
+        profile?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderProfile;
         refLink?: string;
-        status: MittwaldApiV2.Components.Schemas.DeMittwaldV1OrderOrderStatus;
-        summary: MittwaldApiV2.Components.Schemas.DeMittwaldV1OrderOrderSummary;
-        type: MittwaldApiV2.Components.Schemas.DeMittwaldV1OrderOrderType;
+        status: MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderOrderStatus;
+        summary: MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderOrderSummary;
+        type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderOrderType;
       }
 
       export interface DeMittwaldV1OrderDomainHandleField {
@@ -1548,17 +1548,17 @@ declare namespace MittwaldApiV2 {
       }
 
       export interface DeMittwaldV1OrderOrderItem {
-        addons?: MittwaldApiV2.Components.Schemas.DeMittwaldV1OrderAddons[];
+        addons?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderAddons[];
         amount: number;
         articleId: string;
         articleTemplateName?: string;
-        attributeConfiguration?: MittwaldApiV2.Components.Schemas.DeMittwaldV1OrderAttributeConfiguration[];
+        attributeConfiguration?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderAttributeConfiguration[];
         isInclusive: boolean;
         offerItemId?: string;
         orderItemId: string;
         predefinedDomainAggregateId?: string;
         price: number;
-        reference?: MittwaldApiV2.Components.Schemas.DeMittwaldV1OrderReference;
+        reference?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderReference;
       }
 
       export interface DeMittwaldV1OrderReference {
@@ -1623,7 +1623,7 @@ declare namespace MittwaldApiV2 {
         isExecutable?: boolean;
         isFile?: boolean;
         isSymlink?: boolean;
-        items?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ProjectFilesystemDirectoryListing[];
+        items?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ProjectFilesystemDirectoryListing[];
         name: string;
         size: number;
         target?: string;
@@ -1660,7 +1660,7 @@ declare namespace MittwaldApiV2 {
         directories: {
           [k: string]: string;
         };
-        disableReason?: MittwaldApiV2.Components.Schemas.DeMittwaldV1ProjectDisableReason;
+        disableReason?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ProjectDisableReason;
         enabled: boolean;
         id: string;
         imageRefId?: string;
@@ -1670,8 +1670,8 @@ declare namespace MittwaldApiV2 {
         serverShortId?: string;
         shortId: string;
         spec?:
-          | MittwaldApiV2.Components.Schemas.DeMittwaldV1ProjectVisitorSpec
-          | MittwaldApiV2.Components.Schemas.DeMittwaldV1ProjectHardwareSpec;
+          | MittwaldAPIV2.Components.Schemas.DeMittwaldV1ProjectVisitorSpec
+          | MittwaldAPIV2.Components.Schemas.DeMittwaldV1ProjectHardwareSpec;
       }
 
       export interface DeMittwaldV1ProjectServer {
@@ -1680,7 +1680,7 @@ declare namespace MittwaldApiV2 {
         id: string;
         imageRefId?: string;
         isReady: boolean;
-        machineType: MittwaldApiV2.Components.Schemas.DeMittwaldV1ProjectMachineType;
+        machineType: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ProjectMachineType;
         shortId: string;
         storage: string;
       }
@@ -1777,7 +1777,7 @@ declare namespace MittwaldApiV2 {
           mfaInitialized?: boolean;
         };
         passwordUpdatedAt?: string;
-        person?: MittwaldApiV2.Components.Schemas.DeMittwaldV1SignupPerson;
+        person?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupPerson;
         userId?: string;
       }
 
@@ -1793,9 +1793,9 @@ declare namespace MittwaldApiV2 {
 
       export interface DeMittwaldV1SignupUserSession {
         created: string;
-        device: MittwaldApiV2.Components.Schemas.DeMittwaldV1SignupDeviceInfo;
+        device: MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDeviceInfo;
         lastAccess?: string;
-        location?: MittwaldApiV2.Components.Schemas.DeMittwaldV1SignupLocation;
+        location?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupLocation;
         tokenId: string;
       }
 
@@ -1824,7 +1824,7 @@ declare namespace MittwaldApiV2 {
       }
 
       export interface DeMittwaldV1CommonValidationErrors {
-        errorObjects: MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationError[];
+        errorObjects: MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationError[];
         name: "ValidationError";
       }
 
@@ -1851,7 +1851,7 @@ declare namespace MittwaldApiV2 {
             password: string;
           }
         | {
-            publicKeys: MittwaldApiV2.Components.Schemas.DeMittwaldV1SshuserPublicKey[];
+            publicKeys: MittwaldAPIV2.Components.Schemas.DeMittwaldV1SshuserPublicKey[];
           };
 
       /**
@@ -1866,7 +1866,7 @@ declare namespace MittwaldApiV2 {
        * A representation of an SFTPUser.
        */
       export interface DeMittwaldV1SshuserSftpUser {
-        accessLevel: MittwaldApiV2.Components.Schemas.DeMittwaldV1SshuserAccessLevel;
+        accessLevel: MittwaldAPIV2.Components.Schemas.DeMittwaldV1SshuserAccessLevel;
         active?: boolean;
         authUpdatedAt: string;
         createdAt: string;
@@ -1876,7 +1876,7 @@ declare namespace MittwaldApiV2 {
         hasPassword: boolean;
         id: string;
         projectId: string;
-        publicKeys?: MittwaldApiV2.Components.Schemas.DeMittwaldV1SshuserPublicKey[];
+        publicKeys?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1SshuserPublicKey[];
         updatedAt?: string;
         userName: string;
       }
@@ -1893,7 +1893,7 @@ declare namespace MittwaldApiV2 {
         hasPassword: boolean;
         id: string;
         projectId: string;
-        publicKeys?: MittwaldApiV2.Components.Schemas.DeMittwaldV1SshuserPublicKey[];
+        publicKeys?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1SshuserPublicKey[];
         updatedAt?: string;
         userName: string;
       }
@@ -1909,14 +1909,14 @@ declare namespace MittwaldApiV2 {
       export interface DeMittwaldV1UserUser {
         avatarRef?: string;
         email?: string;
-        person: MittwaldApiV2.Components.Schemas.DeMittwaldV1SignupPerson;
+        person: MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupPerson;
         phoneNumber?: string;
         userId: string;
       }
 
       export interface DeMittwaldV1VarnishConfigRevision {
         expire?: number;
-        files: MittwaldApiV2.Components.Schemas.DeMittwaldV1VarnishConfigFileRef[];
+        files: MittwaldAPIV2.Components.Schemas.DeMittwaldV1VarnishConfigFileRef[];
         note?: string;
         revision: number;
         updated: string;
@@ -1926,7 +1926,7 @@ declare namespace MittwaldApiV2 {
         /**
          * A set of config file references.
          */
-        files: MittwaldApiV2.Components.Schemas.DeMittwaldV1VarnishConfigFileRef[];
+        files: MittwaldAPIV2.Components.Schemas.DeMittwaldV1VarnishConfigFileRef[];
         isGlobal?: boolean;
         note?: string;
         projectId?: string;
@@ -1937,7 +1937,7 @@ declare namespace MittwaldApiV2 {
 
       export interface DeMittwaldV1VarnishConfigFile {
         content: string;
-        meta?: MittwaldApiV2.Components.Schemas.DeMittwaldV1VarnishConfigFileMetadata;
+        meta?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1VarnishConfigFileMetadata;
       }
 
       export interface DeMittwaldV1VarnishConfigFileMetadata {
@@ -1946,7 +1946,7 @@ declare namespace MittwaldApiV2 {
       }
 
       export interface DeMittwaldV1VarnishConfigFileRef {
-        meta?: MittwaldApiV2.Components.Schemas.DeMittwaldV1VarnishConfigFileMetadata;
+        meta?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1VarnishConfigFileMetadata;
         refId?: string;
       }
 
@@ -1957,7 +1957,7 @@ declare namespace MittwaldApiV2 {
       }
 
       export interface DeMittwaldV1VarnishSoftware {
-        config: MittwaldApiV2.Components.Schemas.DeMittwaldV1VarnishSoftwareConfig;
+        config: MittwaldAPIV2.Components.Schemas.DeMittwaldV1VarnishSoftwareConfig;
         projectId: string;
         settings?: {
           [k: string]: string;
@@ -1969,9 +1969,9 @@ declare namespace MittwaldApiV2 {
       }
 
       export interface DeMittwaldV1VarnishSoftwareConfig {
-        configExpiration?: MittwaldApiV2.Components.Schemas.DeMittwaldV1VarnishConfigExpiration;
+        configExpiration?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1VarnishConfigExpiration;
         latestConfigRevision?: number;
-        revisions?: MittwaldApiV2.Components.Schemas.DeMittwaldV1VarnishConfigRevision[];
+        revisions?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1VarnishConfigRevision[];
       }
 
       export interface DeMittwaldV1VarnishConfigExpiration {
@@ -2012,7 +2012,7 @@ declare namespace MittwaldApiV2 {
          * the users last name
          */
         lastName: string;
-        title?: MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonsSalutation;
+        title?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsSalutation;
       }
 
       export type DeMittwaldV1CommonsSalutation = "mr" | "ms" | "other";
@@ -2044,7 +2044,7 @@ declare namespace MittwaldApiV2 {
       export interface DeMittwaldV1CommonsValidationErrors {
         type: "ValidationError";
         message?: string;
-        validationErrors: MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonsValidationErrorSchema[];
+        validationErrors: MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrorSchema[];
       }
     }
 
@@ -2212,7 +2212,7 @@ declare namespace MittwaldApiV2 {
         namespace Parameters {
           export type Path = {
             appInstallationId: string;
-            action: MittwaldApiV2.Components.Schemas.DeMittwaldV1AppAction;
+            action: MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppAction;
           };
 
           export interface RequestBody {
@@ -2247,7 +2247,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -2255,7 +2255,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1AppApp;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppApp;
             }
           }
 
@@ -2278,7 +2278,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -2286,7 +2286,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1AppAppInstallation;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppAppInstallation;
             }
           }
 
@@ -2307,7 +2307,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -2365,7 +2365,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -2373,7 +2373,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1AppAppVersion;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppAppVersion;
             }
           }
 
@@ -2396,7 +2396,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -2404,7 +2404,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1AppSystemSoftware;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppSystemSoftware;
             }
           }
 
@@ -2428,7 +2428,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -2436,7 +2436,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1AppSystemSoftwareVersion;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppSystemSoftwareVersion;
             }
           }
 
@@ -2463,7 +2463,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -2491,7 +2491,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -2503,7 +2503,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1AppAppInstallation[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppAppInstallation[];
             }
           }
 
@@ -2554,7 +2554,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -2566,7 +2566,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1AppApp[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppApp[];
             }
           }
 
@@ -2585,7 +2585,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -2593,7 +2593,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1AppAppVersion[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppAppVersion[];
             }
           }
 
@@ -2610,7 +2610,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -2622,7 +2622,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1AppSystemSoftware[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppSystemSoftware[];
             }
           }
 
@@ -2641,7 +2641,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             versionRange?: string;
@@ -2651,7 +2651,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1AppSystemSoftwareVersion[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppSystemSoftwareVersion[];
             }
           }
 
@@ -2677,7 +2677,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1AppAppInstallationStatus;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppAppInstallationStatus;
             }
           }
 
@@ -2705,7 +2705,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -2732,7 +2732,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -2800,7 +2800,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1ArticleReadableArticle;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1ArticleReadableArticle;
             }
           }
 
@@ -2844,7 +2844,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1ArticleReadableArticle[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1ArticleReadableArticle[];
             }
           }
 
@@ -2867,7 +2867,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -2901,7 +2901,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -2933,7 +2933,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -2941,7 +2941,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1BackupProjectBackupSchedule[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1BackupProjectBackupSchedule[];
             }
           }
 
@@ -2962,7 +2962,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -2970,7 +2970,7 @@ declare namespace MittwaldApiV2 {
           namespace $201 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1BackupProjectBackupSchedule;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1BackupProjectBackupSchedule;
             }
           }
 
@@ -2997,7 +2997,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -3005,7 +3005,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1BackupProjectBackup[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1BackupProjectBackup[];
             }
           }
 
@@ -3026,7 +3026,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -3034,7 +3034,7 @@ declare namespace MittwaldApiV2 {
           namespace $201 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1BackupProjectBackup;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1BackupProjectBackup;
             }
           }
 
@@ -3061,7 +3061,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -3069,7 +3069,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1BackupProjectBackupSchedule;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1BackupProjectBackupSchedule;
             }
           }
 
@@ -3094,7 +3094,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -3128,7 +3128,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -3164,7 +3164,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -3172,7 +3172,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1BackupProjectBackup;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1BackupProjectBackup;
             }
           }
 
@@ -3197,7 +3197,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -3233,7 +3233,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -3274,7 +3274,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -3316,7 +3316,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -3359,7 +3359,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -3401,7 +3401,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -3442,7 +3442,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -3479,7 +3479,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -3487,7 +3487,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1ContractContractItem;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1ContractContractItem;
             }
           }
 
@@ -3514,7 +3514,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -3522,7 +3522,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1ContractContract;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1ContractContract;
             }
           }
 
@@ -3549,7 +3549,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -3557,7 +3557,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1ContractContract;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1ContractContract;
             }
           }
 
@@ -3584,7 +3584,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -3592,7 +3592,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1ContractContract;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1ContractContract;
             }
           }
 
@@ -3620,7 +3620,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -3628,7 +3628,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1ContractContractItem;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1ContractContractItem;
             }
           }
 
@@ -3655,7 +3655,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -3663,7 +3663,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1ContractContract;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1ContractContract;
             }
           }
 
@@ -3691,7 +3691,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -3728,7 +3728,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -3740,7 +3740,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1ContractContract[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1ContractContract[];
             }
           }
 
@@ -3772,7 +3772,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1ConversationConversation[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1ConversationConversation[];
             }
           }
 
@@ -3829,8 +3829,8 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson = (
-                | MittwaldApiV2.Components.Schemas.DeMittwaldV1ConversationMessage
-                | MittwaldApiV2.Components.Schemas.DeMittwaldV1ConversationStatusUpdate
+                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1ConversationMessage
+                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1ConversationStatusUpdate
               )[];
             }
           }
@@ -3907,7 +3907,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1ConversationCategory;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1ConversationCategory;
             }
           }
 
@@ -3941,7 +3941,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1ConversationConversation;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1ConversationConversation;
             }
           }
 
@@ -4020,7 +4020,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1ConversationCategory[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1ConversationCategory[];
             }
           }
 
@@ -4183,7 +4183,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -4213,7 +4213,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -4225,7 +4225,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CronjobCronjob[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CronjobCronjob[];
             }
           }
 
@@ -4246,7 +4246,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -4282,7 +4282,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -4297,7 +4297,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CronjobCronjobExecution[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CronjobCronjobExecution[];
             }
           }
 
@@ -4318,7 +4318,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -4357,7 +4357,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -4365,7 +4365,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CronjobCronjob;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CronjobCronjob;
             }
           }
 
@@ -4386,7 +4386,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -4424,7 +4424,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -4463,7 +4463,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -4471,7 +4471,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CronjobCronjobExecution;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CronjobCronjobExecution;
             }
           }
 
@@ -4498,7 +4498,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -4540,7 +4540,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -4574,7 +4574,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -4582,7 +4582,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export interface ApplicationJson {
-                categories?: MittwaldApiV2.Components.Schemas.DeMittwaldV1CustomerCategory[];
+                categories?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1CustomerCategory[];
               }
             }
           }
@@ -4602,7 +4602,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -4636,7 +4636,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -4644,7 +4644,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export interface ApplicationJson {
-                categories?: MittwaldApiV2.Components.Schemas.DeMittwaldV1CustomerCategory[];
+                categories?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1CustomerCategory[];
               }
             }
           }
@@ -4664,7 +4664,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -4704,7 +4704,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -4712,7 +4712,7 @@ declare namespace MittwaldApiV2 {
           namespace $201 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite;
             }
           }
 
@@ -4737,7 +4737,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             role?: string;
@@ -4750,7 +4750,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CustomerCustomer[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CustomerCustomer[];
             }
           }
 
@@ -4769,7 +4769,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -4803,7 +4803,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -4815,7 +4815,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CustomerNote[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CustomerNote[];
             }
           }
 
@@ -4840,7 +4840,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -4881,7 +4881,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -4905,7 +4905,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -4913,7 +4913,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CustomerCategory;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CustomerCategory;
             }
           }
 
@@ -4934,7 +4934,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -4972,7 +4972,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -4996,7 +4996,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5004,7 +5004,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CustomerCategory;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CustomerCategory;
             }
           }
 
@@ -5025,7 +5025,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5063,7 +5063,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5087,7 +5087,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5095,7 +5095,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite;
             }
           }
 
@@ -5116,7 +5116,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5140,7 +5140,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5148,7 +5148,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembership;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembership;
             }
           }
 
@@ -5169,7 +5169,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5195,7 +5195,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5219,7 +5219,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5227,7 +5227,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CustomerCustomer;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CustomerCustomer;
             }
           }
 
@@ -5252,7 +5252,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5288,7 +5288,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5320,7 +5320,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5356,7 +5356,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5383,7 +5383,7 @@ declare namespace MittwaldApiV2 {
 
           export type Header = {
             token: string;
-          } & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+          } & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5391,7 +5391,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite;
             }
           }
 
@@ -5414,7 +5414,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5454,7 +5454,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5476,7 +5476,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -5487,7 +5487,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite[];
             }
           }
 
@@ -5508,7 +5508,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -5519,7 +5519,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembership[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembership[];
             }
           }
 
@@ -5542,7 +5542,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -5553,7 +5553,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite[];
             }
           }
 
@@ -5576,7 +5576,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -5587,7 +5587,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembership[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembership[];
             }
           }
 
@@ -5614,7 +5614,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5668,7 +5668,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5706,7 +5706,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5734,7 +5734,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5742,7 +5742,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1DatabaseMySqlDatabase[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseMySqlDatabase[];
             }
           }
 
@@ -5771,7 +5771,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5807,7 +5807,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5815,7 +5815,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1DatabaseMySqlUser[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseMySqlUser[];
             }
           }
 
@@ -5844,7 +5844,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5880,7 +5880,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5888,7 +5888,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1DatabaseRedisDatabase[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseRedisDatabase[];
             }
           }
 
@@ -5917,7 +5917,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5953,7 +5953,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -5961,7 +5961,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1DatabaseMySqlDatabase;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseMySqlDatabase;
             }
           }
 
@@ -5990,7 +5990,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6034,7 +6034,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6042,7 +6042,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1DatabaseMySqlUser;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseMySqlUser;
             }
           }
 
@@ -6071,7 +6071,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6101,7 +6101,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6137,7 +6137,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6145,7 +6145,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1DatabaseRedisDatabase;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseRedisDatabase;
             }
           }
 
@@ -6174,7 +6174,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6222,7 +6222,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6258,7 +6258,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6290,7 +6290,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6298,7 +6298,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1DatabasePhpMyAdminURL;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabasePhpMyAdminURL;
             }
           }
 
@@ -6323,7 +6323,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             version?: string;
@@ -6333,7 +6333,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1DatabaseMySqlCharacterSettings[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseMySqlCharacterSettings[];
             }
           }
 
@@ -6358,7 +6358,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             projectId?: string;
@@ -6368,7 +6368,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1DatabaseMySqlVersion[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseMySqlVersion[];
             }
           }
 
@@ -6393,7 +6393,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             projectId?: string;
@@ -6403,7 +6403,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1DatabaseRedisVersion[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseRedisVersion[];
             }
           }
 
@@ -6434,7 +6434,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6468,7 +6468,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6504,7 +6504,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6538,7 +6538,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6574,7 +6574,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6610,7 +6610,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6644,7 +6644,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6677,7 +6677,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6685,7 +6685,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1AppAppVersion;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppAppVersion;
             }
           }
 
@@ -6708,7 +6708,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6716,7 +6716,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1AppAppVersion[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1AppAppVersion[];
             }
           }
 
@@ -6740,7 +6740,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6782,7 +6782,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6825,7 +6825,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6867,7 +6867,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6908,7 +6908,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6946,7 +6946,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6954,7 +6954,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1ContractContract;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1ContractContract;
             }
           }
 
@@ -6989,7 +6989,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -6997,7 +6997,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1ContractContractItem;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1ContractContractItem;
             }
           }
 
@@ -7022,7 +7022,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             projectId?: string;
@@ -7035,7 +7035,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1ContractContract;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1ContractContract;
             }
           }
 
@@ -7063,7 +7063,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -7104,7 +7104,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -7142,7 +7142,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -7186,7 +7186,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -7208,7 +7208,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -7234,7 +7234,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -7242,7 +7242,7 @@ declare namespace MittwaldApiV2 {
           namespace $201 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite;
             }
           }
 
@@ -7269,7 +7269,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -7293,7 +7293,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -7301,7 +7301,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite;
             }
           }
 
@@ -7325,7 +7325,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -7333,7 +7333,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembership;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembership;
             }
           }
 
@@ -7356,7 +7356,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -7378,7 +7378,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -7389,7 +7389,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembership[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembership[];
             }
           }
 
@@ -7412,7 +7412,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -7423,7 +7423,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite[];
             }
           }
 
@@ -7446,7 +7446,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -7457,7 +7457,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembership[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembership[];
             }
           }
 
@@ -7478,7 +7478,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -7489,7 +7489,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite[];
             }
           }
 
@@ -7516,7 +7516,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -7544,7 +7544,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -7573,7 +7573,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -7597,7 +7597,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -7605,7 +7605,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1DatabaseMySqlDatabase[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseMySqlDatabase[];
             }
           }
 
@@ -7634,7 +7634,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -7674,7 +7674,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -7710,7 +7710,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -7718,7 +7718,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1DatabaseRedisDatabase[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseRedisDatabase[];
             }
           }
 
@@ -7747,7 +7747,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -7783,7 +7783,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -7791,7 +7791,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1DatabaseMySqlUser;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseMySqlUser;
             }
           }
 
@@ -7820,7 +7820,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -7850,7 +7850,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -7890,7 +7890,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -7926,7 +7926,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -7958,7 +7958,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -7966,7 +7966,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1DatabasePhpMyAdminURL;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabasePhpMyAdminURL;
             }
           }
 
@@ -7993,7 +7993,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -8030,7 +8030,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -8038,7 +8038,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1DatabaseMySqlVersion[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseMySqlVersion[];
             }
           }
 
@@ -8065,7 +8065,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -8073,7 +8073,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1DatabaseRedisVersion[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DatabaseRedisVersion[];
             }
           }
 
@@ -8104,7 +8104,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -8138,7 +8138,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -8170,7 +8170,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -8178,7 +8178,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1InvoiceInvoiceSettings;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoiceInvoiceSettings;
             }
           }
 
@@ -8207,7 +8207,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -8215,7 +8215,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1InvoiceInvoiceSettings;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoiceInvoiceSettings;
             }
           }
 
@@ -8246,10 +8246,10 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
-            type: MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
+            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
           };
         }
         namespace Responses {
@@ -8288,10 +8288,10 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
-            type: MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
+            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
           };
         }
         namespace Responses {
@@ -8314,18 +8314,18 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
-            type: MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
+            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
           };
         }
         namespace Responses {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                | MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership
-                | MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembership;
+                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership
+                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembership;
             }
           }
 
@@ -8346,10 +8346,10 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
-            type: MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
+            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
           };
         }
         namespace Responses {
@@ -8372,19 +8372,19 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
-            type: MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
-            identifierType: MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipIdentifierTypes;
+            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
+            identifierType: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipIdentifierTypes;
           };
         }
         namespace Responses {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                | MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite
-                | MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite;
+                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerInvite
+                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite;
             }
           }
 
@@ -8411,10 +8411,10 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
-            type: MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
+            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
           };
         }
         namespace Responses {
@@ -8435,10 +8435,10 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
-            type: MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
+            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
             limit?: number;
             skip?: number;
           };
@@ -8447,8 +8447,8 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                | MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipCustomerInviteList
-                | MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipProjectInviteList;
+                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerInviteList
+                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectInviteList;
             }
           }
 
@@ -8469,10 +8469,10 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
-            type: MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
+            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
             limit?: number;
             skip?: number;
           };
@@ -8481,8 +8481,8 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                | MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembershipList
-                | MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipProjectMembershipList;
+                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipCustomerMembershipList
+                | MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectMembershipList;
             }
           }
 
@@ -8509,10 +8509,10 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
-            type: MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
+            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
           };
         }
         namespace Responses {
@@ -8539,10 +8539,10 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
-            type: MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
+            type: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipEntityTypes;
           };
         }
         namespace Responses {
@@ -8569,7 +8569,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -8607,7 +8607,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -8651,7 +8651,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -8673,7 +8673,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -8699,7 +8699,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -8707,7 +8707,7 @@ declare namespace MittwaldApiV2 {
           namespace $201 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite;
             }
           }
 
@@ -8734,7 +8734,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -8758,7 +8758,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -8766,7 +8766,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite;
             }
           }
 
@@ -8790,7 +8790,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -8798,7 +8798,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership;
             }
           }
 
@@ -8821,7 +8821,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -8845,7 +8845,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -8856,7 +8856,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite[];
             }
           }
 
@@ -8879,7 +8879,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -8890,7 +8890,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership[];
             }
           }
 
@@ -8911,7 +8911,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -8922,7 +8922,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite[];
             }
           }
 
@@ -8943,7 +8943,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -8954,7 +8954,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership[];
             }
           }
 
@@ -8981,7 +8981,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9009,7 +9009,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9038,7 +9038,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9066,7 +9066,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9098,7 +9098,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9134,7 +9134,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9166,7 +9166,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9198,7 +9198,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9230,7 +9230,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9258,7 +9258,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9266,7 +9266,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsZone;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsZone;
             }
           }
 
@@ -9289,7 +9289,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9297,7 +9297,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1DnsZone[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DnsZone[];
             }
           }
 
@@ -9320,7 +9320,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9356,7 +9356,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9392,7 +9392,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9461,7 +9461,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9501,7 +9501,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9537,7 +9537,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9573,7 +9573,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9609,7 +9609,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9641,7 +9641,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9649,7 +9649,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1DomainDomain;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DomainDomain;
             }
           }
 
@@ -9678,7 +9678,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9738,7 +9738,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9746,7 +9746,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1DomainDomainOwnership;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DomainDomainOwnership;
             }
           }
 
@@ -9775,7 +9775,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9807,7 +9807,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9815,7 +9815,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1DomainTopLevel;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DomainTopLevel;
             }
           }
 
@@ -9842,7 +9842,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9850,7 +9850,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1DomainDomainOwnership[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DomainDomainOwnership[];
             }
           }
 
@@ -9873,7 +9873,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             page?: number;
@@ -9885,7 +9885,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1DomainDomain[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DomainDomain[];
             }
           }
 
@@ -9906,7 +9906,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9914,7 +9914,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1DomainTopLevel[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1DomainTopLevel[];
             }
           }
 
@@ -9941,7 +9941,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -9984,7 +9984,7 @@ declare namespace MittwaldApiV2 {
           namespace $201 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1FileFileMeta;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1FileFileMeta;
             }
           }
 
@@ -10018,7 +10018,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1FileFileMeta;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1FileFileMeta;
             }
           }
 
@@ -10048,7 +10048,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1FileFileUploadRules;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1FileFileUploadRules;
             }
           }
 
@@ -10082,7 +10082,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1FileFileUploadRules;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1FileFileUploadRules;
             }
           }
 
@@ -10149,7 +10149,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -10181,7 +10181,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -10189,7 +10189,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1IngressIngress;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1IngressIngress;
             }
           }
 
@@ -10210,7 +10210,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -10236,7 +10236,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -10244,7 +10244,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1IngressIngress[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1IngressIngress[];
             }
           }
 
@@ -10267,7 +10267,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -10275,7 +10275,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1IngressIngress[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1IngressIngress[];
             }
           }
 
@@ -10302,7 +10302,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -10334,7 +10334,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -10365,7 +10365,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -10373,7 +10373,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1InvoiceInvoice;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoiceInvoice;
             }
           }
 
@@ -10400,7 +10400,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -10408,7 +10408,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1InvoiceInvoiceSettings;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoiceInvoiceSettings;
             }
           }
 
@@ -10437,7 +10437,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -10445,7 +10445,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1InvoiceInvoiceSettings;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoiceInvoiceSettings;
             }
           }
 
@@ -10472,7 +10472,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             invoiceTypes?: (
@@ -10490,7 +10490,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1InvoiceInvoice[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1InvoiceInvoice[];
             }
           }
 
@@ -10517,7 +10517,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -10528,7 +10528,7 @@ declare namespace MittwaldApiV2 {
                * A set of deliveryboxes
                */
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MailDeliverybox[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MailDeliverybox[];
             }
           }
 
@@ -10561,7 +10561,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -10601,7 +10601,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -10609,7 +10609,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MailDeliverybox;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MailDeliverybox;
             }
           }
 
@@ -10638,7 +10638,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -10678,7 +10678,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -10718,7 +10718,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -10754,7 +10754,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -10765,7 +10765,7 @@ declare namespace MittwaldApiV2 {
                * A set of mail addresses
                */
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MailMailAddress[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MailMailAddress[];
             }
           }
 
@@ -10798,7 +10798,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -10842,7 +10842,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -10850,7 +10850,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MailMailAddress;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MailMailAddress;
             }
           }
 
@@ -10879,7 +10879,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -10919,7 +10919,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -10959,7 +10959,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -10999,7 +10999,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -11043,7 +11043,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -11083,7 +11083,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -11123,7 +11123,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -11163,7 +11163,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -11199,7 +11199,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -11245,7 +11245,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -11285,7 +11285,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -11321,7 +11321,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -11349,7 +11349,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -11375,7 +11375,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -11393,7 +11393,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -11410,7 +11410,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -11440,7 +11440,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             status?: "unread" | "read";
@@ -11450,7 +11450,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MessagingNotification[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MessagingNotification[];
             }
           }
 
@@ -11471,7 +11471,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -11479,7 +11479,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export interface ApplicationJson {
-                status: MittwaldApiV2.Components.Schemas.DeMittwaldV1MessagingNotificationStatus;
+                status: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MessagingNotificationStatus;
               }
             }
           }
@@ -11507,7 +11507,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -11515,7 +11515,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export interface ApplicationJson {
-                status: MittwaldApiV2.Components.Schemas.DeMittwaldV1MessagingNotificationStatus;
+                status: MittwaldAPIV2.Components.Schemas.DeMittwaldV1MessagingNotificationStatus;
               }
             }
           }
@@ -11541,7 +11541,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -11575,7 +11575,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -11607,7 +11607,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -11615,7 +11615,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1OrderCustomerOrder;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderCustomerOrder;
             }
           }
 
@@ -11634,14 +11634,14 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
             skip?: number;
             page?: number;
-            includesStatus?: MittwaldApiV2.Components.Schemas.DeMittwaldV1OrderOrderStatus[];
-            excludesStatus?: MittwaldApiV2.Components.Schemas.DeMittwaldV1OrderOrderStatus[];
+            includesStatus?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderOrderStatus[];
+            excludesStatus?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderOrderStatus[];
             templateNames?: string[];
           };
         }
@@ -11649,7 +11649,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1OrderCustomerOrder[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderCustomerOrder[];
             }
           }
 
@@ -11668,14 +11668,14 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
             skip?: number;
             page?: number;
-            includesStatus?: MittwaldApiV2.Components.Schemas.DeMittwaldV1OrderOrderStatus[];
-            excludesStatus?: MittwaldApiV2.Components.Schemas.DeMittwaldV1OrderOrderStatus[];
+            includesStatus?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderOrderStatus[];
+            excludesStatus?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderOrderStatus[];
             templateNames?: string[];
           };
         }
@@ -11683,7 +11683,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1OrderCustomerOrder[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1OrderCustomerOrder[];
             }
           }
 
@@ -11704,7 +11704,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -11739,7 +11739,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -11773,7 +11773,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -11807,7 +11807,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -11843,7 +11843,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -11879,7 +11879,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -11994,7 +11994,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1PolicyPolicy;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1PolicyPolicy;
             }
           }
 
@@ -12017,7 +12017,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -12057,7 +12057,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -12065,7 +12065,7 @@ declare namespace MittwaldApiV2 {
           namespace $201 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite;
             }
           }
 
@@ -12096,7 +12096,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -12136,7 +12136,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -12164,7 +12164,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -12173,7 +12173,7 @@ declare namespace MittwaldApiV2 {
             namespace Content {
               export interface ApplicationJson {
                 refId: string;
-                rules: MittwaldApiV2.Components.Schemas.DeMittwaldV1ProjectAvatarRules;
+                rules: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ProjectAvatarRules;
               }
             }
           }
@@ -12195,7 +12195,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -12223,7 +12223,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -12231,7 +12231,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite;
             }
           }
 
@@ -12252,7 +12252,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -12276,7 +12276,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -12284,7 +12284,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership;
             }
           }
 
@@ -12305,7 +12305,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -12331,7 +12331,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -12355,7 +12355,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -12401,7 +12401,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -12410,7 +12410,7 @@ declare namespace MittwaldApiV2 {
             namespace Content {
               export interface ApplicationJson {
                 refId: string;
-                rules: MittwaldApiV2.Components.Schemas.DeMittwaldV1ProjectAvatarRules;
+                rules: MittwaldAPIV2.Components.Schemas.DeMittwaldV1ProjectAvatarRules;
               }
             }
           }
@@ -12432,7 +12432,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -12460,7 +12460,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             directory?: string;
@@ -12475,7 +12475,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1ProjectFilesystemDirectoryListing;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1ProjectFilesystemDirectoryListing;
             }
           }
 
@@ -12506,7 +12506,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             directory?: string;
@@ -12516,7 +12516,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1ProjectFilesystemUsagesDisk;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1ProjectFilesystemUsagesDisk;
             }
           }
 
@@ -12547,7 +12547,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             file?: string;
@@ -12588,7 +12588,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -12596,7 +12596,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1ProjectFsApiJwt;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1ProjectFsApiJwt;
             }
           }
 
@@ -12623,7 +12623,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             file?: string;
@@ -12633,7 +12633,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1ProjectFilesystemDirectoryListing;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1ProjectFilesystemDirectoryListing;
             }
           }
 
@@ -12664,7 +12664,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -12672,7 +12672,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership;
             }
           }
 
@@ -12694,7 +12694,7 @@ declare namespace MittwaldApiV2 {
 
           export type Header = {
             token: string;
-          } & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+          } & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -12702,7 +12702,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite;
             }
           }
 
@@ -12725,7 +12725,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -12733,7 +12733,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1ProjectProject;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1ProjectProject;
             }
           }
 
@@ -12756,7 +12756,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -12764,7 +12764,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1ProjectServer;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1ProjectServer;
             }
           }
 
@@ -12791,7 +12791,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -12815,7 +12815,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -12826,7 +12826,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite[];
             }
           }
 
@@ -12849,7 +12849,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -12860,7 +12860,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership[];
             }
           }
 
@@ -12881,7 +12881,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -12892,7 +12892,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectInvite[];
             }
           }
 
@@ -12913,7 +12913,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -12924,7 +12924,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1MembershipProjectMembership[];
             }
           }
 
@@ -12945,7 +12945,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             customerId?: string;
@@ -12990,7 +12990,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             customerId?: string;
@@ -13003,7 +13003,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1ProjectServer[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1ProjectServer[];
             }
           }
 
@@ -13026,7 +13026,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -13058,7 +13058,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -13094,7 +13094,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -13151,7 +13151,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -13159,7 +13159,7 @@ declare namespace MittwaldApiV2 {
           namespace $201 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1SshuserSftpUser;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SshuserSftpUser;
             }
           }
 
@@ -13182,7 +13182,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -13190,7 +13190,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1SshuserSftpUser;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SshuserSftpUser;
             }
           }
 
@@ -13211,7 +13211,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -13237,7 +13237,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -13265,7 +13265,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -13276,7 +13276,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1SshuserSftpUser[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SshuserSftpUser[];
             }
           }
 
@@ -13297,7 +13297,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -13305,7 +13305,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1SignupApiToken[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupApiToken[];
             }
           }
 
@@ -13332,7 +13332,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -13351,7 +13351,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
             }
           }
 
@@ -13378,7 +13378,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -13386,7 +13386,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1SignupApiToken;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupApiToken;
             }
           }
 
@@ -13415,7 +13415,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -13427,7 +13427,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
             }
           }
 
@@ -13452,7 +13452,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -13464,7 +13464,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
             }
           }
 
@@ -13515,7 +13515,7 @@ declare namespace MittwaldApiV2 {
           namespace $202 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
                   name?: "SecondFactorRequired";
                 };
             }
@@ -13524,14 +13524,14 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
           namespace $401 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -13567,7 +13567,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -13614,14 +13614,14 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
           namespace $408 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
                   name?: "FirstAuthenticationFactorExpired";
                 };
             }
@@ -13644,7 +13644,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -13660,7 +13660,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -13683,7 +13683,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -13695,7 +13695,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -13720,7 +13720,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -13756,7 +13756,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -13768,7 +13768,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -13808,7 +13808,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -13833,7 +13833,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -13845,7 +13845,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -13856,7 +13856,7 @@ declare namespace MittwaldApiV2 {
           namespace $404 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -13877,7 +13877,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -13889,7 +13889,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -13914,7 +13914,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -13930,7 +13930,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -13955,7 +13955,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -13988,7 +13988,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -14015,7 +14015,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -14042,7 +14042,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -14054,7 +14054,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -14079,7 +14079,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -14115,7 +14115,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -14142,7 +14142,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -14182,7 +14182,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -14218,7 +14218,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -14239,7 +14239,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -14258,7 +14258,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -14285,7 +14285,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -14297,7 +14297,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -14324,7 +14324,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -14336,7 +14336,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -14365,7 +14365,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -14377,7 +14377,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -14388,7 +14388,7 @@ declare namespace MittwaldApiV2 {
           namespace $404 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -14409,7 +14409,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -14417,7 +14417,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1SignupProfile;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupProfile;
             }
           }
 
@@ -14444,7 +14444,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -14456,7 +14456,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -14483,7 +14483,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -14499,7 +14499,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -14532,7 +14532,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -14548,7 +14548,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -14592,14 +14592,14 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
           namespace $408 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
                   name?: "LegacyAuthenticationExpired";
                 };
             }
@@ -14637,14 +14637,14 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
           namespace $404 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
                   name?: "EmailNotFound";
                 };
             }
@@ -14669,7 +14669,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -14677,7 +14677,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1SignupUserSession;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupUserSession;
             }
           }
 
@@ -14688,7 +14688,7 @@ declare namespace MittwaldApiV2 {
           namespace $404 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1SignupDomainError;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError;
             }
           }
 
@@ -14709,7 +14709,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -14725,7 +14725,7 @@ declare namespace MittwaldApiV2 {
           namespace $404 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1SignupDomainError;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError;
             }
           }
 
@@ -14746,7 +14746,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -14754,7 +14754,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1SignupUserSession[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupUserSession[];
             }
           }
 
@@ -14777,7 +14777,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -14807,7 +14807,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -14815,7 +14815,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export interface ApplicationJson {
-                sshKeys?: MittwaldApiV2.Components.Schemas.DeMittwaldV1SignupSshKey[];
+                sshKeys?: MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupSshKey[];
               }
             }
           }
@@ -14843,7 +14843,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -14855,7 +14855,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -14882,7 +14882,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -14890,7 +14890,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export interface ApplicationJson {
-                sshKey: MittwaldApiV2.Components.Schemas.DeMittwaldV1SignupSshKey;
+                sshKey: MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupSshKey;
               }
             }
           }
@@ -14902,7 +14902,7 @@ declare namespace MittwaldApiV2 {
           namespace $404 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SignupDomainError & {
                   name?: "SshKeyNotFound";
                 };
             }
@@ -14929,7 +14929,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -14941,7 +14941,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonValidationErrors;
             }
           }
 
@@ -14966,7 +14966,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -14996,7 +14996,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             forceRecreate?: boolean;
@@ -15035,7 +15035,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -15052,7 +15052,7 @@ declare namespace MittwaldApiV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1CommonsValidationErrors;
             }
           }
 
@@ -15079,7 +15079,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             limit?: number;
@@ -15090,7 +15090,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1SshuserSshUser[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SshuserSshUser[];
             }
           }
 
@@ -15115,7 +15115,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -15123,7 +15123,7 @@ declare namespace MittwaldApiV2 {
           namespace $201 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1SshuserSshUser;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SshuserSshUser;
             }
           }
 
@@ -15146,7 +15146,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -15154,7 +15154,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1SshuserSshUser;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1SshuserSshUser;
             }
           }
 
@@ -15175,7 +15175,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -15203,7 +15203,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -15231,7 +15231,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -15277,7 +15277,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -15303,7 +15303,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {
             subject?: string;
@@ -15313,7 +15313,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1UserUserFeedback[];
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1UserUserFeedback[];
             }
           }
 
@@ -15332,7 +15332,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -15368,7 +15368,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -15392,7 +15392,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -15400,7 +15400,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1UserUser;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1UserUser;
             }
           }
 
@@ -15433,7 +15433,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -15459,7 +15459,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -15487,7 +15487,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -15519,7 +15519,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -15549,7 +15549,7 @@ declare namespace MittwaldApiV2 {
           };
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -15581,7 +15581,7 @@ declare namespace MittwaldApiV2 {
           }
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -15615,7 +15615,7 @@ declare namespace MittwaldApiV2 {
           export type Path = {};
 
           export type Header =
-            {} & MittwaldApiV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
+            {} & MittwaldAPIV2.Components.SecuritySchemes.DeMittwaldV1CommonsAccessToken;
 
           export type Query = {};
         }
@@ -15623,7 +15623,7 @@ declare namespace MittwaldApiV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldApiV2.Components.Schemas.DeMittwaldV1UserUser;
+                MittwaldAPIV2.Components.Schemas.DeMittwaldV1UserUser;
             }
           }
 
