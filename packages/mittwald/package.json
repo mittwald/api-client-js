@@ -6,6 +6,8 @@
   "type": "module",
   "scripts": {
     "generate:client": "yarn generate:client:v2",
+    "generate:client-dev": "yarn generate:client-dev:v2",
+    "generate:client-dev:v2": "acg generate --displayErrors --autoAccept '**/*' --namespace MittwaldApiV2 --optionalHeaders x-access-token --out src/generated/v2 https://api-public.dev.mittwald.systems/openapi",
     "generate:client:v2": "acg generate --displayErrors --autoAccept '**/*' --namespace MittwaldApiV2 --optionalHeaders x-access-token --out src/generated/v2 https://api.mittwald.de/openapi"
   },
   "files": [
