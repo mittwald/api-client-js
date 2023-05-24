@@ -1,9 +1,7 @@
-import MittwaldApiClientV2 from "./generated/v2/client.js";
 import ApiClientError from "@mittwald/api-client-commons/dist/core/ApiClientError.js";
+import MittwaldApiV2Client from "./generated/v2/client.js";
 
-export * from "./generated/v2/types.js";
-
-export class MittwaldApiClient extends MittwaldApiClientV2 {
+export class MittwaldAPIClient extends MittwaldApiV2Client {
   private readonly apiToken: string | undefined;
 
   private constructor(apiToken?: string) {
@@ -24,21 +22,21 @@ export class MittwaldApiClient extends MittwaldApiClientV2 {
     });
   }
 
-  public static newUnauthenticated(): MittwaldApiClient {
-    return new MittwaldApiClient();
+  public static newUnauthenticated(): MittwaldAPIClient {
+    return new MittwaldAPIClient();
   }
 
-  public static newWithToken(apiToken: string): MittwaldApiClient {
-    return new MittwaldApiClient(apiToken);
+  public static newWithToken(apiToken: string): MittwaldAPIClient {
+    return new MittwaldAPIClient(apiToken);
   }
 
   public static async newWithCredentials(
     email: string,
     password: string,
-  ): Promise<MittwaldApiClient> {
-    const client = MittwaldApiClient.newUnauthenticated();
+  ): Promise<MittwaldAPIClient> {
+    const client = MittwaldAPIClient.newUnauthenticated();
 
-    const authResult = await client.signupApiAuthenticate({
+    const authResult = await client.user.signupApiAuthenticate({
       data: {
         email,
         password,
@@ -46,11 +44,11 @@ export class MittwaldApiClient extends MittwaldApiClientV2 {
     });
 
     if (authResult.status === 200) {
-      return new MittwaldApiClient(authResult.data.token);
+      return new MittwaldAPIClient(authResult.data.token);
     }
 
     throw ApiClientError.fromResponse("Login failed", authResult);
   }
 }
 
-export default MittwaldApiClient;
+export default MittwaldAPIClient;

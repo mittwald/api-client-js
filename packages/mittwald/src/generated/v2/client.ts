@@ -1,1591 +1,1533 @@
 /* eslint-disable */
 /* prettier-ignore */
-
-/**
-* This file is auto-generated with openapi2ts (@mittwald/openapi-to-typescript)
-*/
-
-import * as operations from "./operations.js";
+/* This file is auto-generated with acg (@mittwald/api-code-generator) */
+import * as descriptors from "./descriptors.js";
 import ApiClientBase from "@mittwald/api-client-commons/dist/core/ApiClientBase.js";
 
-export class MittwaldApiV2Client extends ApiClientBase {
-  public appGetApp = this.requestFunctionFactory(operations.appGetApp);
-
-  public appListApps = this.requestFunctionFactory(operations.appListApps);
-
-  public appExecuteAction = this.requestFunctionFactory(
-    operations.appExecuteAction
-  );
-
-  public appGetAppinstallation = this.requestFunctionFactory(
-    operations.appGetAppinstallation
-  );
-
-  public appPatchAppinstallation = this.requestFunctionFactory(
-    operations.appPatchAppinstallation
-  );
-
-  public appUninstallAppinstallation = this.requestFunctionFactory(
-    operations.appUninstallAppinstallation
-  );
-
-  public appListAppinstallations = this.requestFunctionFactory(
-    operations.appListAppinstallations
-  );
-
-  public appRequestAppinstallation = this.requestFunctionFactory(
-    operations.appRequestAppinstallation
-  );
-
-  public appLinkDatabase = this.requestFunctionFactory(
-    operations.appLinkDatabase
-  );
-
-  public appRetrieveStatus = this.requestFunctionFactory(
-    operations.appRetrieveStatus
-  );
-
-  public appSetDatabaseUsers = this.requestFunctionFactory(
-    operations.appSetDatabaseUsers
-  );
-
-  public appUnlinkDatabase = this.requestFunctionFactory(
-    operations.appUnlinkDatabase
-  );
-
-  public appUpdateStatus = this.requestFunctionFactory(
-    operations.appUpdateStatus
-  );
-
-  public deprecatedAppGetAppversion = this.requestFunctionFactory(
-    operations.deprecatedAppGetAppversion
-  );
-
-  public deprecatedAppListAppversions = this.requestFunctionFactory(
-    operations.deprecatedAppListAppversions
-  );
-
-  public articleServiceGetArticle = this.requestFunctionFactory(
-    operations.articleServiceGetArticle
-  );
-
-  public articleServiceListArticles = this.requestFunctionFactory(
-    operations.articleServiceListArticles
-  );
-
-  public contractCancelContractItemTermination = this.requestFunctionFactory(
-    operations.contractCancelContractItemTermination
-  );
-
-  public contractTerminateContractItem = this.requestFunctionFactory(
-    operations.contractTerminateContractItem
-  );
-
-  public contractCancelContractTariffChange = this.requestFunctionFactory(
-    operations.contractCancelContractTariffChange
-  );
-
-  public contractCancelContractTermination = this.requestFunctionFactory(
-    operations.contractCancelContractTermination
-  );
-
-  public contractTerminateContract = this.requestFunctionFactory(
-    operations.contractTerminateContract
-  );
-
-  public contractGetDetailOfContract = this.requestFunctionFactory(
-    operations.contractGetDetailOfContract
-  );
-
-  public deprecatedContractGetDetailOfContractByAggregate =
-    this.requestFunctionFactory(
-      operations.deprecatedContractGetDetailOfContractByAggregate
-    );
-
-  public deprecatedContractDetailOfContract = this.requestFunctionFactory(
-    operations.deprecatedContractDetailOfContract
-  );
-
-  public contractGetDetailOfContractItem = this.requestFunctionFactory(
-    operations.contractGetDetailOfContractItem
-  );
-
-  public contractListContracts = this.requestFunctionFactory(
-    operations.contractListContracts
-  );
-
-  public deprecatedContractGetNextTerminationDateForItem =
-    this.requestFunctionFactory(
-      operations.deprecatedContractGetNextTerminationDateForItem
-    );
-
-  public conversationCreateConversation = this.requestFunctionFactory(
-    operations.conversationCreateConversation
-  );
-
-  public conversationListConversations = this.requestFunctionFactory(
-    operations.conversationListConversations
-  );
-
-  public conversationCreateMessage = this.requestFunctionFactory(
-    operations.conversationCreateMessage
-  );
-
-  public conversationListMessagesByConversation = this.requestFunctionFactory(
-    operations.conversationListMessagesByConversation
-  );
-
-  public conversationListCategories = this.requestFunctionFactory(
-    operations.conversationListCategories
-  );
-
-  public conversationGetCategory = this.requestFunctionFactory(
-    operations.conversationGetCategory
-  );
-
-  public conversationGetConversation = this.requestFunctionFactory(
-    operations.conversationGetConversation
-  );
-
-  public conversationUpdateConversation = this.requestFunctionFactory(
-    operations.conversationUpdateConversation
-  );
-
-  public conversationRequestFileUpload = this.requestFunctionFactory(
-    operations.conversationRequestFileUpload
-  );
-
-  public conversationSetConversationStatus = this.requestFunctionFactory(
-    operations.conversationSetConversationStatus
-  );
-
-  public conversationUpdateMessage = this.requestFunctionFactory(
-    operations.conversationUpdateMessage
-  );
-
-  public cronjobCreateCronjob = this.requestFunctionFactory(
-    operations.cronjobCreateCronjob
-  );
-
-  public cronjobListCronjobs = this.requestFunctionFactory(
-    operations.cronjobListCronjobs
-  );
-
-  public cronjobCreateExecution = this.requestFunctionFactory(
-    operations.cronjobCreateExecution
-  );
-
-  public cronjobListExecutions = this.requestFunctionFactory(
-    operations.cronjobListExecutions
-  );
-
-  public cronjobDeleteCronjob = this.requestFunctionFactory(
-    operations.cronjobDeleteCronjob
-  );
-
-  public cronjobGetCronjob = this.requestFunctionFactory(
-    operations.cronjobGetCronjob
-  );
-
-  public cronjobUpdateCronjob = this.requestFunctionFactory(
-    operations.cronjobUpdateCronjob
-  );
-
-  public cronjobGetExecution = this.requestFunctionFactory(
-    operations.cronjobGetExecution
-  );
-
-  public customerRemoveAvatar = this.requestFunctionFactory(
-    operations.customerRemoveAvatar
-  );
-
-  public customerRequestAvatarUpload = this.requestFunctionFactory(
-    operations.customerRequestAvatarUpload
-  );
-
-  public customerCreateCategoryDeprecated = this.requestFunctionFactory(
-    operations.customerCreateCategoryDeprecated
-  );
-
-  public customerListOfCustomerCategoriesDeprecated =
-    this.requestFunctionFactory(
-      operations.customerListOfCustomerCategoriesDeprecated
-    );
-
-  public customerCreateCustomer = this.requestFunctionFactory(
-    operations.customerCreateCustomer
-  );
-
-  public customerListCustomers = this.requestFunctionFactory(
-    operations.customerListCustomers
-  );
-
-  public customerCreateNote = this.requestFunctionFactory(
-    operations.customerCreateNote
-  );
-
-  public customerListOfNotes = this.requestFunctionFactory(
-    operations.customerListOfNotes
-  );
-
-  public customerIsCustomerLegallyCompetent = this.requestFunctionFactory(
-    operations.customerIsCustomerLegallyCompetent
-  );
-
-  public customerDeleteCategoryDeprecated = this.requestFunctionFactory(
-    operations.customerDeleteCategoryDeprecated
-  );
-
-  public customerDetailOfCustomerCategoryDeprecated =
-    this.requestFunctionFactory(
-      operations.customerDetailOfCustomerCategoryDeprecated
-    );
-
-  public customerUpdateCategoryDeprecated = this.requestFunctionFactory(
-    operations.customerUpdateCategoryDeprecated
-  );
-
-  public customerDeleteCustomer = this.requestFunctionFactory(
-    operations.customerDeleteCustomer
-  );
-
-  public customerGetCustomer = this.requestFunctionFactory(
-    operations.customerGetCustomer
-  );
-
-  public customerUpdateCustomer = this.requestFunctionFactory(
-    operations.customerUpdateCustomer
-  );
-
-  public customerDeleteNote = this.requestFunctionFactory(
-    operations.customerDeleteNote
-  );
-
-  public customerUpdateNote = this.requestFunctionFactory(
-    operations.customerUpdateNote
-  );
-
-  public deprecatedDatabaseListMysqlCharsets = this.requestFunctionFactory(
-    operations.deprecatedDatabaseListMysqlCharsets
-  );
-
-  public databaseListMysqlCharsets = this.requestFunctionFactory(
-    operations.databaseListMysqlCharsets
-  );
-
-  public deprecatedDatabaseCreateMysqlDatabase = this.requestFunctionFactory(
-    operations.deprecatedDatabaseCreateMysqlDatabase
-  );
-
-  public deprecatedDatabaseListMysqlDatabases = this.requestFunctionFactory(
-    operations.deprecatedDatabaseListMysqlDatabases
-  );
-
-  public databaseDeleteMysqlDatabase = this.requestFunctionFactory(
-    operations.databaseDeleteMysqlDatabase
-  );
-
-  public databaseGetMysqlDatabase = this.requestFunctionFactory(
-    operations.databaseGetMysqlDatabase
-  );
-
-  public databaseUpdateMysqlDatabaseDefaultCharset =
-    this.requestFunctionFactory(
-      operations.databaseUpdateMysqlDatabaseDefaultCharset
-    );
-
-  public deprecatedDatabaseUpdateMysqlDatabaseDefaultCharset =
-    this.requestFunctionFactory(
-      operations.deprecatedDatabaseUpdateMysqlDatabaseDefaultCharset
-    );
-
-  public databaseUpdateMysqlDatabaseDescription = this.requestFunctionFactory(
-    operations.databaseUpdateMysqlDatabaseDescription
-  );
-
-  public deprecatedDatabaseUpdateMysqlDatabaseDescription =
-    this.requestFunctionFactory(
-      operations.deprecatedDatabaseUpdateMysqlDatabaseDescription
-    );
-
-  public deprecatedDatabaseCreateMysqlDatabaseWithUser =
-    this.requestFunctionFactory(
-      operations.deprecatedDatabaseCreateMysqlDatabaseWithUser
-    );
-
-  public databaseCreateMysqlUser = this.requestFunctionFactory(
-    operations.databaseCreateMysqlUser
-  );
-
-  public databaseListMysqlUsers = this.requestFunctionFactory(
-    operations.databaseListMysqlUsers
-  );
-
-  public deprecatedDatabaseDeleteMysqlUser = this.requestFunctionFactory(
-    operations.deprecatedDatabaseDeleteMysqlUser
-  );
-
-  public deprecatedDatabaseGetMysqlUser = this.requestFunctionFactory(
-    operations.deprecatedDatabaseGetMysqlUser
-  );
-
-  public deprecatedDatabaseUpdateMysqlUser = this.requestFunctionFactory(
-    operations.deprecatedDatabaseUpdateMysqlUser
-  );
-
-  public deprecatedDatabaseDisableMysqlUser = this.requestFunctionFactory(
-    operations.deprecatedDatabaseDisableMysqlUser
-  );
-
-  public deprecatedDatabaseEnableMysqlUser = this.requestFunctionFactory(
-    operations.deprecatedDatabaseEnableMysqlUser
-  );
-
-  public deprecatedDatabaseGetMysqlUserPhpMyAdminUrl =
-    this.requestFunctionFactory(
-      operations.deprecatedDatabaseGetMysqlUserPhpMyAdminUrl
-    );
-
-  public deprecatedDatabaseSetMysqlUserPassword = this.requestFunctionFactory(
-    operations.deprecatedDatabaseSetMysqlUserPassword
-  );
-
-  public deprecatedDatabaseUpdateMysqlUserPassword =
-    this.requestFunctionFactory(
-      operations.deprecatedDatabaseUpdateMysqlUserPassword
-    );
-
-  public deprecatedDatabaseListMysqlVersions = this.requestFunctionFactory(
-    operations.deprecatedDatabaseListMysqlVersions
-  );
-
-  public deprecatedDatabaseCreateRedisDatabase = this.requestFunctionFactory(
-    operations.deprecatedDatabaseCreateRedisDatabase
-  );
-
-  public deprecatedDatabaseListRedisDatabases = this.requestFunctionFactory(
-    operations.deprecatedDatabaseListRedisDatabases
-  );
-
-  public databaseDeleteRedisDatabase = this.requestFunctionFactory(
-    operations.databaseDeleteRedisDatabase
-  );
-
-  public databaseGetRedisDatabase = this.requestFunctionFactory(
-    operations.databaseGetRedisDatabase
-  );
-
-  public databaseUpdateRedisDatabaseDescription = this.requestFunctionFactory(
-    operations.databaseUpdateRedisDatabaseDescription
-  );
-
-  public deprecatedDatabaseUpdateRedisDatabaseDescription =
-    this.requestFunctionFactory(
-      operations.deprecatedDatabaseUpdateRedisDatabaseDescription
-    );
-
-  public deprecatedDatabaseListRedisVersions = this.requestFunctionFactory(
-    operations.deprecatedDatabaseListRedisVersions
-  );
-
-  public dnsRecordASetCustom = this.requestFunctionFactory(
-    operations.dnsRecordASetCustom
-  );
-
-  public dnsRecordASetManagedByIngress = this.requestFunctionFactory(
-    operations.dnsRecordASetManagedByIngress
-  );
-
-  public dnsRecordCnameSet = this.requestFunctionFactory(
-    operations.dnsRecordCnameSet
-  );
-
-  public dnsRecordMxSetCustom = this.requestFunctionFactory(
-    operations.dnsRecordMxSetCustom
-  );
-
-  public dnsRecordMxSetManaged = this.requestFunctionFactory(
-    operations.dnsRecordMxSetManaged
-  );
-
-  public dnsRecordTxtSet = this.requestFunctionFactory(
-    operations.dnsRecordTxtSet
-  );
-
-  public dnsZoneGetSpecific = this.requestFunctionFactory(
-    operations.dnsZoneGetSpecific
-  );
-
-  public dnsZonesForProject = this.requestFunctionFactory(
-    operations.dnsZonesForProject
-  );
-
-  public domainServiceAbortDeclareProcess = this.requestFunctionFactory(
-    operations.domainServiceAbortDeclareProcess
-  );
-
-  public domainServiceChangeOwnercOfDomain = this.requestFunctionFactory(
-    operations.domainServiceChangeOwnercOfDomain
-  );
-
-  public domainServiceChangeProjectOfDomain = this.requestFunctionFactory(
-    operations.domainServiceChangeProjectOfDomain
-  );
-
-  public domainServiceCheckDomainAvailability = this.requestFunctionFactory(
-    operations.domainServiceCheckDomainAvailability
-  );
-
-  public domainServiceCreateAuthcodeForDomain = this.requestFunctionFactory(
-    operations.domainServiceCreateAuthcodeForDomain
-  );
-
-  public domainServiceCreateAuthcode2ForDomain = this.requestFunctionFactory(
-    operations.domainServiceCreateAuthcode2ForDomain
-  );
-
-  public domainServiceDeclareNameservers = this.requestFunctionFactory(
-    operations.domainServiceDeclareNameservers
-  );
-
-  public domainServiceDeclareProcessChangeAuthcode =
-    this.requestFunctionFactory(
-      operations.domainServiceDeclareProcessChangeAuthcode
-    );
-
-  public domainServiceDeclareProcessChangeHandles = this.requestFunctionFactory(
-    operations.domainServiceDeclareProcessChangeHandles
-  );
-
-  public domainServiceDeleteDomain = this.requestFunctionFactory(
-    operations.domainServiceDeleteDomain
-  );
-
-  public domainServiceGetDomain = this.requestFunctionFactory(
-    operations.domainServiceGetDomain
-  );
-
-  public domainServiceGetHandleFields = this.requestFunctionFactory(
-    operations.domainServiceGetHandleFields
-  );
-
-  public domainServiceGetSpecificDomainOwnership = this.requestFunctionFactory(
-    operations.domainServiceGetSpecificDomainOwnership
-  );
-
-  public domainServiceVerifyDomainOwnership = this.requestFunctionFactory(
-    operations.domainServiceVerifyDomainOwnership
-  );
-
-  public domainServiceGetToplevelDomain = this.requestFunctionFactory(
-    operations.domainServiceGetToplevelDomain
-  );
-
-  public domainServiceListDomainOwnerships = this.requestFunctionFactory(
-    operations.domainServiceListDomainOwnerships
-  );
-
-  public domainServiceListDomains = this.requestFunctionFactory(
-    operations.domainServiceListDomains
-  );
-
-  public domainServiceListToplevelDomains = this.requestFunctionFactory(
-    operations.domainServiceListToplevelDomains
-  );
-
-  public domainServiceResendDomainEmail = this.requestFunctionFactory(
-    operations.domainServiceResendDomainEmail
-  );
-
-  public fileCreateFile = this.requestFunctionFactory(
-    operations.fileCreateFile
-  );
-
-  public fileGetFile = this.requestFunctionFactory(operations.fileGetFile);
-
-  public fileGetFileMeta = this.requestFunctionFactory(
-    operations.fileGetFileMeta
-  );
-
-  public fileGetFileTokenRules = this.requestFunctionFactory(
-    operations.fileGetFileTokenRules
-  );
-
-  public ingressServiceCreate = this.requestFunctionFactory(
-    operations.ingressServiceCreate
-  );
-
-  public ingressServiceDelete = this.requestFunctionFactory(
-    operations.ingressServiceDelete
-  );
-
-  public ingressServiceGetSpecific = this.requestFunctionFactory(
-    operations.ingressServiceGetSpecific
-  );
-
-  public ingressServiceListAccessible = this.requestFunctionFactory(
-    operations.ingressServiceListAccessible
-  );
-
-  public ingressServicePaths = this.requestFunctionFactory(
-    operations.ingressServicePaths
-  );
-
-  public ingressServiceTls = this.requestFunctionFactory(
-    operations.ingressServiceTls
-  );
-
-  public invoiceDetailOfInvoice = this.requestFunctionFactory(
-    operations.invoiceDetailOfInvoice
-  );
-
-  public deprecatedInvoiceInvoiceSettings = this.requestFunctionFactory(
-    operations.deprecatedInvoiceInvoiceSettings
-  );
-
-  public deprecatedInvoiceUpdateInvoiceSettings = this.requestFunctionFactory(
-    operations.deprecatedInvoiceUpdateInvoiceSettings
-  );
-
-  public invoiceListCustomerInvoices = this.requestFunctionFactory(
-    operations.invoiceListCustomerInvoices
-  );
-
-  public mailServiceDeliveryboxCreate = this.requestFunctionFactory(
-    operations.mailServiceDeliveryboxCreate
-  );
-
-  public mailServiceDeliveryboxList = this.requestFunctionFactory(
-    operations.mailServiceDeliveryboxList
-  );
-
-  public mailServiceDeliveryboxDelete = this.requestFunctionFactory(
-    operations.mailServiceDeliveryboxDelete
-  );
-
-  public mailServiceDeliveryboxGetSpecific = this.requestFunctionFactory(
-    operations.mailServiceDeliveryboxGetSpecific
-  );
-
-  public mailServiceDeliveryboxUpdateDescription = this.requestFunctionFactory(
-    operations.mailServiceDeliveryboxUpdateDescription
-  );
-
-  public mailServiceDeliveryboxUpdatePassword = this.requestFunctionFactory(
-    operations.mailServiceDeliveryboxUpdatePassword
-  );
-
-  public mailServiceMailaddressCreate = this.requestFunctionFactory(
-    operations.mailServiceMailaddressCreate
-  );
-
-  public mailServiceMailaddressList = this.requestFunctionFactory(
-    operations.mailServiceMailaddressList
-  );
-
-  public mailServiceMailaddressDelete = this.requestFunctionFactory(
-    operations.mailServiceMailaddressDelete
-  );
-
-  public mailServiceMailaddressGetSpecific = this.requestFunctionFactory(
-    operations.mailServiceMailaddressGetSpecific
-  );
-
-  public mailServiceMailaddressUpdateAddress = this.requestFunctionFactory(
-    operations.mailServiceMailaddressUpdateAddress
-  );
-
-  public mailServiceMailaddressUpdateAutoresponder =
-    this.requestFunctionFactory(
-      operations.mailServiceMailaddressUpdateAutoresponder
-    );
-
-  public mailServiceMailaddressUpdateCatchall = this.requestFunctionFactory(
-    operations.mailServiceMailaddressUpdateCatchall
-  );
-
-  public mailServiceMailaddressUpdateForwardaddresses =
-    this.requestFunctionFactory(
-      operations.mailServiceMailaddressUpdateForwardaddresses
-    );
-
-  public mailServiceMailaddressUpdatePassword = this.requestFunctionFactory(
-    operations.mailServiceMailaddressUpdatePassword
-  );
-
-  public mailServiceMailaddressUpdateQuota = this.requestFunctionFactory(
-    operations.mailServiceMailaddressUpdateQuota
-  );
-
-  public mailServiceMailaddressUpdateSpamprotection =
-    this.requestFunctionFactory(
-      operations.mailServiceMailaddressUpdateSpamprotection
-    );
-
-  public mailServiceProjectsettingGetSpecific = this.requestFunctionFactory(
-    operations.mailServiceProjectsettingGetSpecific
-  );
-
-  public mailServiceProjectsettingUpdateBlacklist = this.requestFunctionFactory(
-    operations.mailServiceProjectsettingUpdateBlacklist
-  );
-
-  public mailServiceProjectsettingUpdateWhitelist = this.requestFunctionFactory(
-    operations.mailServiceProjectsettingUpdateWhitelist
-  );
-
-  public deprecatedCustomerAcceptCustomerInvite = this.requestFunctionFactory(
-    operations.deprecatedCustomerAcceptCustomerInvite
-  );
-
-  public deprecatedCustomerAcceptCustomerInviteWithToken =
-    this.requestFunctionFactory(
-      operations.deprecatedCustomerAcceptCustomerInviteWithToken
-    );
-
-  public deprecatedProjectAcceptProjectInvite = this.requestFunctionFactory(
-    operations.deprecatedProjectAcceptProjectInvite
-  );
-
-  public deprecatedProjectAcceptProjectInviteWithToken =
-    this.requestFunctionFactory(
-      operations.deprecatedProjectAcceptProjectInviteWithToken
-    );
-
-  public deprecatedCustomerChangeCustomerMembership =
-    this.requestFunctionFactory(
-      operations.deprecatedCustomerChangeCustomerMembership
-    );
-
-  public deprecatedCustomerDeleteCustomerMembership =
-    this.requestFunctionFactory(
-      operations.deprecatedCustomerDeleteCustomerMembership
-    );
-
-  public deprecatedProjectChangeProjectMembership = this.requestFunctionFactory(
-    operations.deprecatedProjectChangeProjectMembership
-  );
-
-  public deprecatedProjectDeleteProjectMembership = this.requestFunctionFactory(
-    operations.deprecatedProjectDeleteProjectMembership
-  );
-
-  public deprecatedCustomerCreateCustomerInvite = this.requestFunctionFactory(
-    operations.deprecatedCustomerCreateCustomerInvite
-  );
-
-  public deprecatedProjectCreateProjectInvite = this.requestFunctionFactory(
-    operations.deprecatedProjectCreateProjectInvite
-  );
-
-  public deprecatedCustomerDeclineCustomerInvite = this.requestFunctionFactory(
-    operations.deprecatedCustomerDeclineCustomerInvite
-  );
-
-  public deprecatedProjectDeclineProjectInvite = this.requestFunctionFactory(
-    operations.deprecatedProjectDeclineProjectInvite
-  );
-
-  public deprecatedCustomerGetCustomerInviteSpecific =
-    this.requestFunctionFactory(
-      operations.deprecatedCustomerGetCustomerInviteSpecific
-    );
-
-  public deprecatedCustomerGetCustomerMembershipSpecific =
-    this.requestFunctionFactory(
-      operations.deprecatedCustomerGetCustomerMembershipSpecific
-    );
-
-  public projectGetOwnMembershipForProject = this.requestFunctionFactory(
-    operations.projectGetOwnMembershipForProject
-  );
-
-  public deprecatedProjectGetProjectInviteSpecific =
-    this.requestFunctionFactory(
-      operations.deprecatedProjectGetProjectInviteSpecific
-    );
-
-  public deprecatedProjectGetProjectMembershipSpecific =
-    this.requestFunctionFactory(
-      operations.deprecatedProjectGetProjectMembershipSpecific
-    );
-
-  public deprecatedCustomerLeaveCustomer = this.requestFunctionFactory(
-    operations.deprecatedCustomerLeaveCustomer
-  );
-
-  public deprecatedProjectLeaveProject = this.requestFunctionFactory(
-    operations.deprecatedProjectLeaveProject
-  );
-
-  public deprecatedCustomerListCustomerMembershipsForUser =
-    this.requestFunctionFactory(
-      operations.deprecatedCustomerListCustomerMembershipsForUser
-    );
-
-  public deprecatedCustomerListInvitesForCustomer = this.requestFunctionFactory(
-    operations.deprecatedCustomerListInvitesForCustomer
-  );
-
-  public deprecatedProjectListInvitesForProject = this.requestFunctionFactory(
-    operations.deprecatedProjectListInvitesForProject
-  );
-
-  public deprecatedCustomerListMembershipsForCustomer =
-    this.requestFunctionFactory(
-      operations.deprecatedCustomerListMembershipsForCustomer
-    );
-
-  public deprecatedProjectListMembershipsForProject =
-    this.requestFunctionFactory(
-      operations.deprecatedProjectListMembershipsForProject
-    );
-
-  public deprecatedCustomerListOwnCustomerInvites = this.requestFunctionFactory(
-    operations.deprecatedCustomerListOwnCustomerInvites
-  );
-
-  public deprecatedProjectListOwnProjectInvites = this.requestFunctionFactory(
-    operations.deprecatedProjectListOwnProjectInvites
-  );
-
-  public deprecatedProjectListProjectMembershipsForUser =
-    this.requestFunctionFactory(
-      operations.deprecatedProjectListProjectMembershipsForUser
-    );
-
-  public deprecatedCustomerResendCustomerInviteMail =
-    this.requestFunctionFactory(
-      operations.deprecatedCustomerResendCustomerInviteMail
-    );
-
-  public deprecatedProjectResendProjectInviteMail = this.requestFunctionFactory(
-    operations.deprecatedProjectResendProjectInviteMail
-  );
-
-  public deprecatedCustomerRevokeCustomerInvite = this.requestFunctionFactory(
-    operations.deprecatedCustomerRevokeCustomerInvite
-  );
-
-  public deprecatedProjectRevokeProjectInvite = this.requestFunctionFactory(
-    operations.deprecatedProjectRevokeProjectInvite
-  );
-
-  public notificationsCountUnreadNotifications = this.requestFunctionFactory(
-    operations.notificationsCountUnreadNotifications
-  );
-
-  public notificationsListNotifications = this.requestFunctionFactory(
-    operations.notificationsListNotifications
-  );
-
-  public notificationsReadAllNotifications = this.requestFunctionFactory(
-    operations.notificationsReadAllNotifications
-  );
-
-  public notificationsReadNotification = this.requestFunctionFactory(
-    operations.notificationsReadNotification
-  );
-
-  public newsletterGetInfo = this.requestFunctionFactory(
-    operations.newsletterGetInfo
-  );
-
-  public newsletterUnsubscribeUser = this.requestFunctionFactory(
-    operations.newsletterUnsubscribeUser
-  );
-
-  public newsletterSubscribeUser = this.requestFunctionFactory(
-    operations.newsletterSubscribeUser
-  );
-
-  public orderChangeProjecthosting = this.requestFunctionFactory(
-    operations.orderChangeProjecthosting
-  );
-
-  public orderChangeServer = this.requestFunctionFactory(
-    operations.orderChangeServer
-  );
-
-  public orderGetOrder = this.requestFunctionFactory(operations.orderGetOrder);
-
-  public orderListCustomerOrders = this.requestFunctionFactory(
-    operations.orderListCustomerOrders
-  );
-
-  public orderOrderDomain = this.requestFunctionFactory(
-    operations.orderOrderDomain
-  );
-
-  public orderOrderProjecthosting = this.requestFunctionFactory(
-    operations.orderOrderProjecthosting
-  );
-
-  public orderOrderServer = this.requestFunctionFactory(
-    operations.orderOrderServer
-  );
-
-  public orderPreviewChangeProjecthosting = this.requestFunctionFactory(
-    operations.orderPreviewChangeProjecthosting
-  );
-
-  public orderPreviewChangeServer = this.requestFunctionFactory(
-    operations.orderPreviewChangeServer
-  );
-
-  public orderPreviewOrderDomain = this.requestFunctionFactory(
-    operations.orderPreviewOrderDomain
-  );
-
-  public orderPreviewOrderProjecthosting = this.requestFunctionFactory(
-    operations.orderPreviewOrderProjecthosting
-  );
-
-  public orderPreviewOrderServer = this.requestFunctionFactory(
-    operations.orderPreviewOrderServer
-  );
-
-  public passwordValidationServiceGetPasswordPolicy =
-    this.requestFunctionFactory(
-      operations.passwordValidationServiceGetPasswordPolicy
-    );
-
-  public projectFileSystemGetDirectories = this.requestFunctionFactory(
-    operations.projectFileSystemGetDirectories
-  );
-
-  public projectFileSystemGetFileContent = this.requestFunctionFactory(
-    operations.projectFileSystemGetFileContent
-  );
-
-  public projectFileSystemListFiles = this.requestFunctionFactory(
-    operations.projectFileSystemListFiles
-  );
-
-  public projectFileSystemGetJwt = this.requestFunctionFactory(
-    operations.projectFileSystemGetJwt
-  );
-
-  public projectFileSystemGetDiskUsage = this.requestFunctionFactory(
-    operations.projectFileSystemGetDiskUsage
-  );
-
-  public projectDeleteProjectAvatar = this.requestFunctionFactory(
-    operations.projectDeleteProjectAvatar
-  );
-
-  public projectRequestProjectAvatarUpload = this.requestFunctionFactory(
-    operations.projectRequestProjectAvatarUpload
-  );
-
-  public projectDeleteProject = this.requestFunctionFactory(
-    operations.projectDeleteProject
-  );
-
-  public projectGetProject = this.requestFunctionFactory(
-    operations.projectGetProject
-  );
-
-  public projectUpdateProjectDescription = this.requestFunctionFactory(
-    operations.projectUpdateProjectDescription
-  );
-
-  public projectListProjects = this.requestFunctionFactory(
-    operations.projectListProjects
-  );
-
-  public redirectusCreateRelocation = this.requestFunctionFactory(
-    operations.redirectusCreateRelocation
-  );
-
-  public signupApiApiTokenCreate = this.requestFunctionFactory(
-    operations.signupApiApiTokenCreate
-  );
-
-  public signupApiApiTokenList = this.requestFunctionFactory(
-    operations.signupApiApiTokenList
-  );
-
-  public signupApiApiTokenDelete = this.requestFunctionFactory(
-    operations.signupApiApiTokenDelete
-  );
-
-  public signupApiApiTokenEdit = this.requestFunctionFactory(
-    operations.signupApiApiTokenEdit
-  );
-
-  public signupApiApiTokenGet = this.requestFunctionFactory(
-    operations.signupApiApiTokenGet
-  );
-
-  public signupApiAuthenticate = this.requestFunctionFactory(
-    operations.signupApiAuthenticate
-  );
-
-  public signupApiAuthenticateLegacy = this.requestFunctionFactory(
-    operations.signupApiAuthenticateLegacy
-  );
-
-  public signupApiAuthenticateMfa = this.requestFunctionFactory(
-    operations.signupApiAuthenticateMfa
-  );
-
-  public signupApiAvatarRemove = this.requestFunctionFactory(
-    operations.signupApiAvatarRemove
-  );
-
-  public signupApiAvatarRequestUpload = this.requestFunctionFactory(
-    operations.signupApiAvatarRequestUpload
-  );
-
-  public signupApiEmailChange = this.requestFunctionFactory(
-    operations.signupApiEmailChange
-  );
-
-  public signupApiEmailGet = this.requestFunctionFactory(
-    operations.signupApiEmailGet
-  );
-
-  public signupApiEmailResend = this.requestFunctionFactory(
-    operations.signupApiEmailResend
-  );
-
-  public signupApiEmailVerify = this.requestFunctionFactory(
-    operations.signupApiEmailVerify
-  );
-
-  public signupApiLogout = this.requestFunctionFactory(
-    operations.signupApiLogout
-  );
-
-  public signupApiMfaConfirm = this.requestFunctionFactory(
-    operations.signupApiMfaConfirm
-  );
-
-  public signupApiMfaDisable = this.requestFunctionFactory(
-    operations.signupApiMfaDisable
-  );
-
-  public signupApiMfaGetStatus = this.requestFunctionFactory(
-    operations.signupApiMfaGetStatus
-  );
-
-  public signupApiMfaInit = this.requestFunctionFactory(
-    operations.signupApiMfaInit
-  );
-
-  public signupApiPasswordChange = this.requestFunctionFactory(
-    operations.signupApiPasswordChange
-  );
-
-  public signupApiPasswordGetUpdatedAt = this.requestFunctionFactory(
-    operations.signupApiPasswordGetUpdatedAt
-  );
-
-  public signupApiPasswordResetConfirm = this.requestFunctionFactory(
-    operations.signupApiPasswordResetConfirm
-  );
-
-  public signupApiPasswordResetInit = this.requestFunctionFactory(
-    operations.signupApiPasswordResetInit
-  );
-
-  public signupApiPhoneNumberDelete = this.requestFunctionFactory(
-    operations.signupApiPhoneNumberDelete
-  );
-
-  public signupApiPhoneNumberGet = this.requestFunctionFactory(
-    operations.signupApiPhoneNumberGet
-  );
-
-  public signupApiPhoneNumberInitProcess = this.requestFunctionFactory(
-    operations.signupApiPhoneNumberInitProcess
-  );
-
-  public signupApiPhoneNumberVerify = this.requestFunctionFactory(
-    operations.signupApiPhoneNumberVerify
-  );
-
-  public signupApiProfileChange = this.requestFunctionFactory(
-    operations.signupApiProfileChange
-  );
-
-  public signupApiProfileDelete = this.requestFunctionFactory(
-    operations.signupApiProfileDelete
-  );
-
-  public signupApiProfileGet = this.requestFunctionFactory(
-    operations.signupApiProfileGet
-  );
-
-  public signupApiRecoverycodesReset = this.requestFunctionFactory(
-    operations.signupApiRecoverycodesReset
-  );
-
-  public signupApiRegister = this.requestFunctionFactory(
-    operations.signupApiRegister
-  );
-
-  public signupApiRegistrationVerify = this.requestFunctionFactory(
-    operations.signupApiRegistrationVerify
-  );
-
-  public signupApiSessionGet = this.requestFunctionFactory(
-    operations.signupApiSessionGet
-  );
-
-  public signupApiSessionTerminate = this.requestFunctionFactory(
-    operations.signupApiSessionTerminate
-  );
-
-  public signupApiSessionsList = this.requestFunctionFactory(
-    operations.signupApiSessionsList
-  );
-
-  public signupApiSessionsTerminateAll = this.requestFunctionFactory(
-    operations.signupApiSessionsTerminateAll
-  );
-
-  public signupApiSshCreate = this.requestFunctionFactory(
-    operations.signupApiSshCreate
-  );
-
-  public signupApiSshList = this.requestFunctionFactory(
-    operations.signupApiSshList
-  );
-
-  public signupApiSshDelete = this.requestFunctionFactory(
-    operations.signupApiSshDelete
-  );
-
-  public signupApiSshEdit = this.requestFunctionFactory(
-    operations.signupApiSshEdit
-  );
-
-  public signupApiSshGet = this.requestFunctionFactory(
-    operations.signupApiSshGet
-  );
-
-  public signupApiSupportCodeRequest = this.requestFunctionFactory(
-    operations.signupApiSupportCodeRequest
-  );
-
-  public signupApiTokenCheck = this.requestFunctionFactory(
-    operations.signupApiTokenCheck
-  );
-
-  public appGetSystemsoftware = this.requestFunctionFactory(
-    operations.appGetSystemsoftware
-  );
-
-  public appListSystemsoftwares = this.requestFunctionFactory(
-    operations.appListSystemsoftwares
-  );
-
-  public appGetSystemsoftwareversion = this.requestFunctionFactory(
-    operations.appGetSystemsoftwareversion
-  );
-
-  public appListSystemsoftwareversions = this.requestFunctionFactory(
-    operations.appListSystemsoftwareversions
-  );
-
-  public userServiceAvatarRemove = this.requestFunctionFactory(
-    operations.userServiceAvatarRemove
-  );
-
-  public userServiceAvatarRequestUpload = this.requestFunctionFactory(
-    operations.userServiceAvatarRequestUpload
-  );
-
-  public userServiceFeedbackCreate = this.requestFunctionFactory(
-    operations.userServiceFeedbackCreate
-  );
-
-  public userServiceFeedbackList = this.requestFunctionFactory(
-    operations.userServiceFeedbackList
-  );
-
-  public userServiceIssueNew = this.requestFunctionFactory(
-    operations.userServiceIssueNew
-  );
-
-  public userServicePersonalInformationUpdate = this.requestFunctionFactory(
-    operations.userServicePersonalInformationUpdate
-  );
-
-  public userServiceUserGet = this.requestFunctionFactory(
-    operations.userServiceUserGet
-  );
-
-  public userServicePersonalizedSettingsGet = this.requestFunctionFactory(
-    operations.userServicePersonalizedSettingsGet
-  );
-
-  public userServicePersonalizedSettingsUpdate = this.requestFunctionFactory(
-    operations.userServicePersonalizedSettingsUpdate
-  );
-
-  public userServicePhoneNumberAdd = this.requestFunctionFactory(
-    operations.userServicePhoneNumberAdd
-  );
-
-  public userServicePhoneNumberRemove = this.requestFunctionFactory(
-    operations.userServicePhoneNumberRemove
-  );
-
-  public userServicePhoneNumberVerify = this.requestFunctionFactory(
-    operations.userServicePhoneNumberVerify
-  );
-
-  public userServiceUserGetOwn = this.requestFunctionFactory(
-    operations.userServiceUserGetOwn
-  );
-
-  public varnishServiceListValidators = this.requestFunctionFactory(
-    operations.varnishServiceListValidators
-  );
-
-  public varnishServiceValidate = this.requestFunctionFactory(
-    operations.varnishServiceValidate
-  );
-
-  public fileGetFileTypeRules = this.requestFunctionFactory(
-    operations.fileGetFileTypeRules
-  );
-
-  public orderListProjectOrders = this.requestFunctionFactory(
-    operations.orderListProjectOrders
-  );
-
-  public cronjobAbortExecution = this.requestFunctionFactory(
-    operations.cronjobAbortExecution
-  );
-
-  public backupCreateProjectBackup = this.requestFunctionFactory(
-    operations.backupCreateProjectBackup
-  );
-
-  public backupListProjectBackups = this.requestFunctionFactory(
-    operations.backupListProjectBackups
-  );
-
-  public backupCreateProjectBackupSchedule = this.requestFunctionFactory(
-    operations.backupCreateProjectBackupSchedule
-  );
-
-  public backupListProjectBackupSchedules = this.requestFunctionFactory(
-    operations.backupListProjectBackupSchedules
-  );
-
-  public backupDeleteProjectBackup = this.requestFunctionFactory(
-    operations.backupDeleteProjectBackup
-  );
-
-  public backupGetProjectBackup = this.requestFunctionFactory(
-    operations.backupGetProjectBackup
-  );
-
-  public backupCreateProjectBackupExport = this.requestFunctionFactory(
-    operations.backupCreateProjectBackupExport
-  );
-
-  public backupDeleteProjectBackupExport = this.requestFunctionFactory(
-    operations.backupDeleteProjectBackupExport
-  );
-
-  public backupDeleteProjectBackupSchedule = this.requestFunctionFactory(
-    operations.backupDeleteProjectBackupSchedule
-  );
-
-  public backupGetProjectBackupSchedule = this.requestFunctionFactory(
-    operations.backupGetProjectBackupSchedule
-  );
-
-  public backupUpdateProjectBackupSchedule = this.requestFunctionFactory(
-    operations.backupUpdateProjectBackupSchedule
-  );
-
-  public backupUpdateProjectBackupDescription = this.requestFunctionFactory(
-    operations.backupUpdateProjectBackupDescription
-  );
-
-  public cronjobUpdateCronjobAppId = this.requestFunctionFactory(
-    operations.cronjobUpdateCronjobAppId
-  );
-
-  public deprecatedContractCancelContractItemTermination =
-    this.requestFunctionFactory(
-      operations.deprecatedContractCancelContractItemTermination
-    );
-
-  public deprecatedContractTerminateContractItem = this.requestFunctionFactory(
-    operations.deprecatedContractTerminateContractItem
-  );
-
-  public deprecatedContractCancelContractTariffChange =
-    this.requestFunctionFactory(
-      operations.deprecatedContractCancelContractTariffChange
-    );
-
-  public deprecatedContractCancelContractTermination =
-    this.requestFunctionFactory(
-      operations.deprecatedContractCancelContractTermination
-    );
-
-  public deprecatedContractTerminateContract = this.requestFunctionFactory(
-    operations.deprecatedContractTerminateContract
-  );
-
-  public contractGetBaseItemOfContract = this.requestFunctionFactory(
-    operations.contractGetBaseItemOfContract
-  );
-
-  public contractGetNextTerminationDateForItem = this.requestFunctionFactory(
-    operations.contractGetNextTerminationDateForItem
-  );
-
-  public customerCreateCategory = this.requestFunctionFactory(
-    operations.customerCreateCategory
-  );
-
-  public customerListOfCustomerCategories = this.requestFunctionFactory(
-    operations.customerListOfCustomerCategories
-  );
-
-  public customerDeleteCategory = this.requestFunctionFactory(
-    operations.customerDeleteCategory
-  );
-
-  public customerGetCustomerCategory = this.requestFunctionFactory(
-    operations.customerGetCustomerCategory
-  );
-
-  public customerUpdateCategory = this.requestFunctionFactory(
-    operations.customerUpdateCategory
-  );
-
-  public deprecatedContractGetBaseItemOfContract = this.requestFunctionFactory(
-    operations.deprecatedContractGetBaseItemOfContract
-  );
-
-  public invoiceGetDetailOfInvoiceSettings = this.requestFunctionFactory(
-    operations.invoiceGetDetailOfInvoiceSettings
-  );
-
-  public invoiceUpdateInvoiceSettings = this.requestFunctionFactory(
-    operations.invoiceUpdateInvoiceSettings
-  );
-
-  public projectCreateProject = this.requestFunctionFactory(
-    operations.projectCreateProject
-  );
-
-  public projectDeleteServerAvatar = this.requestFunctionFactory(
-    operations.projectDeleteServerAvatar
-  );
-
-  public projectRequestServerAvatarUpload = this.requestFunctionFactory(
-    operations.projectRequestServerAvatarUpload
-  );
-
-  public projectGetServer = this.requestFunctionFactory(
-    operations.projectGetServer
-  );
-
-  public projectListServers = this.requestFunctionFactory(
-    operations.projectListServers
-  );
-
-  public projectUpdateServerDescription = this.requestFunctionFactory(
-    operations.projectUpdateServerDescription
-  );
-
-  public deprecatedCustomerUpdateCustomerMembership =
-    this.requestFunctionFactory(
-      operations.deprecatedCustomerUpdateCustomerMembership
-    );
-
-  public deprecatedMembershipAcceptInvite = this.requestFunctionFactory(
-    operations.deprecatedMembershipAcceptInvite
-  );
-
-  public deprecatedMembershipDeclineInvite = this.requestFunctionFactory(
-    operations.deprecatedMembershipDeclineInvite
-  );
-
-  public deprecatedMembershipDeleteMembership = this.requestFunctionFactory(
-    operations.deprecatedMembershipDeleteMembership
-  );
-
-  public deprecatedMembershipGetMembership = this.requestFunctionFactory(
-    operations.deprecatedMembershipGetMembership
-  );
-
-  public deprecatedMembershipGetInvite = this.requestFunctionFactory(
-    operations.deprecatedMembershipGetInvite
-  );
-
-  public deprecatedMembershipLeaveMembership = this.requestFunctionFactory(
-    operations.deprecatedMembershipLeaveMembership
-  );
-
-  public deprecatedMembershipListInvites = this.requestFunctionFactory(
-    operations.deprecatedMembershipListInvites
-  );
-
-  public deprecatedMembershipListMemberships = this.requestFunctionFactory(
-    operations.deprecatedMembershipListMemberships
-  );
-
-  public deprecatedMembershipResendInviteMail = this.requestFunctionFactory(
-    operations.deprecatedMembershipResendInviteMail
-  );
-
-  public deprecatedMembershipRevokeInvite = this.requestFunctionFactory(
-    operations.deprecatedMembershipRevokeInvite
-  );
-
-  public deprecatedProjectUpdateProjectMembership = this.requestFunctionFactory(
-    operations.deprecatedProjectUpdateProjectMembership
-  );
-
-  public appGetAppversion = this.requestFunctionFactory(
-    operations.appGetAppversion
-  );
-
-  public appListAppversions = this.requestFunctionFactory(
-    operations.appListAppversions
-  );
-
-  public contractGetDetailOfContractByDomain = this.requestFunctionFactory(
-    operations.contractGetDetailOfContractByDomain
-  );
-
-  public contractGetDetailOfContractByPlacementGroup =
-    this.requestFunctionFactory(
-      operations.contractGetDetailOfContractByPlacementGroup
-    );
-
-  public contractGetDetailOfContractByProject = this.requestFunctionFactory(
-    operations.contractGetDetailOfContractByProject
-  );
-
-  public customerAcceptCustomerInvite = this.requestFunctionFactory(
-    operations.customerAcceptCustomerInvite
-  );
-
-  public customerCreateCustomerInvite = this.requestFunctionFactory(
-    operations.customerCreateCustomerInvite
-  );
-
-  public customerDeclineCustomerInvite = this.requestFunctionFactory(
-    operations.customerDeclineCustomerInvite
-  );
-
-  public customerDeleteCustomerInvite = this.requestFunctionFactory(
-    operations.customerDeleteCustomerInvite
-  );
-
-  public customerGetCustomerInvite = this.requestFunctionFactory(
-    operations.customerGetCustomerInvite
-  );
-
-  public customerDeleteCustomerMembership = this.requestFunctionFactory(
-    operations.customerDeleteCustomerMembership
-  );
-
-  public customerGetCustomerMembership = this.requestFunctionFactory(
-    operations.customerGetCustomerMembership
-  );
-
-  public customerUpdateCustomerMembership = this.requestFunctionFactory(
-    operations.customerUpdateCustomerMembership
-  );
-
-  public customerGetCustomerTokenInvite = this.requestFunctionFactory(
-    operations.customerGetCustomerTokenInvite
-  );
-
-  public customerLeaveCustomer = this.requestFunctionFactory(
-    operations.customerLeaveCustomer
-  );
-
-  public customerListCustomerInvites = this.requestFunctionFactory(
-    operations.customerListCustomerInvites
-  );
-
-  public customerListCustomerMemberships = this.requestFunctionFactory(
-    operations.customerListCustomerMemberships
-  );
-
-  public customerListInvitesForCustomer = this.requestFunctionFactory(
-    operations.customerListInvitesForCustomer
-  );
-
-  public customerListMembershipsForCustomer = this.requestFunctionFactory(
-    operations.customerListMembershipsForCustomer
-  );
-
-  public customerResendCustomerInviteMail = this.requestFunctionFactory(
-    operations.customerResendCustomerInviteMail
-  );
-
-  public databaseCreateMysqlDatabase = this.requestFunctionFactory(
-    operations.databaseCreateMysqlDatabase
-  );
-
-  public databaseListMysqlDatabases = this.requestFunctionFactory(
-    operations.databaseListMysqlDatabases
-  );
-
-  public databaseCreateRedisDatabase = this.requestFunctionFactory(
-    operations.databaseCreateRedisDatabase
-  );
-
-  public databaseListRedisDatabases = this.requestFunctionFactory(
-    operations.databaseListRedisDatabases
-  );
-
-  public databaseDeleteMysqlUser = this.requestFunctionFactory(
-    operations.databaseDeleteMysqlUser
-  );
-
-  public databaseGetMysqlUser = this.requestFunctionFactory(
-    operations.databaseGetMysqlUser
-  );
-
-  public databaseUpdateMysqlUser = this.requestFunctionFactory(
-    operations.databaseUpdateMysqlUser
-  );
-
-  public databaseDisableMysqlUser = this.requestFunctionFactory(
-    operations.databaseDisableMysqlUser
-  );
-
-  public databaseEnableMysqlUser = this.requestFunctionFactory(
-    operations.databaseEnableMysqlUser
-  );
-
-  public databaseGetMysqlUserPhpMyAdminUrl = this.requestFunctionFactory(
-    operations.databaseGetMysqlUserPhpMyAdminUrl
-  );
-
-  public databaseListMysqlVersions = this.requestFunctionFactory(
-    operations.databaseListMysqlVersions
-  );
-
-  public databaseListRedisVersions = this.requestFunctionFactory(
-    operations.databaseListRedisVersions
-  );
-
-  public databaseUpdateMysqlUserPassword = this.requestFunctionFactory(
-    operations.databaseUpdateMysqlUserPassword
-  );
-
-  public ingressServiceListForProject = this.requestFunctionFactory(
-    operations.ingressServiceListForProject
-  );
-
-  public projectAcceptProjectInvite = this.requestFunctionFactory(
-    operations.projectAcceptProjectInvite
-  );
-
-  public projectCreateProjectInvite = this.requestFunctionFactory(
-    operations.projectCreateProjectInvite
-  );
-
-  public projectDeclineProjectInvite = this.requestFunctionFactory(
-    operations.projectDeclineProjectInvite
-  );
-
-  public projectDeleteProjectInvite = this.requestFunctionFactory(
-    operations.projectDeleteProjectInvite
-  );
-
-  public projectGetProjectInvite = this.requestFunctionFactory(
-    operations.projectGetProjectInvite
-  );
-
-  public projectDeleteProjectMembership = this.requestFunctionFactory(
-    operations.projectDeleteProjectMembership
-  );
-
-  public projectGetProjectMembership = this.requestFunctionFactory(
-    operations.projectGetProjectMembership
-  );
-
-  public projectUpdateProjectMembership = this.requestFunctionFactory(
-    operations.projectUpdateProjectMembership
-  );
-
-  public projectGetProjectTokenInvite = this.requestFunctionFactory(
-    operations.projectGetProjectTokenInvite
-  );
-
-  public projectLeaveProject = this.requestFunctionFactory(
-    operations.projectLeaveProject
-  );
-
-  public projectListInvitesForProject = this.requestFunctionFactory(
-    operations.projectListInvitesForProject
-  );
-
-  public projectListMembershipsForProject = this.requestFunctionFactory(
-    operations.projectListMembershipsForProject
-  );
-
-  public projectListProjectInvites = this.requestFunctionFactory(
-    operations.projectListProjectInvites
-  );
-
-  public projectListProjectMemberships = this.requestFunctionFactory(
-    operations.projectListProjectMemberships
-  );
-
-  public projectResendProjectInviteMail = this.requestFunctionFactory(
-    operations.projectResendProjectInviteMail
-  );
-
-  public sftpUserCreateSftpUser = this.requestFunctionFactory(
-    operations.sftpUserCreateSftpUser
-  );
-
-  public sftpUserDeleteSftpUser = this.requestFunctionFactory(
-    operations.sftpUserDeleteSftpUser
-  );
-
-  public sftpUserGetSftpUser = this.requestFunctionFactory(
-    operations.sftpUserGetSftpUser
-  );
-
-  public sftpUserUpdateSftpUser = this.requestFunctionFactory(
-    operations.sftpUserUpdateSftpUser
-  );
-
-  public sftpUserListSftpUsers = this.requestFunctionFactory(
-    operations.sftpUserListSftpUsers
-  );
-
-  public sshUserCreateSshUser = this.requestFunctionFactory(
-    operations.sshUserCreateSshUser
-  );
-
-  public sshUserListSshUsers = this.requestFunctionFactory(
-    operations.sshUserListSshUsers
-  );
-
-  public sshUserDeleteSshUser = this.requestFunctionFactory(
-    operations.sshUserDeleteSshUser
-  );
-
-  public sshUserGetSshUser = this.requestFunctionFactory(
-    operations.sshUserGetSshUser
-  );
-
-  public sshUserUpdateSshUser = this.requestFunctionFactory(
-    operations.sshUserUpdateSshUser
-  );
+export class MittwaldAPIV2Client extends ApiClientBase {
+  /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
+  public readonly app = {
+    /** execute a runtime concerning action on a specific `AppInstallation` */
+    executeAction: this.requestFunctionFactory(descriptors.appExecuteAction),
+    /** get a specific `App` */
+    getApp: this.requestFunctionFactory(descriptors.appGetApp),
+    /** get a specific `AppInstallation` */
+    getAppinstallation: this.requestFunctionFactory(
+      descriptors.appGetAppinstallation
+    ),
+    /** start uninstallation process for a specific `AppInstallation` */
+    uninstallAppinstallation: this.requestFunctionFactory(
+      descriptors.appUninstallAppinstallation
+    ),
+    /** patch desired properties of a specific `AppInstallation` */
+    patchAppinstallation: this.requestFunctionFactory(
+      descriptors.appPatchAppinstallation
+    ),
+    /** get a specific `AppVersion` */
+    getAppversion: this.requestFunctionFactory(descriptors.appGetAppversion),
+    /** get a specific `SystemSoftware` */
+    getSystemsoftware: this.requestFunctionFactory(
+      descriptors.appGetSystemsoftware
+    ),
+    /** get a specific `SystemSoftwareVersion` */
+    getSystemsoftwareversion: this.requestFunctionFactory(
+      descriptors.appGetSystemsoftwareversion
+    ),
+    /** create linkage between an `AppInstallation` and a `Database` */
+    linkDatabase: this.requestFunctionFactory(descriptors.appLinkDatabase),
+    /** get all `AppInstallations` inside a specific `Project` */
+    listAppinstallations: this.requestFunctionFactory(
+      descriptors.appListAppinstallations
+    ),
+    /** request a new `AppInstallation` */
+    requestAppinstallation: this.requestFunctionFactory(
+      descriptors.appRequestAppinstallation
+    ),
+    /** get all available `Apps` */
+    listApps: this.requestFunctionFactory(descriptors.appListApps),
+    /** get all `AppVersions` of a specific `App` */
+    listAppversions: this.requestFunctionFactory(
+      descriptors.appListAppversions
+    ),
+    /** get all available `SystemSoftware` */
+    listSystemsoftwares: this.requestFunctionFactory(
+      descriptors.appListSystemsoftwares
+    ),
+    /** get all available `SystemSoftwareVersions` of a specific `SystemSoftware` */
+    listSystemsoftwareversions: this.requestFunctionFactory(
+      descriptors.appListSystemsoftwareversions
+    ),
+    /** get runtime status of a specific `AppInstallation` */
+    retrieveStatus: this.requestFunctionFactory(descriptors.appRetrieveStatus),
+    /** create linkage between an `AppInstallation` and `DatabaseUsers` */
+    setDatabaseUsers: this.requestFunctionFactory(
+      descriptors.appSetDatabaseUsers
+    ),
+    /** remove linkage between an `AppInstallation` and a `Database` */
+    unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
+    /** trigger `AppInstallation` to retrieve current installation status based on an appJob */
+    updateStatus: this.requestFunctionFactory(descriptors.appUpdateStatus),
+    /** get a specific `AppVersion` */
+    deprecatedAppGetAppversion: this.requestFunctionFactory(
+      descriptors.deprecatedAppGetAppversion
+    ),
+    /** get all `AppVersions` of a specific `App` */
+    deprecatedAppListAppversions: this.requestFunctionFactory(
+      descriptors.deprecatedAppListAppversions
+    ),
+  };
+
+  /** The contract API allows you to manage your contracts and orders */
+  public readonly contract = {
+    /** Get an Article. */
+    articleServiceGetArticle: this.requestFunctionFactory(
+      descriptors.articleServiceGetArticle
+    ),
+    /** List Articles. */
+    articleServiceListArticles: this.requestFunctionFactory(
+      descriptors.articleServiceListArticles
+    ),
+    /** Schedule the Termination of a ContractItem. */
+    terminateContractItem: this.requestFunctionFactory(
+      descriptors.contractTerminateContractItem
+    ),
+    /** Cancel the Termination for the referred ContractItem. */
+    cancelContractItemTermination: this.requestFunctionFactory(
+      descriptors.contractCancelContractItemTermination
+    ),
+    /** Cancel the TariffChange for the referred ContractItem. */
+    cancelContractTariffChange: this.requestFunctionFactory(
+      descriptors.contractCancelContractTariffChange
+    ),
+    /** Schedule the Termination of a Contract. */
+    terminateContract: this.requestFunctionFactory(
+      descriptors.contractTerminateContract
+    ),
+    /** Cancel the Termination for the referred Contract. */
+    cancelContractTermination: this.requestFunctionFactory(
+      descriptors.contractCancelContractTermination
+    ),
+    /** Return the BaseItem of the Contract with the given ID. */
+    getBaseItemOfContract: this.requestFunctionFactory(
+      descriptors.contractGetBaseItemOfContract
+    ),
+    /** Return the Contract for the given Domain. */
+    getDetailOfContractByDomain: this.requestFunctionFactory(
+      descriptors.contractGetDetailOfContractByDomain
+    ),
+    /** Return the Contract for the given Server. */
+    getDetailOfContractByPlacementGroup: this.requestFunctionFactory(
+      descriptors.contractGetDetailOfContractByPlacementGroup
+    ),
+    /** Return the Contract for the given Project. */
+    getDetailOfContractByProject: this.requestFunctionFactory(
+      descriptors.contractGetDetailOfContractByProject
+    ),
+    /** Get the ContractItem with the given ID. */
+    getDetailOfContractItem: this.requestFunctionFactory(
+      descriptors.contractGetDetailOfContractItem
+    ),
+    /** Returns the Contract with the given ID. */
+    getDetailOfContract: this.requestFunctionFactory(
+      descriptors.contractGetDetailOfContract
+    ),
+    /** Return the next TerminationDate for the ContractItem with the given ID. */
+    getNextTerminationDateForItem: this.requestFunctionFactory(
+      descriptors.contractGetNextTerminationDateForItem
+    ),
+    /** Return a list of Contracts for the given Customer. */
+    listContracts: this.requestFunctionFactory(
+      descriptors.contractListContracts
+    ),
+    /** Schedule the Termination of a ContractItem. */
+    deprecatedContractTerminateContractItem: this.requestFunctionFactory(
+      descriptors.deprecatedContractTerminateContractItem
+    ),
+    /** Cancel the Termination for the referred ContractItem. */
+    deprecatedContractCancelContractItemTermination:
+      this.requestFunctionFactory(
+        descriptors.deprecatedContractCancelContractItemTermination
+      ),
+    /** Cancel the TariffChange for the referred ContractItem. */
+    deprecatedContractCancelContractTariffChange: this.requestFunctionFactory(
+      descriptors.deprecatedContractCancelContractTariffChange
+    ),
+    /** Schedule the Termination of a Contract. */
+    deprecatedContractTerminateContract: this.requestFunctionFactory(
+      descriptors.deprecatedContractTerminateContract
+    ),
+    /** Cancel the Termination for the referred Contract. */
+    deprecatedContractCancelContractTermination: this.requestFunctionFactory(
+      descriptors.deprecatedContractCancelContractTermination
+    ),
+    /** This route is deprecated, please use the new one. */
+    deprecatedContractDetailOfContract: this.requestFunctionFactory(
+      descriptors.deprecatedContractDetailOfContract
+    ),
+    /** Return the BaseItem of the Contract with the given ID. */
+    deprecatedContractGetBaseItemOfContract: this.requestFunctionFactory(
+      descriptors.deprecatedContractGetBaseItemOfContract
+    ),
+    /** Return the Contract for the given Aggregate. */
+    deprecatedContractGetDetailOfContractByAggregate:
+      this.requestFunctionFactory(
+        descriptors.deprecatedContractGetDetailOfContractByAggregate
+      ),
+    /** Return the next TerminationDate for the ContractItem with the given ID. */
+    deprecatedContractGetNextTerminationDateForItem:
+      this.requestFunctionFactory(
+        descriptors.deprecatedContractGetNextTerminationDateForItem
+      ),
+    /** Get InvoiceSettings of a Customer. */
+    deprecatedInvoiceInvoiceSettings: this.requestFunctionFactory(
+      descriptors.deprecatedInvoiceInvoiceSettings
+    ),
+    /** Update InvoiceSettings of a Customer. */
+    deprecatedInvoiceUpdateInvoiceSettings: this.requestFunctionFactory(
+      descriptors.deprecatedInvoiceUpdateInvoiceSettings
+    ),
+    /** Get details of an Invoice. */
+    invoiceDetailOfInvoice: this.requestFunctionFactory(
+      descriptors.invoiceDetailOfInvoice
+    ),
+    /** Get InvoiceSettings of a Customer. */
+    invoiceGetDetailOfInvoiceSettings: this.requestFunctionFactory(
+      descriptors.invoiceGetDetailOfInvoiceSettings
+    ),
+    /** Update InvoiceSettings of a Customer. */
+    invoiceUpdateInvoiceSettings: this.requestFunctionFactory(
+      descriptors.invoiceUpdateInvoiceSettings
+    ),
+    /** List Invoices of a Customer. */
+    invoiceListCustomerInvoices: this.requestFunctionFactory(
+      descriptors.invoiceListCustomerInvoices
+    ),
+    /** Prospace tariff change order */
+    orderChangeProjecthosting: this.requestFunctionFactory(
+      descriptors.orderChangeProjecthosting
+    ),
+    /** SpaceServer order */
+    orderChangeServer: this.requestFunctionFactory(
+      descriptors.orderChangeServer
+    ),
+    /** Single order for customer */
+    orderGetOrder: this.requestFunctionFactory(descriptors.orderGetOrder),
+    /** Get list of order of a customer */
+    orderListCustomerOrders: this.requestFunctionFactory(
+      descriptors.orderListCustomerOrders
+    ),
+    /** Get list of orders of a project. */
+    orderListProjectOrders: this.requestFunctionFactory(
+      descriptors.orderListProjectOrders
+    ),
+    /** Order a domain. */
+    orderOrderDomain: this.requestFunctionFactory(descriptors.orderOrderDomain),
+    /** Prospace order */
+    orderOrderProjecthosting: this.requestFunctionFactory(
+      descriptors.orderOrderProjecthosting
+    ),
+    /** SpaceServer order */
+    orderOrderServer: this.requestFunctionFactory(descriptors.orderOrderServer),
+    /** Preview Prospace tariff change */
+    orderPreviewChangeProjecthosting: this.requestFunctionFactory(
+      descriptors.orderPreviewChangeProjecthosting
+    ),
+    /** Preview SpaceServer tariff change */
+    orderPreviewChangeServer: this.requestFunctionFactory(
+      descriptors.orderPreviewChangeServer
+    ),
+    /** Preview domain order. */
+    orderPreviewOrderDomain: this.requestFunctionFactory(
+      descriptors.orderPreviewOrderDomain
+    ),
+    /** Preview Prospace order */
+    orderPreviewOrderProjecthosting: this.requestFunctionFactory(
+      descriptors.orderPreviewOrderProjecthosting
+    ),
+    /** Preview SpaceServer order */
+    orderPreviewOrderServer: this.requestFunctionFactory(
+      descriptors.orderPreviewOrderServer
+    ),
+  };
+
+  /** The backup API allows you to manage your project backups. */
+  public readonly backup = {
+    /** Export a ProjectBackup for download. */
+    createProjectBackupExport: this.requestFunctionFactory(
+      descriptors.backupCreateProjectBackupExport
+    ),
+    /** Delete a ProjectBackupExport. */
+    deleteProjectBackupExport: this.requestFunctionFactory(
+      descriptors.backupDeleteProjectBackupExport
+    ),
+    /** List BackupSchedules belonging to a given Project. */
+    listProjectBackupSchedules: this.requestFunctionFactory(
+      descriptors.backupListProjectBackupSchedules
+    ),
+    /** Create a BackupSchedule for a Project. */
+    createProjectBackupSchedule: this.requestFunctionFactory(
+      descriptors.backupCreateProjectBackupSchedule
+    ),
+    /** List Backups for a given Project. */
+    listProjectBackups: this.requestFunctionFactory(
+      descriptors.backupListProjectBackups
+    ),
+    /** Create a Backup of a Project. */
+    createProjectBackup: this.requestFunctionFactory(
+      descriptors.backupCreateProjectBackup
+    ),
+    /** Get a ProjectBackupSchedule. */
+    getProjectBackupSchedule: this.requestFunctionFactory(
+      descriptors.backupGetProjectBackupSchedule
+    ),
+    /** Delete a ProjectBackupSchedule. */
+    deleteProjectBackupSchedule: this.requestFunctionFactory(
+      descriptors.backupDeleteProjectBackupSchedule
+    ),
+    /** Update a ProjectBackupSchedule. */
+    updateProjectBackupSchedule: this.requestFunctionFactory(
+      descriptors.backupUpdateProjectBackupSchedule
+    ),
+    /** Get a ProjectBackup. */
+    getProjectBackup: this.requestFunctionFactory(
+      descriptors.backupGetProjectBackup
+    ),
+    /** Delete a ProjectBackup. */
+    deleteProjectBackup: this.requestFunctionFactory(
+      descriptors.backupDeleteProjectBackup
+    ),
+    /** Change the description of a ProjectBackup. */
+    updateProjectBackupDescription: this.requestFunctionFactory(
+      descriptors.backupUpdateProjectBackupDescription
+    ),
+  };
+
+  /** The conversation API allows you to manage your support conversations. */
+  public readonly conversation = {
+    /** Get all conversation the authenticated user has created or has access to. */
+    listConversations: this.requestFunctionFactory(
+      descriptors.conversationListConversations
+    ),
+    /** Create a conversation. */
+    createConversation: this.requestFunctionFactory(
+      descriptors.conversationCreateConversation
+    ),
+    /** Get all message of the conversation. */
+    listMessagesByConversation: this.requestFunctionFactory(
+      descriptors.conversationListMessagesByConversation
+    ),
+    /** Send a new message in the conversation. */
+    createMessage: this.requestFunctionFactory(
+      descriptors.conversationCreateMessage
+    ),
+    /** Get a specific conversation category. */
+    getCategory: this.requestFunctionFactory(
+      descriptors.conversationGetCategory
+    ),
+    /** Get a support conversation. */
+    getConversation: this.requestFunctionFactory(
+      descriptors.conversationGetConversation
+    ),
+    /** Update the basic properties of the conversation. */
+    updateConversation: this.requestFunctionFactory(
+      descriptors.conversationUpdateConversation
+    ),
+    /** Get all conversation categories. */
+    listCategories: this.requestFunctionFactory(
+      descriptors.conversationListCategories
+    ),
+    /** Request a file upload token for the conversation. */
+    requestFileUpload: this.requestFunctionFactory(
+      descriptors.conversationRequestFileUpload
+    ),
+    /** Update the status of a conversation. */
+    setConversationStatus: this.requestFunctionFactory(
+      descriptors.conversationSetConversationStatus
+    ),
+    /** Update the content of the message */
+    updateMessage: this.requestFunctionFactory(
+      descriptors.conversationUpdateMessage
+    ),
+  };
+
+  /** The cronjob API allows you to manage cronjobs within a project. */
+  public readonly cronjob = {
+    /** Abort a CronjobExecution. */
+    abortExecution: this.requestFunctionFactory(
+      descriptors.cronjobAbortExecution
+    ),
+    /** List Cronjobs belonging to a Project. */
+    listCronjobs: this.requestFunctionFactory(descriptors.cronjobListCronjobs),
+    /** Create a Cronjob. */
+    createCronjob: this.requestFunctionFactory(
+      descriptors.cronjobCreateCronjob
+    ),
+    /** List CronjobExecutions belonging to a Cronjob. */
+    listExecutions: this.requestFunctionFactory(
+      descriptors.cronjobListExecutions
+    ),
+    /** Trigger a Cronjob. */
+    createExecution: this.requestFunctionFactory(
+      descriptors.cronjobCreateExecution
+    ),
+    /** Get a Cronjob. */
+    getCronjob: this.requestFunctionFactory(descriptors.cronjobGetCronjob),
+    /** Delete a Cronjob. */
+    deleteCronjob: this.requestFunctionFactory(
+      descriptors.cronjobDeleteCronjob
+    ),
+    /** Update a Cronjob. */
+    updateCronjob: this.requestFunctionFactory(
+      descriptors.cronjobUpdateCronjob
+    ),
+    /** Get a CronjobExecution. */
+    getExecution: this.requestFunctionFactory(descriptors.cronjobGetExecution),
+    /** Update a Cronjob's app id. */
+    updateCronjobAppId: this.requestFunctionFactory(
+      descriptors.cronjobUpdateCronjobAppId
+    ),
+  };
+
+  /** The customer API allows you to manage your own organizations and users. */
+  public readonly customer = {
+    /** Accept a CustomerInvite. */
+    acceptCustomerInvite: this.requestFunctionFactory(
+      descriptors.customerAcceptCustomerInvite
+    ),
+    /** Get all customer categories. */
+    listOfCustomerCategoriesDeprecated: this.requestFunctionFactory(
+      descriptors.customerListOfCustomerCategoriesDeprecated
+    ),
+    /** Create a new customer category. */
+    createCategoryDeprecated: this.requestFunctionFactory(
+      descriptors.customerCreateCategoryDeprecated
+    ),
+    /** Get all customer categories. */
+    listOfCustomerCategories: this.requestFunctionFactory(
+      descriptors.customerListOfCustomerCategories
+    ),
+    /** Create a new customer category. */
+    createCategory: this.requestFunctionFactory(
+      descriptors.customerCreateCategory
+    ),
+    /** Create a CustomerInvite. */
+    createCustomerInvite: this.requestFunctionFactory(
+      descriptors.customerCreateCustomerInvite
+    ),
+    /** Get all customer profiles the authenticated user has access to. */
+    listCustomers: this.requestFunctionFactory(
+      descriptors.customerListCustomers
+    ),
+    /** Create a new customer profile. */
+    createCustomer: this.requestFunctionFactory(
+      descriptors.customerCreateCustomer
+    ),
+    /** Get all notes for the customer profile. */
+    listOfNotes: this.requestFunctionFactory(descriptors.customerListOfNotes),
+    /** Add a note to the customer profile. */
+    createNote: this.requestFunctionFactory(descriptors.customerCreateNote),
+    /** Decline a CustomerInvite. */
+    declineCustomerInvite: this.requestFunctionFactory(
+      descriptors.customerDeclineCustomerInvite
+    ),
+    /** Get a customer category. */
+    detailOfCustomerCategoryDeprecated: this.requestFunctionFactory(
+      descriptors.customerDetailOfCustomerCategoryDeprecated
+    ),
+    /** Update a customer category. */
+    updateCategoryDeprecated: this.requestFunctionFactory(
+      descriptors.customerUpdateCategoryDeprecated
+    ),
+    /** Delete a customer category. */
+    deleteCategoryDeprecated: this.requestFunctionFactory(
+      descriptors.customerDeleteCategoryDeprecated
+    ),
+    /** Get a customer category. */
+    getCustomerCategory: this.requestFunctionFactory(
+      descriptors.customerGetCustomerCategory
+    ),
+    /** Update a customer category. */
+    updateCategory: this.requestFunctionFactory(
+      descriptors.customerUpdateCategory
+    ),
+    /** Delete a customer category. */
+    deleteCategory: this.requestFunctionFactory(
+      descriptors.customerDeleteCategory
+    ),
+    /** Get a CustomerInvite. */
+    getCustomerInvite: this.requestFunctionFactory(
+      descriptors.customerGetCustomerInvite
+    ),
+    /** Delete a CustomerInvite. */
+    deleteCustomerInvite: this.requestFunctionFactory(
+      descriptors.customerDeleteCustomerInvite
+    ),
+    /** Get a CustomerMembership. */
+    getCustomerMembership: this.requestFunctionFactory(
+      descriptors.customerGetCustomerMembership
+    ),
+    /** Delete a CustomerMembership. */
+    deleteCustomerMembership: this.requestFunctionFactory(
+      descriptors.customerDeleteCustomerMembership
+    ),
+    /** Update a CustomerMembership. */
+    updateCustomerMembership: this.requestFunctionFactory(
+      descriptors.customerUpdateCustomerMembership
+    ),
+    /** Get a customer profile. */
+    getCustomer: this.requestFunctionFactory(descriptors.customerGetCustomer),
+    /** Update a customer profile. */
+    updateCustomer: this.requestFunctionFactory(
+      descriptors.customerUpdateCustomer
+    ),
+    /** Delete a customer profile. */
+    deleteCustomer: this.requestFunctionFactory(
+      descriptors.customerDeleteCustomer
+    ),
+    /** Update a note of the customer profile. */
+    updateNote: this.requestFunctionFactory(descriptors.customerUpdateNote),
+    /** Delete a note from customer profile. */
+    deleteNote: this.requestFunctionFactory(descriptors.customerDeleteNote),
+    /** Get a CustomerInvite by token. */
+    getCustomerTokenInvite: this.requestFunctionFactory(
+      descriptors.customerGetCustomerTokenInvite
+    ),
+    /** Check if the customer profile has a valid contract partner configured. */
+    isCustomerLegallyCompetent: this.requestFunctionFactory(
+      descriptors.customerIsCustomerLegallyCompetent
+    ),
+    /** Leave a Customer. */
+    leaveCustomer: this.requestFunctionFactory(
+      descriptors.customerLeaveCustomer
+    ),
+    /** List all CustomerInvites for the executing user. */
+    listCustomerInvites: this.requestFunctionFactory(
+      descriptors.customerListCustomerInvites
+    ),
+    /** List all CustomerMemberships for the executing user. */
+    listCustomerMemberships: this.requestFunctionFactory(
+      descriptors.customerListCustomerMemberships
+    ),
+    /** List all invites for a Customer. */
+    listInvitesForCustomer: this.requestFunctionFactory(
+      descriptors.customerListInvitesForCustomer
+    ),
+    /** List all memberships belonging to a Customer. */
+    listMembershipsForCustomer: this.requestFunctionFactory(
+      descriptors.customerListMembershipsForCustomer
+    ),
+    /** Request a new avatar upload for the customer profile. */
+    requestAvatarUpload: this.requestFunctionFactory(
+      descriptors.customerRequestAvatarUpload
+    ),
+    /** Remove the avatar picture of the customer profile. */
+    removeAvatar: this.requestFunctionFactory(descriptors.customerRemoveAvatar),
+    /** Resend the mail for a CustomerInvite. */
+    resendCustomerInviteMail: this.requestFunctionFactory(
+      descriptors.customerResendCustomerInviteMail
+    ),
+    /** Accept a CustomerInvite. */
+    deprecatedCustomerAcceptCustomerInvite: this.requestFunctionFactory(
+      descriptors.deprecatedCustomerAcceptCustomerInvite
+    ),
+    /** Accept a CustomerInvite via a token. */
+    deprecatedCustomerAcceptCustomerInviteWithToken:
+      this.requestFunctionFactory(
+        descriptors.deprecatedCustomerAcceptCustomerInviteWithToken
+      ),
+    /** Update a CustomerMembership. */
+    deprecatedCustomerChangeCustomerMembership: this.requestFunctionFactory(
+      descriptors.deprecatedCustomerChangeCustomerMembership
+    ),
+    /** Delete a CustomerMembership. */
+    deprecatedCustomerDeleteCustomerMembership: this.requestFunctionFactory(
+      descriptors.deprecatedCustomerDeleteCustomerMembership
+    ),
+    /** Create a CustomerInvite. */
+    deprecatedCustomerCreateCustomerInvite: this.requestFunctionFactory(
+      descriptors.deprecatedCustomerCreateCustomerInvite
+    ),
+    /** Decline a CustomerInvite. */
+    deprecatedCustomerDeclineCustomerInvite: this.requestFunctionFactory(
+      descriptors.deprecatedCustomerDeclineCustomerInvite
+    ),
+    /** Get a CustomerInvite. */
+    deprecatedCustomerGetCustomerInviteSpecific: this.requestFunctionFactory(
+      descriptors.deprecatedCustomerGetCustomerInviteSpecific
+    ),
+    /** Get a CustomerMembership. */
+    deprecatedCustomerGetCustomerMembershipSpecific:
+      this.requestFunctionFactory(
+        descriptors.deprecatedCustomerGetCustomerMembershipSpecific
+      ),
+    /** Leave a Customer. */
+    deprecatedCustomerLeaveCustomer: this.requestFunctionFactory(
+      descriptors.deprecatedCustomerLeaveCustomer
+    ),
+    /** List all CustomerMemberships for the executing user. */
+    deprecatedCustomerListCustomerMembershipsForUser:
+      this.requestFunctionFactory(
+        descriptors.deprecatedCustomerListCustomerMembershipsForUser
+      ),
+    /** List all invites for a Customer. */
+    deprecatedCustomerListInvitesForCustomer: this.requestFunctionFactory(
+      descriptors.deprecatedCustomerListInvitesForCustomer
+    ),
+    /** List all memberships belonging to a Customer. */
+    deprecatedCustomerListMembershipsForCustomer: this.requestFunctionFactory(
+      descriptors.deprecatedCustomerListMembershipsForCustomer
+    ),
+    /** List all CustomerInvites for the executing user. */
+    deprecatedCustomerListOwnCustomerInvites: this.requestFunctionFactory(
+      descriptors.deprecatedCustomerListOwnCustomerInvites
+    ),
+    /** Resend the mail for a CustomerInvite. */
+    deprecatedCustomerResendCustomerInviteMail: this.requestFunctionFactory(
+      descriptors.deprecatedCustomerResendCustomerInviteMail
+    ),
+    /** Revoke a CustomerInvite. */
+    deprecatedCustomerRevokeCustomerInvite: this.requestFunctionFactory(
+      descriptors.deprecatedCustomerRevokeCustomerInvite
+    ),
+    /** Update a CustomerMembership. */
+    deprecatedCustomerUpdateCustomerMembership: this.requestFunctionFactory(
+      descriptors.deprecatedCustomerUpdateCustomerMembership
+    ),
+  };
+
+  /** The database API allows you to manage your databases, like MySQL and Redis databases. */
+  public readonly database = {
+    /** List MySQLDatabases belonging to a Project. */
+    listMysqlDatabases: this.requestFunctionFactory(
+      descriptors.databaseListMysqlDatabases
+    ),
+    /** Create a MySQLDatabase with an optional MySQLUser */
+    createMysqlDatabase: this.requestFunctionFactory(
+      descriptors.databaseCreateMysqlDatabase
+    ),
+    /** List MySQLUsers belonging to a database. */
+    listMysqlUsers: this.requestFunctionFactory(
+      descriptors.databaseListMysqlUsers
+    ),
+    /** Create a MySQLUser. */
+    createMysqlUser: this.requestFunctionFactory(
+      descriptors.databaseCreateMysqlUser
+    ),
+    /** List RedisDatabases belonging to a project. */
+    listRedisDatabases: this.requestFunctionFactory(
+      descriptors.databaseListRedisDatabases
+    ),
+    /** Create a RedisDatabase. */
+    createRedisDatabase: this.requestFunctionFactory(
+      descriptors.databaseCreateRedisDatabase
+    ),
+    /** Get a MySQLDatabase. */
+    getMysqlDatabase: this.requestFunctionFactory(
+      descriptors.databaseGetMysqlDatabase
+    ),
+    /** Delete a MySQLDatabase. */
+    deleteMysqlDatabase: this.requestFunctionFactory(
+      descriptors.databaseDeleteMysqlDatabase
+    ),
+    /** Get a MySQLUser. */
+    getMysqlUser: this.requestFunctionFactory(descriptors.databaseGetMysqlUser),
+    /** Update a MySQLUser. */
+    updateMysqlUser: this.requestFunctionFactory(
+      descriptors.databaseUpdateMysqlUser
+    ),
+    /** Delete a MySQLUser. */
+    deleteMysqlUser: this.requestFunctionFactory(
+      descriptors.databaseDeleteMysqlUser
+    ),
+    /** Get a RedisDatabase. */
+    getRedisDatabase: this.requestFunctionFactory(
+      descriptors.databaseGetRedisDatabase
+    ),
+    /** Delete a RedisDatabase. */
+    deleteRedisDatabase: this.requestFunctionFactory(
+      descriptors.databaseDeleteRedisDatabase
+    ),
+    /** Disable a MySQLUser. */
+    disableMysqlUser: this.requestFunctionFactory(
+      descriptors.databaseDisableMysqlUser
+    ),
+    /** Enable a MySQLUser. */
+    enableMysqlUser: this.requestFunctionFactory(
+      descriptors.databaseEnableMysqlUser
+    ),
+    /** Get a MySQLUser's PhpMyAdmin-URL. */
+    getMysqlUserPhpMyAdminUrl: this.requestFunctionFactory(
+      descriptors.databaseGetMysqlUserPhpMyAdminUrl
+    ),
+    /** List available MySQL character sets and collations, optionally filtered by a MySQLVersion. */
+    listMysqlCharsets: this.requestFunctionFactory(
+      descriptors.databaseListMysqlCharsets
+    ),
+    /** List available MySQLVersions. */
+    listMysqlVersions: this.requestFunctionFactory(
+      descriptors.databaseListMysqlVersions
+    ),
+    /** List available Redis versions. */
+    listRedisVersions: this.requestFunctionFactory(
+      descriptors.databaseListRedisVersions
+    ),
+    /** Update a MySQLDatabase's default character settings. */
+    deprecatedDatabaseUpdateMysqlDatabaseDefaultCharset:
+      this.requestFunctionFactory(
+        descriptors.deprecatedDatabaseUpdateMysqlDatabaseDefaultCharset
+      ),
+    /** Update a MySQLDatabase's default character settings. */
+    updateMysqlDatabaseDefaultCharset: this.requestFunctionFactory(
+      descriptors.databaseUpdateMysqlDatabaseDefaultCharset
+    ),
+    /** Update a MySQLDatabase's description. */
+    deprecatedDatabaseUpdateMysqlDatabaseDescription:
+      this.requestFunctionFactory(
+        descriptors.deprecatedDatabaseUpdateMysqlDatabaseDescription
+      ),
+    /** Update a MySQLDatabase's description. */
+    updateMysqlDatabaseDescription: this.requestFunctionFactory(
+      descriptors.databaseUpdateMysqlDatabaseDescription
+    ),
+    /** Update a MySQLUser's password. */
+    updateMysqlUserPassword: this.requestFunctionFactory(
+      descriptors.databaseUpdateMysqlUserPassword
+    ),
+    /** Update a RedisDatabase's description. */
+    deprecatedDatabaseUpdateRedisDatabaseDescription:
+      this.requestFunctionFactory(
+        descriptors.deprecatedDatabaseUpdateRedisDatabaseDescription
+      ),
+    /** Update a RedisDatabase's description. */
+    updateRedisDatabaseDescription: this.requestFunctionFactory(
+      descriptors.databaseUpdateRedisDatabaseDescription
+    ),
+    /** List MySQLDatabases belonging to a Project. */
+    deprecatedDatabaseListMysqlDatabases: this.requestFunctionFactory(
+      descriptors.deprecatedDatabaseListMysqlDatabases
+    ),
+    /** Create a MySQLDatabase. */
+    deprecatedDatabaseCreateMysqlDatabase: this.requestFunctionFactory(
+      descriptors.deprecatedDatabaseCreateMysqlDatabase
+    ),
+    /** Create a MySQLDatabase with User. */
+    deprecatedDatabaseCreateMysqlDatabaseWithUser: this.requestFunctionFactory(
+      descriptors.deprecatedDatabaseCreateMysqlDatabaseWithUser
+    ),
+    /** List RedisDatabases belonging to a project. */
+    deprecatedDatabaseListRedisDatabases: this.requestFunctionFactory(
+      descriptors.deprecatedDatabaseListRedisDatabases
+    ),
+    /** Create a RedisDatabase. */
+    deprecatedDatabaseCreateRedisDatabase: this.requestFunctionFactory(
+      descriptors.deprecatedDatabaseCreateRedisDatabase
+    ),
+    /** Get a MySQLUser. */
+    deprecatedDatabaseGetMysqlUser: this.requestFunctionFactory(
+      descriptors.deprecatedDatabaseGetMysqlUser
+    ),
+    /** Update a MySQLUser. */
+    deprecatedDatabaseUpdateMysqlUser: this.requestFunctionFactory(
+      descriptors.deprecatedDatabaseUpdateMysqlUser
+    ),
+    /** Delete a MySQLUser. */
+    deprecatedDatabaseDeleteMysqlUser: this.requestFunctionFactory(
+      descriptors.deprecatedDatabaseDeleteMysqlUser
+    ),
+    /** Disable a MySQLUser. */
+    deprecatedDatabaseDisableMysqlUser: this.requestFunctionFactory(
+      descriptors.deprecatedDatabaseDisableMysqlUser
+    ),
+    /** Enable a MySQLUser. */
+    deprecatedDatabaseEnableMysqlUser: this.requestFunctionFactory(
+      descriptors.deprecatedDatabaseEnableMysqlUser
+    ),
+    /** Get a MySQLUser's PhpMyAdmin-URL. */
+    deprecatedDatabaseGetMysqlUserPhpMyAdminUrl: this.requestFunctionFactory(
+      descriptors.deprecatedDatabaseGetMysqlUserPhpMyAdminUrl
+    ),
+    /** List available MySQL character sets and collations for a MySQLVersion. */
+    deprecatedDatabaseListMysqlCharsets: this.requestFunctionFactory(
+      descriptors.deprecatedDatabaseListMysqlCharsets
+    ),
+    /** List available MySQLVersions for a Project. */
+    deprecatedDatabaseListMysqlVersions: this.requestFunctionFactory(
+      descriptors.deprecatedDatabaseListMysqlVersions
+    ),
+    /** List available Redis versions for a project. */
+    deprecatedDatabaseListRedisVersions: this.requestFunctionFactory(
+      descriptors.deprecatedDatabaseListRedisVersions
+    ),
+    /** Update a MySQLUser's password. */
+    deprecatedDatabaseSetMysqlUserPassword: this.requestFunctionFactory(
+      descriptors.deprecatedDatabaseSetMysqlUserPassword
+    ),
+    /** Update a MySQLUser's password. */
+    deprecatedDatabaseUpdateMysqlUserPassword: this.requestFunctionFactory(
+      descriptors.deprecatedDatabaseUpdateMysqlUserPassword
+    ),
+  };
+
+  /** The membership API allows you to manage memberships and invites. */
+  public readonly membership = {
+    /** Accept an invite. */
+    deprecatedMembershipAcceptInvite: this.requestFunctionFactory(
+      descriptors.deprecatedMembershipAcceptInvite
+    ),
+    /** Decline an invite. */
+    deprecatedMembershipDeclineInvite: this.requestFunctionFactory(
+      descriptors.deprecatedMembershipDeclineInvite
+    ),
+    /** Get a membership */
+    deprecatedMembershipGetMembership: this.requestFunctionFactory(
+      descriptors.deprecatedMembershipGetMembership
+    ),
+    /** Delete a membership. */
+    deprecatedMembershipDeleteMembership: this.requestFunctionFactory(
+      descriptors.deprecatedMembershipDeleteMembership
+    ),
+    /** Get an invite. */
+    deprecatedMembershipGetInvite: this.requestFunctionFactory(
+      descriptors.deprecatedMembershipGetInvite
+    ),
+    /** Leave a membership. */
+    deprecatedMembershipLeaveMembership: this.requestFunctionFactory(
+      descriptors.deprecatedMembershipLeaveMembership
+    ),
+    /** List invites for the user. */
+    deprecatedMembershipListInvites: this.requestFunctionFactory(
+      descriptors.deprecatedMembershipListInvites
+    ),
+    /** List all memberships for the user. */
+    deprecatedMembershipListMemberships: this.requestFunctionFactory(
+      descriptors.deprecatedMembershipListMemberships
+    ),
+    /** Resend the mail for an invite. */
+    deprecatedMembershipResendInviteMail: this.requestFunctionFactory(
+      descriptors.deprecatedMembershipResendInviteMail
+    ),
+    /** Revoke an invite. */
+    deprecatedMembershipRevokeInvite: this.requestFunctionFactory(
+      descriptors.deprecatedMembershipRevokeInvite
+    ),
+  };
+
+  /** The project API allows you to manage your projects, and also any kinds of user memberships concerning these projects. */
+  public readonly project = {
+    /** Accept a ProjectInvite. */
+    deprecatedProjectAcceptProjectInvite: this.requestFunctionFactory(
+      descriptors.deprecatedProjectAcceptProjectInvite
+    ),
+    /** Accept a ProjectInvite via a token. */
+    deprecatedProjectAcceptProjectInviteWithToken: this.requestFunctionFactory(
+      descriptors.deprecatedProjectAcceptProjectInviteWithToken
+    ),
+    /** Update a ProjectMembership. */
+    deprecatedProjectChangeProjectMembership: this.requestFunctionFactory(
+      descriptors.deprecatedProjectChangeProjectMembership
+    ),
+    /** Delete a ProjectMembership. */
+    deprecatedProjectDeleteProjectMembership: this.requestFunctionFactory(
+      descriptors.deprecatedProjectDeleteProjectMembership
+    ),
+    /** Create a ProjectInvite. */
+    deprecatedProjectCreateProjectInvite: this.requestFunctionFactory(
+      descriptors.deprecatedProjectCreateProjectInvite
+    ),
+    /** Decline a ProjectInvite. */
+    deprecatedProjectDeclineProjectInvite: this.requestFunctionFactory(
+      descriptors.deprecatedProjectDeclineProjectInvite
+    ),
+    /** Get a ProjectInvite. */
+    deprecatedProjectGetProjectInviteSpecific: this.requestFunctionFactory(
+      descriptors.deprecatedProjectGetProjectInviteSpecific
+    ),
+    /** Get a ProjectMembership */
+    deprecatedProjectGetProjectMembershipSpecific: this.requestFunctionFactory(
+      descriptors.deprecatedProjectGetProjectMembershipSpecific
+    ),
+    /** Leave a Project. */
+    deprecatedProjectLeaveProject: this.requestFunctionFactory(
+      descriptors.deprecatedProjectLeaveProject
+    ),
+    /** List all invites belonging to a Project. */
+    deprecatedProjectListInvitesForProject: this.requestFunctionFactory(
+      descriptors.deprecatedProjectListInvitesForProject
+    ),
+    /** List all memberships for a Project. */
+    deprecatedProjectListMembershipsForProject: this.requestFunctionFactory(
+      descriptors.deprecatedProjectListMembershipsForProject
+    ),
+    /** List all ProjectInvites for the executing user. */
+    deprecatedProjectListOwnProjectInvites: this.requestFunctionFactory(
+      descriptors.deprecatedProjectListOwnProjectInvites
+    ),
+    /** List ProjectMemberships belonging to the executing user. */
+    deprecatedProjectListProjectMembershipsForUser: this.requestFunctionFactory(
+      descriptors.deprecatedProjectListProjectMembershipsForUser
+    ),
+    /** Resend the mail for a ProjectInvite. */
+    deprecatedProjectResendProjectInviteMail: this.requestFunctionFactory(
+      descriptors.deprecatedProjectResendProjectInviteMail
+    ),
+    /** Revoke a ProjectInvite. */
+    deprecatedProjectRevokeProjectInvite: this.requestFunctionFactory(
+      descriptors.deprecatedProjectRevokeProjectInvite
+    ),
+    /** Update a ProjectMembership. */
+    deprecatedProjectUpdateProjectMembership: this.requestFunctionFactory(
+      descriptors.deprecatedProjectUpdateProjectMembership
+    ),
+    /** Accept a ProjectInvite. */
+    acceptProjectInvite: this.requestFunctionFactory(
+      descriptors.projectAcceptProjectInvite
+    ),
+    /** Create a ProjectInvite. */
+    createProjectInvite: this.requestFunctionFactory(
+      descriptors.projectCreateProjectInvite
+    ),
+    /** Create a Project belonging to a Server. */
+    createProject: this.requestFunctionFactory(
+      descriptors.projectCreateProject
+    ),
+    /** Decline a ProjectInvite. */
+    declineProjectInvite: this.requestFunctionFactory(
+      descriptors.projectDeclineProjectInvite
+    ),
+    /** Request a Project avatar upload. */
+    requestProjectAvatarUpload: this.requestFunctionFactory(
+      descriptors.projectRequestProjectAvatarUpload
+    ),
+    /** Delete a Project's avatar. */
+    deleteProjectAvatar: this.requestFunctionFactory(
+      descriptors.projectDeleteProjectAvatar
+    ),
+    /** Get a ProjectInvite. */
+    getProjectInvite: this.requestFunctionFactory(
+      descriptors.projectGetProjectInvite
+    ),
+    /** Delete a ProjectInvite. */
+    deleteProjectInvite: this.requestFunctionFactory(
+      descriptors.projectDeleteProjectInvite
+    ),
+    /** Get a ProjectMembership */
+    getProjectMembership: this.requestFunctionFactory(
+      descriptors.projectGetProjectMembership
+    ),
+    /** Delete a ProjectMembership. */
+    deleteProjectMembership: this.requestFunctionFactory(
+      descriptors.projectDeleteProjectMembership
+    ),
+    /** Update a ProjectMembership. */
+    updateProjectMembership: this.requestFunctionFactory(
+      descriptors.projectUpdateProjectMembership
+    ),
+    /** Delete a Project. */
+    deleteProject: this.requestFunctionFactory(
+      descriptors.projectDeleteProject
+    ),
+    /** Request a Server avatar upload. */
+    requestServerAvatarUpload: this.requestFunctionFactory(
+      descriptors.projectRequestServerAvatarUpload
+    ),
+    /** Delete a Server's avatar. */
+    deleteServerAvatar: this.requestFunctionFactory(
+      descriptors.projectDeleteServerAvatar
+    ),
+    /** Get the executing user's membership in a Project. */
+    getOwnMembershipForProject: this.requestFunctionFactory(
+      descriptors.projectGetOwnMembershipForProject
+    ),
+    /** Get a ProjectInvite by token. */
+    getProjectTokenInvite: this.requestFunctionFactory(
+      descriptors.projectGetProjectTokenInvite
+    ),
+    /** Get a Project. */
+    getProject: this.requestFunctionFactory(descriptors.projectGetProject),
+    /** Get a Server. */
+    getServer: this.requestFunctionFactory(descriptors.projectGetServer),
+    /** Leave a Project. */
+    leaveProject: this.requestFunctionFactory(descriptors.projectLeaveProject),
+    /** List all invites belonging to a Project. */
+    listInvitesForProject: this.requestFunctionFactory(
+      descriptors.projectListInvitesForProject
+    ),
+    /** List all memberships for a Project. */
+    listMembershipsForProject: this.requestFunctionFactory(
+      descriptors.projectListMembershipsForProject
+    ),
+    /** List all ProjectInvites for the executing user. */
+    listProjectInvites: this.requestFunctionFactory(
+      descriptors.projectListProjectInvites
+    ),
+    /** List ProjectMemberships belonging to the executing user. */
+    listProjectMemberships: this.requestFunctionFactory(
+      descriptors.projectListProjectMemberships
+    ),
+    /** List Project's for an Organization or Server. */
+    listProjects: this.requestFunctionFactory(descriptors.projectListProjects),
+    /** List Servers for an Organization or User. */
+    listServers: this.requestFunctionFactory(descriptors.projectListServers),
+    /** Resend the mail for a ProjectInvite. */
+    resendProjectInviteMail: this.requestFunctionFactory(
+      descriptors.projectResendProjectInviteMail
+    ),
+    /** Update a Project's description. */
+    updateProjectDescription: this.requestFunctionFactory(
+      descriptors.projectUpdateProjectDescription
+    ),
+    /** Update a Servers's description. */
+    updateServerDescription: this.requestFunctionFactory(
+      descriptors.projectUpdateServerDescription
+    ),
+  };
+
+  /** The domain API allows you to manage your domains, DNS records and ingress resources. */
+  public readonly domain = {
+    /** updates a-records for a specific zone */
+    dnsRecordAsetCustom: this.requestFunctionFactory(
+      descriptors.dnsRecordAsetCustom
+    ),
+    /** set a-records managed by ingress for a specific zone */
+    dnsRecordAsetManagedByIngress: this.requestFunctionFactory(
+      descriptors.dnsRecordAsetManagedByIngress
+    ),
+    /** updates cname-record for a specific zone */
+    dnsRecordCnameSet: this.requestFunctionFactory(
+      descriptors.dnsRecordCnameSet
+    ),
+    /** updates mx-records for a specific zone */
+    dnsRecordMxSetCustom: this.requestFunctionFactory(
+      descriptors.dnsRecordMxSetCustom
+    ),
+    /** sets mx-records to managed for a specific zone */
+    dnsRecordMxSetManaged: this.requestFunctionFactory(
+      descriptors.dnsRecordMxSetManaged
+    ),
+    /** updates txt-records for a specific zone */
+    dnsRecordTxtSet: this.requestFunctionFactory(descriptors.dnsRecordTxtSet),
+    /** gets a specific zone */
+    dnsZoneGetSpecific: this.requestFunctionFactory(
+      descriptors.dnsZoneGetSpecific
+    ),
+    /** gets all dns zones by project id */
+    dnsZonesForProject: this.requestFunctionFactory(
+      descriptors.dnsZonesForProject
+    ),
+    /** Abort a declare process. */
+    serviceAbortDeclareProcess: this.requestFunctionFactory(
+      descriptors.domainServiceAbortDeclareProcess
+    ),
+    /** Change the ownerC of a domain. */
+    serviceChangeOwnercOfDomain: this.requestFunctionFactory(
+      descriptors.domainServiceChangeOwnercOfDomain
+    ),
+    /** Change the Project relation of a Domain. */
+    serviceChangeProjectOfDomain: this.requestFunctionFactory(
+      descriptors.domainServiceChangeProjectOfDomain
+    ),
+    /** Check if a Domain is available to register. */
+    serviceCheckDomainAvailability: this.requestFunctionFactory(
+      descriptors.domainServiceCheckDomainAvailability
+    ),
+    /** Create an AuthCode for a Domains transfer out process. */
+    serviceCreateAuthcodeForDomain: this.requestFunctionFactory(
+      descriptors.domainServiceCreateAuthcodeForDomain
+    ),
+    /** Create an AuthCode2. */
+    serviceCreateAuthcode2ForDomain: this.requestFunctionFactory(
+      descriptors.domainServiceCreateAuthcode2ForDomain
+    ),
+    /** Change all nameservers of a Domain. */
+    serviceDeclareNameservers: this.requestFunctionFactory(
+      descriptors.domainServiceDeclareNameservers
+    ),
+    /** Update an AuthCode. */
+    serviceDeclareProcessChangeAuthcode: this.requestFunctionFactory(
+      descriptors.domainServiceDeclareProcessChangeAuthcode
+    ),
+    /** Update a Domain's OwnerC handle. */
+    serviceDeclareProcessChangeHandles: this.requestFunctionFactory(
+      descriptors.domainServiceDeclareProcessChangeHandles
+    ),
+    /** Get a Domain. */
+    serviceGetDomain: this.requestFunctionFactory(
+      descriptors.domainServiceGetDomain
+    ),
+    /** Delete a Domain. */
+    serviceDeleteDomain: this.requestFunctionFactory(
+      descriptors.domainServiceDeleteDomain
+    ),
+    /** Get a HandleSchema. */
+    serviceGetHandleFields: this.requestFunctionFactory(
+      descriptors.domainServiceGetHandleFields
+    ),
+    /** Get a domain ownership. */
+    serviceGetSpecificDomainOwnership: this.requestFunctionFactory(
+      descriptors.domainServiceGetSpecificDomainOwnership
+    ),
+    /** Verify a domain ownership. */
+    serviceVerifyDomainOwnership: this.requestFunctionFactory(
+      descriptors.domainServiceVerifyDomainOwnership
+    ),
+    /** Get a toplevel domain. */
+    serviceGetToplevelDomain: this.requestFunctionFactory(
+      descriptors.domainServiceGetToplevelDomain
+    ),
+    /** List all domain ownerships of a project. */
+    serviceListDomainOwnerships: this.requestFunctionFactory(
+      descriptors.domainServiceListDomainOwnerships
+    ),
+    /** List Domains belonging to a Project. */
+    serviceListDomains: this.requestFunctionFactory(
+      descriptors.domainServiceListDomains
+    ),
+    /** List all supported toplevel domains. */
+    serviceListToplevelDomains: this.requestFunctionFactory(
+      descriptors.domainServiceListToplevelDomains
+    ),
+    /** Resend a domain email. */
+    serviceResendDomainEmail: this.requestFunctionFactory(
+      descriptors.domainServiceResendDomainEmail
+    ),
+    /** Create an Ingress. */
+    ingressServiceCreate: this.requestFunctionFactory(
+      descriptors.ingressServiceCreate
+    ),
+    /** Get an Ingress. */
+    ingressServiceGetSpecific: this.requestFunctionFactory(
+      descriptors.ingressServiceGetSpecific
+    ),
+    /** Delete an Ingress. */
+    ingressServiceDelete: this.requestFunctionFactory(
+      descriptors.ingressServiceDelete
+    ),
+    /** List Ingresses the user has access to. */
+    ingressServiceListAccessible: this.requestFunctionFactory(
+      descriptors.ingressServiceListAccessible
+    ),
+    /** List Ingresses belonging to a project. */
+    ingressServiceListForProject: this.requestFunctionFactory(
+      descriptors.ingressServiceListForProject
+    ),
+    /** Update an Ingresses paths. */
+    ingressServicePaths: this.requestFunctionFactory(
+      descriptors.ingressServicePaths
+    ),
+    /** Update an Ingresses tls settings. */
+    ingressServiceTls: this.requestFunctionFactory(
+      descriptors.ingressServiceTls
+    ),
+  };
+
+  /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
+  public readonly file = {
+    /** Create a File. */
+    createFile: this.requestFunctionFactory(descriptors.fileCreateFile),
+    /** Get a File's meta. */
+    getFileMeta: this.requestFunctionFactory(descriptors.fileGetFileMeta),
+    /** Get a Token's upload rules. */
+    getFileTokenRules: this.requestFunctionFactory(
+      descriptors.fileGetFileTokenRules
+    ),
+    /** Get a Type's upload rules. */
+    getFileTypeRules: this.requestFunctionFactory(
+      descriptors.fileGetFileTypeRules
+    ),
+    /** Get a File. */
+    getFile: this.requestFunctionFactory(descriptors.fileGetFile),
+  };
+
+  /** The mail API allows you to manage your mail accounts. */
+  public readonly mail = {
+    /** Get all deliveryboxes by project ID */
+    serviceDeliveryboxList: this.requestFunctionFactory(
+      descriptors.mailServiceDeliveryboxList
+    ),
+    /** Create a new deliverybox */
+    serviceDeliveryboxCreate: this.requestFunctionFactory(
+      descriptors.mailServiceDeliveryboxCreate
+    ),
+    /** Get a specific deliverybox */
+    serviceDeliveryboxGetSpecific: this.requestFunctionFactory(
+      descriptors.mailServiceDeliveryboxGetSpecific
+    ),
+    /** Delete a specific deliverybox */
+    serviceDeliveryboxDelete: this.requestFunctionFactory(
+      descriptors.mailServiceDeliveryboxDelete
+    ),
+    /** Update the description of an deliverybox */
+    serviceDeliveryboxUpdateDescription: this.requestFunctionFactory(
+      descriptors.mailServiceDeliveryboxUpdateDescription
+    ),
+    /** Update the password for a specific deliverybox */
+    serviceDeliveryboxUpdatePassword: this.requestFunctionFactory(
+      descriptors.mailServiceDeliveryboxUpdatePassword
+    ),
+    /** Get all mail addresses for a project ID */
+    serviceMailaddressList: this.requestFunctionFactory(
+      descriptors.mailServiceMailaddressList
+    ),
+    /** Create a new mail address */
+    serviceMailaddressCreate: this.requestFunctionFactory(
+      descriptors.mailServiceMailaddressCreate
+    ),
+    /** Get a specific mail address */
+    serviceMailaddressGetSpecific: this.requestFunctionFactory(
+      descriptors.mailServiceMailaddressGetSpecific
+    ),
+    /** Delete a specific mail address */
+    serviceMailaddressDelete: this.requestFunctionFactory(
+      descriptors.mailServiceMailaddressDelete
+    ),
+    /** Update mail-address */
+    serviceMailaddressUpdateAddress: this.requestFunctionFactory(
+      descriptors.mailServiceMailaddressUpdateAddress
+    ),
+    /** Update the auto responder of a mail address */
+    serviceMailaddressUpdateAutoresponder: this.requestFunctionFactory(
+      descriptors.mailServiceMailaddressUpdateAutoresponder
+    ),
+    /** Enable or disable the catchAll flag for a specific mail address */
+    serviceMailaddressUpdateCatchall: this.requestFunctionFactory(
+      descriptors.mailServiceMailaddressUpdateCatchall
+    ),
+    /** Update the addresses an email is forwarded to */
+    serviceMailaddressUpdateForwardaddresses: this.requestFunctionFactory(
+      descriptors.mailServiceMailaddressUpdateForwardaddresses
+    ),
+    /** Update the password for a specific mail address */
+    serviceMailaddressUpdatePassword: this.requestFunctionFactory(
+      descriptors.mailServiceMailaddressUpdatePassword
+    ),
+    /** Update the quota of a mailbox */
+    serviceMailaddressUpdateQuota: this.requestFunctionFactory(
+      descriptors.mailServiceMailaddressUpdateQuota
+    ),
+    /** Update the spamprotection of a mailbox */
+    serviceMailaddressUpdateSpamprotection: this.requestFunctionFactory(
+      descriptors.mailServiceMailaddressUpdateSpamprotection
+    ),
+    /** Get settings for a given project ID */
+    serviceProjectsettingGetSpecific: this.requestFunctionFactory(
+      descriptors.mailServiceProjectsettingGetSpecific
+    ),
+    /** Update blacklist for a given project ID */
+    serviceProjectsettingUpdateBlacklist: this.requestFunctionFactory(
+      descriptors.mailServiceProjectsettingUpdateBlacklist
+    ),
+    /** Update whitelist for a given project ID */
+    serviceProjectsettingUpdateWhitelist: this.requestFunctionFactory(
+      descriptors.mailServiceProjectsettingUpdateWhitelist
+    ),
+  };
+
+  /** The notification API allows you to manage your notifications. */
+  public readonly notification = {
+    /** getting the subscription status of the subscription */
+    newsletterGetInfo: this.requestFunctionFactory(
+      descriptors.newsletterGetInfo
+    ),
+    /** unsubscribe a user from the mStudio newsletter */
+    newsletterUnsubscribeUser: this.requestFunctionFactory(
+      descriptors.newsletterUnsubscribeUser
+    ),
+    /** subscribe a user to the mStudio newsletter */
+    newsletterSubscribeUser: this.requestFunctionFactory(
+      descriptors.newsletterSubscribeUser
+    ),
+    /** Get the counts for unread notifications of the user. */
+    scountUnreadNotifications: this.requestFunctionFactory(
+      descriptors.notificationsCountUnreadNotifications
+    ),
+    /** List all unread notifications */
+    slistNotifications: this.requestFunctionFactory(
+      descriptors.notificationsListNotifications
+    ),
+    /** Mark all notifications as read. */
+    sreadAllNotifications: this.requestFunctionFactory(
+      descriptors.notificationsReadAllNotifications
+    ),
+    /** Mark notification as read. */
+    sreadNotification: this.requestFunctionFactory(
+      descriptors.notificationsReadNotification
+    ),
+  };
+
+  /** The filesystem API allows you to directly access the filesystem of your project. */
+  public readonly projectFileSystem = {
+    /** List the directories of a Project. */
+    getDirectories: this.requestFunctionFactory(
+      descriptors.projectFileSystemGetDirectories
+    ),
+    /** Get a Project directory filesystem usage. */
+    getDiskUsage: this.requestFunctionFactory(
+      descriptors.projectFileSystemGetDiskUsage
+    ),
+    /** Get a Project file's content. */
+    getFileContent: this.requestFunctionFactory(
+      descriptors.projectFileSystemGetFileContent
+    ),
+    /** Get a Project's file/filesystem authorization token. */
+    getJwt: this.requestFunctionFactory(descriptors.projectFileSystemGetJwt),
+    /** Get a Project file's information. */
+    listFiles: this.requestFunctionFactory(
+      descriptors.projectFileSystemListFiles
+    ),
+  };
+
+  /** The user API allows you to manage your own user and access information of other users that might be visible to you. */
+  public readonly user = {
+    /** List all ApiTokens of the user */
+    signupApiApiTokenList: this.requestFunctionFactory(
+      descriptors.signupApiApiTokenList
+    ),
+    /** Store a new ApiToken */
+    signupApiApiTokenCreate: this.requestFunctionFactory(
+      descriptors.signupApiApiTokenCreate
+    ),
+    /** Get a specific ApiToken */
+    signupApiApiTokenGet: this.requestFunctionFactory(
+      descriptors.signupApiApiTokenGet
+    ),
+    /** Update an existing `ApiToken` */
+    signupApiApiTokenEdit: this.requestFunctionFactory(
+      descriptors.signupApiApiTokenEdit
+    ),
+    /** Deletes an ApiToken */
+    signupApiApiTokenDelete: this.requestFunctionFactory(
+      descriptors.signupApiApiTokenDelete
+    ),
+    /** Authenticate yourself to get an access token. */
+    signupApiAuthenticate: this.requestFunctionFactory(
+      descriptors.signupApiAuthenticate
+    ),
+    /** Authenticate yourself against your legacy account to migrate it with the '/registration'-Route */
+    signupApiAuthenticateLegacy: this.requestFunctionFactory(
+      descriptors.signupApiAuthenticateLegacy
+    ),
+    /** Validate your second factor. */
+    signupApiAuthenticateMfa: this.requestFunctionFactory(
+      descriptors.signupApiAuthenticateMfa
+    ),
+    /** Request a new avatar upload */
+    signupApiAvatarRequestUpload: this.requestFunctionFactory(
+      descriptors.signupApiAvatarRequestUpload
+    ),
+    /** Remove avatar */
+    signupApiAvatarRemove: this.requestFunctionFactory(
+      descriptors.signupApiAvatarRemove
+    ),
+    /** Get your primary verified email address */
+    signupApiEmailGet: this.requestFunctionFactory(
+      descriptors.signupApiEmailGet
+    ),
+    /** Change your email */
+    signupApiEmailChange: this.requestFunctionFactory(
+      descriptors.signupApiEmailChange
+    ),
+    /** Resend the email address verification email */
+    signupApiEmailResend: this.requestFunctionFactory(
+      descriptors.signupApiEmailResend
+    ),
+    /** Verify an added email address */
+    signupApiEmailVerify: this.requestFunctionFactory(
+      descriptors.signupApiEmailVerify
+    ),
+    /** Terminate session and invalidate access token */
+    signupApiLogout: this.requestFunctionFactory(descriptors.signupApiLogout),
+    /** Confirm Multi Factor Authentication */
+    signupApiMfaConfirm: this.requestFunctionFactory(
+      descriptors.signupApiMfaConfirm
+    ),
+    /** Get your current multi factor auth status */
+    signupApiMfaGetStatus: this.requestFunctionFactory(
+      descriptors.signupApiMfaGetStatus
+    ),
+    /** Initialize Multi Factor Authentication. If successfull, it needs to be confirmed, before usage of mfa. */
+    signupApiMfaInit: this.requestFunctionFactory(descriptors.signupApiMfaInit),
+    /** Disable Multi Factor Authentication. */
+    signupApiMfaDisable: this.requestFunctionFactory(
+      descriptors.signupApiMfaDisable
+    ),
+    /** Get timestamp of your latest password change */
+    signupApiPasswordGetUpdatedAt: this.requestFunctionFactory(
+      descriptors.signupApiPasswordGetUpdatedAt
+    ),
+    /** Change your password */
+    signupApiPasswordChange: this.requestFunctionFactory(
+      descriptors.signupApiPasswordChange
+    ),
+    /** Confirm password reset */
+    signupApiPasswordResetConfirm: this.requestFunctionFactory(
+      descriptors.signupApiPasswordResetConfirm
+    ),
+    /** Initialize password reset process */
+    signupApiPasswordResetInit: this.requestFunctionFactory(
+      descriptors.signupApiPasswordResetInit
+    ),
+    /** Get current phone number */
+    signupApiPhoneNumberGet: this.requestFunctionFactory(
+      descriptors.signupApiPhoneNumberGet
+    ),
+    /** Initialize phone number process */
+    signupApiPhoneNumberInitProcess: this.requestFunctionFactory(
+      descriptors.signupApiPhoneNumberInitProcess
+    ),
+    /** Deletes phone number */
+    signupApiPhoneNumberDelete: this.requestFunctionFactory(
+      descriptors.signupApiPhoneNumberDelete
+    ),
+    /** Initialize phone number process */
+    signupApiPhoneNumberVerify: this.requestFunctionFactory(
+      descriptors.signupApiPhoneNumberVerify
+    ),
+    /** Get your profile information */
+    signupApiProfileGet: this.requestFunctionFactory(
+      descriptors.signupApiProfileGet
+    ),
+    /** Change your profile information */
+    signupApiProfileChange: this.requestFunctionFactory(
+      descriptors.signupApiProfileChange
+    ),
+    /** Delete your profile and all your personal data */
+    signupApiProfileDelete: this.requestFunctionFactory(
+      descriptors.signupApiProfileDelete
+    ),
+    /** Reset Recovery-Codes for MFA */
+    signupApiRecoverycodesReset: this.requestFunctionFactory(
+      descriptors.signupApiRecoverycodesReset
+    ),
+    /** Register with email and password.
+     */
+    signupApiRegister: this.requestFunctionFactory(
+      descriptors.signupApiRegister
+    ),
+    /** Verify your registration */
+    signupApiRegistrationVerify: this.requestFunctionFactory(
+      descriptors.signupApiRegistrationVerify
+    ),
+    /** Get a specific session of an authorized user */
+    signupApiSessionGet: this.requestFunctionFactory(
+      descriptors.signupApiSessionGet
+    ),
+    /** Terminate a specific session of an authorized user */
+    signupApiSessionTerminate: this.requestFunctionFactory(
+      descriptors.signupApiSessionTerminate
+    ),
+    /** List all active sessions of authorized user */
+    signupApiSessionsList: this.requestFunctionFactory(
+      descriptors.signupApiSessionsList
+    ),
+    /** Terminate all session of an authorized user, except his current session */
+    signupApiSessionsTerminateAll: this.requestFunctionFactory(
+      descriptors.signupApiSessionsTerminateAll
+    ),
+    /** Get your stored ssh keys */
+    signupApiSshList: this.requestFunctionFactory(descriptors.signupApiSshList),
+    /** Store a new SSH key */
+    signupApiSshCreate: this.requestFunctionFactory(
+      descriptors.signupApiSshCreate
+    ),
+    /** Get your stored ssh keys */
+    signupApiSshGet: this.requestFunctionFactory(descriptors.signupApiSshGet),
+    /** Edit an existing SSH key */
+    signupApiSshEdit: this.requestFunctionFactory(descriptors.signupApiSshEdit),
+    /** Remove an existing SSH Key */
+    signupApiSshDelete: this.requestFunctionFactory(
+      descriptors.signupApiSshDelete
+    ),
+    /** request a support code */
+    signupApiSupportCodeRequest: this.requestFunctionFactory(
+      descriptors.signupApiSupportCodeRequest
+    ),
+    /** Check, if the current access token is valid */
+    signupApiTokenCheck: this.requestFunctionFactory(
+      descriptors.signupApiTokenCheck
+    ),
+    /** Request a new avatar upload */
+    serviceAvatarRequestUpload: this.requestFunctionFactory(
+      descriptors.userServiceAvatarRequestUpload
+    ),
+    /** Remove avatar */
+    serviceAvatarRemove: this.requestFunctionFactory(
+      descriptors.userServiceAvatarRemove
+    ),
+    /** Returns your given feedback. */
+    serviceFeedbackList: this.requestFunctionFactory(
+      descriptors.userServiceFeedbackList
+    ),
+    /**  */
+    serviceFeedbackCreate: this.requestFunctionFactory(
+      descriptors.userServiceFeedbackCreate
+    ),
+    /** create a new issue */
+    serviceIssueNew: this.requestFunctionFactory(
+      descriptors.userServiceIssueNew
+    ),
+    /** Get profile information for the specified user */
+    serviceUserGet: this.requestFunctionFactory(descriptors.userServiceUserGet),
+    /** Change your personal information */
+    servicePersonalInformationUpdate: this.requestFunctionFactory(
+      descriptors.userServicePersonalInformationUpdate
+    ),
+    /** Get personalized settings for the specified user */
+    servicePersonalizedSettingsGet: this.requestFunctionFactory(
+      descriptors.userServicePersonalizedSettingsGet
+    ),
+    /** update personalized settings */
+    servicePersonalizedSettingsUpdate: this.requestFunctionFactory(
+      descriptors.userServicePersonalizedSettingsUpdate
+    ),
+    /** Add phone number and init verification process */
+    servicePhoneNumberAdd: this.requestFunctionFactory(
+      descriptors.userServicePhoneNumberAdd
+    ),
+    /** Deletes phone number */
+    servicePhoneNumberRemove: this.requestFunctionFactory(
+      descriptors.userServicePhoneNumberRemove
+    ),
+    /** Verify phone number */
+    servicePhoneNumberVerify: this.requestFunctionFactory(
+      descriptors.userServicePhoneNumberVerify
+    ),
+    /** Get profile information for the specified user */
+    serviceUserGetOwn: this.requestFunctionFactory(
+      descriptors.userServiceUserGetOwn
+    ),
+  };
+
+  /** The SSH User API allows you to manage your SSH users within a project. */
+  public readonly sshUser = {
+    /** Get all SSHUsers for a Project. */
+    listSshUsers: this.requestFunctionFactory(descriptors.sshUserListSshUsers),
+    /** Create an SSHUser for a Project. */
+    createSshUser: this.requestFunctionFactory(
+      descriptors.sshUserCreateSshUser
+    ),
+    /** Get an SSHUser. */
+    getSshUser: this.requestFunctionFactory(descriptors.sshUserGetSshUser),
+    /** Delete an SSHUser. */
+    deleteSshUser: this.requestFunctionFactory(
+      descriptors.sshUserDeleteSshUser
+    ),
+    /** Update an SSHUser. */
+    updateSshUser: this.requestFunctionFactory(
+      descriptors.sshUserUpdateSshUser
+    ),
+  };
+
+  /** The varnish API allows you to manage your varnish caches. */
+  public readonly varnish = {
+    /** List all available validators. */
+    serviceListValidators: this.requestFunctionFactory(
+      descriptors.varnishServiceListValidators
+    ),
+    /** validate a set of config files with a named validator against a specific version */
+    serviceValidate: this.requestFunctionFactory(
+      descriptors.varnishServiceValidate
+    ),
+  };
 }
 
-export default MittwaldApiV2Client;
+export default MittwaldAPIV2Client;
