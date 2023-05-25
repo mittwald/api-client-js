@@ -7,8 +7,8 @@
   "scripts": {
     "generate:client": "yarn generate:client:v2",
     "generate:client-dev": "yarn generate:client-dev:v2",
-    "generate:client-dev:v2": "curl https://api.mittwald.de/openapi | ./transform-openapi.sh | yarn acg generate --name MittwaldAPIV2 - src/generated/v2 --optionalHeader x-access-token",
-    "generate:client:v2": "curl https://api-public.dev.mittwald.systems/openapi | ./transform-openapi.sh | yarn acg generate --name MittwaldAPIV2 - src/generated/v2 --optionalHeader x-access-token"
+    "generate:client-dev:v2": "curl https://api-public.dev.mittwald.systems/openapi | ./transform-openapi.sh | yarn acg generate --name MittwaldAPIV2 - src/generated/v2 --optionalHeader x-access-token",
+    "generate:client:v2": "curl https://api.mittwald.de/openapi | ./transform-openapi.sh | yarn acg generate --name MittwaldAPIV2 - src/generated/v2 --optionalHeader x-access-token"
   },
   "files": [
     "dist/**/*.{js,d.ts}"
