@@ -17,7 +17,7 @@ export class UniversalFileLoader implements FileLoader {
       if (this.source.startsWith("http")) {
         return UniversalFileLoader.loadFromUrl(this.source);
       }
-      if (this.source === "/dev/stdin") {
+      if (this.source === "/dev/stdin" || this.source === "-") {
         return UniversalFileLoader.loadFromStdin();
       }
       return UniversalFileLoader.loadFromFile(this.source);
