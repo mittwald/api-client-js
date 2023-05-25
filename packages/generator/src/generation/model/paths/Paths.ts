@@ -51,6 +51,7 @@ export class Paths {
     };
 
     return `\
+      /// <reference types="./types.d.ts" />    
       import { Simplify } from "@mittwald/api-client-commons/dist/type-fest.js";
       import { Request } from "@mittwald/api-client-commons/dist/types/Request.js";
       import { Response } from "@mittwald/api-client-commons/dist/types/Response.js";
