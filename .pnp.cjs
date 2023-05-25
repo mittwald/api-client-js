@@ -1430,6 +1430,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["clone-deep", "npm:4.0.1"],\
             ["dot-prop", "npm:8.0.0"],\
             ["fs-jetpack", "npm:5.1.0"],\
+            ["get-stdin", "npm:9.0.0"],\
             ["invariant", "npm:2.2.4"],\
             ["jest", "virtual:c806312c909ada0ed265736a6af40332d2accb083795ab196b921d4f525eaa216b5e743a115a866243d43c53d134d2f487232e8b22a59cccd45e185864151961#npm:29.5.0"],\
             ["js-yaml", "npm:4.1.0"],\
@@ -4936,6 +4937,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/get-stdin-npm-8.0.0-920f876bc2-40128b6cd2.zip/node_modules/get-stdin/",\
           "packageDependencies": [\
             ["get-stdin", "npm:8.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:9.0.0", {\
+          "packageLocation": "./.yarn/cache/get-stdin-npm-9.0.0-4221477153-5972bc34d0.zip/node_modules/get-stdin/",\
+          "packageDependencies": [\
+            ["get-stdin", "npm:9.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\

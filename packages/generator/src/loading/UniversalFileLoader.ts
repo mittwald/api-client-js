@@ -3,6 +3,7 @@ import jetpack from "fs-jetpack";
 import VError from "verror";
 import { makeError } from "../lib/makeError.js";
 import { FileLoader } from "./types.js";
+import getStdin from "get-stdin";
 
 export class UniversalFileLoader implements FileLoader {
   public readonly source: string;
@@ -11,12 +12,15 @@ export class UniversalFileLoader implements FileLoader {
     this.source = source;
   }
 
-  public async load(): Promise<string> {
+  public load(): Promise<string> {
     try {
       if (this.source.startsWith("http")) {
-        return await UniversalFileLoader.loadFromUrl(this.source);
+        return UniversalFileLoader.loadFromUrl(this.source);
       }
-      return await UniversalFileLoader.loadFromFile(this.source);
+      if (this.source === "/dev/stdin") {
+        return UniversalFileLoader.loadFromStdin();
+      }
+      return UniversalFileLoader.loadFromFile(this.source);
     } catch (error) {
       throw new VError(
         { cause: makeError(error), name: "FileLoaderError" },
@@ -24,6 +28,10 @@ export class UniversalFileLoader implements FileLoader {
         this.source,
       );
     }
+  }
+
+  private static loadFromStdin(): Promise<string> {
+    return getStdin();
   }
 
   private static async loadFromUrl(url: string): Promise<string> {
