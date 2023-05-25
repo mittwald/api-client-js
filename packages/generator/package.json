@@ -24,6 +24,7 @@
     "clone-deep": "^4.0.1",
     "dot-prop": "^8.0.0",
     "fs-jetpack": "^5.1.0",
+    "get-stdin": "^9.0.0",
     "invariant": "^2.2.4",
     "js-yaml": "^4.1.0",
     "json-schema-to-typescript": "^13.0.1",
