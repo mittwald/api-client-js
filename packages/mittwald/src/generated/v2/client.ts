@@ -3,6 +3,7 @@
 /* This file is auto-generated with acg (@mittwald/api-code-generator) */
 import * as descriptors from "./descriptors.js";
 import ApiClientBase from "@mittwald/api-client-commons/dist/core/ApiClientBase.js";
+// Force update
 
 export class MittwaldAPIV2Client extends ApiClientBase {
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */

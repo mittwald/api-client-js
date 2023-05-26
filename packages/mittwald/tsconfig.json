@@ -2,9 +2,8 @@
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src",
-    "composite": true,
     "paths": {
-      "@mittwald/api-commons/*": ["./packages/commons/*"]
+      "@mittwald/api-client-commons/*": ["packages/commons/*"]
     }
   },
   "exclude": ["test-d/**/*", "*.test.ts"],
