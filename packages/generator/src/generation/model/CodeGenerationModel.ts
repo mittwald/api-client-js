@@ -1,4 +1,3 @@
-import { componentRefsToCustomTypes } from "../refs/componentRefsToCustomTypes.js";
 import { Name } from "./global/Name.js";
 import { Components } from "./components/Components.js";
 import { Paths } from "./paths/Paths.js";
@@ -7,6 +6,7 @@ import { OpenAPIV3 } from "openapi-types";
 
 export interface TypeCompilationOptions {
   optionalHeaders?: string[];
+  rootNamespace: string;
 }
 
 export class CodeGenerationModel {
@@ -18,12 +18,7 @@ export class CodeGenerationModel {
 
   private constructor(rootNamespace: string, doc: OpenAPIV3.Document) {
     this.rootNamespace = new Name(rootNamespace);
-
-    this.doc = componentRefsToCustomTypes(
-      this.rootNamespace.tsType,
-      doc,
-    ) as OpenAPIV3.Document;
-
+    this.doc = doc;
     this.components = new Components(this);
     this.tags = this.doc.tags?.map((doc) => Tag.fromDoc(doc)) ?? [];
     this.paths = new Paths(this, this.doc.paths);

@@ -68,6 +68,7 @@ export default class Generate extends Command {
 
     ux.action.start("Generating types");
     const typesFileContent = await model.compileTypes({
+      rootNamespace: flags.name,
       optionalHeaders: flags.optionalHeader,
     });
     await jetpack.writeAsync(

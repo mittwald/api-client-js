@@ -3,6 +3,7 @@ import { compileJsonSchema } from "../../compileJsonSchema.js";
 import { Name } from "./Name.js";
 import { TypeCompilationOptions } from "../CodeGenerationModel.js";
 import cloneDeep from "clone-deep";
+import { componentRefsToCustomTypes } from "../../refs/componentRefsToCustomTypes.js";
 
 export class JSONSchema {
   public readonly schemaObject: JSONSchemaObject;
@@ -13,8 +14,13 @@ export class JSONSchema {
     this.schemaObject = data;
   }
 
-  public async compile(ignoredOpts: TypeCompilationOptions): Promise<string> {
-    return compileJsonSchema(this.schemaObject, this.name.tsType);
+  public async compile(opts: TypeCompilationOptions): Promise<string> {
+    const withCustomRefTypes = componentRefsToCustomTypes(
+      opts.rootNamespace,
+      this.schemaObject,
+    ) as JSONSchemaObject;
+
+    return compileJsonSchema(withCustomRefTypes, this.name.tsType);
   }
 
   public clone(): JSONSchema {
