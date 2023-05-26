@@ -14,11 +14,15 @@ export class ResponseContentTypes {
 
   public constructor(
     response: Response,
-    responseDoc: OpenAPIV3.ResponseObject,
+    responseDoc: OpenAPIV3.ResponseObject | OpenAPIV3.ReferenceObject,
   ) {
     this.response = response;
     this.name = new Name(ResponseContentTypes.ns, response.httpStatus);
-    this.contentTypes = Object.entries(responseDoc.content ?? {}).map(
+
+    const contentTypesFromDoc =
+      "content" in responseDoc ? responseDoc.content : undefined;
+
+    this.contentTypes = Object.entries(contentTypesFromDoc ?? {}).map(
       ([mediaType, mediaTypeObject]) =>
         new ResponseContent(this, mediaType, mediaTypeObject.schema),
     );
