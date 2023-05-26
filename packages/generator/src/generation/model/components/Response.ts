@@ -4,6 +4,7 @@ import { asyncStringJoin } from "../../asyncStringJoin.js";
 import { Responses } from "./Responses.js";
 import { TypeCompilationOptions } from "../CodeGenerationModel.js";
 import { OpenAPIV3 } from "openapi-types";
+import invariant from "invariant";
 
 export class Response {
   public readonly name: Name;
@@ -13,12 +14,15 @@ export class Response {
   public constructor(
     name: Name,
     responses: Responses,
-    mediaTypesDoc: OpenAPIV3.MediaTypeObject,
+    mediaTypesDoc: Record<string, OpenAPIV3.MediaTypeObject>,
   ) {
     this.name = name;
     this.responses = responses;
     this.contents = Object.entries(mediaTypesDoc).map(
-      ([mediaType, schema]) => new ResponseContent(this, mediaType, schema),
+      ([mediaType, mediaTypeObj]) => {
+        invariant(!!mediaTypeObj?.schema, "No schema set");
+        return new ResponseContent(this, mediaType, mediaTypeObj?.schema);
+      },
     );
   }
 

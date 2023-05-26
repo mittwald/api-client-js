@@ -4,7 +4,6 @@ import { Responses } from "./Responses.js";
 import { TypeCompilationOptions } from "../../../CodeGenerationModel.js";
 import { OpenAPIV3 } from "openapi-types";
 import { ValueOf } from "type-fest";
-import { assertNoRefs } from "../../../assertNoRefs.js";
 
 type DocType = ValueOf<OpenAPIV3.ResponsesObject>;
 
@@ -16,7 +15,6 @@ export class Response {
   private constructor(responses: Responses, httpStatus: Name, doc: DocType) {
     this.responses = responses;
     this.httpStatus = httpStatus;
-    assertNoRefs(doc);
     this.contentTypes = new ResponseContentTypes(this, doc);
   }
 
