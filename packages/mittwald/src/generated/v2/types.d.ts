@@ -2017,131 +2017,112 @@ declare namespace MittwaldAPIV2 {
 
     namespace Responses {
       namespace AppGenericResponse {
-        export interface ApplicationJson {
-          [k: string]: unknown;
-        }
+        export interface ApplicationJson {}
       }
 
       namespace CustomerGenericResponse {
-        export interface ApplicationJson {
-          [k: string]: unknown;
-        }
+        export interface ApplicationJson {}
       }
 
       namespace CustomerFailedPreconditionError {
-        export interface ApplicationJson {
-          [k: string]: unknown;
-        }
+        export type ApplicationJson =
+          MittwaldAPIV2.Components.Schemas.CommonsError;
       }
 
       namespace DnsGenericResponse {
-        export interface ApplicationJson {
-          [k: string]: unknown;
-        }
+        export interface ApplicationJson {}
       }
 
       namespace DomainSuccessResponse {
         export interface ApplicationJson {
-          [k: string]: unknown;
+          isAsync?: boolean;
+          transactionId?: string;
         }
       }
 
       namespace InvoiceEmptyResponse {
-        export interface ApplicationJson {
-          [k: string]: unknown;
-        }
+        export interface ApplicationJson {}
       }
 
       namespace MailEmptyResponse {
-        export interface ApplicationJson {
-          [k: string]: unknown;
-        }
+        export interface ApplicationJson {}
       }
 
       namespace OrderGenericResponse {
-        export interface ApplicationJson {
-          [k: string]: unknown;
-        }
+        export interface ApplicationJson {}
       }
 
       namespace OrderNotFoundError {
-        export interface ApplicationJson {
-          [k: string]: unknown;
-        }
+        export interface ApplicationJson {}
       }
 
       namespace DomainDefaultError {
-        export interface ApplicationJson {
-          [k: string]: unknown;
-        }
+        export type ApplicationJson =
+          MittwaldAPIV2.Components.Schemas.DomainError;
       }
 
       namespace DomainGenericResponse {
-        export interface ApplicationJson {
-          [k: string]: unknown;
-        }
+        export type ApplicationJson =
+          MittwaldAPIV2.Components.Schemas.DomainEmptyResponse;
       }
 
       namespace DomainEmptyResponse {
-        export interface ApplicationJson {
-          [k: string]: unknown;
-        }
+        export interface ApplicationJson {}
       }
 
       namespace DomainNotFoundError {
-        export interface ApplicationJson {
-          [k: string]: unknown;
-        }
+        export type ApplicationJson =
+          MittwaldAPIV2.Components.Schemas.DomainError;
       }
 
       namespace DomainValidationError {
-        export interface ApplicationJson {
-          [k: string]: unknown;
-        }
+        export type ApplicationJson =
+          MittwaldAPIV2.Components.Schemas.DomainError;
       }
 
       namespace SignupInternalServerError {
-        export interface ApplicationJson {
-          [k: string]: unknown;
-        }
+        export type ApplicationJson =
+          MittwaldAPIV2.Components.Schemas.SignupDomainError & {
+            name?: "InternalServerError";
+          };
       }
 
       namespace SignupNoValidAccessTokenError {
-        export interface ApplicationJson {
-          [k: string]: unknown;
-        }
+        export type ApplicationJson =
+          MittwaldAPIV2.Components.Schemas.SignupDomainError & {
+            name?: "NoAccessTokenProvided";
+          };
       }
 
       namespace CommonRateLimitError {}
 
       namespace SignupRemovingLastOwnerNotAllowedError {
-        export interface ApplicationJson {
-          [k: string]: unknown;
-        }
+        export type ApplicationJson =
+          MittwaldAPIV2.Components.Schemas.SignupDomainError & {
+            name?: "RemovingLastOwnerNotAllowedError";
+          };
       }
 
       namespace SignupSecondFactorRequiredError {
-        export interface ApplicationJson {
-          [k: string]: unknown;
-        }
+        export type ApplicationJson =
+          MittwaldAPIV2.Components.Schemas.SignupDomainError & {
+            name?: "SecondFactorRequired";
+          };
       }
 
       namespace CommonsDefaultError {
-        export interface ApplicationJson {
-          [k: string]: unknown;
-        }
+        export type ApplicationJson =
+          MittwaldAPIV2.Components.Schemas.CommonsError;
       }
 
       namespace CommonsNotFoundError {
-        export interface ApplicationJson {
-          [k: string]: unknown;
-        }
+        export type ApplicationJson =
+          MittwaldAPIV2.Components.Schemas.CommonsError;
       }
 
       namespace CommonsValidationError {
-        export interface ApplicationJson {
-          [k: string]: unknown;
-        }
+        export type ApplicationJson =
+          MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
       }
     }
 
@@ -2192,11 +2173,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2223,11 +2212,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2254,11 +2251,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2280,11 +2285,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2309,11 +2322,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2341,11 +2362,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2372,11 +2401,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2404,11 +2441,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2436,11 +2481,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2471,7 +2524,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2501,11 +2558,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2534,7 +2599,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2561,7 +2630,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2590,7 +2663,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2619,7 +2696,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2645,11 +2726,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2678,11 +2767,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2705,11 +2802,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2736,11 +2841,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2768,11 +2881,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2812,7 +2933,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2840,19 +2965,35 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2874,15 +3015,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2909,7 +3062,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2938,15 +3095,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -2973,7 +3142,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3002,15 +3175,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3037,15 +3222,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3067,15 +3264,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3101,19 +3310,35 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $412 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3140,15 +3365,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3170,15 +3407,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3206,19 +3455,35 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3254,15 +3519,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3295,15 +3572,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3338,15 +3627,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3381,15 +3682,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3420,15 +3733,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3455,15 +3780,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3490,15 +3827,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3525,15 +3874,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3560,15 +3921,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3596,15 +3969,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3631,15 +4016,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3669,15 +4066,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3708,15 +4117,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3740,7 +4161,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3767,11 +4192,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3799,15 +4232,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3837,19 +4282,35 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3875,15 +4336,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3909,19 +4382,35 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3950,19 +4439,35 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -3986,7 +4491,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4034,11 +4543,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4069,19 +4586,35 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4113,19 +4646,35 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4156,11 +4705,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4191,7 +4748,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4221,15 +4782,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $412 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4263,7 +4836,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4296,15 +4873,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $412 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4331,11 +4920,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4361,15 +4958,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $412 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4397,19 +5006,35 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $412 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4437,11 +5062,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4475,15 +5108,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $412 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4511,19 +5156,35 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $412 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4549,7 +5210,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4581,11 +5246,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4611,7 +5284,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4643,11 +5320,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4678,15 +5363,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $409 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4716,7 +5413,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4746,11 +5447,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4781,11 +5490,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4820,11 +5537,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4852,7 +5577,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4879,7 +5608,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4913,15 +5646,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4939,11 +5684,19 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -4970,7 +5723,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5004,15 +5761,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5030,11 +5799,19 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5061,11 +5838,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5087,7 +5872,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5114,11 +5903,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5140,7 +5937,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5166,7 +5967,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5193,11 +5998,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5229,15 +6042,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5255,15 +6080,27 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5300,11 +6137,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5323,15 +6168,27 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5357,11 +6214,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5389,15 +6254,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5425,7 +6302,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5453,11 +6334,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5485,11 +6374,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5519,11 +6416,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5553,11 +6458,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5605,7 +6518,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $401 {
@@ -5639,7 +6556,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $401 {
@@ -5649,7 +6570,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5677,11 +6602,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5708,15 +6641,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5746,15 +6691,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5781,15 +6738,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5819,15 +6788,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5854,15 +6835,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5892,15 +6885,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5927,19 +6932,35 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -5965,23 +6986,43 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $412 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6008,15 +7049,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6042,15 +7095,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6076,15 +7141,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6111,19 +7188,35 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6149,23 +7242,43 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $412 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6193,15 +7306,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6229,15 +7354,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6264,15 +7401,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6299,15 +7448,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6334,15 +7495,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6369,15 +7542,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6405,15 +7590,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6441,15 +7638,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6477,15 +7686,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6513,15 +7734,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6557,15 +7790,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6598,15 +7843,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6641,15 +7898,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6684,15 +7953,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6723,15 +8004,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6775,7 +8068,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6802,15 +8099,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6840,15 +8149,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6878,15 +8199,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6913,15 +8246,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6950,15 +8295,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -6986,11 +8343,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7022,11 +8387,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7054,11 +8427,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7086,11 +8467,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7118,11 +8507,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7150,11 +8547,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7181,11 +8586,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7212,11 +8625,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7240,15 +8661,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7272,19 +8705,35 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7312,15 +8761,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7349,11 +8810,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7385,15 +8854,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7421,15 +8902,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7457,15 +8950,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7489,19 +8994,35 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7525,19 +9046,35 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7564,15 +9101,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7594,19 +9143,35 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7634,7 +9199,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7661,15 +9230,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7695,15 +9276,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7730,15 +9323,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7765,11 +9370,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7800,11 +9413,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7829,11 +9450,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7861,15 +9490,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7899,15 +9540,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7933,11 +9586,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7963,15 +9624,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -7997,15 +9670,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -8035,15 +9720,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -8073,11 +9770,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -8104,11 +9809,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -8130,11 +9843,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -8159,11 +9880,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -8190,11 +9919,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -8222,11 +9959,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -8256,11 +10001,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -8288,15 +10041,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -8323,15 +10088,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -8360,15 +10137,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -8405,15 +10194,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -8722,7 +10523,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $403 {
@@ -8919,7 +10724,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $403 {
@@ -9247,7 +11056,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -9269,7 +11082,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -9308,7 +11125,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -9338,7 +11159,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -9365,7 +11190,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -9395,11 +11224,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -9431,11 +11268,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -9465,11 +11310,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -9499,11 +11352,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -9530,7 +11391,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -9564,7 +11429,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -9598,7 +11467,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -9629,11 +11502,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -9663,11 +11544,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -9697,11 +11586,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -9733,11 +11630,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -9769,11 +11674,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -9805,11 +11718,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -9840,11 +11761,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -9875,11 +11804,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -9909,7 +11846,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -9937,19 +11878,35 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $412 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -9980,15 +11937,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $409 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10020,15 +11989,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $412 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10056,7 +12037,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10089,11 +12074,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10115,11 +12108,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10146,11 +12147,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10172,7 +12181,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10199,11 +12212,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10225,7 +12246,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10251,7 +12276,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10281,19 +12310,35 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $412 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10326,11 +12371,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10352,11 +12405,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10390,19 +12451,35 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10431,19 +12508,35 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10472,19 +12565,35 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10511,15 +12620,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10548,19 +12669,35 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10586,11 +12723,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10617,11 +12762,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10648,11 +12801,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10679,11 +12840,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10711,7 +12880,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10741,11 +12914,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10775,11 +12956,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10807,11 +12996,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10839,11 +13036,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10884,11 +13089,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10918,7 +13131,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10946,11 +13163,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -10978,15 +13203,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11014,7 +13251,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11039,11 +13280,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11074,11 +13323,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11105,11 +13362,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11131,7 +13396,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11157,11 +13426,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11191,11 +13468,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11220,7 +13505,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -11228,7 +13517,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11266,7 +13559,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -11274,7 +13571,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11301,7 +13602,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -11309,7 +13614,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11342,7 +13651,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -11350,7 +13663,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11379,7 +13696,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -11387,7 +13708,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11450,7 +13775,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11486,7 +13815,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11542,7 +13875,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11575,7 +13912,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -11583,7 +13924,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11610,7 +13955,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -11618,7 +13967,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11644,7 +13997,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -11652,7 +14009,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11683,7 +14044,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -11691,7 +14056,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11727,7 +14096,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11760,7 +14133,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
@@ -11775,7 +14152,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11808,7 +14189,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11845,7 +14230,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -11853,7 +14242,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11880,7 +14273,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -11888,7 +14285,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11930,7 +14331,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -11938,7 +14343,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -11969,7 +14378,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -11977,7 +14390,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12003,7 +14420,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -12011,7 +14432,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12046,7 +14471,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $202 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $400 {
@@ -12057,7 +14486,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -12065,7 +14498,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12101,7 +14538,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12137,7 +14578,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12173,7 +14618,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -12181,7 +14630,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12212,7 +14665,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -12220,7 +14677,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12251,7 +14712,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -12259,7 +14724,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12292,7 +14761,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
@@ -12307,7 +14780,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12332,7 +14809,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -12340,7 +14821,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12371,7 +14856,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -12379,7 +14868,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12403,7 +14896,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $202 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $400 {
@@ -12414,11 +14911,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -12426,7 +14931,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12463,7 +14972,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -12471,7 +14984,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12520,7 +15037,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12565,7 +15086,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12592,7 +15117,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
@@ -12607,7 +15136,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12629,7 +15162,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
@@ -12644,7 +15181,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12669,7 +15210,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -12677,7 +15222,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12697,7 +15246,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -12705,7 +15258,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12731,7 +15288,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -12739,7 +15300,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12770,7 +15335,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -12778,7 +15347,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12806,7 +15379,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
@@ -12823,7 +15400,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12856,7 +15437,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -12864,7 +15449,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12886,7 +15475,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -12894,7 +15487,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12933,7 +15530,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -12967,7 +15568,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $429 {
@@ -12975,7 +15580,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -13005,11 +15614,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -13038,11 +15655,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -13069,11 +15694,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -13095,7 +15728,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -13123,11 +15760,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -13171,11 +15816,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -13197,11 +15850,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -13228,7 +15889,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -13254,15 +15919,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $401 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -13288,7 +15965,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -13315,19 +15996,35 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $412 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -13353,11 +16050,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -13383,7 +16088,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -13407,11 +16116,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -13439,15 +16156,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $409 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -13469,11 +16198,19 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -13501,19 +16238,35 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace $409 {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
@@ -13538,7 +16291,11 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace Default {
-            namespace Content {}
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
           }
         }
       }
