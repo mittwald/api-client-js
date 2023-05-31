@@ -45,6 +45,7 @@ export class Request<TOp extends OpenAPIOperation> {
       method,
       headers,
       data,
+      validateStatus: () => true,
     };
   }
 }
