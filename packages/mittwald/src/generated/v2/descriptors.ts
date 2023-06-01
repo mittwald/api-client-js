@@ -927,7 +927,7 @@ export const contractTerminateContractItem: OpenAPIOperation<
 /** Cancel the Termination for the referred ContractItem. */
 export const contractCancelContractItemTermination: OpenAPIOperation<
   Request<
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTermination.Delete.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTermination.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTermination.Delete.Parameters.Header>
   >,
@@ -960,7 +960,7 @@ export const contractCancelContractItemTermination: OpenAPIOperation<
 /** Cancel the TariffChange for the referred ContractItem. */
 export const contractCancelContractTariffChange: OpenAPIOperation<
   Request<
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTariffChange.Delete.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTariffChange.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTariffChange.Delete.Parameters.Header>
   >,
@@ -1026,7 +1026,7 @@ export const contractTerminateContract: OpenAPIOperation<
 /** Cancel the Termination for the referred Contract. */
 export const contractCancelContractTermination: OpenAPIOperation<
   Request<
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdTermination.Delete.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdTermination.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdTermination.Delete.Parameters.Header>
   >,
@@ -2873,7 +2873,7 @@ export const customerListMembershipsForCustomer: OpenAPIOperation<
 /** Request a new avatar upload for the customer profile. */
 export const customerRequestAvatarUpload: OpenAPIOperation<
   Request<
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAvatar.Post.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAvatar.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAvatar.Post.Parameters.Header>
   >,
@@ -3729,7 +3729,7 @@ export const deprecatedContractTerminateContractItem: OpenAPIOperation<
 /** Cancel the Termination for the referred ContractItem. */
 export const deprecatedContractCancelContractItemTermination: OpenAPIOperation<
   Request<
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTerminations.Delete.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTerminations.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTerminations.Delete.Parameters.Header>
   >,
@@ -3762,7 +3762,7 @@ export const deprecatedContractCancelContractItemTermination: OpenAPIOperation<
 /** Cancel the TariffChange for the referred ContractItem. */
 export const deprecatedContractCancelContractTariffChange: OpenAPIOperation<
   Request<
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTariffChanges.Delete.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTariffChanges.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTariffChanges.Delete.Parameters.Header>
   >,
@@ -3828,7 +3828,7 @@ export const deprecatedContractTerminateContract: OpenAPIOperation<
 /** Cancel the Termination for the referred Contract. */
 export const deprecatedContractCancelContractTermination: OpenAPIOperation<
   Request<
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdTerminations.Delete.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdTerminations.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdTerminations.Delete.Parameters.Header>
   >,
@@ -4054,6 +4054,286 @@ export const deprecatedInvoiceUpdateInvoiceSettings: OpenAPIOperation<
   path: "/v2/customers/{customerId}/invoicesettings",
   method: "PUT",
   operationId: "deprecated-invoice-update-invoice-settings",
+};
+
+/** Prospace tariff change order */
+export const deprecatedOrderChangeProjecthosting: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsChangeProjecthosting.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsChangeProjecthosting.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsChangeProjecthosting.Post.Parameters.Header>
+  >,
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsChangeProjecthosting.Post.Responses.$201.Content.ApplicationJson,
+      201,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsChangeProjecthosting.Post.Responses.$400.Content.ApplicationJson,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsChangeProjecthosting.Post.Responses.Default.Content.ApplicationJson,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/orders/actions/change-projecthosting",
+  method: "POST",
+  operationId: "deprecated-order-change-projecthosting",
+};
+
+/** SpaceServer order */
+export const deprecatedOrderChangeServer: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsChangeServer.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsChangeServer.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsChangeServer.Post.Parameters.Header>
+  >,
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsChangeServer.Post.Responses.$201.Content.ApplicationJson,
+      201,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsChangeServer.Post.Responses.$400.Content.ApplicationJson,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsChangeServer.Post.Responses.Default.Content.ApplicationJson,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/orders/actions/change-server",
+  method: "POST",
+  operationId: "deprecated-order-change-server",
+};
+
+/** Order a domain. */
+export const deprecatedOrderOrderDomain: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsOrderDomain.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsOrderDomain.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsOrderDomain.Post.Parameters.Header>
+  >,
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsOrderDomain.Post.Responses.$201.Content.ApplicationJson,
+      201,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsOrderDomain.Post.Responses.$400.Content.ApplicationJson,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsOrderDomain.Post.Responses.Default.Content.ApplicationJson,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/orders/actions/order-domain",
+  method: "POST",
+  operationId: "deprecated-order-order-domain",
+};
+
+/** Prospace order */
+export const deprecatedOrderOrderProjecthosting: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsOrderProjecthosting.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsOrderProjecthosting.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsOrderProjecthosting.Post.Parameters.Header>
+  >,
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsOrderProjecthosting.Post.Responses.$201.Content.ApplicationJson,
+      201,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsOrderProjecthosting.Post.Responses.$400.Content.ApplicationJson,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsOrderProjecthosting.Post.Responses.Default.Content.ApplicationJson,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/orders/actions/order-projecthosting",
+  method: "POST",
+  operationId: "deprecated-order-order-projecthosting",
+};
+
+/** SpaceServer order */
+export const deprecatedOrderOrderServer: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsOrderServer.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsOrderServer.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsOrderServer.Post.Parameters.Header>
+  >,
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsOrderServer.Post.Responses.$201.Content.ApplicationJson,
+      201,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsOrderServer.Post.Responses.$400.Content.ApplicationJson,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsOrderServer.Post.Responses.Default.Content.ApplicationJson,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/orders/actions/order-server",
+  method: "POST",
+  operationId: "deprecated-order-order-server",
+};
+
+/** Preview Prospace tariff change */
+export const deprecatedOrderPreviewChangeProjecthosting: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewChangeProjecthosting.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewChangeProjecthosting.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewChangeProjecthosting.Post.Parameters.Header>
+  >,
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsPreviewChangeProjecthosting.Post.Responses.$200.Content.ApplicationJson,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsPreviewChangeProjecthosting.Post.Responses.$400.Content.ApplicationJson,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsPreviewChangeProjecthosting.Post.Responses.Default.Content.ApplicationJson,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/orders/actions/preview-change-projecthosting",
+  method: "POST",
+  operationId: "deprecated-order-preview-change-projecthosting",
+};
+
+/** Preview SpaceServer tariff change */
+export const deprecatedOrderPreviewChangeServer: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewChangeServer.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewChangeServer.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewChangeServer.Post.Parameters.Header>
+  >,
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsPreviewChangeServer.Post.Responses.$200.Content.ApplicationJson,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsPreviewChangeServer.Post.Responses.$400.Content.ApplicationJson,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsPreviewChangeServer.Post.Responses.Default.Content.ApplicationJson,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/orders/actions/preview-change-server",
+  method: "POST",
+  operationId: "deprecated-order-preview-change-server",
+};
+
+/** Preview domain order. */
+export const deprecatedOrderPreviewOrderDomain: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderDomain.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderDomain.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderDomain.Post.Parameters.Header>
+  >,
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderDomain.Post.Responses.$200.Content.ApplicationJson,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderDomain.Post.Responses.$400.Content.ApplicationJson,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderDomain.Post.Responses.Default.Content.ApplicationJson,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/orders/actions/preview-order-domain",
+  method: "POST",
+  operationId: "deprecated-order-preview-order-domain",
+};
+
+/** Preview Prospace order */
+export const deprecatedOrderPreviewOrderProjecthosting: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderProjecthosting.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderProjecthosting.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderProjecthosting.Post.Parameters.Header>
+  >,
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderProjecthosting.Post.Responses.$200.Content.ApplicationJson,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderProjecthosting.Post.Responses.$400.Content.ApplicationJson,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderProjecthosting.Post.Responses.Default.Content.ApplicationJson,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/orders/actions/preview-order-projecthosting",
+  method: "POST",
+  operationId: "deprecated-order-preview-order-projecthosting",
+};
+
+/** Preview SpaceServer order */
+export const deprecatedOrderPreviewOrderServer: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderServer.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderServer.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderServer.Post.Parameters.Header>
+  >,
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderServer.Post.Responses.$200.Content.ApplicationJson,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderServer.Post.Responses.$400.Content.ApplicationJson,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderServer.Post.Responses.Default.Content.ApplicationJson,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/orders/actions/preview-order-server",
+  method: "POST",
+  operationId: "deprecated-order-preview-order-server",
 };
 
 /** updates a-records for a specific zone */
@@ -5781,63 +6061,63 @@ export const notificationsReadNotification: OpenAPIOperation<
   operationId: "notifications-read-notification",
 };
 
-/** Prospace tariff change order */
-export const orderChangeProjecthosting: OpenAPIOperation<
+/** Create an Order. */
+export const orderCreateOrder: OpenAPIOperation<
   Request<
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsChangeProjecthosting.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsChangeProjecthosting.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsChangeProjecthosting.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2Orders.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2Orders.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2Orders.Post.Parameters.Header>
   >,
   | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsChangeProjecthosting.Post.Responses.$201.Content.ApplicationJson,
+      MittwaldAPIV2.Paths.V2Orders.Post.Responses.$201.Content.ApplicationJson,
       201,
       "application/json"
     >
   | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsChangeProjecthosting.Post.Responses.$400.Content.ApplicationJson,
+      MittwaldAPIV2.Paths.V2Orders.Post.Responses.$400.Content.ApplicationJson,
       400,
       "application/json"
     >
   | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsChangeProjecthosting.Post.Responses.Default.Content.ApplicationJson,
+      MittwaldAPIV2.Paths.V2Orders.Post.Responses.Default.Content.ApplicationJson,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/orders/actions/change-projecthosting",
+  path: "/v2/orders",
   method: "POST",
-  operationId: "order-change-projecthosting",
+  operationId: "order-create-order",
 };
 
-/** SpaceServer order */
-export const orderChangeServer: OpenAPIOperation<
+/** Create TariffChange Order. */
+export const orderCreateTariffChange: OpenAPIOperation<
   Request<
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsChangeServer.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsChangeServer.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsChangeServer.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2TariffChanges.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2TariffChanges.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2TariffChanges.Post.Parameters.Header>
   >,
   | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsChangeServer.Post.Responses.$201.Content.ApplicationJson,
+      MittwaldAPIV2.Paths.V2TariffChanges.Post.Responses.$201.Content.ApplicationJson,
       201,
       "application/json"
     >
   | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsChangeServer.Post.Responses.$400.Content.ApplicationJson,
+      MittwaldAPIV2.Paths.V2TariffChanges.Post.Responses.$400.Content.ApplicationJson,
       400,
       "application/json"
     >
   | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsChangeServer.Post.Responses.Default.Content.ApplicationJson,
+      MittwaldAPIV2.Paths.V2TariffChanges.Post.Responses.Default.Content.ApplicationJson,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/orders/actions/change-server",
+  path: "/v2/tariff-changes",
   method: "POST",
-  operationId: "order-change-server",
+  operationId: "order-create-tariff-change",
 };
 
-/** Single order for customer */
+/** Get Order for Customer. */
 export const orderGetOrder: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -5860,7 +6140,7 @@ export const orderGetOrder: OpenAPIOperation<
   operationId: "order-get-order",
 };
 
-/** Get list of order of a customer */
+/** Get list of Orders of a Customer. */
 export const orderListCustomerOrders: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -5883,7 +6163,7 @@ export const orderListCustomerOrders: OpenAPIOperation<
   operationId: "order-list-customer-orders",
 };
 
-/** Get list of orders of a project. */
+/** Get list of Orders of a Project. */
 export const orderListProjectOrders: OpenAPIOperation<
   Request<
     Simplify<null>,
@@ -5906,234 +6186,66 @@ export const orderListProjectOrders: OpenAPIOperation<
   operationId: "order-list-project-orders",
 };
 
-/** Order a domain. */
-export const orderOrderDomain: OpenAPIOperation<
+/** Preview Order. */
+export const orderPreviewOrder: OpenAPIOperation<
   Request<
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsOrderDomain.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsOrderDomain.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsOrderDomain.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2OrderPreviews.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2OrderPreviews.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2OrderPreviews.Post.Parameters.Header>
   >,
   | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsOrderDomain.Post.Responses.$201.Content.ApplicationJson,
-      201,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsOrderDomain.Post.Responses.$400.Content.ApplicationJson,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsOrderDomain.Post.Responses.Default.Content.ApplicationJson,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/orders/actions/order-domain",
-  method: "POST",
-  operationId: "order-order-domain",
-};
-
-/** Prospace order */
-export const orderOrderProjecthosting: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsOrderProjecthosting.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsOrderProjecthosting.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsOrderProjecthosting.Post.Parameters.Header>
-  >,
-  | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsOrderProjecthosting.Post.Responses.$201.Content.ApplicationJson,
-      201,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsOrderProjecthosting.Post.Responses.$400.Content.ApplicationJson,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsOrderProjecthosting.Post.Responses.Default.Content.ApplicationJson,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/orders/actions/order-projecthosting",
-  method: "POST",
-  operationId: "order-order-projecthosting",
-};
-
-/** SpaceServer order */
-export const orderOrderServer: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsOrderServer.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsOrderServer.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsOrderServer.Post.Parameters.Header>
-  >,
-  | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsOrderServer.Post.Responses.$201.Content.ApplicationJson,
-      201,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsOrderServer.Post.Responses.$400.Content.ApplicationJson,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsOrderServer.Post.Responses.Default.Content.ApplicationJson,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/orders/actions/order-server",
-  method: "POST",
-  operationId: "order-order-server",
-};
-
-/** Preview Prospace tariff change */
-export const orderPreviewChangeProjecthosting: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewChangeProjecthosting.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewChangeProjecthosting.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewChangeProjecthosting.Post.Parameters.Header>
-  >,
-  | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsPreviewChangeProjecthosting.Post.Responses.$200.Content.ApplicationJson,
+      MittwaldAPIV2.Paths.V2OrderPreviews.Post.Responses.$200.Content.ApplicationJson,
       200,
       "application/json"
     >
   | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsPreviewChangeProjecthosting.Post.Responses.$400.Content.ApplicationJson,
+      MittwaldAPIV2.Paths.V2OrderPreviews.Post.Responses.$400.Content.ApplicationJson,
       400,
       "application/json"
     >
   | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsPreviewChangeProjecthosting.Post.Responses.Default.Content.ApplicationJson,
+      MittwaldAPIV2.Paths.V2OrderPreviews.Post.Responses.Default.Content.ApplicationJson,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/orders/actions/preview-change-projecthosting",
+  path: "/v2/order-previews",
   method: "POST",
-  operationId: "order-preview-change-projecthosting",
+  operationId: "order-preview-order",
 };
 
-/** Preview SpaceServer tariff change */
-export const orderPreviewChangeServer: OpenAPIOperation<
+/** Preview TariffChange. */
+export const orderPreviewTariffChange: OpenAPIOperation<
   Request<
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewChangeServer.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewChangeServer.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewChangeServer.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2TariffChangePreviews.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2TariffChangePreviews.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2TariffChangePreviews.Post.Parameters.Header>
   >,
   | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsPreviewChangeServer.Post.Responses.$200.Content.ApplicationJson,
+      MittwaldAPIV2.Paths.V2TariffChangePreviews.Post.Responses.$200.Content.ApplicationJson,
       200,
       "application/json"
     >
   | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsPreviewChangeServer.Post.Responses.$400.Content.ApplicationJson,
+      MittwaldAPIV2.Paths.V2TariffChangePreviews.Post.Responses.$400.Content.ApplicationJson,
       400,
       "application/json"
     >
   | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsPreviewChangeServer.Post.Responses.Default.Content.ApplicationJson,
+      MittwaldAPIV2.Paths.V2TariffChangePreviews.Post.Responses.Default.Content.ApplicationJson,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/orders/actions/preview-change-server",
+  path: "/v2/tariff-change-previews",
   method: "POST",
-  operationId: "order-preview-change-server",
-};
-
-/** Preview domain order. */
-export const orderPreviewOrderDomain: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderDomain.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderDomain.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderDomain.Post.Parameters.Header>
-  >,
-  | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderDomain.Post.Responses.$200.Content.ApplicationJson,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderDomain.Post.Responses.$400.Content.ApplicationJson,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderDomain.Post.Responses.Default.Content.ApplicationJson,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/orders/actions/preview-order-domain",
-  method: "POST",
-  operationId: "order-preview-order-domain",
-};
-
-/** Preview Prospace order */
-export const orderPreviewOrderProjecthosting: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderProjecthosting.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderProjecthosting.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderProjecthosting.Post.Parameters.Header>
-  >,
-  | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderProjecthosting.Post.Responses.$200.Content.ApplicationJson,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderProjecthosting.Post.Responses.$400.Content.ApplicationJson,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderProjecthosting.Post.Responses.Default.Content.ApplicationJson,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/orders/actions/preview-order-projecthosting",
-  method: "POST",
-  operationId: "order-preview-order-projecthosting",
-};
-
-/** Preview SpaceServer order */
-export const orderPreviewOrderServer: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderServer.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderServer.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderServer.Post.Parameters.Header>
-  >,
-  | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderServer.Post.Responses.$200.Content.ApplicationJson,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderServer.Post.Responses.$400.Content.ApplicationJson,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2OrdersActionsPreviewOrderServer.Post.Responses.Default.Content.ApplicationJson,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/orders/actions/preview-order-server",
-  method: "POST",
-  operationId: "order-preview-order-server",
+  operationId: "order-preview-tariff-change",
 };
 
 /** Get a password policy. */
 export const passwordValidationServiceGetPasswordPolicy: OpenAPIOperation<
   Request<
-    Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Parameters.Header>
   >,
@@ -6273,7 +6385,7 @@ export const projectDeclineProjectInvite: OpenAPIOperation<
 /** Request a Project avatar upload. */
 export const projectRequestProjectAvatarUpload: OpenAPIOperation<
   Request<
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAvatar.Post.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAvatar.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAvatar.Post.Parameters.Header>
   >,
@@ -6472,7 +6584,7 @@ export const projectDeleteProject: OpenAPIOperation<
 /** Request a Server avatar upload. */
 export const projectRequestServerAvatarUpload: OpenAPIOperation<
   Request<
-    Simplify<MittwaldAPIV2.Paths.V2ServersServerIdAvatar.Post.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ServersServerIdAvatar.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ServersServerIdAvatar.Post.Parameters.Header>
   >,

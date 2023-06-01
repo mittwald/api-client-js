@@ -69,16 +69,72 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateStatus: this.requestFunctionFactory(descriptors.appUpdateStatus),
   };
 
-  /** The contract API allows you to manage your contracts and orders */
-  public readonly contract = {
+  /** The article API allows you to read article information. */
+  public readonly article = {
     /** Get an Article. */
-    articleServiceGetArticle: this.requestFunctionFactory(
+    serviceGetArticle: this.requestFunctionFactory(
       descriptors.articleServiceGetArticle
     ),
     /** List Articles. */
-    articleServiceListArticles: this.requestFunctionFactory(
+    serviceListArticles: this.requestFunctionFactory(
       descriptors.articleServiceListArticles
     ),
+  };
+
+  /** The backup API allows you to manage your project backups. */
+  public readonly backup = {
+    /** Export a ProjectBackup for download. */
+    createProjectBackupExport: this.requestFunctionFactory(
+      descriptors.backupCreateProjectBackupExport
+    ),
+    /** Delete a ProjectBackupExport. */
+    deleteProjectBackupExport: this.requestFunctionFactory(
+      descriptors.backupDeleteProjectBackupExport
+    ),
+    /** List BackupSchedules belonging to a given Project. */
+    listProjectBackupSchedules: this.requestFunctionFactory(
+      descriptors.backupListProjectBackupSchedules
+    ),
+    /** Create a BackupSchedule for a Project. */
+    createProjectBackupSchedule: this.requestFunctionFactory(
+      descriptors.backupCreateProjectBackupSchedule
+    ),
+    /** List Backups for a given Project. */
+    listProjectBackups: this.requestFunctionFactory(
+      descriptors.backupListProjectBackups
+    ),
+    /** Create a Backup of a Project. */
+    createProjectBackup: this.requestFunctionFactory(
+      descriptors.backupCreateProjectBackup
+    ),
+    /** Get a ProjectBackupSchedule. */
+    getProjectBackupSchedule: this.requestFunctionFactory(
+      descriptors.backupGetProjectBackupSchedule
+    ),
+    /** Delete a ProjectBackupSchedule. */
+    deleteProjectBackupSchedule: this.requestFunctionFactory(
+      descriptors.backupDeleteProjectBackupSchedule
+    ),
+    /** Update a ProjectBackupSchedule. */
+    updateProjectBackupSchedule: this.requestFunctionFactory(
+      descriptors.backupUpdateProjectBackupSchedule
+    ),
+    /** Get a ProjectBackup. */
+    getProjectBackup: this.requestFunctionFactory(
+      descriptors.backupGetProjectBackup
+    ),
+    /** Delete a ProjectBackup. */
+    deleteProjectBackup: this.requestFunctionFactory(
+      descriptors.backupDeleteProjectBackup
+    ),
+    /** Change the description of a ProjectBackup. */
+    updateProjectBackupDescription: this.requestFunctionFactory(
+      descriptors.backupUpdateProjectBackupDescription
+    ),
+  };
+
+  /** The contract API allows you to manage your contracts and orders */
+  public readonly contract = {
     /** Schedule the Termination of a ContractItem. */
     terminateContractItem: this.requestFunctionFactory(
       descriptors.contractTerminateContractItem
@@ -178,6 +234,46 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deprecatedInvoiceUpdateInvoiceSettings: this.requestFunctionFactory(
       descriptors.deprecatedInvoiceUpdateInvoiceSettings
     ),
+    /** Prospace tariff change order */
+    deprecatedOrderChangeProjecthosting: this.requestFunctionFactory(
+      descriptors.deprecatedOrderChangeProjecthosting
+    ),
+    /** SpaceServer order */
+    deprecatedOrderChangeServer: this.requestFunctionFactory(
+      descriptors.deprecatedOrderChangeServer
+    ),
+    /** Order a domain. */
+    deprecatedOrderOrderDomain: this.requestFunctionFactory(
+      descriptors.deprecatedOrderOrderDomain
+    ),
+    /** Prospace order */
+    deprecatedOrderOrderProjecthosting: this.requestFunctionFactory(
+      descriptors.deprecatedOrderOrderProjecthosting
+    ),
+    /** SpaceServer order */
+    deprecatedOrderOrderServer: this.requestFunctionFactory(
+      descriptors.deprecatedOrderOrderServer
+    ),
+    /** Preview Prospace tariff change */
+    deprecatedOrderPreviewChangeProjecthosting: this.requestFunctionFactory(
+      descriptors.deprecatedOrderPreviewChangeProjecthosting
+    ),
+    /** Preview SpaceServer tariff change */
+    deprecatedOrderPreviewChangeServer: this.requestFunctionFactory(
+      descriptors.deprecatedOrderPreviewChangeServer
+    ),
+    /** Preview domain order. */
+    deprecatedOrderPreviewOrderDomain: this.requestFunctionFactory(
+      descriptors.deprecatedOrderPreviewOrderDomain
+    ),
+    /** Preview Prospace order */
+    deprecatedOrderPreviewOrderProjecthosting: this.requestFunctionFactory(
+      descriptors.deprecatedOrderPreviewOrderProjecthosting
+    ),
+    /** Preview SpaceServer order */
+    deprecatedOrderPreviewOrderServer: this.requestFunctionFactory(
+      descriptors.deprecatedOrderPreviewOrderServer
+    ),
     /** Get details of an Invoice. */
     invoiceDetailOfInvoice: this.requestFunctionFactory(
       descriptors.invoiceDetailOfInvoice
@@ -194,103 +290,29 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     invoiceListCustomerInvoices: this.requestFunctionFactory(
       descriptors.invoiceListCustomerInvoices
     ),
-    /** Prospace tariff change order */
-    orderChangeProjecthosting: this.requestFunctionFactory(
-      descriptors.orderChangeProjecthosting
+    /** Create an Order. */
+    orderCreateOrder: this.requestFunctionFactory(descriptors.orderCreateOrder),
+    /** Create TariffChange Order. */
+    orderCreateTariffChange: this.requestFunctionFactory(
+      descriptors.orderCreateTariffChange
     ),
-    /** SpaceServer order */
-    orderChangeServer: this.requestFunctionFactory(
-      descriptors.orderChangeServer
-    ),
-    /** Single order for customer */
+    /** Get Order for Customer. */
     orderGetOrder: this.requestFunctionFactory(descriptors.orderGetOrder),
-    /** Get list of order of a customer */
+    /** Get list of Orders of a Customer. */
     orderListCustomerOrders: this.requestFunctionFactory(
       descriptors.orderListCustomerOrders
     ),
-    /** Get list of orders of a project. */
+    /** Get list of Orders of a Project. */
     orderListProjectOrders: this.requestFunctionFactory(
       descriptors.orderListProjectOrders
     ),
-    /** Order a domain. */
-    orderOrderDomain: this.requestFunctionFactory(descriptors.orderOrderDomain),
-    /** Prospace order */
-    orderOrderProjecthosting: this.requestFunctionFactory(
-      descriptors.orderOrderProjecthosting
+    /** Preview Order. */
+    orderPreviewOrder: this.requestFunctionFactory(
+      descriptors.orderPreviewOrder
     ),
-    /** SpaceServer order */
-    orderOrderServer: this.requestFunctionFactory(descriptors.orderOrderServer),
-    /** Preview Prospace tariff change */
-    orderPreviewChangeProjecthosting: this.requestFunctionFactory(
-      descriptors.orderPreviewChangeProjecthosting
-    ),
-    /** Preview SpaceServer tariff change */
-    orderPreviewChangeServer: this.requestFunctionFactory(
-      descriptors.orderPreviewChangeServer
-    ),
-    /** Preview domain order. */
-    orderPreviewOrderDomain: this.requestFunctionFactory(
-      descriptors.orderPreviewOrderDomain
-    ),
-    /** Preview Prospace order */
-    orderPreviewOrderProjecthosting: this.requestFunctionFactory(
-      descriptors.orderPreviewOrderProjecthosting
-    ),
-    /** Preview SpaceServer order */
-    orderPreviewOrderServer: this.requestFunctionFactory(
-      descriptors.orderPreviewOrderServer
-    ),
-  };
-
-  /** The backup API allows you to manage your project backups. */
-  public readonly backup = {
-    /** Export a ProjectBackup for download. */
-    createProjectBackupExport: this.requestFunctionFactory(
-      descriptors.backupCreateProjectBackupExport
-    ),
-    /** Delete a ProjectBackupExport. */
-    deleteProjectBackupExport: this.requestFunctionFactory(
-      descriptors.backupDeleteProjectBackupExport
-    ),
-    /** List BackupSchedules belonging to a given Project. */
-    listProjectBackupSchedules: this.requestFunctionFactory(
-      descriptors.backupListProjectBackupSchedules
-    ),
-    /** Create a BackupSchedule for a Project. */
-    createProjectBackupSchedule: this.requestFunctionFactory(
-      descriptors.backupCreateProjectBackupSchedule
-    ),
-    /** List Backups for a given Project. */
-    listProjectBackups: this.requestFunctionFactory(
-      descriptors.backupListProjectBackups
-    ),
-    /** Create a Backup of a Project. */
-    createProjectBackup: this.requestFunctionFactory(
-      descriptors.backupCreateProjectBackup
-    ),
-    /** Get a ProjectBackupSchedule. */
-    getProjectBackupSchedule: this.requestFunctionFactory(
-      descriptors.backupGetProjectBackupSchedule
-    ),
-    /** Delete a ProjectBackupSchedule. */
-    deleteProjectBackupSchedule: this.requestFunctionFactory(
-      descriptors.backupDeleteProjectBackupSchedule
-    ),
-    /** Update a ProjectBackupSchedule. */
-    updateProjectBackupSchedule: this.requestFunctionFactory(
-      descriptors.backupUpdateProjectBackupSchedule
-    ),
-    /** Get a ProjectBackup. */
-    getProjectBackup: this.requestFunctionFactory(
-      descriptors.backupGetProjectBackup
-    ),
-    /** Delete a ProjectBackup. */
-    deleteProjectBackup: this.requestFunctionFactory(
-      descriptors.backupDeleteProjectBackup
-    ),
-    /** Change the description of a ProjectBackup. */
-    updateProjectBackupDescription: this.requestFunctionFactory(
-      descriptors.backupUpdateProjectBackupDescription
+    /** Preview TariffChange. */
+    orderPreviewTariffChange: this.requestFunctionFactory(
+      descriptors.orderPreviewTariffChange
     ),
   };
 
@@ -1014,6 +1036,50 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
+  /** The SSH/SFTP User API allows you to manage your SSH/SFTP users within a project. */
+  public readonly sshsftpUser = {
+    /** Create an SFTPUser for a Project. */
+    sftpUserCreateSftpUser: this.requestFunctionFactory(
+      descriptors.sftpUserCreateSftpUser
+    ),
+    /** Get an SFTPUser. */
+    sftpUserGetSftpUser: this.requestFunctionFactory(
+      descriptors.sftpUserGetSftpUser
+    ),
+    /** Delete an SFTPUser. */
+    sftpUserDeleteSftpUser: this.requestFunctionFactory(
+      descriptors.sftpUserDeleteSftpUser
+    ),
+    /** Update an SFTPUser. */
+    sftpUserUpdateSftpUser: this.requestFunctionFactory(
+      descriptors.sftpUserUpdateSftpUser
+    ),
+    /** Get all SFTPUsers for a Project. */
+    sftpUserListSftpUsers: this.requestFunctionFactory(
+      descriptors.sftpUserListSftpUsers
+    ),
+    /** Get all SSHUsers for a Project. */
+    sshUserListSshUsers: this.requestFunctionFactory(
+      descriptors.sshUserListSshUsers
+    ),
+    /** Create an SSHUser for a Project. */
+    sshUserCreateSshUser: this.requestFunctionFactory(
+      descriptors.sshUserCreateSshUser
+    ),
+    /** Get an SSHUser. */
+    sshUserGetSshUser: this.requestFunctionFactory(
+      descriptors.sshUserGetSshUser
+    ),
+    /** Delete an SSHUser. */
+    sshUserDeleteSshUser: this.requestFunctionFactory(
+      descriptors.sshUserDeleteSshUser
+    ),
+    /** Update an SSHUser. */
+    sshUserUpdateSshUser: this.requestFunctionFactory(
+      descriptors.sshUserUpdateSshUser
+    ),
+  };
+
   /** The user API allows you to manage your own user and access information of other users that might be visible to you. */
   public readonly user = {
     /** List all ApiTokens of the user */
@@ -1232,26 +1298,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Get profile information for the specified user */
     serviceUserGetOwn: this.requestFunctionFactory(
       descriptors.userServiceUserGetOwn
-    ),
-  };
-
-  /** The SSH User API allows you to manage your SSH users within a project. */
-  public readonly sshUser = {
-    /** Get all SSHUsers for a Project. */
-    listSshUsers: this.requestFunctionFactory(descriptors.sshUserListSshUsers),
-    /** Create an SSHUser for a Project. */
-    createSshUser: this.requestFunctionFactory(
-      descriptors.sshUserCreateSshUser
-    ),
-    /** Get an SSHUser. */
-    getSshUser: this.requestFunctionFactory(descriptors.sshUserGetSshUser),
-    /** Delete an SSHUser. */
-    deleteSshUser: this.requestFunctionFactory(
-      descriptors.sshUserDeleteSshUser
-    ),
-    /** Update an SSHUser. */
-    updateSshUser: this.requestFunctionFactory(
-      descriptors.sshUserUpdateSshUser
     ),
   };
 

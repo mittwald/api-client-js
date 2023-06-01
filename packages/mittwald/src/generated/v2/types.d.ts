@@ -1504,6 +1504,28 @@ declare namespace MittwaldAPIV2 {
         value: string;
       }
 
+      export interface OrderDomainOrderPreview {
+        authCode?: string;
+        domain: string;
+        projectId?: string;
+      }
+
+      export interface OrderDomainOrder {
+        authCode?: string;
+        domain: string;
+        handleData: {
+          adminC?: MittwaldAPIV2.Components.Schemas.OrderDomainHandleField[];
+          /**
+           * @minItems 1
+           */
+          ownerC: [
+            MittwaldAPIV2.Components.Schemas.OrderDomainHandleField,
+            ...MittwaldAPIV2.Components.Schemas.OrderDomainHandleField[]
+          ];
+        };
+        projectId: string;
+      }
+
       export interface OrderHardwareSpec {
         ram?: number;
         vcpu?: number;
@@ -1548,6 +1570,18 @@ declare namespace MittwaldAPIV2 {
 
       export type OrderOrderType = "NEW_ORDER" | "CONTRACT_CHANGE";
 
+      export interface OrderDomainOrderPreviewResponse {
+        domainPrice?: number;
+        feePrice?: number;
+        totalPrice?: number;
+      }
+
+      export interface OrderHostingOrderPreviewResponse {
+        machineTypePrice: number;
+        storagePrice: number;
+        totalPrice: number;
+      }
+
       export interface OrderProfile {
         email: string;
         first_name?: string;
@@ -1557,6 +1591,53 @@ declare namespace MittwaldAPIV2 {
          */
         title?: "other" | "mr" | "ms";
         userId: string;
+      }
+
+      export interface OrderProjectHostingOrderPreview {
+        customerId?: string;
+        description?: string;
+        diskspaceInGiB: number;
+        spec:
+          | MittwaldAPIV2.Components.Schemas.OrderMachineTypeSpec
+          | MittwaldAPIV2.Components.Schemas.OrderHardwareSpec;
+      }
+
+      export interface OrderProjectHostingOrder {
+        customerId: string;
+        description: string;
+        diskspaceInGiB: number;
+        spec:
+          | MittwaldAPIV2.Components.Schemas.OrderMachineTypeSpec
+          | MittwaldAPIV2.Components.Schemas.OrderHardwareSpec;
+      }
+
+      export interface OrderProjectHostingTariffChange {
+        contractId: string;
+        diskspaceInGiB: number;
+        spec:
+          | MittwaldAPIV2.Components.Schemas.OrderMachineTypeSpec
+          | MittwaldAPIV2.Components.Schemas.OrderHardwareSpec;
+      }
+
+      export interface OrderServerOrderPreview {
+        customerId?: string;
+        description?: string;
+        diskspaceInGiB: number;
+        machineType: string;
+      }
+
+      export interface OrderServerOrder {
+        customerId: string;
+        description: string;
+        diskspaceInGiB: number;
+        machineType: string;
+        useFreeTrial?: boolean;
+      }
+
+      export interface OrderServerTariffChange {
+        contractId: string;
+        diskspaceInGiB: number;
+        machineType: string;
       }
 
       export type PolicyPolicy = string;
@@ -2124,6 +2205,8 @@ declare namespace MittwaldAPIV2 {
         export type ApplicationJson =
           MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
       }
+
+      namespace CommonsRateLimitError {}
     }
 
     namespace SecuritySchemes {
@@ -3551,10 +3634,6 @@ declare namespace MittwaldAPIV2 {
             contractItemId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
@@ -3605,10 +3684,6 @@ declare namespace MittwaldAPIV2 {
             contractId: string;
             contractItemId: string;
           };
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -3712,10 +3787,6 @@ declare namespace MittwaldAPIV2 {
           export type Path = {
             contractId: string;
           };
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -6111,6 +6182,7 @@ declare namespace MittwaldAPIV2 {
         namespace Parameters {
           export type Path = {
             customerId: string;
+            noteId: string;
           };
 
           export interface RequestBody {
@@ -6482,10 +6554,6 @@ declare namespace MittwaldAPIV2 {
           export type Path = {
             customerId: string;
           };
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -7822,10 +7890,6 @@ declare namespace MittwaldAPIV2 {
             contractItemId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
@@ -7876,10 +7940,6 @@ declare namespace MittwaldAPIV2 {
             contractId: string;
             contractItemId: string;
           };
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -7983,10 +8043,6 @@ declare namespace MittwaldAPIV2 {
           export type Path = {
             contractId: string;
           };
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -8303,6 +8359,435 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2OrdersActionsChangeProjecthosting {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                orderId: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2OrdersActionsChangeServer {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                orderId: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2OrdersActionsOrderDomain {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                dueDate?: string;
+                orderId: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2OrdersActionsOrderProjecthosting {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                orderId: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2OrdersActionsOrderServer {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                orderId: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2OrdersActionsPreviewChangeProjecthosting {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                machineTypePrice: number;
+                storagePrice: number;
+                totalPrice: number;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2OrdersActionsPreviewChangeServer {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                machineTypePrice: number;
+                storagePrice: number;
+                totalPrice: number;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2OrdersActionsPreviewOrderDomain {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                domainPrice?: number;
+                feePrice?: number;
+                totalPrice?: number;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2OrdersActionsPreviewOrderProjecthosting {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                machineTypePrice: number;
+                storagePrice: number;
+                totalPrice: number;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2OrdersActionsPreviewOrderServer {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                machineTypePrice: number;
+                storagePrice: number;
+                totalPrice: number;
+              }
+            }
+          }
+
+          namespace $400 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -11286,7 +11771,7 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2OrdersActionsChangeProjecthosting {
+    namespace V2Orders {
       namespace Post {
         namespace Parameters {
           export type Path = {};
@@ -11328,7 +11813,7 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2OrdersActionsChangeServer {
+    namespace V2TariffChanges {
       namespace Post {
         namespace Parameters {
           export type Path = {};
@@ -11477,266 +11962,7 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2OrdersActionsOrderDomain {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                dueDate?: string;
-                orderId: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2OrdersActionsOrderProjecthosting {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                orderId: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2OrdersActionsOrderServer {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                orderId: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2OrdersActionsPreviewChangeProjecthosting {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                machineTypePrice: number;
-                storagePrice: number;
-                totalPrice: number;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2OrdersActionsPreviewChangeServer {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                machineTypePrice: number;
-                storagePrice: number;
-                totalPrice: number;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2OrdersActionsPreviewOrderDomain {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                domainPrice?: number;
-                feePrice?: number;
-                totalPrice?: number;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2OrdersActionsPreviewOrderProjecthosting {
+    namespace V2OrderPreviews {
       namespace Post {
         namespace Parameters {
           export type Path = {};
@@ -11752,11 +11978,9 @@ declare namespace MittwaldAPIV2 {
         namespace Responses {
           namespace $200 {
             namespace Content {
-              export interface ApplicationJson {
-                machineTypePrice: number;
-                storagePrice: number;
-                totalPrice: number;
-              }
+              export type ApplicationJson =
+                | MittwaldAPIV2.Components.Schemas.OrderHostingOrderPreviewResponse
+                | MittwaldAPIV2.Components.Schemas.OrderDomainOrderPreviewResponse;
             }
           }
 
@@ -11779,7 +12003,7 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2OrdersActionsPreviewOrderServer {
+    namespace V2TariffChangePreviews {
       namespace Post {
         namespace Parameters {
           export type Path = {};
@@ -11788,7 +12012,8 @@ declare namespace MittwaldAPIV2 {
             [k: string]: unknown;
           }
 
-          export type Header = {};
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {};
         }
@@ -11828,10 +12053,6 @@ declare namespace MittwaldAPIV2 {
           export type Path = {
             path: string;
           };
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
 
           export type Header = {};
 
@@ -12053,10 +12274,6 @@ declare namespace MittwaldAPIV2 {
           export type Path = {
             projectId: string;
           };
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -12350,10 +12567,6 @@ declare namespace MittwaldAPIV2 {
           export type Path = {
             serverId: string;
           };
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
