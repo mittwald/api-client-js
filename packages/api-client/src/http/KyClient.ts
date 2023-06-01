@@ -66,8 +66,11 @@ export class KyClient implements Client {
                     ...mapHeaders(header),
                 },
                 searchParams: convertQueryToUrlSearchParams(query),
-                timeout: requestOptions?.timeout,
             };
+
+            if (requestOptions?.timeout !== undefined) {
+                kyRequestOptions.timeout = requestOptions.timeout;
+            }
 
             if (requestBody) {
                 kyRequestOptions.json = requestBody;
