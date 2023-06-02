@@ -36,8 +36,13 @@ publish-commons:
     - cd ${CI_PROJECT_DIR}/packages/commons
     - npm version ${CI_COMMIT_TAG} --git-tag-version false
       --no-workspaces-update
-    - yarn config set npmScopes.mittwald.npmAuthToken "${GITHUB_TOKEN}"
-    - yarn npm publish
+    - |
+      yarn config set npmScopes.mittwald.npmAuthToken "${GITHUB_TOKEN}"
+      yarn npm publish
+    - |
+      yarn config set npmScopes.mittwald.npmAuthToken "${NPMJS_TOKEN}"
+      yarn config set npmScopes.mittwald.npmPublishRegistry "https://registry.npmjs.org"
+      yarn npm publish
   only:
     - tags
 
@@ -69,6 +74,10 @@ publish-client:
         git push "https://project:${PAT}@${CI_REPOSITORY_URL#*@}" "HEAD:${CI_COMMIT_BRANCH}"
 
         yarn config set npmScopes.mittwald.npmAuthToken "${GITHUB_TOKEN}"
+        yarn npm publish
+      
+        yarn config set npmScopes.mittwald.npmAuthToken "${NPMJS_TOKEN}"
+        yarn config set npmScopes.mittwald.npmPublishRegistry "https://registry.npmjs.org"
         yarn npm publish
       fi
   only:

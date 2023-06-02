@@ -1,9 +1,23 @@
 {
   "name": "@mittwald/api-client-commons",
+  "description": "Common types and utilities for mittwald API clients",
   "version": "1.0.0",
   "license": "MIT",
   "repository": "https://github.com/mittwald/api-client-js.git",
+  "homepage": "https://developer.mittwald.de",
+  "bugs": "https://github.com/mittwald/api-client-js/issues",
   "type": "module",
+  "author": {
+    "name": "Mittwald CM Service GmbH & Co. KG",
+    "email": "opensource@mittwald.de"
+  },
+  "keywords": [
+    "mittwald",
+    "api",
+    "client",
+    "sdk",
+    "rest"
+  ],
   "scripts": {
     "test": "yarn test:tsd",
     "test:tsd": "pnpify run tsd"
