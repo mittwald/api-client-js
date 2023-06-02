@@ -927,7 +927,7 @@ export const contractTerminateContractItem: OpenAPIOperation<
 /** Cancel the Termination for the referred ContractItem. */
 export const contractCancelContractItemTermination: OpenAPIOperation<
   Request<
-    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTermination.Delete.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTermination.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTermination.Delete.Parameters.Header>
   >,
@@ -960,7 +960,7 @@ export const contractCancelContractItemTermination: OpenAPIOperation<
 /** Cancel the TariffChange for the referred ContractItem. */
 export const contractCancelContractTariffChange: OpenAPIOperation<
   Request<
-    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTariffChange.Delete.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTariffChange.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTariffChange.Delete.Parameters.Header>
   >,
@@ -1026,7 +1026,7 @@ export const contractTerminateContract: OpenAPIOperation<
 /** Cancel the Termination for the referred Contract. */
 export const contractCancelContractTermination: OpenAPIOperation<
   Request<
-    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdTermination.Delete.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdTermination.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdTermination.Delete.Parameters.Header>
   >,
@@ -1122,39 +1122,6 @@ export const contractGetDetailOfContractByDomain: OpenAPIOperation<
   operationId: "contract-get-detail-of-contract-by-domain",
 };
 
-/** Return the Contract for the given Server. */
-export const contractGetDetailOfContractByPlacementGroup: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ServersServerIdContracts.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ServersServerIdContracts.Get.Parameters.Header>
-  >,
-  | Response<
-      MittwaldAPIV2.Paths.V2ServersServerIdContracts.Get.Responses.$200.Content.ApplicationJson,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2ServersServerIdContracts.Get.Responses.$400.Content.ApplicationJson,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2ServersServerIdContracts.Get.Responses.$404.Content.ApplicationJson,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2ServersServerIdContracts.Get.Responses.Default.Content.ApplicationJson,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/servers/{serverId}/contracts",
-  method: "GET",
-  operationId: "contract-get-detail-of-contract-by-placement-group",
-};
-
 /** Return the Contract for the given Project. */
 export const contractGetDetailOfContractByProject: OpenAPIOperation<
   Request<
@@ -1186,6 +1153,39 @@ export const contractGetDetailOfContractByProject: OpenAPIOperation<
   path: "/v2/projects/{projectId}/contracts",
   method: "GET",
   operationId: "contract-get-detail-of-contract-by-project",
+};
+
+/** Return the Contract for the given Server. */
+export const contractGetDetailOfContractByServer: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ServersServerIdContracts.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ServersServerIdContracts.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldAPIV2.Paths.V2ServersServerIdContracts.Get.Responses.$200.Content.ApplicationJson,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2ServersServerIdContracts.Get.Responses.$400.Content.ApplicationJson,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2ServersServerIdContracts.Get.Responses.$404.Content.ApplicationJson,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2ServersServerIdContracts.Get.Responses.Default.Content.ApplicationJson,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/servers/{serverId}/contracts",
+  method: "GET",
+  operationId: "contract-get-detail-of-contract-by-server",
 };
 
 /** Get the ContractItem with the given ID. */
@@ -3691,303 +3691,6 @@ export const databaseUpdateRedisDatabaseDescription: OpenAPIOperation<
   path: "/v2/redis-databases/{id}/description",
   method: "PATCH",
   operationId: "database-update-redis-database-description",
-};
-
-/** Schedule the Termination of a ContractItem. */
-export const deprecatedContractTerminateContractItem: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTerminations.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTerminations.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTerminations.Post.Parameters.Header>
-  >,
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTerminations.Post.Responses.$201.Content.ApplicationJson,
-      201,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTerminations.Post.Responses.$400.Content.ApplicationJson,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTerminations.Post.Responses.$404.Content.ApplicationJson,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTerminations.Post.Responses.Default.Content.ApplicationJson,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/contracts/{contractId}/items/{contractItemId}/terminations",
-  method: "POST",
-  operationId: "deprecated-contract-terminate-contract-item",
-};
-
-/** Cancel the Termination for the referred ContractItem. */
-export const deprecatedContractCancelContractItemTermination: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTerminations.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTerminations.Delete.Parameters.Header>
-  >,
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTerminations.Delete.Responses.$200.Content.ApplicationJson,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTerminations.Delete.Responses.$400.Content.ApplicationJson,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTerminations.Delete.Responses.$404.Content.ApplicationJson,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTerminations.Delete.Responses.Default.Content.ApplicationJson,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/contracts/{contractId}/items/{contractItemId}/terminations",
-  method: "DELETE",
-  operationId: "deprecated-contract-cancel-contract-item-termination",
-};
-
-/** Cancel the TariffChange for the referred ContractItem. */
-export const deprecatedContractCancelContractTariffChange: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTariffChanges.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTariffChanges.Delete.Parameters.Header>
-  >,
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTariffChanges.Delete.Responses.$200.Content.ApplicationJson,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTariffChanges.Delete.Responses.$400.Content.ApplicationJson,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTariffChanges.Delete.Responses.$404.Content.ApplicationJson,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTariffChanges.Delete.Responses.Default.Content.ApplicationJson,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/contracts/{contractId}/items/{contractItemId}/tariff-changes",
-  method: "DELETE",
-  operationId: "deprecated-contract-cancel-contract-tariff-change",
-};
-
-/** Schedule the Termination of a Contract. */
-export const deprecatedContractTerminateContract: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdTerminations.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdTerminations.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdTerminations.Post.Parameters.Header>
-  >,
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdTerminations.Post.Responses.$201.Content.ApplicationJson,
-      201,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdTerminations.Post.Responses.$400.Content.ApplicationJson,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdTerminations.Post.Responses.$404.Content.ApplicationJson,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdTerminations.Post.Responses.Default.Content.ApplicationJson,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/contracts/{contractId}/terminations",
-  method: "POST",
-  operationId: "deprecated-contract-terminate-contract",
-};
-
-/** Cancel the Termination for the referred Contract. */
-export const deprecatedContractCancelContractTermination: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdTerminations.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdTerminations.Delete.Parameters.Header>
-  >,
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdTerminations.Delete.Responses.$200.Content.ApplicationJson,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdTerminations.Delete.Responses.$400.Content.ApplicationJson,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdTerminations.Delete.Responses.$404.Content.ApplicationJson,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdTerminations.Delete.Responses.Default.Content.ApplicationJson,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/contracts/{contractId}/terminations",
-  method: "DELETE",
-  operationId: "deprecated-contract-cancel-contract-termination",
-};
-
-/** This route is deprecated, please use the new one. */
-export const deprecatedContractDetailOfContract: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdContractsContractId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdContractsContractId.Get.Parameters.Header>
-  >,
-  | Response<
-      MittwaldAPIV2.Paths.V2CustomersCustomerIdContractsContractId.Get.Responses.$200.Content.ApplicationJson,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2CustomersCustomerIdContractsContractId.Get.Responses.$404.Content.ApplicationJson,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2CustomersCustomerIdContractsContractId.Get.Responses.$500.Content.ApplicationJson,
-      500,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2CustomersCustomerIdContractsContractId.Get.Responses.Default.Content.ApplicationJson,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/contracts/{contractId}",
-  method: "GET",
-  operationId: "deprecated-contract-detail-of-contract",
-};
-
-/** Return the BaseItem of the Contract with the given ID. */
-export const deprecatedContractGetBaseItemOfContract: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdBaseItem.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdBaseItem.Get.Parameters.Header>
-  >,
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdBaseItem.Get.Responses.$200.Content.ApplicationJson,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdBaseItem.Get.Responses.$400.Content.ApplicationJson,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdBaseItem.Get.Responses.$404.Content.ApplicationJson,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdBaseItem.Get.Responses.Default.Content.ApplicationJson,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/contracts/{contractId}/base-item",
-  method: "GET",
-  operationId: "deprecated-contract-get-base-item-of-contract",
-};
-
-/** Return the Contract for the given Aggregate. */
-export const deprecatedContractGetDetailOfContractByAggregate: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2Contracts.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2Contracts.Get.Parameters.Header>
-  >,
-  | Response<
-      MittwaldAPIV2.Paths.V2Contracts.Get.Responses.$200.Content.ApplicationJson,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2Contracts.Get.Responses.$400.Content.ApplicationJson,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2Contracts.Get.Responses.$404.Content.ApplicationJson,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2Contracts.Get.Responses.Default.Content.ApplicationJson,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/contracts",
-  method: "GET",
-  operationId: "deprecated-contract-get-detail-of-contract-by-aggregate",
-};
-
-/** Return the next TerminationDate for the ContractItem with the given ID. */
-export const deprecatedContractGetNextTerminationDateForItem: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDate.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDate.Get.Parameters.Header>
-  >,
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDate.Get.Responses.$200.Content.ApplicationJson,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDate.Get.Responses.$400.Content.ApplicationJson,
-      400,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDate.Get.Responses.$404.Content.ApplicationJson,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDate.Get.Responses.Default.Content.ApplicationJson,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/contracts/{contractId}/items/{contractItemId}/next-termination-date",
-  method: "GET",
-  operationId: "deprecated-contract-get-next-termination-date-for-item",
 };
 
 /** Get InvoiceSettings of a Customer. */

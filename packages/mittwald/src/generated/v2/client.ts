@@ -163,13 +163,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getDetailOfContractByDomain: this.requestFunctionFactory(
       descriptors.contractGetDetailOfContractByDomain
     ),
-    /** Return the Contract for the given Server. */
-    getDetailOfContractByPlacementGroup: this.requestFunctionFactory(
-      descriptors.contractGetDetailOfContractByPlacementGroup
-    ),
     /** Return the Contract for the given Project. */
     getDetailOfContractByProject: this.requestFunctionFactory(
       descriptors.contractGetDetailOfContractByProject
+    ),
+    /** Return the Contract for the given Server. */
+    getDetailOfContractByServer: this.requestFunctionFactory(
+      descriptors.contractGetDetailOfContractByServer
     ),
     /** Get the ContractItem with the given ID. */
     getDetailOfContractItem: this.requestFunctionFactory(
@@ -187,45 +187,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listContracts: this.requestFunctionFactory(
       descriptors.contractListContracts
     ),
-    /** Schedule the Termination of a ContractItem. */
-    deprecatedContractTerminateContractItem: this.requestFunctionFactory(
-      descriptors.deprecatedContractTerminateContractItem
-    ),
-    /** Cancel the Termination for the referred ContractItem. */
-    deprecatedContractCancelContractItemTermination:
-      this.requestFunctionFactory(
-        descriptors.deprecatedContractCancelContractItemTermination
-      ),
-    /** Cancel the TariffChange for the referred ContractItem. */
-    deprecatedContractCancelContractTariffChange: this.requestFunctionFactory(
-      descriptors.deprecatedContractCancelContractTariffChange
-    ),
-    /** Schedule the Termination of a Contract. */
-    deprecatedContractTerminateContract: this.requestFunctionFactory(
-      descriptors.deprecatedContractTerminateContract
-    ),
-    /** Cancel the Termination for the referred Contract. */
-    deprecatedContractCancelContractTermination: this.requestFunctionFactory(
-      descriptors.deprecatedContractCancelContractTermination
-    ),
-    /** This route is deprecated, please use the new one. */
-    deprecatedContractDetailOfContract: this.requestFunctionFactory(
-      descriptors.deprecatedContractDetailOfContract
-    ),
-    /** Return the BaseItem of the Contract with the given ID. */
-    deprecatedContractGetBaseItemOfContract: this.requestFunctionFactory(
-      descriptors.deprecatedContractGetBaseItemOfContract
-    ),
-    /** Return the Contract for the given Aggregate. */
-    deprecatedContractGetDetailOfContractByAggregate:
-      this.requestFunctionFactory(
-        descriptors.deprecatedContractGetDetailOfContractByAggregate
-      ),
-    /** Return the next TerminationDate for the ContractItem with the given ID. */
-    deprecatedContractGetNextTerminationDateForItem:
-      this.requestFunctionFactory(
-        descriptors.deprecatedContractGetNextTerminationDateForItem
-      ),
     /** Get InvoiceSettings of a Customer. */
     deprecatedInvoiceInvoiceSettings: this.requestFunctionFactory(
       descriptors.deprecatedInvoiceInvoiceSettings

@@ -1,7 +1,7 @@
 {
   "name": "@mittwald/api-client",
   "description": "Auto-generated client for the mittwald API",
-  "version": "1.0.0-alpha.9",
+  "version": "1.0.0-alpha.10",
   "license": "MIT",
   "repository": "https://github.com/mittwald/api-client-js.git",
   "homepage": "https://developer.mittwald.de",
