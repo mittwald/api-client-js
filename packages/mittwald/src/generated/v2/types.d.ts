@@ -406,6 +406,7 @@ declare namespace MittwaldAPIV2 {
         invoicingPeriod: number;
         isActivated: boolean;
         isBaseItem: boolean;
+        isInFreeTrial?: boolean;
         isInclusive?: boolean;
         itemId: string;
         /**
