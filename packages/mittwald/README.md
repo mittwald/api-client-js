@@ -20,49 +20,11 @@ update your code with subsequent versions.
 
 ## Installing
 
-### With Yarn
-
-#### Install Yarn 4
-
-At this moment you need to use Yarn 4 due to this
-[registry login issue](https://github.com/yarnpkg/berry/issues/4341#issuecomment-1477122723).
-
-```shell
-yarn set version berry
-yarn set version 4
-```
-
-#### Configure package registry
-
-In order to install the package from https://npm.pkg.github.com, you must
-configure the `mittwald` scope.
-
-```shell
-yarn config set npmScopes.mittwald.npmRegistryServer https://npm.pkg.github.com
-```
-
-Login to the registry. **You need a personal access token with with the `repo`,
-`write:packages`, and `read:packages` permissions.**
-
-```shell
-yarn npm login --scope mittwald
-```
-
-Alternatively you can add the token to the config. Do not commit the
-`.yarnrc.yml` file to VCS when using this method!
-
-```shell
-yarn config set npmScopes.mittwald.npmAuthToken <TOKEN>
-```
-
-Now you can install the package as usual.
+You can install this package from the regular NPM registry:
 
 ```shell
 yarn add @mittwald/api-client
 ```
-
-Also see the section on [working with the npm registry][pkg-auth] in the Github
-docs.
 
 ## Usage
 
