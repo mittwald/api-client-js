@@ -42,7 +42,7 @@ publish-commons:
     - |
       yarn config set npmScopes.mittwald.npmAuthToken "${NPMJS_TOKEN}"
       yarn config set npmScopes.mittwald.npmPublishRegistry "https://registry.npmjs.org"
-      yarn npm publish
+      yarn npm publish --access=public
   only:
     - tags
 
@@ -78,7 +78,7 @@ publish-client:
       
         yarn config set npmScopes.mittwald.npmAuthToken "${NPMJS_TOKEN}"
         yarn config set npmScopes.mittwald.npmPublishRegistry "https://registry.npmjs.org"
-        yarn npm publish
+        yarn npm publish --access=public
       fi
   only:
     - schedules
