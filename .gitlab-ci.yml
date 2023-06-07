@@ -62,7 +62,7 @@ publish-client:
         git config user.email "${GITLAB_USER_EMAIL}"
       fi
 
-      if [ $(git status --porcelain . | wc -l) -gt 0 ] ; then
+      if [ $(git status --porcelain . | wc -l) -gt 0 ] || [ -n "${FORCE_PUBLISH}" ] ; then
         # TODO: Re-enable as soon as we have a stability guarantee
         # npm version --no-workspaces-update --no-git-tag-version patch
 
