@@ -195,46 +195,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deprecatedInvoiceUpdateInvoiceSettings: this.requestFunctionFactory(
       descriptors.deprecatedInvoiceUpdateInvoiceSettings
     ),
-    /** Prospace tariff change order */
-    deprecatedOrderChangeProjecthosting: this.requestFunctionFactory(
-      descriptors.deprecatedOrderChangeProjecthosting
-    ),
-    /** SpaceServer order */
-    deprecatedOrderChangeServer: this.requestFunctionFactory(
-      descriptors.deprecatedOrderChangeServer
-    ),
-    /** Order a domain. */
-    deprecatedOrderOrderDomain: this.requestFunctionFactory(
-      descriptors.deprecatedOrderOrderDomain
-    ),
-    /** Prospace order */
-    deprecatedOrderOrderProjecthosting: this.requestFunctionFactory(
-      descriptors.deprecatedOrderOrderProjecthosting
-    ),
-    /** SpaceServer order */
-    deprecatedOrderOrderServer: this.requestFunctionFactory(
-      descriptors.deprecatedOrderOrderServer
-    ),
-    /** Preview Prospace tariff change */
-    deprecatedOrderPreviewChangeProjecthosting: this.requestFunctionFactory(
-      descriptors.deprecatedOrderPreviewChangeProjecthosting
-    ),
-    /** Preview SpaceServer tariff change */
-    deprecatedOrderPreviewChangeServer: this.requestFunctionFactory(
-      descriptors.deprecatedOrderPreviewChangeServer
-    ),
-    /** Preview domain order. */
-    deprecatedOrderPreviewOrderDomain: this.requestFunctionFactory(
-      descriptors.deprecatedOrderPreviewOrderDomain
-    ),
-    /** Preview Prospace order */
-    deprecatedOrderPreviewOrderProjecthosting: this.requestFunctionFactory(
-      descriptors.deprecatedOrderPreviewOrderProjecthosting
-    ),
-    /** Preview SpaceServer order */
-    deprecatedOrderPreviewOrderServer: this.requestFunctionFactory(
-      descriptors.deprecatedOrderPreviewOrderServer
-    ),
     /** Get details of an Invoice. */
     invoiceDetailOfInvoice: this.requestFunctionFactory(
       descriptors.invoiceDetailOfInvoice
