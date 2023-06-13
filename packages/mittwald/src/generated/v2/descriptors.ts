@@ -480,7 +480,7 @@ export const appUpdateStatus: OpenAPIOperation<
 };
 
 /** Get an Article. */
-export const articleServiceGetArticle: OpenAPIOperation<
+export const articleGetArticle: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ArticlesArticleId.Get.Parameters.Path>,
@@ -504,11 +504,11 @@ export const articleServiceGetArticle: OpenAPIOperation<
 > = {
   path: "/v2/articles/{articleId}",
   method: "GET",
-  operationId: "article-service-get-article",
+  operationId: "article-get-article",
 };
 
 /** List Articles. */
-export const articleServiceListArticles: OpenAPIOperation<
+export const articleListArticles: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2Articles.Get.Parameters.Path>,
@@ -527,7 +527,7 @@ export const articleServiceListArticles: OpenAPIOperation<
 > = {
   path: "/v2/articles",
   method: "GET",
-  operationId: "article-service-list-articles",
+  operationId: "article-list-articles",
 };
 
 /** Export a ProjectBackup for download. */

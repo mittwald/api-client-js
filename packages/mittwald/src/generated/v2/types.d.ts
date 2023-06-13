@@ -277,6 +277,7 @@ declare namespace MittwaldAPIV2 {
         balanceAddonKey?: string;
         contractDurationInMonth: number;
         description: string;
+        forcedInvoicingPeriodInMonth?: number;
         hasIndependentContractPeriod?: boolean;
         hideOnInvoice?: boolean;
         machineType?: {

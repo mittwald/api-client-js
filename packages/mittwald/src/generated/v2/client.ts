@@ -72,13 +72,9 @@ export class MittwaldAPIV2Client extends ApiClientBase {
   /** The article API allows you to read article information. */
   public readonly article = {
     /** Get an Article. */
-    serviceGetArticle: this.requestFunctionFactory(
-      descriptors.articleServiceGetArticle
-    ),
+    getArticle: this.requestFunctionFactory(descriptors.articleGetArticle),
     /** List Articles. */
-    serviceListArticles: this.requestFunctionFactory(
-      descriptors.articleServiceListArticles
-    ),
+    listArticles: this.requestFunctionFactory(descriptors.articleListArticles),
   };
 
   /** The backup API allows you to manage your project backups. */
