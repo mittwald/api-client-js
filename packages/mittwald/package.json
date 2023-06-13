@@ -3,9 +3,11 @@
   "description": "Auto-generated client for the mittwald API",
   "version": "1.0.0-alpha.13",
   "license": "MIT",
-  "repository": "https://github.com/mittwald/api-client-js.git",
+  "repository": "github:mittwald/api-client-js",
   "homepage": "https://developer.mittwald.de",
-  "bugs": "https://github.com/mittwald/api-client-js/issues",
+  "bugs": {
+    "url": "https://github.com/mittwald/api-client-js/issues"
+  },
   "type": "module",
   "author": {
     "name": "Mittwald CM Service GmbH & Co. KG",
