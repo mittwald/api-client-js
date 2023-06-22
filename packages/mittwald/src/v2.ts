@@ -36,7 +36,7 @@ export class MittwaldAPIClient extends MittwaldApiV2Client {
   ): Promise<MittwaldAPIClient> {
     const client = MittwaldAPIClient.newUnauthenticated();
 
-    const authResult = await client.user.signupApiAuthenticate({
+    const authResult = await client.user.authenticate({
       data: {
         email,
         password,
