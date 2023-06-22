@@ -75,7 +75,7 @@ publish-client:
 
         yarn config set npmScopes.mittwald.npmAuthToken "${GITHUB_TOKEN}"
         yarn npm publish
-      
+
         yarn config set npmScopes.mittwald.npmAuthToken "${NPMJS_TOKEN}"
         yarn config set npmScopes.mittwald.npmPublishRegistry "https://registry.npmjs.org"
         yarn npm publish --access=public
@@ -88,6 +88,7 @@ publish-client-dev:
   stage: publish
   image: node:${NODE_VERSION}
   script:
+    - cd ${CI_PROJECT_DIR}/packages/mittwald
     - yarn generate:client-dev
     - |
       yarn config set npmScopes.mittwald.npmPublishRegistry https://npm.mittwald.it
