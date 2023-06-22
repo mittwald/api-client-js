@@ -553,6 +553,237 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
+  /** The notification API allows you to manage your notifications. */
+  public readonly notification = {
+    /** getting the subscription status of the subscription */
+    deprecatedNewsletterGetInfo: this.requestFunctionFactory(
+      descriptors.deprecatedNewsletterGetInfo
+    ),
+    /** Unsubscribe a user from the mStudio newsletter. */
+    deprecatedNewsletterUnsubscribeUser: this.requestFunctionFactory(
+      descriptors.deprecatedNewsletterUnsubscribeUser
+    ),
+    /** subscribe a user to the mStudio newsletter */
+    deprecatedNewsletterSubscribeUser: this.requestFunctionFactory(
+      descriptors.deprecatedNewsletterSubscribeUser
+    ),
+    /** Getting the subscription status of the subscription. */
+    newsletterGetInfo: this.requestFunctionFactory(
+      descriptors.newsletterGetInfo
+    ),
+    /** Unsubscribe a user from the mStudio newsletter. */
+    newsletterUnsubscribeUser: this.requestFunctionFactory(
+      descriptors.newsletterUnsubscribeUser
+    ),
+    /** Subscribe a user to the mStudio newsletter. */
+    newsletterSubscribeUser: this.requestFunctionFactory(
+      descriptors.newsletterSubscribeUser
+    ),
+    /** Get the counts for unread notifications of the user. */
+    scountUnreadNotifications: this.requestFunctionFactory(
+      descriptors.notificationsCountUnreadNotifications
+    ),
+    /** List all unread notifications */
+    slistNotifications: this.requestFunctionFactory(
+      descriptors.notificationsListNotifications
+    ),
+    /** Mark all notifications as read. */
+    sreadAllNotifications: this.requestFunctionFactory(
+      descriptors.notificationsReadAllNotifications
+    ),
+    /** Mark notification as read. */
+    sreadNotification: this.requestFunctionFactory(
+      descriptors.notificationsReadNotification
+    ),
+  };
+
+  /** The user API allows you to manage your own user and access information of other users that might be visible to you. */
+  public readonly user = {
+    /** Request a new avatar upload */
+    deprecatedUserServiceAvatarRequestUpload: this.requestFunctionFactory(
+      descriptors.deprecatedUserServiceAvatarRequestUpload
+    ),
+    /** Remove Avatar */
+    deprecatedUserServiceAvatarRemove: this.requestFunctionFactory(
+      descriptors.deprecatedUserServiceAvatarRemove
+    ),
+    /** Returns your submitted feedback */
+    deprecatedUserServiceFeedbackList: this.requestFunctionFactory(
+      descriptors.deprecatedUserServiceFeedbackList
+    ),
+    /** Submit user feedback */
+    deprecatedUserServiceFeedbackCreate: this.requestFunctionFactory(
+      descriptors.deprecatedUserServiceFeedbackCreate
+    ),
+    /** create a new issue */
+    deprecatedUserServiceIssueNew: this.requestFunctionFactory(
+      descriptors.deprecatedUserServiceIssueNew
+    ),
+    /** Get profile information for the specified user if the user is related to the executing user */
+    deprecatedUserServiceUserGet: this.requestFunctionFactory(
+      descriptors.deprecatedUserServiceUserGet
+    ),
+    /** Change your personal information */
+    deprecatedUserServicePersonalInformationUpdate: this.requestFunctionFactory(
+      descriptors.deprecatedUserServicePersonalInformationUpdate
+    ),
+    /** Get personalized settings for the user executing the request */
+    deprecatedUserServicePersonalizedSettingsGet: this.requestFunctionFactory(
+      descriptors.deprecatedUserServicePersonalizedSettingsGet
+    ),
+    /** update personalized settings */
+    deprecatedUserServicePersonalizedSettingsUpdate:
+      this.requestFunctionFactory(
+        descriptors.deprecatedUserServicePersonalizedSettingsUpdate
+      ),
+    /** Add phone number and init verification process */
+    deprecatedUserServicePhoneNumberAdd: this.requestFunctionFactory(
+      descriptors.deprecatedUserServicePhoneNumberAdd
+    ),
+    /** remove your PhoneNumber */
+    deprecatedUserServicePhoneNumberRemove: this.requestFunctionFactory(
+      descriptors.deprecatedUserServicePhoneNumberRemove
+    ),
+    /** Verify phone number */
+    deprecatedUserServicePhoneNumberVerify: this.requestFunctionFactory(
+      descriptors.deprecatedUserServicePhoneNumberVerify
+    ),
+    /** Get profile information for the executing user */
+    deprecatedUserServiceUserGetOwn: this.requestFunctionFactory(
+      descriptors.deprecatedUserServiceUserGetOwn
+    ),
+    /** Add phone number and start verification process. */
+    addPhoneNumber: this.requestFunctionFactory(descriptors.userAddPhoneNumber),
+    /** Remove phone number. */
+    removePhoneNumber: this.requestFunctionFactory(
+      descriptors.userRemovePhoneNumber
+    ),
+    /** Authenticate yourself to get an access token. */
+    authenticate: this.requestFunctionFactory(descriptors.userAuthenticate),
+    /** Validate your second factor. */
+    authenticateMfa: this.requestFunctionFactory(
+      descriptors.userAuthenticateMfa
+    ),
+    /** Get your primary verified Email-Address */
+    getEmail: this.requestFunctionFactory(descriptors.userGetEmail),
+    /** Change your Email-Address */
+    changeEmail: this.requestFunctionFactory(descriptors.userChangeEmail),
+    /** The timestamp of your latest password change */
+    getPasswordUpdatedAt: this.requestFunctionFactory(
+      descriptors.userGetPasswordUpdatedAt
+    ),
+    /** Change your password */
+    changePassword: this.requestFunctionFactory(descriptors.userChangePassword),
+    /** Get your profile information */
+    getOwnProfile: this.requestFunctionFactory(descriptors.userGetOwnProfile),
+    /** Change your profile information */
+    changeProfile: this.requestFunctionFactory(descriptors.userChangeProfile),
+    /** Delete your profile and all your personal data */
+    deleteProfile: this.requestFunctionFactory(descriptors.userDeleteProfile),
+    /** Check a token for validity */
+    checkToken: this.requestFunctionFactory(descriptors.userCheckToken),
+    /** Confirm Multi Factor Authentication */
+    confirmMfa: this.requestFunctionFactory(descriptors.userConfirmMfa),
+    /** Confirm password reset */
+    confirmPasswordReset: this.requestFunctionFactory(
+      descriptors.userConfirmPasswordReset
+    ),
+    /** List all ApiTokens of the user */
+    listApiTokens: this.requestFunctionFactory(descriptors.userListApiTokens),
+    /** Store a new ApiToken */
+    createApiToken: this.requestFunctionFactory(descriptors.userCreateApiToken),
+    /** Submit your user feedback. */
+    createFeedback: this.requestFunctionFactory(descriptors.userCreateFeedback),
+    /** Create a new issue. */
+    createIssue: this.requestFunctionFactory(descriptors.userCreateIssue),
+    /** Get your stored ssh keys */
+    listSshKeys: this.requestFunctionFactory(descriptors.userListSshKeys),
+    /** Store a new SSH key */
+    createSshKey: this.requestFunctionFactory(descriptors.userCreateSshKey),
+    /** Get a specific ApiToken */
+    getApiToken: this.requestFunctionFactory(descriptors.userGetApiToken),
+    /** Update an existing `ApiToken` */
+    editApiToken: this.requestFunctionFactory(descriptors.userEditApiToken),
+    /** Deletes an ApiToken */
+    deleteApiToken: this.requestFunctionFactory(descriptors.userDeleteApiToken),
+    /** Get a specific stored SshKey */
+    getSshKey: this.requestFunctionFactory(descriptors.userGetSshKey),
+    /** Edit a stored SshKey */
+    editSshKey: this.requestFunctionFactory(descriptors.userEditSshKey),
+    /** Remove a SSH-key */
+    deleteSshKey: this.requestFunctionFactory(descriptors.userDeleteSshKey),
+    /** Get your current multi factor auth status */
+    getMfaStatus: this.requestFunctionFactory(descriptors.userGetMfaStatus),
+    /** Initialize Multi Factor Authentication. If successfull, it needs to be confirmed, before usage of mfa. */
+    initMfa: this.requestFunctionFactory(descriptors.userInitMfa),
+    /** Disable Multi Factor Authentication. */
+    disableMfa: this.requestFunctionFactory(descriptors.userDisableMfa),
+    /** Get personalized settings. */
+    getPersonalizedSettings: this.requestFunctionFactory(
+      descriptors.userGetPersonalizedSettings
+    ),
+    /** Update personalized GUI settings. */
+    updatePersonalizedSettings: this.requestFunctionFactory(
+      descriptors.userUpdatePersonalizedSettings
+    ),
+    /** Get a specific Session */
+    getSession: this.requestFunctionFactory(descriptors.userGetSession),
+    /** Terminate a specific Session */
+    terminateSession: this.requestFunctionFactory(
+      descriptors.userTerminateSession
+    ),
+    /** Get profile information for a user. */
+    getUser: this.requestFunctionFactory(descriptors.userGetUser),
+    /** Change personal information. */
+    updatePersonalInformation: this.requestFunctionFactory(
+      descriptors.userUpdatePersonalInformation
+    ),
+    /** Initialize password reset process */
+    initPasswordReset: this.requestFunctionFactory(
+      descriptors.userInitPasswordReset
+    ),
+    /** Submitted feedback of the given user. */
+    listFeedback: this.requestFunctionFactory(descriptors.userListFeedback),
+    /** List all active sessions */
+    listSessions: this.requestFunctionFactory(descriptors.userListSessions),
+    /** Terminate all sessions, except the current Session */
+    terminateAllSessions: this.requestFunctionFactory(
+      descriptors.userTerminateAllSessions
+    ),
+    /** Terminate session and invalidate access token */
+    logout: this.requestFunctionFactory(descriptors.userLogout),
+    /** Register with email and password. */
+    register: this.requestFunctionFactory(descriptors.userRegister),
+    /** Request a new avatar image upload. */
+    requestAvatarUpload: this.requestFunctionFactory(
+      descriptors.userRequestAvatarUpload
+    ),
+    /** Remove Avatar. */
+    removeAvatar: this.requestFunctionFactory(descriptors.userRemoveAvatar),
+    /** Resend the Email-Address verification email */
+    resendVerificationEmail: this.requestFunctionFactory(
+      descriptors.userResendVerificationEmail
+    ),
+    /** Reset RecoveryCodes for MFA */
+    resetRecoverycodes: this.requestFunctionFactory(
+      descriptors.userResetRecoverycodes
+    ),
+    /** Request a support code */
+    supportCodeRequest: this.requestFunctionFactory(
+      descriptors.userSupportCodeRequest
+    ),
+    /** Verify an added Email-Address */
+    verifyEmail: this.requestFunctionFactory(descriptors.userVerifyEmail),
+    /** Verify phone number. */
+    verifyPhoneNumber: this.requestFunctionFactory(
+      descriptors.userVerifyPhoneNumber
+    ),
+    /** Verify your registration */
+    verifyRegistration: this.requestFunctionFactory(
+      descriptors.userVerifyRegistration
+    ),
+  };
+
   /** The domain API allows you to manage your domains, DNS records and ingress resources. */
   public readonly domain = {
     /** updates a-records for a specific zone */
@@ -586,109 +817,95 @@ export class MittwaldAPIV2Client extends ApiClientBase {
       descriptors.dnsZonesForProject
     ),
     /** Abort a declare process. */
-    serviceAbortDeclareProcess: this.requestFunctionFactory(
-      descriptors.domainServiceAbortDeclareProcess
+    abortDeclareProcess: this.requestFunctionFactory(
+      descriptors.domainAbortDeclareProcess
     ),
     /** Change the ownerC of a domain. */
-    serviceChangeOwnercOfDomain: this.requestFunctionFactory(
-      descriptors.domainServiceChangeOwnercOfDomain
+    changeOwnercOfDomain: this.requestFunctionFactory(
+      descriptors.domainChangeOwnercOfDomain
     ),
     /** Change the Project relation of a Domain. */
-    serviceChangeProjectOfDomain: this.requestFunctionFactory(
-      descriptors.domainServiceChangeProjectOfDomain
+    changeProjectOfDomain: this.requestFunctionFactory(
+      descriptors.domainChangeProjectOfDomain
     ),
     /** Check if a Domain is available to register. */
-    serviceCheckDomainAvailability: this.requestFunctionFactory(
-      descriptors.domainServiceCheckDomainAvailability
+    checkDomainAvailability: this.requestFunctionFactory(
+      descriptors.domainCheckDomainAvailability
     ),
     /** Create an AuthCode for a Domains transfer out process. */
-    serviceCreateAuthcodeForDomain: this.requestFunctionFactory(
-      descriptors.domainServiceCreateAuthcodeForDomain
+    createAuthcodeForDomain: this.requestFunctionFactory(
+      descriptors.domainCreateAuthcodeForDomain
     ),
     /** Create an AuthCode2. */
-    serviceCreateAuthcode2ForDomain: this.requestFunctionFactory(
-      descriptors.domainServiceCreateAuthcode2ForDomain
+    createAuthcode2ForDomain: this.requestFunctionFactory(
+      descriptors.domainCreateAuthcode2ForDomain
     ),
     /** Change all nameservers of a Domain. */
-    serviceDeclareNameservers: this.requestFunctionFactory(
-      descriptors.domainServiceDeclareNameservers
+    declareNameservers: this.requestFunctionFactory(
+      descriptors.domainDeclareNameservers
     ),
     /** Update an AuthCode. */
-    serviceDeclareProcessChangeAuthcode: this.requestFunctionFactory(
-      descriptors.domainServiceDeclareProcessChangeAuthcode
+    declareProcessChangeAuthcode: this.requestFunctionFactory(
+      descriptors.domainDeclareProcessChangeAuthcode
     ),
     /** Update a Domain's OwnerC handle. */
-    serviceDeclareProcessChangeHandles: this.requestFunctionFactory(
-      descriptors.domainServiceDeclareProcessChangeHandles
+    declareProcessChangeHandles: this.requestFunctionFactory(
+      descriptors.domainDeclareProcessChangeHandles
     ),
     /** Get a Domain. */
-    serviceGetDomain: this.requestFunctionFactory(
-      descriptors.domainServiceGetDomain
-    ),
+    getDomain: this.requestFunctionFactory(descriptors.domainGetDomain),
     /** Delete a Domain. */
-    serviceDeleteDomain: this.requestFunctionFactory(
-      descriptors.domainServiceDeleteDomain
-    ),
+    deleteDomain: this.requestFunctionFactory(descriptors.domainDeleteDomain),
     /** Get a HandleSchema. */
-    serviceGetHandleFields: this.requestFunctionFactory(
-      descriptors.domainServiceGetHandleFields
+    getHandleFields: this.requestFunctionFactory(
+      descriptors.domainGetHandleFields
     ),
     /** Get a domain ownership. */
-    serviceGetSpecificDomainOwnership: this.requestFunctionFactory(
-      descriptors.domainServiceGetSpecificDomainOwnership
+    getSpecificDomainOwnership: this.requestFunctionFactory(
+      descriptors.domainGetSpecificDomainOwnership
     ),
     /** Verify a domain ownership. */
-    serviceVerifyDomainOwnership: this.requestFunctionFactory(
-      descriptors.domainServiceVerifyDomainOwnership
+    verifyDomainOwnership: this.requestFunctionFactory(
+      descriptors.domainVerifyDomainOwnership
     ),
     /** Get a toplevel domain. */
-    serviceGetToplevelDomain: this.requestFunctionFactory(
-      descriptors.domainServiceGetToplevelDomain
+    getToplevelDomain: this.requestFunctionFactory(
+      descriptors.domainGetToplevelDomain
     ),
     /** List all domain ownerships of a project. */
-    serviceListDomainOwnerships: this.requestFunctionFactory(
-      descriptors.domainServiceListDomainOwnerships
+    listDomainOwnerships: this.requestFunctionFactory(
+      descriptors.domainListDomainOwnerships
     ),
     /** List Domains belonging to a Project. */
-    serviceListDomains: this.requestFunctionFactory(
-      descriptors.domainServiceListDomains
-    ),
+    listDomains: this.requestFunctionFactory(descriptors.domainListDomains),
     /** List all supported toplevel domains. */
-    serviceListToplevelDomains: this.requestFunctionFactory(
-      descriptors.domainServiceListToplevelDomains
+    listToplevelDomains: this.requestFunctionFactory(
+      descriptors.domainListToplevelDomains
     ),
     /** Resend a domain email. */
-    serviceResendDomainEmail: this.requestFunctionFactory(
-      descriptors.domainServiceResendDomainEmail
+    resendDomainEmail: this.requestFunctionFactory(
+      descriptors.domainResendDomainEmail
     ),
     /** Create an Ingress. */
-    ingressServiceCreate: this.requestFunctionFactory(
-      descriptors.ingressServiceCreate
-    ),
+    ingressCreate: this.requestFunctionFactory(descriptors.ingressCreate),
     /** Get an Ingress. */
-    ingressServiceGetSpecific: this.requestFunctionFactory(
-      descriptors.ingressServiceGetSpecific
+    ingressGetSpecific: this.requestFunctionFactory(
+      descriptors.ingressGetSpecific
     ),
     /** Delete an Ingress. */
-    ingressServiceDelete: this.requestFunctionFactory(
-      descriptors.ingressServiceDelete
-    ),
+    ingressDelete: this.requestFunctionFactory(descriptors.ingressDelete),
     /** List Ingresses the user has access to. */
-    ingressServiceListAccessible: this.requestFunctionFactory(
-      descriptors.ingressServiceListAccessible
+    ingressListAccessible: this.requestFunctionFactory(
+      descriptors.ingressListAccessible
     ),
     /** List Ingresses belonging to a project. */
-    ingressServiceListForProject: this.requestFunctionFactory(
-      descriptors.ingressServiceListForProject
+    ingressListForProject: this.requestFunctionFactory(
+      descriptors.ingressListForProject
     ),
     /** Update an Ingresses paths. */
-    ingressServicePaths: this.requestFunctionFactory(
-      descriptors.ingressServicePaths
-    ),
+    ingressPaths: this.requestFunctionFactory(descriptors.ingressPaths),
     /** Update an Ingresses tls settings. */
-    ingressServiceTls: this.requestFunctionFactory(
-      descriptors.ingressServiceTls
-    ),
+    ingressTls: this.requestFunctionFactory(descriptors.ingressTls),
   };
 
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
@@ -790,38 +1007,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update whitelist for a given project ID */
     serviceProjectsettingUpdateWhitelist: this.requestFunctionFactory(
       descriptors.mailServiceProjectsettingUpdateWhitelist
-    ),
-  };
-
-  /** The notification API allows you to manage your notifications. */
-  public readonly notification = {
-    /** getting the subscription status of the subscription */
-    newsletterGetInfo: this.requestFunctionFactory(
-      descriptors.newsletterGetInfo
-    ),
-    /** unsubscribe a user from the mStudio newsletter */
-    newsletterUnsubscribeUser: this.requestFunctionFactory(
-      descriptors.newsletterUnsubscribeUser
-    ),
-    /** subscribe a user to the mStudio newsletter */
-    newsletterSubscribeUser: this.requestFunctionFactory(
-      descriptors.newsletterSubscribeUser
-    ),
-    /** Get the counts for unread notifications of the user. */
-    scountUnreadNotifications: this.requestFunctionFactory(
-      descriptors.notificationsCountUnreadNotifications
-    ),
-    /** List all unread notifications */
-    slistNotifications: this.requestFunctionFactory(
-      descriptors.notificationsListNotifications
-    ),
-    /** Mark all notifications as read. */
-    sreadAllNotifications: this.requestFunctionFactory(
-      descriptors.notificationsReadAllNotifications
-    ),
-    /** Mark notification as read. */
-    sreadNotification: this.requestFunctionFactory(
-      descriptors.notificationsReadNotification
     ),
   };
 
@@ -994,239 +1179,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update an SSHUser. */
     sshUserUpdateSshUser: this.requestFunctionFactory(
       descriptors.sshUserUpdateSshUser
-    ),
-  };
-
-  /** The user API allows you to manage your own user and access information of other users that might be visible to you. */
-  public readonly user = {
-    /** List all ApiTokens of the user */
-    signupApiApiTokenList: this.requestFunctionFactory(
-      descriptors.signupApiApiTokenList
-    ),
-    /** Store a new ApiToken */
-    signupApiApiTokenCreate: this.requestFunctionFactory(
-      descriptors.signupApiApiTokenCreate
-    ),
-    /** Get a specific ApiToken */
-    signupApiApiTokenGet: this.requestFunctionFactory(
-      descriptors.signupApiApiTokenGet
-    ),
-    /** Update an existing `ApiToken` */
-    signupApiApiTokenEdit: this.requestFunctionFactory(
-      descriptors.signupApiApiTokenEdit
-    ),
-    /** Deletes an ApiToken */
-    signupApiApiTokenDelete: this.requestFunctionFactory(
-      descriptors.signupApiApiTokenDelete
-    ),
-    /** Authenticate yourself to get an access token. */
-    signupApiAuthenticate: this.requestFunctionFactory(
-      descriptors.signupApiAuthenticate
-    ),
-    /** Authenticate yourself against your legacy account to migrate it with the '/registration'-Route */
-    signupApiAuthenticateLegacy: this.requestFunctionFactory(
-      descriptors.signupApiAuthenticateLegacy
-    ),
-    /** Validate your second factor. */
-    signupApiAuthenticateMfa: this.requestFunctionFactory(
-      descriptors.signupApiAuthenticateMfa
-    ),
-    /** Request a new avatar upload */
-    signupApiAvatarRequestUpload: this.requestFunctionFactory(
-      descriptors.signupApiAvatarRequestUpload
-    ),
-    /** Remove avatar */
-    signupApiAvatarRemove: this.requestFunctionFactory(
-      descriptors.signupApiAvatarRemove
-    ),
-    /** Get your primary verified email address */
-    signupApiEmailGet: this.requestFunctionFactory(
-      descriptors.signupApiEmailGet
-    ),
-    /** Change your email */
-    signupApiEmailChange: this.requestFunctionFactory(
-      descriptors.signupApiEmailChange
-    ),
-    /** Resend the email address verification email */
-    signupApiEmailResend: this.requestFunctionFactory(
-      descriptors.signupApiEmailResend
-    ),
-    /** Verify an added email address */
-    signupApiEmailVerify: this.requestFunctionFactory(
-      descriptors.signupApiEmailVerify
-    ),
-    /** Terminate session and invalidate access token */
-    signupApiLogout: this.requestFunctionFactory(descriptors.signupApiLogout),
-    /** Confirm Multi Factor Authentication */
-    signupApiMfaConfirm: this.requestFunctionFactory(
-      descriptors.signupApiMfaConfirm
-    ),
-    /** Get your current multi factor auth status */
-    signupApiMfaGetStatus: this.requestFunctionFactory(
-      descriptors.signupApiMfaGetStatus
-    ),
-    /** Initialize Multi Factor Authentication. If successfull, it needs to be confirmed, before usage of mfa. */
-    signupApiMfaInit: this.requestFunctionFactory(descriptors.signupApiMfaInit),
-    /** Disable Multi Factor Authentication. */
-    signupApiMfaDisable: this.requestFunctionFactory(
-      descriptors.signupApiMfaDisable
-    ),
-    /** Get timestamp of your latest password change */
-    signupApiPasswordGetUpdatedAt: this.requestFunctionFactory(
-      descriptors.signupApiPasswordGetUpdatedAt
-    ),
-    /** Change your password */
-    signupApiPasswordChange: this.requestFunctionFactory(
-      descriptors.signupApiPasswordChange
-    ),
-    /** Confirm password reset */
-    signupApiPasswordResetConfirm: this.requestFunctionFactory(
-      descriptors.signupApiPasswordResetConfirm
-    ),
-    /** Initialize password reset process */
-    signupApiPasswordResetInit: this.requestFunctionFactory(
-      descriptors.signupApiPasswordResetInit
-    ),
-    /** Get current phone number */
-    signupApiPhoneNumberGet: this.requestFunctionFactory(
-      descriptors.signupApiPhoneNumberGet
-    ),
-    /** Initialize phone number process */
-    signupApiPhoneNumberInitProcess: this.requestFunctionFactory(
-      descriptors.signupApiPhoneNumberInitProcess
-    ),
-    /** Deletes phone number */
-    signupApiPhoneNumberDelete: this.requestFunctionFactory(
-      descriptors.signupApiPhoneNumberDelete
-    ),
-    /** Initialize phone number process */
-    signupApiPhoneNumberVerify: this.requestFunctionFactory(
-      descriptors.signupApiPhoneNumberVerify
-    ),
-    /** Get your profile information */
-    signupApiProfileGet: this.requestFunctionFactory(
-      descriptors.signupApiProfileGet
-    ),
-    /** Change your profile information */
-    signupApiProfileChange: this.requestFunctionFactory(
-      descriptors.signupApiProfileChange
-    ),
-    /** Delete your profile and all your personal data */
-    signupApiProfileDelete: this.requestFunctionFactory(
-      descriptors.signupApiProfileDelete
-    ),
-    /** Reset Recovery-Codes for MFA */
-    signupApiRecoverycodesReset: this.requestFunctionFactory(
-      descriptors.signupApiRecoverycodesReset
-    ),
-    /** Register with email and password.
-     */
-    signupApiRegister: this.requestFunctionFactory(
-      descriptors.signupApiRegister
-    ),
-    /** Verify your registration */
-    signupApiRegistrationVerify: this.requestFunctionFactory(
-      descriptors.signupApiRegistrationVerify
-    ),
-    /** Get a specific session of an authorized user */
-    signupApiSessionGet: this.requestFunctionFactory(
-      descriptors.signupApiSessionGet
-    ),
-    /** Terminate a specific session of an authorized user */
-    signupApiSessionTerminate: this.requestFunctionFactory(
-      descriptors.signupApiSessionTerminate
-    ),
-    /** List all active sessions of authorized user */
-    signupApiSessionsList: this.requestFunctionFactory(
-      descriptors.signupApiSessionsList
-    ),
-    /** Terminate all session of an authorized user, except his current session */
-    signupApiSessionsTerminateAll: this.requestFunctionFactory(
-      descriptors.signupApiSessionsTerminateAll
-    ),
-    /** Get your stored ssh keys */
-    signupApiSshList: this.requestFunctionFactory(descriptors.signupApiSshList),
-    /** Store a new SSH key */
-    signupApiSshCreate: this.requestFunctionFactory(
-      descriptors.signupApiSshCreate
-    ),
-    /** Get your stored ssh keys */
-    signupApiSshGet: this.requestFunctionFactory(descriptors.signupApiSshGet),
-    /** Edit an existing SSH key */
-    signupApiSshEdit: this.requestFunctionFactory(descriptors.signupApiSshEdit),
-    /** Remove an existing SSH Key */
-    signupApiSshDelete: this.requestFunctionFactory(
-      descriptors.signupApiSshDelete
-    ),
-    /** request a support code */
-    signupApiSupportCodeRequest: this.requestFunctionFactory(
-      descriptors.signupApiSupportCodeRequest
-    ),
-    /** Check, if the current access token is valid */
-    signupApiTokenCheck: this.requestFunctionFactory(
-      descriptors.signupApiTokenCheck
-    ),
-    /** Request a new avatar upload */
-    serviceAvatarRequestUpload: this.requestFunctionFactory(
-      descriptors.userServiceAvatarRequestUpload
-    ),
-    /** Remove avatar */
-    serviceAvatarRemove: this.requestFunctionFactory(
-      descriptors.userServiceAvatarRemove
-    ),
-    /** Returns your given feedback. */
-    serviceFeedbackList: this.requestFunctionFactory(
-      descriptors.userServiceFeedbackList
-    ),
-    /**  */
-    serviceFeedbackCreate: this.requestFunctionFactory(
-      descriptors.userServiceFeedbackCreate
-    ),
-    /** create a new issue */
-    serviceIssueNew: this.requestFunctionFactory(
-      descriptors.userServiceIssueNew
-    ),
-    /** Get profile information for the specified user */
-    serviceUserGet: this.requestFunctionFactory(descriptors.userServiceUserGet),
-    /** Change your personal information */
-    servicePersonalInformationUpdate: this.requestFunctionFactory(
-      descriptors.userServicePersonalInformationUpdate
-    ),
-    /** Get personalized settings for the specified user */
-    servicePersonalizedSettingsGet: this.requestFunctionFactory(
-      descriptors.userServicePersonalizedSettingsGet
-    ),
-    /** update personalized settings */
-    servicePersonalizedSettingsUpdate: this.requestFunctionFactory(
-      descriptors.userServicePersonalizedSettingsUpdate
-    ),
-    /** Add phone number and init verification process */
-    servicePhoneNumberAdd: this.requestFunctionFactory(
-      descriptors.userServicePhoneNumberAdd
-    ),
-    /** Deletes phone number */
-    servicePhoneNumberRemove: this.requestFunctionFactory(
-      descriptors.userServicePhoneNumberRemove
-    ),
-    /** Verify phone number */
-    servicePhoneNumberVerify: this.requestFunctionFactory(
-      descriptors.userServicePhoneNumberVerify
-    ),
-    /** Get profile information for the specified user */
-    serviceUserGetOwn: this.requestFunctionFactory(
-      descriptors.userServiceUserGetOwn
-    ),
-  };
-
-  /** The varnish API allows you to manage your varnish caches. */
-  public readonly varnish = {
-    /** List all available validators. */
-    serviceListValidators: this.requestFunctionFactory(
-      descriptors.varnishServiceListValidators
-    ),
-    /** validate a set of config files with a named validator against a specific version */
-    serviceValidate: this.requestFunctionFactory(
-      descriptors.varnishServiceValidate
     ),
   };
 }
