@@ -1,35 +1,41 @@
 {
   "name": "@mittwald/api-client",
-  "description": "Auto-generated client for the mittwald API",
   "version": "1.0.0-alpha.15",
+  "description": "Auto-generated client for the mittwald API",
   "license": "MIT",
   "repository": "github:mittwald/api-client-js",
+  "author": {
+    "name": "Mittwald CM Service GmbH & Co. KG",
+    "email": "opensource@mittwald.de"
+  },
   "homepage": "https://developer.mittwald.de",
   "bugs": {
     "url": "https://github.com/mittwald/api-client-js/issues"
   },
   "type": "module",
-  "author": {
-    "name": "Mittwald CM Service GmbH & Co. KG",
-    "email": "opensource@mittwald.de"
+  "exports": {
+    "./v2": {
+      "import": "./dist/v2.js",
+      "default": "./dist-cjs/v2.js"
+    }
   },
-  "keywords": [
-    "mittwald",
-    "api",
-    "client",
-    "sdk",
-    "rest"
-  ],
   "scripts": {
     "copy:dts": "yarn run -T copyfiles -u 1 src/**/*.d.ts dist",
     "generate:client": "yarn generate:client:v2 && yarn post:generate",
     "generate:client-dev": "yarn generate:client-dev:v2 && yarn post:generate",
     "generate:client-dev:v2": "curl --silent https://api-public.dev.mittwald.systems/openapi | ./transform-openapi.sh | yarn acg generate --name MittwaldAPIV2 - src/generated/v2 --optionalHeader x-access-token",
     "generate:client:v2": "curl --silent https://api.mittwald.de/openapi | ./transform-openapi.sh | yarn acg generate --name MittwaldAPIV2 - src/generated/v2 --optionalHeader x-access-token",
-    "post:generate": "yarn run -T compile && yarn copy:dts"
+    "post:generate": "yarn run -T compile && yarn run -T compile:cjs && yarn copy:dts"
   },
   "files": [
-    "dist/**/*.{js,d.ts}"
+    "{dist,dist-cjs}/**/*.{js,d.ts}"
+  ],
+  "keywords": [
+    "mittwald",
+    "api",
+    "client",
+    "sdk",
+    "rest"
   ],
   "dependencies": {
     "@mittwald/api-client-commons": "workspace:^"

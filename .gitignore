@@ -12,6 +12,7 @@ Thumbs.db
 
 # Dev
 dist/
+dist-cjs/
 coverage/
 *.tsbuildinfo
 

@@ -52,10 +52,10 @@ export class Paths {
 
     return `\
       /// <reference types="./types.d.ts" />    
-      import { Simplify } from "@mittwald/api-client-commons/dist/type-fest.js";
-      import { Request } from "@mittwald/api-client-commons/dist/types/Request.js";
-      import { Response } from "@mittwald/api-client-commons/dist/types/Response.js";
-      import { OpenAPIOperation } from "@mittwald/api-client-commons/dist/types/OpenAPIOperation.js";    
+      import { Simplify } from "@mittwald/api-client-commons/types";
+      import { Request } from "@mittwald/api-client-commons/types";
+      import { Response } from "@mittwald/api-client-commons/types";
+      import { OpenAPIOperation } from "@mittwald/api-client-commons/types";    
 
       ${t.descriptors}
     `;
@@ -112,7 +112,7 @@ export class Paths {
 
     return `\
       import * as descriptors from "./descriptors.js";
-      import ApiClientBase from "@mittwald/api-client-commons/dist/core/ApiClientBase.js";
+      import { ApiClientBase } from "@mittwald/api-client-commons";
 
       export class ${t.clientClassName} extends ApiClientBase {
         ${t.methods}

@@ -17,9 +17,11 @@ typescript-compile:
   image: node:${NODE_VERSION}
   script:
     - yarn compile
+    - yarn compile:cjs
   artifacts:
     paths:
       - ${CI_PROJECT_DIR}/packages/commons/dist/
+      - ${CI_PROJECT_DIR}/packages/commons/dist-cjs/
       - ${CI_PROJECT_DIR}/packages/generator/dist/
     expire_in: 1 hour
 

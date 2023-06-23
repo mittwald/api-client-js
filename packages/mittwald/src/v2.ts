@@ -1,4 +1,4 @@
-import ApiClientError from "@mittwald/api-client-commons/dist/core/ApiClientError.js";
+import { ApiClientError } from "@mittwald/api-client-commons";
 import MittwaldApiV2Client from "./generated/v2/client.js";
 
 export class MittwaldAPIClient extends MittwaldApiV2Client {
