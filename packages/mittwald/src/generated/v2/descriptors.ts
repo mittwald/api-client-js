@@ -2192,62 +2192,6 @@ export const customerCreateCustomer: OpenAPIOperation<
   operationId: "customer-create-customer",
 };
 
-/** Get all notes for the customer profile. */
-export const customerListOfNotes: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdNotes.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdNotes.Get.Parameters.Header>
-  >,
-  | Response<
-      MittwaldAPIV2.Paths.V2CustomersCustomerIdNotes.Get.Responses.$200.Content.ApplicationJson,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2CustomersCustomerIdNotes.Get.Responses.$404.Content.ApplicationJson,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2CustomersCustomerIdNotes.Get.Responses.Default.Content.ApplicationJson,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/notes",
-  method: "GET",
-  operationId: "customer-list-of-notes",
-};
-
-/** Add a note to the customer profile. */
-export const customerCreateNote: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdNotes.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdNotes.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdNotes.Post.Parameters.Header>
-  >,
-  | Response<
-      MittwaldAPIV2.Paths.V2CustomersCustomerIdNotes.Post.Responses.$201.Content.ApplicationJson,
-      201,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2CustomersCustomerIdNotes.Post.Responses.$404.Content.ApplicationJson,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2CustomersCustomerIdNotes.Post.Responses.Default.Content.ApplicationJson,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/notes",
-  method: "POST",
-  operationId: "customer-create-note",
-};
-
 /** Decline a CustomerInvite. */
 export const customerDeclineCustomerInvite: OpenAPIOperation<
   Request<
@@ -2621,62 +2565,6 @@ export const customerDeleteCustomer: OpenAPIOperation<
   path: "/v2/customers/{customerId}",
   method: "DELETE",
   operationId: "customer-delete-customer",
-};
-
-/** Update a note of the customer profile. */
-export const customerUpdateNote: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdNotesNoteId.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdNotesNoteId.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdNotesNoteId.Post.Parameters.Header>
-  >,
-  | Response<
-      MittwaldAPIV2.Paths.V2CustomersCustomerIdNotesNoteId.Post.Responses.$200.Content.ApplicationJson,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2CustomersCustomerIdNotesNoteId.Post.Responses.$404.Content.ApplicationJson,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2CustomersCustomerIdNotesNoteId.Post.Responses.Default.Content.ApplicationJson,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/notes/{noteId}",
-  method: "POST",
-  operationId: "customer-update-note",
-};
-
-/** Delete a note from customer profile. */
-export const customerDeleteNote: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdNotesNoteId.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdNotesNoteId.Delete.Parameters.Header>
-  >,
-  | Response<
-      MittwaldAPIV2.Paths.V2CustomersCustomerIdNotesNoteId.Delete.Responses.$200.Content.ApplicationJson,
-      200,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2CustomersCustomerIdNotesNoteId.Delete.Responses.$404.Content.ApplicationJson,
-      404,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2CustomersCustomerIdNotesNoteId.Delete.Responses.Default.Content.ApplicationJson,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/notes/{noteId}",
-  method: "DELETE",
-  operationId: "customer-delete-note",
 };
 
 /** Get a CustomerInvite by token. */

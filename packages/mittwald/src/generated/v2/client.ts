@@ -353,10 +353,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     createCustomer: this.requestFunctionFactory(
       descriptors.customerCreateCustomer
     ),
-    /** Get all notes for the customer profile. */
-    listOfNotes: this.requestFunctionFactory(descriptors.customerListOfNotes),
-    /** Add a note to the customer profile. */
-    createNote: this.requestFunctionFactory(descriptors.customerCreateNote),
     /** Decline a CustomerInvite. */
     declineCustomerInvite: this.requestFunctionFactory(
       descriptors.customerDeclineCustomerInvite
@@ -415,10 +411,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteCustomer: this.requestFunctionFactory(
       descriptors.customerDeleteCustomer
     ),
-    /** Update a note of the customer profile. */
-    updateNote: this.requestFunctionFactory(descriptors.customerUpdateNote),
-    /** Delete a note from customer profile. */
-    deleteNote: this.requestFunctionFactory(descriptors.customerDeleteNote),
     /** Get a CustomerInvite by token. */
     getCustomerTokenInvite: this.requestFunctionFactory(
       descriptors.customerGetCustomerTokenInvite
