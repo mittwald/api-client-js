@@ -13197,6 +13197,39 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
+    namespace V2LegacyTariffChange {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                messageId: string;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2ProjectsProjectIdSftpUsers {
       namespace Post {
         namespace Parameters {
@@ -15545,39 +15578,6 @@ declare namespace MittwaldAPIV2 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2LegacyTariffChange {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                messageId: string;
               }
             }
           }

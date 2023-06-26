@@ -7020,6 +7020,29 @@ export const redirectusCreateRelocation: OpenAPIOperation<
   operationId: "redirectus-create-relocation",
 };
 
+/** Register a tariff change for a legacy tariff. */
+export const relocationCreateLegacyTariffChange: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Parameters.Header>
+  >,
+  | Response<
+      MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Responses.$201.Content.ApplicationJson,
+      201,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Responses.Default.Content.ApplicationJson,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/legacy-tariff-change",
+  method: "POST",
+  operationId: "relocation-create-legacy-tariff-change",
+};
+
 /** Create an SFTPUser for a Project. */
 export const sftpUserCreateSftpUser: OpenAPIOperation<
   Request<
@@ -8525,27 +8548,4 @@ export const userVerifyRegistration: OpenAPIOperation<
   path: "/v2/signup/registration/verification",
   method: "POST",
   operationId: "user-verify-registration",
-};
-
-/** Register a tariff change for a legacy tariff. */
-export const relocationCreateLegacyTariffChange: OpenAPIOperation<
-  Request<
-    Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Parameters.Header>
-  >,
-  | Response<
-      MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Responses.$201.Content.ApplicationJson,
-      201,
-      "application/json"
-    >
-  | Response<
-      MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Responses.Default.Content.ApplicationJson,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/legacy-tariff-change",
-  method: "POST",
-  operationId: "relocation-create-legacy-tariff-change",
 };
