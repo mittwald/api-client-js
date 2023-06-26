@@ -702,15 +702,6 @@ declare namespace MittwaldAPIV2 {
         vatIdValidationState?: "valid" | "invalid" | "pending" | "unspecified";
       }
 
-      export interface CustomerNote {
-        author: string;
-        creationDate: string;
-        id: string;
-        isImportant: boolean;
-        message: string;
-        subject: string;
-      }
-
       export interface DatabaseMySqlCharacterSettings {
         collations: string[];
         name: string;
@@ -1460,6 +1451,11 @@ declare namespace MittwaldAPIV2 {
         aggregate: string;
         domain: string;
         id: string;
+        parents?: {
+          aggregate: string;
+          domain: string;
+          id: string;
+        }[];
       }
 
       export interface MessagingNotification {
@@ -5514,96 +5510,6 @@ declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2CustomersCustomerIdNotes {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            limit?: number;
-            skip?: number;
-            page?: number;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CustomerNote[];
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                author?: string;
-                customerId: string;
-                isImportant?: boolean;
-                message?: string;
-                noteId: string;
-                subject?: string;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2CustomerInvitesInviteIdActionsDecline {
       namespace Post {
         namespace Parameters {
@@ -6120,95 +6026,6 @@ declare namespace MittwaldAPIV2 {
         namespace Parameters {
           export type Path = {
             customerId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomersCustomerIdNotesNoteId {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-            noteId: string;
-          };
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                author?: string;
-                customerId: string;
-                isImportant?: boolean;
-                message?: string;
-                noteId: string;
-                subject?: string;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Delete {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-            noteId: string;
           };
 
           export type Header =
