@@ -1093,31 +1093,31 @@ export const contractGetBaseItemOfContract: OpenAPIOperation<
 export const contractGetDetailOfContractByDomain: OpenAPIOperation<
   Request<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContracts.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContracts.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContract.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContract.Get.Parameters.Header>
   >,
   | Response<
-      MittwaldAPIV2.Paths.V2DomainsDomainIdContracts.Get.Responses.$200.Content.ApplicationJson,
+      MittwaldAPIV2.Paths.V2DomainsDomainIdContract.Get.Responses.$200.Content.ApplicationJson,
       200,
       "application/json"
     >
   | Response<
-      MittwaldAPIV2.Paths.V2DomainsDomainIdContracts.Get.Responses.$400.Content.ApplicationJson,
+      MittwaldAPIV2.Paths.V2DomainsDomainIdContract.Get.Responses.$400.Content.ApplicationJson,
       400,
       "application/json"
     >
   | Response<
-      MittwaldAPIV2.Paths.V2DomainsDomainIdContracts.Get.Responses.$404.Content.ApplicationJson,
+      MittwaldAPIV2.Paths.V2DomainsDomainIdContract.Get.Responses.$404.Content.ApplicationJson,
       404,
       "application/json"
     >
   | Response<
-      MittwaldAPIV2.Paths.V2DomainsDomainIdContracts.Get.Responses.Default.Content.ApplicationJson,
+      MittwaldAPIV2.Paths.V2DomainsDomainIdContract.Get.Responses.Default.Content.ApplicationJson,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/domains/{domainId}/contracts",
+  path: "/v2/domains/{domainId}/contract",
   method: "GET",
   operationId: "contract-get-detail-of-contract-by-domain",
 };
@@ -1126,31 +1126,31 @@ export const contractGetDetailOfContractByDomain: OpenAPIOperation<
 export const contractGetDetailOfContractByProject: OpenAPIOperation<
   Request<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdContracts.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdContracts.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdContract.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdContract.Get.Parameters.Header>
   >,
   | Response<
-      MittwaldAPIV2.Paths.V2ProjectsProjectIdContracts.Get.Responses.$200.Content.ApplicationJson,
+      MittwaldAPIV2.Paths.V2ProjectsProjectIdContract.Get.Responses.$200.Content.ApplicationJson,
       200,
       "application/json"
     >
   | Response<
-      MittwaldAPIV2.Paths.V2ProjectsProjectIdContracts.Get.Responses.$400.Content.ApplicationJson,
+      MittwaldAPIV2.Paths.V2ProjectsProjectIdContract.Get.Responses.$400.Content.ApplicationJson,
       400,
       "application/json"
     >
   | Response<
-      MittwaldAPIV2.Paths.V2ProjectsProjectIdContracts.Get.Responses.$404.Content.ApplicationJson,
+      MittwaldAPIV2.Paths.V2ProjectsProjectIdContract.Get.Responses.$404.Content.ApplicationJson,
       404,
       "application/json"
     >
   | Response<
-      MittwaldAPIV2.Paths.V2ProjectsProjectIdContracts.Get.Responses.Default.Content.ApplicationJson,
+      MittwaldAPIV2.Paths.V2ProjectsProjectIdContract.Get.Responses.Default.Content.ApplicationJson,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/projects/{projectId}/contracts",
+  path: "/v2/projects/{projectId}/contract",
   method: "GET",
   operationId: "contract-get-detail-of-contract-by-project",
 };
@@ -1159,31 +1159,31 @@ export const contractGetDetailOfContractByProject: OpenAPIOperation<
 export const contractGetDetailOfContractByServer: OpenAPIOperation<
   Request<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ServersServerIdContracts.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ServersServerIdContracts.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ServersServerIdContract.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ServersServerIdContract.Get.Parameters.Header>
   >,
   | Response<
-      MittwaldAPIV2.Paths.V2ServersServerIdContracts.Get.Responses.$200.Content.ApplicationJson,
+      MittwaldAPIV2.Paths.V2ServersServerIdContract.Get.Responses.$200.Content.ApplicationJson,
       200,
       "application/json"
     >
   | Response<
-      MittwaldAPIV2.Paths.V2ServersServerIdContracts.Get.Responses.$400.Content.ApplicationJson,
+      MittwaldAPIV2.Paths.V2ServersServerIdContract.Get.Responses.$400.Content.ApplicationJson,
       400,
       "application/json"
     >
   | Response<
-      MittwaldAPIV2.Paths.V2ServersServerIdContracts.Get.Responses.$404.Content.ApplicationJson,
+      MittwaldAPIV2.Paths.V2ServersServerIdContract.Get.Responses.$404.Content.ApplicationJson,
       404,
       "application/json"
     >
   | Response<
-      MittwaldAPIV2.Paths.V2ServersServerIdContracts.Get.Responses.Default.Content.ApplicationJson,
+      MittwaldAPIV2.Paths.V2ServersServerIdContract.Get.Responses.Default.Content.ApplicationJson,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/servers/{serverId}/contracts",
+  path: "/v2/servers/{serverId}/contract",
   method: "GET",
   operationId: "contract-get-detail-of-contract-by-server",
 };
@@ -3579,6 +3579,105 @@ export const databaseUpdateRedisDatabaseDescription: OpenAPIOperation<
   path: "/v2/redis-databases/{id}/description",
   method: "PATCH",
   operationId: "database-update-redis-database-description",
+};
+
+/** Return the Contract for the given Domain. */
+export const deprecatedContractGetDetailOfContractByDomain: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContracts.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContracts.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldAPIV2.Paths.V2DomainsDomainIdContracts.Get.Responses.$200.Content.ApplicationJson,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2DomainsDomainIdContracts.Get.Responses.$400.Content.ApplicationJson,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2DomainsDomainIdContracts.Get.Responses.$404.Content.ApplicationJson,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2DomainsDomainIdContracts.Get.Responses.Default.Content.ApplicationJson,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/contracts",
+  method: "GET",
+  operationId: "deprecated-contract-get-detail-of-contract-by-domain",
+};
+
+/** Return the Contract for the given Project. */
+export const deprecatedContractGetDetailOfContractByProject: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdContracts.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdContracts.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldAPIV2.Paths.V2ProjectsProjectIdContracts.Get.Responses.$200.Content.ApplicationJson,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2ProjectsProjectIdContracts.Get.Responses.$400.Content.ApplicationJson,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2ProjectsProjectIdContracts.Get.Responses.$404.Content.ApplicationJson,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2ProjectsProjectIdContracts.Get.Responses.Default.Content.ApplicationJson,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/contracts",
+  method: "GET",
+  operationId: "deprecated-contract-get-detail-of-contract-by-project",
+};
+
+/** Return the Contract for the given Server. */
+export const deprecatedContractGetDetailOfContractByServer: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ServersServerIdContracts.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ServersServerIdContracts.Get.Parameters.Header>
+  >,
+  | Response<
+      MittwaldAPIV2.Paths.V2ServersServerIdContracts.Get.Responses.$200.Content.ApplicationJson,
+      200,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2ServersServerIdContracts.Get.Responses.$400.Content.ApplicationJson,
+      400,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2ServersServerIdContracts.Get.Responses.$404.Content.ApplicationJson,
+      404,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2ServersServerIdContracts.Get.Responses.Default.Content.ApplicationJson,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/servers/{serverId}/contracts",
+  method: "GET",
+  operationId: "deprecated-contract-get-detail-of-contract-by-server",
 };
 
 /** Get InvoiceSettings of a Customer. */
@@ -8426,4 +8525,27 @@ export const userVerifyRegistration: OpenAPIOperation<
   path: "/v2/signup/registration/verification",
   method: "POST",
   operationId: "user-verify-registration",
+};
+
+/** Register a tariff change for a legacy tariff. */
+export const relocationCreateLegacyTariffChange: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Parameters.Header>
+  >,
+  | Response<
+      MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Responses.$201.Content.ApplicationJson,
+      201,
+      "application/json"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Responses.Default.Content.ApplicationJson,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/legacy-tariff-change",
+  method: "POST",
+  operationId: "relocation-create-legacy-tariff-change",
 };

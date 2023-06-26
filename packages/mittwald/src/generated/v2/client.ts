@@ -183,6 +183,18 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listContracts: this.requestFunctionFactory(
       descriptors.contractListContracts
     ),
+    /** Return the Contract for the given Domain. */
+    deprecatedContractGetDetailOfContractByDomain: this.requestFunctionFactory(
+      descriptors.deprecatedContractGetDetailOfContractByDomain
+    ),
+    /** Return the Contract for the given Project. */
+    deprecatedContractGetDetailOfContractByProject: this.requestFunctionFactory(
+      descriptors.deprecatedContractGetDetailOfContractByProject
+    ),
+    /** Return the Contract for the given Server. */
+    deprecatedContractGetDetailOfContractByServer: this.requestFunctionFactory(
+      descriptors.deprecatedContractGetDetailOfContractByServer
+    ),
     /** Get InvoiceSettings of a Customer. */
     deprecatedInvoiceInvoiceSettings: this.requestFunctionFactory(
       descriptors.deprecatedInvoiceInvoiceSettings
