@@ -2,10 +2,10 @@
 /* prettier-ignore */
 /* This file is auto-generated with acg (@mittwald/api-code-generator) */
 /// <reference types="./types.d.ts" />
-import { Simplify } from "@mittwald/api-client-commons/dist/type-fest.js";
-import { Request } from "@mittwald/api-client-commons/dist/types/Request.js";
-import { Response } from "@mittwald/api-client-commons/dist/types/Response.js";
-import { OpenAPIOperation } from "@mittwald/api-client-commons/dist/types/OpenAPIOperation.js";
+import { Simplify } from "@mittwald/api-client-commons/types";
+import { Request } from "@mittwald/api-client-commons/types";
+import { Response } from "@mittwald/api-client-commons/types";
+import { OpenAPIOperation } from "@mittwald/api-client-commons/types";
 
 /** execute a runtime concerning action on a specific `AppInstallation` */
 export const appExecuteAction: OpenAPIOperation<
