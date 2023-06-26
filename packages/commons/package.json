@@ -1,6 +1,6 @@
 {
   "name": "@mittwald/api-client-commons",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Common types and utilities for mittwald API clients",
   "license": "MIT",
   "repository": "https://github.com/mittwald/api-client-js.git",
