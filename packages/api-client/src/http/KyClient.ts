@@ -1,5 +1,4 @@
-import { Options as KyOptions } from "ky";
-import ky, { HTTPError } from "ky-universal";
+import ky, { HTTPError, Options as KyOptions } from "ky-universal";
 import debug from "../debug.js";
 import { Headers } from "../OperationDescriptor.js";
 import { AnyRequestFunctionFactory, Client } from "./Client.js";

@@ -30,7 +30,7 @@
     "lint": "eslint 'src/**/*.{ts,tsx}' 2>/dev/null",
     "lint:staged": "eslint $(git -C ${PWD} diff --relative --staged --diff-filter=ACMR --name-only -- 'src/**/*.ts' 'src/**/*.tsx') 1>/dev/null || (echo 'ESlint failed. Run `yarn lint` to see error details' && exit 1)",
     "test": "yarn test:unit",
-    "test:unit": "jest --color --silent --verbose --passWithNoTests",
+    "test:unit": "yarn node --experimental-vm-modules $(yarn bin jest) --no-cache --color --silent --verbose --passWithNoTests",
     "test:coverage": "yarn test:unit --coverage",
     "test:ci:unit": "run-s test:coverage",
     "test:ci": "run-s test:ci:*"
@@ -54,7 +54,7 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^1.19.1",
     "ts-jest": "29.1.0",
-    "typescript": "5.0.4"
+    "typescript": "^5.1.5"
   },
   "dependencies": {
     "@mittwald/awesome-node-utils": "^3.0.0-alpha.18",
@@ -72,8 +72,7 @@
   },
   "resolutions": {
     "@types/verror": "1.10.6",
-    "http-cache-semantics": "4.1.1",
-    "typescript": "5.0.4"
+    "http-cache-semantics": "4.1.1"
   },
   "files": [
     "dist"

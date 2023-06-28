@@ -31,7 +31,7 @@
     "test:lint": "yarn lint",
     "lint": "eslint 'src/**/*.{ts,tsx}' 2>/dev/null",
     "lint:staged": "eslint $(git -C ${PWD} diff --relative --staged --diff-filter=ACMR --name-only -- 'src/**/*.ts' 'src/**/*.tsx') 1>/dev/null || (echo 'ESlint failed. Run `yarn lint` to see error details' && exit 1)",
-    "test:unit": "jest --color --silent --verbose --passWithNoTests",
+    "test:unit": "yarn node --experimental-vm-modules $(yarn bin jest) --no-cache --color --silent --verbose --passWithNoTests",
     "test:all": "run-s 'test:!(all)'",
     "prepublish:default": "exit",
     "test:ci:compile": "run-s test:compile",
@@ -69,7 +69,7 @@
     "prettier": "^1.19.1",
     "ts-interface-builder": "^0.3.0",
     "ts-jest": "^29.1.0",
-    "typescript": "^5.0.4"
+    "typescript": "^5.1.5"
   },
   "dependencies": {
     "@apidevtools/swagger-parser": "^10.0.2",
@@ -103,8 +103,7 @@
   },
   "resolutions": {
     "jsonschema": "1.2.5",
-    "http-cache-semantics": "4.1.1",
-    "typescript": "5.0.4"
+    "http-cache-semantics": "4.1.1"
   },
   "main": "dist/index.js",
   "files": [
