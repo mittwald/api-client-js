@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { LockFile } from "./LockFile";
 import { NormalizedSpec } from "./NormalizedSpec";
 

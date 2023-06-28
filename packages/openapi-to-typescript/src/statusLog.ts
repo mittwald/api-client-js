@@ -2,7 +2,7 @@ import { createUseContext } from "@mittwald/awesome-node-utils/context/use.js";
 import ora from "ora";
 
 export class OraStatusLog implements StatusLog {
-    private instance: ora.Ora = ora();
+    private readonly instance: ora.Ora = ora();
 
     public start(msg: string): void {
         this.instance.start(msg);

@@ -28,11 +28,7 @@ export const viewHelpersFactory = (namespace: string, opts: ViewHelpersOptions =
     function replaceRefsTypeNames(rootNamespace: string, ts: string): string {
         return ts.replace(/"(#.+?)"/gm, (_, match) => {
             // eslint-disable-next-line prettier/prettier
-            return `${rootNamespace}.${match
-                .substring(2)
-                .split("/")
-                .map(transformNamespaceName)
-                .join(".")}`;
+            return `${rootNamespace}.${match.substring(2).split("/").map(transformNamespaceName).join(".")}`;
         });
     }
 

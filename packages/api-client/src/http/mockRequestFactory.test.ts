@@ -137,11 +137,13 @@ describe("mockRequestFactory()", () => {
                 },
                 req: {
                     header: {
+                        // eslint-disable-next-line @typescript-eslint/naming-convention
                         "x-my-header": "foo",
                     },
                 },
                 expectedReq: {
                     header: {
+                        // eslint-disable-next-line @typescript-eslint/naming-convention
                         "x-my-header": "foo",
                     },
                 },
