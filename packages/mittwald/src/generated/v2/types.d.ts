@@ -1101,6 +1101,12 @@ declare namespace MittwaldAPIV2 {
         certificateId: string;
       }
 
+      export interface InvoiceBankingInformation {
+        accountHolder: string;
+        bic: string;
+        iban: string;
+      }
+
       export interface InvoiceCancellation {
         cancellationId: string;
         cancelledAt: string;
@@ -1189,7 +1195,7 @@ declare namespace MittwaldAPIV2 {
         additionalEmailRecipients?: string[];
         id: string;
         invoicePeriod?: number;
-        nextInvoiceCheck?: string;
+        lastBankingInformation?: MittwaldAPIV2.Components.Schemas.InvoiceBankingInformation;
         paymentSettings?: MittwaldAPIV2.Components.Schemas.InvoicePaymentSettings;
         printedInvoices?: boolean;
         recipient?: MittwaldAPIV2.Components.Schemas.InvoiceRecipient;
@@ -7738,102 +7744,6 @@ declare namespace MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.ContractContract;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomersCustomerIdInvoicesettings {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.InvoiceInvoiceSettings;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.InvoiceInvoiceSettings;
             }
           }
 

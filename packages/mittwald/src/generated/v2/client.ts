@@ -195,14 +195,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deprecatedContractGetDetailOfContractByServer: this.requestFunctionFactory(
       descriptors.deprecatedContractGetDetailOfContractByServer
     ),
-    /** Get InvoiceSettings of a Customer. */
-    deprecatedInvoiceInvoiceSettings: this.requestFunctionFactory(
-      descriptors.deprecatedInvoiceInvoiceSettings
-    ),
-    /** Update InvoiceSettings of a Customer. */
-    deprecatedInvoiceUpdateInvoiceSettings: this.requestFunctionFactory(
-      descriptors.deprecatedInvoiceUpdateInvoiceSettings
-    ),
     /** Get details of an Invoice. */
     invoiceDetailOfInvoice: this.requestFunctionFactory(
       descriptors.invoiceDetailOfInvoice
