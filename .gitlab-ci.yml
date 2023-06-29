@@ -65,10 +65,7 @@ publish-client:
       fi
 
       if [ $(git status --porcelain . | wc -l) -gt 0 ] || [ -n "${FORCE_PUBLISH}" ] ; then
-        # TODO: Re-enable as soon as we have a stability guarantee
-        # npm version --no-workspaces-update --no-git-tag-version patch
-
-        npm version --no-workspaces-update --no-git-tag-version --preid alpha prerelease
+        npm version --no-workspaces-update --no-git-tag-version patch
 
         git add .
         git commit -m "Update generated client";
