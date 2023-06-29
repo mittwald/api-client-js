@@ -5338,7 +5338,7 @@ export const invoiceListCustomerInvoices: OpenAPIOperation<
 };
 
 /** Get all deliveryboxes by project ID */
-export const mailServiceDeliveryboxList: OpenAPIOperation<
+export const mailDeliveryboxList: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDeliveryboxes.Get.Parameters.Path>,
@@ -5352,11 +5352,11 @@ export const mailServiceDeliveryboxList: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/deliveryboxes",
   method: "GET",
-  operationId: "mail-service-deliverybox-list",
+  operationId: "mail-deliverybox-list",
 };
 
 /** Create a new deliverybox */
-export const mailServiceDeliveryboxCreate: OpenAPIOperation<
+export const mailDeliveryboxCreate: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDeliveryboxes.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDeliveryboxes.Post.Parameters.Path>,
@@ -5370,11 +5370,11 @@ export const mailServiceDeliveryboxCreate: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/deliveryboxes",
   method: "POST",
-  operationId: "mail-service-deliverybox-create",
+  operationId: "mail-deliverybox-create",
 };
 
 /** Get a specific deliverybox */
-export const mailServiceDeliveryboxGetSpecific: OpenAPIOperation<
+export const mailDeliveryboxGetSpecific: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesId.Get.Parameters.Path>,
@@ -5388,11 +5388,11 @@ export const mailServiceDeliveryboxGetSpecific: OpenAPIOperation<
 > = {
   path: "/v2/deliveryboxes/{id}",
   method: "GET",
-  operationId: "mail-service-deliverybox-get-specific",
+  operationId: "mail-deliverybox-get-specific",
 };
 
 /** Delete a specific deliverybox */
-export const mailServiceDeliveryboxDelete: OpenAPIOperation<
+export const mailDeliveryboxDelete: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesId.Delete.Parameters.Path>,
@@ -5401,11 +5401,11 @@ export const mailServiceDeliveryboxDelete: OpenAPIOperation<
 > = {
   path: "/v2/deliveryboxes/{id}",
   method: "DELETE",
-  operationId: "mail-service-deliverybox-delete",
+  operationId: "mail-deliverybox-delete",
 };
 
 /** Update the description of an deliverybox */
-export const mailServiceDeliveryboxUpdateDescription: OpenAPIOperation<
+export const mailDeliveryboxUpdateDescription: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdDescription.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdDescription.Put.Parameters.Path>,
@@ -5414,11 +5414,11 @@ export const mailServiceDeliveryboxUpdateDescription: OpenAPIOperation<
 > = {
   path: "/v2/deliveryboxes/{id}/description",
   method: "PUT",
-  operationId: "mail-service-deliverybox-update-description",
+  operationId: "mail-deliverybox-update-description",
 };
 
 /** Update the password for a specific deliverybox */
-export const mailServiceDeliveryboxUpdatePassword: OpenAPIOperation<
+export const mailDeliveryboxUpdatePassword: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdPassword.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdPassword.Put.Parameters.Path>,
@@ -5427,11 +5427,11 @@ export const mailServiceDeliveryboxUpdatePassword: OpenAPIOperation<
 > = {
   path: "/v2/deliveryboxes/{id}/password",
   method: "PUT",
-  operationId: "mail-service-deliverybox-update-password",
+  operationId: "mail-deliverybox-update-password",
 };
 
 /** Get all mail addresses for a project ID */
-export const mailServiceMailaddressList: OpenAPIOperation<
+export const mailMailaddressList: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailaddresses.Get.Parameters.Path>,
@@ -5445,11 +5445,11 @@ export const mailServiceMailaddressList: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/mailaddresses",
   method: "GET",
-  operationId: "mail-service-mailaddress-list",
+  operationId: "mail-mailaddress-list",
 };
 
 /** Create a new mail address */
-export const mailServiceMailaddressCreate: OpenAPIOperation<
+export const mailMailaddressCreate: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailaddresses.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailaddresses.Post.Parameters.Path>,
@@ -5468,11 +5468,11 @@ export const mailServiceMailaddressCreate: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/mailaddresses",
   method: "POST",
-  operationId: "mail-service-mailaddress-create",
+  operationId: "mail-mailaddress-create",
 };
 
 /** Get a specific mail address */
-export const mailServiceMailaddressGetSpecific: OpenAPIOperation<
+export const mailMailaddressGetSpecific: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesId.Get.Parameters.Path>,
@@ -5486,11 +5486,11 @@ export const mailServiceMailaddressGetSpecific: OpenAPIOperation<
 > = {
   path: "/v2/mailaddresses/{id}",
   method: "GET",
-  operationId: "mail-service-mailaddress-get-specific",
+  operationId: "mail-mailaddress-get-specific",
 };
 
 /** Delete a specific mail address */
-export const mailServiceMailaddressDelete: OpenAPIOperation<
+export const mailMailaddressDelete: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesId.Delete.Parameters.Path>,
@@ -5499,11 +5499,11 @@ export const mailServiceMailaddressDelete: OpenAPIOperation<
 > = {
   path: "/v2/mailaddresses/{id}",
   method: "DELETE",
-  operationId: "mail-service-mailaddress-delete",
+  operationId: "mail-mailaddress-delete",
 };
 
 /** Update mail-address */
-export const mailServiceMailaddressUpdateAddress: OpenAPIOperation<
+export const mailMailaddressUpdateAddress: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdAddress.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdAddress.Put.Parameters.Path>,
@@ -5512,11 +5512,11 @@ export const mailServiceMailaddressUpdateAddress: OpenAPIOperation<
 > = {
   path: "/v2/mailaddresses/{id}/address",
   method: "PUT",
-  operationId: "mail-service-mailaddress-update-address",
+  operationId: "mail-mailaddress-update-address",
 };
 
 /** Update the auto responder of a mail address */
-export const mailServiceMailaddressUpdateAutoresponder: OpenAPIOperation<
+export const mailMailaddressUpdateAutoresponder: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdAutoResponder.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdAutoResponder.Put.Parameters.Path>,
@@ -5525,11 +5525,11 @@ export const mailServiceMailaddressUpdateAutoresponder: OpenAPIOperation<
 > = {
   path: "/v2/mailaddresses/{id}/autoResponder",
   method: "PUT",
-  operationId: "mail-service-mailaddress-update-autoresponder",
+  operationId: "mail-mailaddress-update-autoresponder",
 };
 
 /** Enable or disable the catchAll flag for a specific mail address */
-export const mailServiceMailaddressUpdateCatchall: OpenAPIOperation<
+export const mailMailaddressUpdateCatchall: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdCatchAll.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdCatchAll.Put.Parameters.Path>,
@@ -5543,11 +5543,11 @@ export const mailServiceMailaddressUpdateCatchall: OpenAPIOperation<
 > = {
   path: "/v2/mailaddresses/{id}/catchAll",
   method: "PUT",
-  operationId: "mail-service-mailaddress-update-catchall",
+  operationId: "mail-mailaddress-update-catchall",
 };
 
 /** Update the addresses an email is forwarded to */
-export const mailServiceMailaddressUpdateForwardaddresses: OpenAPIOperation<
+export const mailMailaddressUpdateForwardaddresses: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdForwardaddresses.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdForwardaddresses.Put.Parameters.Path>,
@@ -5556,11 +5556,11 @@ export const mailServiceMailaddressUpdateForwardaddresses: OpenAPIOperation<
 > = {
   path: "/v2/mailaddresses/{id}/forwardaddresses",
   method: "PUT",
-  operationId: "mail-service-mailaddress-update-forwardaddresses",
+  operationId: "mail-mailaddress-update-forwardaddresses",
 };
 
 /** Update the password for a specific mail address */
-export const mailServiceMailaddressUpdatePassword: OpenAPIOperation<
+export const mailMailaddressUpdatePassword: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdPassword.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdPassword.Put.Parameters.Path>,
@@ -5569,11 +5569,11 @@ export const mailServiceMailaddressUpdatePassword: OpenAPIOperation<
 > = {
   path: "/v2/mailaddresses/{id}/password",
   method: "PUT",
-  operationId: "mail-service-mailaddress-update-password",
+  operationId: "mail-mailaddress-update-password",
 };
 
 /** Update the quota of a mailbox */
-export const mailServiceMailaddressUpdateQuota: OpenAPIOperation<
+export const mailMailaddressUpdateQuota: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdQuota.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdQuota.Put.Parameters.Path>,
@@ -5582,11 +5582,11 @@ export const mailServiceMailaddressUpdateQuota: OpenAPIOperation<
 > = {
   path: "/v2/mailaddresses/{id}/quota",
   method: "PUT",
-  operationId: "mail-service-mailaddress-update-quota",
+  operationId: "mail-mailaddress-update-quota",
 };
 
 /** Update the spamprotection of a mailbox */
-export const mailServiceMailaddressUpdateSpamprotection: OpenAPIOperation<
+export const mailMailaddressUpdateSpamprotection: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdSpamprotection.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdSpamprotection.Put.Parameters.Path>,
@@ -5595,11 +5595,11 @@ export const mailServiceMailaddressUpdateSpamprotection: OpenAPIOperation<
 > = {
   path: "/v2/mailaddresses/{id}/spamprotection",
   method: "PUT",
-  operationId: "mail-service-mailaddress-update-spamprotection",
+  operationId: "mail-mailaddress-update-spamprotection",
 };
 
 /** Get settings for a given project ID */
-export const mailServiceProjectsettingGetSpecific: OpenAPIOperation<
+export const mailProjectsettingGetSpecific: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettings.Get.Parameters.Path>,
@@ -5613,11 +5613,11 @@ export const mailServiceProjectsettingGetSpecific: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/mailsettings",
   method: "GET",
-  operationId: "mail-service-projectsetting-get-specific",
+  operationId: "mail-projectsetting-get-specific",
 };
 
 /** Update blacklist for a given project ID */
-export const mailServiceProjectsettingUpdateBlacklist: OpenAPIOperation<
+export const mailProjectsettingUpdateBlacklist: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsBlacklist.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsBlacklist.Put.Parameters.Path>,
@@ -5626,11 +5626,11 @@ export const mailServiceProjectsettingUpdateBlacklist: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/mailsettings/blacklist",
   method: "PUT",
-  operationId: "mail-service-projectsetting-update-blacklist",
+  operationId: "mail-projectsetting-update-blacklist",
 };
 
 /** Update whitelist for a given project ID */
-export const mailServiceProjectsettingUpdateWhitelist: OpenAPIOperation<
+export const mailProjectsettingUpdateWhitelist: OpenAPIOperation<
   Request<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsWhitelist.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsWhitelist.Put.Parameters.Path>,
@@ -5639,7 +5639,7 @@ export const mailServiceProjectsettingUpdateWhitelist: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/mailsettings/whitelist",
   method: "PUT",
-  operationId: "mail-service-projectsetting-update-whitelist",
+  operationId: "mail-projectsetting-update-whitelist",
 };
 
 /** Getting the subscription status of the subscription. */
@@ -5995,7 +5995,7 @@ export const orderPreviewTariffChange: OpenAPIOperation<
 };
 
 /** Get a password policy. */
-export const passwordValidationServiceGetPasswordPolicy: OpenAPIOperation<
+export const passwordValidationGetPasswordPolicy: OpenAPIOperation<
   Request<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Parameters.Path>,
@@ -6014,7 +6014,7 @@ export const passwordValidationServiceGetPasswordPolicy: OpenAPIOperation<
 > = {
   path: "/v2/password/policies/{path}",
   method: "GET",
-  operationId: "password-validation-service-get-password-policy",
+  operationId: "password-validation-get-password-policy",
 };
 
 /** Accept a ProjectInvite. */

@@ -423,6 +423,7 @@ declare namespace MittwaldAPIV2 {
          */
         nextPossibleUpgradeDate?: string;
         orderDate: string;
+        orderId?: string;
         replacedByItem?: string;
         tariffChange?: MittwaldAPIV2.Components.Schemas.ContractTariffChange;
         termination?: MittwaldAPIV2.Components.Schemas.ContractTermination;
@@ -1729,8 +1730,12 @@ declare namespace MittwaldAPIV2 {
         enabled: boolean;
         id: string;
         imageRefId?: string;
+        /**
+         * deprecated
+         */
         isReady: boolean;
         projectHostingId?: string;
+        readiness: MittwaldAPIV2.Components.Schemas.ProjectProjectReadinessStatus;
         serverId?: string;
         serverShortId?: string;
         shortId: string;
@@ -1739,6 +1744,11 @@ declare namespace MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.ProjectHardwareSpec;
       }
 
+      export type ProjectProjectReadinessStatus =
+        | "creating"
+        | "ready"
+        | "unready";
+
       export interface ProjectServer {
         customerId: string;
         description: string;
@@ -1746,6 +1756,7 @@ declare namespace MittwaldAPIV2 {
         imageRefId?: string;
         isReady: boolean;
         machineType: MittwaldAPIV2.Components.Schemas.ProjectMachineType;
+        readiness: MittwaldAPIV2.Components.Schemas.ProjectProjectReadinessStatus;
         shortId: string;
         storage: string;
       }
@@ -12886,11 +12897,16 @@ declare namespace MittwaldAPIV2 {
                   id: string;
                 };
                 description: string;
+                disableReason?: MittwaldAPIV2.Components.Schemas.ProjectDisableReason;
                 enabled: boolean;
                 id: string;
                 imageRefId?: string;
+                /**
+                 * deprecated
+                 */
                 isReady: boolean;
                 projectHostingId?: string;
+                readiness: MittwaldAPIV2.Components.Schemas.ProjectProjectReadinessStatus;
                 serverId?: string;
                 shortId: string;
               }[];
