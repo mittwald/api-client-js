@@ -2034,7 +2034,7 @@ declare namespace MittwaldAPIV2 {
          */
         firstName: string;
         /**
-         * the users last name
+         * The users last name
          */
         lastName: string;
         title?: MittwaldAPIV2.Components.Schemas.CommonsSalutation;
