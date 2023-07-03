@@ -9799,7 +9799,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export type Header = {
-            Accept?: "binary" | "base64";
+            Accept?: "binary" | "base64" | "ocr";
             Download?: boolean;
           };
 
@@ -9811,6 +9811,16 @@ declare namespace MittwaldAPIV2 {
               export type ApplicationOctetStream = string;
 
               export type Base64 = string;
+
+              export type Ocr = string;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 

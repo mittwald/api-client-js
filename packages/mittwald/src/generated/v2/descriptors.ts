@@ -4999,6 +4999,16 @@ export const fileGetFile: OpenAPIOperation<
       "base64"
     >
   | Response<
+      MittwaldAPIV2.Paths.V2FilesId.Get.Responses.$200.Content.Ocr,
+      200,
+      "ocr"
+    >
+  | Response<
+      MittwaldAPIV2.Paths.V2FilesId.Get.Responses.$400.Content.ApplicationJson,
+      400,
+      "application/json"
+    >
+  | Response<
       MittwaldAPIV2.Paths.V2FilesId.Get.Responses.$404.Content.ApplicationJson,
       404,
       "application/json"
