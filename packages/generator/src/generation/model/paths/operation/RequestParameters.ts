@@ -71,8 +71,10 @@ export class RequestParameters {
     const name = new Name(RequestParameters.ns, operation.httpMethod);
 
     const requestBodySchema =
-      doc.requestBody && "content" in doc.requestBody
-        ? doc.requestBody.content
+      doc.requestBody &&
+      "content" in doc.requestBody &&
+      "application/json" in doc.requestBody.content
+        ? doc.requestBody.content["application/json"].schema
         : doc.requestBody;
 
     const body = requestBodySchema
