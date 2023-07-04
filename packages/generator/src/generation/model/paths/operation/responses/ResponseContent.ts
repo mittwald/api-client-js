@@ -30,7 +30,7 @@ export class ResponseContent {
 
     return `\
       Response<
-        ${t.type},
+        Simplify<${t.type}>,
         ${t.httpStatus},
         "${t.mediaType}"
       >

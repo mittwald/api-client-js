@@ -2221,9 +2221,7 @@ declare namespace MittwaldAPIV2 {
             action: MittwaldAPIV2.Components.Schemas.AppAction;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export interface RequestBody {}
 
           export type Header = {};
 
@@ -2371,7 +2369,17 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            appVersionId?: string;
+            customDocumentRoot?: string;
+            description?: string;
+            systemSoftware?: {
+              [k: string]: {
+                systemSoftwareVersion?: string;
+                updatePolicy?: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareUpdatePolicy;
+              };
+            };
+            updatePolicy?: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
+            userInputs?: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
           }
 
           export type Header = {};
@@ -2529,7 +2537,11 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            databaseId: string;
+            databaseUserIds?: {
+              [k: string]: string;
+            };
+            purpose: "primary" | "cache" | "custom";
           }
 
           export type Header =
@@ -2602,7 +2614,10 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            appVersionId: string;
+            description: string;
+            updatePolicy: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
+            userInputs: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
           }
 
           export type Header = {};
@@ -2815,7 +2830,9 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            databaseUserIds: {
+              [k: string]: string;
+            };
           }
 
           export type Header =
@@ -2890,7 +2907,12 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            status: {
+              appJob: {
+                name: string;
+                namespace: string;
+              };
+            };
           }
 
           export type Header = {};
@@ -3013,7 +3035,14 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * The desired format to export the ProjectBackup in.
+             */
+            format: "tar" | "zip";
+            /**
+             * Password to use to protect the archive.
+             */
+            password?: string;
           }
 
           export type Header =
@@ -3140,7 +3169,18 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * Description of the BackupSchedule.
+             */
+            description?: string;
+            /**
+             * Execution schedule in crontab notation.
+             */
+            schedule: string;
+            /**
+             * TTL of the BackupSchedule as time string.
+             */
+            ttl: string;
           }
 
           export type Header =
@@ -3220,7 +3260,14 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * Description of the Backup.
+             */
+            description?: string;
+            /**
+             * Time when to expire the Backup.
+             */
+            expirationTime: string;
           }
 
           export type Header =
@@ -3358,7 +3405,18 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * Description of the ProjectBackupSchedule. Note that the description of isSystemBackup true items cannot be changed.
+             */
+            description?: string;
+            /**
+             * Execution schedule in crontab notation. Note that the schedule of isSystemBackup true items must be daily once.
+             */
+            schedule?: string;
+            /**
+             * TTL of the ProjectBackupSchedule as time string.
+             */
+            ttl?: string;
           }
 
           export type Header =
@@ -3503,7 +3561,10 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * Description of the ProjectBackup.
+             */
+            description?: string;
           }
 
           export type Header =
@@ -3560,7 +3621,14 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * A reason for the Termination can be given as plain text.
+             */
+            reason?: string;
+            /**
+             * The termination date has to be a valid date according to activation and contract period of the ContractItem. If none given, the next possible termination date will be used.
+             */
+            terminationTargetDate?: string;
           }
 
           export type Header =
@@ -3613,9 +3681,7 @@ declare namespace MittwaldAPIV2 {
             contractItemId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export interface RequestBody {}
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -3668,9 +3734,7 @@ declare namespace MittwaldAPIV2 {
             contractItemId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export interface RequestBody {}
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -3723,7 +3787,14 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * A reason for the termination can be given as plain text.
+             */
+            reason?: string;
+            /**
+             * The termination date has to be a valid date according to activation and contract period of the base ContractItem. If none given, the next possible termination date will be used.
+             */
+            terminationTargetDate?: string;
           }
 
           export type Header =
@@ -3775,9 +3846,7 @@ declare namespace MittwaldAPIV2 {
             contractId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export interface RequestBody {}
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -4237,7 +4306,9 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            categoryId?: string;
+            relatedTo?: MittwaldAPIV2.Components.Schemas.ConversationAggregateReference;
+            title: string;
           }
 
           export type Header = {};
@@ -4326,7 +4397,8 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            fileIds?: string[];
+            messageContent?: string;
           }
 
           export type Header = {};
@@ -4484,7 +4556,9 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            categoryId?: string;
+            relatedTo?: MittwaldAPIV2.Components.Schemas.ConversationAggregateReference;
+            title?: string;
           }
 
           export type Header = {};
@@ -4570,9 +4644,7 @@ declare namespace MittwaldAPIV2 {
             conversationId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export interface RequestBody {}
 
           export type Header = {};
 
@@ -4631,7 +4703,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            status: "open" | "answered" | "closed";
           }
 
           export type Header = {};
@@ -4691,7 +4763,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            messageContent?: string;
           }
 
           export type Header = {};
@@ -4825,9 +4897,8 @@ declare namespace MittwaldAPIV2 {
             projectId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export type RequestBody =
+            MittwaldAPIV2.Components.Schemas.CronjobCronjobRequest;
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -5052,7 +5123,13 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            active?: boolean;
+            description?: string;
+            destination?:
+              | MittwaldAPIV2.Components.Schemas.CronjobCronjobUrl
+              | MittwaldAPIV2.Components.Schemas.CronjobCronjobCommand;
+            email?: string;
+            interval?: string;
           }
 
           export type Header =
@@ -5150,7 +5227,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            appId: string;
           }
 
           export type Header =
@@ -5204,7 +5281,10 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * Token contained in the invite for authentication.
+             */
+            invitationToken?: string;
           }
 
           export type Header =
@@ -5285,9 +5365,8 @@ declare namespace MittwaldAPIV2 {
         namespace Parameters {
           export type Path = {};
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export type RequestBody =
+            MittwaldAPIV2.Components.Schemas.CustomerCategory;
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -5359,9 +5438,8 @@ declare namespace MittwaldAPIV2 {
         namespace Parameters {
           export type Path = {};
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export type RequestBody =
+            MittwaldAPIV2.Components.Schemas.CustomerCategory;
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -5408,7 +5486,19 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * Mail-address of the person to be invited.
+             */
+            mailAddress: string;
+            /**
+             * Time the resulting CustomerMembership should expire at.
+             */
+            membershipExpiresAt?: string;
+            /**
+             * Message contained in the CustomerInvite.
+             */
+            message?: string;
+            role: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
           }
 
           export type Header =
@@ -5489,7 +5579,10 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            categoryId?: string;
+            name: string;
+            owner?: MittwaldAPIV2.Components.Schemas.CustomerContact;
+            vatId?: string;
           }
 
           export type Header =
@@ -5595,9 +5688,8 @@ declare namespace MittwaldAPIV2 {
             categoryId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export type RequestBody =
+            MittwaldAPIV2.Components.Schemas.CustomerCategory;
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -5710,9 +5802,8 @@ declare namespace MittwaldAPIV2 {
             categoryId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export type RequestBody =
+            MittwaldAPIV2.Components.Schemas.CustomerCategory;
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -5925,7 +6016,11 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * Time the CustomerMembership should expire at.
+             */
+            expiresAt?: string;
+            role: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
           }
 
           export type Header =
@@ -5994,7 +6089,11 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            categoryId?: string;
+            customerId: string;
+            name: string;
+            owner?: MittwaldAPIV2.Components.Schemas.CustomerContact;
+            vatId?: string;
           }
 
           export type Header =
@@ -6367,9 +6466,7 @@ declare namespace MittwaldAPIV2 {
             customerId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export interface RequestBody {}
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -6557,7 +6654,8 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            database: MittwaldAPIV2.Components.Schemas.DatabaseMySqlDatabase;
+            user?: MittwaldAPIV2.Components.Schemas.DatabaseMySqlUser;
           }
 
           export type Header =
@@ -6653,9 +6751,8 @@ declare namespace MittwaldAPIV2 {
             databaseId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export type RequestBody =
+            MittwaldAPIV2.Components.Schemas.DatabaseMySqlUser;
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -6751,7 +6848,14 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * A description for the database.
+             */
+            description: string;
+            /**
+             * The version the database should use.
+             */
+            version: string;
           }
 
           export type Header =
@@ -6965,7 +7069,10 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            accessIpMask?: string;
+            accessLevel: "full" | "readonly";
+            description: string;
+            externalAccess?: boolean;
           }
 
           export type Header =
@@ -7460,7 +7567,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            characterSettings: MittwaldAPIV2.Components.Schemas.DatabaseCharacterSettings;
           }
 
           export type Header =
@@ -7508,7 +7615,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            description: string;
           }
 
           export type Header =
@@ -7556,7 +7663,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            password: string;
           }
 
           export type Header =
@@ -7604,7 +7711,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            description: string;
           }
 
           export type Header =
@@ -7851,7 +7958,7 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            email: string;
           }
 
           export type Header =
@@ -7896,9 +8003,7 @@ declare namespace MittwaldAPIV2 {
             userId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export interface RequestBody {}
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -8018,7 +8123,10 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            message?: string;
+            origin: string;
+            subject: string;
+            vote: number;
           }
 
           export type Header =
@@ -8066,7 +8174,10 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            message: string;
+            origin?: string;
+            subject?: string;
+            type: "feedback" | "bug";
           }
 
           export type Header =
@@ -8151,7 +8262,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            person: MittwaldAPIV2.Components.Schemas.CommonsPerson;
           }
 
           export type Header =
@@ -8217,7 +8328,7 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            settingsString: string;
           }
 
           export type Header =
@@ -8257,7 +8368,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            phoneNumber: string;
           }
 
           export type Header =
@@ -8339,7 +8450,8 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            code: string;
+            phoneNumber: string;
           }
 
           export type Header =
@@ -8423,9 +8535,9 @@ declare namespace MittwaldAPIV2 {
             zoneId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export type RequestBody =
+            | MittwaldAPIV2.Components.Schemas.DnsRecordUnset
+            | MittwaldAPIV2.Components.Schemas.DnsCombinedACustom;
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -8463,9 +8575,7 @@ declare namespace MittwaldAPIV2 {
             zoneId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export interface RequestBody {}
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -8507,9 +8617,9 @@ declare namespace MittwaldAPIV2 {
             zoneId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export type RequestBody =
+            | MittwaldAPIV2.Components.Schemas.DnsRecordUnset
+            | MittwaldAPIV2.Components.Schemas.DnsRecordCNAMEComponent;
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -8547,9 +8657,9 @@ declare namespace MittwaldAPIV2 {
             zoneId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export type RequestBody =
+            | MittwaldAPIV2.Components.Schemas.DnsRecordUnset
+            | MittwaldAPIV2.Components.Schemas.DnsRecordMXCustom;
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -8587,9 +8697,7 @@ declare namespace MittwaldAPIV2 {
             zoneId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export interface RequestBody {}
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -8627,9 +8735,9 @@ declare namespace MittwaldAPIV2 {
             zoneId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export type RequestBody =
+            | MittwaldAPIV2.Components.Schemas.DnsRecordUnset
+            | MittwaldAPIV2.Components.Schemas.DnsRecordTXTComponent;
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -8790,7 +8898,13 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * @minItems 1
+             */
+            ownerC: [
+              MittwaldAPIV2.Components.Schemas.DomainHandleField,
+              ...MittwaldAPIV2.Components.Schemas.DomainHandleField[]
+            ];
           }
 
           export type Header =
@@ -8842,7 +8956,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            projectId?: string;
           }
 
           export type Header =
@@ -8888,7 +9002,7 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            domain: string;
           }
 
           export type Header = {};
@@ -9031,7 +9145,10 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * @minItems 2
+             */
+            nameservers?: [string, string, ...string[]];
           }
 
           export type Header =
@@ -9079,7 +9196,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            authCode: string;
           }
 
           export type Header =
@@ -9131,7 +9248,13 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * @minItems 1
+             */
+            ownerC: [
+              MittwaldAPIV2.Components.Schemas.DomainHandleField,
+              ...MittwaldAPIV2.Components.Schemas.DomainHandleField[]
+            ];
           }
 
           export type Header =
@@ -9228,7 +9351,10 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * If true, Domain is in grace period.
+             */
+            transit?: boolean;
           }
 
           export type Header =
@@ -9857,7 +9983,12 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            hostname: string;
+            /**
+             * A list of paths. The default path `/` is always present and cannot be removed.
+             */
+            paths: MittwaldAPIV2.Components.Schemas.IngressPath[];
+            projectId: string;
           }
 
           export type Header =
@@ -10049,9 +10180,8 @@ declare namespace MittwaldAPIV2 {
             ingressId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export type RequestBody =
+            MittwaldAPIV2.Components.Schemas.IngressPath[];
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -10089,9 +10219,9 @@ declare namespace MittwaldAPIV2 {
             ingressId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export type RequestBody =
+            | MittwaldAPIV2.Components.Schemas.IngressTlsAcme
+            | MittwaldAPIV2.Components.Schemas.IngressTlsCertificate;
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -10225,7 +10355,13 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            additionalEmailRecipients?: string[];
+            invoicePeriod: number;
+            paymentSettings: MittwaldAPIV2.Components.Schemas.InvoicePaymentSettings;
+            printedInvoices?: boolean;
+            recipient?: MittwaldAPIV2.Components.Schemas.InvoiceRecipient;
+            recipientSameAsOwner?: boolean;
+            targetDay?: number;
           }
 
           export type Header =
@@ -10373,7 +10509,8 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            description: string;
+            password: string;
           }
 
           export type Header =
@@ -10490,7 +10627,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            description: string;
           }
 
           export type Header =
@@ -10530,7 +10667,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            password: string;
           }
 
           export type Header =
@@ -10609,9 +10746,9 @@ declare namespace MittwaldAPIV2 {
             projectId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export type RequestBody =
+            | MittwaldAPIV2.Components.Schemas.MailCreateForwardAddress
+            | MittwaldAPIV2.Components.Schemas.MailCreateMailAddress;
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -10735,7 +10872,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            address: string;
           }
 
           export type Header =
@@ -10775,7 +10912,12 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            autoResponder: {
+              active: boolean;
+              expiresAt?: string;
+              message: string;
+              startsAt?: string;
+            };
           }
 
           export type Header =
@@ -10815,7 +10957,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            active: boolean;
           }
 
           export type Header =
@@ -10863,7 +11005,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            forwardAddresses: string[];
           }
 
           export type Header =
@@ -10903,7 +11045,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            password: string;
           }
 
           export type Header =
@@ -10943,7 +11085,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            quotaInBytes: number;
           }
 
           export type Header =
@@ -10983,7 +11125,12 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            spamProtection: {
+              active: boolean;
+              autoDeleteSpam: boolean;
+              folder: "inbox" | "spam";
+              relocationMinSpamScore: number;
+            };
           }
 
           export type Header =
@@ -11065,7 +11212,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            blacklist: string[];
           }
 
           export type Header =
@@ -11105,7 +11252,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            whitelist: string[];
           }
 
           export type Header =
@@ -11199,7 +11346,7 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            email: string;
           }
 
           export type Header =
@@ -11307,9 +11454,7 @@ declare namespace MittwaldAPIV2 {
         namespace Parameters {
           export type Path = {};
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export interface RequestBody {}
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -11352,7 +11497,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            status: MittwaldAPIV2.Components.Schemas.MessagingNotificationStatus;
           }
 
           export type Header =
@@ -11394,7 +11539,11 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            orderData?:
+              | MittwaldAPIV2.Components.Schemas.OrderProjectHostingOrder
+              | MittwaldAPIV2.Components.Schemas.OrderServerOrder
+              | MittwaldAPIV2.Components.Schemas.OrderDomainOrder;
+            orderType?: "domain" | "projectHosting" | "server";
           }
 
           export type Header =
@@ -11436,7 +11585,10 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            tariffChangeData?:
+              | MittwaldAPIV2.Components.Schemas.OrderProjectHostingTariffChange
+              | MittwaldAPIV2.Components.Schemas.OrderServerTariffChange;
+            tariffChangeType?: "projectHosting" | "server";
           }
 
           export type Header =
@@ -11585,7 +11737,11 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            orderData?:
+              | MittwaldAPIV2.Components.Schemas.OrderProjectHostingOrderPreview
+              | MittwaldAPIV2.Components.Schemas.OrderServerOrderPreview
+              | MittwaldAPIV2.Components.Schemas.OrderDomainOrderPreview;
+            orderType?: "domain" | "projectHosting" | "server";
           }
 
           export type Header = {};
@@ -11626,7 +11782,10 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            tariffChangeData?:
+              | MittwaldAPIV2.Components.Schemas.OrderProjectHostingTariffChange
+              | MittwaldAPIV2.Components.Schemas.OrderServerTariffChange;
+            tariffChangeType?: "projectHosting" | "server";
           }
 
           export type Header =
@@ -11702,7 +11861,10 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * Token contained in the invite for authentication.
+             */
+            invitationToken?: string;
           }
 
           export type Header =
@@ -11758,7 +11920,19 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * Mail-address of the person to be invited.
+             */
+            mailAddress: string;
+            /**
+             * Time the resulting ProjectMembership should expire at.
+             */
+            membershipExpiresAt?: string;
+            /**
+             * Message contained in the ProjectInvite.
+             */
+            message?: string;
+            role: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
           }
 
           export type Header =
@@ -11809,7 +11983,10 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * Name of the Project as it is displayed in the mStudio.
+             */
+            description: string;
           }
 
           export type Header =
@@ -12096,7 +12273,11 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * Time the ProjectMembership should expire at.
+             */
+            expiresAt?: string;
+            role: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
           }
 
           export type Header =
@@ -13024,7 +13205,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            description: string;
           }
 
           export type Header =
@@ -13072,7 +13253,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            description: string;
           }
 
           export type Header =
@@ -13102,7 +13283,75 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * Should all project releated domains should be transferred to mittwald?
+             */
+            allDomains?: boolean;
+            /**
+             * Has to be true. Do you accept that our mittwald team can change and get password from your current provider?
+             */
+            allowPasswordChange: boolean;
+            contact: {
+              email: string;
+              firstName: string;
+              lastName: string;
+              phoneNumber?: string;
+            };
+            /**
+             * List of domains which should be transferred (when allDomains is not checked).
+             */
+            domains?: MittwaldAPIV2.Components.Schemas.DirectusDomain[];
+            /**
+             * Anything our customer service needs to know for the relocation process.
+             */
+            notes?: string;
+            provider: {
+              /**
+               * Url to the control panel of the provider
+               */
+              loginUrl: string;
+              /**
+               * Name of your provider
+               */
+              name: string | ("1und1" | "strato");
+              password: string;
+              /**
+               * Which account of your provider should be moved?
+               */
+              sourceAccount: string;
+              /**
+               * Login name to your provider
+               */
+              userName: string;
+            };
+            target: {
+              /**
+               * Your customer or organisation number
+               */
+              organisation: string;
+              /**
+               * Help our customer service finding your target account
+               */
+              product: (
+                | string
+                | (
+                    | "spaceServer"
+                    | "proSpace"
+                    | "agencyServer"
+                    | "cmsHosting"
+                    | "shopHosting"
+                  )
+              ) &
+                string;
+              /**
+               * In which p-account or short project id your project should be moved.
+               */
+              projectName: string;
+              /**
+               * Which mittwald system does the targetProject use?
+               */
+              system: "kc" | "mstudio";
+            };
           }
 
           export type Header = {};
@@ -13139,7 +13388,8 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            pAccount: string;
+            targetTariff: "Webhosting 11.0 L" | "Webhosting 11.0 MAX";
           }
 
           export type Header = {};
@@ -13174,7 +13424,14 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            accessLevel?: "read" | "full";
+            authentication: MittwaldAPIV2.Components.Schemas.SshuserAuthentication;
+            description: string;
+            /**
+             * @minItems 1
+             */
+            directories: [string, ...string[]];
+            expiresAt?: string;
           }
 
           export type Header =
@@ -13280,7 +13537,16 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            accessLevel?: "read" | "full";
+            active?: boolean;
+            description?: string;
+            /**
+             * @minItems 1
+             */
+            directories?: [string, ...string[]];
+            expiresAt?: string;
+            password?: string;
+            publicKeys?: MittwaldAPIV2.Components.Schemas.SshuserPublicKey[];
           }
 
           export type Header =
@@ -13402,7 +13668,9 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            authentication: MittwaldAPIV2.Components.Schemas.SshuserAuthentication;
+            description: string;
+            expiresAt?: string;
           }
 
           export type Header =
@@ -13510,7 +13778,11 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            active?: boolean;
+            description?: string;
+            expiresAt?: string;
+            password?: string;
+            publicKeys?: MittwaldAPIV2.Components.Schemas.SshuserPublicKey[];
           }
 
           export type Header =
@@ -13550,7 +13822,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            phoneNumber: string;
           }
 
           export type Header =
@@ -13630,7 +13902,14 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * The users Email-Address
+             */
+            email: string;
+            /**
+             * Password of the User
+             */
+            password: string;
           }
 
           export type Header = {};
@@ -13692,7 +13971,18 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * The email of the user
+             */
+            email?: string;
+            /**
+             * The second factor - otp code or recovery code
+             */
+            multiFactorCode: string;
+            /**
+             * The password of the user
+             */
+            password?: string;
           }
 
           export type Header = {};
@@ -13784,7 +14074,10 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * The new Email-Address
+             */
+            email: string;
           }
 
           export type Header =
@@ -13820,9 +14113,7 @@ declare namespace MittwaldAPIV2 {
         namespace Parameters {
           export type Path = {};
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export interface RequestBody {}
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -13853,7 +14144,20 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * Multi Factor Code to confirm MFA.
+             * This is optional, depending on the MFA activation status of the profile.
+             *
+             */
+            multiFactorCode?: string;
+            /**
+             * The new password
+             */
+            newPassword: string;
+            /**
+             * The old password
+             */
+            oldPassword: string;
           }
 
           export type Header =
@@ -13908,9 +14212,7 @@ declare namespace MittwaldAPIV2 {
         namespace Parameters {
           export type Path = {};
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export interface RequestBody {}
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -13940,7 +14242,7 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            person: MittwaldAPIV2.Components.Schemas.CommonsPerson;
           }
 
           export type Header =
@@ -13975,7 +14277,11 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * Multi Factor Code to authorize your request
+             */
+            multiFactorCode?: string;
+            password: string;
           }
 
           export type Header =
@@ -14027,9 +14333,7 @@ declare namespace MittwaldAPIV2 {
         namespace Parameters {
           export type Path = {};
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export interface RequestBody {}
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -14070,7 +14374,10 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * Multi Factor Code to confirm MFA
+             */
+            multiFactorCode: string;
           }
 
           export type Header =
@@ -14136,7 +14443,18 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * The new password
+             */
+            password: string;
+            /**
+             * Password reset token
+             */
+            token: string;
+            /**
+             * userId of the user to reset the password for
+             */
+            userId: string;
           }
 
           export type Header = {};
@@ -14199,7 +14517,14 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            description: string;
+            expiresAt?: string;
+            /**
+             * determines the access rights of the ApiToken
+             *
+             * @minItems 1
+             */
+            roles: ["api_read" | "api_write", ...("api_read" | "api_write")[]];
           }
 
           export type Header =
@@ -14243,7 +14568,22 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * Personal feedback message.
+             */
+            message?: string;
+            /**
+             * Origin of the feedback.
+             */
+            origin: string;
+            /**
+             * Descriptive subject.
+             */
+            subject: string;
+            /**
+             * Feedback rating from bad to good.
+             */
+            vote: number;
           }
 
           export type Header =
@@ -14291,7 +14631,22 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * Detailed report of the issue.
+             */
+            message: string;
+            /**
+             * Origin of the issue.
+             */
+            origin?: string;
+            /**
+             * Descriptive subject of the report.
+             */
+            subject?: string;
+            /**
+             * Type of feedback.
+             */
+            type: "feedback" | "bug";
           }
 
           export type Header =
@@ -14349,7 +14704,8 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            expiresAt?: string;
+            publicKey: string;
           }
 
           export type Header =
@@ -14417,7 +14773,8 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            description: string;
+            expiresAt?: string;
           }
 
           export type Header =
@@ -14527,7 +14884,8 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            comment: string;
+            expiresAt?: string;
           }
 
           export type Header =
@@ -14618,9 +14976,7 @@ declare namespace MittwaldAPIV2 {
         namespace Parameters {
           export type Path = {};
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export interface RequestBody {}
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -14668,7 +15024,10 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * Multi Factor Code to confirm MFA
+             */
+            multiFactorCode: string;
           }
 
           export type Header =
@@ -14737,7 +15096,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            settingsString: string;
           }
 
           export type Header =
@@ -14903,7 +15262,7 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            person: MittwaldAPIV2.Components.Schemas.CommonsPerson;
           }
 
           export type Header =
@@ -14941,7 +15300,10 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * email address to reset the password for
+             */
+            email: string;
           }
 
           export type Header = {};
@@ -15062,9 +15424,7 @@ declare namespace MittwaldAPIV2 {
         namespace Parameters {
           export type Path = {};
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export interface RequestBody {}
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -15100,7 +15460,15 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * The users email address
+             */
+            email: string;
+            /**
+             * The users password
+             */
+            password: string;
+            person: MittwaldAPIV2.Components.Schemas.CommonsPerson;
           }
 
           export type Header = {};
@@ -15141,9 +15509,7 @@ declare namespace MittwaldAPIV2 {
             userId: "self" | string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
+          export interface RequestBody {}
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -15249,7 +15615,8 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            email?: string;
+            userId?: string;
           }
 
           export type Header = {};
@@ -15285,7 +15652,10 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * Multi Factor Code to authorize your request
+             */
+            multiFactorCode: string;
           }
 
           export type Header =
@@ -15390,7 +15760,14 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * The Email-Address to verify
+             */
+            email: string;
+            /**
+             * The token found in the verification email
+             */
+            token?: string;
           }
 
           export type Header =
@@ -15437,7 +15814,8 @@ declare namespace MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            [k: string]: unknown;
+            code: string;
+            phoneNumber: string;
           }
 
           export type Header =
@@ -15491,7 +15869,18 @@ declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * The users email address
+             */
+            email: string;
+            /**
+             * The token that was send to your email address
+             */
+            token: string;
+            /**
+             * UUID of the registered user
+             */
+            userId: string;
           }
 
           export type Header = {};
