@@ -18,6 +18,12 @@ export class ResponseContent {
     this.contentTypes = contentTypes;
   }
 
+  public static buildEmpty(
+    contentTypes: ResponseContentTypes,
+  ): ResponseContent {
+    return new ResponseContent(contentTypes, "empty");
+  }
+
   public compileDescriptorsResponseContentType(): string {
     const t = {
       type: this.mediaType.tsTypeWithNamespace,
