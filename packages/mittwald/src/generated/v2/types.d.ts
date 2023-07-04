@@ -2229,7 +2229,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
@@ -2341,7 +2343,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
@@ -2388,7 +2392,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
@@ -2551,7 +2557,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
@@ -2842,7 +2850,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
@@ -2877,7 +2887,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
@@ -2921,7 +2933,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
@@ -3052,7 +3066,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -3102,7 +3118,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $403 {
@@ -3369,7 +3387,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $403 {
@@ -3426,7 +3446,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -3523,7 +3545,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $403 {
@@ -3574,7 +3598,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -5083,11 +5109,15 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -5243,7 +5273,9 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -5294,7 +5326,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -5638,7 +5672,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace Default {
@@ -5931,7 +5967,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace Default {
@@ -5996,7 +6034,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace Default {
@@ -6030,7 +6070,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace Default {
@@ -6281,7 +6323,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace Default {
@@ -6533,7 +6577,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -6579,7 +6625,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $403 {
@@ -6966,11 +7014,15 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -7082,7 +7134,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -7124,11 +7178,15 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -7225,11 +7283,15 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -7293,7 +7355,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -7341,7 +7405,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -7577,7 +7643,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -7625,7 +7693,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -7673,7 +7743,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -7721,7 +7793,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -7938,7 +8012,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace Default {
@@ -8066,7 +8142,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -8187,7 +8265,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $201 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace Default {
@@ -8272,7 +8352,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -8338,7 +8420,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -8378,7 +8462,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -8420,7 +8506,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -8461,7 +8549,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -8546,7 +8636,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -8628,7 +8720,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -8668,7 +8762,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -8706,7 +8802,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -8746,7 +8844,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -8860,7 +8960,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -8966,7 +9068,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -9107,7 +9211,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -9158,7 +9264,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -9493,7 +9601,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -9707,7 +9817,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -10075,7 +10187,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
@@ -10190,7 +10304,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
@@ -10485,19 +10601,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
         }
       }
@@ -10528,19 +10652,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
         }
       }
@@ -10567,19 +10699,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
         }
       }
@@ -10597,23 +10737,33 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
         }
       }
@@ -10637,23 +10787,33 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
         }
       }
@@ -10677,23 +10837,33 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
         }
       }
@@ -10723,19 +10893,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
         }
       }
@@ -10773,19 +10951,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
         }
       }
@@ -10812,19 +10998,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
         }
       }
@@ -10842,23 +11036,33 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
         }
       }
@@ -10882,23 +11086,33 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
         }
       }
@@ -10927,23 +11141,33 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
         }
       }
@@ -10967,7 +11191,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -10979,19 +11205,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
         }
       }
@@ -11015,23 +11249,33 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
         }
       }
@@ -11055,23 +11299,33 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
         }
       }
@@ -11095,23 +11349,33 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
         }
       }
@@ -11140,23 +11404,33 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
         }
       }
@@ -11186,19 +11460,27 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
         }
       }
@@ -11222,23 +11504,33 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
         }
       }
@@ -11262,23 +11554,33 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $403 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $500 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $503 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
         }
       }
@@ -11326,7 +11628,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace Default {
@@ -11874,7 +12178,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -12048,7 +12354,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace Default {
@@ -12115,7 +12423,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -12188,7 +12498,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace Default {
@@ -12253,7 +12565,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace Default {
@@ -12287,7 +12601,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace Default {
@@ -12321,7 +12637,9 @@ declare namespace MittwaldAPIV2 {
           }
 
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -12412,7 +12730,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -12887,7 +13207,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace Default {
@@ -13175,7 +13497,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $403 {
@@ -13215,7 +13539,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -13263,7 +13589,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -13360,7 +13688,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -13517,7 +13847,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace Default {
@@ -13556,7 +13888,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -13756,7 +14090,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace Default {
@@ -13792,7 +14128,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -13832,7 +14170,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -13874,7 +14214,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -14087,7 +14429,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -14252,7 +14596,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -14291,7 +14637,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $202 {
@@ -14463,7 +14811,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -14656,7 +15006,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $201 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace Default {
@@ -14715,7 +15067,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $201 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -14784,7 +15138,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -14817,7 +15173,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -14895,7 +15253,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -14928,7 +15288,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace Default {
@@ -15037,7 +15399,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -15106,7 +15470,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -15179,7 +15545,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $404 {
@@ -15272,7 +15640,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -15312,7 +15682,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -15405,7 +15777,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace Default {
@@ -15433,7 +15807,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -15587,7 +15963,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -15625,7 +16003,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -15777,7 +16157,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -15825,7 +16207,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $204 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {
@@ -15889,7 +16273,9 @@ declare namespace MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
-            namespace Content {}
+            namespace Content {
+              export type Empty = unknown;
+            }
           }
 
           namespace $400 {

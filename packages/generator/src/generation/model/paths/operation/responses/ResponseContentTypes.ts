@@ -24,7 +24,7 @@ export class ResponseContentTypes {
         ? this.buildContentTypesFromResponseObject(responseDoc)
         : "$ref" in responseDoc
         ? this.buildContentTypesFromReferenceObject(responseDoc)
-        : [];
+        : [ResponseContent.buildEmpty(this)];
   }
 
   private buildContentTypesFromResponseObject(
