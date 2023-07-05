@@ -15,8 +15,8 @@
   "type": "module",
   "exports": {
     "./v2": {
-      "import": "./dist/v2.js",
-      "default": "./dist-cjs/v2.js"
+      "types": "./dist/v2.d.ts",
+      "default": "./dist/v2.js"
     }
   },
   "scripts": {
