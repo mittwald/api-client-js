@@ -1,4 +1,4 @@
-import url from "url";
+import * as url from "url";
 import * as path from "path";
 
 export const relativePath = (meta: ImportMeta, ...paths: string[]): string =>
