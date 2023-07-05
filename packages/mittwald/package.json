@@ -1,7 +1,7 @@
 {
   "name": "@mittwald/api-client",
-  "description": "Auto-generated client for the mittwald API",
   "version": "1.0.3",
+  "description": "Auto-generated client for the mittwald API",
   "license": "MIT",
   "repository": "github:mittwald/api-client-js",
   "author": {
@@ -20,12 +20,11 @@
     }
   },
   "scripts": {
-    "copy:dts": "yarn run -T copyfiles -u 1 src/**/*.d.ts dist",
     "generate:client": "yarn generate:client:v2 && yarn post:generate",
     "generate:client-dev": "yarn generate:client-dev:v2 && yarn post:generate",
     "generate:client-dev:v2": "curl --silent https://api-public.dev.mittwald.systems/openapi | ./transform-openapi.sh | yarn acg generate --name MittwaldAPIV2 - src/generated/v2 --optionalHeader x-access-token",
     "generate:client:v2": "curl --silent https://api.mittwald.de/openapi | ./transform-openapi.sh | yarn acg generate --name MittwaldAPIV2 - src/generated/v2 --optionalHeader x-access-token",
-    "post:generate": "yarn run -T compile && yarn run -T compile:cjs && yarn copy:dts"
+    "post:generate": "yarn run -T compile && yarn run -T compile:cjs"
   },
   "files": [
     "{dist,dist-cjs}/**/*.{js,d.ts}"
@@ -42,6 +41,5 @@
   },
   "devDependencies": {
     "@mittwald/api-code-generator": "workspace:^"
-  },
-  "types": "./dist/index.d.ts"
+  }
 }
