@@ -39,7 +39,7 @@ export class CodeGenerationModel {
     };
 
     return `\
-      declare namespace ${t.ns} {
+      export declare module ${t.ns} {
         ${t.components}
         ${t.paths}
       }

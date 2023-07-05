@@ -72,7 +72,7 @@ export default class Generate extends Command {
       optionalHeaders: flags.optionalHeader,
     });
     await jetpack.writeAsync(
-      path.join(args.output, "types.d.ts"),
+      path.join(args.output, "types.ts"),
       prepareTypeScriptOutput(typesFileContent),
     );
     ux.action.stop();
