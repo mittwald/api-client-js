@@ -13,16 +13,34 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/core/index.js",
-      "default": "./dist-cjs/core/index.js"
+      "types": {
+        "require": "./dist-cjs/core/index.d.ts",
+        "default": "./dist/core/index.d.ts"
+      },
+      "default": {
+        "require": "./dist-cjs/core/index.js",
+        "default": "./dist/core/index.js"
+      }
     },
     "./axios": {
-      "import": "./dist/axios.js",
-      "default": "./dist-cjs/axios.js"
+      "types": {
+        "require": "./dist-cjs/axios.d.ts",
+        "default": "./dist/axios.d.ts"
+      },
+      "default": {
+        "require": "./dist-cjs/axios.js",
+        "default": "./dist/axios.js"
+      }
     },
     "./types": {
-      "import": "./dist/types/index.js",
-      "default": "./dist-cjs/types/index.js"
+      "types": {
+        "require": "./dist-cjs/types/index.d.ts",
+        "default": "./dist/types/index.d.ts"
+      },
+      "default": {
+        "require": "./dist-cjs/types/index.js",
+        "default": "./dist/types/index.js"
+      }
     }
   },
   "scripts": {
