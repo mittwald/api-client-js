@@ -45,18 +45,19 @@ export class Paths {
 
   public compileDescriptors(): string {
     const t = {
+      ns: this.model.rootNamespace.tsType,
       descriptors: this.getFlattenedOperations()
         .map((operation) => operation.compileDescriptor())
         .join("\r\n"),
     };
 
     return `\
-      /// <reference types="./types.d.ts" />    
       import { Simplify } from "@mittwald/api-client-commons/types";
       import { Request } from "@mittwald/api-client-commons/types";
       import { Response } from "@mittwald/api-client-commons/types";
       import { OpenAPIOperation } from "@mittwald/api-client-commons/types";    
-
+      import { ${t.ns} } from "./types.js";
+      
       ${t.descriptors}
     `;
   }

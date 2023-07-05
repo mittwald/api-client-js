@@ -20,7 +20,7 @@ export class Path {
     this.operations = Object.values(OpenAPIV3.HttpMethods)
       .map((method) => {
         const operationDoc = operationsDoc[method];
-        if (operationDoc) {
+        if (operationDoc && operationDoc.deprecated !== true) {
           return Operation.fromDoc(this, method, operationDoc);
         }
       })
