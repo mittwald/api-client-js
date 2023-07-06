@@ -905,6 +905,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The SSH/SFTP User API allows you to manage your SSH/SFTP users within a project. */
   public readonly sshsftpUser = {
+    /** Get all SFTPUsers for a Project. */
+    sftpUserListSftpUsers: this.requestFunctionFactory(
+      descriptors.sftpUserListSftpUsers
+    ),
     /** Create an SFTPUser for a Project. */
     sftpUserCreateSftpUser: this.requestFunctionFactory(
       descriptors.sftpUserCreateSftpUser
@@ -920,10 +924,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update an SFTPUser. */
     sftpUserUpdateSftpUser: this.requestFunctionFactory(
       descriptors.sftpUserUpdateSftpUser
-    ),
-    /** Get all SFTPUsers for a Project. */
-    sftpUserListSftpUsers: this.requestFunctionFactory(
-      descriptors.sftpUserListSftpUsers
     ),
     /** Get all SSHUsers for a Project. */
     sshUserListSshUsers: this.requestFunctionFactory(

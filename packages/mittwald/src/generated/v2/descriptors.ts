@@ -7135,6 +7135,34 @@ export const relocationCreateLegacyTariffChange: OpenAPIOperation<
   operationId: "relocation-create-legacy-tariff-change",
 };
 
+/** Get all SFTPUsers for a Project. */
+export const sftpUserListSftpUsers: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdSftpUsers.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdSftpUsers.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdSftpUsers.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdSftpUsers.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdSftpUsers.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/sftp-users",
+  method: "GET",
+  operationId: "sftp-user-list-sftp-users",
+};
+
 /** Create an SFTPUser for a Project. */
 export const sftpUserCreateSftpUser: OpenAPIOperation<
   Request<
@@ -7240,34 +7268,6 @@ export const sftpUserUpdateSftpUser: OpenAPIOperation<
   path: "/v2/sftp-users/{sftpUserId}",
   method: "PATCH",
   operationId: "sftp-user-update-sftp-user",
-};
-
-/** Get all SFTPUsers for a Project. */
-export const sftpUserListSftpUsers: OpenAPIOperation<
-  Request<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdSftpUsers.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdSftpUsers.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdSftpUsers.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdSftpUsers.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdSftpUsers.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/project/{projectId}/sftp-users",
-  method: "GET",
-  operationId: "sftp-user-list-sftp-users",
 };
 
 /** Get all SSHUsers for a Project. */

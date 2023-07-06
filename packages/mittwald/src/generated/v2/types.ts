@@ -773,6 +773,10 @@ export declare module MittwaldAPIV2 {
          * The database's key eviction policy.
          */
         maxMemoryPolicy?: string;
+        /**
+         * Persistent status of the database.
+         */
+        persistent?: boolean;
       }
 
       export interface DatabaseRedisDatabase {
@@ -1749,9 +1753,12 @@ export declare module MittwaldAPIV2 {
         | "ready"
         | "unready";
 
+      export type ProjectServerDisableReason = "nonPayment";
+
       export interface ProjectServer {
         customerId: string;
         description: string;
+        disabledReason?: MittwaldAPIV2.Components.Schemas.ProjectServerDisableReason;
         id: string;
         imageRefId?: string;
         isReady: boolean;
@@ -6713,6 +6720,7 @@ export declare module MittwaldAPIV2 {
           };
 
           export interface RequestBody {
+            configuration: MittwaldAPIV2.Components.Schemas.DatabaseRedisDatabaseConfiguration;
             /**
              * A description for the database.
              */
@@ -12797,6 +12805,46 @@ export declare module MittwaldAPIV2 {
     }
 
     namespace V2ProjectsProjectIdSftpUsers {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.SshuserSftpUser[];
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
       namespace Post {
         namespace Parameters {
           export type Path = {
@@ -12962,47 +13010,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectProjectIdSftpUsers {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            limit?: number;
-            skip?: number;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.SshuserSftpUser[];
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
+    namespace V2ProjectProjectIdSftpUsers {}
 
     namespace V2ProjectsProjectIdSshUsers {
       namespace Get {
