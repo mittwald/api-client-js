@@ -57,6 +57,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listSystemsoftwareversions: this.requestFunctionFactory(
       descriptors.appListSystemsoftwareversions
     ),
+    /** get all update candidates for a specific `AppVersion` */
+    listUpdateCandidatesForAppversion: this.requestFunctionFactory(
+      descriptors.appListUpdateCandidatesForAppversion
+    ),
+    /** request a copy of an `AppInstallation` */
+    requestAppinstallationCopy: this.requestFunctionFactory(
+      descriptors.appRequestAppinstallationCopy
+    ),
     /** get runtime status of a specific `AppInstallation` */
     retrieveStatus: this.requestFunctionFactory(descriptors.appRetrieveStatus),
     /** create linkage between an `AppInstallation` and `DatabaseUsers` */

@@ -402,6 +402,57 @@ export const appListSystemsoftwareversions: OpenAPIOperation<
   operationId: "app-list-systemsoftwareversions",
 };
 
+/** get all update candidates for a specific `AppVersion` */
+export const appListUpdateCandidatesForAppversion: OpenAPIOperation<
+  Request<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2AppsAppIdVersionsBaseAppVersionIdUpdateCandidates.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppsAppIdVersionsBaseAppVersionIdUpdateCandidates.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppsAppIdVersionsBaseAppVersionIdUpdateCandidates.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppsAppIdVersionsBaseAppVersionIdUpdateCandidates.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/apps/{appId}/versions/{baseAppVersionId}/update-candidates",
+  method: "GET",
+  operationId: "app-list-update-candidates-for-appversion",
+};
+
+/** request a copy of an `AppInstallation` */
+export const appRequestAppinstallationCopy: OpenAPIOperation<
+  Request<
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsCopy.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsCopy.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsCopy.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsCopy.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsCopy.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsCopy.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/appinstallations/{id}/actions/copy",
+  method: "POST",
+  operationId: "app-request-appinstallation-copy",
+};
+
 /** get runtime status of a specific `AppInstallation` */
 export const appRetrieveStatus: OpenAPIOperation<
   Request<

@@ -604,10 +604,12 @@ export declare module MittwaldAPIV2 {
           id?: string;
         };
         durationInMilliseconds: number;
+        end?: string;
         executionEnd?: string;
         executionStart?: string;
         id: string;
         logPath: string;
+        start?: string;
         status:
           | "Complete"
           | "Failed"
@@ -2784,6 +2786,81 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.AppSystemSoftwareVersion[];
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppsAppIdVersionsBaseAppVersionIdUpdateCandidates {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            appId: string;
+            baseAppVersionId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AppAppVersion[];
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppinstallationsIdActionsCopy {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            id: string;
+          };
+
+          export interface RequestBody {
+            description: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                id: string;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
