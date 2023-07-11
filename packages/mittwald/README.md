@@ -23,7 +23,7 @@ yarn add @mittwald/api-client
 Import the client:
 
 ```typescript
-import MittwaldAPIClient from "@mittwald/api-client/v2";
+import { MittwaldAPIV2Client } from "@mittwald/api-client";
 ```
 
 To create a client instance you can use one of the following factory method for
@@ -40,7 +40,7 @@ on how to obtain an API token and how to get started with the API.
 ## Example
 
 ```typescript
-import MittwaldAPIClient from "@mittwald/api-client/v2";
+import { MittwaldAPIV2Client } from "@mittwald/api-client";
 
 const mittwaldApi = MittwaldAPIClient.newWithToken("your-access-token");
 
@@ -66,3 +66,17 @@ To intercept requests or responses you can use
 [pkg-auth]:
   https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-to-github-packages
 [api-getting-started]: https://developer.mittwald.de/docs/v2/api/intro
+
+## Usage with TypeScript
+
+All response and request types can be imported from the `MittwaldAPIV2`
+namespace.
+
+### Importing types
+
+```typescript
+import { MittwaldAPIV2 } from "@mittwald/api-client";
+
+type Project =
+  MittwaldAPIV2.Paths.V2Projects.Get.Responses.$200.Content.ApplicationJson[number];
+```
