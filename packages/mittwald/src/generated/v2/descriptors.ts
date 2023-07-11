@@ -7517,409 +7517,371 @@ export const userRemovePhoneNumber: OpenAPIOperation<
   operationId: "user-remove-phone-number",
 };
 
-/** Authenticate yourself to get an access token. */
-export const userAuthenticate: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SignupAuthentication.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupAuthentication.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupAuthentication.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupAuthentication.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupAuthentication.Post.Responses.$202.Content.ApplicationJson>,
-      202,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupAuthentication.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupAuthentication.Post.Responses.$401.Content.ApplicationJson>,
-      401,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupAuthentication.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/signup/authentication",
-  method: "POST",
-  operationId: "user-authenticate",
-};
-
 /** Validate your second factor. */
 export const userAuthenticateMfa: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SignupAuthenticationMfa.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupAuthenticationMfa.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupAuthenticationMfa.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupAuthenticationMfa.Post.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupAuthenticationMfa.Post.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupAuthenticationMfa.Post.Responses.$408.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Responses.$408.Content.ApplicationJson>,
       408,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupAuthenticationMfa.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/authentication/mfa",
+  path: "/v2/authenticate-mfa",
   method: "POST",
   operationId: "user-authenticate-mfa",
 };
 
-/** Get your primary verified Email-Address */
-export const userGetEmail: OpenAPIOperation<
+/** Authenticate yourself to get an access token. */
+export const userAuthenticate: OpenAPIOperation<
   RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2Authenticate.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2Authenticate.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2Authenticate.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2Authenticate.Post.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2Authenticate.Post.Responses.$202.Content.ApplicationJson>,
+      202,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Authenticate.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Authenticate.Post.Responses.$401.Content.ApplicationJson>,
+      401,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Authenticate.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/authenticate",
+  method: "POST",
+  operationId: "user-authenticate",
+};
+
+/** Get your verified Email-Address. */
+export const userGetOwnEmail: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmail.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmail.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmail.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmail.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmail.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/email",
+  path: "/v2/users/self/credentials/email",
   method: "GET",
-  operationId: "user-get-email",
+  operationId: "user-get-own-email",
 };
 
-/** Change your Email-Address */
+/** Change your Email-Address. */
 export const userChangeEmail: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Put.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmail.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmail.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmail.Put.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Put.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmail.Put.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Put.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmail.Put.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Put.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmail.Put.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/email",
+  path: "/v2/users/self/credentials/email",
   method: "PUT",
   operationId: "user-change-email",
 };
 
-/** The timestamp of your latest password change */
-export const userGetPasswordUpdatedAt: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Get.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/signup/password",
-  method: "GET",
-  operationId: "user-get-password-updated-at",
-};
-
-/** Change your password */
+/** Change your password. */
 export const userChangePassword: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Put.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsPassword.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsPassword.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsPassword.Put.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Put.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsPassword.Put.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Put.Responses.$202.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsPassword.Put.Responses.$202.Content.ApplicationJson>,
       202,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Put.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsPassword.Put.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Put.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsPassword.Put.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/password",
+  path: "/v2/users/self/credentials/password",
   method: "PUT",
   operationId: "user-change-password",
 };
 
-/** Get your profile information */
-export const userGetOwnProfile: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Get.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/signup/profile",
-  method: "GET",
-  operationId: "user-get-own-profile",
-};
-
-/** Change your profile information */
-export const userChangeProfile: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Put.Responses.$200.Content.Empty>,
-      200,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Put.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/signup/profile",
-  method: "PUT",
-  operationId: "user-change-profile",
-};
-
-/** Delete your profile and all your personal data */
-export const userDeleteProfile: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Delete.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Delete.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Delete.Responses.$200.Content.Empty>,
-      200,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Delete.Responses.$202.Content.ApplicationJson>,
-      202,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Delete.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Delete.Responses.$409.Content.ApplicationJson>,
-      409,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Delete.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/signup/profile",
-  method: "DELETE",
-  operationId: "user-delete-profile",
-};
-
-/** Check a token for validity */
+/** Check token for validity. */
 export const userCheckToken: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SignupTokenCheck.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupTokenCheck.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupTokenCheck.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsToken.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsToken.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsToken.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupTokenCheck.Post.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsToken.Post.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupTokenCheck.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupTokenCheck.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsToken.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/token/check",
+  path: "/v2/users/self/credentials/token",
   method: "POST",
   operationId: "user-check-token",
 };
 
-/** Confirm Multi Factor Authentication */
-export const userConfirmMfa: OpenAPIOperation<
+/** Get your current multi factor auth status. */
+export const userGetMfaStatus: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SignupMfaConfirm.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupMfaConfirm.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupMfaConfirm.Post.Parameters.Header>
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupMfaConfirm.Post.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupMfaConfirm.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupMfaConfirm.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/mfa/confirm",
+  path: "/v2/users/self/credentials/mfa",
+  method: "GET",
+  operationId: "user-get-mfa-status",
+};
+
+/** Reset RecoveryCodes for MFA. */
+export const userResetRecoverycodes: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Put.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/credentials/mfa",
+  method: "PUT",
+  operationId: "user-reset-recoverycodes",
+};
+
+/** Confirm Multi Factor Authentication. */
+export const userConfirmMfa: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/credentials/mfa",
   method: "POST",
   operationId: "user-confirm-mfa",
 };
 
-/** Confirm password reset */
-export const userConfirmPasswordReset: OpenAPIOperation<
+/** Disable Multi Factor Authentication. */
+export const userDisableMfa: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SignupPasswordResetConfirm.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupPasswordResetConfirm.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupPasswordResetConfirm.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Delete.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Delete.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupPasswordResetConfirm.Post.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Delete.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupPasswordResetConfirm.Post.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Delete.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupPasswordResetConfirm.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/password/reset/confirm",
+  path: "/v2/users/self/credentials/mfa",
+  method: "DELETE",
+  operationId: "user-disable-mfa",
+};
+
+/** Confirm password reset. */
+export const userConfirmPasswordReset: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsPasswordConfirmReset.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsPasswordConfirmReset.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsPasswordConfirmReset.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsPasswordConfirmReset.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsPasswordConfirmReset.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsPasswordConfirmReset.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/credentials/password/confirm-reset",
   method: "POST",
   operationId: "user-confirm-password-reset",
 };
 
-/** List all ApiTokens of the user */
+/** List all of your ApiTokens. */
 export const userListApiTokens: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApi.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApi.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokens.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokens.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupTokenApi.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokens.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupTokenApi.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokens.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/token/api",
+  path: "/v2/users/self/api-tokens",
   method: "GET",
   operationId: "user-list-api-tokens",
 };
 
-/** Store a new ApiToken */
+/** Store a new ApiToken. */
 export const userCreateApiToken: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApi.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApi.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApi.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokens.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokens.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokens.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupTokenApi.Post.Responses.$201.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokens.Post.Responses.$201.Content.ApplicationJson>,
       201,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupTokenApi.Post.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokens.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupTokenApi.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokens.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/token/api",
+  path: "/v2/users/self/api-tokens",
   method: "POST",
   operationId: "user-create-api-token",
 };
@@ -7980,292 +7942,330 @@ export const userCreateIssue: OpenAPIOperation<
   operationId: "user-create-issue",
 };
 
-/** Get your stored ssh keys */
+/** Get your stored ssh-keys. */
 export const userListSshKeys: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupSsh.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupSsh.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeys.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeys.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSsh.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeys.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSsh.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeys.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/ssh",
+  path: "/v2/users/self/ssh-keys",
   method: "GET",
   operationId: "user-list-ssh-keys",
 };
 
-/** Store a new SSH key */
+/** Store a new ssh-key. */
 export const userCreateSshKey: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SignupSsh.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupSsh.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupSsh.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeys.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeys.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeys.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSsh.Post.Responses.$201.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeys.Post.Responses.$201.Content.Empty>,
       201,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSsh.Post.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeys.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSsh.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeys.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/ssh",
+  path: "/v2/users/self/ssh-keys",
   method: "POST",
   operationId: "user-create-ssh-key",
 };
 
-/** Get a specific ApiToken */
+/** Get a specific ApiToken. */
 export const userGetApiToken: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokensApiTokenId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokensApiTokenId.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokensApiTokenId.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/signup/token/api/{apiTokenId}",
-  method: "GET",
-  operationId: "user-get-api-token",
-};
-
-/** Update an existing `ApiToken` */
-export const userEditApiToken: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Put.Responses.$200.Content.Empty>,
-      200,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Put.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/signup/token/api/{apiTokenId}",
-  method: "PUT",
-  operationId: "user-edit-api-token",
-};
-
-/** Deletes an ApiToken */
-export const userDeleteApiToken: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Delete.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Delete.Responses.$200.Content.Empty>,
-      200,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Delete.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Delete.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/signup/token/api/{apiTokenId}",
-  method: "DELETE",
-  operationId: "user-delete-api-token",
-};
-
-/** Get a specific stored SshKey */
-export const userGetSshKey: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokensApiTokenId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokensApiTokenId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/ssh/{sshKeyId}",
+  path: "/v2/users/self/api-tokens/{apiTokenId}",
+  method: "GET",
+  operationId: "user-get-api-token",
+};
+
+/** Update an existing `ApiToken`. */
+export const userEditApiToken: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokensApiTokenId.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokensApiTokenId.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokensApiTokenId.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokensApiTokenId.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokensApiTokenId.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokensApiTokenId.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/api-tokens/{apiTokenId}",
+  method: "PUT",
+  operationId: "user-edit-api-token",
+};
+
+/** Deletes an ApiToken. */
+export const userDeleteApiToken: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokensApiTokenId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokensApiTokenId.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokensApiTokenId.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokensApiTokenId.Delete.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokensApiTokenId.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/api-tokens/{apiTokenId}",
+  method: "DELETE",
+  operationId: "user-delete-api-token",
+};
+
+/** Get a specific stored ssh-key. */
+export const userGetSshKey: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeysSshKeyId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeysSshKeyId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeysSshKeyId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeysSshKeyId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeysSshKeyId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/ssh-keys/{sshKeyId}",
   method: "GET",
   operationId: "user-get-ssh-key",
 };
 
-/** Edit a stored SshKey */
+/** Edit a stored ssh-key. */
 export const userEditSshKey: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Put.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeysSshKeyId.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeysSshKeyId.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeysSshKeyId.Put.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Put.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeysSshKeyId.Put.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Put.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeysSshKeyId.Put.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Put.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeysSshKeyId.Put.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/ssh/{sshKeyId}",
+  path: "/v2/users/self/ssh-keys/{sshKeyId}",
   method: "PUT",
   operationId: "user-edit-ssh-key",
 };
 
-/** Remove a SSH-key */
+/** Remove a ssh-key. */
 export const userDeleteSshKey: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Delete.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeysSshKeyId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeysSshKeyId.Delete.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Delete.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeysSshKeyId.Delete.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Delete.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeysSshKeyId.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/ssh/{sshKeyId}",
+  path: "/v2/users/self/ssh-keys/{sshKeyId}",
   method: "DELETE",
   operationId: "user-delete-ssh-key",
 };
 
-/** Get your current multi factor auth status */
-export const userGetMfaStatus: OpenAPIOperation<
+/** Delete your account and all your personal data. */
+export const userDeleteUser: OpenAPIOperation<
   RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelf.Delete.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelf.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelf.Delete.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/signup/mfa",
-  method: "GET",
-  operationId: "user-get-mfa-status",
-};
-
-/** Initialize Multi Factor Authentication. If successfull, it needs to be confirmed, before usage of mfa. */
-export const userInitMfa: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/signup/mfa",
-  method: "POST",
-  operationId: "user-init-mfa",
-};
-
-/** Disable Multi Factor Authentication. */
-export const userDisableMfa: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Delete.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Delete.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Delete.Responses.$200.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelf.Delete.Responses.$200.Content.Empty>,
       200,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Delete.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelf.Delete.Responses.$202.Content.ApplicationJson>,
+      202,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelf.Delete.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Delete.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelf.Delete.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelf.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/mfa",
+  path: "/v2/users/self",
   method: "DELETE",
-  operationId: "user-disable-mfa",
+  operationId: "user-delete-user",
+};
+
+/** Get your account information. */
+export const userGetOwnAccount: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Get.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/personal-information",
+  method: "GET",
+  operationId: "user-get-own-account",
+};
+
+/** Update your account information. */
+export const userUpdateAccount: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/personal-information",
+  method: "PUT",
+  operationId: "user-update-account",
+};
+
+/** The timestamp of your latest password change. */
+export const userGetPasswordUpdatedAt: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsPasswordUpdatedAt.Get.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsPasswordUpdatedAt.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsPasswordUpdatedAt.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsPasswordUpdatedAt.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsPasswordUpdatedAt.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/credentials/password-updated-at",
+  method: "GET",
+  operationId: "user-get-password-updated-at",
 };
 
 /** Get personalized settings. */
@@ -8319,58 +8319,58 @@ export const userUpdatePersonalizedSettings: OpenAPIOperation<
   operationId: "user-update-personalized-settings",
 };
 
-/** Get a specific Session */
+/** Get a specific session. */
 export const userGetSession: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsTokenId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsTokenId.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsTokenId.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsTokenId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsTokenId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/sessions/{tokenId}",
+  path: "/v2/users/self/sessions/{tokenId}",
   method: "GET",
   operationId: "user-get-session",
 };
 
-/** Terminate a specific Session */
+/** Terminate a specific Session. */
 export const userTerminateSession: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Delete.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsTokenId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsTokenId.Delete.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Delete.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsTokenId.Delete.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Delete.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsTokenId.Delete.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Delete.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsTokenId.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/sessions/{tokenId}",
+  path: "/v2/users/self/sessions/{tokenId}",
   method: "DELETE",
   operationId: "user-terminate-session",
 };
@@ -8441,30 +8441,58 @@ export const userUpdatePersonalInformation: OpenAPIOperation<
   operationId: "user-update-personal-information",
 };
 
-/** Initialize password reset process */
-export const userInitPasswordReset: OpenAPIOperation<
+/** Initialize Multi Factor Authentication. If successful, it needs to be confirmed, before usage of mfa. */
+export const userInitMfa: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SignupPasswordReset.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupPasswordReset.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupPasswordReset.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsInitMfa.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsInitMfa.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsInitMfa.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupPasswordReset.Post.Responses.$200.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsInitMfa.Post.Responses.$200.Content.ApplicationJson>,
       200,
-      "empty"
+      "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupPasswordReset.Post.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsInitMfa.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupPasswordReset.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsInitMfa.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/password/reset",
+  path: "/v2/users/self/credentials/init-mfa",
+  method: "POST",
+  operationId: "user-init-mfa",
+};
+
+/** Initialize password reset process. */
+export const userInitPasswordReset: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsActionsInitPasswordReset.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsActionsInitPasswordReset.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsActionsInitPasswordReset.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsActionsInitPasswordReset.Post.Responses.$201.Content.Empty>,
+      201,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsActionsInitPasswordReset.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsActionsInitPasswordReset.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/credentials/actions/init-password-reset",
   method: "POST",
   operationId: "user-init-password-reset",
 };
@@ -8492,76 +8520,76 @@ export const userListFeedback: OpenAPIOperation<
   operationId: "user-list-feedback",
 };
 
-/** List all active sessions */
+/** List all sessions. */
 export const userListSessions: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupSessions.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupSessions.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessions.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessions.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSessions.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessions.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSessions.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessions.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/sessions",
+  path: "/v2/users/self/sessions",
   method: "GET",
   operationId: "user-list-sessions",
 };
 
-/** Terminate all sessions, except the current Session */
+/** Terminate all sessions, except the current session. */
 export const userTerminateAllSessions: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupSessions.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupSessions.Delete.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessions.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessions.Delete.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSessions.Delete.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessions.Delete.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSessions.Delete.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessions.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/sessions",
+  path: "/v2/users/self/sessions",
   method: "DELETE",
   operationId: "user-terminate-all-sessions",
 };
 
-/** Terminate session and invalidate access token */
+/** Terminate session and invalidate access token. */
 export const userLogout: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SignupLogout.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupLogout.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupLogout.Put.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2Logout.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2Logout.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2Logout.Put.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupLogout.Put.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2Logout.Put.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupLogout.Put.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2Logout.Put.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupLogout.Put.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2Logout.Put.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/logout",
+  path: "/v2/logout",
   method: "PUT",
   operationId: "user-logout",
 };
@@ -8569,27 +8597,27 @@ export const userLogout: OpenAPIOperation<
 /** Register with email and password. */
 export const userRegister: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SignupRegistration.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupRegistration.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupRegistration.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2Register.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2Register.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2Register.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupRegistration.Post.Responses.$201.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2Register.Post.Responses.$201.Content.ApplicationJson>,
       201,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupRegistration.Post.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2Register.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupRegistration.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2Register.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/registration",
+  path: "/v2/register",
   method: "POST",
   operationId: "user-register",
 };
@@ -8650,114 +8678,86 @@ export const userRemoveAvatar: OpenAPIOperation<
   operationId: "user-remove-avatar",
 };
 
-/** Resend the Email-Address verification email */
+/** Resend the Email-Address verification email. */
 export const userResendVerificationEmail: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SignupEmailResend.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupEmailResend.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupEmailResend.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmailActionsResendEmail.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmailActionsResendEmail.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmailActionsResendEmail.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupEmailResend.Post.Responses.$204.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmailActionsResendEmail.Post.Responses.$204.Content.Empty>,
       204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupEmailResend.Post.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmailActionsResendEmail.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupEmailResend.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmailActionsResendEmail.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/email/resend",
+  path: "/v2/users/self/credentials/email/actions/resend-email",
   method: "POST",
   operationId: "user-resend-verification-email",
 };
 
-/** Reset RecoveryCodes for MFA */
-export const userResetRecoverycodes: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SignupMfaResetRecoverycodes.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupMfaResetRecoverycodes.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupMfaResetRecoverycodes.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupMfaResetRecoverycodes.Put.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupMfaResetRecoverycodes.Put.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupMfaResetRecoverycodes.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/signup/mfa/reset-recoverycodes",
-  method: "PUT",
-  operationId: "user-reset-recoverycodes",
-};
-
-/** Request a support code */
+/** Request a support code. */
 export const userSupportCodeRequest: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupSupportcode.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupSupportcode.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsSupportCode.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsSupportCode.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSupportcode.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsSupportCode.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupSupportcode.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsSupportCode.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/supportcode",
+  path: "/v2/users/self/credentials/support-code",
   method: "GET",
   operationId: "user-support-code-request",
 };
 
-/** Verify an added Email-Address */
+/** Verify an added Email-Address. */
 export const userVerifyEmail: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SignupEmailVerify.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupEmailVerify.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupEmailVerify.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmailActionsVerifyEmail.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmailActionsVerifyEmail.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmailActionsVerifyEmail.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupEmailVerify.Post.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmailActionsVerifyEmail.Post.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupEmailVerify.Post.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmailActionsVerifyEmail.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupEmailVerify.Post.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmailActionsVerifyEmail.Post.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupEmailVerify.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmailActionsVerifyEmail.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/email/verify",
+  path: "/v2/users/self/credentials/email/actions/verify-email",
   method: "POST",
   operationId: "user-verify-email",
 };
@@ -8800,35 +8800,35 @@ export const userVerifyPhoneNumber: OpenAPIOperation<
   operationId: "user-verify-phone-number",
 };
 
-/** Verify your registration */
+/** Verify your registration. */
 export const userVerifyRegistration: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SignupRegistrationVerification.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupRegistrationVerification.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SignupRegistrationVerification.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2VerifyRegistration.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2VerifyRegistration.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2VerifyRegistration.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupRegistrationVerification.Post.Responses.$200.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2VerifyRegistration.Post.Responses.$200.Content.Empty>,
       200,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupRegistrationVerification.Post.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2VerifyRegistration.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupRegistrationVerification.Post.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2VerifyRegistration.Post.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SignupRegistrationVerification.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2VerifyRegistration.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/signup/registration/verification",
+  path: "/v2/verify-registration",
   method: "POST",
   operationId: "user-verify-registration",
 };

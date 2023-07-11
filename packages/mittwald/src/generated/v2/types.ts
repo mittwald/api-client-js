@@ -1864,6 +1864,20 @@ export declare module MittwaldAPIV2 {
         userName: string;
       }
 
+      export interface SignupAccount {
+        email?: string;
+        /**
+         * The users mfa details.
+         */
+        mfaDetails?: {
+          mfaConfirmed?: boolean;
+          mfaInitialized?: boolean;
+        };
+        passwordUpdatedAt?: string;
+        person?: MittwaldAPIV2.Components.Schemas.CommonsPerson;
+        userId?: string;
+      }
+
       export interface SignupApiToken {
         apiTokenId: string;
         createdAt: string;
@@ -7737,6 +7751,16 @@ export declare module MittwaldAPIV2 {
 
     namespace V2NewsletterSubscriptions {}
 
+    namespace V2SignupEmail {}
+
+    namespace V2SignupTokenApiApiTokenId {}
+
+    namespace V2SignupSshSshKeyId {}
+
+    namespace V2SignupLogout {}
+
+    namespace V2SignupEmailResend {}
+
     namespace V2UserUserIdAvatar {}
 
     namespace V2UserFeedback {}
@@ -7752,6 +7776,12 @@ export declare module MittwaldAPIV2 {
     namespace V2UserUserIdPhoneVerify {}
 
     namespace V2User {}
+
+    namespace V2SignupSessions {}
+
+    namespace V2SignupSessionsTokenId {}
+
+    namespace V2SignupEmailVerify {}
 
     namespace V2DnsZonesZoneIdRecordsetAcombinedCustom {
       namespace Put {
@@ -13373,18 +13403,89 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SignupAuthentication {
+    namespace V2SignupAuthenticationMfa {}
+
+    namespace V2AuthenticateMfa {
       namespace Post {
         namespace Parameters {
           export type Path = {};
 
           export interface RequestBody {
             /**
-             * The users Email-Address
+             * The email of the user.
+             */
+            email?: string;
+            /**
+             * The second factor - otp code or recovery code.
+             */
+            multiFactorCode: string;
+            /**
+             * The password of the user.
+             */
+            password?: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * Expiration unix timestamp
+                 */
+                expires: string;
+                /**
+                 * Public token to identify yourself against the api gateway.
+                 */
+                token: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+            }
+          }
+
+          namespace $408 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.SignupDomainError & {
+                  name?: "FirstAuthenticationFactorExpired";
+                };
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2SignupAuthentication {}
+
+    namespace V2Authenticate {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            /**
+             * The users Email-Address.
              */
             email: string;
             /**
-             * Password of the User
+             * Password of the User.
              */
             password: string;
           }
@@ -13442,74 +13543,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SignupAuthenticationMfa {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            /**
-             * The email of the user
-             */
-            email?: string;
-            /**
-             * The second factor - otp code or recovery code
-             */
-            multiFactorCode: string;
-            /**
-             * The password of the user
-             */
-            password?: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                /**
-                 * Expiration unix timestamp
-                 */
-                expires: string;
-                /**
-                 * Public token to identify yourself against the api gateway.
-                 */
-                token: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
-            }
-          }
-
-          namespace $408 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.SignupDomainError & {
-                  name?: "FirstAuthenticationFactorExpired";
-                };
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2SignupEmail {
+    namespace V2UsersSelfCredentialsEmail {
       namespace Get {
         namespace Parameters {
           export type Path = {};
@@ -13563,7 +13597,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -13587,37 +13621,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SignupPassword {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
+    namespace V2SignupPassword {}
 
-          export interface RequestBody {}
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                passwordUpdatedAt: string;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
+    namespace V2UsersSelfCredentialsPassword {
       namespace Put {
         namespace Parameters {
           export type Path = {};
@@ -13630,11 +13636,11 @@ export declare module MittwaldAPIV2 {
              */
             multiFactorCode?: string;
             /**
-             * The new password
+             * The new password.
              */
             newPassword: string;
             /**
-             * The old password
+             * The old password.
              */
             oldPassword: string;
           }
@@ -13649,7 +13655,7 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export interface ApplicationJson {
                 /**
-                 * Expiration unix timestamp
+                 * Expiration unix timestamp.
                  */
                 expires: string;
                 /**
@@ -13686,132 +13692,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SignupProfile {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
+    namespace V2SignupTokenCheck {}
 
-          export interface RequestBody {}
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.SignupProfile;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Put {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            person: MittwaldAPIV2.Components.Schemas.CommonsPerson;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Delete {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            /**
-             * Multi Factor Code to authorize your request
-             */
-            multiFactorCode?: string;
-            password: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $202 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
-            }
-          }
-
-          namespace $409 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2SignupTokenCheck {
+    namespace V2UsersSelfCredentialsToken {
       namespace Post {
         namespace Parameters {
           export type Path = {};
@@ -13833,10 +13716,36 @@ export declare module MittwaldAPIV2 {
             }
           }
 
-          namespace $400 {
+          namespace Default {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2SignupMfaConfirm {}
+
+    namespace V2UsersSelfCredentialsMfa {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                confirmed: boolean;
+                initialized: boolean;
+              }
             }
           }
 
@@ -13849,16 +13758,14 @@ export declare module MittwaldAPIV2 {
           }
         }
       }
-    }
 
-    namespace V2SignupMfaConfirm {
-      namespace Post {
+      namespace Put {
         namespace Parameters {
           export type Path = {};
 
           export interface RequestBody {
             /**
-             * Multi Factor Code to confirm MFA
+             * Multi Factor Code to authorize your request.
              */
             multiFactorCode: string;
           }
@@ -13918,34 +13825,92 @@ export declare module MittwaldAPIV2 {
           }
         }
       }
-    }
 
-    namespace V2SignupPasswordResetConfirm {
       namespace Post {
         namespace Parameters {
           export type Path = {};
 
           export interface RequestBody {
             /**
-             * The new password
+             * Multi Factor Code to confirm MFA.
              */
-            password: string;
-            /**
-             * Password reset token
-             */
-            token: string;
-            /**
-             * userId of the user to reset the password for
-             */
-            userId: string;
+            multiFactorCode: string;
           }
 
-          export type Header = {};
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {};
         }
         namespace Responses {
           namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * @minItems 20
+                 * @maxItems 20
+                 */
+                recoveryCodesList: [
+                  string,
+                  string,
+                  string,
+                  string,
+                  string,
+                  string,
+                  string,
+                  string,
+                  string,
+                  string,
+                  string,
+                  string,
+                  string,
+                  string,
+                  string,
+                  string,
+                  string,
+                  string,
+                  string,
+                  string
+                ];
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            /**
+             * Multi Factor Code to confirm MFA.
+             */
+            multiFactorCode: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -13969,7 +13934,60 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SignupTokenApi {
+    namespace V2SignupPasswordResetConfirm {}
+
+    namespace V2UsersSelfCredentialsPasswordConfirmReset {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            /**
+             * The new password.
+             */
+            password: string;
+            /**
+             * Password reset token
+             */
+            token: string;
+            /**
+             * UserId of the user to reset the password for.
+             */
+            userId: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2SignupTokenApi {}
+
+    namespace V2UsersSelfApiTokens {
       namespace Get {
         namespace Parameters {
           export type Path = {};
@@ -14005,7 +14023,7 @@ export declare module MittwaldAPIV2 {
             description: string;
             expiresAt?: string;
             /**
-             * determines the access rights of the ApiToken
+             * Determines the access rights of the ApiToken.
              *
              * @minItems 1
              */
@@ -14022,7 +14040,7 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export interface ApplicationJson {
                 /**
-                 * The `ApiToken`
+                 * The `ApiToken`.
                  */
                 token: string;
               }
@@ -14031,8 +14049,9 @@ export declare module MittwaldAPIV2 {
 
           namespace $400 {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -14157,7 +14176,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SignupSsh {
+    namespace V2SignupSsh {}
+
+    namespace V2UsersSelfSshKeys {
       namespace Get {
         namespace Parameters {
           export type Path = {};
@@ -14209,8 +14230,9 @@ export declare module MittwaldAPIV2 {
 
           namespace $400 {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -14225,7 +14247,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SignupTokenApiApiTokenId {
+    namespace V2UsersSelfApiTokensApiTokenId {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -14242,6 +14264,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.SignupApiToken;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -14272,7 +14302,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -14280,8 +14310,9 @@ export declare module MittwaldAPIV2 {
 
           namespace $400 {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -14307,7 +14338,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -14315,8 +14346,9 @@ export declare module MittwaldAPIV2 {
 
           namespace $400 {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -14331,7 +14363,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SignupSshSshKeyId {
+    namespace V2UsersSelfSshKeysSshKeyId {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -14387,7 +14419,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -14395,8 +14427,9 @@ export declare module MittwaldAPIV2 {
 
           namespace $400 {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -14422,7 +14455,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -14439,92 +14472,19 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SignupMfa {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
+    namespace V2SignupProfile {}
 
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                confirmed: boolean;
-                initialized: boolean;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {}
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                /**
-                 * base64 encoded barcode content to scan from your mfa app. e.g. `iVBORw0KGgoAAAANSUhEUgAAAMgAAADIEAAAAADYoy...`. You
-                 * can display it with `<img src="data:image/png;base64,iVBORw0KGgoAAAANSUh.." />`
-                 *
-                 */
-                barcode: string;
-                /**
-                 * Same as barcode,  but in URL form.
-                 *
-                 */
-                url: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
+    namespace V2UsersSelf {
       namespace Delete {
         namespace Parameters {
           export type Path = {};
 
           export interface RequestBody {
             /**
-             * Multi Factor Code to confirm MFA
+             * Multi Factor Code to authorize your request.
              */
-            multiFactorCode: string;
+            multiFactorCode?: string;
+            password: string;
           }
 
           export type Header =
@@ -14539,10 +14499,128 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $202 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+            }
+          }
+
+          namespace $409 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2SignupMfa {}
+
+    namespace V2UsersSelfPersonalInformation {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {}
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.SignupAccount;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Put {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            person: MittwaldAPIV2.Components.Schemas.CommonsPerson;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2UsersSelfCredentialsPasswordUpdatedAt {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {}
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                passwordUpdatedAt: string;
+              }
             }
           }
 
@@ -14629,7 +14707,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SignupSessionsTokenId {
+    namespace V2UsersSelfSessionsTokenId {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -14679,7 +14757,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -14799,14 +14877,65 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SignupPasswordReset {
+    namespace V2UsersSelfCredentialsInitMfa {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {}
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * base64 encoded barcode content to scan from your mfa app. e.g. `iVBORw0KGgoAAAANSUhEUgAAAMgAAADIEAAAAADYoy...`. You
+                 * can display it with `<img src="data:image/png;base64,iVBORw0KGgoAAAANSUh.." />`
+                 *
+                 */
+                barcode: string;
+                /**
+                 * Same as barcode,  but in URL form.
+                 *
+                 */
+                url: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2SignupPasswordReset {}
+
+    namespace V2UsersSelfCredentialsActionsInitPasswordReset {
       namespace Post {
         namespace Parameters {
           export type Path = {};
 
           export interface RequestBody {
             /**
-             * email address to reset the password for
+             * Email address to reset the password for.
              */
             email: string;
           }
@@ -14816,7 +14945,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $201 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -14873,7 +15002,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SignupSessions {
+    namespace V2UsersSelfSessions {
       namespace Get {
         namespace Parameters {
           export type Path = {};
@@ -14911,7 +15040,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -14928,7 +15057,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SignupLogout {
+    namespace V2Logout {
       namespace Put {
         namespace Parameters {
           export type Path = {};
@@ -14941,7 +15070,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -14965,7 +15094,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SignupRegistration {
+    namespace V2SignupRegistration {}
+
+    namespace V2Register {
       namespace Post {
         namespace Parameters {
           export type Path = {};
@@ -14976,7 +15107,7 @@ export declare module MittwaldAPIV2 {
              */
             email: string;
             /**
-             * The users password
+             * The users password.
              */
             password: string;
             person: MittwaldAPIV2.Components.Schemas.CommonsPerson;
@@ -15122,14 +15253,14 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SignupEmailResend {
+    namespace V2UsersSelfCredentialsEmailActionsResendEmail {
       namespace Post {
         namespace Parameters {
           export type Path = {};
 
           export interface RequestBody {
-            email?: string;
-            userId?: string;
+            email: string;
+            userId: string;
           }
 
           export type Header = {};
@@ -15161,76 +15292,13 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SignupMfaResetRecoverycodes {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {};
+    namespace V2SignupMfaResetRecoverycodes {}
 
-          export interface RequestBody {
-            /**
-             * Multi Factor Code to authorize your request
-             */
-            multiFactorCode: string;
-          }
+    namespace V2SignupSupportcode {}
 
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+    namespace V2SignupSupportcodes {}
 
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                /**
-                 * @minItems 20
-                 * @maxItems 20
-                 */
-                recoveryCodesList: [
-                  string,
-                  string,
-                  string,
-                  string,
-                  string,
-                  string,
-                  string,
-                  string,
-                  string,
-                  string,
-                  string,
-                  string,
-                  string,
-                  string,
-                  string,
-                  string,
-                  string,
-                  string,
-                  string,
-                  string
-                ];
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2SignupSupportcode {
+    namespace V2UsersSelfCredentialsSupportCode {
       namespace Get {
         namespace Parameters {
           export type Path = {};
@@ -15269,18 +15337,18 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SignupEmailVerify {
+    namespace V2UsersSelfCredentialsEmailActionsVerifyEmail {
       namespace Post {
         namespace Parameters {
           export type Path = {};
 
           export interface RequestBody {
             /**
-             * The Email-Address to verify
+             * The Email-Address to verify.
              */
             email: string;
             /**
-             * The token found in the verification email
+             * The token found in the verification email.
              */
             token?: string;
           }
@@ -15291,7 +15359,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -15382,14 +15450,16 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SignupRegistrationVerification {
+    namespace V2SignupRegistrationVerification {}
+
+    namespace V2VerifyRegistration {
       namespace Post {
         namespace Parameters {
           export type Path = {};
 
           export interface RequestBody {
             /**
-             * The users email address
+             * The users email address.
              */
             email: string;
             /**
@@ -15397,7 +15467,7 @@ export declare module MittwaldAPIV2 {
              */
             token: string;
             /**
-             * UUID of the registered user
+             * UUID of the registered user.
              */
             userId: string;
           }

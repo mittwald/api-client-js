@@ -963,66 +963,68 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     removePhoneNumber: this.requestFunctionFactory(
       descriptors.userRemovePhoneNumber
     ),
-    /** Authenticate yourself to get an access token. */
-    authenticate: this.requestFunctionFactory(descriptors.userAuthenticate),
     /** Validate your second factor. */
     authenticateMfa: this.requestFunctionFactory(
       descriptors.userAuthenticateMfa
     ),
-    /** Get your primary verified Email-Address */
-    getEmail: this.requestFunctionFactory(descriptors.userGetEmail),
-    /** Change your Email-Address */
+    /** Authenticate yourself to get an access token. */
+    authenticate: this.requestFunctionFactory(descriptors.userAuthenticate),
+    /** Get your verified Email-Address. */
+    getOwnEmail: this.requestFunctionFactory(descriptors.userGetOwnEmail),
+    /** Change your Email-Address. */
     changeEmail: this.requestFunctionFactory(descriptors.userChangeEmail),
-    /** The timestamp of your latest password change */
-    getPasswordUpdatedAt: this.requestFunctionFactory(
-      descriptors.userGetPasswordUpdatedAt
-    ),
-    /** Change your password */
+    /** Change your password. */
     changePassword: this.requestFunctionFactory(descriptors.userChangePassword),
-    /** Get your profile information */
-    getOwnProfile: this.requestFunctionFactory(descriptors.userGetOwnProfile),
-    /** Change your profile information */
-    changeProfile: this.requestFunctionFactory(descriptors.userChangeProfile),
-    /** Delete your profile and all your personal data */
-    deleteProfile: this.requestFunctionFactory(descriptors.userDeleteProfile),
-    /** Check a token for validity */
+    /** Check token for validity. */
     checkToken: this.requestFunctionFactory(descriptors.userCheckToken),
-    /** Confirm Multi Factor Authentication */
+    /** Get your current multi factor auth status. */
+    getMfaStatus: this.requestFunctionFactory(descriptors.userGetMfaStatus),
+    /** Reset RecoveryCodes for MFA. */
+    resetRecoverycodes: this.requestFunctionFactory(
+      descriptors.userResetRecoverycodes
+    ),
+    /** Confirm Multi Factor Authentication. */
     confirmMfa: this.requestFunctionFactory(descriptors.userConfirmMfa),
-    /** Confirm password reset */
+    /** Disable Multi Factor Authentication. */
+    disableMfa: this.requestFunctionFactory(descriptors.userDisableMfa),
+    /** Confirm password reset. */
     confirmPasswordReset: this.requestFunctionFactory(
       descriptors.userConfirmPasswordReset
     ),
-    /** List all ApiTokens of the user */
+    /** List all of your ApiTokens. */
     listApiTokens: this.requestFunctionFactory(descriptors.userListApiTokens),
-    /** Store a new ApiToken */
+    /** Store a new ApiToken. */
     createApiToken: this.requestFunctionFactory(descriptors.userCreateApiToken),
     /** Submit your user feedback. */
     createFeedback: this.requestFunctionFactory(descriptors.userCreateFeedback),
     /** Create a new issue. */
     createIssue: this.requestFunctionFactory(descriptors.userCreateIssue),
-    /** Get your stored ssh keys */
+    /** Get your stored ssh-keys. */
     listSshKeys: this.requestFunctionFactory(descriptors.userListSshKeys),
-    /** Store a new SSH key */
+    /** Store a new ssh-key. */
     createSshKey: this.requestFunctionFactory(descriptors.userCreateSshKey),
-    /** Get a specific ApiToken */
+    /** Get a specific ApiToken. */
     getApiToken: this.requestFunctionFactory(descriptors.userGetApiToken),
-    /** Update an existing `ApiToken` */
+    /** Update an existing `ApiToken`. */
     editApiToken: this.requestFunctionFactory(descriptors.userEditApiToken),
-    /** Deletes an ApiToken */
+    /** Deletes an ApiToken. */
     deleteApiToken: this.requestFunctionFactory(descriptors.userDeleteApiToken),
-    /** Get a specific stored SshKey */
+    /** Get a specific stored ssh-key. */
     getSshKey: this.requestFunctionFactory(descriptors.userGetSshKey),
-    /** Edit a stored SshKey */
+    /** Edit a stored ssh-key. */
     editSshKey: this.requestFunctionFactory(descriptors.userEditSshKey),
-    /** Remove a SSH-key */
+    /** Remove a ssh-key. */
     deleteSshKey: this.requestFunctionFactory(descriptors.userDeleteSshKey),
-    /** Get your current multi factor auth status */
-    getMfaStatus: this.requestFunctionFactory(descriptors.userGetMfaStatus),
-    /** Initialize Multi Factor Authentication. If successfull, it needs to be confirmed, before usage of mfa. */
-    initMfa: this.requestFunctionFactory(descriptors.userInitMfa),
-    /** Disable Multi Factor Authentication. */
-    disableMfa: this.requestFunctionFactory(descriptors.userDisableMfa),
+    /** Delete your account and all your personal data. */
+    deleteUser: this.requestFunctionFactory(descriptors.userDeleteUser),
+    /** Get your account information. */
+    getOwnAccount: this.requestFunctionFactory(descriptors.userGetOwnAccount),
+    /** Update your account information. */
+    updateAccount: this.requestFunctionFactory(descriptors.userUpdateAccount),
+    /** The timestamp of your latest password change. */
+    getPasswordUpdatedAt: this.requestFunctionFactory(
+      descriptors.userGetPasswordUpdatedAt
+    ),
     /** Get personalized settings. */
     getPersonalizedSettings: this.requestFunctionFactory(
       descriptors.userGetPersonalizedSettings
@@ -1031,9 +1033,9 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updatePersonalizedSettings: this.requestFunctionFactory(
       descriptors.userUpdatePersonalizedSettings
     ),
-    /** Get a specific Session */
+    /** Get a specific session. */
     getSession: this.requestFunctionFactory(descriptors.userGetSession),
-    /** Terminate a specific Session */
+    /** Terminate a specific Session. */
     terminateSession: this.requestFunctionFactory(
       descriptors.userTerminateSession
     ),
@@ -1043,19 +1045,21 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updatePersonalInformation: this.requestFunctionFactory(
       descriptors.userUpdatePersonalInformation
     ),
-    /** Initialize password reset process */
+    /** Initialize Multi Factor Authentication. If successful, it needs to be confirmed, before usage of mfa. */
+    initMfa: this.requestFunctionFactory(descriptors.userInitMfa),
+    /** Initialize password reset process. */
     initPasswordReset: this.requestFunctionFactory(
       descriptors.userInitPasswordReset
     ),
     /** Submitted feedback of the given user. */
     listFeedback: this.requestFunctionFactory(descriptors.userListFeedback),
-    /** List all active sessions */
+    /** List all sessions. */
     listSessions: this.requestFunctionFactory(descriptors.userListSessions),
-    /** Terminate all sessions, except the current Session */
+    /** Terminate all sessions, except the current session. */
     terminateAllSessions: this.requestFunctionFactory(
       descriptors.userTerminateAllSessions
     ),
-    /** Terminate session and invalidate access token */
+    /** Terminate session and invalidate access token. */
     logout: this.requestFunctionFactory(descriptors.userLogout),
     /** Register with email and password. */
     register: this.requestFunctionFactory(descriptors.userRegister),
@@ -1065,25 +1069,21 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Remove Avatar. */
     removeAvatar: this.requestFunctionFactory(descriptors.userRemoveAvatar),
-    /** Resend the Email-Address verification email */
+    /** Resend the Email-Address verification email. */
     resendVerificationEmail: this.requestFunctionFactory(
       descriptors.userResendVerificationEmail
     ),
-    /** Reset RecoveryCodes for MFA */
-    resetRecoverycodes: this.requestFunctionFactory(
-      descriptors.userResetRecoverycodes
-    ),
-    /** Request a support code */
+    /** Request a support code. */
     supportCodeRequest: this.requestFunctionFactory(
       descriptors.userSupportCodeRequest
     ),
-    /** Verify an added Email-Address */
+    /** Verify an added Email-Address. */
     verifyEmail: this.requestFunctionFactory(descriptors.userVerifyEmail),
     /** Verify phone number. */
     verifyPhoneNumber: this.requestFunctionFactory(
       descriptors.userVerifyPhoneNumber
     ),
-    /** Verify your registration */
+    /** Verify your registration. */
     verifyRegistration: this.requestFunctionFactory(
       descriptors.userVerifyRegistration
     ),
