@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/esm",
+    "rootDir": "./src"
+  },
+  "exclude": ["test-d/**/*", "*.test.ts"],
+  "extends": "../../tsconfig.packages.json",
+  "include": ["src/**/*.ts"],
+  "references": [
+    {
+      "path": "../commons"
+    }
+  ]
+}

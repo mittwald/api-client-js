@@ -1,6 +1,6 @@
 {
   "name": "@mittwald/api-client",
-  "version": "1.0.6",
+  "version": "2.0.1",
   "description": "Auto-generated client for the mittwald API",
   "license": "MIT",
   "repository": "github:mittwald/api-client-js",
@@ -12,11 +12,20 @@
   "bugs": {
     "url": "https://github.com/mittwald/api-client-js/issues"
   },
+  "main": "dist/cjs/index.js",
   "type": "module",
   "exports": {
-    "./v2": {
-      "types": "./dist/v2.d.ts",
-      "default": "./dist/v2.js"
+    ".": {
+      "types": {
+        "import": "./dist/esm/index.d.ts",
+        "require": "./dist/cjs/index.d.ts",
+        "default": "./dist/esm/index.d.ts"
+      },
+      "default": {
+        "import": "./dist/esm/index.js",
+        "require": "./dist/cjs/index.js",
+        "default": "./dist/esm/index.js"
+      }
     }
   },
   "scripts": {
@@ -27,7 +36,7 @@
     "post:generate": "yarn run -T compile && yarn run -T compile:cjs"
   },
   "files": [
-    "{dist,dist-cjs}/**/*.{js,d.ts}"
+    "dist/**/*.{js,d.ts}"
   ],
   "keywords": [
     "mittwald",
@@ -41,5 +50,6 @@
   },
   "devDependencies": {
     "@mittwald/api-code-generator": "workspace:^"
-  }
+  },
+  "types": "dist/cjs/index.d.ts"
 }

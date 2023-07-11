@@ -2,10 +2,10 @@
   "files": [],
   "references": [
     {
-      "path": "./packages/mittwald"
+      "path": "./packages/commons"
     },
     {
-      "path": "./packages/commons"
+      "path": "./packages/mittwald"
     },
     {
       "path": "./packages/generator"
