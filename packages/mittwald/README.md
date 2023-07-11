@@ -23,7 +23,7 @@ yarn add @mittwald/api-client
 Import the client:
 
 ```typescript
-import MittwaldAPIClient from "@mittwald/api-client/v2";
+import { MittwaldAPIV2Client } from "@mittwald/api-client";
 ```
 
 To create a client instance you can use one of the following factory method for
@@ -40,7 +40,7 @@ on how to obtain an API token and how to get started with the API.
 ## Example
 
 ```typescript
-import MittwaldAPIClient from "@mittwald/api-client/v2";
+import { MittwaldAPIV2Client } from "@mittwald/api-client";
 
 const mittwaldApi = MittwaldAPIClient.newWithToken("your-access-token");
 
