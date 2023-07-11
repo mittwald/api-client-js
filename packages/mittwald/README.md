@@ -66,3 +66,17 @@ To intercept requests or responses you can use
 [pkg-auth]:
   https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-to-github-packages
 [api-getting-started]: https://developer.mittwald.de/docs/v2/api/intro
+
+## Usage with TypeScript
+
+All response and request types can be imported from the `MittwaldAPIV2`
+namespace.
+
+### Importing types
+
+```typescript
+import { MittwaldAPIV2 } from "@mittwald/api-client";
+
+type Project =
+  MittwaldAPIV2.Paths.V2Projects.Get.Responses.$200.Content.ApplicationJson[number];
+```
