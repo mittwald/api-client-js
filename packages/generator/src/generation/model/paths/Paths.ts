@@ -52,10 +52,10 @@ export class Paths {
     };
 
     return `\
-      import { Simplify } from "@mittwald/api-client-commons/types";
-      import { Request } from "@mittwald/api-client-commons/types";
-      import { Response } from "@mittwald/api-client-commons/types";
-      import { OpenAPIOperation } from "@mittwald/api-client-commons/types";    
+      import { Simplify } from "@mittwald/api-client-commons";
+      import { RequestType } from "@mittwald/api-client-commons";
+      import { Response } from "@mittwald/api-client-commons";
+      import { OpenAPIOperation } from "@mittwald/api-client-commons";    
       import { ${t.ns} } from "./types.js";
       
       ${t.descriptors}

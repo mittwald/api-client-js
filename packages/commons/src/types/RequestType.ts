@@ -18,7 +18,7 @@ type RequestWithHeaders<THeaders> = THeaders extends null
 
 type EmptyRequest = Record<string, never>;
 
-export type Request<
+export type RequestType<
   TData extends HttpPayload = null,
   TPathParameters extends PathParameters | null = null,
   THeader extends HttpHeaders | null = null,
@@ -29,4 +29,4 @@ export type Request<
       RequestWithHeaders<THeader>;
 
 // eslint-disable-next-line
-export type AnyRequest = Request<any, any, any>;
+export type AnyRequest = RequestType<any, any, any>;

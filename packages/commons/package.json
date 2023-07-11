@@ -1,6 +1,6 @@
 {
   "name": "@mittwald/api-client-commons",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Common types and utilities for mittwald API clients",
   "license": "MIT",
   "repository": "https://github.com/mittwald/api-client-js.git",
@@ -10,36 +10,17 @@
   },
   "homepage": "https://developer.mittwald.de",
   "bugs": "https://github.com/mittwald/api-client-js/issues",
+  "main": "dist/cjs/index.js",
   "type": "module",
   "exports": {
     ".": {
       "types": {
-        "require": "./dist-cjs/core/index.d.ts",
-        "default": "./dist/core/index.d.ts"
+        "require": "./dist/cjs/index.d.ts",
+        "default": "./dist/esm/index.d.ts"
       },
       "default": {
-        "require": "./dist-cjs/core/index.js",
-        "default": "./dist/core/index.js"
-      }
-    },
-    "./axios": {
-      "types": {
-        "require": "./dist-cjs/axios.d.ts",
-        "default": "./dist/axios.d.ts"
-      },
-      "default": {
-        "require": "./dist-cjs/axios.js",
-        "default": "./dist/axios.js"
-      }
-    },
-    "./types": {
-      "types": {
-        "require": "./dist-cjs/types/index.d.ts",
-        "default": "./dist/types/index.d.ts"
-      },
-      "default": {
-        "require": "./dist-cjs/types/index.js",
-        "default": "./dist/types/index.js"
+        "require": "./dist/cjs/index.js",
+        "default": "./dist/esm/index.js"
       }
     }
   },
@@ -48,7 +29,7 @@
     "test:tsd": "pnpify run tsd"
   },
   "files": [
-    "{dist,dist-cjs}/**/*.{js,d.ts}"
+    "dist/**/*.{js,d.ts}"
   ],
   "keywords": [
     "mittwald",
@@ -68,5 +49,5 @@
     "@yarnpkg/pnpify": "^4.0.0-rc.48",
     "tsd": "^0.28.1"
   },
-  "types": "./dist/index.d.ts"
+  "types": "dist/cjs/index.d.ts"
 }

@@ -1,9 +1,9 @@
 import { AnyResponse, Response } from "./Response.js";
-import { AnyRequest, Request } from "./Request.js";
+import { AnyRequest, RequestType } from "./RequestType.js";
 import { HttpMethod } from "./http.js";
 
 export interface OpenAPIOperation<
-  TIgnoredRequest extends AnyRequest = Request,
+  TIgnoredRequest extends AnyRequest = RequestType,
   IgnoredResponse extends AnyResponse = Response,
 > {
   operationId: string;
@@ -16,7 +16,7 @@ export type InferredRequestType<TOp> = TOp extends OpenAPIOperation<infer TReq>
   : never;
 
 export type InferredResponseType<TOp> = TOp extends OpenAPIOperation<
-  Request,
+  RequestType,
   infer TRes
 >
   ? TRes

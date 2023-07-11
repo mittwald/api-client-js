@@ -143,7 +143,7 @@ export class RequestParameters {
     };
 
     return `\
-      Request<
+      RequestType<
         Simplify<${t.body}>,
         Simplify<${t.path}>,
         Simplify<${t.header}>

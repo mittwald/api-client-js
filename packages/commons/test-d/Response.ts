@@ -1,4 +1,4 @@
-import { Response } from "../dist/types/Response";
+import { Response } from "../dist/esm/types/Response";
 import {
   expectAssignable,
   expectError,

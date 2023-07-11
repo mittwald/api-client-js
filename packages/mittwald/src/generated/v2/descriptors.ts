@@ -1,15 +1,15 @@
 /* eslint-disable */
 /* prettier-ignore */
 /* This file is auto-generated with acg (@mittwald/api-code-generator) */
-import { Simplify } from "@mittwald/api-client-commons/types";
-import { Request } from "@mittwald/api-client-commons/types";
-import { Response } from "@mittwald/api-client-commons/types";
-import { OpenAPIOperation } from "@mittwald/api-client-commons/types";
+import { Simplify } from "@mittwald/api-client-commons";
+import { RequestType } from "@mittwald/api-client-commons";
+import { Response } from "@mittwald/api-client-commons";
+import { OpenAPIOperation } from "@mittwald/api-client-commons";
 import { MittwaldAPIV2 } from "./types.js";
 
-/** execute a runtime concerning action on a specific `AppInstallation` */
+/** Execute a runtime concerning action on a specific `AppInstallation` */
 export const appExecuteAction: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdActionsAction.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdActionsAction.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdActionsAction.Post.Parameters.Header>
@@ -35,9 +35,9 @@ export const appExecuteAction: OpenAPIOperation<
   operationId: "app-execute-action",
 };
 
-/** get a specific `App` */
+/** Get a specific `App` */
 export const appGetApp: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2AppsAppId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2AppsAppId.Get.Parameters.Header>
@@ -63,9 +63,9 @@ export const appGetApp: OpenAPIOperation<
   operationId: "app-get-app",
 };
 
-/** get a specific `AppInstallation` */
+/** Get a specific `AppInstallation` */
 export const appGetAppinstallation: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Get.Parameters.Header>
@@ -91,9 +91,9 @@ export const appGetAppinstallation: OpenAPIOperation<
   operationId: "app-get-appinstallation",
 };
 
-/** start uninstallation process for a specific `AppInstallation` */
+/** Start uninstallation process for a specific `AppInstallation` */
 export const appUninstallAppinstallation: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Delete.Parameters.Header>
@@ -119,9 +119,9 @@ export const appUninstallAppinstallation: OpenAPIOperation<
   operationId: "app-uninstall-appinstallation",
 };
 
-/** patch desired properties of a specific `AppInstallation` */
+/** Patch desired properties of a specific `AppInstallation` */
 export const appPatchAppinstallation: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Patch.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Patch.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Patch.Parameters.Header>
@@ -147,9 +147,9 @@ export const appPatchAppinstallation: OpenAPIOperation<
   operationId: "app-patch-appinstallation",
 };
 
-/** get a specific `AppVersion` */
+/** Get a specific `AppVersion` */
 export const appGetAppversion: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2AppsAppIdVersionsAppVersionId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2AppsAppIdVersionsAppVersionId.Get.Parameters.Header>
@@ -175,9 +175,9 @@ export const appGetAppversion: OpenAPIOperation<
   operationId: "app-get-appversion",
 };
 
-/** get a specific `SystemSoftware` */
+/** Get a specific `SystemSoftware` */
 export const appGetSystemsoftware: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2SystemsoftwaresSystemSoftwareId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SystemsoftwaresSystemSoftwareId.Get.Parameters.Header>
@@ -203,9 +203,9 @@ export const appGetSystemsoftware: OpenAPIOperation<
   operationId: "app-get-systemsoftware",
 };
 
-/** get a specific `SystemSoftwareVersion` */
+/** Get a specific `SystemSoftwareVersion` */
 export const appGetSystemsoftwareversion: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2SystemsoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SystemsoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Header>
@@ -231,9 +231,9 @@ export const appGetSystemsoftwareversion: OpenAPIOperation<
   operationId: "app-get-systemsoftwareversion",
 };
 
-/** create linkage between an `AppInstallation` and a `Database` */
+/** Create linkage between an `AppInstallation` and a `Database` */
 export const appLinkDatabase: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabases.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabases.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabases.Put.Parameters.Header>
@@ -259,9 +259,9 @@ export const appLinkDatabase: OpenAPIOperation<
   operationId: "app-link-database",
 };
 
-/** get all `AppInstallations` inside a specific `Project` */
+/** Get all `AppInstallations` inside a specific `Project` */
 export const appListAppinstallations: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Get.Parameters.Header>
@@ -282,9 +282,9 @@ export const appListAppinstallations: OpenAPIOperation<
   operationId: "app-list-appinstallations",
 };
 
-/** request a new `AppInstallation` */
+/** Request a new `AppInstallation` */
 export const appRequestAppinstallation: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Post.Parameters.Header>
@@ -310,9 +310,9 @@ export const appRequestAppinstallation: OpenAPIOperation<
   operationId: "app-request-appinstallation",
 };
 
-/** get all available `Apps` */
+/** Get all available `Apps` */
 export const appListApps: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2Apps.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2Apps.Get.Parameters.Header>
@@ -333,9 +333,9 @@ export const appListApps: OpenAPIOperation<
   operationId: "app-list-apps",
 };
 
-/** get all `AppVersions` of a specific `App` */
+/** Get all `AppVersions` of a specific `App` */
 export const appListAppversions: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2AppsAppIdVersions.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2AppsAppIdVersions.Get.Parameters.Header>
@@ -356,9 +356,9 @@ export const appListAppversions: OpenAPIOperation<
   operationId: "app-list-appversions",
 };
 
-/** get all available `SystemSoftware` */
+/** Get all available `SystemSoftware` */
 export const appListSystemsoftwares: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2Systemsoftwares.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2Systemsoftwares.Get.Parameters.Header>
@@ -379,9 +379,9 @@ export const appListSystemsoftwares: OpenAPIOperation<
   operationId: "app-list-systemsoftwares",
 };
 
-/** get all available `SystemSoftwareVersions` of a specific `SystemSoftware` */
+/** Get all available `SystemSoftwareVersions` of a specific `SystemSoftware` */
 export const appListSystemsoftwareversions: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2SystemsoftwareSystemSoftwareIdVersions.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SystemsoftwareSystemSoftwareIdVersions.Get.Parameters.Header>
@@ -402,9 +402,9 @@ export const appListSystemsoftwareversions: OpenAPIOperation<
   operationId: "app-list-systemsoftwareversions",
 };
 
-/** get all update candidates for a specific `AppVersion` */
+/** Get all update candidates for a specific `AppVersion` */
 export const appListUpdateCandidatesForAppversion: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2AppsAppIdVersionsBaseAppVersionIdUpdateCandidates.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2AppsAppIdVersionsBaseAppVersionIdUpdateCandidates.Get.Parameters.Header>
@@ -425,9 +425,9 @@ export const appListUpdateCandidatesForAppversion: OpenAPIOperation<
   operationId: "app-list-update-candidates-for-appversion",
 };
 
-/** request a copy of an `AppInstallation` */
+/** Request a copy of an `AppInstallation` */
 export const appRequestAppinstallationCopy: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsCopy.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsCopy.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsCopy.Post.Parameters.Header>
@@ -453,9 +453,9 @@ export const appRequestAppinstallationCopy: OpenAPIOperation<
   operationId: "app-request-appinstallation-copy",
 };
 
-/** get runtime status of a specific `AppInstallation` */
+/** Get runtime status of a specific `AppInstallation` */
 export const appRetrieveStatus: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdStatus.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdStatus.Get.Parameters.Header>
@@ -481,9 +481,9 @@ export const appRetrieveStatus: OpenAPIOperation<
   operationId: "app-retrieve-status",
 };
 
-/** create linkage between an `AppInstallation` and `DatabaseUsers` */
+/** Create linkage between an `AppInstallation` and `DatabaseUsers` */
 export const appSetDatabaseUsers: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.Header>
@@ -509,9 +509,9 @@ export const appSetDatabaseUsers: OpenAPIOperation<
   operationId: "app-set-database-users",
 };
 
-/** remove linkage between an `AppInstallation` and a `Database` */
+/** Remove linkage between an `AppInstallation` and a `Database` */
 export const appUnlinkDatabase: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Delete.Parameters.Header>
@@ -537,9 +537,12 @@ export const appUnlinkDatabase: OpenAPIOperation<
   operationId: "app-unlink-database",
 };
 
-/** trigger `AppInstallation` to retrieve current installation status based on an appJob */
+/**
+ * Trigger `AppInstallation` to retrieve current installation status based on an
+ * appJob
+ */
 export const appUpdateStatus: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsUpdateStatus.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsUpdateStatus.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsUpdateStatus.Post.Parameters.Header>
@@ -567,7 +570,7 @@ export const appUpdateStatus: OpenAPIOperation<
 
 /** Get an Article. */
 export const articleGetArticle: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ArticlesArticleId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ArticlesArticleId.Get.Parameters.Header>
@@ -595,7 +598,7 @@ export const articleGetArticle: OpenAPIOperation<
 
 /** List Articles. */
 export const articleListArticles: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2Articles.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2Articles.Get.Parameters.Header>
@@ -618,7 +621,7 @@ export const articleListArticles: OpenAPIOperation<
 
 /** Export a ProjectBackup for download. */
 export const backupCreateProjectBackupExport: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExport.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExport.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExport.Post.Parameters.Header>
@@ -656,7 +659,7 @@ export const backupCreateProjectBackupExport: OpenAPIOperation<
 
 /** Delete a ProjectBackupExport. */
 export const backupDeleteProjectBackupExport: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExport.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExport.Delete.Parameters.Header>
@@ -689,7 +692,7 @@ export const backupDeleteProjectBackupExport: OpenAPIOperation<
 
 /** List BackupSchedules belonging to a given Project. */
 export const backupListProjectBackupSchedules: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdBackupSchedules.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdBackupSchedules.Get.Parameters.Header>
@@ -712,7 +715,7 @@ export const backupListProjectBackupSchedules: OpenAPIOperation<
 
 /** Create a BackupSchedule for a Project. */
 export const backupCreateProjectBackupSchedule: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdBackupSchedules.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdBackupSchedules.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdBackupSchedules.Post.Parameters.Header>
@@ -745,7 +748,7 @@ export const backupCreateProjectBackupSchedule: OpenAPIOperation<
 
 /** List Backups for a given Project. */
 export const backupListProjectBackups: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdBackups.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdBackups.Get.Parameters.Header>
@@ -768,7 +771,7 @@ export const backupListProjectBackups: OpenAPIOperation<
 
 /** Create a Backup of a Project. */
 export const backupCreateProjectBackup: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdBackups.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdBackups.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdBackups.Post.Parameters.Header>
@@ -801,7 +804,7 @@ export const backupCreateProjectBackup: OpenAPIOperation<
 
 /** Get a ProjectBackupSchedule. */
 export const backupGetProjectBackupSchedule: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectBackupSchedulesProjectBackupScheduleId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectBackupSchedulesProjectBackupScheduleId.Get.Parameters.Header>
@@ -834,7 +837,7 @@ export const backupGetProjectBackupSchedule: OpenAPIOperation<
 
 /** Delete a ProjectBackupSchedule. */
 export const backupDeleteProjectBackupSchedule: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectBackupSchedulesProjectBackupScheduleId.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectBackupSchedulesProjectBackupScheduleId.Delete.Parameters.Header>
@@ -867,7 +870,7 @@ export const backupDeleteProjectBackupSchedule: OpenAPIOperation<
 
 /** Update a ProjectBackupSchedule. */
 export const backupUpdateProjectBackupSchedule: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectBackupSchedulesProjectBackupScheduleId.Patch.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectBackupSchedulesProjectBackupScheduleId.Patch.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectBackupSchedulesProjectBackupScheduleId.Patch.Parameters.Header>
@@ -905,7 +908,7 @@ export const backupUpdateProjectBackupSchedule: OpenAPIOperation<
 
 /** Get a ProjectBackup. */
 export const backupGetProjectBackup: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupId.Get.Parameters.Header>
@@ -938,7 +941,7 @@ export const backupGetProjectBackup: OpenAPIOperation<
 
 /** Delete a ProjectBackup. */
 export const backupDeleteProjectBackup: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupId.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupId.Delete.Parameters.Header>
@@ -971,7 +974,7 @@ export const backupDeleteProjectBackup: OpenAPIOperation<
 
 /** Change the description of a ProjectBackup. */
 export const backupUpdateProjectBackupDescription: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDescription.Patch.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDescription.Patch.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDescription.Patch.Parameters.Header>
@@ -1009,7 +1012,7 @@ export const backupUpdateProjectBackupDescription: OpenAPIOperation<
 
 /** Schedule the Termination of a ContractItem. */
 export const contractTerminateContractItem: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTermination.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTermination.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTermination.Post.Parameters.Header>
@@ -1042,7 +1045,7 @@ export const contractTerminateContractItem: OpenAPIOperation<
 
 /** Cancel the Termination for the referred ContractItem. */
 export const contractCancelContractItemTermination: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTermination.Delete.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTermination.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTermination.Delete.Parameters.Header>
@@ -1075,7 +1078,7 @@ export const contractCancelContractItemTermination: OpenAPIOperation<
 
 /** Cancel the TariffChange for the referred ContractItem. */
 export const contractCancelContractTariffChange: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTariffChange.Delete.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTariffChange.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTariffChange.Delete.Parameters.Header>
@@ -1108,7 +1111,7 @@ export const contractCancelContractTariffChange: OpenAPIOperation<
 
 /** Schedule the Termination of a Contract. */
 export const contractTerminateContract: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdTermination.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdTermination.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdTermination.Post.Parameters.Header>
@@ -1141,7 +1144,7 @@ export const contractTerminateContract: OpenAPIOperation<
 
 /** Cancel the Termination for the referred Contract. */
 export const contractCancelContractTermination: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdTermination.Delete.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdTermination.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdTermination.Delete.Parameters.Header>
@@ -1174,7 +1177,7 @@ export const contractCancelContractTermination: OpenAPIOperation<
 
 /** Return the BaseItem of the Contract with the given ID. */
 export const contractGetBaseItemOfContract: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdBaseItems.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdBaseItems.Get.Parameters.Header>
@@ -1207,7 +1210,7 @@ export const contractGetBaseItemOfContract: OpenAPIOperation<
 
 /** Return the Contract for the given Domain. */
 export const contractGetDetailOfContractByDomain: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContract.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContract.Get.Parameters.Header>
@@ -1240,7 +1243,7 @@ export const contractGetDetailOfContractByDomain: OpenAPIOperation<
 
 /** Return the Contract for the given Project. */
 export const contractGetDetailOfContractByProject: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdContract.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdContract.Get.Parameters.Header>
@@ -1273,7 +1276,7 @@ export const contractGetDetailOfContractByProject: OpenAPIOperation<
 
 /** Return the Contract for the given Server. */
 export const contractGetDetailOfContractByServer: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ServersServerIdContract.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ServersServerIdContract.Get.Parameters.Header>
@@ -1306,7 +1309,7 @@ export const contractGetDetailOfContractByServer: OpenAPIOperation<
 
 /** Get the ContractItem with the given ID. */
 export const contractGetDetailOfContractItem: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemId.Get.Parameters.Header>
@@ -1339,7 +1342,7 @@ export const contractGetDetailOfContractItem: OpenAPIOperation<
 
 /** Returns the Contract with the given ID. */
 export const contractGetDetailOfContract: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractId.Get.Parameters.Header>
@@ -1372,7 +1375,7 @@ export const contractGetDetailOfContract: OpenAPIOperation<
 
 /** Return the next TerminationDate for the ContractItem with the given ID. */
 export const contractGetNextTerminationDateForItem: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDates.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDates.Get.Parameters.Header>
@@ -1405,7 +1408,7 @@ export const contractGetNextTerminationDateForItem: OpenAPIOperation<
 
 /** Return a list of Contracts for the given Customer. */
 export const contractListContracts: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdContracts.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdContracts.Get.Parameters.Header>
@@ -1438,7 +1441,7 @@ export const contractListContracts: OpenAPIOperation<
 
 /** Get all conversation the authenticated user has created or has access to. */
 export const conversationListConversations: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2Conversations.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2Conversations.Get.Parameters.Header>
@@ -1461,7 +1464,7 @@ export const conversationListConversations: OpenAPIOperation<
 
 /** Create a conversation. */
 export const conversationCreateConversation: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2Conversations.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2Conversations.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2Conversations.Post.Parameters.Header>
@@ -1489,7 +1492,7 @@ export const conversationCreateConversation: OpenAPIOperation<
 
 /** Get all message of the conversation. */
 export const conversationListMessagesByConversation: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdMessages.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdMessages.Get.Parameters.Header>
@@ -1522,7 +1525,7 @@ export const conversationListMessagesByConversation: OpenAPIOperation<
 
 /** Send a new message in the conversation. */
 export const conversationCreateMessage: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdMessages.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdMessages.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdMessages.Post.Parameters.Header>
@@ -1560,7 +1563,7 @@ export const conversationCreateMessage: OpenAPIOperation<
 
 /** Get a specific conversation category. */
 export const conversationGetCategory: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ConversationCategoriesCategoryId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ConversationCategoriesCategoryId.Get.Parameters.Header>
@@ -1593,7 +1596,7 @@ export const conversationGetCategory: OpenAPIOperation<
 
 /** Get a support conversation. */
 export const conversationGetConversation: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationId.Get.Parameters.Header>
@@ -1631,7 +1634,7 @@ export const conversationGetConversation: OpenAPIOperation<
 
 /** Update the basic properties of the conversation. */
 export const conversationUpdateConversation: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationId.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationId.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationId.Put.Parameters.Header>
@@ -1669,7 +1672,7 @@ export const conversationUpdateConversation: OpenAPIOperation<
 
 /** Get all conversation categories. */
 export const conversationListCategories: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ConversationCategories.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ConversationCategories.Get.Parameters.Header>
@@ -1692,7 +1695,7 @@ export const conversationListCategories: OpenAPIOperation<
 
 /** Request a file upload token for the conversation. */
 export const conversationRequestFileUpload: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFiles.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFiles.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFiles.Post.Parameters.Header>
@@ -1720,7 +1723,7 @@ export const conversationRequestFileUpload: OpenAPIOperation<
 
 /** Update the status of a conversation. */
 export const conversationSetConversationStatus: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdStatus.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdStatus.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdStatus.Put.Parameters.Header>
@@ -1758,7 +1761,7 @@ export const conversationSetConversationStatus: OpenAPIOperation<
 
 /** Update the content of the message */
 export const conversationUpdateMessage: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdMessagesMessageId.Patch.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdMessagesMessageId.Patch.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdMessagesMessageId.Patch.Parameters.Header>
@@ -1796,7 +1799,7 @@ export const conversationUpdateMessage: OpenAPIOperation<
 
 /** Abort a CronjobExecution. */
 export const cronjobAbortExecution: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort.Post.Parameters.Header>
@@ -1824,7 +1827,7 @@ export const cronjobAbortExecution: OpenAPIOperation<
 
 /** List Cronjobs belonging to a Project. */
 export const cronjobListCronjobs: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdCronjobs.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdCronjobs.Get.Parameters.Header>
@@ -1847,7 +1850,7 @@ export const cronjobListCronjobs: OpenAPIOperation<
 
 /** Create a Cronjob. */
 export const cronjobCreateCronjob: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdCronjobs.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdCronjobs.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdCronjobs.Post.Parameters.Header>
@@ -1880,7 +1883,7 @@ export const cronjobCreateCronjob: OpenAPIOperation<
 
 /** List CronjobExecutions belonging to a Cronjob. */
 export const cronjobListExecutions: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutions.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutions.Get.Parameters.Header>
@@ -1903,7 +1906,7 @@ export const cronjobListExecutions: OpenAPIOperation<
 
 /** Trigger a Cronjob. */
 export const cronjobCreateExecution: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutions.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutions.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutions.Post.Parameters.Header>
@@ -1936,7 +1939,7 @@ export const cronjobCreateExecution: OpenAPIOperation<
 
 /** Get a Cronjob. */
 export const cronjobGetCronjob: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobId.Get.Parameters.Header>
@@ -1964,7 +1967,7 @@ export const cronjobGetCronjob: OpenAPIOperation<
 
 /** Delete a Cronjob. */
 export const cronjobDeleteCronjob: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobId.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobId.Delete.Parameters.Header>
@@ -2002,7 +2005,7 @@ export const cronjobDeleteCronjob: OpenAPIOperation<
 
 /** Update a Cronjob. */
 export const cronjobUpdateCronjob: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobId.Patch.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobId.Patch.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobId.Patch.Parameters.Header>
@@ -2040,7 +2043,7 @@ export const cronjobUpdateCronjob: OpenAPIOperation<
 
 /** Get a CronjobExecution. */
 export const cronjobGetExecution: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionId.Get.Parameters.Header>
@@ -2068,7 +2071,7 @@ export const cronjobGetExecution: OpenAPIOperation<
 
 /** Update a Cronjob's app id. */
 export const cronjobUpdateCronjobAppId: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Parameters.Header>
@@ -2106,7 +2109,7 @@ export const cronjobUpdateCronjobAppId: OpenAPIOperation<
 
 /** Accept a CustomerInvite. */
 export const customerAcceptCustomerInvite: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteIdActionsAccept.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteIdActionsAccept.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteIdActionsAccept.Post.Parameters.Header>
@@ -2144,7 +2147,7 @@ export const customerAcceptCustomerInvite: OpenAPIOperation<
 
 /** Get all customer categories. */
 export const customerListOfCustomerCategories: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerCategories.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerCategories.Get.Parameters.Header>
@@ -2167,7 +2170,7 @@ export const customerListOfCustomerCategories: OpenAPIOperation<
 
 /** Create a new customer category. */
 export const customerCreateCategory: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2CustomerCategories.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerCategories.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerCategories.Post.Parameters.Header>
@@ -2195,7 +2198,7 @@ export const customerCreateCategory: OpenAPIOperation<
 
 /** Create a CustomerInvite. */
 export const customerCreateCustomerInvite: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdInvites.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdInvites.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdInvites.Post.Parameters.Header>
@@ -2228,7 +2231,7 @@ export const customerCreateCustomerInvite: OpenAPIOperation<
 
 /** Get all customer profiles the authenticated user has access to. */
 export const customerListCustomers: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2Customers.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2Customers.Get.Parameters.Header>
@@ -2251,7 +2254,7 @@ export const customerListCustomers: OpenAPIOperation<
 
 /** Create a new customer profile. */
 export const customerCreateCustomer: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2Customers.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2Customers.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2Customers.Post.Parameters.Header>
@@ -2279,7 +2282,7 @@ export const customerCreateCustomer: OpenAPIOperation<
 
 /** Decline a CustomerInvite. */
 export const customerDeclineCustomerInvite: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteIdActionsDecline.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteIdActionsDecline.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteIdActionsDecline.Post.Parameters.Header>
@@ -2302,7 +2305,7 @@ export const customerDeclineCustomerInvite: OpenAPIOperation<
 
 /** Get a customer category. */
 export const customerGetCustomerCategory: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Get.Parameters.Header>
@@ -2325,7 +2328,7 @@ export const customerGetCustomerCategory: OpenAPIOperation<
 
 /** Update a customer category. */
 export const customerUpdateCategory: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Put.Parameters.Header>
@@ -2358,7 +2361,7 @@ export const customerUpdateCategory: OpenAPIOperation<
 
 /** Delete a customer category. */
 export const customerDeleteCategory: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Delete.Parameters.Header>
@@ -2381,7 +2384,7 @@ export const customerDeleteCategory: OpenAPIOperation<
 
 /** Get a CustomerInvite. */
 export const customerGetCustomerInvite: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteId.Get.Parameters.Header>
@@ -2409,7 +2412,7 @@ export const customerGetCustomerInvite: OpenAPIOperation<
 
 /** Delete a CustomerInvite. */
 export const customerDeleteCustomerInvite: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteId.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteId.Delete.Parameters.Header>
@@ -2432,7 +2435,7 @@ export const customerDeleteCustomerInvite: OpenAPIOperation<
 
 /** Get a CustomerMembership. */
 export const customerGetCustomerMembership: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsMembershipId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsMembershipId.Get.Parameters.Header>
@@ -2460,7 +2463,7 @@ export const customerGetCustomerMembership: OpenAPIOperation<
 
 /** Delete a CustomerMembership. */
 export const customerDeleteCustomerMembership: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsMembershipId.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsMembershipId.Delete.Parameters.Header>
@@ -2483,7 +2486,7 @@ export const customerDeleteCustomerMembership: OpenAPIOperation<
 
 /** Update a CustomerMembership. */
 export const customerUpdateCustomerMembership: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsMembershipId.Patch.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsMembershipId.Patch.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsMembershipId.Patch.Parameters.Header>
@@ -2506,7 +2509,7 @@ export const customerUpdateCustomerMembership: OpenAPIOperation<
 
 /** Get a customer profile. */
 export const customerGetCustomer: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerId.Get.Parameters.Header>
@@ -2534,7 +2537,7 @@ export const customerGetCustomer: OpenAPIOperation<
 
 /** Update a customer profile. */
 export const customerUpdateCustomer: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerId.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerId.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerId.Put.Parameters.Header>
@@ -2567,7 +2570,7 @@ export const customerUpdateCustomer: OpenAPIOperation<
 
 /** Delete a customer profile. */
 export const customerDeleteCustomer: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerId.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerId.Delete.Parameters.Header>
@@ -2595,7 +2598,7 @@ export const customerDeleteCustomer: OpenAPIOperation<
 
 /** Get a CustomerInvite by token. */
 export const customerGetCustomerTokenInvite: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerTokenInvite.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerTokenInvite.Get.Parameters.Header>
@@ -2623,7 +2626,7 @@ export const customerGetCustomerTokenInvite: OpenAPIOperation<
 
 /** Check if the customer profile has a valid contract partner configured. */
 export const customerIsCustomerLegallyCompetent: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLegallyCompetent.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLegallyCompetent.Get.Parameters.Header>
@@ -2656,7 +2659,7 @@ export const customerIsCustomerLegallyCompetent: OpenAPIOperation<
 
 /** Leave a Customer. */
 export const customerLeaveCustomer: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdActionsLeave.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdActionsLeave.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdActionsLeave.Post.Parameters.Header>
@@ -2679,7 +2682,7 @@ export const customerLeaveCustomer: OpenAPIOperation<
 
 /** List all CustomerInvites for the executing user. */
 export const customerListCustomerInvites: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvites.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvites.Get.Parameters.Header>
@@ -2707,7 +2710,7 @@ export const customerListCustomerInvites: OpenAPIOperation<
 
 /** List all CustomerMemberships for the executing user. */
 export const customerListCustomerMemberships: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerMemberships.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerMemberships.Get.Parameters.Header>
@@ -2735,7 +2738,7 @@ export const customerListCustomerMemberships: OpenAPIOperation<
 
 /** List all invites for a Customer. */
 export const customerListInvitesForCustomer: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Get.Parameters.Header>
@@ -2763,7 +2766,7 @@ export const customerListInvitesForCustomer: OpenAPIOperation<
 
 /** List all memberships belonging to a Customer. */
 export const customerListMembershipsForCustomer: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdMemberships.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdMemberships.Get.Parameters.Header>
@@ -2791,7 +2794,7 @@ export const customerListMembershipsForCustomer: OpenAPIOperation<
 
 /** Request a new avatar upload for the customer profile. */
 export const customerRequestAvatarUpload: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAvatar.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAvatar.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAvatar.Post.Parameters.Header>
@@ -2824,7 +2827,7 @@ export const customerRequestAvatarUpload: OpenAPIOperation<
 
 /** Remove the avatar picture of the customer profile. */
 export const customerRemoveAvatar: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAvatar.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAvatar.Delete.Parameters.Header>
@@ -2857,7 +2860,7 @@ export const customerRemoveAvatar: OpenAPIOperation<
 
 /** Resend the mail for a CustomerInvite. */
 export const customerResendCustomerInviteMail: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteIdActionsResend.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteIdActionsResend.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesInviteIdActionsResend.Post.Parameters.Header>
@@ -2885,7 +2888,7 @@ export const customerResendCustomerInviteMail: OpenAPIOperation<
 
 /** List MySQLDatabases belonging to a Project. */
 export const databaseListMysqlDatabases: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMysqlDatabases.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMysqlDatabases.Get.Parameters.Header>
@@ -2918,7 +2921,7 @@ export const databaseListMysqlDatabases: OpenAPIOperation<
 
 /** Create a MySQLDatabase with an optional MySQLUser */
 export const databaseCreateMysqlDatabase: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMysqlDatabases.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMysqlDatabases.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMysqlDatabases.Post.Parameters.Header>
@@ -2951,7 +2954,7 @@ export const databaseCreateMysqlDatabase: OpenAPIOperation<
 
 /** List MySQLUsers belonging to a database. */
 export const databaseListMysqlUsers: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesDatabaseIdUsers.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesDatabaseIdUsers.Get.Parameters.Header>
@@ -2984,7 +2987,7 @@ export const databaseListMysqlUsers: OpenAPIOperation<
 
 /** Create a MySQLUser. */
 export const databaseCreateMysqlUser: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesDatabaseIdUsers.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesDatabaseIdUsers.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesDatabaseIdUsers.Post.Parameters.Header>
@@ -3017,7 +3020,7 @@ export const databaseCreateMysqlUser: OpenAPIOperation<
 
 /** List RedisDatabases belonging to a project. */
 export const databaseListRedisDatabases: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdRedisDatabases.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdRedisDatabases.Get.Parameters.Header>
@@ -3050,7 +3053,7 @@ export const databaseListRedisDatabases: OpenAPIOperation<
 
 /** Create a RedisDatabase. */
 export const databaseCreateRedisDatabase: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdRedisDatabases.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdRedisDatabases.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdRedisDatabases.Post.Parameters.Header>
@@ -3083,7 +3086,7 @@ export const databaseCreateRedisDatabase: OpenAPIOperation<
 
 /** Get a MySQLDatabase. */
 export const databaseGetMysqlDatabase: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesId.Get.Parameters.Header>
@@ -3121,7 +3124,7 @@ export const databaseGetMysqlDatabase: OpenAPIOperation<
 
 /** Delete a MySQLDatabase. */
 export const databaseDeleteMysqlDatabase: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesId.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesId.Delete.Parameters.Header>
@@ -3169,7 +3172,7 @@ export const databaseDeleteMysqlDatabase: OpenAPIOperation<
 
 /** Get a MySQLUser. */
 export const databaseGetMysqlUser: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Get.Parameters.Header>
@@ -3202,7 +3205,7 @@ export const databaseGetMysqlUser: OpenAPIOperation<
 
 /** Update a MySQLUser. */
 export const databaseUpdateMysqlUser: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Put.Parameters.Header>
@@ -3235,7 +3238,7 @@ export const databaseUpdateMysqlUser: OpenAPIOperation<
 
 /** Delete a MySQLUser. */
 export const databaseDeleteMysqlUser: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Delete.Parameters.Header>
@@ -3273,7 +3276,7 @@ export const databaseDeleteMysqlUser: OpenAPIOperation<
 
 /** Get a RedisDatabase. */
 export const databaseGetRedisDatabase: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesId.Get.Parameters.Header>
@@ -3311,7 +3314,7 @@ export const databaseGetRedisDatabase: OpenAPIOperation<
 
 /** Delete a RedisDatabase. */
 export const databaseDeleteRedisDatabase: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesId.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesId.Delete.Parameters.Header>
@@ -3359,7 +3362,7 @@ export const databaseDeleteRedisDatabase: OpenAPIOperation<
 
 /** Disable a MySQLUser. */
 export const databaseDisableMysqlUser: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdActionsDisable.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdActionsDisable.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdActionsDisable.Post.Parameters.Header>
@@ -3392,7 +3395,7 @@ export const databaseDisableMysqlUser: OpenAPIOperation<
 
 /** Enable a MySQLUser. */
 export const databaseEnableMysqlUser: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdActionsEnable.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdActionsEnable.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdActionsEnable.Post.Parameters.Header>
@@ -3425,7 +3428,7 @@ export const databaseEnableMysqlUser: OpenAPIOperation<
 
 /** Get a MySQLUser's PhpMyAdmin-URL. */
 export const databaseGetMysqlUserPhpMyAdminUrl: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdPhpMyAdminUrl.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdPhpMyAdminUrl.Get.Parameters.Header>
@@ -3456,9 +3459,12 @@ export const databaseGetMysqlUserPhpMyAdminUrl: OpenAPIOperation<
   operationId: "database-get-mysql-user-php-my-admin-url",
 };
 
-/** List available MySQL character sets and collations, optionally filtered by a MySQLVersion. */
+/**
+ * List available MySQL character sets and collations, optionally filtered by a
+ * MySQLVersion.
+ */
 export const databaseListMysqlCharsets: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlCharsets.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlCharsets.Get.Parameters.Header>
@@ -3491,7 +3497,7 @@ export const databaseListMysqlCharsets: OpenAPIOperation<
 
 /** List available MySQLVersions. */
 export const databaseListMysqlVersions: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlVersions.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlVersions.Get.Parameters.Header>
@@ -3524,7 +3530,7 @@ export const databaseListMysqlVersions: OpenAPIOperation<
 
 /** List available Redis versions. */
 export const databaseListRedisVersions: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2RedisVersions.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2RedisVersions.Get.Parameters.Header>
@@ -3557,7 +3563,7 @@ export const databaseListRedisVersions: OpenAPIOperation<
 
 /** Update a MySQLDatabase's default character settings. */
 export const databaseUpdateMysqlDatabaseDefaultCharset: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesIdDefaultCharset.Patch.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesIdDefaultCharset.Patch.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesIdDefaultCharset.Patch.Parameters.Header>
@@ -3590,7 +3596,7 @@ export const databaseUpdateMysqlDatabaseDefaultCharset: OpenAPIOperation<
 
 /** Update a MySQLDatabase's description. */
 export const databaseUpdateMysqlDatabaseDescription: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesIdDescription.Patch.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesIdDescription.Patch.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesIdDescription.Patch.Parameters.Header>
@@ -3623,7 +3629,7 @@ export const databaseUpdateMysqlDatabaseDescription: OpenAPIOperation<
 
 /** Update a MySQLUser's password. */
 export const databaseUpdateMysqlUserPassword: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdPassword.Patch.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdPassword.Patch.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdPassword.Patch.Parameters.Header>
@@ -3656,7 +3662,7 @@ export const databaseUpdateMysqlUserPassword: OpenAPIOperation<
 
 /** Update a RedisDatabase's description. */
 export const databaseUpdateRedisDatabaseDescription: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdDescription.Patch.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdDescription.Patch.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdDescription.Patch.Parameters.Header>
@@ -3687,9 +3693,9 @@ export const databaseUpdateRedisDatabaseDescription: OpenAPIOperation<
   operationId: "database-update-redis-database-description",
 };
 
-/** updates a-records for a specific zone */
+/** Updates a-records for a specific zone */
 export const dnsRecordAsetCustom: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedCustom.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedCustom.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedCustom.Put.Parameters.Header>
@@ -3715,9 +3721,9 @@ export const dnsRecordAsetCustom: OpenAPIOperation<
   operationId: "dns-record-a-set-custom",
 };
 
-/** set a-records managed by ingress for a specific zone */
+/** Set a-records managed by ingress for a specific zone */
 export const dnsRecordAsetManagedByIngress: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Parameters.Header>
@@ -3743,9 +3749,9 @@ export const dnsRecordAsetManagedByIngress: OpenAPIOperation<
   operationId: "dns-record-a-set-managed-by-ingress",
 };
 
-/** updates cname-record for a specific zone */
+/** Updates cname-record for a specific zone */
 export const dnsRecordCnameSet: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetCname.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetCname.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetCname.Put.Parameters.Header>
@@ -3771,9 +3777,9 @@ export const dnsRecordCnameSet: OpenAPIOperation<
   operationId: "dns-record-cname-set",
 };
 
-/** updates mx-records for a specific zone */
+/** Updates mx-records for a specific zone */
 export const dnsRecordMxSetCustom: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxCustom.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxCustom.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxCustom.Put.Parameters.Header>
@@ -3799,9 +3805,9 @@ export const dnsRecordMxSetCustom: OpenAPIOperation<
   operationId: "dns-record-mx-set-custom",
 };
 
-/** sets mx-records to managed for a specific zone */
+/** Sets mx-records to managed for a specific zone */
 export const dnsRecordMxSetManaged: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxManaged.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxManaged.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxManaged.Post.Parameters.Header>
@@ -3827,9 +3833,9 @@ export const dnsRecordMxSetManaged: OpenAPIOperation<
   operationId: "dns-record-mx-set-managed",
 };
 
-/** updates txt-records for a specific zone */
+/** Updates txt-records for a specific zone */
 export const dnsRecordTxtSet: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetTxt.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetTxt.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetTxt.Put.Parameters.Header>
@@ -3855,9 +3861,9 @@ export const dnsRecordTxtSet: OpenAPIOperation<
   operationId: "dns-record-txt-set",
 };
 
-/** gets a specific zone */
+/** Gets a specific zone */
 export const dnsZoneGetSpecific: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneId.Get.Parameters.Header>
@@ -3883,9 +3889,9 @@ export const dnsZoneGetSpecific: OpenAPIOperation<
   operationId: "dns-zone-get-specific",
 };
 
-/** gets all dns zones by project id */
+/** Gets all dns zones by project id */
 export const dnsZonesForProject: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Parameters.Header>
@@ -3913,7 +3919,7 @@ export const dnsZonesForProject: OpenAPIOperation<
 
 /** Abort a declare process. */
 export const domainAbortDeclareProcess: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarations.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarations.Delete.Parameters.Header>
@@ -3946,7 +3952,7 @@ export const domainAbortDeclareProcess: OpenAPIOperation<
 
 /** Change the ownerC of a domain. */
 export const domainChangeOwnercOfDomain: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdHandlesOwnerc.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdHandlesOwnerc.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdHandlesOwnerc.Put.Parameters.Header>
@@ -3979,7 +3985,7 @@ export const domainChangeOwnercOfDomain: OpenAPIOperation<
 
 /** Change the Project relation of a Domain. */
 export const domainChangeProjectOfDomain: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Put.Parameters.Header>
@@ -4012,7 +4018,7 @@ export const domainChangeProjectOfDomain: OpenAPIOperation<
 
 /** Check if a Domain is available to register. */
 export const domainCheckDomainAvailability: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2Domains.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2Domains.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2Domains.Post.Parameters.Header>
@@ -4040,7 +4046,7 @@ export const domainCheckDomainAvailability: OpenAPIOperation<
 
 /** Create an AuthCode for a Domains transfer out process. */
 export const domainCreateAuthcodeForDomain: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsCreateAuthcode.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsCreateAuthcode.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsCreateAuthcode.Post.Parameters.Header>
@@ -4073,7 +4079,7 @@ export const domainCreateAuthcodeForDomain: OpenAPIOperation<
 
 /** Create an AuthCode2. */
 export const domainCreateAuthcode2ForDomain: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsCreateAuthcode2.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsCreateAuthcode2.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsCreateAuthcode2.Post.Parameters.Header>
@@ -4106,7 +4112,7 @@ export const domainCreateAuthcode2ForDomain: OpenAPIOperation<
 
 /** Change all nameservers of a Domain. */
 export const domainDeclareNameservers: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Put.Parameters.Header>
@@ -4139,7 +4145,7 @@ export const domainDeclareNameservers: OpenAPIOperation<
 
 /** Update an AuthCode. */
 export const domainDeclareProcessChangeAuthcode: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarationsAuthcode.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarationsAuthcode.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarationsAuthcode.Put.Parameters.Header>
@@ -4172,7 +4178,7 @@ export const domainDeclareProcessChangeAuthcode: OpenAPIOperation<
 
 /** Update a Domain's OwnerC handle. */
 export const domainDeclareProcessChangeHandles: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarationsHandles.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarationsHandles.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarationsHandles.Put.Parameters.Header>
@@ -4205,7 +4211,7 @@ export const domainDeclareProcessChangeHandles: OpenAPIOperation<
 
 /** Get a Domain. */
 export const domainGetDomain: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainId.Get.Parameters.Header>
@@ -4238,7 +4244,7 @@ export const domainGetDomain: OpenAPIOperation<
 
 /** Delete a Domain. */
 export const domainDeleteDomain: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainId.Delete.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainId.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainId.Delete.Parameters.Header>
@@ -4271,7 +4277,7 @@ export const domainDeleteDomain: OpenAPIOperation<
 
 /** Get a HandleSchema. */
 export const domainGetHandleFields: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsHandleSchemaDomainName.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsHandleSchemaDomainName.Get.Parameters.Header>
@@ -4294,7 +4300,7 @@ export const domainGetHandleFields: OpenAPIOperation<
 
 /** Get a domain ownership. */
 export const domainGetSpecificDomainOwnership: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Get.Parameters.Header>
@@ -4327,7 +4333,7 @@ export const domainGetSpecificDomainOwnership: OpenAPIOperation<
 
 /** Verify a domain ownership. */
 export const domainVerifyDomainOwnership: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Post.Parameters.Header>
@@ -4360,7 +4366,7 @@ export const domainVerifyDomainOwnership: OpenAPIOperation<
 
 /** Get a toplevel domain. */
 export const domainGetToplevelDomain: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ToplevelDomainsTld.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ToplevelDomainsTld.Get.Parameters.Header>
@@ -4393,7 +4399,7 @@ export const domainGetToplevelDomain: OpenAPIOperation<
 
 /** List all domain ownerships of a project. */
 export const domainListDomainOwnerships: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomainOwnerships.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomainOwnerships.Get.Parameters.Header>
@@ -4421,7 +4427,7 @@ export const domainListDomainOwnerships: OpenAPIOperation<
 
 /** List Domains belonging to a Project. */
 export const domainListDomains: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomains.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomains.Get.Parameters.Header>
@@ -4449,7 +4455,7 @@ export const domainListDomains: OpenAPIOperation<
 
 /** List all supported toplevel domains. */
 export const domainListToplevelDomains: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ToplevelDomains.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ToplevelDomains.Get.Parameters.Header>
@@ -4477,7 +4483,7 @@ export const domainListToplevelDomains: OpenAPIOperation<
 
 /** Resend a domain email. */
 export const domainResendDomainEmail: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsResendEmail.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsResendEmail.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsResendEmail.Post.Parameters.Header>
@@ -4510,7 +4516,7 @@ export const domainResendDomainEmail: OpenAPIOperation<
 
 /** Create a File. */
 export const fileCreateFile: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2Files.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2Files.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2Files.Post.Parameters.Header>
@@ -4543,7 +4549,7 @@ export const fileCreateFile: OpenAPIOperation<
 
 /** Get a File's meta. */
 export const fileGetFileMeta: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2FilesIdMeta.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2FilesIdMeta.Get.Parameters.Header>
@@ -4571,7 +4577,7 @@ export const fileGetFileMeta: OpenAPIOperation<
 
 /** Get a Token's upload rules. */
 export const fileGetFileTokenRules: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2FileTokenRulesToken.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2FileTokenRulesToken.Get.Parameters.Header>
@@ -4604,7 +4610,7 @@ export const fileGetFileTokenRules: OpenAPIOperation<
 
 /** Get a Type's upload rules. */
 export const fileGetFileTypeRules: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2FileTypeRulesName.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2FileTypeRulesName.Get.Parameters.Header>
@@ -4637,7 +4643,7 @@ export const fileGetFileTypeRules: OpenAPIOperation<
 
 /** Get a File. */
 export const fileGetFile: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2FilesId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2FilesId.Get.Parameters.Header>
@@ -4685,7 +4691,7 @@ export const fileGetFile: OpenAPIOperation<
 
 /** Create an Ingress. */
 export const ingressCreate: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2Ingresses.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2Ingresses.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2Ingresses.Post.Parameters.Header>
@@ -4713,7 +4719,7 @@ export const ingressCreate: OpenAPIOperation<
 
 /** Get an Ingress. */
 export const ingressGetSpecific: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Get.Parameters.Header>
@@ -4741,7 +4747,7 @@ export const ingressGetSpecific: OpenAPIOperation<
 
 /** Delete an Ingress. */
 export const ingressDelete: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Delete.Parameters.Header>
@@ -4769,7 +4775,7 @@ export const ingressDelete: OpenAPIOperation<
 
 /** List Ingresses the user has access to. */
 export const ingressListAccessible: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2Ingresses.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2Ingresses.Get.Parameters.Header>
@@ -4797,7 +4803,7 @@ export const ingressListAccessible: OpenAPIOperation<
 
 /** List Ingresses belonging to a project. */
 export const ingressListForProject: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdIngresses.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdIngresses.Get.Parameters.Header>
@@ -4825,7 +4831,7 @@ export const ingressListForProject: OpenAPIOperation<
 
 /** Update an Ingresses paths. */
 export const ingressPaths: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Put.Parameters.Header>
@@ -4853,7 +4859,7 @@ export const ingressPaths: OpenAPIOperation<
 
 /** Update an Ingresses tls settings. */
 export const ingressTls: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Put.Parameters.Header>
@@ -4881,7 +4887,7 @@ export const ingressTls: OpenAPIOperation<
 
 /** Get details of an Invoice. */
 export const invoiceDetailOfInvoice: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceId.Get.Parameters.Header>
@@ -4914,7 +4920,7 @@ export const invoiceDetailOfInvoice: OpenAPIOperation<
 
 /** Get InvoiceSettings of a Customer. */
 export const invoiceGetDetailOfInvoiceSettings: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoiceSettings.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoiceSettings.Get.Parameters.Header>
@@ -4947,7 +4953,7 @@ export const invoiceGetDetailOfInvoiceSettings: OpenAPIOperation<
 
 /** Update InvoiceSettings of a Customer. */
 export const invoiceUpdateInvoiceSettings: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoiceSettings.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoiceSettings.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoiceSettings.Put.Parameters.Header>
@@ -4980,7 +4986,7 @@ export const invoiceUpdateInvoiceSettings: OpenAPIOperation<
 
 /** List Invoices of a Customer. */
 export const invoiceListCustomerInvoices: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoices.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoices.Get.Parameters.Header>
@@ -5013,7 +5019,7 @@ export const invoiceListCustomerInvoices: OpenAPIOperation<
 
 /** Get all deliveryboxes by project ID */
 export const mailDeliveryboxList: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDeliveryboxes.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDeliveryboxes.Get.Parameters.Header>
@@ -5051,7 +5057,7 @@ export const mailDeliveryboxList: OpenAPIOperation<
 
 /** Create a new deliverybox */
 export const mailDeliveryboxCreate: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDeliveryboxes.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDeliveryboxes.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDeliveryboxes.Post.Parameters.Header>
@@ -5089,7 +5095,7 @@ export const mailDeliveryboxCreate: OpenAPIOperation<
 
 /** Get a specific deliverybox */
 export const mailDeliveryboxGetSpecific: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesId.Get.Parameters.Header>
@@ -5127,7 +5133,7 @@ export const mailDeliveryboxGetSpecific: OpenAPIOperation<
 
 /** Delete a specific deliverybox */
 export const mailDeliveryboxDelete: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesId.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesId.Delete.Parameters.Header>
@@ -5165,7 +5171,7 @@ export const mailDeliveryboxDelete: OpenAPIOperation<
 
 /** Update the description of an deliverybox */
 export const mailDeliveryboxUpdateDescription: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdDescription.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdDescription.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdDescription.Put.Parameters.Header>
@@ -5203,7 +5209,7 @@ export const mailDeliveryboxUpdateDescription: OpenAPIOperation<
 
 /** Update the password for a specific deliverybox */
 export const mailDeliveryboxUpdatePassword: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdPassword.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdPassword.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdPassword.Put.Parameters.Header>
@@ -5241,7 +5247,7 @@ export const mailDeliveryboxUpdatePassword: OpenAPIOperation<
 
 /** Get all mail addresses for a project ID */
 export const mailMailaddressList: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailaddresses.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailaddresses.Get.Parameters.Header>
@@ -5279,7 +5285,7 @@ export const mailMailaddressList: OpenAPIOperation<
 
 /** Create a new mail address */
 export const mailMailaddressCreate: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailaddresses.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailaddresses.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailaddresses.Post.Parameters.Header>
@@ -5322,7 +5328,7 @@ export const mailMailaddressCreate: OpenAPIOperation<
 
 /** Get a specific mail address */
 export const mailMailaddressGetSpecific: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesId.Get.Parameters.Header>
@@ -5360,7 +5366,7 @@ export const mailMailaddressGetSpecific: OpenAPIOperation<
 
 /** Delete a specific mail address */
 export const mailMailaddressDelete: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesId.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesId.Delete.Parameters.Header>
@@ -5398,7 +5404,7 @@ export const mailMailaddressDelete: OpenAPIOperation<
 
 /** Update mail-address */
 export const mailMailaddressUpdateAddress: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdAddress.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdAddress.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdAddress.Put.Parameters.Header>
@@ -5436,7 +5442,7 @@ export const mailMailaddressUpdateAddress: OpenAPIOperation<
 
 /** Update the auto responder of a mail address */
 export const mailMailaddressUpdateAutoresponder: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdAutoResponder.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdAutoResponder.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdAutoResponder.Put.Parameters.Header>
@@ -5474,7 +5480,7 @@ export const mailMailaddressUpdateAutoresponder: OpenAPIOperation<
 
 /** Enable or disable the catchAll flag for a specific mail address */
 export const mailMailaddressUpdateCatchall: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdCatchAll.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdCatchAll.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdCatchAll.Put.Parameters.Header>
@@ -5517,7 +5523,7 @@ export const mailMailaddressUpdateCatchall: OpenAPIOperation<
 
 /** Update the addresses an email is forwarded to */
 export const mailMailaddressUpdateForwardaddresses: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdForwardaddresses.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdForwardaddresses.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdForwardaddresses.Put.Parameters.Header>
@@ -5555,7 +5561,7 @@ export const mailMailaddressUpdateForwardaddresses: OpenAPIOperation<
 
 /** Update the password for a specific mail address */
 export const mailMailaddressUpdatePassword: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdPassword.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdPassword.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdPassword.Put.Parameters.Header>
@@ -5593,7 +5599,7 @@ export const mailMailaddressUpdatePassword: OpenAPIOperation<
 
 /** Update the quota of a mailbox */
 export const mailMailaddressUpdateQuota: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdQuota.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdQuota.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdQuota.Put.Parameters.Header>
@@ -5631,7 +5637,7 @@ export const mailMailaddressUpdateQuota: OpenAPIOperation<
 
 /** Update the spamprotection of a mailbox */
 export const mailMailaddressUpdateSpamprotection: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdSpamprotection.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdSpamprotection.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdSpamprotection.Put.Parameters.Header>
@@ -5669,7 +5675,7 @@ export const mailMailaddressUpdateSpamprotection: OpenAPIOperation<
 
 /** Get settings for a given project ID */
 export const mailProjectsettingGetSpecific: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettings.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettings.Get.Parameters.Header>
@@ -5707,7 +5713,7 @@ export const mailProjectsettingGetSpecific: OpenAPIOperation<
 
 /** Update blacklist for a given project ID */
 export const mailProjectsettingUpdateBlacklist: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsBlacklist.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsBlacklist.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsBlacklist.Put.Parameters.Header>
@@ -5745,7 +5751,7 @@ export const mailProjectsettingUpdateBlacklist: OpenAPIOperation<
 
 /** Update whitelist for a given project ID */
 export const mailProjectsettingUpdateWhitelist: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsWhitelist.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsWhitelist.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsWhitelist.Put.Parameters.Header>
@@ -5783,7 +5789,7 @@ export const mailProjectsettingUpdateWhitelist: OpenAPIOperation<
 
 /** Getting the subscription status of the subscription. */
 export const newsletterGetInfo: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptionsSelf.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptionsSelf.Get.Parameters.Header>
@@ -5806,7 +5812,7 @@ export const newsletterGetInfo: OpenAPIOperation<
 
 /** Unsubscribe a user from the mStudio newsletter. */
 export const newsletterUnsubscribeUser: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptionsSelf.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptionsSelf.Delete.Parameters.Header>
@@ -5829,7 +5835,7 @@ export const newsletterUnsubscribeUser: OpenAPIOperation<
 
 /** Subscribe a user to the mStudio newsletter. */
 export const newsletterSubscribeUser: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptions.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptions.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptions.Post.Parameters.Header>
@@ -5857,7 +5863,7 @@ export const newsletterSubscribeUser: OpenAPIOperation<
 
 /** Get the counts for unread notifications of the user. */
 export const notificationsCountUnreadNotifications: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2NotificationsUnreadCounts.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2NotificationsUnreadCounts.Get.Parameters.Header>
@@ -5880,7 +5886,7 @@ export const notificationsCountUnreadNotifications: OpenAPIOperation<
 
 /** List all unread notifications */
 export const notificationsListNotifications: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2Notifications.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2Notifications.Get.Parameters.Header>
@@ -5903,7 +5909,7 @@ export const notificationsListNotifications: OpenAPIOperation<
 
 /** Mark all notifications as read. */
 export const notificationsReadAllNotifications: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2NotificationsStatus.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2NotificationsStatus.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2NotificationsStatus.Put.Parameters.Header>
@@ -5931,7 +5937,7 @@ export const notificationsReadAllNotifications: OpenAPIOperation<
 
 /** Mark notification as read. */
 export const notificationsReadNotification: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2NotificationsMessageIdStatus.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2NotificationsMessageIdStatus.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2NotificationsMessageIdStatus.Put.Parameters.Header>
@@ -5959,7 +5965,7 @@ export const notificationsReadNotification: OpenAPIOperation<
 
 /** Create an Order. */
 export const orderCreateOrder: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2Orders.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2Orders.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2Orders.Post.Parameters.Header>
@@ -5987,7 +5993,7 @@ export const orderCreateOrder: OpenAPIOperation<
 
 /** Create TariffChange Order. */
 export const orderCreateTariffChange: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2TariffChanges.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2TariffChanges.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2TariffChanges.Post.Parameters.Header>
@@ -6015,7 +6021,7 @@ export const orderCreateTariffChange: OpenAPIOperation<
 
 /** Get Order for Customer. */
 export const orderGetOrder: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2OrdersOrderId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2OrdersOrderId.Get.Parameters.Header>
@@ -6038,7 +6044,7 @@ export const orderGetOrder: OpenAPIOperation<
 
 /** Get list of Orders of a Customer. */
 export const orderListCustomerOrders: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdOrders.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdOrders.Get.Parameters.Header>
@@ -6061,7 +6067,7 @@ export const orderListCustomerOrders: OpenAPIOperation<
 
 /** Get list of Orders of a Project. */
 export const orderListProjectOrders: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdOrders.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdOrders.Get.Parameters.Header>
@@ -6084,7 +6090,7 @@ export const orderListProjectOrders: OpenAPIOperation<
 
 /** Preview Order. */
 export const orderPreviewOrder: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2OrderPreviews.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2OrderPreviews.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2OrderPreviews.Post.Parameters.Header>
@@ -6112,7 +6118,7 @@ export const orderPreviewOrder: OpenAPIOperation<
 
 /** Preview TariffChange. */
 export const orderPreviewTariffChange: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2TariffChangePreviews.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2TariffChangePreviews.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2TariffChangePreviews.Post.Parameters.Header>
@@ -6140,7 +6146,7 @@ export const orderPreviewTariffChange: OpenAPIOperation<
 
 /** Get a password policy. */
 export const passwordValidationGetPasswordPolicy: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Parameters.Header>
@@ -6163,7 +6169,7 @@ export const passwordValidationGetPasswordPolicy: OpenAPIOperation<
 
 /** Accept a ProjectInvite. */
 export const projectAcceptProjectInvite: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteIdActionsAccept.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteIdActionsAccept.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteIdActionsAccept.Post.Parameters.Header>
@@ -6201,7 +6207,7 @@ export const projectAcceptProjectInvite: OpenAPIOperation<
 
 /** Create a ProjectInvite. */
 export const projectCreateProjectInvite: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdInvites.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdInvites.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdInvites.Post.Parameters.Header>
@@ -6234,7 +6240,7 @@ export const projectCreateProjectInvite: OpenAPIOperation<
 
 /** Create a Project belonging to a Server. */
 export const projectCreateProject: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ServersServerIdProjects.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ServersServerIdProjects.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ServersServerIdProjects.Post.Parameters.Header>
@@ -6267,7 +6273,7 @@ export const projectCreateProject: OpenAPIOperation<
 
 /** Decline a ProjectInvite. */
 export const projectDeclineProjectInvite: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteIdActionsDecline.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteIdActionsDecline.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteIdActionsDecline.Post.Parameters.Header>
@@ -6290,7 +6296,7 @@ export const projectDeclineProjectInvite: OpenAPIOperation<
 
 /** Request a Project avatar upload. */
 export const projectRequestProjectAvatarUpload: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAvatar.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAvatar.Post.Parameters.Header>
@@ -6318,7 +6324,7 @@ export const projectRequestProjectAvatarUpload: OpenAPIOperation<
 
 /** Delete a Project's avatar. */
 export const projectDeleteProjectAvatar: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAvatar.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAvatar.Delete.Parameters.Header>
@@ -6346,7 +6352,7 @@ export const projectDeleteProjectAvatar: OpenAPIOperation<
 
 /** Get a ProjectInvite. */
 export const projectGetProjectInvite: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteId.Get.Parameters.Header>
@@ -6374,7 +6380,7 @@ export const projectGetProjectInvite: OpenAPIOperation<
 
 /** Delete a ProjectInvite. */
 export const projectDeleteProjectInvite: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteId.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteId.Delete.Parameters.Header>
@@ -6397,7 +6403,7 @@ export const projectDeleteProjectInvite: OpenAPIOperation<
 
 /** Get a ProjectMembership */
 export const projectGetProjectMembership: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsMembershipId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsMembershipId.Get.Parameters.Header>
@@ -6425,7 +6431,7 @@ export const projectGetProjectMembership: OpenAPIOperation<
 
 /** Delete a ProjectMembership. */
 export const projectDeleteProjectMembership: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsMembershipId.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsMembershipId.Delete.Parameters.Header>
@@ -6448,7 +6454,7 @@ export const projectDeleteProjectMembership: OpenAPIOperation<
 
 /** Update a ProjectMembership. */
 export const projectUpdateProjectMembership: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsMembershipId.Patch.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsMembershipId.Patch.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsMembershipId.Patch.Parameters.Header>
@@ -6471,7 +6477,7 @@ export const projectUpdateProjectMembership: OpenAPIOperation<
 
 /** Delete a Project. */
 export const projectDeleteProject: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectId.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectId.Delete.Parameters.Header>
@@ -6514,7 +6520,7 @@ export const projectDeleteProject: OpenAPIOperation<
 
 /** Request a Server avatar upload. */
 export const projectRequestServerAvatarUpload: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ServersServerIdAvatar.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ServersServerIdAvatar.Post.Parameters.Header>
@@ -6542,7 +6548,7 @@ export const projectRequestServerAvatarUpload: OpenAPIOperation<
 
 /** Delete a Server's avatar. */
 export const projectDeleteServerAvatar: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ServersServerIdAvatar.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ServersServerIdAvatar.Delete.Parameters.Header>
@@ -6570,7 +6576,7 @@ export const projectDeleteServerAvatar: OpenAPIOperation<
 
 /** List the directories of a Project. */
 export const projectFileSystemGetDirectories: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDirectories.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDirectories.Get.Parameters.Header>
@@ -6608,7 +6614,7 @@ export const projectFileSystemGetDirectories: OpenAPIOperation<
 
 /** Get a Project directory filesystem usage. */
 export const projectFileSystemGetDiskUsage: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemUsagesDisk.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemUsagesDisk.Get.Parameters.Header>
@@ -6646,7 +6652,7 @@ export const projectFileSystemGetDiskUsage: OpenAPIOperation<
 
 /** Get a Project file's content. */
 export const projectFileSystemGetFileContent: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesRaw.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesRaw.Get.Parameters.Header>
@@ -6684,7 +6690,7 @@ export const projectFileSystemGetFileContent: OpenAPIOperation<
 
 /** Get a Project's file/filesystem authorization token. */
 export const projectFileSystemGetJwt: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdJwt.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdJwt.Get.Parameters.Header>
@@ -6717,7 +6723,7 @@ export const projectFileSystemGetJwt: OpenAPIOperation<
 
 /** Get a Project file's information. */
 export const projectFileSystemListFiles: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFiles.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFiles.Get.Parameters.Header>
@@ -6755,7 +6761,7 @@ export const projectFileSystemListFiles: OpenAPIOperation<
 
 /** Get a ProjectInvite by token. */
 export const projectGetProjectTokenInvite: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectTokenInvite.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectTokenInvite.Get.Parameters.Header>
@@ -6783,7 +6789,7 @@ export const projectGetProjectTokenInvite: OpenAPIOperation<
 
 /** Get a Project. */
 export const projectGetProject: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsId.Get.Parameters.Header>
@@ -6811,7 +6817,7 @@ export const projectGetProject: OpenAPIOperation<
 
 /** Get the executing user's membership in a Project. */
 export const projectGetSelfMembershipForProject: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMembershipsSelf.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMembershipsSelf.Get.Parameters.Header>
@@ -6839,7 +6845,7 @@ export const projectGetSelfMembershipForProject: OpenAPIOperation<
 
 /** Get a Server. */
 export const projectGetServer: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ServersServerId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ServersServerId.Get.Parameters.Header>
@@ -6867,7 +6873,7 @@ export const projectGetServer: OpenAPIOperation<
 
 /** Leave a Project. */
 export const projectLeaveProject: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLeave.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLeave.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLeave.Post.Parameters.Header>
@@ -6890,7 +6896,7 @@ export const projectLeaveProject: OpenAPIOperation<
 
 /** List all invites belonging to a Project. */
 export const projectListInvitesForProject: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Get.Parameters.Header>
@@ -6918,7 +6924,7 @@ export const projectListInvitesForProject: OpenAPIOperation<
 
 /** List all memberships for a Project. */
 export const projectListMembershipsForProject: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMemberships.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMemberships.Get.Parameters.Header>
@@ -6946,7 +6952,7 @@ export const projectListMembershipsForProject: OpenAPIOperation<
 
 /** List all ProjectInvites for the executing user. */
 export const projectListProjectInvites: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvites.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvites.Get.Parameters.Header>
@@ -6974,7 +6980,7 @@ export const projectListProjectInvites: OpenAPIOperation<
 
 /** List ProjectMemberships belonging to the executing user. */
 export const projectListProjectMemberships: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectMemberships.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectMemberships.Get.Parameters.Header>
@@ -7002,7 +7008,7 @@ export const projectListProjectMemberships: OpenAPIOperation<
 
 /** List Project's for an Organization or Server. */
 export const projectListProjects: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2Projects.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2Projects.Get.Parameters.Header>
@@ -7030,7 +7036,7 @@ export const projectListProjects: OpenAPIOperation<
 
 /** List Servers for an Organization or User. */
 export const projectListServers: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2Servers.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2Servers.Get.Parameters.Header>
@@ -7053,7 +7059,7 @@ export const projectListServers: OpenAPIOperation<
 
 /** Resend the mail for a ProjectInvite. */
 export const projectResendProjectInviteMail: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteIdActionsResend.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteIdActionsResend.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesInviteIdActionsResend.Post.Parameters.Header>
@@ -7081,7 +7087,7 @@ export const projectResendProjectInviteMail: OpenAPIOperation<
 
 /** Update a Project's description. */
 export const projectUpdateProjectDescription: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsIdDescription.Patch.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsIdDescription.Patch.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsIdDescription.Patch.Parameters.Header>
@@ -7114,7 +7120,7 @@ export const projectUpdateProjectDescription: OpenAPIOperation<
 
 /** Update a Servers's description. */
 export const projectUpdateServerDescription: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ServersServerIdDescription.Patch.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ServersServerIdDescription.Patch.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ServersServerIdDescription.Patch.Parameters.Header>
@@ -7137,7 +7143,7 @@ export const projectUpdateServerDescription: OpenAPIOperation<
 
 /** Relocate an external Project to mittwald. */
 export const redirectusCreateRelocation: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2Relocation.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2Relocation.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2Relocation.Post.Parameters.Header>
@@ -7165,7 +7171,7 @@ export const redirectusCreateRelocation: OpenAPIOperation<
 
 /** Register a tariff change for a legacy tariff. */
 export const relocationCreateLegacyTariffChange: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Parameters.Header>
@@ -7188,7 +7194,7 @@ export const relocationCreateLegacyTariffChange: OpenAPIOperation<
 
 /** Get all SFTPUsers for a Project. */
 export const sftpUserListSftpUsers: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdSftpUsers.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdSftpUsers.Get.Parameters.Header>
@@ -7216,7 +7222,7 @@ export const sftpUserListSftpUsers: OpenAPIOperation<
 
 /** Create an SFTPUser for a Project. */
 export const sftpUserCreateSftpUser: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdSftpUsers.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdSftpUsers.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdSftpUsers.Post.Parameters.Header>
@@ -7244,7 +7250,7 @@ export const sftpUserCreateSftpUser: OpenAPIOperation<
 
 /** Get an SFTPUser. */
 export const sftpUserGetSftpUser: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2SftpUsersSftpUserId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SftpUsersSftpUserId.Get.Parameters.Header>
@@ -7272,7 +7278,7 @@ export const sftpUserGetSftpUser: OpenAPIOperation<
 
 /** Delete an SFTPUser. */
 export const sftpUserDeleteSftpUser: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2SftpUsersSftpUserId.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SftpUsersSftpUserId.Delete.Parameters.Header>
@@ -7295,7 +7301,7 @@ export const sftpUserDeleteSftpUser: OpenAPIOperation<
 
 /** Update an SFTPUser. */
 export const sftpUserUpdateSftpUser: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SftpUsersSftpUserId.Patch.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SftpUsersSftpUserId.Patch.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SftpUsersSftpUserId.Patch.Parameters.Header>
@@ -7323,7 +7329,7 @@ export const sftpUserUpdateSftpUser: OpenAPIOperation<
 
 /** Get all SSHUsers for a Project. */
 export const sshUserListSshUsers: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdSshUsers.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdSshUsers.Get.Parameters.Header>
@@ -7351,7 +7357,7 @@ export const sshUserListSshUsers: OpenAPIOperation<
 
 /** Create an SSHUser for a Project. */
 export const sshUserCreateSshUser: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdSshUsers.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdSshUsers.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdSshUsers.Post.Parameters.Header>
@@ -7379,7 +7385,7 @@ export const sshUserCreateSshUser: OpenAPIOperation<
 
 /** Get an SSHUser. */
 export const sshUserGetSshUser: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2SshUsersSshUserId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SshUsersSshUserId.Get.Parameters.Header>
@@ -7407,7 +7413,7 @@ export const sshUserGetSshUser: OpenAPIOperation<
 
 /** Delete an SSHUser. */
 export const sshUserDeleteSshUser: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2SshUsersSshUserId.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SshUsersSshUserId.Delete.Parameters.Header>
@@ -7430,7 +7436,7 @@ export const sshUserDeleteSshUser: OpenAPIOperation<
 
 /** Update an SSHUser. */
 export const sshUserUpdateSshUser: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SshusersSshUserId.Patch.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SshusersSshUserId.Patch.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SshusersSshUserId.Patch.Parameters.Header>
@@ -7458,7 +7464,7 @@ export const sshUserUpdateSshUser: OpenAPIOperation<
 
 /** Add phone number and start verification process. */
 export const userAddPhoneNumber: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhone.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhone.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhone.Post.Parameters.Header>
@@ -7491,7 +7497,7 @@ export const userAddPhoneNumber: OpenAPIOperation<
 
 /** Remove phone number. */
 export const userRemovePhoneNumber: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhone.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhone.Delete.Parameters.Header>
@@ -7519,7 +7525,7 @@ export const userRemovePhoneNumber: OpenAPIOperation<
 
 /** Authenticate yourself to get an access token. */
 export const userAuthenticate: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SignupAuthentication.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SignupAuthentication.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupAuthentication.Post.Parameters.Header>
@@ -7557,7 +7563,7 @@ export const userAuthenticate: OpenAPIOperation<
 
 /** Validate your second factor. */
 export const userAuthenticateMfa: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SignupAuthenticationMfa.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SignupAuthenticationMfa.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupAuthenticationMfa.Post.Parameters.Header>
@@ -7590,7 +7596,7 @@ export const userAuthenticateMfa: OpenAPIOperation<
 
 /** Get your primary verified Email-Address */
 export const userGetEmail: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Get.Parameters.Header>
@@ -7618,7 +7624,7 @@ export const userGetEmail: OpenAPIOperation<
 
 /** Change your Email-Address */
 export const userChangeEmail: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Put.Parameters.Header>
@@ -7646,7 +7652,7 @@ export const userChangeEmail: OpenAPIOperation<
 
 /** The timestamp of your latest password change */
 export const userGetPasswordUpdatedAt: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Get.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Get.Parameters.Header>
@@ -7669,7 +7675,7 @@ export const userGetPasswordUpdatedAt: OpenAPIOperation<
 
 /** Change your password */
 export const userChangePassword: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Put.Parameters.Header>
@@ -7702,7 +7708,7 @@ export const userChangePassword: OpenAPIOperation<
 
 /** Get your profile information */
 export const userGetOwnProfile: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Get.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Get.Parameters.Header>
@@ -7725,7 +7731,7 @@ export const userGetOwnProfile: OpenAPIOperation<
 
 /** Change your profile information */
 export const userChangeProfile: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Put.Parameters.Header>
@@ -7753,7 +7759,7 @@ export const userChangeProfile: OpenAPIOperation<
 
 /** Delete your profile and all your personal data */
 export const userDeleteProfile: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Delete.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Delete.Parameters.Header>
@@ -7791,7 +7797,7 @@ export const userDeleteProfile: OpenAPIOperation<
 
 /** Check a token for validity */
 export const userCheckToken: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SignupTokenCheck.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SignupTokenCheck.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupTokenCheck.Post.Parameters.Header>
@@ -7819,7 +7825,7 @@ export const userCheckToken: OpenAPIOperation<
 
 /** Confirm Multi Factor Authentication */
 export const userConfirmMfa: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SignupMfaConfirm.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SignupMfaConfirm.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupMfaConfirm.Post.Parameters.Header>
@@ -7847,7 +7853,7 @@ export const userConfirmMfa: OpenAPIOperation<
 
 /** Confirm password reset */
 export const userConfirmPasswordReset: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SignupPasswordResetConfirm.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SignupPasswordResetConfirm.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupPasswordResetConfirm.Post.Parameters.Header>
@@ -7875,7 +7881,7 @@ export const userConfirmPasswordReset: OpenAPIOperation<
 
 /** List all ApiTokens of the user */
 export const userListApiTokens: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2SignupTokenApi.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupTokenApi.Get.Parameters.Header>
@@ -7898,7 +7904,7 @@ export const userListApiTokens: OpenAPIOperation<
 
 /** Store a new ApiToken */
 export const userCreateApiToken: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SignupTokenApi.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SignupTokenApi.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupTokenApi.Post.Parameters.Header>
@@ -7926,7 +7932,7 @@ export const userCreateApiToken: OpenAPIOperation<
 
 /** Submit your user feedback. */
 export const userCreateFeedback: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2UsersSelfFeedback.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2UsersSelfFeedback.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2UsersSelfFeedback.Post.Parameters.Header>
@@ -7959,7 +7965,7 @@ export const userCreateFeedback: OpenAPIOperation<
 
 /** Create a new issue. */
 export const userCreateIssue: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2UsersSelfIssues.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2UsersSelfIssues.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2UsersSelfIssues.Post.Parameters.Header>
@@ -7982,7 +7988,7 @@ export const userCreateIssue: OpenAPIOperation<
 
 /** Get your stored ssh keys */
 export const userListSshKeys: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2SignupSsh.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupSsh.Get.Parameters.Header>
@@ -8005,7 +8011,7 @@ export const userListSshKeys: OpenAPIOperation<
 
 /** Store a new SSH key */
 export const userCreateSshKey: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SignupSsh.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SignupSsh.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupSsh.Post.Parameters.Header>
@@ -8033,7 +8039,7 @@ export const userCreateSshKey: OpenAPIOperation<
 
 /** Get a specific ApiToken */
 export const userGetApiToken: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Get.Parameters.Header>
@@ -8056,7 +8062,7 @@ export const userGetApiToken: OpenAPIOperation<
 
 /** Update an existing `ApiToken` */
 export const userEditApiToken: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Put.Parameters.Header>
@@ -8084,7 +8090,7 @@ export const userEditApiToken: OpenAPIOperation<
 
 /** Deletes an ApiToken */
 export const userDeleteApiToken: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Delete.Parameters.Header>
@@ -8112,7 +8118,7 @@ export const userDeleteApiToken: OpenAPIOperation<
 
 /** Get a specific stored SshKey */
 export const userGetSshKey: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Get.Parameters.Header>
@@ -8140,7 +8146,7 @@ export const userGetSshKey: OpenAPIOperation<
 
 /** Edit a stored SshKey */
 export const userEditSshKey: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Put.Parameters.Header>
@@ -8168,7 +8174,7 @@ export const userEditSshKey: OpenAPIOperation<
 
 /** Remove a SSH-key */
 export const userDeleteSshKey: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Delete.Parameters.Header>
@@ -8191,7 +8197,7 @@ export const userDeleteSshKey: OpenAPIOperation<
 
 /** Get your current multi factor auth status */
 export const userGetMfaStatus: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Get.Parameters.Header>
@@ -8212,9 +8218,12 @@ export const userGetMfaStatus: OpenAPIOperation<
   operationId: "user-get-mfa-status",
 };
 
-/** Initialize Multi Factor Authentication. If successfull, it needs to be confirmed, before usage of mfa. */
+/**
+ * Initialize Multi Factor Authentication. If successfull, it needs to be
+ * confirmed, before usage of mfa.
+ */
 export const userInitMfa: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Post.Parameters.Header>
@@ -8242,7 +8251,7 @@ export const userInitMfa: OpenAPIOperation<
 
 /** Disable Multi Factor Authentication. */
 export const userDisableMfa: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Delete.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Delete.Parameters.Header>
@@ -8270,7 +8279,7 @@ export const userDisableMfa: OpenAPIOperation<
 
 /** Get personalized settings. */
 export const userGetPersonalizedSettings: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2UsersUserIdSettings.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2UsersUserIdSettings.Get.Parameters.Header>
@@ -8293,7 +8302,7 @@ export const userGetPersonalizedSettings: OpenAPIOperation<
 
 /** Update personalized GUI settings. */
 export const userUpdatePersonalizedSettings: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2UsersUserIdSettings.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2UsersUserIdSettings.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2UsersUserIdSettings.Put.Parameters.Header>
@@ -8321,7 +8330,7 @@ export const userUpdatePersonalizedSettings: OpenAPIOperation<
 
 /** Get a specific Session */
 export const userGetSession: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Get.Parameters.Header>
@@ -8349,7 +8358,7 @@ export const userGetSession: OpenAPIOperation<
 
 /** Terminate a specific Session */
 export const userTerminateSession: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Delete.Parameters.Header>
@@ -8377,7 +8386,7 @@ export const userTerminateSession: OpenAPIOperation<
 
 /** Get profile information for a user. */
 export const userGetUser: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2UsersUserId.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2UsersUserId.Get.Parameters.Header>
@@ -8415,7 +8424,7 @@ export const userGetUser: OpenAPIOperation<
 
 /** Change personal information. */
 export const userUpdatePersonalInformation: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2UsersUserId.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2UsersUserId.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2UsersUserId.Put.Parameters.Header>
@@ -8443,7 +8452,7 @@ export const userUpdatePersonalInformation: OpenAPIOperation<
 
 /** Initialize password reset process */
 export const userInitPasswordReset: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SignupPasswordReset.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SignupPasswordReset.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupPasswordReset.Post.Parameters.Header>
@@ -8471,7 +8480,7 @@ export const userInitPasswordReset: OpenAPIOperation<
 
 /** Submitted feedback of the given user. */
 export const userListFeedback: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2UsersUserIdFeedback.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2UsersUserIdFeedback.Get.Parameters.Header>
@@ -8494,7 +8503,7 @@ export const userListFeedback: OpenAPIOperation<
 
 /** List all active sessions */
 export const userListSessions: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2SignupSessions.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupSessions.Get.Parameters.Header>
@@ -8517,7 +8526,7 @@ export const userListSessions: OpenAPIOperation<
 
 /** Terminate all sessions, except the current Session */
 export const userTerminateAllSessions: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2SignupSessions.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupSessions.Delete.Parameters.Header>
@@ -8540,7 +8549,7 @@ export const userTerminateAllSessions: OpenAPIOperation<
 
 /** Terminate session and invalidate access token */
 export const userLogout: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SignupLogout.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SignupLogout.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupLogout.Put.Parameters.Header>
@@ -8568,7 +8577,7 @@ export const userLogout: OpenAPIOperation<
 
 /** Register with email and password. */
 export const userRegister: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SignupRegistration.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SignupRegistration.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupRegistration.Post.Parameters.Header>
@@ -8596,7 +8605,7 @@ export const userRegister: OpenAPIOperation<
 
 /** Request a new avatar image upload. */
 export const userRequestAvatarUpload: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2UsersUserIdAvatar.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2UsersUserIdAvatar.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2UsersUserIdAvatar.Post.Parameters.Header>
@@ -8624,7 +8633,7 @@ export const userRequestAvatarUpload: OpenAPIOperation<
 
 /** Remove Avatar. */
 export const userRemoveAvatar: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2UsersUserIdAvatar.Delete.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2UsersUserIdAvatar.Delete.Parameters.Header>
@@ -8652,7 +8661,7 @@ export const userRemoveAvatar: OpenAPIOperation<
 
 /** Resend the Email-Address verification email */
 export const userResendVerificationEmail: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SignupEmailResend.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SignupEmailResend.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupEmailResend.Post.Parameters.Header>
@@ -8680,7 +8689,7 @@ export const userResendVerificationEmail: OpenAPIOperation<
 
 /** Reset RecoveryCodes for MFA */
 export const userResetRecoverycodes: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SignupMfaResetRecoverycodes.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SignupMfaResetRecoverycodes.Put.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupMfaResetRecoverycodes.Put.Parameters.Header>
@@ -8708,7 +8717,7 @@ export const userResetRecoverycodes: OpenAPIOperation<
 
 /** Request a support code */
 export const userSupportCodeRequest: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2SignupSupportcode.Get.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupSupportcode.Get.Parameters.Header>
@@ -8731,7 +8740,7 @@ export const userSupportCodeRequest: OpenAPIOperation<
 
 /** Verify an added Email-Address */
 export const userVerifyEmail: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SignupEmailVerify.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SignupEmailVerify.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupEmailVerify.Post.Parameters.Header>
@@ -8764,7 +8773,7 @@ export const userVerifyEmail: OpenAPIOperation<
 
 /** Verify phone number. */
 export const userVerifyPhoneNumber: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhoneVerify.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhoneVerify.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhoneVerify.Post.Parameters.Header>
@@ -8802,7 +8811,7 @@ export const userVerifyPhoneNumber: OpenAPIOperation<
 
 /** Verify your registration */
 export const userVerifyRegistration: OpenAPIOperation<
-  Request<
+  RequestType<
     Simplify<MittwaldAPIV2.Paths.V2SignupRegistrationVerification.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2SignupRegistrationVerification.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2SignupRegistrationVerification.Post.Parameters.Header>
