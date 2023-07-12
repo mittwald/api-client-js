@@ -2916,7 +2916,7 @@ export const databaseListMysqlDatabases: OpenAPIOperation<
   operationId: "database-list-mysql-databases",
 };
 
-/** Create a MySQLDatabase with an optional MySQLUser */
+/** Create a MySQLDatabase with a MySQLUser. */
 export const databaseCreateMysqlDatabase: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMysqlDatabases.Post.Parameters.RequestBody>,
@@ -2924,8 +2924,8 @@ export const databaseCreateMysqlDatabase: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMysqlDatabases.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMysqlDatabases.Post.Responses.$202.Content.ApplicationJson>,
-      202,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMysqlDatabases.Post.Responses.$201.Content.ApplicationJson>,
+      201,
       "application/json"
     >
   | Response<

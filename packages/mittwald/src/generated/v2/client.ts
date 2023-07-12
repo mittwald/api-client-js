@@ -437,7 +437,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listMysqlDatabases: this.requestFunctionFactory(
       descriptors.databaseListMysqlDatabases
     ),
-    /** Create a MySQLDatabase with an optional MySQLUser */
+    /** Create a MySQLDatabase with a MySQLUser. */
     createMysqlDatabase: this.requestFunctionFactory(
       descriptors.databaseCreateMysqlDatabase
     ),

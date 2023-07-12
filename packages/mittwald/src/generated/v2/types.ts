@@ -705,6 +705,29 @@ export declare module MittwaldAPIV2 {
         vatIdValidationState?: "valid" | "invalid" | "pending" | "unspecified";
       }
 
+      export interface DatabaseCreateMySqlDatabase {
+        characterSettings?: MittwaldAPIV2.Components.Schemas.DatabaseCharacterSettings;
+        description: string;
+        projectId: string;
+        version: string;
+      }
+
+      export interface DatabaseCreateMySqlUser {
+        accessIpMask?: string;
+        accessLevel: "full" | "readonly";
+        databaseId: string;
+        description: string;
+        externalAccess?: boolean;
+        password: string;
+      }
+
+      export interface DatabaseCreateMySqlUserWithDatabase {
+        accessIpMask?: string;
+        accessLevel: "full" | "readonly";
+        externalAccess?: boolean;
+        password: string;
+      }
+
       export interface DatabaseMySqlCharacterSettings {
         collations: string[];
         name: string;
@@ -717,18 +740,18 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface DatabaseMySqlDatabase {
-        characterSettings?: MittwaldAPIV2.Components.Schemas.DatabaseCharacterSettings;
-        createdAt?: string;
-        description?: string;
+        characterSettings: MittwaldAPIV2.Components.Schemas.DatabaseCharacterSettings;
+        createdAt: string;
+        description: string;
         finalizers?: string[];
-        hostname?: string;
+        hostname: string;
         id: string;
         isReady: boolean;
         isShared: boolean;
-        name?: string;
+        name: string;
         projectId: string;
-        size?: number;
-        updatedAt?: string;
+        size: number;
+        updatedAt: string;
         version: string;
       }
 
@@ -739,17 +762,16 @@ export declare module MittwaldAPIV2 {
       export interface DatabaseMySqlUser {
         accessIpMask?: string;
         accessLevel: "full" | "readonly";
-        createdAt?: string;
+        createdAt: string;
         databaseId: string;
         description?: string;
-        disabled?: boolean;
-        externalAccess?: boolean;
+        disabled: boolean;
+        externalAccess: boolean;
         id: string;
-        mainUser?: boolean;
-        name?: string;
-        password: string;
-        passwordUpdatedAt?: string;
-        updatedAt?: string;
+        mainUser: boolean;
+        name: string;
+        passwordUpdatedAt: string;
+        updatedAt: string;
       }
 
       export interface DatabaseMySqlVersion {
@@ -1758,6 +1780,7 @@ export declare module MittwaldAPIV2 {
       export type ProjectServerDisableReason = "nonPayment";
 
       export interface ProjectServer {
+        createdAt: string;
         customerId: string;
         description: string;
         disabledReason?: MittwaldAPIV2.Components.Schemas.ProjectServerDisableReason;
@@ -6617,8 +6640,8 @@ export declare module MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            database: MittwaldAPIV2.Components.Schemas.DatabaseMySqlDatabase;
-            user?: MittwaldAPIV2.Components.Schemas.DatabaseMySqlUser;
+            database: MittwaldAPIV2.Components.Schemas.DatabaseCreateMySqlDatabase;
+            user: MittwaldAPIV2.Components.Schemas.DatabaseCreateMySqlUserWithDatabase;
           }
 
           export type Header =
@@ -6627,10 +6650,11 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $202 {
+          namespace $201 {
             namespace Content {
               export interface ApplicationJson {
                 id: string;
+                userId: string;
               }
             }
           }
@@ -6715,7 +6739,7 @@ export declare module MittwaldAPIV2 {
           };
 
           export type RequestBody =
-            MittwaldAPIV2.Components.Schemas.DatabaseMySqlUser;
+            MittwaldAPIV2.Components.Schemas.DatabaseCreateMySqlUser;
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -6811,7 +6835,7 @@ export declare module MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            configuration: MittwaldAPIV2.Components.Schemas.DatabaseRedisDatabaseConfiguration;
+            configuration?: MittwaldAPIV2.Components.Schemas.DatabaseRedisDatabaseConfiguration;
             /**
              * A description for the database.
              */
