@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "scripts": {
     "all": "yarn workspaces foreach -tv --exclude root",
-    "clean": "(rimraf --glob packages/**/dist packages/**/tsconfig.*.tsbuildinfo) | true",
+    "clean": "(rimraf --glob packages/**/dist packages/**/*.tsbuildinfo) | true",
     "compile": "tsc --build",
     "compile:all": "yarn clean && yarn compile:esm && yarn compile:cjs",
     "compile:cjs": "tsc --build tsconfig.cjs.json",
