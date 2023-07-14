@@ -6,9 +6,14 @@ expectNotAssignable<RequestType>({ extra: true });
 expectNotAssignable<RequestType>({ data: {} });
 expectNotAssignable<RequestType>({ data: null });
 expectNotAssignable<RequestType>({ pathParameters: {} });
-expectNotAssignable<RequestType>({ headers: {} });
+expectAssignable<RequestType>({ headers: {} });
+expectAssignable<RequestType>({ headers: { extra: true } });
 
 expectAssignable<RequestType<{ foo: string }>>({ data: { foo: "" } });
+expectAssignable<RequestType<{ foo: string }>>({
+  data: { foo: "" },
+  headers: { extra: true },
+});
 expectNotAssignable<RequestType<{ foo: string }>>({});
 expectNotAssignable<RequestType<{ foo: string }>>({
   data: { foo: "", extra: "" },
@@ -22,9 +27,9 @@ expectAssignable<RequestType<{ foo: string }, { bar: string }>>({
 expectAssignable<RequestType<null, { bar: string }>>({
   pathParameters: { bar: "" },
 });
-expectNotAssignable<RequestType<null, { bar: string }>>({
+expectAssignable<RequestType<null, { bar: string }>>({
   pathParameters: { bar: "" },
-  headers: {},
+  headers: { extra: true },
 });
 expectNotAssignable<RequestType<null, { bar: string }>>({});
 expectNotAssignable<RequestType<null, { bar: string }>>({
@@ -50,16 +55,13 @@ expectAssignable<RequestType<null, { bar: string }, { baz: string }>>({
 expectAssignable<RequestType<null, null, { baz: string }>>({
   headers: { baz: "" },
 });
+expectAssignable<RequestType<null, null, { baz: string }>>({
+  headers: { baz: "", extra: true },
+});
 expectNotAssignable<RequestType<null, null, { baz: string }>>({});
 expectNotAssignable<RequestType<null, null, { baz: string }>>({
   headers: {
     baz: 42,
-  },
-});
-expectNotAssignable<RequestType<null, null, { baz: string }>>({
-  headers: {
-    baz: "",
-    extra: true,
   },
 });
 expectNotAssignable<RequestType<null, null, { baz: string }>>({
