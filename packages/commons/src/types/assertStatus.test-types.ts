@@ -1,4 +1,4 @@
-import { expectAssignable, expectNotAssignable } from "tsd";
+import { expectAssignable } from "tsd";
 import { Response } from "./Response.js";
 import assertStatus from "./assertStatus.js";
 
