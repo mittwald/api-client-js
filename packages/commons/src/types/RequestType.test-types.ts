@@ -1,5 +1,5 @@
 import { expectAssignable } from "tsd";
-import { RequestType } from "../types/index.js";
+import { RequestType } from "./index.js";
 
 type Data = { foo: string };
 type Path = { bar: string };

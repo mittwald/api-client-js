@@ -56,7 +56,7 @@ export class Request<TOp extends OpenAPIOperation> {
 
   private makeAxiosHeaders(headers: HttpHeaders): RawAxiosRequestHeaders {
     return Object.fromEntries(
-      Object.entries(headers).map(([key, value]) => [key, value.toString()]),
+      Object.entries(headers).map(([key, value]) => [key, value?.toString()]),
     );
   }
 }

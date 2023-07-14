@@ -1,7 +1,24 @@
-import { OpenAPIOperation, RequestFunction } from "../types/index.js";
+import {
+  OpenAPIOperation,
+  RequestFunction,
+  RequestType,
+} from "../types/index.js";
 
 function ignoredTestEmptyRequestTypes() {
   const f = {} as RequestFunction<OpenAPIOperation>;
+  void f();
+  void f({
+    headers: {},
+  });
+  void f({
+    headers: { extra: true },
+  });
+}
+
+function ignoredTestOptionalHeadersRequestTypes() {
+  const f = {} as RequestFunction<
+    OpenAPIOperation<RequestType<null, null, { optionalHeader?: boolean }>>
+  >;
   void f();
   void f({
     headers: {},

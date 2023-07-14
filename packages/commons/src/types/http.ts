@@ -8,8 +8,8 @@ export type HttpMethod = SafeHttpMethod | UnsafeHttpMethod;
 
 type HeaderValue = string | number | boolean;
 
-export type HttpHeaders = {
+export type HttpHeaders = Partial<{
   [TKey: string]: HeaderValue | HeaderValue[];
-};
+}>;
 
 export type PathParameters = Record<string, string | number>;
