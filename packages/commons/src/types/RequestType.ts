@@ -1,29 +1,34 @@
 import { HttpHeaders, HttpPayload, PathParameters } from "./http.js";
 
-type RequestWithData<TData> = TData extends null
-  ? object
+type EmptyObject = Record<string, never>;
+type EmptyRequestComponent = EmptyObject | null;
+type RequestWithOptionalHeaders = { headers?: HttpHeaders };
+
+type RequestWithData<TData> = TData extends EmptyRequestComponent
+  ? RequestWithOptionalHeaders
   : {
       data: TData;
     };
 
-type RequestWithPathParameters<TPathParameters> = TPathParameters extends null
-  ? object
-  : { pathParameters: TPathParameters };
+type RequestWithPathParameters<TPathParameters> =
+  TPathParameters extends EmptyRequestComponent
+    ? RequestWithOptionalHeaders
+    : { pathParameters: TPathParameters };
 
-type RequestWithHeaders<THeaders> = THeaders extends null
-  ? object
+type RequestWithHeaders<THeaders> = THeaders extends EmptyRequestComponent
+  ? RequestWithOptionalHeaders
   : {
-      headers: THeaders;
+      headers: THeaders & HttpHeaders;
     };
 
-type EmptyRequest = Record<string, never>;
-
 export type RequestType<
-  TData extends HttpPayload = null,
-  TPathParameters extends PathParameters | null = null,
-  THeader extends HttpHeaders | null = null,
-> = TData | TPathParameters | THeader extends null
-  ? EmptyRequest
+  TData extends HttpPayload = EmptyRequestComponent,
+  TPathParameters extends
+    | PathParameters
+    | EmptyRequestComponent = EmptyRequestComponent,
+  THeader extends HttpHeaders | EmptyRequestComponent = EmptyRequestComponent,
+> = TData | TPathParameters | THeader extends EmptyRequestComponent
+  ? RequestWithOptionalHeaders
   : RequestWithData<TData> &
       RequestWithPathParameters<TPathParameters> &
       RequestWithHeaders<THeader>;
