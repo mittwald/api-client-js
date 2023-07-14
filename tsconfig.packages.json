@@ -1,9 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": {
-      "@mittwald/api-client-commons/*": ["packages/commons/*"]
-    },
     "stripInternal": true,
     "target": "ES2022",
     "module": "ES2022",

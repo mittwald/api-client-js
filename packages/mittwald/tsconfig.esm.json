@@ -1,7 +1,10 @@
 {
   "compilerOptions": {
     "outDir": "./dist/esm",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "paths": {
+      "@mittwald/api-client-commons/*": ["packages/commons/*"]
+    }
   },
   "exclude": ["test-d/**/*", "*.test.ts"],
   "extends": "../../tsconfig.packages.json",
