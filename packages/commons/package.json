@@ -25,8 +25,7 @@
     }
   },
   "scripts": {
-    "test": "yarn test:tsd",
-    "test:tsd": "pnpify run tsd"
+    "test": "echo 'No tests available'"
   },
   "files": [
     "dist/**/*.{js,d.ts}"

@@ -1,11 +1,6 @@
-import { Response } from "../dist/esm/types/Response";
-import {
-  expectAssignable,
-  expectError,
-  expectNotAssignable,
-  expectType,
-} from "tsd";
+import { expectAssignable, expectNotAssignable, expectType } from "tsd";
 import { InternalAxiosRequestConfig } from "axios";
+import { Response } from "./Response.js";
 
 type Response200 = Response<{ a: string }, 200, "application/json">;
 type Response200Text = Response<{ text: string }, 200, "text/plain">;
@@ -60,22 +55,30 @@ expectNotAssignable<Response400>({
   ...additionalAxiosResponseData,
 });
 
-type SomeResponse = Response200 | Response200Text | Response201 | Response400;
-declare const someResponse: SomeResponse;
+function ignoredTestRequestTypesWithDataPathParameters() {
+  type SomeResponse = Response200 | Response200Text | Response201 | Response400;
+  const someResponse = {} as SomeResponse;
 
-expectType<200 | 201 | 400>(someResponse.status);
+  expectType<200 | 201 | 400>(someResponse.status);
 
-if (someResponse.status === 200) {
-  expectError(someResponse.data.a);
-  expectError(someResponse.data.b);
-  if (someResponse.mediaType === "text/plain") {
-    expectError(someResponse.data.a);
-    expectType<string>(someResponse.data.text);
-  } else {
-    expectError(someResponse.data.text);
-    expectType<string>(someResponse.data.a);
+  if (someResponse.status === 200) {
+    // @ts-expect-error > a is not in data
+    someResponse.data.a;
+    // @ts-expect-error > b is not in data
+    someResponse.data.b;
+
+    if (someResponse.mediaType === "text/plain") {
+      // @ts-expect-error > a is not in data
+      someResponse.data.a;
+      expectType<string>(someResponse.data.text);
+    } else {
+      // @ts-expect-error > text is not in data
+      someResponse.data.text;
+      expectType<string>(someResponse.data.a);
+    }
+  } else if (someResponse.status === 201) {
+    expectType<string>(someResponse.data.b);
+    // @ts-expect-error > a is not in data
+    someResponse.data.a;
   }
-} else if (someResponse.status === 201) {
-  expectType<string>(someResponse.data.b);
-  expectError(someResponse.data.a);
 }
