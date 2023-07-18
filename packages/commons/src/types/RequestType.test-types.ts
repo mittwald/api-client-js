@@ -4,6 +4,7 @@ import { RequestType } from "./index.js";
 type Data = { foo: string };
 type Path = { bar: string };
 type Header = { baz: string };
+type Query = { whut: string };
 
 function ignoredTestEmptyRequestTypes() {
   expectAssignable<RequestType>({});
@@ -91,6 +92,45 @@ function ignoredTestRequestTypesWithHeader() {
     headers: {
       baz: "",
     },
+  });
+}
+
+function ignoredTestRequestTypesWithQuery() {
+  expectAssignable<RequestType<Data, Path, Query, Header>>({
+    data: {
+      foo: "",
+    },
+    pathParameters: { bar: "" },
+    headers: { baz: "" },
+    queryParameters: {
+      whut: "",
+    },
+  });
+  expectAssignable<RequestType<null, Path, Query, Header>>({
+    pathParameters: { bar: "" },
+    headers: { baz: "" },
+    queryParameters: {
+      whut: "",
+    },
+  });
+  expectAssignable<RequestType<null, null, Query, null>>({
+    queryParameters: {
+      whut: "",
+    },
+  });
+
+  // @ts-expect-error Not assignable
+  expectAssignable<RequestType<null, null, Query, null>>({});
+  expectAssignable<RequestType<null, null, Query, null>>({
+    queryParameters: {
+      // @ts-expect-error Not assignable
+      whut: 42,
+    },
+  });
+
+  expectAssignable<RequestType<null, null, Query, null>>({
+    // @ts-expect-error Not assignable
+    queryParameters: {},
   });
 }
 
