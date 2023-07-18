@@ -103,3 +103,16 @@ publish-client-dev:
     - dev
     - incluster
     - kubernetes
+
+publish-generator:
+  stage: publish
+  image: node:${NODE_VERSION}
+  script:
+    - cd ${CI_PROJECT_DIR}/packages/generator
+    - |
+      yarn config set npmScopes.mittwald.npmPublishRegistry https://npm.mittwald.it
+      yarn config set npmAuthToken ${NPM_TOKEN}
+    - yarn version ${CI_COMMIT_TAG}
+    - yarn npm publish
+  only:
+    - tags
