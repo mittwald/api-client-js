@@ -865,7 +865,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mittwald/api-client-commons@workspace:*, @mittwald/api-client-commons@workspace:packages/commons":
+"@mittwald/api-client-commons@workspace:^, @mittwald/api-client-commons@workspace:packages/commons":
   version: 0.0.0-use.local
   resolution: "@mittwald/api-client-commons@workspace:packages/commons"
   dependencies:
@@ -883,12 +883,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@mittwald/api-client@workspace:packages/mittwald"
   dependencies:
-    "@mittwald/api-client-commons": "workspace:*"
-    "@mittwald/api-code-generator": "workspace:*"
+    "@mittwald/api-client-commons": "workspace:^"
+    "@mittwald/api-code-generator": "workspace:^"
   languageName: unknown
   linkType: soft
 
-"@mittwald/api-code-generator@workspace:*, @mittwald/api-code-generator@workspace:packages/generator":
+"@mittwald/api-code-generator@workspace:^, @mittwald/api-code-generator@workspace:packages/generator":
   version: 0.0.0-use.local
   resolution: "@mittwald/api-code-generator@workspace:packages/generator"
   dependencies:
