@@ -140,12 +140,14 @@ export class RequestParameters {
       body: this.body?.name.tsTypeWithNamespace ?? "null",
       path: this.path?.name.tsTypeWithNamespace ?? "null",
       header: this.header?.name.tsTypeWithNamespace ?? "null",
+      query: this.query?.name.tsTypeWithNamespace ?? "null",
     };
 
     return `\
       RequestType<
         Simplify<${t.body}>,
         Simplify<${t.path}>,
+        Simplify<${t.query}>,
         Simplify<${t.header}>
       >      
     `;

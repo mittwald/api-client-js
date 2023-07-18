@@ -2,8 +2,7 @@
   "compilerOptions": {
     "outDir": "./dist/cjs",
     "target": "ES2016",
-    "module": "CommonJS",
-    "lib": ["ESNext"]
+    "module": "CommonJS"
   },
   "extends": "./tsconfig.esm.json"
 }

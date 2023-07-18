@@ -1,7 +1,7 @@
 import {
-  OpenAPIOperation,
   InferredRequestType,
   InferredResponseType,
+  OpenAPIOperation,
 } from "./OpenAPIOperation.js";
 import { NullableOnNoRequiredKeysDeep } from "./NullableOnNoRequiredKeysDeep.js";
 
