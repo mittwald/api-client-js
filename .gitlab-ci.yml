@@ -112,7 +112,7 @@ publish-generator:
     - |
       yarn config set npmScopes.mittwald.npmPublishRegistry https://npm.mittwald.it
       yarn config set npmAuthToken ${NPM_TOKEN}
-    - yarn version ${CI_COMMIT_TAG}
+    - npm version --no-workspaces-update --no-git-tag-version ${CI_COMMIT_TAG}
     - yarn npm publish
   only:
     - tags
