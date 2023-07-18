@@ -13,3 +13,5 @@ export type HttpHeaders = Partial<{
 }>;
 
 export type PathParameters = Record<string, string | number>;
+
+export type QueryParameters = Record<string, unknown>;

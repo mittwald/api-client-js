@@ -50,42 +50,42 @@ function ignoredTestRequestTypesWithPathParameters() {
 }
 
 function ignoredTestRequestTypesWithHeader() {
-  expectAssignable<RequestType<Data, Path, Header>>({
+  expectAssignable<RequestType<Data, Path, null, Header>>({
     data: {
       foo: "",
     },
     pathParameters: { bar: "" },
     headers: { baz: "" },
   });
-  expectAssignable<RequestType<null, Path, Header>>({
+  expectAssignable<RequestType<null, Path, null, Header>>({
     pathParameters: { bar: "" },
     headers: { baz: "" },
   });
-  expectAssignable<RequestType<null, null, Header>>({
+  expectAssignable<RequestType<null, null, null, Header>>({
     headers: { baz: "" },
   });
 
   // @ts-expect-error Not assignable
-  expectAssignable<RequestType<null, null, Header>>({});
-  expectAssignable<RequestType<null, null, Header>>({
+  expectAssignable<RequestType<null, null, null, Header>>({});
+  expectAssignable<RequestType<null, null, null, Header>>({
     headers: {
       // @ts-expect-error Not assignable
       baz: 42,
     },
   });
 
-  expectAssignable<RequestType<null, null, Header>>({
+  expectAssignable<RequestType<null, null, null, Header>>({
     // @ts-expect-error Not assignable
     headers: {},
   });
-  expectAssignable<RequestType<null, null, Header>>({
+  expectAssignable<RequestType<null, null, null, Header>>({
     // @ts-expect-error Not assignable
     data: {},
     headers: {
       baz: "",
     },
   });
-  expectAssignable<RequestType<null, null, Header>>({
+  expectAssignable<RequestType<null, null, null, Header>>({
     // @ts-expect-error Not assignable
     pathParameters: {},
     headers: {
@@ -116,7 +116,7 @@ function ignoredTestAdditionalHeadersCanAlwaysBeSet() {
     },
     headers: { extra: true },
   });
-  expectAssignable<RequestType<null, null, Header>>({
+  expectAssignable<RequestType<null, null, null, Header>>({
     headers: { extra: true, baz: "" },
   });
 }
