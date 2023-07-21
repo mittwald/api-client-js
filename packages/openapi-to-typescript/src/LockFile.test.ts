@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { LockFile } from "./LockFile";
 import { NormalizedSpec } from "./NormalizedSpec";
 
@@ -10,10 +11,10 @@ spec:
     paths: []
     `);
         expect(lockfile.content).toMatchInlineSnapshot(`
-            Object {
+            {
               "namespace": "test",
-              "spec": Object {
-                "paths": Array [],
+              "spec": {
+                "paths": [],
               },
               "version": "v1",
             }
@@ -46,8 +47,8 @@ describe("Comparing", () => {
                 },
             }),
         ).toMatchInlineSnapshot(`
-            Array [
-              Object {
+            [
+              {
                 "changeType": "new",
                 "name": "/foo",
                 "target": "path",
@@ -68,8 +69,8 @@ describe("Comparing", () => {
                 paths: {},
             }),
         ).toMatchInlineSnapshot(`
-            Array [
-              Object {
+            [
+              {
                 "changeType": "removed",
                 "name": "/foo",
                 "target": "path",
@@ -127,11 +128,11 @@ describe("Comparing", () => {
                 },
             }),
         ).toMatchInlineSnapshot(`
-            Array [
-              Object {
+            [
+              {
                 "changeType": "changed",
-                "diffInfos": Array [
-                  Object {
+                "diffInfos": [
+                  {
                     "count": 9,
                     "value": "get:
               operationId: getFoo
@@ -144,7 +145,7 @@ describe("Comparing", () => {
                     mediaType: application/json
             ",
                   },
-                  Object {
+                  {
                     "added": true,
                     "count": 5,
                     "removed": undefined,
@@ -251,17 +252,17 @@ describe("Syncing", () => {
         };
 
         expect(lockfile.applyChanges(spec, [])).toMatchInlineSnapshot(`
-            Object {
-              "paths": Object {
-                "/foo": Object {
-                  "get": Object {
+            {
+              "paths": {
+                "/foo": {
+                  "get": {
                     "operationId": "getFoo",
-                    "parameters": Object {},
-                    "responses": Object {
-                      "200": Object {
-                        "application/json": Object {
-                          "content": Object {},
-                          "headers": Object {},
+                    "parameters": {},
+                    "responses": {
+                      "200": {
+                        "application/json": {
+                          "content": {},
+                          "headers": {},
                           "mediaType": "application/json",
                         },
                       },
@@ -307,8 +308,8 @@ describe("Syncing", () => {
                 },
             ]),
         ).toMatchInlineSnapshot(`
-            Object {
-              "paths": Object {},
+            {
+              "paths": {},
             }
         `);
     });
@@ -363,17 +364,17 @@ describe("Syncing", () => {
                 },
             ]),
         ).toMatchInlineSnapshot(`
-            Object {
-              "paths": Object {
-                "/foo": Object {
-                  "get": Object {
+            {
+              "paths": {
+                "/foo": {
+                  "get": {
                     "operationId": "getFoo",
-                    "parameters": Object {},
-                    "responses": Object {
-                      "404": Object {
-                        "application/json": Object {
-                          "content": Object {},
-                          "headers": Object {},
+                    "parameters": {},
+                    "responses": {
+                      "404": {
+                        "application/json": {
+                          "content": {},
+                          "headers": {},
                           "mediaType": "application/json",
                         },
                       },
@@ -419,17 +420,17 @@ describe("Syncing", () => {
                 },
             ]),
         ).toMatchInlineSnapshot(`
-            Object {
-              "paths": Object {
-                "/foo": Object {
-                  "get": Object {
+            {
+              "paths": {
+                "/foo": {
+                  "get": {
                     "operationId": "getFoo",
-                    "parameters": Object {},
-                    "responses": Object {
-                      "200": Object {
-                        "application/json": Object {
-                          "content": Object {},
-                          "headers": Object {},
+                    "parameters": {},
+                    "responses": {
+                      "200": {
+                        "application/json": {
+                          "content": {},
+                          "headers": {},
                           "mediaType": "application/json",
                         },
                       },

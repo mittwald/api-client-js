@@ -1,14 +1,13 @@
-import { Options as KyOptions } from "ky";
-import ky from "ky-universal";
-import debug from "../debug";
-import { Headers } from "../OperationDescriptor";
-import { AnyRequestFunctionFactory, Client } from "./Client";
-import { mapHeaders } from "./headers";
-import { setPathParams } from "./path";
-import { mapResponse } from "./response";
-import { patchedFetchForSafari } from "./safari";
-import { convertQueryToUrlSearchParams } from "./request";
-import RequestError from "../RequestError";
+import ky, { HTTPError, Options as KyOptions } from "ky-universal";
+import debug from "../debug.js";
+import { Headers } from "../OperationDescriptor.js";
+import { AnyRequestFunctionFactory, Client } from "./Client.js";
+import { mapHeaders } from "./headers.js";
+import { setPathParams } from "./path.js";
+import { mapResponse } from "./response.js";
+import { patchedFetchForSafari } from "./safari.js";
+import { convertQueryToUrlSearchParams } from "./request.js";
+import RequestError from "../RequestError.js";
 
 const d = debug.extend("KyHTTPClient");
 
@@ -80,7 +79,7 @@ export class KyClient implements Client {
             d("%s: request done. mapping response", resolvedPath);
             return (await mapResponse(kyResponse, descriptor)) as any;
         } catch (error) {
-            if (error instanceof ky.HTTPError) {
+            if (error instanceof HTTPError) {
                 d("request failed with ky HTTPError");
                 return (await mapResponse(error.response, descriptor)) as any;
             }

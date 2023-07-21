@@ -9,9 +9,10 @@
     "emitDecoratorMetadata": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
-    "target": "ES2019",
-    "lib": ["dom", "es2019"],
-    "module": "commonjs"
+    "lib": ["dom", "ES2022"],
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node"
   },
   "include": ["src/**/*"],
   "exclude": ["src/**/*.test.ts"]

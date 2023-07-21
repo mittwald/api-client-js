@@ -1,10 +1,10 @@
 import yaml from "js-yaml";
 import { existsSync, readFileSync, writeFileSync } from "fs";
-import { LockFileContent } from "./LockFileContent";
-import lockFileContentTypeChecks from "./LockFileContent-ti";
+import { LockFileContent } from "./LockFileContent.js";
+import lockFileContentTypeChecks from "./LockFileContent-ti.js";
 import { createCheckers } from "ts-interface-checker";
-import { getStatusLog } from "./statusLog";
-import { NormalizedSpec } from "./NormalizedSpec";
+import { getStatusLog } from "./statusLog.js";
+import { NormalizedSpec } from "./NormalizedSpec.js";
 import { deepEqual } from "fast-equals";
 import { Change, diffLines } from "diff";
 import "colors";

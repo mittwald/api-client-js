@@ -1,4 +1,4 @@
-import { KyClient } from "./KyClient";
+import { KyClient } from "./KyClient.js";
 
 describe("KyClient", () => {
     test("query array param with multiple ids", async () => {

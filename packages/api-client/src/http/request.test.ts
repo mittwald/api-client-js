@@ -1,4 +1,4 @@
-import { convertQueryToUrlSearchParams } from "./request";
+import { convertQueryToUrlSearchParams } from "./request.js";
 
 describe.each([
     ["foo=bar", "foo=bar"],

@@ -1,4 +1,4 @@
-import { Headers, OperationDescriptor, RequestFunction } from "../OperationDescriptor";
+import { Headers, OperationDescriptor, RequestFunction } from "../OperationDescriptor.js";
 
 export interface Response {
     status: number;

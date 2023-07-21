@@ -1,4 +1,4 @@
-import { GotClient } from "./GotClient";
+import { GotClient } from "./GotClient.js";
 
 describe("GotClient", () => {
     test("can fetch jsonplaceholder", async () => {
@@ -16,7 +16,7 @@ describe("GotClient", () => {
         });
 
         return expect(response.content).toMatchInlineSnapshot(`
-                    Object {
+                    {
                       "completed": false,
                       "id": 1,
                       "title": "delectus aut autem",
@@ -42,7 +42,7 @@ describe("GotClient", () => {
 
         expect(response.status).toBe(201);
         expect(response.content).toMatchInlineSnapshot(`
-                    Object {
+                    {
                       "body": "foo",
                       "id": 101,
                       "title": "foo",

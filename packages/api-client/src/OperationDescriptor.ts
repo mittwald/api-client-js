@@ -1,4 +1,4 @@
-import { LooseObject } from "./types/LooseObject";
+import { LooseObject } from "./types/LooseObject.js";
 
 // Headers is also implemented in DOM, but this would tie this lib to browser-only
 export type Headers = Record<string, string>;

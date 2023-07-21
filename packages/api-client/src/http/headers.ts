@@ -1,4 +1,4 @@
-import * as Descriptor from "../OperationDescriptor";
+import * as Descriptor from "../OperationDescriptor.js";
 
 function isHeaderObjects(headers?: Headers | Descriptor.Headers): headers is Headers {
     return !!headers && "forEach" in headers;

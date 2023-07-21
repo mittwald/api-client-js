@@ -1,4 +1,4 @@
-import { Response } from "./http/Client";
+import { Response } from "./http/Client.js";
 
 export class UnexpectedResponseError extends Error {
     public readonly operationId?: string;

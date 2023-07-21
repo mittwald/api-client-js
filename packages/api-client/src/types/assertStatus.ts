@@ -1,5 +1,5 @@
-import { Response } from "../http/Client";
-import UnexpectedResponseError from "../UnexpectedResponseError";
+import { Response } from "../http/Client.js";
+import UnexpectedResponseError from "../UnexpectedResponseError.js";
 
 export function assertStatus<T extends Partial<Response>, S extends T["status"]>(
     response: T,

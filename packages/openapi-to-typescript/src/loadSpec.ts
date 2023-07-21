@@ -1,8 +1,8 @@
-import { getStatusLog } from "./statusLog";
+import { getStatusLog } from "./statusLog.js";
 import got from "got";
 import { readFileSync } from "fs";
 import yaml from "js-yaml";
-import { FileFormat } from "./Spec";
+import { FileFormat } from "./Spec.js";
 import dotProp from "dot-prop";
 
 export async function loadSpec(extendedPath: string, format?: FileFormat): Promise<object> {
@@ -12,7 +12,7 @@ export async function loadSpec(extendedPath: string, format?: FileFormat): Promi
     const downloadFile = path.startsWith("http");
 
     log?.start(`loading OpenAPI spec from ${path}`);
-    const content = downloadFile ? await got(path).text() : readFileSync(path, "utf8");
+    const content = downloadFile ? await got.default(path).text() : readFileSync(path, "utf8");
     log?.succeed(`OpenAPI spec loaded from ${path}`);
 
     let openAPI: object = {};
