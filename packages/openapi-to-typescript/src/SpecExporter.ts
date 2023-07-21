@@ -6,8 +6,7 @@ import { viewHelpersFactory } from "./viewHelpers.js";
 import prettier from "prettier";
 import { getStatusLog } from "./statusLog.js";
 import { wrapError } from "@mittwald/awesome-node-utils/error/wrapError.js";
-import { URL } from "url";
-import * as url from "url";
+import url, { URL } from "url";
 
 export interface ExportOptions {
     reactHooks?: boolean;
