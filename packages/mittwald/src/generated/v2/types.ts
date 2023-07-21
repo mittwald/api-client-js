@@ -688,7 +688,7 @@ export declare module MittwaldAPIV2 {
 
       export interface CustomerCustomer {
         activeSuspension?: {
-          createdAt?: string;
+          createdAt: string;
         };
         avatarRefId?: string;
         categoryId?: string;
@@ -696,6 +696,7 @@ export declare module MittwaldAPIV2 {
         customerId: string;
         customerNumber: string;
         executingUserRoles?: MittwaldAPIV2.Components.Schemas.CustomerRole[];
+        isBanned?: boolean;
         isInDefaultOfPayment?: boolean;
         memberCount: number;
         name: string;
