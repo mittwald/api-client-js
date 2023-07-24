@@ -35,6 +35,17 @@ export declare module MittwaldAPIV2 {
         uptimeSeconds?: number;
       }
 
+      export interface AppAppJobImage {
+        imageTemplate: string;
+      }
+
+      export interface AppAppJobImages {
+        reconfigureImage: MittwaldAPIV2.Components.Schemas.AppAppJobImage;
+        setupImage: MittwaldAPIV2.Components.Schemas.AppAppJobImage;
+        uninstallImage: MittwaldAPIV2.Components.Schemas.AppAppJobImage;
+        upgradeImage: MittwaldAPIV2.Components.Schemas.AppAppJobImage;
+      }
+
       /**
        * `AppUpdatePolicy` describes which updates should be applied automatically by our systems
        */
