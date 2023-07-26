@@ -493,6 +493,12 @@ export declare module MittwaldAPIV2 {
       export interface ConversationCategory {
         categoryId: string;
         name: string;
+        referenceType: (
+          | "unspecified"
+          | "server"
+          | "project"
+          | "organisation"
+        )[];
       }
 
       export interface ConversationConversation {
