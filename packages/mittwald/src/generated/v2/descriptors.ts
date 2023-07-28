@@ -7409,6 +7409,11 @@ export const relocationCreateLegacyTariffChange: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -7739,6 +7744,11 @@ export const userAddPhoneNumber: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhone.Post.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhone.Post.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<
@@ -9005,6 +9015,11 @@ export const userResendVerificationEmail: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmailActionsResendEmail.Post.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmailActionsResendEmail.Post.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<

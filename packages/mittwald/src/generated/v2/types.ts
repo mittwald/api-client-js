@@ -2251,12 +2251,17 @@ export declare module MittwaldAPIV2 {
           MittwaldAPIV2.Components.Schemas.CommonsError;
       }
 
+      namespace CommonsRateLimitError {
+        export interface ApplicationJson {
+          message?: string;
+          type?: string;
+        }
+      }
+
       namespace CommonsValidationError {
         export type ApplicationJson =
           MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
       }
-
-      namespace CommonsRateLimitError {}
     }
 
     namespace SecuritySchemes {
@@ -12942,6 +12947,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -13432,6 +13445,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -15369,6 +15390,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
