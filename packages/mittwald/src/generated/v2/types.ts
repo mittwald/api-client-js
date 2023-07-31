@@ -2892,6 +2892,51 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2ProjectsProjectShortIdAppinstallations {
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            projectShortId: string;
+          };
+
+          export type RequestBody = {
+            appName: string;
+            appVersionClusterVersion: string;
+            databaseHost?: string;
+            databaseUserName?: string;
+            installationDirectory: string;
+          }[];
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2AppinstallationsIdActionsCopy {
       namespace Post {
         namespace Parameters {

@@ -61,6 +61,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listUpdateCandidatesForAppversion: this.requestFunctionFactory(
       descriptors.appListUpdateCandidatesForAppversion
     ),
+    /** reconcile detected apps to appInstallations of a project */
+    reconcileDetectedApps: this.requestFunctionFactory(
+      descriptors.appReconcileDetectedApps
+    ),
     /** request a copy of an `AppInstallation` */
     requestAppinstallationCopy: this.requestFunctionFactory(
       descriptors.appRequestAppinstallationCopy
