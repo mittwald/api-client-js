@@ -1727,7 +1727,8 @@ export declare module MittwaldAPIV2 {
       export type ProjectDisableReason =
         | "maliciousCode"
         | "illegalContent"
-        | "maliciousConduct";
+        | "maliciousConduct"
+        | "suspended";
 
       export interface ProjectFilesystemDirectoryListing {
         absolutePath: string;
@@ -1795,9 +1796,10 @@ export declare module MittwaldAPIV2 {
         | "ready"
         | "unready";
 
-      export type ProjectServerDisableReason = "nonPayment";
+      export type ProjectServerDisableReason = "suspended";
 
       export interface ProjectServer {
+        clusterName: string;
         createdAt: string;
         customerId: string;
         description: string;
@@ -12722,6 +12724,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.ProjectServer[];
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 

@@ -7298,6 +7298,11 @@ export const projectListServers: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Servers.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2Servers.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
