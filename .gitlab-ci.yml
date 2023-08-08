@@ -67,6 +67,13 @@ publish-client:
       if [ $(git status --porcelain . | wc -l) -gt 0 ] || [ -n "${FORCE_PUBLISH}" ] ; then
         npm version --no-workspaces-update --no-git-tag-version patch
 
+        # Make sure the generated version is available in the compiled code;
+        # this is necessary for the generated client to be able to report its
+        # own version to the API.
+        VERSION=$(jq -r '.version' package.json)
+        echo "export const MittwaldAPIClientVersion = '${VERSION}';" > dist/version.js
+        echo "export declare const MittwaldAPIClientVersion = '${VERSION}';" > dist/version.d.ts
+
         git add .
         git commit -m "Update generated client";
         
