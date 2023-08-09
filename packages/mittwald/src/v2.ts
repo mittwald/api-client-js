@@ -3,33 +3,16 @@ import MittwaldApiV2Client from "./generated/v2/client.js";
 import { MittwaldAPIClientVersion } from "./version.js";
 export type { MittwaldAPIV2 } from "./generated/v2/types.js";
 
-/** Options for the mittwald API client. */
-export interface MittwaldAPIClientOptions {
-  /**
-   * The user agent to use for requests. If omitted, this will default to
-   * `mittwald-api-client/VERSION`, with `VERSION` being the respective build
-   * version.
-   */
-  userAgent: string;
-}
-
-const defaultOpts: MittwaldAPIClientOptions = {
-  userAgent: "mittwald-api-client/" + MittwaldAPIClientVersion,
-};
+const defaultUserAgent = "mittwald-api-client/" + MittwaldAPIClientVersion;
 
 export class MittwaldAPIClient extends MittwaldApiV2Client {
   private readonly apiToken: string | undefined;
 
-  private constructor(
-    apiToken: string | undefined,
-    opts: Partial<MittwaldAPIClientOptions>,
-  ) {
-    const optsWithDefaults = { ...defaultOpts, ...opts };
-
+  private constructor(apiToken?: string) {
     super({
       baseURL: "https://api.mittwald.de/",
       headers: {
-        "User-Agent": optsWithDefaults.userAgent,
+        "User-Agent": defaultUserAgent,
       },
     });
     this.apiToken = apiToken;
@@ -46,23 +29,17 @@ export class MittwaldAPIClient extends MittwaldApiV2Client {
     });
   }
 
-  public static newUnauthenticated(
-    opts: Partial<MittwaldAPIClientOptions> = {},
-  ): MittwaldAPIClient {
-    return new MittwaldAPIClient(undefined, opts);
+  public static newUnauthenticated(): MittwaldAPIClient {
+    return new MittwaldAPIClient();
   }
 
-  public static newWithToken(
-    apiToken: string,
-    opts: Partial<MittwaldAPIClientOptions> = {},
-  ): MittwaldAPIClient {
-    return new MittwaldAPIClient(apiToken, opts);
+  public static newWithToken(apiToken: string): MittwaldAPIClient {
+    return new MittwaldAPIClient(apiToken);
   }
 
   public static async newWithCredentials(
     email: string,
     password: string,
-    opts: Partial<MittwaldAPIClientOptions> = {},
   ): Promise<MittwaldAPIClient> {
     const client = MittwaldAPIClient.newUnauthenticated();
 
@@ -74,7 +51,7 @@ export class MittwaldAPIClient extends MittwaldApiV2Client {
     });
 
     if (authResult.status === 200) {
-      return new MittwaldAPIClient(authResult.data.token, opts);
+      return new MittwaldAPIClient(authResult.data.token);
     }
 
     throw ApiClientError.fromResponse("Login failed", authResult);
