@@ -58,6 +58,15 @@ find the operation ID on the right side of each operation.
 The client uses the popular [Axios HTTP client](https://axios-http.com) under
 the hood. You may access the Axios instance with the clients `axios` property.
 
+### Adding custom HTTP headers
+
+To add custom HTTP headers to all requests you can use Axios' `defaults.headers`
+property:
+
+```typescript
+client.axios.defaults.headers["User-Agent"] = `your-tool/v1.2.3`;
+```
+
 ### Intercepting requests or responses
 
 To intercept requests or responses you can use
