@@ -1,6 +1,9 @@
 import { ApiClientError } from "@mittwald/api-client-commons";
 import MittwaldApiV2Client from "./generated/v2/client.js";
+import { MittwaldAPIClientVersion } from "./version.js";
 export type { MittwaldAPIV2 } from "./generated/v2/types.js";
+
+const defaultUserAgent = "mittwald-api-client/" + MittwaldAPIClientVersion;
 
 export class MittwaldAPIClient extends MittwaldApiV2Client {
   private readonly apiToken: string | undefined;
@@ -8,6 +11,9 @@ export class MittwaldAPIClient extends MittwaldApiV2Client {
   private constructor(apiToken?: string) {
     super({
       baseURL: "https://api.mittwald.de/",
+      headers: {
+        "User-Agent": defaultUserAgent,
+      },
     });
     this.apiToken = apiToken;
     this.setupInterceptors();
