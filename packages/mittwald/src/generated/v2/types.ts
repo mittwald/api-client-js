@@ -808,11 +808,11 @@ export declare module MittwaldAPIV2 {
          */
         additionalFlags?: string[];
         /**
-         * The database's maximum memory.
+         * The database's maximum memory. This may be a number, optionally suffixed by one of the IEC binary suffixes `Ki`, `Mi` or `Gi`.
          */
         maxMemory?: string;
         /**
-         * The database's key eviction policy.
+         * The database's key eviction policy. See the [Redis documentation on key evictions](https://redis.io/docs/reference/eviction/) for more information.
          */
         maxMemoryPolicy?: string;
         /**
@@ -7847,9 +7847,13 @@ export declare module MittwaldAPIV2 {
 
     namespace V2SignupEmail {}
 
+    namespace V2SignupPasswordResetConfirm {}
+
     namespace V2SignupTokenApiApiTokenId {}
 
     namespace V2SignupSshSshKeyId {}
+
+    namespace V2SignupPasswordReset {}
 
     namespace V2SignupLogout {}
 
@@ -11386,6 +11390,126 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2Pageinsights {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            domain: string;
+            path: string;
+            date?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                createdAt?: string;
+                domain: string;
+                metrics?: {
+                  createdAt: string;
+                  name: string;
+                  score: number;
+                  value: number;
+                }[];
+                moreDataAvailable?: string[];
+                path: string;
+                performanceScore: number;
+                screenshot?: {
+                  createdAt: string;
+                  fileRef: string;
+                };
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectsIdPageinsights {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            id: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            domain?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson = {
+                domain: string;
+                paths: {
+                  createdAt: string;
+                  path: string;
+                  performanceScore: number;
+                  screenshotFileRef?: string;
+                }[];
+              }[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2PasswordPoliciesPath {
       namespace Get {
         namespace Parameters {
@@ -14101,8 +14225,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SignupPasswordResetConfirm {}
-
     namespace V2UsersSelfCredentialsPasswordConfirmReset {
       namespace Post {
         namespace Parameters {
@@ -15092,8 +15214,6 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
-
-    namespace V2SignupPasswordReset {}
 
     namespace V2UsersSelfCredentialsActionsInitPasswordReset {
       namespace Post {

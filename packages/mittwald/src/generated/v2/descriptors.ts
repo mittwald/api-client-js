@@ -6364,6 +6364,74 @@ export const orderPreviewTariffChange: OpenAPIOperation<
   operationId: "order-preview-tariff-change",
 };
 
+/** Get detailed performance data for a given domain and path. */
+export const pageinsightsGetPerformanceData: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2Pageinsights.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2Pageinsights.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2Pageinsights.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Pageinsights.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Pageinsights.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Pageinsights.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Pageinsights.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/pageinsights",
+  method: "GET",
+  operationId: "pageinsights-get-performance-data",
+};
+
+/** List websites (specified as domain and path) from a project where performance data is available. */
+export const pageinsightsListPerformanceDataForProject: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsIdPageinsights.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsIdPageinsights.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsIdPageinsights.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsIdPageinsights.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsIdPageinsights.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsIdPageinsights.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsIdPageinsights.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{id}/pageinsights",
+  method: "GET",
+  operationId: "pageinsights-list-performance-data-for-project",
+};
+
 /** Get a password policy. */
 export const passwordValidationGetPasswordPolicy: OpenAPIOperation<
   RequestType<
