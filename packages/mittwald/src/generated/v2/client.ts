@@ -605,6 +605,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getHandleFields: this.requestFunctionFactory(
       descriptors.domainGetHandleFields
     ),
+    /** Get File Service Reference for a Screenshot of a domain. */
+    getScreenshotForDomain: this.requestFunctionFactory(
+      descriptors.domainGetScreenshotForDomain
+    ),
     /** Get a domain ownership. */
     getSpecificDomainOwnership: this.requestFunctionFactory(
       descriptors.domainGetSpecificDomainOwnership

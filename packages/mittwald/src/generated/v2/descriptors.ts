@@ -4461,6 +4461,35 @@ export const domainGetHandleFields: OpenAPIOperation<
   operationId: "domain-get-handle-fields",
 };
 
+/** Get File Service Reference for a Screenshot of a domain. */
+export const domainGetScreenshotForDomain: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/screenshots/newest",
+  method: "GET",
+  operationId: "domain-get-screenshot-for-domain",
+};
+
 /** Get a domain ownership. */
 export const domainGetSpecificDomainOwnership: OpenAPIOperation<
   RequestType<

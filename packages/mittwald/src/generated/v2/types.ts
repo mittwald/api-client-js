@@ -1830,6 +1830,34 @@ export declare module MittwaldAPIV2 {
         name: string;
       }
 
+      export interface ScreenshotTarget {
+        domain: string;
+        path?: string;
+        scheme: "http" | "https";
+      }
+
+      export interface ScreenshotTask {
+        executedAt?: string;
+        fileReference?: string;
+        id: string;
+        priority: number;
+        settings: MittwaldAPIV2.Components.Schemas.ScreenshotScreenshotSettings;
+        target: MittwaldAPIV2.Components.Schemas.ScreenshotTarget;
+        taskState?:
+          | MittwaldAPIV2.Components.Schemas.ScreenshotLifecycleState
+          | MittwaldAPIV2.Components.Schemas.CommonsError;
+      }
+
+      export type ScreenshotLifecycleState = string;
+
+      export interface ScreenshotScreenshotSettings {
+        dataType: "jpeg" | "png" | "webp";
+        delay: number;
+        height: number;
+        quality: number;
+        width: number;
+      }
+
       export interface DomainEmptyResponse {
         error_props: {};
         error_reason: string;
@@ -8786,6 +8814,51 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 jsonSchemaAdminC?: {};
                 jsonSchemaOwnerC: {};
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DomainsDomainIdScreenshotsNewest {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            domainId: string;
+          };
+
+          export interface RequestBody {
+            domainName: string;
+            path: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                references?: string[];
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
               }
             }
           }
