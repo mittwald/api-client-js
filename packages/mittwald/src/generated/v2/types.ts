@@ -7881,6 +7881,8 @@ export declare module MittwaldAPIV2 {
 
     namespace V2SignupSshSshKeyId {}
 
+    namespace V2SignupMfa {}
+
     namespace V2SignupPasswordReset {}
 
     namespace V2SignupLogout {}
@@ -7906,6 +7908,8 @@ export declare module MittwaldAPIV2 {
     namespace V2SignupSessions {}
 
     namespace V2SignupSessionsTokenId {}
+
+    namespace V2SignupProfile {}
 
     namespace V2SignupEmailVerify {}
 
@@ -14834,8 +14838,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SignupProfile {}
-
     namespace V2UsersSelf {
       namespace Delete {
         namespace Parameters {
@@ -14894,8 +14896,6 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
-
-    namespace V2SignupMfa {}
 
     namespace V2UsersSelfPersonalInformation {
       namespace Get {
