@@ -21,3 +21,5 @@ coverage/
 .idea/workspace.xml
 .idea/runConfigurations
 .eslintcache
+
+node_modules
