@@ -490,15 +490,17 @@ export declare module MittwaldAPIV2 {
         id: string;
       }
 
+      export type ConversationCategoryReferenceType = (
+        | "unspecified"
+        | "server"
+        | "project"
+        | "organisation"
+      )[];
+
       export interface ConversationCategory {
         categoryId: string;
         name: string;
-        referenceType: (
-          | "unspecified"
-          | "server"
-          | "project"
-          | "organisation"
-        )[];
+        referenceType: MittwaldAPIV2.Components.Schemas.ConversationCategoryReferenceType;
       }
 
       export interface ConversationConversation {
