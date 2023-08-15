@@ -2014,6 +2014,7 @@ export declare module MittwaldAPIV2 {
         email?: string;
         person: MittwaldAPIV2.Components.Schemas.CommonsPerson;
         phoneNumber?: string;
+        registeredAt?: string;
         userId: string;
       }
 
@@ -7878,6 +7879,8 @@ export declare module MittwaldAPIV2 {
     namespace V2SignupEmail {}
 
     namespace V2SignupPasswordResetConfirm {}
+
+    namespace V2UsersSelfIssues {}
 
     namespace V2SignupTokenApiApiTokenId {}
 
@@ -14447,15 +14450,19 @@ export declare module MittwaldAPIV2 {
             /**
              * Origin of the feedback.
              */
-            origin: string;
+            origin?: string;
             /**
              * Descriptive subject.
              */
             subject: string;
             /**
-             * Feedback rating from bad to good.
+             * Type of feedback.
              */
-            vote: number;
+            type?: "feedback" | "bug";
+            /**
+             * Feedback rating from bad to good. Set to 0 or skip this field to not vote at all.
+             */
+            vote?: number;
           }
 
           export type Header =
@@ -14483,53 +14490,6 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2UsersSelfIssues {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            /**
-             * Detailed report of the issue.
-             */
-            message: string;
-            /**
-             * Origin of the issue.
-             */
-            origin?: string;
-            /**
-             * Descriptive subject of the report.
-             */
-            subject?: string;
-            /**
-             * Type of feedback.
-             */
-            type: "feedback" | "bug";
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export type Empty = unknown;
             }
           }
 

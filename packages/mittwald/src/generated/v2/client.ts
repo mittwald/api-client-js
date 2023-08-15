@@ -1005,8 +1005,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     createApiToken: this.requestFunctionFactory(descriptors.userCreateApiToken),
     /** Submit your user feedback. */
     createFeedback: this.requestFunctionFactory(descriptors.userCreateFeedback),
-    /** Create a new issue. */
-    createIssue: this.requestFunctionFactory(descriptors.userCreateIssue),
     /** Get your stored ssh-keys. */
     listSshKeys: this.requestFunctionFactory(descriptors.userListSshKeys),
     /** Store a new ssh-key. */

@@ -8343,30 +8343,6 @@ export const userCreateFeedback: OpenAPIOperation<
   operationId: "user-create-feedback",
 };
 
-/** Create a new issue. */
-export const userCreateIssue: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfIssues.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfIssues.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfIssues.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfIssues.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfIssues.Post.Responses.$201.Content.Empty>,
-      201,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfIssues.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/users/self/issues",
-  method: "POST",
-  operationId: "user-create-issue",
-};
-
 /** Get your stored ssh-keys. */
 export const userListSshKeys: OpenAPIOperation<
   RequestType<
