@@ -3802,6 +3802,40 @@ export const databaseUpdateMysqlUserPassword: OpenAPIOperation<
   operationId: "database-update-mysql-user-password",
 };
 
+/** Update a RedisDatabase's configuration. */
+export const databaseUpdateRedisDatabaseConfiguration: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdConfiguration.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdConfiguration.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdConfiguration.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdConfiguration.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdConfiguration.Patch.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdConfiguration.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdConfiguration.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdConfiguration.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/redis-databases/{id}/configuration",
+  method: "PATCH",
+  operationId: "database-update-redis-database-configuration",
+};
+
 /** Update a RedisDatabase's description. */
 export const databaseUpdateRedisDatabaseDescription: OpenAPIOperation<
   RequestType<
@@ -5065,6 +5099,40 @@ export const ingressPaths: OpenAPIOperation<
   path: "/v2/ingresses/{ingressId}/paths",
   method: "PUT",
   operationId: "ingress-paths",
+};
+
+/** Request ACME certificate issuance */
+export const ingressRequestAcmeCertificateIssuance: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdActionsRequestAcmeCertificateIssuance.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdActionsRequestAcmeCertificateIssuance.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdActionsRequestAcmeCertificateIssuance.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdActionsRequestAcmeCertificateIssuance.Post.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdActionsRequestAcmeCertificateIssuance.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdActionsRequestAcmeCertificateIssuance.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdActionsRequestAcmeCertificateIssuance.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/ingresses/{ingressId}/actions/request-acme-certificate-issuance",
+  method: "POST",
+  operationId: "ingress-request-acme-certificate-issuance",
 };
 
 /** Update an Ingresses tls settings. */

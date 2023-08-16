@@ -7816,6 +7816,56 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2RedisDatabasesIdConfiguration {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            id: string;
+          };
+
+          export interface RequestBody {
+            configuration?: MittwaldAPIV2.Components.Schemas.DatabaseRedisDatabaseConfiguration;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2RedisDatabasesIdDescription {
       namespace Patch {
         namespace Parameters {
@@ -9651,6 +9701,52 @@ export declare module MittwaldAPIV2 {
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2IngressesIngressIdActionsRequestAcmeCertificateIssuance {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            ingressId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 

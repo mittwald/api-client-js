@@ -523,6 +523,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateMysqlUserPassword: this.requestFunctionFactory(
       descriptors.databaseUpdateMysqlUserPassword
     ),
+    /** Update a RedisDatabase's configuration. */
+    updateRedisDatabaseConfiguration: this.requestFunctionFactory(
+      descriptors.databaseUpdateRedisDatabaseConfiguration
+    ),
     /** Update a RedisDatabase's description. */
     updateRedisDatabaseDescription: this.requestFunctionFactory(
       descriptors.databaseUpdateRedisDatabaseDescription
@@ -653,6 +657,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Update an Ingresses paths. */
     ingressPaths: this.requestFunctionFactory(descriptors.ingressPaths),
+    /** Request ACME certificate issuance */
+    ingressRequestAcmeCertificateIssuance: this.requestFunctionFactory(
+      descriptors.ingressRequestAcmeCertificateIssuance
+    ),
     /** Update an Ingresses tls settings. */
     ingressTls: this.requestFunctionFactory(descriptors.ingressTls),
   };
