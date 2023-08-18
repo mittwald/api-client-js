@@ -181,6 +181,35 @@ export const appGetAppversion: OpenAPIOperation<
   operationId: "app-get-appversion",
 };
 
+/** get the missing requirements of an appInstallation for a specific target AppVersion */
+export const appGetMissingDependenciesForAppinstallation: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdMissingDependencies.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdMissingDependencies.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdMissingDependencies.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdMissingDependencies.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdMissingDependencies.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdMissingDependencies.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/appinstallations/{appInstallationId}/missing-dependencies",
+  method: "GET",
+  operationId: "app-get-missing-dependencies-for-appinstallation",
+};
+
 /** get a specific `SystemSoftware` */
 export const appGetSystemsoftware: OpenAPIOperation<
   RequestType<
@@ -584,35 +613,6 @@ export const appUnlinkDatabase: OpenAPIOperation<
   path: "/v2/appinstallations/{appInstallationId}/databases/{databaseId}",
   method: "DELETE",
   operationId: "app-unlink-database",
-};
-
-/** trigger `AppInstallation` to retrieve current installation status based on an appJob */
-export const appUpdateStatus: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsUpdateStatus.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsUpdateStatus.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsUpdateStatus.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsUpdateStatus.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsUpdateStatus.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsUpdateStatus.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsUpdateStatus.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/appinstallations/{id}/actions/update-status",
-  method: "POST",
-  operationId: "app-update-status",
 };
 
 /** Get an Article. */

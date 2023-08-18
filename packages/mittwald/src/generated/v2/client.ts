@@ -25,6 +25,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** get a specific `AppVersion` */
     getAppversion: this.requestFunctionFactory(descriptors.appGetAppversion),
+    /** get the missing requirements of an appInstallation for a specific target AppVersion */
+    getMissingDependenciesForAppinstallation: this.requestFunctionFactory(
+      descriptors.appGetMissingDependenciesForAppinstallation
+    ),
     /** get a specific `SystemSoftware` */
     getSystemsoftware: this.requestFunctionFactory(
       descriptors.appGetSystemsoftware
@@ -77,8 +81,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** remove linkage between an `AppInstallation` and a `Database` */
     unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
-    /** trigger `AppInstallation` to retrieve current installation status based on an appJob */
-    updateStatus: this.requestFunctionFactory(descriptors.appUpdateStatus),
   };
 
   /** The article API allows you to read article information. */

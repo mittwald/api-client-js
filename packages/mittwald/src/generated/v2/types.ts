@@ -1552,7 +1552,6 @@ export declare module MittwaldAPIV2 {
          */
         invoicingPeriod: number;
         items: MittwaldAPIV2.Components.Schemas.OrderOrderItem[];
-        offerId?: string;
         orderDate: string;
         orderId: string;
         orderNumber: string;
@@ -1605,7 +1604,6 @@ export declare module MittwaldAPIV2 {
         articleTemplateName?: string;
         attributeConfiguration?: MittwaldAPIV2.Components.Schemas.OrderAttributeConfiguration[];
         isInclusive: boolean;
-        offerItemId?: string;
         orderItemId: string;
         predefinedDomainAggregateId?: string;
         price: number;
@@ -2558,6 +2556,49 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2AppinstallationsAppInstallationIdMissingDependencies {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            targetAppVersionID: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                missingSystemSoftwareDependencies?: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareDependency[];
+                missingUserInputs?: MittwaldAPIV2.Components.Schemas.AppUserInput[];
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2SystemsoftwaresSystemSoftwareId {
       namespace Get {
         namespace Parameters {
@@ -3104,52 +3145,6 @@ export declare module MittwaldAPIV2 {
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2AppinstallationsIdActionsUpdateStatus {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            id: string;
-          };
-
-          export interface RequestBody {
-            status: {
-              appJob: {
-                name: string;
-                namespace: string;
-              };
-            };
-          }
-
-          export type Header = {};
 
           export type Query = {};
         }
