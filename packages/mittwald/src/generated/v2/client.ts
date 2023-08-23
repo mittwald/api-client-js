@@ -101,7 +101,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteProjectBackupExport: this.requestFunctionFactory(
       descriptors.backupDeleteProjectBackupExport
     ),
-    /** List BackupSchedules belonging to a given Project. */
+    /** List BackupSchedules belonging to a Project. */
     listProjectBackupSchedules: this.requestFunctionFactory(
       descriptors.backupListProjectBackupSchedules
     ),
@@ -109,7 +109,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     createProjectBackupSchedule: this.requestFunctionFactory(
       descriptors.backupCreateProjectBackupSchedule
     ),
-    /** List Backups for a given Project. */
+    /** List Backups belonging to a Project. */
     listProjectBackups: this.requestFunctionFactory(
       descriptors.backupListProjectBackups
     ),
@@ -409,19 +409,19 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     leaveCustomer: this.requestFunctionFactory(
       descriptors.customerLeaveCustomer
     ),
-    /** List all CustomerInvites for the executing user. */
+    /** List CustomerInvites belonging to the executing user. */
     listCustomerInvites: this.requestFunctionFactory(
       descriptors.customerListCustomerInvites
     ),
-    /** List all CustomerMemberships for the executing user. */
+    /** List CustomerMemberships belonging to the executing user. */
     listCustomerMemberships: this.requestFunctionFactory(
       descriptors.customerListCustomerMemberships
     ),
-    /** List all invites for a Customer. */
+    /** List Invites belonging to a Customer. */
     listInvitesForCustomer: this.requestFunctionFactory(
       descriptors.customerListInvitesForCustomer
     ),
-    /** List all memberships belonging to a Customer. */
+    /** List Memberships belonging to a Customer. */
     listMembershipsForCustomer: this.requestFunctionFactory(
       descriptors.customerListMembershipsForCustomer
     ),
@@ -447,7 +447,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     createMysqlDatabase: this.requestFunctionFactory(
       descriptors.databaseCreateMysqlDatabase
     ),
-    /** List MySQLUsers belonging to a database. */
+    /** List MySQLUsers belonging to a Database. */
     listMysqlUsers: this.requestFunctionFactory(
       descriptors.databaseListMysqlUsers
     ),
@@ -623,20 +623,12 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     verifyDomainOwnership: this.requestFunctionFactory(
       descriptors.domainVerifyDomainOwnership
     ),
-    /** Get a toplevel domain. */
-    getToplevelDomain: this.requestFunctionFactory(
-      descriptors.domainGetToplevelDomain
-    ),
     /** List all domain ownerships of a project. */
     listDomainOwnerships: this.requestFunctionFactory(
       descriptors.domainListDomainOwnerships
     ),
     /** List Domains belonging to a Project. */
     listDomains: this.requestFunctionFactory(descriptors.domainListDomains),
-    /** List all supported toplevel domains. */
-    listToplevelDomains: this.requestFunctionFactory(
-      descriptors.domainListToplevelDomains
-    ),
     /** Resend a domain email. */
     resendDomainEmail: this.requestFunctionFactory(
       descriptors.domainResendDomainEmail
@@ -873,15 +865,15 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getServer: this.requestFunctionFactory(descriptors.projectGetServer),
     /** Leave a Project. */
     leaveProject: this.requestFunctionFactory(descriptors.projectLeaveProject),
-    /** List all invites belonging to a Project. */
+    /** List Invites belonging to a Project. */
     listInvitesForProject: this.requestFunctionFactory(
       descriptors.projectListInvitesForProject
     ),
-    /** List all memberships for a Project. */
+    /** List Memberships belonging to a Project. */
     listMembershipsForProject: this.requestFunctionFactory(
       descriptors.projectListMembershipsForProject
     ),
-    /** List all ProjectInvites for the executing user. */
+    /** List ProjectInvites belonging to the executing user. */
     listProjectInvites: this.requestFunctionFactory(
       descriptors.projectListProjectInvites
     ),
@@ -889,9 +881,9 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listProjectMemberships: this.requestFunctionFactory(
       descriptors.projectListProjectMemberships
     ),
-    /** List Project's for an Organization or Server. */
+    /** List Projects belonging to the executing user. */
     listProjects: this.requestFunctionFactory(descriptors.projectListProjects),
-    /** List Servers for an Organization or User. */
+    /** List Servers belonging to the executing user. */
     listServers: this.requestFunctionFactory(descriptors.projectListServers),
     /** Resend the mail for a ProjectInvite. */
     resendProjectInviteMail: this.requestFunctionFactory(
@@ -909,7 +901,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The filesystem API allows you to directly access the filesystem of your project. */
   public readonly projectFileSystem = {
-    /** List the directories of a Project. */
+    /** List directories belonging to a Project. */
     getDirectories: this.requestFunctionFactory(
       descriptors.projectFileSystemGetDirectories
     ),

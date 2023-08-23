@@ -741,7 +741,7 @@ export const backupDeleteProjectBackupExport: OpenAPIOperation<
   operationId: "backup-delete-project-backup-export",
 };
 
-/** List BackupSchedules belonging to a given Project. */
+/** List BackupSchedules belonging to a Project. */
 export const backupListProjectBackupSchedules: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -799,7 +799,7 @@ export const backupCreateProjectBackupSchedule: OpenAPIOperation<
   operationId: "backup-create-project-backup-schedule",
 };
 
-/** List Backups for a given Project. */
+/** List Backups belonging to a Project. */
 export const backupListProjectBackups: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -2796,7 +2796,7 @@ export const customerLeaveCustomer: OpenAPIOperation<
   operationId: "customer-leave-customer",
 };
 
-/** List all CustomerInvites for the executing user. */
+/** List CustomerInvites belonging to the executing user. */
 export const customerListCustomerInvites: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -2825,7 +2825,7 @@ export const customerListCustomerInvites: OpenAPIOperation<
   operationId: "customer-list-customer-invites",
 };
 
-/** List all CustomerMemberships for the executing user. */
+/** List CustomerMemberships belonging to the executing user. */
 export const customerListCustomerMemberships: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -2854,7 +2854,7 @@ export const customerListCustomerMemberships: OpenAPIOperation<
   operationId: "customer-list-customer-memberships",
 };
 
-/** List all invites for a Customer. */
+/** List Invites belonging to a Customer. */
 export const customerListInvitesForCustomer: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -2883,7 +2883,7 @@ export const customerListInvitesForCustomer: OpenAPIOperation<
   operationId: "customer-list-invites-for-customer",
 };
 
-/** List all memberships belonging to a Customer. */
+/** List Memberships belonging to a Customer. */
 export const customerListMembershipsForCustomer: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -3077,7 +3077,7 @@ export const databaseCreateMysqlDatabase: OpenAPIOperation<
   operationId: "database-create-mysql-database",
 };
 
-/** List MySQLUsers belonging to a database. */
+/** List MySQLUsers belonging to a Database. */
 export const databaseListMysqlUsers: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -4592,40 +4592,6 @@ export const domainVerifyDomainOwnership: OpenAPIOperation<
   operationId: "domain-verify-domain-ownership",
 };
 
-/** Get a toplevel domain. */
-export const domainGetToplevelDomain: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ToplevelDomainsTld.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ToplevelDomainsTld.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ToplevelDomainsTld.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ToplevelDomainsTld.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ToplevelDomainsTld.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ToplevelDomainsTld.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ToplevelDomainsTld.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/toplevel-domains/{tld}",
-  method: "GET",
-  operationId: "domain-get-toplevel-domain",
-};
-
 /** List all domain ownerships of a project. */
 export const domainListDomainOwnerships: OpenAPIOperation<
   RequestType<
@@ -4682,35 +4648,6 @@ export const domainListDomains: OpenAPIOperation<
   path: "/v2/projects/{projectId}/domains",
   method: "GET",
   operationId: "domain-list-domains",
-};
-
-/** List all supported toplevel domains. */
-export const domainListToplevelDomains: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ToplevelDomains.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ToplevelDomains.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ToplevelDomains.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ToplevelDomains.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ToplevelDomains.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ToplevelDomains.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/toplevel-domains",
-  method: "GET",
-  operationId: "domain-list-toplevel-domains",
 };
 
 /** Resend a domain email. */
@@ -6974,7 +6911,7 @@ export const projectDeleteServerAvatar: OpenAPIOperation<
   operationId: "project-delete-server-avatar",
 };
 
-/** List the directories of a Project. */
+/** List directories belonging to a Project. */
 export const projectFileSystemGetDirectories: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -7304,7 +7241,7 @@ export const projectLeaveProject: OpenAPIOperation<
   operationId: "project-leave-project",
 };
 
-/** List all invites belonging to a Project. */
+/** List Invites belonging to a Project. */
 export const projectListInvitesForProject: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -7333,7 +7270,7 @@ export const projectListInvitesForProject: OpenAPIOperation<
   operationId: "project-list-invites-for-project",
 };
 
-/** List all memberships for a Project. */
+/** List Memberships belonging to a Project. */
 export const projectListMembershipsForProject: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -7362,7 +7299,7 @@ export const projectListMembershipsForProject: OpenAPIOperation<
   operationId: "project-list-memberships-for-project",
 };
 
-/** List all ProjectInvites for the executing user. */
+/** List ProjectInvites belonging to the executing user. */
 export const projectListProjectInvites: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -7420,7 +7357,7 @@ export const projectListProjectMemberships: OpenAPIOperation<
   operationId: "project-list-project-memberships",
 };
 
-/** List Project's for an Organization or Server. */
+/** List Projects belonging to the executing user. */
 export const projectListProjects: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -7449,7 +7386,7 @@ export const projectListProjects: OpenAPIOperation<
   operationId: "project-list-projects",
 };
 
-/** List Servers for an Organization or User. */
+/** List Servers belonging to the executing user. */
 export const projectListServers: OpenAPIOperation<
   RequestType<
     Simplify<null>,
