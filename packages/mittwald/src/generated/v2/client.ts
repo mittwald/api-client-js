@@ -455,7 +455,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     createMysqlUser: this.requestFunctionFactory(
       descriptors.databaseCreateMysqlUser
     ),
-    /** List RedisDatabases belonging to a project. */
+    /** List RedisDatabases belonging to a Project. */
     listRedisDatabases: this.requestFunctionFactory(
       descriptors.databaseListRedisDatabases
     ),
@@ -505,11 +505,11 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listMysqlCharsets: this.requestFunctionFactory(
       descriptors.databaseListMysqlCharsets
     ),
-    /** List available MySQLVersions. */
+    /** List MySQLVersions. */
     listMysqlVersions: this.requestFunctionFactory(
       descriptors.databaseListMysqlVersions
     ),
-    /** List available Redis versions. */
+    /** List RedisVersions. */
     listRedisVersions: this.requestFunctionFactory(
       descriptors.databaseListRedisVersions
     ),
@@ -657,6 +657,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Update an Ingresses tls settings. */
     ingressTls: this.requestFunctionFactory(descriptors.ingressTls),
+    /** updates srv-records for a specific zone */
+    dnsRecordSrvSet: this.requestFunctionFactory(descriptors.dnsRecordSrvSet),
+    /** creates a sub zone for a given dns zone */
+    dnsSubZoneCreate: this.requestFunctionFactory(descriptors.dnsSubZoneCreate),
   };
 
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
