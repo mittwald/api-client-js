@@ -35,4 +35,6 @@ function ignoredTestPathParametersAreInRootOfRequestConfig() {
   void f({
     foo: "",
   });
+  // @ts-expect-error Missing parameter
+  void f({});
 }
