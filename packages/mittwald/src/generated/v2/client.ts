@@ -557,8 +557,12 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     dnsRecordMxSetManaged: this.requestFunctionFactory(
       descriptors.dnsRecordMxSetManaged
     ),
+    /** updates srv-records for a specific zone */
+    dnsRecordSrvSet: this.requestFunctionFactory(descriptors.dnsRecordSrvSet),
     /** updates txt-records for a specific zone */
     dnsRecordTxtSet: this.requestFunctionFactory(descriptors.dnsRecordTxtSet),
+    /** creates a sub zone for a given dns zone */
+    dnsSubZoneCreate: this.requestFunctionFactory(descriptors.dnsSubZoneCreate),
     /** gets a specific zone */
     dnsZoneGetSpecific: this.requestFunctionFactory(
       descriptors.dnsZoneGetSpecific
@@ -657,10 +661,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Update an Ingresses tls settings. */
     ingressTls: this.requestFunctionFactory(descriptors.ingressTls),
-    /** updates srv-records for a specific zone */
-    dnsRecordSrvSet: this.requestFunctionFactory(descriptors.dnsRecordSrvSet),
-    /** creates a sub zone for a given dns zone */
-    dnsSubZoneCreate: this.requestFunctionFactory(descriptors.dnsSubZoneCreate),
   };
 
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */

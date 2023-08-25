@@ -4015,6 +4015,35 @@ export const dnsRecordMxSetManaged: OpenAPIOperation<
   operationId: "dns-record-mx-set-managed",
 };
 
+/** updates srv-records for a specific zone */
+export const dnsRecordSrvSet: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns/zones/{zoneId}/recordset/srv",
+  method: "PATCH",
+  operationId: "dns-record-srv-set",
+};
+
 /** updates txt-records for a specific zone */
 export const dnsRecordTxtSet: OpenAPIOperation<
   RequestType<
@@ -4042,6 +4071,35 @@ export const dnsRecordTxtSet: OpenAPIOperation<
   path: "/v2/dns/zones/{zoneId}/recordset/txt",
   method: "PUT",
   operationId: "dns-record-txt-set",
+};
+
+/** creates a sub zone for a given dns zone */
+export const dnsSubZoneCreate: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns/zones",
+  method: "POST",
+  operationId: "dns-sub-zone-create",
 };
 
 /** gets a specific zone */
@@ -9274,62 +9332,4 @@ export const userVerifyRegistration: OpenAPIOperation<
   path: "/v2/verify-registration",
   method: "POST",
   operationId: "user-verify-registration",
-};
-
-/** updates srv-records for a specific zone */
-export const dnsRecordSrvSet: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/dns/zones/{zoneId}/recordset/srv",
-  method: "PATCH",
-  operationId: "dns-record-srv-set",
-};
-
-/** creates a sub zone for a given dns zone */
-export const dnsSubZoneCreate: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/dns/zones",
-  method: "POST",
-  operationId: "dns-sub-zone-create",
 };
