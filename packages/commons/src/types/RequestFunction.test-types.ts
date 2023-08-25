@@ -27,3 +27,12 @@ function ignoredTestOptionalHeadersRequestTypes() {
     headers: { extra: true },
   });
 }
+
+function ignoredTestPathParametersAreInRootOfRequestConfig() {
+  const f = {} as RequestFunction<
+    OpenAPIOperation<RequestType<null, { foo: string }, null>>
+  >;
+  void f({
+    foo: "",
+  });
+}
