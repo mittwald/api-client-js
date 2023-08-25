@@ -154,3 +154,24 @@ import { MittwaldAPIV2 } from "@mittwald/api-client";
 type Project =
   MittwaldAPIV2.Paths.V2Projects.Get.Responses.$200.Content.ApplicationJson[number];
 ```
+
+## Migrating vom V2 to V3
+
+Path parameters are a primary component of the request and thus should not be
+"hidden" in the request config object. In V3 the API of the request
+configuration object has changed, and you have to set the path parameters
+directly in the root level of the request object.
+
+```javascript
+// V2
+mittwaldApi.project.get({
+  pathParameters: {
+    projectId: "p-xxxxx",
+  },
+});
+
+// V3
+mittwaldApi.project.get({
+  projectId: "p-xxxxx",
+});
+```
