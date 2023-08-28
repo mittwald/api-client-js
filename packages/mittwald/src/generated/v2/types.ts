@@ -932,6 +932,28 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.DnsTtlAuto;
       }
 
+      export type DnsRecordSRV =
+        | MittwaldAPIV2.Components.Schemas.DnsRecordUnset
+        | MittwaldAPIV2.Components.Schemas.DnsRecordSRVComponent;
+
+      export interface DnsRecordSRVComponent {
+        /**
+         * @minItems 1
+         */
+        records: [
+          MittwaldAPIV2.Components.Schemas.DnsRecordSRVRecord,
+          ...MittwaldAPIV2.Components.Schemas.DnsRecordSRVRecord[]
+        ];
+        settings: MittwaldAPIV2.Components.Schemas.DnsRecordSettings;
+      }
+
+      export interface DnsRecordSRVRecord {
+        fqdn: string;
+        port: number;
+        priority: number;
+        weight: number;
+      }
+
       export type DnsRecordTXT =
         | MittwaldAPIV2.Components.Schemas.DnsRecordUnset
         | MittwaldAPIV2.Components.Schemas.DnsRecordTXTComponent;
@@ -2104,28 +2126,6 @@ export declare module MittwaldAPIV2 {
         name: string;
         value: string;
       }
-
-      export interface DnsRecordSRVRecord {
-        fqdn: string;
-        port: number;
-        priority: number;
-        weight: number;
-      }
-
-      export interface DnsRecordSRVComponent {
-        /**
-         * @minItems 1
-         */
-        records: [
-          MittwaldAPIV2.Components.Schemas.DnsRecordSRVRecord,
-          ...MittwaldAPIV2.Components.Schemas.DnsRecordSRVRecord[]
-        ];
-        settings: MittwaldAPIV2.Components.Schemas.DnsRecordSettings;
-      }
-
-      export type DnsRecordSRV =
-        | MittwaldAPIV2.Components.Schemas.DnsRecordUnset
-        | MittwaldAPIV2.Components.Schemas.DnsRecordSRVComponent;
 
       export interface CommonsAddress {
         street: string;
@@ -8194,6 +8194,48 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2DnsZonesZoneIdRecordsetSrv {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            zoneId: string;
+          };
+
+          export type RequestBody =
+            | MittwaldAPIV2.Components.Schemas.DnsRecordUnset
+            | MittwaldAPIV2.Components.Schemas.DnsRecordSRVComponent;
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2DnsZonesZoneIdRecordsetTxt {
       namespace Put {
         namespace Parameters {
@@ -8214,6 +8256,49 @@ export declare module MittwaldAPIV2 {
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DnsZones {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            name: string;
+            parentZoneId: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                id: string;
+              }
             }
           }
 
@@ -15851,91 +15936,6 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DnsZonesZoneIdRecordsetSrv {
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            zoneId: string;
-          };
-
-          export type RequestBody =
-            | MittwaldAPIV2.Components.Schemas.DnsRecordUnset
-            | MittwaldAPIV2.Components.Schemas.DnsRecordSRVComponent;
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DnsZones {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            name: string;
-            parentZoneId: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                id: string;
-              }
-            }
-          }
-
-          namespace $400 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
