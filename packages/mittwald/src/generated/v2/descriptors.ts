@@ -4018,29 +4018,29 @@ export const dnsRecordMxSetManaged: OpenAPIOperation<
 /** updates srv-records for a specific zone */
 export const dnsRecordSrvSet: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Patch.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Put.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Patch.Responses.$204.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Put.Responses.$204.Content.Empty>,
       204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Patch.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Put.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Patch.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Put.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
   path: "/v2/dns/zones/{zoneId}/recordset/srv",
-  method: "PATCH",
+  method: "PUT",
   operationId: "dns-record-srv-set",
 };
 
