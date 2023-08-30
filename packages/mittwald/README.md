@@ -74,7 +74,7 @@ Depending on the operation, you must configure additional parameters, such as
 (request body).
 
 The operations and their parameters are documented in the
-[API documentation](https://api.mittwald.de/v2/docs/).
+[API documentation](https://developer.mittwald.de/reference/v2/).
 
 When using TypeScript all parameter schemas are reflected by the request type,
 so you will get compile errors, when a request does not match the schema.
