@@ -8195,7 +8195,7 @@ export declare module MittwaldAPIV2 {
     }
 
     namespace V2DnsZonesZoneIdRecordsetSrv {
-      namespace Patch {
+      namespace Put {
         namespace Parameters {
           export type Path = {
             zoneId: string;
