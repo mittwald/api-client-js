@@ -155,7 +155,11 @@ type Project =
   MittwaldAPIV2.Paths.V2Projects.Get.Responses.$200.Content.ApplicationJson[number];
 ```
 
-## Migrating vom V2 to V3
+## Migrating from package version V2 to V3
+
+**This instruction considers migrating from _package_ version V2 to V3, which
+has a breaking change in the call signature of request calls. The API itself has
+not changed and is still at version 2.**
 
 Path parameters are a primary component of the request and thus should not be
 "hidden" in the request config object. In V3 the API of the request
