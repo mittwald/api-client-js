@@ -34,12 +34,7 @@ export class Request<TOp extends OpenAPIOperation> {
   private buildAxiosConfig(): AxiosRequestConfig {
     const { method, path } = this.operationDescriptor;
 
-    const pathParameters =
-      this.config &&
-      "pathParameters" in this.config &&
-      this.config.pathParameters !== null
-        ? this.config.pathParameters
-        : undefined;
+    const pathParameters = this.config;
 
     const openApiPath = new OpenAPIPath(path, pathParameters as PathParameters);
     const url = openApiPath.buildUrl();
@@ -49,6 +44,7 @@ export class Request<TOp extends OpenAPIOperation> {
 
     const headersConfig =
       this.config && "headers" in this.config ? this.config.headers : undefined;
+
     const headers = headersConfig
       ? this.makeAxiosHeaders(headersConfig)
       : undefined;

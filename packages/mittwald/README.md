@@ -37,6 +37,71 @@ different types of authentication:
 Have a look at our [API introduction][api-getting-started] for more information
 on how to obtain an API token and how to get started with the API.
 
+### Setting request parameters
+
+API requests may require these type of parameters:
+
+- path parameters
+- headers
+- query parameters
+- request body
+
+#### Path parameters
+
+Path parameters are variable parts of a URL path. They are typically used to
+point to a specific resource within a collection, such as a project identified
+by ID. A URL can have several path parameters, each denoted with curly braces
+`{ }`.
+
+```
+/v2/projects/{projectId}
+```
+
+Path parameters **are required** and must be directly defined inside the request
+object.
+
+```javascript
+// Setting the projectId path parameters
+const project = await mittwaldApi.project.get({
+  projectId: "p-xxxxx",
+});
+```
+
+#### Headers, query parameters and request body
+
+Depending on the operation, you must configure additional parameters, such as
+`queryParameters` (URL query parameters), `headers` (HTTP headers), and `data`
+(request body).
+
+The operations and their parameters are documented in the
+[API documentation](https://developer.mittwald.de/reference/v2/).
+
+When using TypeScript all parameter schemas are reflected by the request type,
+so you will get compile errors, when a request does not match the schema.
+
+```javascript
+// Setting the projectId path parameters
+const response = await mittwaldApi.category.operation({
+  // path parameters
+  pathParameter1: "param1",
+  pathParameter2: "param2",
+  // parameters in header
+  headers: {
+    "x-header": "header",
+  },
+  // query parameters
+  queryParameters: {
+    queryParameters1: "queryParam1",
+    queryParameters2: "queryParam2",
+  },
+  // JSON object in request body
+  data: {
+    data1: "data1",
+    data2: "data2",
+  },
+});
+```
+
 ## Example
 
 ```typescript
@@ -88,4 +153,29 @@ import { MittwaldAPIV2 } from "@mittwald/api-client";
 
 type Project =
   MittwaldAPIV2.Paths.V2Projects.Get.Responses.$200.Content.ApplicationJson[number];
+```
+
+## Migrating from package version V2 to V3
+
+**This instruction considers migrating from _package_ version V2 to V3, which
+has a breaking change in the call signature of request calls. The API itself has
+not changed and is still at version 2.**
+
+Path parameters are a primary component of the request and thus should not be
+"hidden" in the request config object. In V3 the API of the request
+configuration object has changed, and you have to set the path parameters
+directly in the root level of the request object.
+
+```javascript
+// V2
+mittwaldApi.project.get({
+  pathParameters: {
+    projectId: "p-xxxxx",
+  },
+});
+
+// V3
+mittwaldApi.project.get({
+  projectId: "p-xxxxx",
+});
 ```

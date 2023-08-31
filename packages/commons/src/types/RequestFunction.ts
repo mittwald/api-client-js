@@ -5,8 +5,12 @@ import {
 } from "./OpenAPIOperation.js";
 import { NullableOnNoRequiredKeysDeep } from "./NullableOnNoRequiredKeysDeep.js";
 
+type UnboxPathParameters<T> = T extends { pathParameters: infer TPath }
+  ? Omit<T, "pathParameters"> & TPath
+  : T;
+
 export type RequestConfig<TOp extends OpenAPIOperation> =
-  NullableOnNoRequiredKeysDeep<InferredRequestType<TOp>>;
+  NullableOnNoRequiredKeysDeep<UnboxPathParameters<InferredRequestType<TOp>>>;
 
 export type ResponsePromise<TOp extends OpenAPIOperation> = Promise<
   InferredResponseType<TOp>
