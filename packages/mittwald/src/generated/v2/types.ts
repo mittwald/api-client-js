@@ -1121,6 +1121,7 @@ export declare module MittwaldAPIV2 {
           | "ERROR_UNSPECIFIED"
           | "ERROR_QUAD_A"
           | "ERROR_NO_A_RECORD"
+          | "ERROR_ACME_CERTIFICATE_REQUEST_DEADLINE_EXCEEDED"
         )[];
         hostname: string;
         id: string;
