@@ -1,6 +1,14 @@
-import { ApiClientError } from "@mittwald/api-client-commons";
+import {
+  ApiClientError,
+  AxiosDefaults,
+  AxiosHeaders,
+  CreateAxiosDefaults,
+  HeadersDefaults,
+} from "@mittwald/api-client-commons";
 import MittwaldApiV2Client from "./generated/v2/client.js";
 import { MittwaldAPIClientVersion } from "./version.js";
+import { isBrowser } from "browser-or-node";
+
 export type { MittwaldAPIV2 } from "./generated/v2/types.js";
 
 const defaultUserAgent = "mittwald-api-client/" + MittwaldAPIClientVersion;
@@ -9,14 +17,23 @@ export class MittwaldAPIClient extends MittwaldApiV2Client {
   private readonly apiToken: string | undefined;
 
   private constructor(apiToken?: string) {
-    super({
-      baseURL: "https://api.mittwald.de/",
-      headers: {
-        "User-Agent": defaultUserAgent,
-      },
-    });
+    super(MittwaldAPIClient.createAxiosDefaults());
     this.apiToken = apiToken;
     this.setupInterceptors();
+  }
+
+  private static createAxiosDefaults(): CreateAxiosDefaults {
+    const headers: Partial<AxiosHeaders> = {};
+
+    // Setting user agent is not allowed in browser environment
+    if (!isBrowser) {
+      headers["User-Agent"] = defaultUserAgent;
+    }
+
+    return {
+      baseURL: "https://api.mittwald.de/",
+      headers: headers,
+    };
   }
 
   private setupInterceptors(): void {
