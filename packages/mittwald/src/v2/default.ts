@@ -1,15 +1,13 @@
 import {
   ApiClientError,
-  AxiosDefaults,
   AxiosHeaders,
   CreateAxiosDefaults,
-  HeadersDefaults,
 } from "@mittwald/api-client-commons";
-import MittwaldApiV2Client from "./generated/v2/client.js";
-import { MittwaldAPIClientVersion } from "./version.js";
+import MittwaldApiV2Client from "../generated/v2/client.js";
+import { MittwaldAPIClientVersion } from "../version.js";
 import { isBrowser } from "browser-or-node";
 
-export type { MittwaldAPIV2 } from "./generated/v2/types.js";
+export type { MittwaldAPIV2 } from "../generated/v2/types.js";
 
 const defaultUserAgent = "mittwald-api-client/" + MittwaldAPIClientVersion;
 

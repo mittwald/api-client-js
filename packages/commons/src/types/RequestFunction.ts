@@ -9,7 +9,7 @@ type UnboxPathParameters<T> = T extends { pathParameters: infer TPath }
   ? Omit<T, "pathParameters"> & TPath
   : T;
 
-export type RequestConfig<TOp extends OpenAPIOperation> =
+export type RequestObject<TOp extends OpenAPIOperation> =
   NullableOnNoRequiredKeysDeep<UnboxPathParameters<InferredRequestType<TOp>>>;
 
 export type ResponsePromise<TOp extends OpenAPIOperation> = Promise<
@@ -17,14 +17,14 @@ export type ResponsePromise<TOp extends OpenAPIOperation> = Promise<
 >;
 
 type RequestFunctionWithOptionalRequest<TOp extends OpenAPIOperation> = (
-  request?: RequestConfig<TOp>,
+  request?: RequestObject<TOp>,
 ) => ResponsePromise<TOp>;
 
 type RequestFunctionWithRequiredRequest<TOp extends OpenAPIOperation> = (
-  request: RequestConfig<TOp>,
+  request: RequestObject<TOp>,
 ) => ResponsePromise<TOp>;
 
 export type RequestFunction<TOp extends OpenAPIOperation> =
-  null extends RequestConfig<TOp>
+  null extends RequestObject<TOp>
     ? RequestFunctionWithOptionalRequest<TOp>
     : RequestFunctionWithRequiredRequest<TOp>;

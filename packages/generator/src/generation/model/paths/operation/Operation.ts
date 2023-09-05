@@ -83,22 +83,44 @@ export class Operation {
     `;
   }
 
-  public compileClientMethod(tagNamePrefix: string): string {
+  private getMethodName(tag: Tag): string {
     const methodName = this.id.tsVar;
-    const methodNameWithoutTagPrefix = new Name(
-      methodName.startsWith(tagNamePrefix)
-        ? methodName.substring(tagNamePrefix.length)
+    return new Name(
+      methodName.startsWith(tag.name.tsVar)
+        ? methodName.substring(tag.name.tsVar.length)
         : methodName,
-    );
+    ).tsVar;
+  }
+
+  public compileClientMethod(tag: Tag): string {
+    const methodName = this.getMethodName(tag);
 
     const t = {
-      methodName: methodNameWithoutTagPrefix.tsVar,
+      methodName,
       descriptorName: this.id.tsVar,
     };
 
     return `\
       /** ${this.summary} */        
       ${t.methodName}: this.requestFunctionFactory(
+        descriptors.${t.descriptorName}
+      )
+    `;
+  }
+
+  public compileReactClientMethod(tag: Tag): string {
+    const methodName = this.getMethodName(tag);
+
+    const t = {
+      methodName,
+      descriptorName: this.id.tsVar,
+      tag: tag.name.tsVar,
+    };
+
+    return `\
+      /** ${this.summary} */        
+      ${t.methodName}: getAsyncResourceFactory(
+        baseClient.axios,
         descriptors.${t.descriptorName}
       )
     `;

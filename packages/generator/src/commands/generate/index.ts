@@ -84,5 +84,13 @@ export default class Generate extends Command {
       prepareTypeScriptOutput(clientFileContent),
     );
     ux.action.stop();
+
+    ux.action.start("Generating React client");
+    const reactClientFileContent = model.paths.compileReactClient();
+    await jetpack.writeAsync(
+      path.join(args.output, "client-react.ts"),
+      prepareTypeScriptOutput(reactClientFileContent),
+    );
+    ux.action.stop();
   }
 }

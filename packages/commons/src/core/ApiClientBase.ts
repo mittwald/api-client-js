@@ -1,5 +1,5 @@
 import axios, { Axios, AxiosInstance, CreateAxiosDefaults } from "axios";
-import { RequestConfig, RequestFunction } from "../types/index.js";
+import { RequestObject, RequestFunction } from "../types/index.js";
 import { OpenAPIOperation } from "../types/index.js";
 import Request from "./Request.js";
 
@@ -14,7 +14,7 @@ export abstract class ApiClientBase {
   protected requestFunctionFactory<TOp extends OpenAPIOperation>(
     operation: TOp,
   ): RequestFunction<TOp> {
-    return (conf?: RequestConfig<TOp>) =>
+    return (conf?: RequestObject<TOp>) =>
       new Request(this.axios, operation, conf).execute();
   }
 }
