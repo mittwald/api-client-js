@@ -1099,6 +1099,7 @@ __metadata:
   dependencies:
     "@mittwald/api-client-commons": "workspace:^"
     "@mittwald/api-code-generator": "workspace:^"
+    browser-or-node: ^2.1.1
   languageName: unknown
   linkType: soft
 
@@ -2672,6 +2673,13 @@ __metadata:
   dependencies:
     fill-range: ^7.0.1
   checksum: e2a8e769a863f3d4ee887b5fe21f63193a891c68b612ddb4b68d82d1b5f3ff9073af066c343e9867a393fe4c2555dcb33e89b937195feb9c1613d259edfcd459
+  languageName: node
+  linkType: hard
+
+"browser-or-node@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "browser-or-node@npm:2.1.1"
+  checksum: b1650b579345574d2c1905c73d385915a032523066ef9589036cf129b23b27b85096b6713476dffb88feb83cda798ed0774363e699117aa2724a0409adea25aa
   languageName: node
   linkType: hard
 
