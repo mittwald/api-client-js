@@ -9333,3 +9333,32 @@ export const userVerifyRegistration: OpenAPIOperation<
   method: "POST",
   operationId: "user-verify-registration",
 };
+
+/** List Metrics. */
+export const metricsListMetricsInternal: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.InternalV2Metrics.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.InternalV2Metrics.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.InternalV2Metrics.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.InternalV2Metrics.Get.Responses.$200.Content.ApplicationOctetStream>,
+      200,
+      "application/octet-stream"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.InternalV2Metrics.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.InternalV2Metrics.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/internal-v2/metrics",
+  method: "GET",
+  operationId: "metrics-list-metrics-internal",
+};
