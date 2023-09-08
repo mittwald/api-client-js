@@ -10,6 +10,27 @@ Copyright (c) 2023 Mittwald CM Service GmbH & Co. KG and contributors
 This project (and all NPM packages) therein is licensed under the MIT License;
 see the [LICENSE](../../LICENSE) file for details.
 
+## Table of contents
+
+- [Installing](#installing)
+- [Usage](#usage)
+  - [Setting request parameters](#setting-request-parameters)
+    - [Path parameters](#path-parameters)
+    - [Headers, query parameters and request body](#headers-query-parameters-and-request-body)
+- [Example](#example)
+- [Usage in React](#usage-in-react)
+  - [Installation](#installation)
+  - [Setup](#setup)
+  - [Usage](#usage-1)
+  - [Example](#example-1)
+- [API documentation](#api-documentation)
+- [Accessing the underlying Axios instance](#accessing-the-underlying-axios-instance)
+  - [Adding custom HTTP headers](#adding-custom-http-headers)
+  - [Intercepting requests or responses](#intercepting-requests-or-responses)
+- [Usage with TypeScript](#usage-with-typescript)
+  - [Importing types](#importing-types)
+- [Migrating from package version V2 to V3](#migrating-from-package-version-v2-to-v3)
+
 ## Installing
 
 You can install this package from the regular NPM registry:
@@ -62,7 +83,7 @@ object.
 
 ```javascript
 // Setting the projectId path parameters
-const project = await mittwaldApi.project.get({
+const project = await mittwaldApi.project.getProject({
   projectId: "p-xxxxx",
 });
 ```
@@ -80,7 +101,6 @@ When using TypeScript all parameter schemas are reflected by the request type,
 so you will get compile errors, when a request does not match the schema.
 
 ```javascript
-// Setting the projectId path parameters
 const response = await mittwaldApi.category.operation({
   // path parameters
   pathParameter1: "param1",
@@ -91,8 +111,8 @@ const response = await mittwaldApi.category.operation({
   },
   // query parameters
   queryParameters: {
-    queryParameters1: "queryParam1",
-    queryParameters2: "queryParam2",
+    queryParameter1: "queryParam1",
+    queryParameter2: "queryParam2",
   },
   // JSON object in request body
   data: {
@@ -110,6 +130,73 @@ import { MittwaldAPIV2Client } from "@mittwald/api-client";
 const mittwaldApi = MittwaldAPIClient.newWithToken("your-access-token");
 
 const projects = await mittwaldApi.project.listProjects();
+```
+
+## Usage in React
+
+This package also provides a client aligned to be used in React components. It
+uses
+[`@mittwald/react-use-promise`](https://www.npmjs.com/package/@mittwald/react-use-promise)
+to encapsulate the asynchronous API functions into AsyncResources. More details
+about how to use AsyncResources see the
+[package documentation](https://www.npmjs.com/package/@mittwald/react-use-promise#terminology).
+
+### Installation
+
+To use the React client you have to install the additional
+`@mittwald/react-use-promise` package:
+
+```shell
+yarn add @mittwald/react-use-promise
+```
+
+### Setup
+
+To create a React client instance, you first need an instance of the regular
+(promise-based) client. Then you can use the `.fromBaseClient(api)` method to
+build the React client.
+
+```javascript
+const api = MittwaldAPIV2Client.newUnauthenticated();
+const apiReact = MittwaldAPIV2ClientReact.fromBaseClient(api);
+```
+
+### Usage
+
+The React client has an equivalent for every GET method of the regular client.
+The methods returning an AsyncResource that can be used to get the API
+responses.
+
+If the response is not OK (status 200), an `ApiClientError` will be thrown.
+Errors can be handled by using error-boundaries. See the
+[error handling section](https://www.npmjs.com/package/@mittwald/react-use-promise#error-handling)
+for more details.
+
+### Example
+
+```javascript jsx
+import { MittwaldAPIV2Client } from "@mittwald/api-client";
+import { MittwaldAPIV2ClientReact } from "@mittwald/api-client/react";
+
+const api = MittwaldAPIV2Client.newUnauthenticated();
+const apiReact = MittwaldAPIV2ClientReact.fromBaseClient(api);
+
+const ProjectsList = () => {
+  // apiReact.project.listProjects() returns an AsyncResource that can be "watched"
+  const projects = apiReact.project.listProjects().watch({
+    autoRefresh: {
+      seconds: 30,
+    },
+  });
+
+  return (
+    <ul>
+      {projects.map((p) => (
+        <li key={p.id}>{p.description}</li>
+      ))}
+    </ul>
+  );
+};
 ```
 
 ## API documentation
@@ -168,14 +255,14 @@ directly in the root level of the request object.
 
 ```javascript
 // V2
-mittwaldApi.project.get({
+mittwaldApi.project.getProject({
   pathParameters: {
     projectId: "p-xxxxx",
   },
 });
 
 // V3
-mittwaldApi.project.get({
+mittwaldApi.project.getProject({
   projectId: "p-xxxxx",
 });
 ```

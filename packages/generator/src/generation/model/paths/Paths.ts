@@ -8,6 +8,7 @@ import { asyncStringJoin } from "../../asyncStringJoin.js";
 import { Operation } from "./operation/Operation.js";
 import { Tag } from "../tags/Tag.js";
 import { OpenAPIV3 } from "openapi-types";
+import camelcase from "camelcase";
 
 export class Paths {
   public static readonly ns = "Paths";
@@ -62,14 +63,22 @@ export class Paths {
     `;
   }
 
-  public getFlattenedOperations(): Operation[] {
-    return this.paths.flatMap((p) => p.operations);
+  public getFlattenedOperations(httpMethod?: string): Operation[] {
+    return this.paths
+      .flatMap((p) => p.operations)
+      .filter(
+        (p) =>
+          httpMethod === undefined ||
+          p.httpMethod.raw.toLowerCase() === httpMethod.toLowerCase(),
+      );
   }
 
-  public getGroupedOperationsByTag(): Array<[Tag, Operation[]]> {
+  public getGroupedOperationsByTag(
+    httpMethod?: string,
+  ): Array<[Tag, Operation[]]> {
     const result = new Map<Tag, Operation[]>();
 
-    for (const operation of this.getFlattenedOperations()) {
+    for (const operation of this.getFlattenedOperations(httpMethod)) {
       for (const tag of operation.tags) {
         const operationsOfTag = result.get(tag);
         if (operationsOfTag) {
@@ -84,12 +93,11 @@ export class Paths {
   }
 
   private compileClientMethodsOfTag(tag: Tag, operations: Operation[]): string {
-    const tagName = tag.name.tsVar;
     const t = {
-      tag: tagName,
+      tag: tag.name.tsVar,
       comment: tag.description,
       methods: operations
-        .map((op) => op.compileClientMethod(tagName))
+        .map((op) => op.compileClientMethod(tag))
         .join(",\r\n"),
     };
 
@@ -120,6 +128,105 @@ export class Paths {
       }
       
       export default ${t.clientClassName}
+    `;
+  }
+
+  private compileReactClientApiName(tag: Tag): string {
+    return `build${camelcase(tag.name.tsVar, {
+      pascalCase: true,
+    })}Api`;
+  }
+
+  private compileReactClientApiBuilderOfTag(
+    baseClientClassName: string,
+    tag: Tag,
+    operations: Operation[],
+  ): string {
+    const t = {
+      apiName: this.compileReactClientApiName(tag),
+      methods: operations
+        .map((op) => op.compileReactClientMethod(tag))
+        .join(",\r\n"),
+      baseClientClassName,
+    };
+
+    return `\
+      const ${t.apiName} = (baseClient: ${t.baseClientClassName}) => ({
+        ${t.methods}      
+      })
+    `;
+  }
+
+  private compileReactClientPropertyInitializer(tag: Tag): string {
+    const tagName = tag.name.tsVar;
+
+    const t = {
+      apiName: this.compileReactClientApiName(tag),
+      comment: tag.description,
+    };
+
+    return `\
+      this.${tagName} = ${t.apiName}(baseClient);
+    `;
+  }
+
+  private compileReactClientProperties(tag: Tag): string {
+    const tagName = tag.name.tsVar;
+
+    const t = {
+      apiName: this.compileReactClientApiName(tag),
+      comment: tag.description,
+    };
+
+    return `\
+      /** ${t.comment} */
+      public readonly ${tagName}: ReturnType<typeof ${t.apiName}>;
+    `;
+  }
+
+  public compileReactClient(): string {
+    const baseClientClassName = `${this.model.rootNamespace.tsType}Client`;
+    const clientClassName = `${this.model.rootNamespace.tsType}ClientReact`;
+
+    const t = {
+      baseClientClassName,
+      clientClassName,
+      apiBuilder: this.getGroupedOperationsByTag("GET")
+        .map(([tag, operations]) =>
+          this.compileReactClientApiBuilderOfTag(
+            baseClientClassName,
+            tag,
+            operations,
+          ),
+        )
+        .join("\r\n"),
+      clientProperties: this.getGroupedOperationsByTag("GET")
+        .map(([tag]) => this.compileReactClientProperties(tag))
+        .join("\r\n"),
+      clientPropertyInitializers: this.getGroupedOperationsByTag("GET")
+        .map(([tag]) => this.compileReactClientPropertyInitializer(tag))
+        .join("\r\n"),
+    };
+
+    return `\
+      import ${t.baseClientClassName} from "./client.js";
+      import { ApiCallAsyncResourceFactory } from "@mittwald/api-client-commons/react";
+      import * as descriptors from "./descriptors.js";
+      export * from "@mittwald/react-use-promise/types";
+      
+      ${t.apiBuilder}   
+      
+      export class ${t.clientClassName} {
+        ${t.clientProperties}
+        
+        private constructor(baseClient: ${t.baseClientClassName}) {
+          ${t.clientPropertyInitializers}
+        }
+        
+        public static fromBaseClient(baseClient: ${t.baseClientClassName}): ${t.clientClassName} {
+          return new ${t.clientClassName}(baseClient);        
+        }
+      }
     `;
   }
 }
