@@ -2,7 +2,7 @@ import {
   HttpHeaders,
   OpenAPIOperation,
   PathParameters,
-  RequestConfig,
+  RequestObject,
   ResponsePromise,
 } from "../types/index.js";
 import OpenAPIPath from "./OpenAPIPath.js";
@@ -13,45 +13,48 @@ import {
 } from "axios";
 
 export class Request<TOp extends OpenAPIOperation> {
-  private readonly axios: AxiosInstance;
   private readonly operationDescriptor: TOp;
-  private readonly config?: RequestConfig<TOp>;
+  private readonly requestObject?: RequestObject<TOp>;
+  public readonly requestConfig: AxiosRequestConfig;
 
   public constructor(
-    axiosInstance: AxiosInstance,
     operationDescriptor: TOp,
-    config?: RequestConfig<TOp>,
+    requestObject?: RequestObject<TOp>,
   ) {
-    this.axios = axiosInstance;
     this.operationDescriptor = operationDescriptor;
-    this.config = config;
+    this.requestObject = requestObject;
+    this.requestConfig = Object.freeze(this.buildAxiosConfig());
   }
 
-  public execute(): ResponsePromise<TOp> {
-    return this.axios.request(this.buildAxiosConfig()) as ResponsePromise<TOp>;
+  public execute(axios: AxiosInstance): ResponsePromise<TOp> {
+    return axios.request(this.requestConfig) as ResponsePromise<TOp>;
   }
 
   private buildAxiosConfig(): AxiosRequestConfig {
     const { method, path } = this.operationDescriptor;
 
-    const pathParameters = this.config;
+    const pathParameters = this.requestObject;
 
     const openApiPath = new OpenAPIPath(path, pathParameters as PathParameters);
     const url = openApiPath.buildUrl();
 
     const data =
-      this.config && "data" in this.config ? this.config.data : undefined;
+      this.requestObject && "data" in this.requestObject
+        ? this.requestObject.data
+        : undefined;
 
     const headersConfig =
-      this.config && "headers" in this.config ? this.config.headers : undefined;
+      this.requestObject && "headers" in this.requestObject
+        ? this.requestObject.headers
+        : undefined;
 
     const headers = headersConfig
       ? this.makeAxiosHeaders(headersConfig)
       : undefined;
 
     const queryParametersConfig =
-      this.config && "queryParameters" in this.config
-        ? this.config.queryParameters
+      this.requestObject && "queryParameters" in this.requestObject
+        ? this.requestObject.queryParameters
         : undefined;
     const params = this.convertQueryToUrlSearchParams(queryParametersConfig);
 

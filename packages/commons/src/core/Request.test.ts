@@ -21,8 +21,8 @@ describe("query parameters", () => {
   } as const;
 
   const executeRequest = (query: QueryParameters): string => {
-    const request = new Request(mockedAxios, op, { queryParameters: query });
-    request.execute();
+    const request = new Request(op, { queryParameters: query });
+    request.execute(mockedAxios);
     const requestConfig = requestFn.mock.calls[0][0] as {
       params: URLSearchParams;
     };
