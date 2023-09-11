@@ -627,7 +627,7 @@ export declare module MittwaldAPIV2 {
         executionEnd?: string;
         executionStart?: string;
         id: string;
-        logPath: string;
+        logPath?: string;
         start?: string;
         status:
           | "Complete"
@@ -4575,7 +4575,7 @@ export declare module MittwaldAPIV2 {
           export interface RequestBody {
             categoryId?: string;
             relatedTo?: MittwaldAPIV2.Components.Schemas.ConversationAggregateReference;
-            title: string;
+            title?: string;
           }
 
           export type Header = {};
