@@ -2034,6 +2034,12 @@ export declare module MittwaldAPIV2 {
       export interface UserUser {
         avatarRef?: string;
         email?: string;
+        /**
+         * additional information about mittwald employees
+         */
+        employeeInformation?: {
+          department: string;
+        };
         person: MittwaldAPIV2.Components.Schemas.CommonsPerson;
         phoneNumber?: string;
         registeredAt?: string;
@@ -13343,7 +13349,7 @@ export declare module MittwaldAPIV2 {
 
           export interface RequestBody {
             pAccount: string;
-            targetTariff: "Webhosting 11.0 L" | "Webhosting 11.0 MAX";
+            targetTariff: string;
           }
 
           export type Header = {};
