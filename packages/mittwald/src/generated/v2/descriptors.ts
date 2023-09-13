@@ -4194,7 +4194,7 @@ export const domainAbortDeclareProcess: OpenAPIOperation<
   operationId: "domain-abort-declare-process",
 };
 
-/** Change the ownerC of a domain. */
+/** Change the owner contact of a domain. */
 export const domainChangeOwnercOfDomain: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdHandlesOwnerc.Put.Parameters.RequestBody>,

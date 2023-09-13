@@ -575,7 +575,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     abortDeclareProcess: this.requestFunctionFactory(
       descriptors.domainAbortDeclareProcess
     ),
-    /** Change the ownerC of a domain. */
+    /** Change the owner contact of a domain. */
     changeOwnercOfDomain: this.requestFunctionFactory(
       descriptors.domainChangeOwnercOfDomain
     ),
