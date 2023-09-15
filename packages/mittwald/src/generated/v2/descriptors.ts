@@ -3870,6 +3870,35 @@ export const databaseUpdateRedisDatabaseDescription: OpenAPIOperation<
   operationId: "database-update-redis-database-description",
 };
 
+/** Subscribe a user to the mStudio newsletter. */
+export const newsletterSubscribeUser: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptions.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptions.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptions.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptions.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptions.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptions.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptions.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/newsletter-subscriptions",
+  method: "POST",
+  operationId: "newsletter-subscribe-user",
+};
+
 /** updates a-records for a specific zone */
 export const dnsRecordAsetCustom: OpenAPIOperation<
   RequestType<
@@ -6160,35 +6189,6 @@ export const newsletterUnsubscribeUser: OpenAPIOperation<
   path: "/v2/newsletter-subscriptions/self",
   method: "DELETE",
   operationId: "newsletter-unsubscribe-user",
-};
-
-/** Subscribe a user to the mStudio newsletter. */
-export const newsletterSubscribeUser: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptions.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptions.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptions.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptions.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptions.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptions.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptions.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/newsletter-subscriptions",
-  method: "POST",
-  operationId: "newsletter-subscribe-user",
 };
 
 /** Get the counts for unread notifications of the user. */

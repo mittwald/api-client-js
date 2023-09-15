@@ -535,6 +535,38 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
+  /** The notification API allows you to manage your notifications. */
+  public readonly notification = {
+    /** Subscribe a user to the mStudio newsletter. */
+    newsletterSubscribeUser: this.requestFunctionFactory(
+      descriptors.newsletterSubscribeUser
+    ),
+    /** Getting the subscription status of the subscription. */
+    newsletterGetInfo: this.requestFunctionFactory(
+      descriptors.newsletterGetInfo
+    ),
+    /** Unsubscribe a user from the mStudio newsletter. */
+    newsletterUnsubscribeUser: this.requestFunctionFactory(
+      descriptors.newsletterUnsubscribeUser
+    ),
+    /** Get the counts for unread notifications of the user. */
+    scountUnreadNotifications: this.requestFunctionFactory(
+      descriptors.notificationsCountUnreadNotifications
+    ),
+    /** List all unread notifications */
+    slistNotifications: this.requestFunctionFactory(
+      descriptors.notificationsListNotifications
+    ),
+    /** Mark all notifications as read. */
+    sreadAllNotifications: this.requestFunctionFactory(
+      descriptors.notificationsReadAllNotifications
+    ),
+    /** Mark notification as read. */
+    sreadNotification: this.requestFunctionFactory(
+      descriptors.notificationsReadNotification
+    ),
+  };
+
   /** The domain API allows you to manage your domains, DNS records and ingress resources. */
   public readonly domain = {
     /** updates a-records for a specific zone */
@@ -762,38 +794,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update whitelist for a given project ID */
     projectsettingUpdateWhitelist: this.requestFunctionFactory(
       descriptors.mailProjectsettingUpdateWhitelist
-    ),
-  };
-
-  /** The notification API allows you to manage your notifications. */
-  public readonly notification = {
-    /** Getting the subscription status of the subscription. */
-    newsletterGetInfo: this.requestFunctionFactory(
-      descriptors.newsletterGetInfo
-    ),
-    /** Unsubscribe a user from the mStudio newsletter. */
-    newsletterUnsubscribeUser: this.requestFunctionFactory(
-      descriptors.newsletterUnsubscribeUser
-    ),
-    /** Subscribe a user to the mStudio newsletter. */
-    newsletterSubscribeUser: this.requestFunctionFactory(
-      descriptors.newsletterSubscribeUser
-    ),
-    /** Get the counts for unread notifications of the user. */
-    scountUnreadNotifications: this.requestFunctionFactory(
-      descriptors.notificationsCountUnreadNotifications
-    ),
-    /** List all unread notifications */
-    slistNotifications: this.requestFunctionFactory(
-      descriptors.notificationsListNotifications
-    ),
-    /** Mark all notifications as read. */
-    sreadAllNotifications: this.requestFunctionFactory(
-      descriptors.notificationsReadAllNotifications
-    ),
-    /** Mark notification as read. */
-    sreadNotification: this.requestFunctionFactory(
-      descriptors.notificationsReadNotification
     ),
   };
 
