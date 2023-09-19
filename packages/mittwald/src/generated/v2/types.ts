@@ -770,7 +770,6 @@ export declare module MittwaldAPIV2 {
         isShared: boolean;
         name: string;
         projectId: string;
-        size: number;
         updatedAt: string;
         version: string;
       }
@@ -1777,8 +1776,8 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface ProjectHardwareSpec {
-        cpu: string;
-        mem: string;
+        cpu?: string;
+        mem?: string;
         storage: string;
       }
 
@@ -11088,41 +11087,6 @@ export declare module MittwaldAPIV2 {
           namespace $503 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-        }
-      }
-    }
-
-    namespace InternalV2Metrics {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationOctetStream = string;
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
         }
