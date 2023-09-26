@@ -1812,6 +1812,7 @@ export declare module MittwaldAPIV2 {
         spec?:
           | MittwaldAPIV2.Components.Schemas.ProjectVisitorSpec
           | MittwaldAPIV2.Components.Schemas.ProjectHardwareSpec;
+        statisticsBaseDomain?: string;
       }
 
       export type ProjectProjectReadinessStatus =
@@ -1833,6 +1834,7 @@ export declare module MittwaldAPIV2 {
         machineType: MittwaldAPIV2.Components.Schemas.ProjectMachineType;
         readiness: MittwaldAPIV2.Components.Schemas.ProjectProjectReadinessStatus;
         shortId: string;
+        statisticsBaseDomain?: string;
         storage: string;
       }
 
