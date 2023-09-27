@@ -25,7 +25,7 @@ export class SecuritySchemes {
       assertNoRefs(scheme);
       invariant(
         scheme.type === "apiKey",
-        `Security scheme type '${scheme.type}' is supported (allowed types: 'apiKey')`,
+        `Security scheme type '${scheme.type}' is not supported (allowed types: 'apiKey')`,
       );
     });
 
