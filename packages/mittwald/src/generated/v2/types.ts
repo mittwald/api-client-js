@@ -1693,6 +1693,7 @@ export declare module MittwaldAPIV2 {
         customerId: string;
         description: string;
         diskspaceInGiB: number;
+        promotionCode?: string;
         spec:
           | MittwaldAPIV2.Components.Schemas.OrderMachineTypeSpec
           | MittwaldAPIV2.Components.Schemas.OrderHardwareSpec;
