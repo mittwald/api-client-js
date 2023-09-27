@@ -35,11 +35,20 @@ export class CodeGenerationModel {
     const t = {
       ns: this.rootNamespace.tsType,
       components: await this.components.compileTypes(opts),
+      operationTypes: await this.paths.compileOperationTypes(),
       paths: await this.paths.compileTypes(opts),
     };
 
     return `\
+      import * as descriptors from "./descriptors.js";
+      import { 
+        RequestData as InferredRequestData, 
+        ResponseData as InferredResponseData, 
+        HttpStatus 
+      } from "@mittwald/api-client-commons";
+
       export declare module ${t.ns} {
+        ${t.operationTypes}
         ${t.components}
         ${t.paths}
       }

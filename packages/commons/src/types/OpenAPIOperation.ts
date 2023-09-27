@@ -22,7 +22,13 @@ export type InferredResponseType<TOp> = TOp extends OpenAPIOperation<
   ? TRes
   : never;
 
-export type SuccessfulResponseData<
-  TOp,
-  TStatus extends HttpStatus = 200,
-> = Extract<InferredResponseType<TOp>, { status: TStatus }>["data"];
+export type ResponseData<TOp, TStatus extends HttpStatus = 200> = Extract<
+  InferredResponseType<TOp>,
+  { status: TStatus }
+>["data"];
+
+export type RequestData<TOp> = TOp extends OpenAPIOperation
+  ? InferredRequestType<TOp> extends { data: infer TData }
+    ? TData
+    : never
+  : never;

@@ -4,7 +4,7 @@ import {
   OpenAPIOperation,
   RequestFunction,
   RequestObject,
-  SuccessfulResponseData,
+  ResponseData,
 } from "../types/index.js";
 import Request from "../core/Request.js";
 import { GetApiResourceFn } from "./types.js";
@@ -35,7 +35,7 @@ export class ApiCallAsyncResourceFactory<TOp extends OpenAPIOperation> {
 
   private async executeRequest(
     requestObj: RequestObject<TOp>,
-  ): Promise<SuccessfulResponseData<TOp>> {
+  ): Promise<ResponseData<TOp>> {
     const response = await this.requestFn(requestObj);
     assertStatus(response, 200);
     return response.data;
