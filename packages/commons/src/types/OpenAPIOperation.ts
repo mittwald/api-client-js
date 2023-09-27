@@ -1,6 +1,6 @@
 import { AnyResponse, Response } from "./Response.js";
 import { AnyRequest, RequestType } from "./RequestType.js";
-import { HttpMethod } from "./http.js";
+import { HttpMethod, HttpStatus } from "./http.js";
 
 export interface OpenAPIOperation<
   TIgnoredRequest extends AnyRequest = RequestType,
@@ -21,3 +21,8 @@ export type InferredResponseType<TOp> = TOp extends OpenAPIOperation<
 >
   ? TRes
   : never;
+
+export type SuccessfulResponseData<
+  TOp,
+  TStatus extends HttpStatus = 200,
+> = Extract<InferredResponseType<TOp>, { status: TStatus }>["data"];

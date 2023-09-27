@@ -4,9 +4,10 @@ import {
   OpenAPIOperation,
   RequestFunction,
   RequestObject,
+  SuccessfulResponseData,
 } from "../types/index.js";
 import Request from "../core/Request.js";
-import { GetApiResourceFn, Inferred200ResponseData } from "./types.js";
+import { GetApiResourceFn } from "./types.js";
 
 export class ApiCallAsyncResourceFactory<TOp extends OpenAPIOperation> {
   private static namespace = "@mittwald/api-client";
@@ -34,7 +35,7 @@ export class ApiCallAsyncResourceFactory<TOp extends OpenAPIOperation> {
 
   private async executeRequest(
     requestObj: RequestObject<TOp>,
-  ): Promise<Inferred200ResponseData<TOp>> {
+  ): Promise<SuccessfulResponseData<TOp>> {
     const response = await this.requestFn(requestObj);
     assertStatus(response, 200);
     return response.data;
