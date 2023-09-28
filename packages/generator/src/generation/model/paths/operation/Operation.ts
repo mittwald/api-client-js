@@ -83,6 +83,20 @@ export class Operation {
     `;
   }
 
+  public compileRequestResponseTypes(): string {
+    const t = {
+      ns: this.id.tsType,
+      descriptor: this.id.tsVar,
+    };
+
+    return `\
+        namespace ${t.ns} {
+          type RequestData = InferredRequestData<typeof descriptors.${t.descriptor}>;
+          type ResponseData<TStatus extends HttpStatus = 200> = InferredResponseData<typeof descriptors.${t.descriptor}, TStatus>;
+        }
+    `;
+  }
+
   private getMethodName(tag: Tag): string {
     const methodName = this.id.tsVar;
     return new Name(

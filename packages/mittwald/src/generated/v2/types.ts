@@ -1,7 +1,2915 @@
 /* eslint-disable */
 /* prettier-ignore */
 /* This file is auto-generated with acg (@mittwald/api-code-generator) */
+import * as descriptors from "./descriptors.js";
+import {
+  RequestData as InferredRequestData,
+  ResponseData as InferredResponseData,
+  HttpStatus,
+} from "@mittwald/api-client-commons";
+
 export declare module MittwaldAPIV2 {
+  namespace Operations {
+    namespace AppExecuteAction {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appExecuteAction
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appExecuteAction, TStatus>;
+    }
+
+    namespace AppGetApp {
+      type RequestData = InferredRequestData<typeof descriptors.appGetApp>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appGetApp, TStatus>;
+    }
+
+    namespace AppGetAppinstallation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appGetAppinstallation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appGetAppinstallation, TStatus>;
+    }
+
+    namespace AppUninstallAppinstallation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appUninstallAppinstallation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appUninstallAppinstallation,
+          TStatus
+        >;
+    }
+
+    namespace AppPatchAppinstallation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appPatchAppinstallation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appPatchAppinstallation,
+          TStatus
+        >;
+    }
+
+    namespace AppGetAppversion {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appGetAppversion
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appGetAppversion, TStatus>;
+    }
+
+    namespace AppGetMissingDependenciesForAppinstallation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appGetMissingDependenciesForAppinstallation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appGetMissingDependenciesForAppinstallation,
+          TStatus
+        >;
+    }
+
+    namespace AppGetSystemsoftware {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appGetSystemsoftware
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appGetSystemsoftware, TStatus>;
+    }
+
+    namespace AppGetSystemsoftwareversion {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appGetSystemsoftwareversion
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appGetSystemsoftwareversion,
+          TStatus
+        >;
+    }
+
+    namespace AppLinkDatabase {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appLinkDatabase
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appLinkDatabase, TStatus>;
+    }
+
+    namespace AppListAppinstallations {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appListAppinstallations
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appListAppinstallations,
+          TStatus
+        >;
+    }
+
+    namespace AppRequestAppinstallation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appRequestAppinstallation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appRequestAppinstallation,
+          TStatus
+        >;
+    }
+
+    namespace AppListApps {
+      type RequestData = InferredRequestData<typeof descriptors.appListApps>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appListApps, TStatus>;
+    }
+
+    namespace AppListAppversions {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appListAppversions
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appListAppversions, TStatus>;
+    }
+
+    namespace AppListSystemsoftwares {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appListSystemsoftwares
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appListSystemsoftwares,
+          TStatus
+        >;
+    }
+
+    namespace AppListSystemsoftwareversions {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appListSystemsoftwareversions
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appListSystemsoftwareversions,
+          TStatus
+        >;
+    }
+
+    namespace AppListUpdateCandidatesForAppversion {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appListUpdateCandidatesForAppversion
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appListUpdateCandidatesForAppversion,
+          TStatus
+        >;
+    }
+
+    namespace AppReconcileDetectedApps {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appReconcileDetectedApps
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appReconcileDetectedApps,
+          TStatus
+        >;
+    }
+
+    namespace AppRequestAppinstallationCopy {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appRequestAppinstallationCopy
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appRequestAppinstallationCopy,
+          TStatus
+        >;
+    }
+
+    namespace AppRetrieveStatus {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appRetrieveStatus
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appRetrieveStatus, TStatus>;
+    }
+
+    namespace AppSetDatabaseUsers {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appSetDatabaseUsers
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appSetDatabaseUsers, TStatus>;
+    }
+
+    namespace AppUnlinkDatabase {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appUnlinkDatabase
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appUnlinkDatabase, TStatus>;
+    }
+
+    namespace ArticleGetArticle {
+      type RequestData = InferredRequestData<
+        typeof descriptors.articleGetArticle
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.articleGetArticle, TStatus>;
+    }
+
+    namespace ArticleListArticles {
+      type RequestData = InferredRequestData<
+        typeof descriptors.articleListArticles
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.articleListArticles, TStatus>;
+    }
+
+    namespace BackupCreateProjectBackupExport {
+      type RequestData = InferredRequestData<
+        typeof descriptors.backupCreateProjectBackupExport
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.backupCreateProjectBackupExport,
+          TStatus
+        >;
+    }
+
+    namespace BackupDeleteProjectBackupExport {
+      type RequestData = InferredRequestData<
+        typeof descriptors.backupDeleteProjectBackupExport
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.backupDeleteProjectBackupExport,
+          TStatus
+        >;
+    }
+
+    namespace BackupListProjectBackupSchedules {
+      type RequestData = InferredRequestData<
+        typeof descriptors.backupListProjectBackupSchedules
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.backupListProjectBackupSchedules,
+          TStatus
+        >;
+    }
+
+    namespace BackupCreateProjectBackupSchedule {
+      type RequestData = InferredRequestData<
+        typeof descriptors.backupCreateProjectBackupSchedule
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.backupCreateProjectBackupSchedule,
+          TStatus
+        >;
+    }
+
+    namespace BackupListProjectBackups {
+      type RequestData = InferredRequestData<
+        typeof descriptors.backupListProjectBackups
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.backupListProjectBackups,
+          TStatus
+        >;
+    }
+
+    namespace BackupCreateProjectBackup {
+      type RequestData = InferredRequestData<
+        typeof descriptors.backupCreateProjectBackup
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.backupCreateProjectBackup,
+          TStatus
+        >;
+    }
+
+    namespace BackupGetProjectBackupSchedule {
+      type RequestData = InferredRequestData<
+        typeof descriptors.backupGetProjectBackupSchedule
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.backupGetProjectBackupSchedule,
+          TStatus
+        >;
+    }
+
+    namespace BackupDeleteProjectBackupSchedule {
+      type RequestData = InferredRequestData<
+        typeof descriptors.backupDeleteProjectBackupSchedule
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.backupDeleteProjectBackupSchedule,
+          TStatus
+        >;
+    }
+
+    namespace BackupUpdateProjectBackupSchedule {
+      type RequestData = InferredRequestData<
+        typeof descriptors.backupUpdateProjectBackupSchedule
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.backupUpdateProjectBackupSchedule,
+          TStatus
+        >;
+    }
+
+    namespace BackupGetProjectBackup {
+      type RequestData = InferredRequestData<
+        typeof descriptors.backupGetProjectBackup
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.backupGetProjectBackup,
+          TStatus
+        >;
+    }
+
+    namespace BackupDeleteProjectBackup {
+      type RequestData = InferredRequestData<
+        typeof descriptors.backupDeleteProjectBackup
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.backupDeleteProjectBackup,
+          TStatus
+        >;
+    }
+
+    namespace BackupUpdateProjectBackupDescription {
+      type RequestData = InferredRequestData<
+        typeof descriptors.backupUpdateProjectBackupDescription
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.backupUpdateProjectBackupDescription,
+          TStatus
+        >;
+    }
+
+    namespace ContractTerminateContractItem {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contractTerminateContractItem
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contractTerminateContractItem,
+          TStatus
+        >;
+    }
+
+    namespace ContractCancelContractItemTermination {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contractCancelContractItemTermination
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contractCancelContractItemTermination,
+          TStatus
+        >;
+    }
+
+    namespace ContractCancelContractTariffChange {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contractCancelContractTariffChange
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contractCancelContractTariffChange,
+          TStatus
+        >;
+    }
+
+    namespace ContractTerminateContract {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contractTerminateContract
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contractTerminateContract,
+          TStatus
+        >;
+    }
+
+    namespace ContractCancelContractTermination {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contractCancelContractTermination
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contractCancelContractTermination,
+          TStatus
+        >;
+    }
+
+    namespace ContractGetBaseItemOfContract {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contractGetBaseItemOfContract
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contractGetBaseItemOfContract,
+          TStatus
+        >;
+    }
+
+    namespace ContractGetDetailOfContractByDomain {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contractGetDetailOfContractByDomain
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contractGetDetailOfContractByDomain,
+          TStatus
+        >;
+    }
+
+    namespace ContractGetDetailOfContractByProject {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contractGetDetailOfContractByProject
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contractGetDetailOfContractByProject,
+          TStatus
+        >;
+    }
+
+    namespace ContractGetDetailOfContractByServer {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contractGetDetailOfContractByServer
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contractGetDetailOfContractByServer,
+          TStatus
+        >;
+    }
+
+    namespace ContractGetDetailOfContractItem {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contractGetDetailOfContractItem
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contractGetDetailOfContractItem,
+          TStatus
+        >;
+    }
+
+    namespace ContractGetDetailOfContract {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contractGetDetailOfContract
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contractGetDetailOfContract,
+          TStatus
+        >;
+    }
+
+    namespace ContractGetNextTerminationDateForItem {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contractGetNextTerminationDateForItem
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contractGetNextTerminationDateForItem,
+          TStatus
+        >;
+    }
+
+    namespace ContractListContracts {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contractListContracts
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.contractListContracts, TStatus>;
+    }
+
+    namespace ConversationListConversations {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationListConversations
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationListConversations,
+          TStatus
+        >;
+    }
+
+    namespace ConversationCreateConversation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationCreateConversation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationCreateConversation,
+          TStatus
+        >;
+    }
+
+    namespace ConversationListMessagesByConversation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationListMessagesByConversation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationListMessagesByConversation,
+          TStatus
+        >;
+    }
+
+    namespace ConversationCreateMessage {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationCreateMessage
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationCreateMessage,
+          TStatus
+        >;
+    }
+
+    namespace ConversationGetCategory {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationGetCategory
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationGetCategory,
+          TStatus
+        >;
+    }
+
+    namespace ConversationGetConversation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationGetConversation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationGetConversation,
+          TStatus
+        >;
+    }
+
+    namespace ConversationUpdateConversation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationUpdateConversation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationUpdateConversation,
+          TStatus
+        >;
+    }
+
+    namespace ConversationListCategories {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationListCategories
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationListCategories,
+          TStatus
+        >;
+    }
+
+    namespace ConversationRequestFileUpload {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationRequestFileUpload
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationRequestFileUpload,
+          TStatus
+        >;
+    }
+
+    namespace ConversationSetConversationStatus {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationSetConversationStatus
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationSetConversationStatus,
+          TStatus
+        >;
+    }
+
+    namespace ConversationUpdateMessage {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationUpdateMessage
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationUpdateMessage,
+          TStatus
+        >;
+    }
+
+    namespace CronjobAbortExecution {
+      type RequestData = InferredRequestData<
+        typeof descriptors.cronjobAbortExecution
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.cronjobAbortExecution, TStatus>;
+    }
+
+    namespace CronjobListCronjobs {
+      type RequestData = InferredRequestData<
+        typeof descriptors.cronjobListCronjobs
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.cronjobListCronjobs, TStatus>;
+    }
+
+    namespace CronjobCreateCronjob {
+      type RequestData = InferredRequestData<
+        typeof descriptors.cronjobCreateCronjob
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.cronjobCreateCronjob, TStatus>;
+    }
+
+    namespace CronjobListExecutions {
+      type RequestData = InferredRequestData<
+        typeof descriptors.cronjobListExecutions
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.cronjobListExecutions, TStatus>;
+    }
+
+    namespace CronjobCreateExecution {
+      type RequestData = InferredRequestData<
+        typeof descriptors.cronjobCreateExecution
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.cronjobCreateExecution,
+          TStatus
+        >;
+    }
+
+    namespace CronjobGetCronjob {
+      type RequestData = InferredRequestData<
+        typeof descriptors.cronjobGetCronjob
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.cronjobGetCronjob, TStatus>;
+    }
+
+    namespace CronjobDeleteCronjob {
+      type RequestData = InferredRequestData<
+        typeof descriptors.cronjobDeleteCronjob
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.cronjobDeleteCronjob, TStatus>;
+    }
+
+    namespace CronjobUpdateCronjob {
+      type RequestData = InferredRequestData<
+        typeof descriptors.cronjobUpdateCronjob
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.cronjobUpdateCronjob, TStatus>;
+    }
+
+    namespace CronjobGetExecution {
+      type RequestData = InferredRequestData<
+        typeof descriptors.cronjobGetExecution
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.cronjobGetExecution, TStatus>;
+    }
+
+    namespace CronjobUpdateCronjobAppId {
+      type RequestData = InferredRequestData<
+        typeof descriptors.cronjobUpdateCronjobAppId
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.cronjobUpdateCronjobAppId,
+          TStatus
+        >;
+    }
+
+    namespace CustomerAcceptCustomerInvite {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerAcceptCustomerInvite
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerAcceptCustomerInvite,
+          TStatus
+        >;
+    }
+
+    namespace CustomerListOfCustomerCategories {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerListOfCustomerCategories
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerListOfCustomerCategories,
+          TStatus
+        >;
+    }
+
+    namespace CustomerCreateCategory {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerCreateCategory
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerCreateCategory,
+          TStatus
+        >;
+    }
+
+    namespace CustomerCreateCustomerInvite {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerCreateCustomerInvite
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerCreateCustomerInvite,
+          TStatus
+        >;
+    }
+
+    namespace CustomerListCustomers {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerListCustomers
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.customerListCustomers, TStatus>;
+    }
+
+    namespace CustomerCreateCustomer {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerCreateCustomer
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerCreateCustomer,
+          TStatus
+        >;
+    }
+
+    namespace CustomerDeclineCustomerInvite {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerDeclineCustomerInvite
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerDeclineCustomerInvite,
+          TStatus
+        >;
+    }
+
+    namespace CustomerGetCustomerCategory {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerGetCustomerCategory
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerGetCustomerCategory,
+          TStatus
+        >;
+    }
+
+    namespace CustomerUpdateCategory {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerUpdateCategory
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerUpdateCategory,
+          TStatus
+        >;
+    }
+
+    namespace CustomerDeleteCategory {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerDeleteCategory
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerDeleteCategory,
+          TStatus
+        >;
+    }
+
+    namespace CustomerGetCustomerInvite {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerGetCustomerInvite
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerGetCustomerInvite,
+          TStatus
+        >;
+    }
+
+    namespace CustomerDeleteCustomerInvite {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerDeleteCustomerInvite
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerDeleteCustomerInvite,
+          TStatus
+        >;
+    }
+
+    namespace CustomerGetCustomerMembership {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerGetCustomerMembership
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerGetCustomerMembership,
+          TStatus
+        >;
+    }
+
+    namespace CustomerDeleteCustomerMembership {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerDeleteCustomerMembership
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerDeleteCustomerMembership,
+          TStatus
+        >;
+    }
+
+    namespace CustomerUpdateCustomerMembership {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerUpdateCustomerMembership
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerUpdateCustomerMembership,
+          TStatus
+        >;
+    }
+
+    namespace CustomerGetCustomer {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerGetCustomer
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.customerGetCustomer, TStatus>;
+    }
+
+    namespace CustomerUpdateCustomer {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerUpdateCustomer
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerUpdateCustomer,
+          TStatus
+        >;
+    }
+
+    namespace CustomerDeleteCustomer {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerDeleteCustomer
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerDeleteCustomer,
+          TStatus
+        >;
+    }
+
+    namespace CustomerGetCustomerTokenInvite {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerGetCustomerTokenInvite
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerGetCustomerTokenInvite,
+          TStatus
+        >;
+    }
+
+    namespace CustomerIsCustomerLegallyCompetent {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerIsCustomerLegallyCompetent
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerIsCustomerLegallyCompetent,
+          TStatus
+        >;
+    }
+
+    namespace CustomerLeaveCustomer {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerLeaveCustomer
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.customerLeaveCustomer, TStatus>;
+    }
+
+    namespace CustomerListCustomerInvites {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerListCustomerInvites
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerListCustomerInvites,
+          TStatus
+        >;
+    }
+
+    namespace CustomerListCustomerMemberships {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerListCustomerMemberships
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerListCustomerMemberships,
+          TStatus
+        >;
+    }
+
+    namespace CustomerListInvitesForCustomer {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerListInvitesForCustomer
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerListInvitesForCustomer,
+          TStatus
+        >;
+    }
+
+    namespace CustomerListMembershipsForCustomer {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerListMembershipsForCustomer
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerListMembershipsForCustomer,
+          TStatus
+        >;
+    }
+
+    namespace CustomerRequestAvatarUpload {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerRequestAvatarUpload
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerRequestAvatarUpload,
+          TStatus
+        >;
+    }
+
+    namespace CustomerRemoveAvatar {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerRemoveAvatar
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.customerRemoveAvatar, TStatus>;
+    }
+
+    namespace CustomerResendCustomerInviteMail {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerResendCustomerInviteMail
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerResendCustomerInviteMail,
+          TStatus
+        >;
+    }
+
+    namespace DatabaseListMysqlDatabases {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseListMysqlDatabases
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseListMysqlDatabases,
+          TStatus
+        >;
+    }
+
+    namespace DatabaseCreateMysqlDatabase {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseCreateMysqlDatabase
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseCreateMysqlDatabase,
+          TStatus
+        >;
+    }
+
+    namespace DatabaseListMysqlUsers {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseListMysqlUsers
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseListMysqlUsers,
+          TStatus
+        >;
+    }
+
+    namespace DatabaseCreateMysqlUser {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseCreateMysqlUser
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseCreateMysqlUser,
+          TStatus
+        >;
+    }
+
+    namespace DatabaseListRedisDatabases {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseListRedisDatabases
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseListRedisDatabases,
+          TStatus
+        >;
+    }
+
+    namespace DatabaseCreateRedisDatabase {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseCreateRedisDatabase
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseCreateRedisDatabase,
+          TStatus
+        >;
+    }
+
+    namespace DatabaseGetMysqlDatabase {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseGetMysqlDatabase
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseGetMysqlDatabase,
+          TStatus
+        >;
+    }
+
+    namespace DatabaseDeleteMysqlDatabase {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseDeleteMysqlDatabase
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseDeleteMysqlDatabase,
+          TStatus
+        >;
+    }
+
+    namespace DatabaseGetMysqlUser {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseGetMysqlUser
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.databaseGetMysqlUser, TStatus>;
+    }
+
+    namespace DatabaseUpdateMysqlUser {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseUpdateMysqlUser
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseUpdateMysqlUser,
+          TStatus
+        >;
+    }
+
+    namespace DatabaseDeleteMysqlUser {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseDeleteMysqlUser
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseDeleteMysqlUser,
+          TStatus
+        >;
+    }
+
+    namespace DatabaseGetRedisDatabase {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseGetRedisDatabase
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseGetRedisDatabase,
+          TStatus
+        >;
+    }
+
+    namespace DatabaseDeleteRedisDatabase {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseDeleteRedisDatabase
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseDeleteRedisDatabase,
+          TStatus
+        >;
+    }
+
+    namespace DatabaseDisableMysqlUser {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseDisableMysqlUser
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseDisableMysqlUser,
+          TStatus
+        >;
+    }
+
+    namespace DatabaseEnableMysqlUser {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseEnableMysqlUser
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseEnableMysqlUser,
+          TStatus
+        >;
+    }
+
+    namespace DatabaseGetMysqlUserPhpMyAdminUrl {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseGetMysqlUserPhpMyAdminUrl
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseGetMysqlUserPhpMyAdminUrl,
+          TStatus
+        >;
+    }
+
+    namespace DatabaseListMysqlCharsets {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseListMysqlCharsets
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseListMysqlCharsets,
+          TStatus
+        >;
+    }
+
+    namespace DatabaseListMysqlVersions {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseListMysqlVersions
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseListMysqlVersions,
+          TStatus
+        >;
+    }
+
+    namespace DatabaseListRedisVersions {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseListRedisVersions
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseListRedisVersions,
+          TStatus
+        >;
+    }
+
+    namespace DatabaseUpdateMysqlDatabaseDefaultCharset {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseUpdateMysqlDatabaseDefaultCharset
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseUpdateMysqlDatabaseDefaultCharset,
+          TStatus
+        >;
+    }
+
+    namespace DatabaseUpdateMysqlDatabaseDescription {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseUpdateMysqlDatabaseDescription
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseUpdateMysqlDatabaseDescription,
+          TStatus
+        >;
+    }
+
+    namespace DatabaseUpdateMysqlUserPassword {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseUpdateMysqlUserPassword
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseUpdateMysqlUserPassword,
+          TStatus
+        >;
+    }
+
+    namespace DatabaseUpdateRedisDatabaseConfiguration {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseUpdateRedisDatabaseConfiguration
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseUpdateRedisDatabaseConfiguration,
+          TStatus
+        >;
+    }
+
+    namespace DatabaseUpdateRedisDatabaseDescription {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseUpdateRedisDatabaseDescription
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseUpdateRedisDatabaseDescription,
+          TStatus
+        >;
+    }
+
+    namespace NewsletterSubscribeUser {
+      type RequestData = InferredRequestData<
+        typeof descriptors.newsletterSubscribeUser
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.newsletterSubscribeUser,
+          TStatus
+        >;
+    }
+
+    namespace DnsRecordASetCustom {
+      type RequestData = InferredRequestData<
+        typeof descriptors.dnsRecordAsetCustom
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.dnsRecordAsetCustom, TStatus>;
+    }
+
+    namespace DnsRecordASetManagedByIngress {
+      type RequestData = InferredRequestData<
+        typeof descriptors.dnsRecordAsetManagedByIngress
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.dnsRecordAsetManagedByIngress,
+          TStatus
+        >;
+    }
+
+    namespace DnsRecordCnameSet {
+      type RequestData = InferredRequestData<
+        typeof descriptors.dnsRecordCnameSet
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.dnsRecordCnameSet, TStatus>;
+    }
+
+    namespace DnsRecordMxSetCustom {
+      type RequestData = InferredRequestData<
+        typeof descriptors.dnsRecordMxSetCustom
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.dnsRecordMxSetCustom, TStatus>;
+    }
+
+    namespace DnsRecordMxSetManaged {
+      type RequestData = InferredRequestData<
+        typeof descriptors.dnsRecordMxSetManaged
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.dnsRecordMxSetManaged, TStatus>;
+    }
+
+    namespace DnsRecordSrvSet {
+      type RequestData = InferredRequestData<
+        typeof descriptors.dnsRecordSrvSet
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.dnsRecordSrvSet, TStatus>;
+    }
+
+    namespace DnsRecordTxtSet {
+      type RequestData = InferredRequestData<
+        typeof descriptors.dnsRecordTxtSet
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.dnsRecordTxtSet, TStatus>;
+    }
+
+    namespace DnsSubZoneCreate {
+      type RequestData = InferredRequestData<
+        typeof descriptors.dnsSubZoneCreate
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.dnsSubZoneCreate, TStatus>;
+    }
+
+    namespace DnsZoneGetSpecific {
+      type RequestData = InferredRequestData<
+        typeof descriptors.dnsZoneGetSpecific
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.dnsZoneGetSpecific, TStatus>;
+    }
+
+    namespace DnsZonesForProject {
+      type RequestData = InferredRequestData<
+        typeof descriptors.dnsZonesForProject
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.dnsZonesForProject, TStatus>;
+    }
+
+    namespace DomainAbortDeclareProcess {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainAbortDeclareProcess
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainAbortDeclareProcess,
+          TStatus
+        >;
+    }
+
+    namespace DomainChangeOwnercOfDomain {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainChangeOwnercOfDomain
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainChangeOwnercOfDomain,
+          TStatus
+        >;
+    }
+
+    namespace DomainChangeProjectOfDomain {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainChangeProjectOfDomain
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainChangeProjectOfDomain,
+          TStatus
+        >;
+    }
+
+    namespace DomainCheckDomainAvailability {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainCheckDomainAvailability
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainCheckDomainAvailability,
+          TStatus
+        >;
+    }
+
+    namespace DomainCreateAuthcodeForDomain {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainCreateAuthcodeForDomain
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainCreateAuthcodeForDomain,
+          TStatus
+        >;
+    }
+
+    namespace DomainCreateAuthcode2ForDomain {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainCreateAuthcode2ForDomain
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainCreateAuthcode2ForDomain,
+          TStatus
+        >;
+    }
+
+    namespace DomainDeclareNameservers {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainDeclareNameservers
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainDeclareNameservers,
+          TStatus
+        >;
+    }
+
+    namespace DomainDeclareProcessChangeAuthcode {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainDeclareProcessChangeAuthcode
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainDeclareProcessChangeAuthcode,
+          TStatus
+        >;
+    }
+
+    namespace DomainDeclareProcessChangeHandles {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainDeclareProcessChangeHandles
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainDeclareProcessChangeHandles,
+          TStatus
+        >;
+    }
+
+    namespace DomainGetDomain {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainGetDomain
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.domainGetDomain, TStatus>;
+    }
+
+    namespace DomainDeleteDomain {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainDeleteDomain
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.domainDeleteDomain, TStatus>;
+    }
+
+    namespace DomainGetHandleFields {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainGetHandleFields
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.domainGetHandleFields, TStatus>;
+    }
+
+    namespace DomainGetScreenshotForDomain {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainGetScreenshotForDomain
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainGetScreenshotForDomain,
+          TStatus
+        >;
+    }
+
+    namespace DomainGetSpecificDomainOwnership {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainGetSpecificDomainOwnership
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainGetSpecificDomainOwnership,
+          TStatus
+        >;
+    }
+
+    namespace DomainVerifyDomainOwnership {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainVerifyDomainOwnership
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainVerifyDomainOwnership,
+          TStatus
+        >;
+    }
+
+    namespace DomainListDomainOwnerships {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainListDomainOwnerships
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainListDomainOwnerships,
+          TStatus
+        >;
+    }
+
+    namespace DomainListDomains {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainListDomains
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.domainListDomains, TStatus>;
+    }
+
+    namespace DomainResendDomainEmail {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainResendDomainEmail
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainResendDomainEmail,
+          TStatus
+        >;
+    }
+
+    namespace FileCreateFile {
+      type RequestData = InferredRequestData<typeof descriptors.fileCreateFile>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.fileCreateFile, TStatus>;
+    }
+
+    namespace FileGetFileMeta {
+      type RequestData = InferredRequestData<
+        typeof descriptors.fileGetFileMeta
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.fileGetFileMeta, TStatus>;
+    }
+
+    namespace FileGetFileTokenRules {
+      type RequestData = InferredRequestData<
+        typeof descriptors.fileGetFileTokenRules
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.fileGetFileTokenRules, TStatus>;
+    }
+
+    namespace FileGetFileTypeRules {
+      type RequestData = InferredRequestData<
+        typeof descriptors.fileGetFileTypeRules
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.fileGetFileTypeRules, TStatus>;
+    }
+
+    namespace FileGetFile {
+      type RequestData = InferredRequestData<typeof descriptors.fileGetFile>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.fileGetFile, TStatus>;
+    }
+
+    namespace IngressCreate {
+      type RequestData = InferredRequestData<typeof descriptors.ingressCreate>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.ingressCreate, TStatus>;
+    }
+
+    namespace IngressGetSpecific {
+      type RequestData = InferredRequestData<
+        typeof descriptors.ingressGetSpecific
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.ingressGetSpecific, TStatus>;
+    }
+
+    namespace IngressDelete {
+      type RequestData = InferredRequestData<typeof descriptors.ingressDelete>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.ingressDelete, TStatus>;
+    }
+
+    namespace IngressListAccessible {
+      type RequestData = InferredRequestData<
+        typeof descriptors.ingressListAccessible
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.ingressListAccessible, TStatus>;
+    }
+
+    namespace IngressListForProject {
+      type RequestData = InferredRequestData<
+        typeof descriptors.ingressListForProject
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.ingressListForProject, TStatus>;
+    }
+
+    namespace IngressPaths {
+      type RequestData = InferredRequestData<typeof descriptors.ingressPaths>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.ingressPaths, TStatus>;
+    }
+
+    namespace IngressRequestAcmeCertificateIssuance {
+      type RequestData = InferredRequestData<
+        typeof descriptors.ingressRequestAcmeCertificateIssuance
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.ingressRequestAcmeCertificateIssuance,
+          TStatus
+        >;
+    }
+
+    namespace IngressTls {
+      type RequestData = InferredRequestData<typeof descriptors.ingressTls>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.ingressTls, TStatus>;
+    }
+
+    namespace InvoiceDetailOfInvoice {
+      type RequestData = InferredRequestData<
+        typeof descriptors.invoiceDetailOfInvoice
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.invoiceDetailOfInvoice,
+          TStatus
+        >;
+    }
+
+    namespace InvoiceGetDetailOfInvoiceSettings {
+      type RequestData = InferredRequestData<
+        typeof descriptors.invoiceGetDetailOfInvoiceSettings
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.invoiceGetDetailOfInvoiceSettings,
+          TStatus
+        >;
+    }
+
+    namespace InvoiceUpdateInvoiceSettings {
+      type RequestData = InferredRequestData<
+        typeof descriptors.invoiceUpdateInvoiceSettings
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.invoiceUpdateInvoiceSettings,
+          TStatus
+        >;
+    }
+
+    namespace InvoiceListCustomerInvoices {
+      type RequestData = InferredRequestData<
+        typeof descriptors.invoiceListCustomerInvoices
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.invoiceListCustomerInvoices,
+          TStatus
+        >;
+    }
+
+    namespace MailDeliveryboxList {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailDeliveryboxList
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.mailDeliveryboxList, TStatus>;
+    }
+
+    namespace MailDeliveryboxCreate {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailDeliveryboxCreate
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.mailDeliveryboxCreate, TStatus>;
+    }
+
+    namespace MailDeliveryboxGetSpecific {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailDeliveryboxGetSpecific
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailDeliveryboxGetSpecific,
+          TStatus
+        >;
+    }
+
+    namespace MailDeliveryboxDelete {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailDeliveryboxDelete
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.mailDeliveryboxDelete, TStatus>;
+    }
+
+    namespace MailDeliveryboxUpdateDescription {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailDeliveryboxUpdateDescription
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailDeliveryboxUpdateDescription,
+          TStatus
+        >;
+    }
+
+    namespace MailDeliveryboxUpdatePassword {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailDeliveryboxUpdatePassword
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailDeliveryboxUpdatePassword,
+          TStatus
+        >;
+    }
+
+    namespace MailMailaddressList {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailMailaddressList
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.mailMailaddressList, TStatus>;
+    }
+
+    namespace MailMailaddressCreate {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailMailaddressCreate
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.mailMailaddressCreate, TStatus>;
+    }
+
+    namespace MailMailaddressGetSpecific {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailMailaddressGetSpecific
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailMailaddressGetSpecific,
+          TStatus
+        >;
+    }
+
+    namespace MailMailaddressDelete {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailMailaddressDelete
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.mailMailaddressDelete, TStatus>;
+    }
+
+    namespace MailMailaddressUpdateAddress {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailMailaddressUpdateAddress
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailMailaddressUpdateAddress,
+          TStatus
+        >;
+    }
+
+    namespace MailMailaddressUpdateAutoresponder {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailMailaddressUpdateAutoresponder
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailMailaddressUpdateAutoresponder,
+          TStatus
+        >;
+    }
+
+    namespace MailMailaddressUpdateCatchall {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailMailaddressUpdateCatchall
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailMailaddressUpdateCatchall,
+          TStatus
+        >;
+    }
+
+    namespace MailMailaddressUpdateForwardaddresses {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailMailaddressUpdateForwardaddresses
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailMailaddressUpdateForwardaddresses,
+          TStatus
+        >;
+    }
+
+    namespace MailMailaddressUpdatePassword {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailMailaddressUpdatePassword
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailMailaddressUpdatePassword,
+          TStatus
+        >;
+    }
+
+    namespace MailMailaddressUpdateQuota {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailMailaddressUpdateQuota
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailMailaddressUpdateQuota,
+          TStatus
+        >;
+    }
+
+    namespace MailMailaddressUpdateSpamprotection {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailMailaddressUpdateSpamprotection
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailMailaddressUpdateSpamprotection,
+          TStatus
+        >;
+    }
+
+    namespace MailProjectsettingGetSpecific {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailProjectsettingGetSpecific
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailProjectsettingGetSpecific,
+          TStatus
+        >;
+    }
+
+    namespace MailProjectsettingUpdateBlacklist {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailProjectsettingUpdateBlacklist
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailProjectsettingUpdateBlacklist,
+          TStatus
+        >;
+    }
+
+    namespace MailProjectsettingUpdateWhitelist {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailProjectsettingUpdateWhitelist
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailProjectsettingUpdateWhitelist,
+          TStatus
+        >;
+    }
+
+    namespace NewsletterGetInfo {
+      type RequestData = InferredRequestData<
+        typeof descriptors.newsletterGetInfo
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.newsletterGetInfo, TStatus>;
+    }
+
+    namespace NewsletterUnsubscribeUser {
+      type RequestData = InferredRequestData<
+        typeof descriptors.newsletterUnsubscribeUser
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.newsletterUnsubscribeUser,
+          TStatus
+        >;
+    }
+
+    namespace NotificationsCountUnreadNotifications {
+      type RequestData = InferredRequestData<
+        typeof descriptors.notificationsCountUnreadNotifications
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.notificationsCountUnreadNotifications,
+          TStatus
+        >;
+    }
+
+    namespace NotificationsListNotifications {
+      type RequestData = InferredRequestData<
+        typeof descriptors.notificationsListNotifications
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.notificationsListNotifications,
+          TStatus
+        >;
+    }
+
+    namespace NotificationsReadAllNotifications {
+      type RequestData = InferredRequestData<
+        typeof descriptors.notificationsReadAllNotifications
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.notificationsReadAllNotifications,
+          TStatus
+        >;
+    }
+
+    namespace NotificationsReadNotification {
+      type RequestData = InferredRequestData<
+        typeof descriptors.notificationsReadNotification
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.notificationsReadNotification,
+          TStatus
+        >;
+    }
+
+    namespace OrderCreateOrder {
+      type RequestData = InferredRequestData<
+        typeof descriptors.orderCreateOrder
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.orderCreateOrder, TStatus>;
+    }
+
+    namespace OrderCreateTariffChange {
+      type RequestData = InferredRequestData<
+        typeof descriptors.orderCreateTariffChange
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.orderCreateTariffChange,
+          TStatus
+        >;
+    }
+
+    namespace OrderGetOrder {
+      type RequestData = InferredRequestData<typeof descriptors.orderGetOrder>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.orderGetOrder, TStatus>;
+    }
+
+    namespace OrderListCustomerOrders {
+      type RequestData = InferredRequestData<
+        typeof descriptors.orderListCustomerOrders
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.orderListCustomerOrders,
+          TStatus
+        >;
+    }
+
+    namespace OrderListProjectOrders {
+      type RequestData = InferredRequestData<
+        typeof descriptors.orderListProjectOrders
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.orderListProjectOrders,
+          TStatus
+        >;
+    }
+
+    namespace OrderPreviewOrder {
+      type RequestData = InferredRequestData<
+        typeof descriptors.orderPreviewOrder
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.orderPreviewOrder, TStatus>;
+    }
+
+    namespace OrderPreviewTariffChange {
+      type RequestData = InferredRequestData<
+        typeof descriptors.orderPreviewTariffChange
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.orderPreviewTariffChange,
+          TStatus
+        >;
+    }
+
+    namespace PageinsightsGetPerformanceData {
+      type RequestData = InferredRequestData<
+        typeof descriptors.pageinsightsGetPerformanceData
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.pageinsightsGetPerformanceData,
+          TStatus
+        >;
+    }
+
+    namespace PageinsightsListPerformanceDataForProject {
+      type RequestData = InferredRequestData<
+        typeof descriptors.pageinsightsListPerformanceDataForProject
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.pageinsightsListPerformanceDataForProject,
+          TStatus
+        >;
+    }
+
+    namespace PasswordValidationGetPasswordPolicy {
+      type RequestData = InferredRequestData<
+        typeof descriptors.passwordValidationGetPasswordPolicy
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.passwordValidationGetPasswordPolicy,
+          TStatus
+        >;
+    }
+
+    namespace ProjectAcceptProjectInvite {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectAcceptProjectInvite
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectAcceptProjectInvite,
+          TStatus
+        >;
+    }
+
+    namespace ProjectCreateProjectInvite {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectCreateProjectInvite
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectCreateProjectInvite,
+          TStatus
+        >;
+    }
+
+    namespace ProjectCreateProject {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectCreateProject
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.projectCreateProject, TStatus>;
+    }
+
+    namespace ProjectDeclineProjectInvite {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectDeclineProjectInvite
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectDeclineProjectInvite,
+          TStatus
+        >;
+    }
+
+    namespace ProjectRequestProjectAvatarUpload {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectRequestProjectAvatarUpload
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectRequestProjectAvatarUpload,
+          TStatus
+        >;
+    }
+
+    namespace ProjectDeleteProjectAvatar {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectDeleteProjectAvatar
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectDeleteProjectAvatar,
+          TStatus
+        >;
+    }
+
+    namespace ProjectGetProjectInvite {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectGetProjectInvite
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectGetProjectInvite,
+          TStatus
+        >;
+    }
+
+    namespace ProjectDeleteProjectInvite {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectDeleteProjectInvite
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectDeleteProjectInvite,
+          TStatus
+        >;
+    }
+
+    namespace ProjectGetProjectMembership {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectGetProjectMembership
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectGetProjectMembership,
+          TStatus
+        >;
+    }
+
+    namespace ProjectDeleteProjectMembership {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectDeleteProjectMembership
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectDeleteProjectMembership,
+          TStatus
+        >;
+    }
+
+    namespace ProjectUpdateProjectMembership {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectUpdateProjectMembership
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectUpdateProjectMembership,
+          TStatus
+        >;
+    }
+
+    namespace ProjectDeleteProject {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectDeleteProject
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.projectDeleteProject, TStatus>;
+    }
+
+    namespace ProjectRequestServerAvatarUpload {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectRequestServerAvatarUpload
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectRequestServerAvatarUpload,
+          TStatus
+        >;
+    }
+
+    namespace ProjectDeleteServerAvatar {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectDeleteServerAvatar
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectDeleteServerAvatar,
+          TStatus
+        >;
+    }
+
+    namespace ProjectFileSystemGetDirectories {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectFileSystemGetDirectories
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectFileSystemGetDirectories,
+          TStatus
+        >;
+    }
+
+    namespace ProjectFileSystemGetDiskUsage {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectFileSystemGetDiskUsage
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectFileSystemGetDiskUsage,
+          TStatus
+        >;
+    }
+
+    namespace ProjectFileSystemGetFileContent {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectFileSystemGetFileContent
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectFileSystemGetFileContent,
+          TStatus
+        >;
+    }
+
+    namespace ProjectFileSystemGetJwt {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectFileSystemGetJwt
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectFileSystemGetJwt,
+          TStatus
+        >;
+    }
+
+    namespace ProjectFileSystemListFiles {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectFileSystemListFiles
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectFileSystemListFiles,
+          TStatus
+        >;
+    }
+
+    namespace ProjectGetProjectTokenInvite {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectGetProjectTokenInvite
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectGetProjectTokenInvite,
+          TStatus
+        >;
+    }
+
+    namespace ProjectGetProject {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectGetProject
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.projectGetProject, TStatus>;
+    }
+
+    namespace ProjectGetSelfMembershipForProject {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectGetSelfMembershipForProject
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectGetSelfMembershipForProject,
+          TStatus
+        >;
+    }
+
+    namespace ProjectGetServer {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectGetServer
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.projectGetServer, TStatus>;
+    }
+
+    namespace ProjectLeaveProject {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectLeaveProject
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.projectLeaveProject, TStatus>;
+    }
+
+    namespace ProjectListInvitesForProject {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectListInvitesForProject
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectListInvitesForProject,
+          TStatus
+        >;
+    }
+
+    namespace ProjectListMembershipsForProject {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectListMembershipsForProject
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectListMembershipsForProject,
+          TStatus
+        >;
+    }
+
+    namespace ProjectListProjectInvites {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectListProjectInvites
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectListProjectInvites,
+          TStatus
+        >;
+    }
+
+    namespace ProjectListProjectMemberships {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectListProjectMemberships
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectListProjectMemberships,
+          TStatus
+        >;
+    }
+
+    namespace ProjectListProjects {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectListProjects
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.projectListProjects, TStatus>;
+    }
+
+    namespace ProjectListServers {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectListServers
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.projectListServers, TStatus>;
+    }
+
+    namespace ProjectResendProjectInviteMail {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectResendProjectInviteMail
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectResendProjectInviteMail,
+          TStatus
+        >;
+    }
+
+    namespace ProjectUpdateProjectDescription {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectUpdateProjectDescription
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectUpdateProjectDescription,
+          TStatus
+        >;
+    }
+
+    namespace ProjectUpdateServerDescription {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectUpdateServerDescription
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectUpdateServerDescription,
+          TStatus
+        >;
+    }
+
+    namespace RedirectusCreateRelocation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.redirectusCreateRelocation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.redirectusCreateRelocation,
+          TStatus
+        >;
+    }
+
+    namespace RelocationCreateLegacyTariffChange {
+      type RequestData = InferredRequestData<
+        typeof descriptors.relocationCreateLegacyTariffChange
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.relocationCreateLegacyTariffChange,
+          TStatus
+        >;
+    }
+
+    namespace ServicetokenAuthenticateService {
+      type RequestData = InferredRequestData<
+        typeof descriptors.servicetokenAuthenticateService
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.servicetokenAuthenticateService,
+          TStatus
+        >;
+    }
+
+    namespace SftpUserListSftpUsers {
+      type RequestData = InferredRequestData<
+        typeof descriptors.sftpUserListSftpUsers
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.sftpUserListSftpUsers, TStatus>;
+    }
+
+    namespace SftpUserCreateSftpUser {
+      type RequestData = InferredRequestData<
+        typeof descriptors.sftpUserCreateSftpUser
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.sftpUserCreateSftpUser,
+          TStatus
+        >;
+    }
+
+    namespace SftpUserGetSftpUser {
+      type RequestData = InferredRequestData<
+        typeof descriptors.sftpUserGetSftpUser
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.sftpUserGetSftpUser, TStatus>;
+    }
+
+    namespace SftpUserDeleteSftpUser {
+      type RequestData = InferredRequestData<
+        typeof descriptors.sftpUserDeleteSftpUser
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.sftpUserDeleteSftpUser,
+          TStatus
+        >;
+    }
+
+    namespace SftpUserUpdateSftpUser {
+      type RequestData = InferredRequestData<
+        typeof descriptors.sftpUserUpdateSftpUser
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.sftpUserUpdateSftpUser,
+          TStatus
+        >;
+    }
+
+    namespace SshUserListSshUsers {
+      type RequestData = InferredRequestData<
+        typeof descriptors.sshUserListSshUsers
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.sshUserListSshUsers, TStatus>;
+    }
+
+    namespace SshUserCreateSshUser {
+      type RequestData = InferredRequestData<
+        typeof descriptors.sshUserCreateSshUser
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.sshUserCreateSshUser, TStatus>;
+    }
+
+    namespace SshUserGetSshUser {
+      type RequestData = InferredRequestData<
+        typeof descriptors.sshUserGetSshUser
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.sshUserGetSshUser, TStatus>;
+    }
+
+    namespace SshUserDeleteSshUser {
+      type RequestData = InferredRequestData<
+        typeof descriptors.sshUserDeleteSshUser
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.sshUserDeleteSshUser, TStatus>;
+    }
+
+    namespace SshUserUpdateSshUser {
+      type RequestData = InferredRequestData<
+        typeof descriptors.sshUserUpdateSshUser
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.sshUserUpdateSshUser, TStatus>;
+    }
+
+    namespace UserAddPhoneNumber {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userAddPhoneNumber
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userAddPhoneNumber, TStatus>;
+    }
+
+    namespace UserRemovePhoneNumber {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userRemovePhoneNumber
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userRemovePhoneNumber, TStatus>;
+    }
+
+    namespace UserAuthenticateMfa {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userAuthenticateMfa
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userAuthenticateMfa, TStatus>;
+    }
+
+    namespace UserAuthenticate {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userAuthenticate
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userAuthenticate, TStatus>;
+    }
+
+    namespace UserGetOwnEmail {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userGetOwnEmail
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userGetOwnEmail, TStatus>;
+    }
+
+    namespace UserChangeEmail {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userChangeEmail
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userChangeEmail, TStatus>;
+    }
+
+    namespace UserChangePassword {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userChangePassword
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userChangePassword, TStatus>;
+    }
+
+    namespace UserCheckToken {
+      type RequestData = InferredRequestData<typeof descriptors.userCheckToken>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userCheckToken, TStatus>;
+    }
+
+    namespace UserGetMfaStatus {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userGetMfaStatus
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userGetMfaStatus, TStatus>;
+    }
+
+    namespace UserResetRecoverycodes {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userResetRecoverycodes
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userResetRecoverycodes,
+          TStatus
+        >;
+    }
+
+    namespace UserConfirmMfa {
+      type RequestData = InferredRequestData<typeof descriptors.userConfirmMfa>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userConfirmMfa, TStatus>;
+    }
+
+    namespace UserDisableMfa {
+      type RequestData = InferredRequestData<typeof descriptors.userDisableMfa>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userDisableMfa, TStatus>;
+    }
+
+    namespace UserConfirmPasswordReset {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userConfirmPasswordReset
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userConfirmPasswordReset,
+          TStatus
+        >;
+    }
+
+    namespace UserListApiTokens {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userListApiTokens
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userListApiTokens, TStatus>;
+    }
+
+    namespace UserCreateApiToken {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userCreateApiToken
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userCreateApiToken, TStatus>;
+    }
+
+    namespace UserCreateFeedback {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userCreateFeedback
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userCreateFeedback, TStatus>;
+    }
+
+    namespace UserListSshKeys {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userListSshKeys
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userListSshKeys, TStatus>;
+    }
+
+    namespace UserCreateSshKey {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userCreateSshKey
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userCreateSshKey, TStatus>;
+    }
+
+    namespace UserGetApiToken {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userGetApiToken
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userGetApiToken, TStatus>;
+    }
+
+    namespace UserEditApiToken {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userEditApiToken
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userEditApiToken, TStatus>;
+    }
+
+    namespace UserDeleteApiToken {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userDeleteApiToken
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userDeleteApiToken, TStatus>;
+    }
+
+    namespace UserGetSshKey {
+      type RequestData = InferredRequestData<typeof descriptors.userGetSshKey>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userGetSshKey, TStatus>;
+    }
+
+    namespace UserEditSshKey {
+      type RequestData = InferredRequestData<typeof descriptors.userEditSshKey>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userEditSshKey, TStatus>;
+    }
+
+    namespace UserDeleteSshKey {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userDeleteSshKey
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userDeleteSshKey, TStatus>;
+    }
+
+    namespace UserDeleteUser {
+      type RequestData = InferredRequestData<typeof descriptors.userDeleteUser>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userDeleteUser, TStatus>;
+    }
+
+    namespace UserGetOwnAccount {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userGetOwnAccount
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userGetOwnAccount, TStatus>;
+    }
+
+    namespace UserUpdateAccount {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userUpdateAccount
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userUpdateAccount, TStatus>;
+    }
+
+    namespace UserGetPasswordUpdatedAt {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userGetPasswordUpdatedAt
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userGetPasswordUpdatedAt,
+          TStatus
+        >;
+    }
+
+    namespace UserGetPersonalizedSettings {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userGetPersonalizedSettings
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userGetPersonalizedSettings,
+          TStatus
+        >;
+    }
+
+    namespace UserUpdatePersonalizedSettings {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userUpdatePersonalizedSettings
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userUpdatePersonalizedSettings,
+          TStatus
+        >;
+    }
+
+    namespace UserGetSession {
+      type RequestData = InferredRequestData<typeof descriptors.userGetSession>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userGetSession, TStatus>;
+    }
+
+    namespace UserTerminateSession {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userTerminateSession
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userTerminateSession, TStatus>;
+    }
+
+    namespace UserGetUser {
+      type RequestData = InferredRequestData<typeof descriptors.userGetUser>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userGetUser, TStatus>;
+    }
+
+    namespace UserUpdatePersonalInformation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userUpdatePersonalInformation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userUpdatePersonalInformation,
+          TStatus
+        >;
+    }
+
+    namespace UserInitMfa {
+      type RequestData = InferredRequestData<typeof descriptors.userInitMfa>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userInitMfa, TStatus>;
+    }
+
+    namespace UserInitPasswordReset {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userInitPasswordReset
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userInitPasswordReset, TStatus>;
+    }
+
+    namespace UserListFeedback {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userListFeedback
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userListFeedback, TStatus>;
+    }
+
+    namespace UserListSessions {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userListSessions
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userListSessions, TStatus>;
+    }
+
+    namespace UserTerminateAllSessions {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userTerminateAllSessions
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userTerminateAllSessions,
+          TStatus
+        >;
+    }
+
+    namespace UserLogout {
+      type RequestData = InferredRequestData<typeof descriptors.userLogout>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userLogout, TStatus>;
+    }
+
+    namespace UserRegister {
+      type RequestData = InferredRequestData<typeof descriptors.userRegister>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userRegister, TStatus>;
+    }
+
+    namespace UserRequestAvatarUpload {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userRequestAvatarUpload
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userRequestAvatarUpload,
+          TStatus
+        >;
+    }
+
+    namespace UserRemoveAvatar {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userRemoveAvatar
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userRemoveAvatar, TStatus>;
+    }
+
+    namespace UserResendVerificationEmail {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userResendVerificationEmail
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userResendVerificationEmail,
+          TStatus
+        >;
+    }
+
+    namespace UserSupportCodeRequest {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userSupportCodeRequest
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userSupportCodeRequest,
+          TStatus
+        >;
+    }
+
+    namespace UserVerifyEmail {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userVerifyEmail
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userVerifyEmail, TStatus>;
+    }
+
+    namespace UserVerifyPhoneNumber {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userVerifyPhoneNumber
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userVerifyPhoneNumber, TStatus>;
+    }
+
+    namespace UserVerifyRegistration {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userVerifyRegistration
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userVerifyRegistration,
+          TStatus
+        >;
+    }
+  }
+
   namespace Components {
     namespace Schemas {
       /**

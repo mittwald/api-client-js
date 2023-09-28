@@ -44,6 +44,20 @@ export class Paths {
     `;
   }
 
+  public async compileOperationTypes(): Promise<string> {
+    const t = {
+      types: this.getFlattenedOperations()
+        .map((operation) => operation.compileRequestResponseTypes())
+        .join("\r\n"),
+    };
+
+    return `
+      namespace Operations {
+        ${t.types}      
+      }
+    `;
+  }
+
   public compileDescriptors(): string {
     const t = {
       ns: this.model.rootNamespace.tsType,

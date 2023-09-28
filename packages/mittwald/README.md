@@ -233,13 +233,19 @@ To intercept requests or responses you can use
 All response and request types can be imported from the `MittwaldAPIV2`
 namespace.
 
-### Importing types
+### Referencing request/response types
 
 ```typescript
 import { MittwaldAPIV2 } from "@mittwald/api-client";
 
-type Project =
-  MittwaldAPIV2.Paths.V2Projects.Get.Responses.$200.Content.ApplicationJson[number];
+type ProjectData = MittwaldAPIV2.Operations.ProjectGetProject.ResponseData;
+
+// Reference "non-200" response type
+type ProjectNotFoundData =
+  MittwaldAPIV2.Operations.ProjectGetProject.ResponseData<404>;
+
+type CreateProjectData =
+  MittwaldAPIV2.Operations.ProjectCreateProject.RequestData;
 ```
 
 ## Migrating from package version V2 to V3
