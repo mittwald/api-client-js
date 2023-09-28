@@ -406,6 +406,11 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.ingressListForProject,
     baseClient.domain.ingressListForProject
   ).getApiResource,
+  /** List all supported top level domains. */
+  getSupportedTlds: new ApiCallAsyncResourceFactory(
+    descriptors.domainGetSupportedTlds,
+    baseClient.domain.getSupportedTlds
+  ).getApiResource,
 });
 
 const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({

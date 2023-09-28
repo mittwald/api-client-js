@@ -2908,6 +2908,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace DomainGetSupportedTlds {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainGetSupportedTlds
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainGetSupportedTlds,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -4083,7 +4094,7 @@ export declare module MittwaldAPIV2 {
 
       export interface InvoiceBankingInformation {
         accountHolder: string;
-        bic: string;
+        bic?: string;
         iban: string;
       }
 
@@ -4128,6 +4139,10 @@ export declare module MittwaldAPIV2 {
         contractItemId: string;
         description: string;
         id: string;
+        itemCancelledOrCorrectedBy?: {
+          sourceInvoiceId?: string;
+          sourceInvoiceItemId?: string;
+        }[];
         price: MittwaldAPIV2.Components.Schemas.InvoicePrice;
         reference?: {
           sourceInvoiceId: string;
@@ -4180,12 +4195,16 @@ export declare module MittwaldAPIV2 {
         printedInvoices?: boolean;
         recipient?: MittwaldAPIV2.Components.Schemas.InvoiceRecipient;
         recipientSameAsOwner?: boolean;
+        status?: MittwaldAPIV2.Components.Schemas.InvoiceInvoiceSettingsStatus[];
         targetDay?: number;
       }
 
       export interface InvoicePaymentSettingsDebit {
         accountHolder: string;
-        bic: string;
+        /**
+         * Optional. Required for payments outside of the European Union.
+         */
+        bic?: string;
         iban: string;
         method: "debit";
       }
@@ -5042,6 +5061,12 @@ export declare module MittwaldAPIV2 {
       export interface VarnishSoftwareSetting {
         name: string;
         value: string;
+      }
+
+      export interface InvoiceInvoiceSettingsStatus {
+        message: string;
+        severity: "success" | "info" | "warning" | "error";
+        statusType?: "returnDebitNote";
       }
 
       export interface CommonsAddress {
@@ -18854,6 +18879,34 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DomainsSupportedTlds {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DomainTopLevel[];
             }
           }
 
