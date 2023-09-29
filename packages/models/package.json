@@ -1,0 +1,68 @@
+{
+  "name": "@mittwald/api-models",
+  "version": "1.0.0",
+  "description": "Collection of domain models for coherent interaction with the API",
+  "license": "MIT",
+  "repository": "github:mittwald/api-client-js",
+  "author": {
+    "name": "Mittwald CM Service GmbH & Co. KG",
+    "email": "opensource@mittwald.de"
+  },
+  "homepage": "https://developer.mittwald.de",
+  "bugs": {
+    "url": "https://github.com/mittwald/api-client-js/issues"
+  },
+  "main": "dist/cjs/index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": {
+        "import": "./dist/esm/index.d.ts",
+        "require": "./dist/cjs/index.d.ts",
+        "default": "./dist/esm/index.d.ts"
+      },
+      "default": {
+        "import": "./dist/esm/index.js",
+        "require": "./dist/cjs/index.js",
+        "default": "./dist/esm/index.js"
+      }
+    },
+    "./react": {
+      "types": {
+        "require": "./dist/cjs/react.d.ts",
+        "default": "./dist/esm/react.d.ts"
+      },
+      "default": {
+        "require": "./dist/cjs/react.js",
+        "default": "./dist/esm/react.js"
+      }
+    }
+  },
+  "scripts": {
+    "generate:client": "yarn generate:client:v2 && yarn post:generate",
+    "generate:client-dev": "yarn generate:client-dev:v2 && yarn post:generate",
+    "generate:client-dev:v2": "curl --silent https://api-public.dev.mittwald.systems/openapi | ./transform-openapi.sh | yarn acg generate --name MittwaldAPIV2 - src/generated/v2 --optionalHeader x-access-token",
+    "generate:client:v2": "curl --silent https://api.mittwald.de/openapi | ./transform-openapi.sh | yarn acg generate --name MittwaldAPIV2 - src/generated/v2 --optionalHeader x-access-token",
+    "post:generate": "yarn run -T compile && yarn run -T compile:cjs"
+  },
+  "files": [
+    "dist/**/*.{js,d.ts}"
+  ],
+  "keywords": [
+    "mittwald",
+    "api",
+    "client",
+    "sdk",
+    "rest"
+  ],
+  "dependencies": {
+    "@mittwald/api-client": "workspace:^",
+    "@mittwald/api-client-commons": "workspace:^",
+    "another-deep-freeze": "^1.0.0",
+    "type-fest": "^4.3.2"
+  },
+  "types": "dist/cjs/index.d.ts",
+  "devDependencies": {
+    "tsd": "^0.29.0"
+  }
+}
