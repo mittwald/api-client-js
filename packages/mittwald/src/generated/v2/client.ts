@@ -659,6 +659,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     verifyDomainOwnership: this.requestFunctionFactory(
       descriptors.domainVerifyDomainOwnership
     ),
+    /** List all supported top level domains. */
+    getSupportedTlds: this.requestFunctionFactory(
+      descriptors.domainGetSupportedTlds
+    ),
     /** List all domain ownerships of a project. */
     listDomainOwnerships: this.requestFunctionFactory(
       descriptors.domainListDomainOwnerships
@@ -693,10 +697,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Update an Ingresses tls settings. */
     ingressTls: this.requestFunctionFactory(descriptors.ingressTls),
-    /** List all supported top level domains. */
-    getSupportedTlds: this.requestFunctionFactory(
-      descriptors.domainGetSupportedTlds
-    ),
   };
 
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */

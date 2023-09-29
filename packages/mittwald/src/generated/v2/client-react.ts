@@ -381,6 +381,11 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.domainGetSpecificDomainOwnership,
     baseClient.domain.getSpecificDomainOwnership
   ).getApiResource,
+  /** List all supported top level domains. */
+  getSupportedTlds: new ApiCallAsyncResourceFactory(
+    descriptors.domainGetSupportedTlds,
+    baseClient.domain.getSupportedTlds
+  ).getApiResource,
   /** List all domain ownerships of a project. */
   listDomainOwnerships: new ApiCallAsyncResourceFactory(
     descriptors.domainListDomainOwnerships,
@@ -405,11 +410,6 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   ingressListForProject: new ApiCallAsyncResourceFactory(
     descriptors.ingressListForProject,
     baseClient.domain.ingressListForProject
-  ).getApiResource,
-  /** List all supported top level domains. */
-  getSupportedTlds: new ApiCallAsyncResourceFactory(
-    descriptors.domainGetSupportedTlds,
-    baseClient.domain.getSupportedTlds
   ).getApiResource,
 });
 

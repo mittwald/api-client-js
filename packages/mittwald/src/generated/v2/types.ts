@@ -1517,6 +1517,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace DomainGetSupportedTlds {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainGetSupportedTlds
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainGetSupportedTlds,
+          TStatus
+        >;
+    }
+
     namespace DomainListDomainOwnerships {
       type RequestData = InferredRequestData<
         typeof descriptors.domainListDomainOwnerships
@@ -2908,17 +2919,6 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
-
-    namespace DomainGetSupportedTlds {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainGetSupportedTlds
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainGetSupportedTlds,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -3996,14 +3996,6 @@ export declare module MittwaldAPIV2 {
       export interface DomainTopLevel {
         rgpDays: number;
         tld: string;
-        transitAllowed: boolean;
-        type:
-          | "unknown"
-          | "countryCode"
-          | "generic"
-          | "newGeneric"
-          | "centralNic"
-          | "other";
       }
 
       export interface FileFileMeta {
@@ -4197,6 +4189,12 @@ export declare module MittwaldAPIV2 {
         recipientSameAsOwner?: boolean;
         status?: MittwaldAPIV2.Components.Schemas.InvoiceInvoiceSettingsStatus[];
         targetDay?: number;
+      }
+
+      export interface InvoiceInvoiceSettingsStatus {
+        message: string;
+        severity: "success" | "info" | "warning" | "error";
+        statusType?: "returnDebitNote";
       }
 
       export interface InvoicePaymentSettingsDebit {
@@ -5061,12 +5059,6 @@ export declare module MittwaldAPIV2 {
       export interface VarnishSoftwareSetting {
         name: string;
         value: string;
-      }
-
-      export interface InvoiceInvoiceSettingsStatus {
-        message: string;
-        severity: "success" | "info" | "warning" | "error";
-        statusType?: "returnDebitNote";
       }
 
       export interface CommonsAddress {
@@ -12114,6 +12106,34 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2DomainsSupportedTlds {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DomainTopLevel[];
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2ProjectsProjectIdDomainOwnerships {
       namespace Get {
         namespace Parameters {
@@ -18879,34 +18899,6 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DomainsSupportedTlds {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DomainTopLevel[];
             }
           }
 

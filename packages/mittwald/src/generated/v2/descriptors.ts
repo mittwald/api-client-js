@@ -4679,6 +4679,30 @@ export const domainVerifyDomainOwnership: OpenAPIOperation<
   operationId: "domain-verify-domain-ownership",
 };
 
+/** List all supported top level domains. */
+export const domainGetSupportedTlds: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsSupportedTlds.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsSupportedTlds.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsSupportedTlds.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsSupportedTlds.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsSupportedTlds.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/supported-tlds",
+  method: "GET",
+  operationId: "domain-get-supported-tlds",
+};
+
 /** List all domain ownerships of a project. */
 export const domainListDomainOwnerships: OpenAPIOperation<
   RequestType<
@@ -9332,28 +9356,4 @@ export const userVerifyRegistration: OpenAPIOperation<
   path: "/v2/verify-registration",
   method: "POST",
   operationId: "user-verify-registration",
-};
-
-/** List all supported top level domains. */
-export const domainGetSupportedTlds: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsSupportedTlds.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsSupportedTlds.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsSupportedTlds.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsSupportedTlds.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsSupportedTlds.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domains/supported-tlds",
-  method: "GET",
-  operationId: "domain-get-supported-tlds",
 };
