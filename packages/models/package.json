@@ -38,13 +38,7 @@
       }
     }
   },
-  "scripts": {
-    "generate:client": "yarn generate:client:v2 && yarn post:generate",
-    "generate:client-dev": "yarn generate:client-dev:v2 && yarn post:generate",
-    "generate:client-dev:v2": "curl --silent https://api-public.dev.mittwald.systems/openapi | ./transform-openapi.sh | yarn acg generate --name MittwaldAPIV2 - src/generated/v2 --optionalHeader x-access-token",
-    "generate:client:v2": "curl --silent https://api.mittwald.de/openapi | ./transform-openapi.sh | yarn acg generate --name MittwaldAPIV2 - src/generated/v2 --optionalHeader x-access-token",
-    "post:generate": "yarn run -T compile && yarn run -T compile:cjs"
-  },
+  "scripts": {},
   "files": [
     "dist/**/*.{js,d.ts}"
   ],
@@ -61,8 +55,8 @@
     "another-deep-freeze": "^1.0.0",
     "type-fest": "^4.3.2"
   },
-  "types": "dist/cjs/index.d.ts",
   "devDependencies": {
     "tsd": "^0.29.0"
-  }
+  },
+  "types": "dist/cjs/index.d.ts"
 }
