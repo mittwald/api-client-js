@@ -1,31 +1,22 @@
 import BaseModel, { DataMode } from "../base/BaseModel.js";
-import { assertStatus, MittwaldAPIV2 } from "@mittwald/api-client";
 import assertObjectFound from "../base/assertObjectFound.js";
-import Project from "../project/Project.js";
-import { assertOneOfStatus } from "@mittwald/api-client-commons";
+import Project from "../project/Project/Project.js";
 import deepFreeze from "../lib/deepFreeze.js";
 import { CompactListResponse } from "../base/types.js";
-
-export type ServerListQuery =
-  MittwaldAPIV2.Paths.V2Servers.Get.Parameters.Query;
-
-type Data = MittwaldAPIV2.Operations.ProjectGetServer.ResponseData;
-type CompactData =
-  MittwaldAPIV2.Operations.ProjectListServers.ResponseData[number];
+import { ServerCompactData, ServerData, ServerListQuery } from "./types.js";
+import { ServerBehaviors } from "./behaviors/types.js";
 
 export default class Server<
   TMode extends DataMode = "Default",
-> extends BaseModel<Data, CompactData, TMode> {
+> extends BaseModel<ServerData, ServerCompactData, TMode> {
+  public static behaviors: ServerBehaviors;
+
   // loading
   public static async find(id: string): Promise<Server | undefined> {
-    const response = await Server.client.project.getServer({
-      serverId: id,
-    });
-
-    if (response.status === 200) {
-      return new Server(response.data.id, response.data);
+    const serverData = await this.behaviors.find(id);
+    if (serverData !== undefined) {
+      return new Server(serverData.id, serverData);
     }
-    assertOneOfStatus(response, [403 as any, 404]);
   }
 
   public static async get(id: string): Promise<Server> {
@@ -37,11 +28,10 @@ export default class Server<
   public static async list(
     query: ServerListQuery = {},
   ): CompactListResponse<Server<"Compact">> {
-    const response = await Server.client.project.listServers({
-      queryParameters: query,
-    });
-    assertStatus(response, 200);
-    return deepFreeze(response.data.map((d) => new Server<"Compact">(d.id, d)));
+    const projectListData = await this.behaviors.list(query);
+    return deepFreeze(
+      projectListData.map((d) => new Server<"Compact">(d.id, d)),
+    );
   }
 
   // references

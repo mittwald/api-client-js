@@ -1,4 +1,3 @@
-import { MittwaldAPIV2Client } from "@mittwald/api-client";
 import deepFreeze, { ReadonlyDeep } from "../lib/deepFreeze.js";
 
 export type DataMode = "Default" | "Compact";
@@ -16,8 +15,6 @@ export default abstract class BaseModel<
 > {
   public readonly id: string;
   public readonly data: ReadonlyDeep<DataType<TMode, TDefault, TCompact>>;
-  public static client: MittwaldAPIV2Client =
-    MittwaldAPIV2Client.newUnauthenticated();
 
   public constructor(id: string, apiData: DataType<TMode, TDefault, TCompact>) {
     this.id = id;
