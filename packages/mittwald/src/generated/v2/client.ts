@@ -659,6 +659,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     verifyDomainOwnership: this.requestFunctionFactory(
       descriptors.domainVerifyDomainOwnership
     ),
+    /** List all supported top level domains. */
+    getSupportedTlds: this.requestFunctionFactory(
+      descriptors.domainGetSupportedTlds
+    ),
     /** List all domain ownerships of a project. */
     listDomainOwnerships: this.requestFunctionFactory(
       descriptors.domainListDomainOwnerships

@@ -1517,6 +1517,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace DomainGetSupportedTlds {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainGetSupportedTlds
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainGetSupportedTlds,
+          TStatus
+        >;
+    }
+
     namespace DomainListDomainOwnerships {
       type RequestData = InferredRequestData<
         typeof descriptors.domainListDomainOwnerships
@@ -3985,14 +3996,6 @@ export declare module MittwaldAPIV2 {
       export interface DomainTopLevel {
         rgpDays: number;
         tld: string;
-        transitAllowed: boolean;
-        type:
-          | "unknown"
-          | "countryCode"
-          | "generic"
-          | "newGeneric"
-          | "centralNic"
-          | "other";
       }
 
       export interface FileFileMeta {
@@ -4083,7 +4086,7 @@ export declare module MittwaldAPIV2 {
 
       export interface InvoiceBankingInformation {
         accountHolder: string;
-        bic: string;
+        bic?: string;
         iban: string;
       }
 
@@ -4128,6 +4131,10 @@ export declare module MittwaldAPIV2 {
         contractItemId: string;
         description: string;
         id: string;
+        itemCancelledOrCorrectedBy?: {
+          sourceInvoiceId?: string;
+          sourceInvoiceItemId?: string;
+        }[];
         price: MittwaldAPIV2.Components.Schemas.InvoicePrice;
         reference?: {
           sourceInvoiceId: string;
@@ -4180,12 +4187,22 @@ export declare module MittwaldAPIV2 {
         printedInvoices?: boolean;
         recipient?: MittwaldAPIV2.Components.Schemas.InvoiceRecipient;
         recipientSameAsOwner?: boolean;
+        status?: MittwaldAPIV2.Components.Schemas.InvoiceInvoiceSettingsStatus[];
         targetDay?: number;
+      }
+
+      export interface InvoiceInvoiceSettingsStatus {
+        message: string;
+        severity: "success" | "info" | "warning" | "error";
+        statusType?: "returnDebitNote";
       }
 
       export interface InvoicePaymentSettingsDebit {
         accountHolder: string;
-        bic: string;
+        /**
+         * Optional. Required for payments outside of the European Union.
+         */
+        bic?: string;
         iban: string;
         method: "debit";
       }
@@ -12075,6 +12092,34 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DomainsSupportedTlds {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DomainTopLevel[];
             }
           }
 
