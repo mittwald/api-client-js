@@ -1,6 +1,5 @@
 import assertObjectFound from "../../base/assertObjectFound.js";
 import BaseModel, { DataMode } from "../../base/BaseModel.js";
-import deepFreeze from "../../lib/deepFreeze.js";
 import Server from "../../server/Server.js";
 import { CompactListResponse } from "../../base/types.js";
 import { ProjectBehaviors } from "./behaviors/types.js";
@@ -29,7 +28,9 @@ export default class Project<
     query: ProjectListQuery = {},
   ): CompactListResponse<Project<"Compact">> {
     const data = await Project.behaviors.list(query);
-    return deepFreeze(data.map((d) => new Project<"Compact">(d.id, d)));
+    return BaseModel.behavior.deepFreeze(
+      data.map((d) => new Project<"Compact">(d.id, d)),
+    );
   }
 
   // references
