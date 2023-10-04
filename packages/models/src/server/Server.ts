@@ -1,6 +1,7 @@
 import BaseModel, { DataMode } from "../base/BaseModel.js";
 import assertObjectFound from "../base/assertObjectFound.js";
 import Project from "../project/Project/Project.js";
+import deepFreeze from "../lib/deepFreeze.js";
 import { CompactListResponse } from "../base/types.js";
 import { ServerCompactData, ServerData, ServerListQuery } from "./types.js";
 import { ServerBehaviors } from "./behaviors/types.js";
@@ -28,7 +29,7 @@ export default class Server<
     query: ServerListQuery = {},
   ): CompactListResponse<Server<"Compact">> {
     const projectListData = await this.behaviors.list(query);
-    return BaseModel.behavior.deepFreeze(
+    return deepFreeze(
       projectListData.map((d) => new Server<"Compact">(d.id, d)),
     );
   }

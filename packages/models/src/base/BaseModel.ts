@@ -1,5 +1,4 @@
-import { defaultBaseModelBehavior } from "./behaviors/Default.js";
-import { ReadonlyDeep } from "./behaviors/types.js";
+import deepFreeze, { ReadonlyDeep } from "../lib/deepFreeze.js";
 
 export type DataMode = "Default" | "Compact";
 
@@ -16,11 +15,10 @@ export default abstract class BaseModel<
 > {
   public readonly id: string;
   public readonly data: ReadonlyDeep<DataType<TMode, TDefault, TCompact>>;
-  public static readonly behavior = defaultBaseModelBehavior();
 
   public constructor(id: string, apiData: DataType<TMode, TDefault, TCompact>) {
     this.id = id;
-    this.data = BaseModel.behavior.deepFreeze(apiData);
+    this.data = deepFreeze(apiData);
   }
 
   public toString(): string {
