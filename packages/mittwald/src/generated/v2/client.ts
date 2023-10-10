@@ -553,7 +553,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     scountUnreadNotifications: this.requestFunctionFactory(
       descriptors.notificationsCountUnreadNotifications
     ),
-    /** List all unread notifications */
+    /** List all unread notifications. */
     slistNotifications: this.requestFunctionFactory(
       descriptors.notificationsListNotifications
     ),

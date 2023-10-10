@@ -475,7 +475,7 @@ const buildNotificationApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.notificationsCountUnreadNotifications,
     baseClient.notification.scountUnreadNotifications
   ).getApiResource,
-  /** List all unread notifications */
+  /** List all unread notifications. */
   slistNotifications: new ApiCallAsyncResourceFactory(
     descriptors.notificationsListNotifications,
     baseClient.notification.slistNotifications
