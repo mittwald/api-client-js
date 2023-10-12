@@ -493,15 +493,15 @@ const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.projectGetProjectMembership,
     baseClient.project.getProjectMembership
   ).getApiResource,
-  /** Get a ProjectInvite by token. */
-  getProjectTokenInvite: new ApiCallAsyncResourceFactory(
-    descriptors.projectGetProjectTokenInvite,
-    baseClient.project.getProjectTokenInvite
-  ).getApiResource,
   /** Get a Project. */
   getProject: new ApiCallAsyncResourceFactory(
     descriptors.projectGetProject,
     baseClient.project.getProject
+  ).getApiResource,
+  /** Get a ProjectInvite by token. */
+  getProjectTokenInvite: new ApiCallAsyncResourceFactory(
+    descriptors.projectGetProjectTokenInvite,
+    baseClient.project.getProjectTokenInvite
   ).getApiResource,
   /** Get the executing user's membership in a Project. */
   getSelfMembershipForProject: new ApiCallAsyncResourceFactory(

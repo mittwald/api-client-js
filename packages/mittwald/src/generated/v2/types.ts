@@ -2179,6 +2179,14 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ProjectGetProject {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectGetProject
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.projectGetProject, TStatus>;
+    }
+
     namespace ProjectDeleteProject {
       type RequestData = InferredRequestData<
         typeof descriptors.projectDeleteProject
@@ -2273,14 +2281,6 @@ export declare module MittwaldAPIV2 {
           typeof descriptors.projectGetProjectTokenInvite,
           TStatus
         >;
-    }
-
-    namespace ProjectGetProject {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectGetProject
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.projectGetProject, TStatus>;
     }
 
     namespace ProjectGetSelfMembershipForProject {
@@ -4809,16 +4809,6 @@ export declare module MittwaldAPIV2 {
         width: number;
       }
 
-      export interface DomainEmptyResponse {
-        error_props: {};
-        error_reason: string;
-      }
-
-      export interface DomainError {
-        message: string;
-        type: string;
-      }
-
       export type SshuserEntityTypes = "ssh" | "sftp";
 
       /**
@@ -5168,30 +5158,6 @@ export declare module MittwaldAPIV2 {
 
       namespace OrderNotFoundError {
         export interface ApplicationJson {}
-      }
-
-      namespace DomainDefaultError {
-        export type ApplicationJson =
-          MittwaldAPIV2.Components.Schemas.DomainError;
-      }
-
-      namespace DomainGenericResponse {
-        export type ApplicationJson =
-          MittwaldAPIV2.Components.Schemas.DomainEmptyResponse;
-      }
-
-      namespace DomainEmptyResponse {
-        export interface ApplicationJson {}
-      }
-
-      namespace DomainNotFoundError {
-        export type ApplicationJson =
-          MittwaldAPIV2.Components.Schemas.DomainError;
-      }
-
-      namespace DomainValidationError {
-        export type ApplicationJson =
-          MittwaldAPIV2.Components.Schemas.DomainError;
       }
 
       namespace SignupInternalServerError {
@@ -15183,6 +15149,43 @@ export declare module MittwaldAPIV2 {
     }
 
     namespace V2ProjectsProjectId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ProjectProject;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
       namespace Delete {
         namespace Parameters {
           export type Path = {
@@ -15661,45 +15664,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            id: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.ProjectProject;
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2ProjectsProjectIdMembershipsSelf {
       namespace Get {
         namespace Parameters {
@@ -16134,11 +16098,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsIdDescription {
+    namespace V2ProjectsProjectIdDescription {
       namespace Patch {
         namespace Parameters {
           export type Path = {
-            id: string;
+            projectId: string;
           };
 
           export interface RequestBody {
