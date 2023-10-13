@@ -7474,6 +7474,7 @@ export declare module MittwaldAPIV2 {
           export interface RequestBody {
             categoryId?: string;
             relatedTo?: MittwaldAPIV2.Components.Schemas.ConversationAggregateReference;
+            sharedWith?: MittwaldAPIV2.Components.Schemas.ConversationAggregateReference;
             title?: string;
           }
 
