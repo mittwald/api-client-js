@@ -15,7 +15,7 @@ export default class Server<
   public static async find(id: string): Promise<Server | undefined> {
     const serverData = await this.behaviors.find(id);
     if (serverData !== undefined) {
-      return new Server(serverData.id, serverData);
+      return new Server(serverData.id, "Default", serverData);
     }
   }
 
@@ -30,7 +30,7 @@ export default class Server<
   ): CompactListResponse<Server<"Compact">> {
     const projectListData = await this.behaviors.list(query);
     return deepFreeze(
-      projectListData.map((d) => new Server<"Compact">(d.id, d)),
+      projectListData.map((d) => new Server(d.id, "Compact", d)),
     );
   }
 

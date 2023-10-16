@@ -5,7 +5,7 @@ import BaseModel from "./BaseModel.js";
 export default function assertObjectFound<T>(
   obj: T | undefined,
   theClass: Constructor<unknown>,
-  refIdOrObject: string | BaseModel,
+  refIdOrObject: string | BaseModel<unknown, unknown, never>,
 ): asserts obj is T {
   if (obj === undefined) {
     const refName =

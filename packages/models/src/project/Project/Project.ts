@@ -15,7 +15,7 @@ export default class Project<
   public static async find(id: string): Promise<Project | undefined> {
     const data = await Project.behaviors.find(id);
     if (data !== undefined) {
-      return new Project(data.id, data);
+      return new Project(data.id, "Default", data);
     }
   }
 
@@ -29,26 +29,36 @@ export default class Project<
     query: ProjectListQuery = {},
   ): CompactListResponse<Project<"Compact">> {
     const data = await Project.behaviors.list(query);
-    return deepFreeze(data.map((d) => new Project<"Compact">(d.id, d)));
+    return deepFreeze(data.map((d) => new Project(d.id, "Compact", d)));
   }
 
   // references
   public async getDetailed(): Promise<Project> {
+    if (this.modeIs("Default")) {
+      return this;
+    }
+
     return Project.get(this.id);
   }
 
   public async getServer(): Promise<Server | undefined> {
-    if (this.data.serverId) {
-      return Server.get(this.data.serverId);
+    const detailedProject = await this.getDetailed();
+    if (detailedProject.data.serverId) {
+      return Server.get(detailedProject.data.serverId);
     }
   }
 
   // creating
+  public static ofId(id: string): Project<"Id"> {
+    return new Project<"Id">(id, "Id", null);
+  }
+
   public static async create(
     serverId: string,
     description: string,
-  ): Promise<ReturnType<ProjectBehaviors["create"]>> {
-    return Project.behaviors.create(serverId, description);
+  ): Promise<Project<"Id">> {
+    const { id } = await Project.behaviors.create(serverId, description);
+    return new Project(id, "Id", null);
   }
 
   // actions

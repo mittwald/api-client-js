@@ -7,7 +7,12 @@ export const inMemProjectBehaviors = (
   find: async (id) => store.get(id),
 
   list: async () => {
-    throw new Error("Not implemented");
+    return Array.from(store.values()).map((detailedProject) => ({
+      ...detailedProject,
+      customerMeta: {
+        id: detailedProject.customerId,
+      },
+    }));
   },
 
   create: async () => {
