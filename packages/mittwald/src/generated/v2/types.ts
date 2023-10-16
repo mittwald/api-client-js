@@ -12283,11 +12283,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2FilesIdMeta {
+    namespace V2FilesFileIdMeta {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            id: string;
+            fileId: string;
           };
 
           export type Header = {};
@@ -12413,11 +12413,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2FilesId {
+    namespace V2FilesFileId {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            id: string;
+            fileId: string;
           };
 
           export type Header = {

@@ -4833,27 +4833,27 @@ export const fileCreateFile: OpenAPIOperation<
 export const fileGetFileMeta: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2FilesIdMeta.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2FilesIdMeta.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2FilesIdMeta.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2FilesFileIdMeta.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2FilesFileIdMeta.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2FilesFileIdMeta.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FilesIdMeta.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2FilesFileIdMeta.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FilesIdMeta.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2FilesFileIdMeta.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FilesIdMeta.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2FilesFileIdMeta.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/files/{id}/meta",
+  path: "/v2/files/{fileId}/meta",
   method: "GET",
   operationId: "file-get-file-meta",
 };
@@ -4930,47 +4930,47 @@ export const fileGetFileTypeRules: OpenAPIOperation<
 export const fileGetFile: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2FilesId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2FilesId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2FilesId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2FilesFileId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2FilesFileId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2FilesFileId.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FilesId.Get.Responses.$200.Content.ApplicationOctetStream>,
+      Simplify<MittwaldAPIV2.Paths.V2FilesFileId.Get.Responses.$200.Content.ApplicationOctetStream>,
       200,
       "application/octet-stream"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FilesId.Get.Responses.$200.Content.Base64>,
+      Simplify<MittwaldAPIV2.Paths.V2FilesFileId.Get.Responses.$200.Content.Base64>,
       200,
       "base64"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FilesId.Get.Responses.$200.Content.Ocr>,
+      Simplify<MittwaldAPIV2.Paths.V2FilesFileId.Get.Responses.$200.Content.Ocr>,
       200,
       "ocr"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FilesId.Get.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2FilesFileId.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FilesId.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2FilesFileId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FilesId.Get.Responses.$500.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2FilesFileId.Get.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FilesId.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2FilesFileId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/files/{id}",
+  path: "/v2/files/{fileId}",
   method: "GET",
   operationId: "file-get-file",
 };
