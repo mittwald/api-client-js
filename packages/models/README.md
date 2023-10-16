@@ -47,14 +47,40 @@ When adding models or methods pay close attention to the (maybe existing)
 language used in the respective domain. Talk to the responsible team if you are
 uncertain.
 
-### Single vs. List Items
+### Type of models
+
+#### Detailed vs. List Models
 
 The response type for some models often differs when loading single items or
 lists. To reduce the amount of data, the list response type is usually a subset
-of the comprehensive model. The different "data modes" are modelled inside the
-`BaseModel` class, which supports generic parameters for `Data` and
-`CompactData`. The generic `DataMode` parameter controls which data type is
-actually used.
+of the comprehensive model. Add separate classes for the Detailed Model (name it
+`[Model]Detailed`) and the List Model (name it `[Model]ListItem`).
+
+If both model share a common code base, you should add a Base Model (name it
+`[Model]Base`).
+
+#### Proxy models
+
+Proxy Models represent a certain model just by its ID. As the most basic model
+operations often just need the ID and some input data (deleting, renaming, ...),
+Proxy Models can avoid unnecessary API round trips. These classes can be used as
+a return type for new created models or for linked models.
+
+To get the actual Detailed Model, Proxy Models should have a
+`function get(): Promise<ModelDetailed>` method.
+
+#### Implementation details
+
+When implementing shared functionality, like in the Base Models, you can use the
+[`polytype`](https://www.npmjs.com/package/polytype) library to realize dynamic
+multiple inheritance. Be sure to look at the existing source code for
+implementation examples.
+
+#### Entry point model
+
+Provide a single model as an entry point for all different model types
+(detailed, list, proxy, ...). As a convention provide a default export for this
+model. You can also use `polytype` to put all models together.
 
 ### Use the correct verbs
 
@@ -82,6 +108,11 @@ methods to get the parent and child models, like `project.getServer()`,
 `server.listProjects()` or `server.getCustomer()`. Use `get`, `list` or `find`
 prefixes.
 
+#### Use Proxy Models when possible!
+
+When a linked model provides a Proxy Model, create it in the model constructor,
+to avoid unnecessary API round trips.
+
 ### Abstraction of model behaviors
 
 Models are usually backed by a set of behaviors, defining the basic model
@@ -105,8 +136,10 @@ coupling of model and API-specific implementation.
 ##### Don't 🥴
 
 ```typescript
-class Project {
-  public static async find(id: string): Promise<Project | undefined> {
+class ProjectDetailed {
+  public static async find(
+    id: string,
+  ): Promise<ProjProjectDetailed | undefined> {
     const response = await client.project.getProject({
       id,
     });
@@ -122,12 +155,45 @@ class Project {
 ##### Do 😃
 
 ```typescript
-class Project {
-  public static async find(id: string): Promise<Project | undefined> {
+class ProjectDetailed {
+  public static async find(id: string): Promise<ProjectDetailed | undefined> {
     const data = await Project.behaviors.find(id);
     if (data !== undefined) {
       return new Project(data.id, data);
     }
   }
+}
+```
+
+### Examples
+
+```typescript
+// Get a detailed project
+const project = await Project.get("497f6eca-6276-4993-bfeb-53cbbbba6f08");
+
+// Create a project proxy
+const projectProxy = Project.createProxy(
+  "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+);
+
+// Update project description
+await project.updateDescription("My new description!");
+
+// This method just needs the ID and a description and
+// thus is also available on the proxy!
+await projectProxy.updateDescription("My new description!");
+
+// Accessing the projects server (proxy)
+const server = project.server;
+
+// List all projects of this server
+const serversProjects = await server.listProjects();
+
+// List all projects overall
+const allProjects = await Project.list();
+
+// Iterate over project List Models
+for (const project of serversProjects) {
+  await project.leave();
 }
 ```

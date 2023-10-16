@@ -1164,6 +1164,7 @@ __metadata:
     "@mittwald/api-client": "workspace:^"
     "@mittwald/api-client-commons": "workspace:^"
     another-deep-freeze: ^1.0.0
+    polytype: ^0.17.0
     tsd: ^0.29.0
     type-fest: ^4.3.2
   languageName: unknown
@@ -7600,6 +7601,13 @@ __metadata:
   dependencies:
     irregular-plurals: ^3.2.0
   checksum: fea2e903efca67cc5c7a8952fca3db46ae8d9e9353373b406714977e601a5d3b628bcb043c3ad2126c6ff0e73d8020bf43af30a72dd087eff1ec240eb13b90e1
+  languageName: node
+  linkType: hard
+
+"polytype@npm:^0.17.0":
+  version: 0.17.0
+  resolution: "polytype@npm:0.17.0"
+  checksum: c9895603dc2b8a032e46416c462df8e16eefd339aac4e8536223429fbbda24ff6e0a01f370d03c1d5bfcaec3bed2536675d8cf87014fe00af7a875fc18f7f658
   languageName: node
   linkType: hard
 

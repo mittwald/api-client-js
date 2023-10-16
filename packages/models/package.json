@@ -38,7 +38,6 @@
       }
     }
   },
-  "scripts": {},
   "files": [
     "dist/**/*.{js,d.ts}"
   ],
@@ -53,6 +52,7 @@
     "@mittwald/api-client": "workspace:^",
     "@mittwald/api-client-commons": "workspace:^",
     "another-deep-freeze": "^1.0.0",
+    "polytype": "^0.17.0",
     "type-fest": "^4.3.2"
   },
   "devDependencies": {

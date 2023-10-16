@@ -1,76 +1,99 @@
-import assertObjectFound from "../../base/assertObjectFound.js";
-import BaseModel, { DataMode } from "../../base/BaseModel.js";
-import deepFreeze from "../../lib/deepFreeze.js";
-import Server from "../../server/Server.js";
-import { CompactListResponse } from "../../base/types.js";
-import { ProjectBehaviors } from "./behaviors/types.js";
 import { ProjectCompactData, ProjectData, ProjectListQuery } from "./types.js";
+import { config } from "../../config/config.js";
+import { classes } from "polytype";
+import { DataModel } from "../../base/DataModel.js";
+import assertObjectFound from "../../base/assertObjectFound.js";
+import { ProxyModel } from "../../base/ProxyModel.js";
+import { ServerProxy } from "../../server/Server.js";
 
-export default class Project<
-  TMode extends DataMode = "Default",
-> extends BaseModel<ProjectData, ProjectCompactData, TMode> {
-  public static behaviors: ProjectBehaviors;
+export class ProjectProxy extends ProxyModel {
+  public async updateDescription(description: string): Promise<void> {
+    await config.behaviors.project.updateDescription(this.id, description);
+  }
 
-  // loading
-  public static async find(id: string): Promise<Project | undefined> {
-    const data = await Project.behaviors.find(id);
+  public async leave(): Promise<void> {
+    await config.behaviors.project.leave(this.id);
+  }
+
+  public async delete(): Promise<void> {
+    await config.behaviors.project.delete(this.id);
+  }
+
+  public async get(): Promise<ProjectDetailed> {
+    if (this instanceof ProjectDetailed) {
+      return this;
+    }
+
+    return Project.getDetailed(this.id);
+  }
+
+  public static createProxy(id: string): ProjectProxy {
+    return new ProjectProxy(id);
+  }
+}
+
+export class ProjectBase extends classes(
+  DataModel<ProjectCompactData | ProjectData>,
+  ProjectProxy,
+) {
+  public readonly server: ServerProxy | undefined;
+
+  public constructor(data: ProjectCompactData | ProjectData) {
+    super([data], [data.id]);
+    this.server = data.serverId
+      ? ServerProxy.createProxy(data.serverId)
+      : undefined;
+  }
+}
+
+export class ProjectDetailed extends classes(
+  ProjectBase,
+  DataModel<ProjectData>,
+) {
+  public constructor(data: ProjectData) {
+    super([data]);
+  }
+
+  public static async find(id: string): Promise<ProjectDetailed | undefined> {
+    const data = await config.behaviors.project.find(id);
     if (data !== undefined) {
-      return new Project(data.id, "Default", data);
+      return new ProjectDetailed(data);
     }
   }
 
-  public static async get(id: string): Promise<Project> {
-    const project = await Project.find(id);
+  public static async getDetailed(id: string): Promise<ProjectDetailed> {
+    const project = await this.find(id);
     assertObjectFound(project, this, id);
     return project;
+  }
+}
+
+export class ProjectListItem extends classes(
+  ProjectBase,
+  DataModel<ProjectCompactData>,
+) {
+  public constructor(data: ProjectCompactData) {
+    super([data as ProjectData & ProjectCompactData]);
   }
 
   public static async list(
     query: ProjectListQuery = {},
-  ): CompactListResponse<Project<"Compact">> {
-    const data = await Project.behaviors.list(query);
-    return deepFreeze(data.map((d) => new Project(d.id, "Compact", d)));
+  ): Promise<Array<ProjectListItem>> {
+    const data = await config.behaviors.project.list(query);
+    return data.map((d) => new ProjectListItem(d));
   }
+}
 
-  // references
-  public async getDetailed(): Promise<Project> {
-    if (this.modeIs("Default")) {
-      return this;
-    }
-
-    return Project.get(this.id);
-  }
-
-  public async getServer(): Promise<Server | undefined> {
-    const detailedProject = await this.getDetailed();
-    if (detailedProject.data.serverId) {
-      return Server.get(detailedProject.data.serverId);
-    }
-  }
-
-  // creating
-  public static ofId(id: string): Project<"Id"> {
-    return new Project<"Id">(id, "Id", null);
-  }
-
+export default class Project extends classes(
+  ProjectDetailed,
+  ProjectListItem,
+  ProjectProxy,
+) {
   public static async create(
     serverId: string,
     description: string,
-  ): Promise<Project<"Id">> {
-    const { id } = await Project.behaviors.create(serverId, description);
-    return new Project(id, "Id", null);
-  }
-
-  // actions
-  public async updateDescription(description: string): Promise<void> {
-    await Project.behaviors.updateDescription(this.id, description);
-  }
-
-  public async leave(): Promise<void> {
-    await Project.behaviors.leave(this.id);
-  }
-
-  public async delete(): Promise<void> {
-    await Project.behaviors.delete(this.id);
+  ): Promise<ProjectProxy> {
+    const { id } = await config.behaviors.project.create(serverId, description);
+    return new ProjectProxy(id);
   }
 }
