@@ -4,7 +4,7 @@ import { classes } from "polytype";
 import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import { ProxyModel } from "../../base/ProxyModel.js";
-import { ServerProxy } from "../../server/Server.js";
+import { ServerProxy } from "../../server/Server/Server.js";
 
 export class ProjectProxy extends ProxyModel {
   public async updateDescription(description: string): Promise<void> {

@@ -1,5 +1,5 @@
 import { ProjectBehaviors } from "../project/Project/behaviors/index.js";
-import { ServerBehaviors } from "../server/behaviors/index.js";
+import { ServerBehaviors } from "../server/Server/behaviors/index.js";
 
 interface Config {
   behaviors: {

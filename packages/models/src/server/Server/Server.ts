@@ -1,10 +1,10 @@
-import { ProxyModel } from "../base/ProxyModel.js";
+import { ProxyModel } from "../../base/ProxyModel.js";
 import { ServerCompactData, ServerData, ServerListQuery } from "./types.js";
-import { config } from "../config/config.js";
+import { config } from "../../config/config.js";
 import { classes } from "polytype";
-import { DataModel } from "../base/DataModel.js";
-import assertObjectFound from "../base/assertObjectFound.js";
-import Project from "../project/Project/Project.js";
+import { DataModel } from "../../base/DataModel.js";
+import assertObjectFound from "../../base/assertObjectFound.js";
+import Project from "../../project/Project/Project.js";
 
 export class ServerProxy extends ProxyModel {
   public static createProxy(id: string): ServerProxy {
