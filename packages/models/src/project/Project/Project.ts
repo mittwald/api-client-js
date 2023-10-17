@@ -50,14 +50,10 @@ export class ProjectDetailed extends classes(
   ProjectBase,
   DataModel<ProjectData>,
 ) {
-  public constructor(data: ProjectData) {
-    super([data]);
-  }
-
   public static async find(id: string): Promise<ProjectDetailed | undefined> {
     const data = await config.behaviors.project.find(id);
     if (data !== undefined) {
-      return new ProjectDetailed(data);
+      return new ProjectDetailed([data]);
     }
   }
 
@@ -72,23 +68,15 @@ export class ProjectListItem extends classes(
   ProjectBase,
   DataModel<ProjectCompactData>,
 ) {
-  public constructor(data: ProjectCompactData) {
-    super([data as ProjectData & ProjectCompactData]);
-  }
-
   public static async list(
     query: ProjectListQuery = {},
   ): Promise<Array<ProjectListItem>> {
     const data = await config.behaviors.project.list(query);
-    return data.map((d) => new ProjectListItem(d));
+    return data.map((d) => new ProjectListItem([d]));
   }
 }
 
-export default class Project extends classes(
-  ProjectDetailed,
-  ProjectListItem,
-  ProjectProxy,
-) {
+export default class Project extends classes(ProjectDetailed, ProjectListItem) {
   public static async create(
     serverId: string,
     description: string,

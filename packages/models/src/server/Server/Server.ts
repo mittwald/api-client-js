@@ -45,27 +45,19 @@ export class ServerListItem extends classes(
   ServerBase,
   DataModel<ServerCompactData>,
 ) {
-  public constructor(data: ServerCompactData) {
-    super([data]);
-  }
-
   public static async list(
     query: ServerListQuery = {},
   ): Promise<ServerListItem[]> {
     const projectListData = await config.behaviors.server.list(query);
-    return projectListData.map((d) => new ServerListItem(d));
+    return projectListData.map((d) => new ServerListItem([d]));
   }
 }
 
 export class ServerDetailed extends classes(ServerBase, DataModel<ServerData>) {
-  public constructor(data: ServerData) {
-    super([data]);
-  }
-
   public static async find(id: string): Promise<Server | undefined> {
     const serverData = await config.behaviors.server.find(id);
     if (serverData !== undefined) {
-      return new ServerDetailed(serverData);
+      return new ServerDetailed([serverData]);
     }
   }
 
@@ -76,8 +68,4 @@ export class ServerDetailed extends classes(ServerBase, DataModel<ServerData>) {
   }
 }
 
-export default class Server extends classes(
-  ServerDetailed,
-  ServerListItem,
-  ServerProxy,
-) {}
+export default class Server extends classes(ServerDetailed, ServerListItem) {}
