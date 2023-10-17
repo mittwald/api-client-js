@@ -18,11 +18,13 @@ export class ServerProxy extends ProxyModel {
   }
 
   public async listProjects(): ReturnType<typeof Project.list> {
-    return Project.listOf(this);
+    return Project.list({
+      serverId: this.id,
+    });
   }
 
-  public async get(): Promise<ServerDetailed> {
-    return ServerDetailed.getDetailed(this.id);
+  public async getDetailed(): Promise<ServerDetailed> {
+    return ServerDetailed.get(this.id);
   }
 }
 
@@ -63,7 +65,7 @@ export class ServerDetailed extends classes(ServerBase, DataModel<ServerData>) {
     }
   }
 
-  public static async getDetailed(id: string): Promise<Server> {
+  public static async get(id: string): Promise<Server> {
     const server = await ServerDetailed.find(id);
     assertObjectFound(server, this, id);
     return server;

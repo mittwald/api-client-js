@@ -19,12 +19,12 @@ export class ProjectProxy extends ProxyModel {
     await config.behaviors.project.delete(this.id);
   }
 
-  public async get(): Promise<ProjectDetailed> {
+  public async getDetailed(): Promise<ProjectDetailed> {
     if (this instanceof ProjectDetailed) {
       return this;
     }
 
-    return Project.getDetailed(this.id);
+    return Project.get(this.id);
   }
 
   public static createProxy(id: string): ProjectProxy {
@@ -61,7 +61,7 @@ export class ProjectDetailed extends classes(
     }
   }
 
-  public static async getDetailed(id: string): Promise<ProjectDetailed> {
+  public static async get(id: string): Promise<ProjectDetailed> {
     const project = await this.find(id);
     assertObjectFound(project, this, id);
     return project;
@@ -81,12 +81,6 @@ export class ProjectListItem extends classes(
   ): Promise<Array<ProjectListItem>> {
     const data = await config.behaviors.project.list(query);
     return data.map((d) => new ProjectListItem(d));
-  }
-
-  public static async listOf(
-    filterSubject: ServerProxy,
-  ): Promise<Array<ProjectListItem>> {
-    return ProjectListItem.list({ serverId: filterSubject.id });
   }
 }
 

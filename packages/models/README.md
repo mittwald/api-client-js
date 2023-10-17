@@ -18,6 +18,21 @@ You can install this package from the regular NPM registry:
 yarn add @mittwald/api-models
 ```
 
+## Immutability and state updates
+
+Most of all models provided by this package represent an associated counter-part
+in the backend. When a model is loaded from the backend, the current state is
+incorporated into the model instance. To keep it simple and predictable this
+**state is immutable and does not change under any circumstances**. As a result
+you must create a new instance to get an updated model and propagate it
+throughout the runtime code.
+
+This also applies for operations initiated at your client-side. For example when
+you call the `updateDescription` method on a project, the project instance will
+still have the old description.
+
+"Watching for changes" will be implemented in future releases™️.
+
 ## Contribute
 
 **As a general advice when contributing, be sure to look at the existing source
@@ -31,15 +46,19 @@ Structure the models in meaningful directories.
 
 ### Use the base classes
 
-Models should extend the correct base class. You can find the base classes in
-`src/base`. The following classes are available.
+Models should extend (or inherit) the correct base class. You can find the base
+classes in `src/base`. The following classes are available.
 
-#### `BaseModel`
+#### `DataModel`
 
-The BaseModel is the foundation of all model classes and serves as a common
-extension point for all models. The base model contains a generic `data`
-property and an `id` property, as it is supposed, that every model is identified
-by its ID.
+The DataModel is the foundation of all model classes that contain a set of
+immutable generic data.
+
+#### `ProxyModel`
+
+A ProxyModel represents a certain model just by its ID. As the most basic model
+operations often just need the ID and some input data (deleting, renaming, ...),
+Proxy Models can avoid unnecessary API round trips.
 
 ### Stick to the ubiquitous language
 
@@ -61,7 +80,7 @@ If both model share a common code base, you should add a Base Model (name it
 
 #### Proxy models
 
-Proxy Models represent a certain model just by its ID. As the most basic model
+A Proxy Model represents a certain model just by its ID. As the most basic model
 operations often just need the ID and some input data (deleting, renaming, ...),
 Proxy Models can avoid unnecessary API round trips. These classes can be used as
 a return type for new created models or for linked models.
@@ -165,7 +184,7 @@ class ProjectDetailed {
 }
 ```
 
-### Examples
+## Examples
 
 ```typescript
 // Get a detailed project
@@ -175,6 +194,9 @@ const project = await Project.get("497f6eca-6276-4993-bfeb-53cbbbba6f08");
 const projectProxy = Project.createProxy(
   "497f6eca-6276-4993-bfeb-53cbbbba6f08",
 );
+
+// Get the project from the proxy
+const detailedProject = await projectProxy.getDetailed();
 
 // Update project description
 await project.updateDescription("My new description!");
@@ -189,7 +211,7 @@ const server = project.server;
 // List all projects of this server
 const serversProjects = await server.listProjects();
 
-// List all projects overall
+// List all projects
 const allProjects = await Project.list();
 
 // Iterate over project List Models
