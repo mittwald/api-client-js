@@ -2403,17 +2403,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace RedirectusCreateRelocation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.redirectusCreateRelocation
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.redirectusCreateRelocation,
-          TStatus
-        >;
-    }
-
     namespace RelocationCreateLegacyTariffChange {
       type RequestData = InferredRequestData<
         typeof descriptors.relocationCreateLegacyTariffChange
@@ -2916,6 +2905,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.userVerifyRegistration,
+          TStatus
+        >;
+    }
+
+    namespace RelocationCreateRelocation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.relocationCreateRelocation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.relocationCreateRelocation,
           TStatus
         >;
     }
@@ -4058,7 +4058,8 @@ export declare module MittwaldAPIV2 {
         target:
           | MittwaldAPIV2.Components.Schemas.IngressTargetDirectory
           | MittwaldAPIV2.Components.Schemas.IngressTargetUrl
-          | MittwaldAPIV2.Components.Schemas.IngressTargetInstallation;
+          | MittwaldAPIV2.Components.Schemas.IngressTargetInstallation
+          | MittwaldAPIV2.Components.Schemas.IngressTargetUseDefaultPage;
       }
 
       export interface IngressTargetDirectory {
@@ -4071,6 +4072,10 @@ export declare module MittwaldAPIV2 {
 
       export interface IngressTargetUrl {
         url: string;
+      }
+
+      export interface IngressTargetUseDefaultPage {
+        useDefaultPage: boolean;
       }
 
       export interface IngressTlsAcme {
@@ -4769,18 +4774,6 @@ export declare module MittwaldAPIV2 {
         visitors: number;
       }
 
-      export interface DirectusDomain {
-        /**
-         * The authcode of the domain. Leave empty when mittwald can generate a authcode on its own
-         */
-        authCode?: string;
-        /**
-         * Leave empty when mittwald should keep the same domain owner
-         */
-        domainOwnerData?: string;
-        name: string;
-      }
-
       export interface ScreenshotTarget {
         domain: string;
         path?: string;
@@ -5049,6 +5042,18 @@ export declare module MittwaldAPIV2 {
       export interface VarnishSoftwareSetting {
         name: string;
         value: string;
+      }
+
+      export interface DirectusDomain {
+        /**
+         * The authcode of the domain. Leave empty when mittwald can generate a authcode on its own
+         */
+        authCode?: string;
+        /**
+         * Leave empty when mittwald should keep the same domain owner
+         */
+        domainOwnerData?: string;
+        name: string;
       }
 
       export interface CommonsAddress {
@@ -16199,113 +16204,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2Relocation {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            /**
-             * Should all project releated domains should be transferred to mittwald?
-             */
-            allDomains?: boolean;
-            /**
-             * Has to be true. Do you accept that our mittwald team can change and get password from your current provider?
-             */
-            allowPasswordChange: boolean;
-            contact: {
-              email: string;
-              firstName: string;
-              lastName: string;
-              phoneNumber?: string;
-            };
-            /**
-             * List of domains which should be transferred (when allDomains is not checked).
-             */
-            domains?: MittwaldAPIV2.Components.Schemas.DirectusDomain[];
-            /**
-             * Anything our customer service needs to know for the relocation process.
-             */
-            notes?: string;
-            provider: {
-              /**
-               * Url to the control panel of the provider
-               */
-              loginUrl: string;
-              /**
-               * Name of your provider
-               */
-              name: string | ("1und1" | "strato");
-              password: string;
-              /**
-               * Which account of your provider should be moved?
-               */
-              sourceAccount: string;
-              /**
-               * Login name to your provider
-               */
-              userName: string;
-            };
-            target: {
-              /**
-               * Your customer or organisation number
-               */
-              organisation: string;
-              /**
-               * Help our customer service finding your target account
-               */
-              product: (
-                | string
-                | (
-                    | "spaceServer"
-                    | "proSpace"
-                    | "agencyServer"
-                    | "cmsHosting"
-                    | "shopHosting"
-                  )
-              ) &
-                string;
-              /**
-               * In which p-account or short project id your project should be moved.
-               */
-              projectName: string;
-              /**
-               * Which mittwald system does the targetProject use?
-               */
-              system: "kc" | "mstudio";
-            };
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2LegacyTariffChange {
       namespace Post {
         namespace Parameters {
@@ -18942,6 +18840,113 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2Relocation {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            /**
+             * Should all project releated domains should be transferred to mittwald?
+             */
+            allDomains?: boolean;
+            /**
+             * Has to be true. Do you accept that our mittwald team can change and get password from your current provider?
+             */
+            allowPasswordChange: boolean;
+            contact: {
+              email: string;
+              firstName: string;
+              lastName: string;
+              phoneNumber?: string;
+            };
+            /**
+             * List of domains which should be transferred (when allDomains is not checked).
+             */
+            domains?: MittwaldAPIV2.Components.Schemas.DirectusDomain[];
+            /**
+             * Anything our customer service needs to know for the relocation process.
+             */
+            notes?: string;
+            provider: {
+              /**
+               * Url to the control panel of the provider
+               */
+              loginUrl: string;
+              /**
+               * Name of your provider
+               */
+              name: string | ("1und1" | "strato");
+              password: string;
+              /**
+               * Which account of your provider should be moved?
+               */
+              sourceAccount: string;
+              /**
+               * Login name to your provider
+               */
+              userName: string;
+            };
+            target: {
+              /**
+               * Your customer or organisation number
+               */
+              organisation: string;
+              /**
+               * Help our customer service finding your target account
+               */
+              product: (
+                | string
+                | (
+                    | "spaceServer"
+                    | "proSpace"
+                    | "agencyServer"
+                    | "cmsHosting"
+                    | "shopHosting"
+                  )
+              ) &
+                string;
+              /**
+               * In which p-account or short project id your project should be moved.
+               */
+              projectName: string;
+              /**
+               * Which mittwald system does the targetProject use?
+               */
+              system: "kc" | "mstudio";
+            };
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;

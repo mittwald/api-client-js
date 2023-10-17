@@ -7634,35 +7634,6 @@ export const projectUpdateServerDescription: OpenAPIOperation<
   operationId: "project-update-server-description",
 };
 
-/** Relocate an external Project to mittwald. */
-export const redirectusCreateRelocation: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2Relocation.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2Relocation.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2Relocation.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2Relocation.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Relocation.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Relocation.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Relocation.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/relocation",
-  method: "POST",
-  operationId: "redirectus-create-relocation",
-};
-
 /** Register a tariff change for a legacy tariff. */
 export const relocationCreateLegacyTariffChange: OpenAPIOperation<
   RequestType<
@@ -9406,4 +9377,33 @@ export const userVerifyRegistration: OpenAPIOperation<
   path: "/v2/verify-registration",
   method: "POST",
   operationId: "user-verify-registration",
+};
+
+/** Relocate an external Project to mittwald. */
+export const relocationCreateRelocation: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2Relocation.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2Relocation.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2Relocation.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2Relocation.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Relocation.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Relocation.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Relocation.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/relocation",
+  method: "POST",
+  operationId: "relocation-create-relocation",
 };
