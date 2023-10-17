@@ -13,7 +13,7 @@ export const apiServerBehaviors = (
     if (response.status === 200) {
       return response.data;
     }
-    assertOneOfStatus(response, [403 as any]);
+    assertOneOfStatus(response, [403, 404]);
   },
 
   list: async (query) => {

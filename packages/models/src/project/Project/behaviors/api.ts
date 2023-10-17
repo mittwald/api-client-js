@@ -7,13 +7,13 @@ export const apiProjectBehaviors = (
 ): ProjectBehaviors => ({
   find: async (id) => {
     const response = await client.project.getProject({
-      id,
+      projectId: id,
     });
 
     if (response.status === 200) {
       return response.data;
     }
-    assertOneOfStatus(response, [403 as any]);
+    assertOneOfStatus(response, [403]);
   },
 
   list: async (query) => {
@@ -51,7 +51,7 @@ export const apiProjectBehaviors = (
 
   updateDescription: async (id: string, description: string) => {
     const response = await client.project.updateProjectDescription({
-      id,
+      projectId: id,
       data: {
         description,
       },

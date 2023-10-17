@@ -553,7 +553,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     scountUnreadNotifications: this.requestFunctionFactory(
       descriptors.notificationsCountUnreadNotifications
     ),
-    /** List all unread notifications */
+    /** List all unread notifications. */
     slistNotifications: this.requestFunctionFactory(
       descriptors.notificationsListNotifications
     ),
@@ -847,6 +847,8 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateProjectMembership: this.requestFunctionFactory(
       descriptors.projectUpdateProjectMembership
     ),
+    /** Get a Project. */
+    getProject: this.requestFunctionFactory(descriptors.projectGetProject),
     /** Delete a Project. */
     deleteProject: this.requestFunctionFactory(
       descriptors.projectDeleteProject
@@ -863,8 +865,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getProjectTokenInvite: this.requestFunctionFactory(
       descriptors.projectGetProjectTokenInvite
     ),
-    /** Get a Project. */
-    getProject: this.requestFunctionFactory(descriptors.projectGetProject),
     /** Get the executing user's membership in a Project. */
     getSelfMembershipForProject: this.requestFunctionFactory(
       descriptors.projectGetSelfMembershipForProject

@@ -4833,27 +4833,27 @@ export const fileCreateFile: OpenAPIOperation<
 export const fileGetFileMeta: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2FilesIdMeta.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2FilesIdMeta.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2FilesIdMeta.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2FilesFileIdMeta.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2FilesFileIdMeta.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2FilesFileIdMeta.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FilesIdMeta.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2FilesFileIdMeta.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FilesIdMeta.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2FilesFileIdMeta.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FilesIdMeta.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2FilesFileIdMeta.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/files/{id}/meta",
+  path: "/v2/files/{fileId}/meta",
   method: "GET",
   operationId: "file-get-file-meta",
 };
@@ -4930,47 +4930,47 @@ export const fileGetFileTypeRules: OpenAPIOperation<
 export const fileGetFile: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2FilesId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2FilesId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2FilesId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2FilesFileId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2FilesFileId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2FilesFileId.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FilesId.Get.Responses.$200.Content.ApplicationOctetStream>,
+      Simplify<MittwaldAPIV2.Paths.V2FilesFileId.Get.Responses.$200.Content.ApplicationOctetStream>,
       200,
       "application/octet-stream"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FilesId.Get.Responses.$200.Content.Base64>,
+      Simplify<MittwaldAPIV2.Paths.V2FilesFileId.Get.Responses.$200.Content.Base64>,
       200,
       "base64"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FilesId.Get.Responses.$200.Content.Ocr>,
+      Simplify<MittwaldAPIV2.Paths.V2FilesFileId.Get.Responses.$200.Content.Ocr>,
       200,
       "ocr"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FilesId.Get.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2FilesFileId.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FilesId.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2FilesFileId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FilesId.Get.Responses.$500.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2FilesFileId.Get.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FilesId.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2FilesFileId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/files/{id}",
+  path: "/v2/files/{fileId}",
   method: "GET",
   operationId: "file-get-file",
 };
@@ -6210,7 +6210,7 @@ export const notificationsCountUnreadNotifications: OpenAPIOperation<
   operationId: "notifications-count-unread-notifications",
 };
 
-/** List all unread notifications */
+/** List all unread notifications. */
 export const notificationsListNotifications: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -6237,57 +6237,57 @@ export const notificationsListNotifications: OpenAPIOperation<
 /** Mark all notifications as read. */
 export const notificationsReadAllNotifications: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2NotificationsStatus.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2NotificationsStatus.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2NotificationsStatus.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2NotificationsStatus.Put.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2NotificationsActionsReadAll.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationsActionsReadAll.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationsActionsReadAll.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationsActionsReadAll.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2NotificationsStatus.Put.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2NotificationsActionsReadAll.Post.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2NotificationsStatus.Put.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2NotificationsActionsReadAll.Post.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2NotificationsStatus.Put.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2NotificationsActionsReadAll.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/notifications/status",
-  method: "PUT",
+  path: "/v2/notifications/actions/read-all",
+  method: "POST",
   operationId: "notifications-read-all-notifications",
 };
 
 /** Mark notification as read. */
 export const notificationsReadNotification: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2NotificationsMessageIdStatus.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2NotificationsMessageIdStatus.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2NotificationsMessageIdStatus.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2NotificationsMessageIdStatus.Put.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2NotificationsNotificationIdStatus.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationsNotificationIdStatus.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationsNotificationIdStatus.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationsNotificationIdStatus.Put.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2NotificationsMessageIdStatus.Put.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2NotificationsNotificationIdStatus.Put.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2NotificationsMessageIdStatus.Put.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2NotificationsNotificationIdStatus.Put.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2NotificationsMessageIdStatus.Put.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2NotificationsNotificationIdStatus.Put.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/notifications/{messageId}/status",
+  path: "/v2/notifications/{notificationId}/status",
   method: "PUT",
   operationId: "notifications-read-notification",
 };
@@ -6664,6 +6664,11 @@ export const projectCreateProject: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServersServerIdProjects.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ServersServerIdProjects.Post.Responses.$412.Content.ApplicationJson>,
       412,
       "application/json"
@@ -6722,6 +6727,11 @@ export const projectRequestProjectAvatarUpload: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAvatar.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAvatar.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -6748,6 +6758,11 @@ export const projectDeleteProjectAvatar: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAvatar.Delete.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAvatar.Delete.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<
@@ -6891,6 +6906,35 @@ export const projectUpdateProjectMembership: OpenAPIOperation<
   operationId: "project-update-project-membership",
 };
 
+/** Get a Project. */
+export const projectGetProject: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}",
+  method: "GET",
+  operationId: "project-get-project",
+};
+
 /** Delete a Project. */
 export const projectDeleteProject: OpenAPIOperation<
   RequestType<
@@ -6912,6 +6956,11 @@ export const projectDeleteProject: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectId.Delete.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectId.Delete.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<
@@ -6954,6 +7003,11 @@ export const projectRequestServerAvatarUpload: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServersServerIdAvatar.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ServersServerIdAvatar.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -6980,6 +7034,11 @@ export const projectDeleteServerAvatar: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ServersServerIdAvatar.Delete.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServersServerIdAvatar.Delete.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<
@@ -7212,35 +7271,6 @@ export const projectGetProjectTokenInvite: OpenAPIOperation<
   operationId: "project-get-project-token-invite",
 };
 
-/** Get a Project. */
-export const projectGetProject: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsId.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsId.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsId.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsId.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/{id}",
-  method: "GET",
-  operationId: "project-get-project",
-};
-
 /** Get the executing user's membership in a Project. */
 export const projectGetSelfMembershipForProject: OpenAPIOperation<
   RequestType<
@@ -7281,6 +7311,11 @@ export const projectGetServer: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ServersServerId.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServersServerId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<
@@ -7458,6 +7493,11 @@ export const projectListProjects: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Projects.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2Projects.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -7529,33 +7569,33 @@ export const projectResendProjectInviteMail: OpenAPIOperation<
 /** Update a Project's description. */
 export const projectUpdateProjectDescription: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsIdDescription.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsIdDescription.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsIdDescription.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsIdDescription.Patch.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDescription.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDescription.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDescription.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDescription.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsIdDescription.Patch.Responses.$200.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDescription.Patch.Responses.$200.Content.Empty>,
       200,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsIdDescription.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDescription.Patch.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/projects/{id}/description",
+  path: "/v2/projects/{projectId}/description",
   method: "PATCH",
   operationId: "project-update-project-description",
 };
@@ -7576,6 +7616,16 @@ export const projectUpdateServerDescription: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ServersServerIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServersServerIdDescription.Patch.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServersServerIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
       "application/json"
     >
 > = {

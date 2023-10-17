@@ -82,6 +82,12 @@ export class ProjectListItem extends classes(
     const data = await config.behaviors.project.list(query);
     return data.map((d) => new ProjectListItem(d));
   }
+
+  public static async listOf(
+    filterSubject: ServerProxy,
+  ): Promise<Array<ProjectListItem>> {
+    return ProjectListItem.list({ serverId: filterSubject.id });
+  }
 }
 
 export default class Project extends classes(

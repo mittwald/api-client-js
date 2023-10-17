@@ -18,7 +18,7 @@ export class ServerProxy extends ProxyModel {
   }
 
   public async listProjects(): ReturnType<typeof Project.list> {
-    return Project.list({ serverId: this.id });
+    return Project.listOf(this);
   }
 
   public async get(): Promise<ServerDetailed> {
