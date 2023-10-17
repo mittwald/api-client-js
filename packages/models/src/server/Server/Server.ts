@@ -5,6 +5,7 @@ import { classes } from "polytype";
 import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import Project from "../../project/Project/Project.js";
+import { ExceptFirstParameters, FirstParameter } from "../../lib/types.js";
 
 export class ServerProxy extends ProxyModel {
   public static createProxy(id: string): ServerProxy {
@@ -12,13 +13,16 @@ export class ServerProxy extends ProxyModel {
   }
 
   public async createProject(
-    description: string,
+    ...parameters: ExceptFirstParameters<typeof Project.create>
   ): ReturnType<typeof Project.create> {
-    return Project.create(this.id, description);
+    return Project.create(this.id, ...parameters);
   }
 
-  public async listProjects(): ReturnType<typeof Project.list> {
+  public async listProjects(
+    query: Omit<FirstParameter<typeof Project.list>, "serverId"> = {},
+  ): ReturnType<typeof Project.list> {
     return Project.list({
+      ...query,
       serverId: this.id,
     });
   }
