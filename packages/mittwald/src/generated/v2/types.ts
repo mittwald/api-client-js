@@ -169,17 +169,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace AppReconcileDetectedApps {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appReconcileDetectedApps
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.appReconcileDetectedApps,
-          TStatus
-        >;
-    }
-
     namespace AppRequestAppinstallationCopy {
       type RequestData = InferredRequestData<
         typeof descriptors.appRequestAppinstallationCopy
@@ -2986,6 +2975,7 @@ export declare module MittwaldAPIV2 {
         projectId?: string;
         screenshotId?: string;
         screenshotRef?: string;
+        shortId: string;
         systemSoftware?: MittwaldAPIV2.Components.Schemas.AppInstalledSystemSoftware[];
         updatePolicy?: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
         userInputs?: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
@@ -3016,10 +3006,16 @@ export declare module MittwaldAPIV2 {
         userInputs?: MittwaldAPIV2.Components.Schemas.AppUserInput[];
       }
 
+      /**
+       * A `BreakingNote` is a hint that something serious has changed in the `AppVersion` containing it, so an automatic update is not possible
+       */
       export interface AppBreakingNote {
         faqLink: string;
       }
 
+      /**
+       * A ´DatabaseDependency` is a generic description of need for a database, used by `AppVersions`
+       */
       export interface AppDatabaseDependency {
         description: string;
         kind: "mysql";
@@ -3034,12 +3030,18 @@ export declare module MittwaldAPIV2 {
         type: string;
       }
 
+      /**
+       * `InstalledSystemSoftware` describes the currently configured and installed `SystemSoftwareVersion` of a `SystemSoftware` besides the desired `SystemSoftwareUpdatePolicy` inside an `AppInstallation`
+       */
       export interface AppInstalledSystemSoftware {
         systemSoftwareId: string;
         systemSoftwareVersion: MittwaldAPIV2.Components.Schemas.AppVersionStatus;
         updatePolicy: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareUpdatePolicy;
       }
 
+      /**
+       * `LinkedDatabase` is a reference to a concrete `Database` and `DatabaseUsers`
+       */
       export interface AppLinkedDatabase {
         databaseId: string;
         databaseUserIds?: {
@@ -3049,6 +3051,9 @@ export declare module MittwaldAPIV2 {
         purpose: "primary" | "cache" | "custom";
       }
 
+      /**
+       * `RequestHandlerRequirement` describes the necessary properties to internally resolve the request handler or process to start
+       */
       export interface AppRequestHandlerRequirement {
         exampleValues?: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
         name: string;
@@ -3056,22 +3061,34 @@ export declare module MittwaldAPIV2 {
         parametersTemplate: string;
       }
 
+      /**
+       * A `SavedUserInput` is an entered value for a desired `UserInput` of an `AppVersion` or `SystemSoftwareVersion`
+       */
       export interface AppSavedUserInput {
         name: string;
         value: string;
       }
 
+      /**
+       * A `SystemSoftwareDependency` is a description of a need for a specific `SystemSoftware` in a semver versionRange.
+       */
       export interface AppSystemSoftwareDependency {
         systemSoftwareId: string;
         versionRange: string;
       }
 
+      /**
+       * `SystemSoftwareUpdatePolicy` describes which updates should be applied automatically by our systems
+       */
       export type AppSystemSoftwareUpdatePolicy =
         | "none"
         | "inheritedFromApp"
         | "patchLevel"
         | "all";
 
+      /**
+       * A `SystemSoftware` is a software that can be installed for an `AppInstallation` but mostly is not itself externally reachable and/or deliverable.
+       */
       export interface AppSystemSoftware {
         id: string;
         name: string;
@@ -3090,6 +3107,9 @@ export declare module MittwaldAPIV2 {
         userInputs?: MittwaldAPIV2.Components.Schemas.AppUserInput[];
       }
 
+      /**
+       * A `UserInput` is a description of an information which cannot be determined or estimated by mittwald, but has to be given by the person who is requesting an `AppInstallation` or `SystemSoftware`
+       */
       export interface AppUserInput {
         /**
          * Optional field to tell the frontend, which data to put into the select
@@ -3108,20 +3128,32 @@ export declare module MittwaldAPIV2 {
         validationSchema: string;
       }
 
+      /**
+       * `UserInputDataType` is an enum, describing the possible data types of a `UserInput`
+       */
       export type AppUserInputDataType =
         | "text"
         | "number"
         | "boolean"
         | "select";
 
+      /**
+       * `UserInputFormat` is an enum, describing the possible data formats of a `UserInput`, the given values can be validated against
+       */
       export type AppUserInputFormat = "email" | "password" | "url";
 
+      /**
+       * `UserInputPositionMeta´ is a utility information, helping to position the `UserInput` properly on the frontend
+       */
       export interface AppUserInputPositionMeta {
         index?: number;
         section?: string;
         step?: string;
       }
 
+      /**
+       * `VersionStatus` describes the current and desired version of something like the `AppVersion` of an `AppInstallation`. If diverging, an internal process is going to assert, the `current` value will be aligned
+       */
       export interface AppVersionStatus {
         current?: string;
         desired: string;
@@ -5880,51 +5912,6 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.AppAppVersion[];
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectsProjectShortIdAppinstallations {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            projectShortId: string;
-          };
-
-          export type RequestBody = {
-            appName: string;
-            appVersionClusterVersion: string;
-            databaseHost?: string;
-            databaseUserName?: string;
-            installationDirectory: string;
-          }[];
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 

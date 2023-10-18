@@ -470,35 +470,6 @@ export const appListUpdateCandidatesForAppversion: OpenAPIOperation<
   operationId: "app-list-update-candidates-for-appversion",
 };
 
-/** reconcile detected apps to appInstallations of a project */
-export const appReconcileDetectedApps: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectShortIdAppinstallations.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectShortIdAppinstallations.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectShortIdAppinstallations.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectShortIdAppinstallations.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectShortIdAppinstallations.Put.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectShortIdAppinstallations.Put.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectShortIdAppinstallations.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/{projectShortId}/appinstallations",
-  method: "PUT",
-  operationId: "app-reconcile-detected-apps",
-};
-
 /** request a copy of an `AppInstallation` */
 export const appRequestAppinstallationCopy: OpenAPIOperation<
   RequestType<
