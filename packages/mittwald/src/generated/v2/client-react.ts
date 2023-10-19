@@ -437,30 +437,30 @@ const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({
 });
 
 const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** Get all deliveryboxes by project ID */
-  deliveryboxList: new ApiCallAsyncResourceFactory(
-    descriptors.mailDeliveryboxList,
-    baseClient.mail.deliveryboxList
+  /** List DeliveryBoxes belonging to a Project. */
+  listDeliveryBoxes: new ApiCallAsyncResourceFactory(
+    descriptors.mailListDeliveryBoxes,
+    baseClient.mail.listDeliveryBoxes
   ).getApiResource,
-  /** Get a specific deliverybox */
-  deliveryboxGetSpecific: new ApiCallAsyncResourceFactory(
-    descriptors.mailDeliveryboxGetSpecific,
-    baseClient.mail.deliveryboxGetSpecific
+  /** List MailAddresses belonging to a Project. */
+  listMailAddresses: new ApiCallAsyncResourceFactory(
+    descriptors.mailListMailAddresses,
+    baseClient.mail.listMailAddresses
   ).getApiResource,
-  /** Get all mail addresses for a project ID */
-  mailaddressList: new ApiCallAsyncResourceFactory(
-    descriptors.mailMailaddressList,
-    baseClient.mail.mailaddressList
+  /** Get a DeliveryBox. */
+  getDeliveryBox: new ApiCallAsyncResourceFactory(
+    descriptors.mailGetDeliveryBox,
+    baseClient.mail.getDeliveryBox
   ).getApiResource,
-  /** Get a specific mail address */
-  mailaddressGetSpecific: new ApiCallAsyncResourceFactory(
-    descriptors.mailMailaddressGetSpecific,
-    baseClient.mail.mailaddressGetSpecific
+  /** Get a MailAddress. */
+  getMailAddress: new ApiCallAsyncResourceFactory(
+    descriptors.mailGetMailAddress,
+    baseClient.mail.getMailAddress
   ).getApiResource,
-  /** Get settings for a given project ID */
-  projectsettingGetSpecific: new ApiCallAsyncResourceFactory(
-    descriptors.mailProjectsettingGetSpecific,
-    baseClient.mail.projectsettingGetSpecific
+  /** List mail settings of a Project. */
+  listProjectMailSettings: new ApiCallAsyncResourceFactory(
+    descriptors.mailListProjectMailSettings,
+    baseClient.mail.listProjectMailSettings
   ).getApiResource,
 });
 
