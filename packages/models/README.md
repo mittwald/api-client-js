@@ -31,7 +31,8 @@ This also applies for operations initiated at your client-side. For example when
 you call the `updateDescription` method on a project, the project instance will
 still have the old description.
 
-"Watching for changes" will be implemented in future releases™️.
+"Watching for changes" is not scope of this package and will be implemented in
+future releases or other packages™️.
 
 ## Contribute
 
@@ -66,6 +67,10 @@ When adding models or methods pay close attention to the (maybe existing)
 language used in the respective domain. Talk to the responsible team if you are
 uncertain.
 
+### Models as abstraction layer
+
+**to be written**
+
 ### Type of models
 
 #### Detailed vs. List Models
@@ -82,11 +87,11 @@ If both model share a common code base, you should add a Base Model (name it
 
 A Proxy Model represents a certain model just by its ID. As the most basic model
 operations often just need the ID and some input data (deleting, renaming, ...),
-Proxy Models can avoid unnecessary API round trips. These classes can be used as
-a return type for new created models or for linked models.
+Proxy Models can avoid unnecessary API round trips. These classes should be used
+as a return type for new created models or for linked models.
 
-To get the actual Detailed Model, Proxy Models should have a
-`function get(): Promise<ModelDetailed>` method.
+To get the actual Detailed Model, Proxy Models must have a
+`function getDetailed(): Promise<ModelDetailed>` method.
 
 #### Implementation details
 
@@ -97,16 +102,16 @@ implementation examples.
 
 #### Entry point model
 
-Provide a single model as an entry point for all different model types
-(detailed, list, proxy, ...). As a convention provide a default export for this
-model. You can also use `polytype` to put all models together.
+Provide a single model (name it `[Model]`) as an entry point for all different
+model types (detailed, list, proxy, ...). As a convention provide a default
+export for this model. You can also use `polytype` to put all models together.
 
 ### Use the correct verbs
 
 #### `find`
 
-Models should have a static `find` method. The find method may return
-`undefined` if the model can not be found.
+Models should have a static `find` method. The find method returns the detailed
+model or may return `undefined` if the model can not be found.
 
 #### `get`
 
@@ -120,12 +125,17 @@ You can use the `find` method and assert the existence with the
 When a list of objects should be loaded use a `list` method. It may support a
 `query` parameter to filter the result by given criteria.
 
+#### `create`
+
+When a model should be created use a static `create` method. This method should
+return a proxy of the created resource.
+
 ### Accessing "linked" models
 
 Most of the models are part of a larger model tree. Models should provide
 methods to get the parent and child models, like `project.getServer()`,
 `server.listProjects()` or `server.getCustomer()`. Use `get`, `list` or `find`
-prefixes.
+prefixes as described above.
 
 #### Use Proxy Models when possible!
 
@@ -195,7 +205,7 @@ const projectProxy = Project.createProxy(
   "497f6eca-6276-4993-bfeb-53cbbbba6f08",
 );
 
-// Get the project from the proxy
+// Get the detailed project from the proxy
 const detailedProject = await projectProxy.getDetailed();
 
 // Update project description
