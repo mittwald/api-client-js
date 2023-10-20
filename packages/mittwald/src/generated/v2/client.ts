@@ -65,10 +65,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listUpdateCandidatesForAppversion: this.requestFunctionFactory(
       descriptors.appListUpdateCandidatesForAppversion
     ),
-    /** reconcile detected apps to appInstallations of a project */
-    reconcileDetectedApps: this.requestFunctionFactory(
-      descriptors.appReconcileDetectedApps
-    ),
     /** request a copy of an `AppInstallation` */
     requestAppinstallationCopy: this.requestFunctionFactory(
       descriptors.appRequestAppinstallationCopy
@@ -719,85 +715,77 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The mail API allows you to manage your mail accounts. */
   public readonly mail = {
-    /** Get all deliveryboxes by project ID */
-    deliveryboxList: this.requestFunctionFactory(
-      descriptors.mailDeliveryboxList
+    /** List DeliveryBoxes belonging to a Project. */
+    listDeliveryBoxes: this.requestFunctionFactory(
+      descriptors.mailListDeliveryBoxes
     ),
-    /** Create a new deliverybox */
-    deliveryboxCreate: this.requestFunctionFactory(
-      descriptors.mailDeliveryboxCreate
+    /** Create a DeliveryBox. */
+    createDeliverybox: this.requestFunctionFactory(
+      descriptors.mailCreateDeliverybox
     ),
-    /** Get a specific deliverybox */
-    deliveryboxGetSpecific: this.requestFunctionFactory(
-      descriptors.mailDeliveryboxGetSpecific
+    /** List MailAddresses belonging to a Project. */
+    listMailAddresses: this.requestFunctionFactory(
+      descriptors.mailListMailAddresses
     ),
-    /** Delete a specific deliverybox */
-    deliveryboxDelete: this.requestFunctionFactory(
-      descriptors.mailDeliveryboxDelete
+    /** Create a MailAddress. */
+    createMailAddress: this.requestFunctionFactory(
+      descriptors.mailCreateMailAddress
     ),
-    /** Update the description of an deliverybox */
-    deliveryboxUpdateDescription: this.requestFunctionFactory(
-      descriptors.mailDeliveryboxUpdateDescription
+    /** Get a DeliveryBox. */
+    getDeliveryBox: this.requestFunctionFactory(descriptors.mailGetDeliveryBox),
+    /** Delete a DeliveryBox. */
+    deleteDeliveryBox: this.requestFunctionFactory(
+      descriptors.mailDeleteDeliveryBox
     ),
-    /** Update the password for a specific deliverybox */
-    deliveryboxUpdatePassword: this.requestFunctionFactory(
-      descriptors.mailDeliveryboxUpdatePassword
+    /** Get a MailAddress. */
+    getMailAddress: this.requestFunctionFactory(descriptors.mailGetMailAddress),
+    /** Delete a MailAddress. */
+    deleteMailAddress: this.requestFunctionFactory(
+      descriptors.mailDeleteMailAddress
     ),
-    /** Get all mail addresses for a project ID */
-    mailaddressList: this.requestFunctionFactory(
-      descriptors.mailMailaddressList
+    /** List mail settings of a Project. */
+    listProjectMailSettings: this.requestFunctionFactory(
+      descriptors.mailListProjectMailSettings
     ),
-    /** Create a new mail address */
-    mailaddressCreate: this.requestFunctionFactory(
-      descriptors.mailMailaddressCreate
+    /** Update the description of a DeliveryBox. */
+    updateDeliveryBoxDescription: this.requestFunctionFactory(
+      descriptors.mailUpdateDeliveryBoxDescription
     ),
-    /** Get a specific mail address */
-    mailaddressGetSpecific: this.requestFunctionFactory(
-      descriptors.mailMailaddressGetSpecific
+    /** Update the password of a DeliveryBox. */
+    updateDeliveryBoxPassword: this.requestFunctionFactory(
+      descriptors.mailUpdateDeliveryBoxPassword
     ),
-    /** Delete a specific mail address */
-    mailaddressDelete: this.requestFunctionFactory(
-      descriptors.mailMailaddressDelete
+    /** Update a MailAddress. */
+    updateMailAddressAddress: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressAddress
     ),
-    /** Update mail-address */
-    mailaddressUpdateAddress: this.requestFunctionFactory(
-      descriptors.mailMailaddressUpdateAddress
+    /** Update the autoresponder of a MailAddress. */
+    updateMailAddressAutoresponder: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressAutoresponder
     ),
-    /** Update the auto responder of a mail address */
-    mailaddressUpdateAutoresponder: this.requestFunctionFactory(
-      descriptors.mailMailaddressUpdateAutoresponder
+    /** Update the catchall of a MailAddress. */
+    updateMailAddressCatchall: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressCatchall
     ),
-    /** Enable or disable the catchAll flag for a specific mail address */
-    mailaddressUpdateCatchall: this.requestFunctionFactory(
-      descriptors.mailMailaddressUpdateCatchall
+    /** Update the forward addresses of a MailAddresses. */
+    updateMailAddressForwardAddresses: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressForwardAddresses
     ),
-    /** Update the addresses an email is forwarded to */
-    mailaddressUpdateForwardaddresses: this.requestFunctionFactory(
-      descriptors.mailMailaddressUpdateForwardaddresses
+    /** Update the password for a MailAddress. */
+    updateMailAddressPassword: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressPassword
     ),
-    /** Update the password for a specific mail address */
-    mailaddressUpdatePassword: this.requestFunctionFactory(
-      descriptors.mailMailaddressUpdatePassword
+    /** Update the quota of a MailAddress. */
+    updateMailAddressQuota: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressQuota
     ),
-    /** Update the quota of a mailbox */
-    mailaddressUpdateQuota: this.requestFunctionFactory(
-      descriptors.mailMailaddressUpdateQuota
+    /** Update the spam protection of a MailAddress. */
+    updateMailAddressSpamProtection: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressSpamProtection
     ),
-    /** Update the spamprotection of a mailbox */
-    mailaddressUpdateSpamprotection: this.requestFunctionFactory(
-      descriptors.mailMailaddressUpdateSpamprotection
-    ),
-    /** Get settings for a given project ID */
-    projectsettingGetSpecific: this.requestFunctionFactory(
-      descriptors.mailProjectsettingGetSpecific
-    ),
-    /** Update blacklist for a given project ID */
-    projectsettingUpdateBlacklist: this.requestFunctionFactory(
-      descriptors.mailProjectsettingUpdateBlacklist
-    ),
-    /** Update whitelist for a given project ID */
-    projectsettingUpdateWhitelist: this.requestFunctionFactory(
-      descriptors.mailProjectsettingUpdateWhitelist
+    /** Update a mail setting of a Project. */
+    updateProjectMailSetting: this.requestFunctionFactory(
+      descriptors.mailUpdateProjectMailSetting
     ),
   };
 

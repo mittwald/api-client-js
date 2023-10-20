@@ -169,17 +169,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace AppReconcileDetectedApps {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appReconcileDetectedApps
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.appReconcileDetectedApps,
-          TStatus
-        >;
-    }
-
     namespace AppRequestAppinstallationCopy {
       type RequestData = InferredRequestData<
         typeof descriptors.appRequestAppinstallationCopy
@@ -1697,204 +1686,187 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace MailDeliveryboxList {
+    namespace MailListDeliveryBoxes {
       type RequestData = InferredRequestData<
-        typeof descriptors.mailDeliveryboxList
+        typeof descriptors.mailListDeliveryBoxes
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.mailDeliveryboxList, TStatus>;
+        InferredResponseData<typeof descriptors.mailListDeliveryBoxes, TStatus>;
     }
 
-    namespace MailDeliveryboxCreate {
+    namespace MailCreateDeliverybox {
       type RequestData = InferredRequestData<
-        typeof descriptors.mailDeliveryboxCreate
+        typeof descriptors.mailCreateDeliverybox
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.mailDeliveryboxCreate, TStatus>;
+        InferredResponseData<typeof descriptors.mailCreateDeliverybox, TStatus>;
     }
 
-    namespace MailDeliveryboxGetSpecific {
+    namespace MailListMailAddresses {
       type RequestData = InferredRequestData<
-        typeof descriptors.mailDeliveryboxGetSpecific
+        typeof descriptors.mailListMailAddresses
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.mailListMailAddresses, TStatus>;
+    }
+
+    namespace MailCreateMailAddress {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailCreateMailAddress
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.mailCreateMailAddress, TStatus>;
+    }
+
+    namespace MailGetDeliveryBox {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailGetDeliveryBox
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.mailGetDeliveryBox, TStatus>;
+    }
+
+    namespace MailDeleteDeliveryBox {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailDeleteDeliveryBox
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.mailDeleteDeliveryBox, TStatus>;
+    }
+
+    namespace MailGetMailAddress {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailGetMailAddress
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.mailGetMailAddress, TStatus>;
+    }
+
+    namespace MailDeleteMailAddress {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailDeleteMailAddress
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.mailDeleteMailAddress, TStatus>;
+    }
+
+    namespace MailListProjectMailSettings {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailListProjectMailSettings
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.mailDeliveryboxGetSpecific,
+          typeof descriptors.mailListProjectMailSettings,
           TStatus
         >;
     }
 
-    namespace MailDeliveryboxDelete {
+    namespace MailUpdateDeliveryBoxDescription {
       type RequestData = InferredRequestData<
-        typeof descriptors.mailDeliveryboxDelete
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.mailDeliveryboxDelete, TStatus>;
-    }
-
-    namespace MailDeliveryboxUpdateDescription {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailDeliveryboxUpdateDescription
+        typeof descriptors.mailUpdateDeliveryBoxDescription
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.mailDeliveryboxUpdateDescription,
+          typeof descriptors.mailUpdateDeliveryBoxDescription,
           TStatus
         >;
     }
 
-    namespace MailDeliveryboxUpdatePassword {
+    namespace MailUpdateDeliveryBoxPassword {
       type RequestData = InferredRequestData<
-        typeof descriptors.mailDeliveryboxUpdatePassword
+        typeof descriptors.mailUpdateDeliveryBoxPassword
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.mailDeliveryboxUpdatePassword,
+          typeof descriptors.mailUpdateDeliveryBoxPassword,
           TStatus
         >;
     }
 
-    namespace MailMailaddressList {
+    namespace MailUpdateMailAddressAddress {
       type RequestData = InferredRequestData<
-        typeof descriptors.mailMailaddressList
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.mailMailaddressList, TStatus>;
-    }
-
-    namespace MailMailaddressCreate {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailMailaddressCreate
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.mailMailaddressCreate, TStatus>;
-    }
-
-    namespace MailMailaddressGetSpecific {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailMailaddressGetSpecific
+        typeof descriptors.mailUpdateMailAddressAddress
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.mailMailaddressGetSpecific,
+          typeof descriptors.mailUpdateMailAddressAddress,
           TStatus
         >;
     }
 
-    namespace MailMailaddressDelete {
+    namespace MailUpdateMailAddressAutoresponder {
       type RequestData = InferredRequestData<
-        typeof descriptors.mailMailaddressDelete
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.mailMailaddressDelete, TStatus>;
-    }
-
-    namespace MailMailaddressUpdateAddress {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailMailaddressUpdateAddress
+        typeof descriptors.mailUpdateMailAddressAutoresponder
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.mailMailaddressUpdateAddress,
+          typeof descriptors.mailUpdateMailAddressAutoresponder,
           TStatus
         >;
     }
 
-    namespace MailMailaddressUpdateAutoresponder {
+    namespace MailUpdateMailAddressCatchall {
       type RequestData = InferredRequestData<
-        typeof descriptors.mailMailaddressUpdateAutoresponder
+        typeof descriptors.mailUpdateMailAddressCatchall
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.mailMailaddressUpdateAutoresponder,
+          typeof descriptors.mailUpdateMailAddressCatchall,
           TStatus
         >;
     }
 
-    namespace MailMailaddressUpdateCatchall {
+    namespace MailUpdateMailAddressForwardAddresses {
       type RequestData = InferredRequestData<
-        typeof descriptors.mailMailaddressUpdateCatchall
+        typeof descriptors.mailUpdateMailAddressForwardAddresses
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.mailMailaddressUpdateCatchall,
+          typeof descriptors.mailUpdateMailAddressForwardAddresses,
           TStatus
         >;
     }
 
-    namespace MailMailaddressUpdateForwardaddresses {
+    namespace MailUpdateMailAddressPassword {
       type RequestData = InferredRequestData<
-        typeof descriptors.mailMailaddressUpdateForwardaddresses
+        typeof descriptors.mailUpdateMailAddressPassword
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.mailMailaddressUpdateForwardaddresses,
+          typeof descriptors.mailUpdateMailAddressPassword,
           TStatus
         >;
     }
 
-    namespace MailMailaddressUpdatePassword {
+    namespace MailUpdateMailAddressQuota {
       type RequestData = InferredRequestData<
-        typeof descriptors.mailMailaddressUpdatePassword
+        typeof descriptors.mailUpdateMailAddressQuota
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.mailMailaddressUpdatePassword,
+          typeof descriptors.mailUpdateMailAddressQuota,
           TStatus
         >;
     }
 
-    namespace MailMailaddressUpdateQuota {
+    namespace MailUpdateMailAddressSpamProtection {
       type RequestData = InferredRequestData<
-        typeof descriptors.mailMailaddressUpdateQuota
+        typeof descriptors.mailUpdateMailAddressSpamProtection
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.mailMailaddressUpdateQuota,
+          typeof descriptors.mailUpdateMailAddressSpamProtection,
           TStatus
         >;
     }
 
-    namespace MailMailaddressUpdateSpamprotection {
+    namespace MailUpdateProjectMailSetting {
       type RequestData = InferredRequestData<
-        typeof descriptors.mailMailaddressUpdateSpamprotection
+        typeof descriptors.mailUpdateProjectMailSetting
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.mailMailaddressUpdateSpamprotection,
-          TStatus
-        >;
-    }
-
-    namespace MailProjectsettingGetSpecific {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailProjectsettingGetSpecific
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.mailProjectsettingGetSpecific,
-          TStatus
-        >;
-    }
-
-    namespace MailProjectsettingUpdateBlacklist {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailProjectsettingUpdateBlacklist
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.mailProjectsettingUpdateBlacklist,
-          TStatus
-        >;
-    }
-
-    namespace MailProjectsettingUpdateWhitelist {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailProjectsettingUpdateWhitelist
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.mailProjectsettingUpdateWhitelist,
+          typeof descriptors.mailUpdateProjectMailSetting,
           TStatus
         >;
     }
@@ -2403,17 +2375,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace RedirectusCreateRelocation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.redirectusCreateRelocation
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.redirectusCreateRelocation,
-          TStatus
-        >;
-    }
-
     namespace RelocationCreateLegacyTariffChange {
       type RequestData = InferredRequestData<
         typeof descriptors.relocationCreateLegacyTariffChange
@@ -2421,6 +2382,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.relocationCreateLegacyTariffChange,
+          TStatus
+        >;
+    }
+
+    namespace RelocationCreateRelocation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.relocationCreateRelocation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.relocationCreateRelocation,
           TStatus
         >;
     }
@@ -2986,6 +2958,7 @@ export declare module MittwaldAPIV2 {
         projectId?: string;
         screenshotId?: string;
         screenshotRef?: string;
+        shortId: string;
         systemSoftware?: MittwaldAPIV2.Components.Schemas.AppInstalledSystemSoftware[];
         updatePolicy?: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
         userInputs?: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
@@ -3016,10 +2989,16 @@ export declare module MittwaldAPIV2 {
         userInputs?: MittwaldAPIV2.Components.Schemas.AppUserInput[];
       }
 
+      /**
+       * A `BreakingNote` is a hint that something serious has changed in the `AppVersion` containing it, so an automatic update is not possible
+       */
       export interface AppBreakingNote {
         faqLink: string;
       }
 
+      /**
+       * A ´DatabaseDependency` is a generic description of need for a database, used by `AppVersions`
+       */
       export interface AppDatabaseDependency {
         description: string;
         kind: "mysql";
@@ -3034,12 +3013,18 @@ export declare module MittwaldAPIV2 {
         type: string;
       }
 
+      /**
+       * `InstalledSystemSoftware` describes the currently configured and installed `SystemSoftwareVersion` of a `SystemSoftware` besides the desired `SystemSoftwareUpdatePolicy` inside an `AppInstallation`
+       */
       export interface AppInstalledSystemSoftware {
         systemSoftwareId: string;
         systemSoftwareVersion: MittwaldAPIV2.Components.Schemas.AppVersionStatus;
         updatePolicy: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareUpdatePolicy;
       }
 
+      /**
+       * `LinkedDatabase` is a reference to a concrete `Database` and `DatabaseUsers`
+       */
       export interface AppLinkedDatabase {
         databaseId: string;
         databaseUserIds?: {
@@ -3049,6 +3034,9 @@ export declare module MittwaldAPIV2 {
         purpose: "primary" | "cache" | "custom";
       }
 
+      /**
+       * `RequestHandlerRequirement` describes the necessary properties to internally resolve the request handler or process to start
+       */
       export interface AppRequestHandlerRequirement {
         exampleValues?: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
         name: string;
@@ -3056,22 +3044,34 @@ export declare module MittwaldAPIV2 {
         parametersTemplate: string;
       }
 
+      /**
+       * A `SavedUserInput` is an entered value for a desired `UserInput` of an `AppVersion` or `SystemSoftwareVersion`
+       */
       export interface AppSavedUserInput {
         name: string;
         value: string;
       }
 
+      /**
+       * A `SystemSoftwareDependency` is a description of a need for a specific `SystemSoftware` in a semver versionRange.
+       */
       export interface AppSystemSoftwareDependency {
         systemSoftwareId: string;
         versionRange: string;
       }
 
+      /**
+       * `SystemSoftwareUpdatePolicy` describes which updates should be applied automatically by our systems
+       */
       export type AppSystemSoftwareUpdatePolicy =
         | "none"
         | "inheritedFromApp"
         | "patchLevel"
         | "all";
 
+      /**
+       * A `SystemSoftware` is a software that can be installed for an `AppInstallation` but mostly is not itself externally reachable and/or deliverable.
+       */
       export interface AppSystemSoftware {
         id: string;
         name: string;
@@ -3090,6 +3090,9 @@ export declare module MittwaldAPIV2 {
         userInputs?: MittwaldAPIV2.Components.Schemas.AppUserInput[];
       }
 
+      /**
+       * A `UserInput` is a description of an information which cannot be determined or estimated by mittwald, but has to be given by the person who is requesting an `AppInstallation` or `SystemSoftware`
+       */
       export interface AppUserInput {
         /**
          * Optional field to tell the frontend, which data to put into the select
@@ -3108,20 +3111,32 @@ export declare module MittwaldAPIV2 {
         validationSchema: string;
       }
 
+      /**
+       * `UserInputDataType` is an enum, describing the possible data types of a `UserInput`
+       */
       export type AppUserInputDataType =
         | "text"
         | "number"
         | "boolean"
         | "select";
 
+      /**
+       * `UserInputFormat` is an enum, describing the possible data formats of a `UserInput`, the given values can be validated against
+       */
       export type AppUserInputFormat = "email" | "password" | "url";
 
+      /**
+       * `UserInputPositionMeta´ is a utility information, helping to position the `UserInput` properly on the frontend
+       */
       export interface AppUserInputPositionMeta {
         index?: number;
         section?: string;
         step?: string;
       }
 
+      /**
+       * `VersionStatus` describes the current and desired version of something like the `AppVersion` of an `AppInstallation`. If diverging, an internal process is going to assert, the `current` value will be aligned
+       */
       export interface AppVersionStatus {
         current?: string;
         desired: string;
@@ -4058,7 +4073,8 @@ export declare module MittwaldAPIV2 {
         target:
           | MittwaldAPIV2.Components.Schemas.IngressTargetDirectory
           | MittwaldAPIV2.Components.Schemas.IngressTargetUrl
-          | MittwaldAPIV2.Components.Schemas.IngressTargetInstallation;
+          | MittwaldAPIV2.Components.Schemas.IngressTargetInstallation
+          | MittwaldAPIV2.Components.Schemas.IngressTargetUseDefaultPage;
       }
 
       export interface IngressTargetDirectory {
@@ -4071,6 +4087,10 @@ export declare module MittwaldAPIV2 {
 
       export interface IngressTargetUrl {
         url: string;
+      }
+
+      export interface IngressTargetUseDefaultPage {
+        useDefaultPage: boolean;
       }
 
       export interface IngressTlsAcme {
@@ -5875,51 +5895,6 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.AppAppVersion[];
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectsProjectShortIdAppinstallations {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            projectShortId: string;
-          };
-
-          export type RequestBody = {
-            appName: string;
-            appVersionClusterVersion: string;
-            databaseHost?: string;
-            databaseUserName?: string;
-            installationDirectory: string;
-          }[];
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
@@ -13007,7 +12982,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsProjectIdDeliveryboxes {
+    namespace V2ProjectsProjectIdDeliveryboxes {}
+
+    namespace V2ProjectsProjectIdDeliveryBoxes {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -13022,35 +12999,56 @@ export declare module MittwaldAPIV2 {
         namespace Responses {
           namespace $200 {
             namespace Content {
-              /**
-               * A set of deliveryboxes
-               */
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.MailDeliverybox[];
             }
           }
 
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $403 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $404 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $500 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $503 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
         }
@@ -13081,225 +13079,60 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $403 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $404 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $500 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $503 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
         }
       }
     }
 
-    namespace V2DeliveryboxesId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            id: string;
-          };
+    namespace V2ProjectsProjectIdMailaddresses {}
 
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.MailDeliverybox;
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $503 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-        }
-      }
-
-      namespace Delete {
-        namespace Parameters {
-          export type Path = {
-            id: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $503 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DeliveryboxesIdDescription {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            id: string;
-          };
-
-          export interface RequestBody {
-            description: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $503 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DeliveryboxesIdPassword {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            id: string;
-          };
-
-          export interface RequestBody {
-            password: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $503 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectsProjectIdMailaddresses {
+    namespace V2ProjectsProjectIdMailAddresses {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -13314,35 +13147,56 @@ export declare module MittwaldAPIV2 {
         namespace Responses {
           namespace $200 {
             namespace Content {
-              /**
-               * A set of mail addresses
-               */
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.MailMailAddress[];
             }
           }
 
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $403 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $404 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $500 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $503 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
         }
@@ -13382,36 +13236,195 @@ export declare module MittwaldAPIV2 {
 
           namespace $403 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $404 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $500 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $503 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
         }
       }
     }
 
-    namespace V2MailaddressesId {
+    namespace V2DeliveryboxesDeliveryBoxId {}
+
+    namespace V2DeliveryBoxesDeliveryBoxId {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            id: string;
+            deliveryBoxId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MailDeliverybox;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            deliveryBoxId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2MailaddressesMailAddressId {}
+
+    namespace V2MailAddressesMailAddressId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            mailAddressId: string;
           };
 
           export type Header =
@@ -13427,27 +13440,51 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $403 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $404 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $500 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $503 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
         }
@@ -13456,7 +13493,7 @@ export declare module MittwaldAPIV2 {
       namespace Delete {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mailAddressId: string;
           };
 
           export type Header =
@@ -13471,38 +13508,296 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $403 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $404 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $500 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $503 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
         }
       }
     }
 
-    namespace V2MailaddressesIdAddress {
-      namespace Put {
+    namespace V2DeliveryboxesIdDescription {}
+
+    namespace V2DeliveryboxesIdPassword {}
+
+    namespace V2ProjectsProjectIdMailsettings {}
+
+    namespace V2ProjectsProjectIdMailSettings {
+      namespace Get {
         namespace Parameters {
           export type Path = {
-            id: string;
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                blacklist: string[];
+                projectId: string;
+                whitelist: string[];
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2MailaddressesIdAddress {}
+
+    namespace V2ProjectsProjectIdMailsettingsBlacklist {}
+
+    namespace V2ProjectsProjectIdMailsettingsWhitelist {}
+
+    namespace V2DeliveryBoxesDeliveryBoxIdDescription {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            deliveryBoxId: string;
+          };
+
+          export interface RequestBody {
+            description: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DeliveryBoxesDeliveryBoxIdPassword {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            deliveryBoxId: string;
+          };
+
+          export interface RequestBody {
+            password: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2MailAddressesMailAddressIdAddress {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            mailAddressId: string;
           };
 
           export interface RequestBody {
@@ -13521,38 +13816,64 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $403 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $404 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $500 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $503 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
         }
       }
     }
 
-    namespace V2MailaddressesIdAutoResponder {
+    namespace V2MailaddressesMailAddressIdAutoResponder {}
+
+    namespace V2MailAddressesMailAddressIdAutoresponder {
       namespace Put {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mailAddressId: string;
           };
 
           export interface RequestBody {
@@ -13576,38 +13897,64 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $403 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $404 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $500 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $503 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
         }
       }
     }
 
-    namespace V2MailaddressesIdCatchAll {
+    namespace V2MailaddressesMailAddressIdCatchAll {}
+
+    namespace V2MailAddressesMailAddressIdCatchall {
       namespace Put {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mailAddressId: string;
           };
 
           export interface RequestBody {
@@ -13636,36 +13983,54 @@ export declare module MittwaldAPIV2 {
 
           namespace $403 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $404 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $500 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $503 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
         }
       }
     }
 
-    namespace V2MailaddressesIdForwardaddresses {
+    namespace V2MailaddressesMailAddressIdForwardaddresses {}
+
+    namespace V2MailAddressesMailAddressIdForwardAddresses {
       namespace Put {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mailAddressId: string;
           };
 
           export interface RequestBody {
@@ -13684,38 +14049,64 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $403 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $404 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $500 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $503 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
         }
       }
     }
 
-    namespace V2MailaddressesIdPassword {
+    namespace V2MailaddressesMailAddressIdPassword {}
+
+    namespace V2MailAddressesMailAddressIdPassword {
       namespace Put {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mailAddressId: string;
           };
 
           export interface RequestBody {
@@ -13734,38 +14125,64 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $403 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $404 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $500 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $503 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
         }
       }
     }
 
-    namespace V2MailaddressesIdQuota {
+    namespace V2MailaddressesMailAddressIdQuota {}
+
+    namespace V2MailAddressesMailAddressIdQuota {
       namespace Put {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mailAddressId: string;
           };
 
           export interface RequestBody {
@@ -13784,38 +14201,64 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $403 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $404 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $500 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $503 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
         }
       }
     }
 
-    namespace V2MailaddressesIdSpamprotection {
+    namespace V2MailaddressesMailAddressIdSpamprotection {}
+
+    namespace V2MailAddressesMailAddressIdSpamProtection {
       namespace Put {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mailAddressId: string;
           };
 
           export interface RequestBody {
@@ -13839,93 +14282,72 @@ export declare module MittwaldAPIV2 {
             }
           }
 
-          namespace $403 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $503 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectsProjectIdMailsettings {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
+          namespace $400 {
             namespace Content {
               export interface ApplicationJson {
-                blacklist: string[];
-                projectId: string;
-                whitelist: string[];
+                [k: string]: unknown;
               }
             }
           }
 
           namespace $403 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $404 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $500 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $503 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
         }
       }
     }
 
-    namespace V2ProjectsProjectIdMailsettingsBlacklist {
+    namespace V2ProjectsProjectIdMailSettingsSetting {
       namespace Put {
         namespace Parameters {
           export type Path = {
             projectId: string;
+            setting: "blacklist" | "whitelist";
           };
 
-          export interface RequestBody {
-            blacklist: string[];
-          }
+          export type RequestBody =
+            | {
+                blacklist: string[];
+              }
+            | {
+                whitelist: string[];
+              };
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -13939,77 +14361,51 @@ export declare module MittwaldAPIV2 {
             }
           }
 
-          namespace $403 {
+          namespace $400 {
             namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $503 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectsProjectIdMailsettingsWhitelist {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export interface RequestBody {
-            whitelist: string[];
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $403 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $404 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $500 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
           namespace $503 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
         }
@@ -16199,6 +16595,48 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2LegacyTariffChange {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            pAccount: string;
+            targetTariff: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                messageId: string;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2Relocation {
       namespace Post {
         namespace Parameters {
@@ -16288,48 +16726,6 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2LegacyTariffChange {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            pAccount: string;
-            targetTariff: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                messageId: string;
-              }
-            }
-          }
-
-          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
