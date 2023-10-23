@@ -599,65 +599,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     dnsZonesForProject: this.requestFunctionFactory(
       descriptors.dnsZonesForProject
     ),
-    /** Abort a declare process. */
-    abortDeclareProcess: this.requestFunctionFactory(
-      descriptors.domainAbortDeclareProcess
-    ),
-    /** Change the owner contact of a domain. */
-    changeOwnercOfDomain: this.requestFunctionFactory(
-      descriptors.domainChangeOwnercOfDomain
-    ),
-    /** Change the Project relation of a Domain. */
-    changeProjectOfDomain: this.requestFunctionFactory(
-      descriptors.domainChangeProjectOfDomain
-    ),
-    /** Check if a Domain is available to register. */
-    checkDomainAvailability: this.requestFunctionFactory(
-      descriptors.domainCheckDomainAvailability
-    ),
-    /** Create an AuthCode for a Domains transfer out process. */
-    createAuthcodeForDomain: this.requestFunctionFactory(
-      descriptors.domainCreateAuthcodeForDomain
-    ),
-    /** Create an AuthCode2. */
-    createAuthcode2ForDomain: this.requestFunctionFactory(
-      descriptors.domainCreateAuthcode2ForDomain
-    ),
-    /** Change all nameservers of a Domain. */
-    declareNameservers: this.requestFunctionFactory(
-      descriptors.domainDeclareNameservers
-    ),
-    /** Update an AuthCode. */
-    declareProcessChangeAuthcode: this.requestFunctionFactory(
-      descriptors.domainDeclareProcessChangeAuthcode
-    ),
-    /** Update a Domain's OwnerC handle. */
-    declareProcessChangeHandles: this.requestFunctionFactory(
-      descriptors.domainDeclareProcessChangeHandles
-    ),
     /** Get a Domain. */
     getDomain: this.requestFunctionFactory(descriptors.domainGetDomain),
     /** Delete a Domain. */
     deleteDomain: this.requestFunctionFactory(descriptors.domainDeleteDomain),
-    /** Get a HandleSchema. */
-    getHandleFields: this.requestFunctionFactory(
-      descriptors.domainGetHandleFields
-    ),
     /** Get File Service Reference for a Screenshot of a domain. */
     getScreenshotForDomain: this.requestFunctionFactory(
       descriptors.domainGetScreenshotForDomain
-    ),
-    /** Get a domain ownership. */
-    getSpecificDomainOwnership: this.requestFunctionFactory(
-      descriptors.domainGetSpecificDomainOwnership
-    ),
-    /** Verify a domain ownership. */
-    verifyDomainOwnership: this.requestFunctionFactory(
-      descriptors.domainVerifyDomainOwnership
-    ),
-    /** List all supported top level domains. */
-    getSupportedTlds: this.requestFunctionFactory(
-      descriptors.domainGetSupportedTlds
     ),
     /** List all domain ownerships of a project. */
     listDomainOwnerships: this.requestFunctionFactory(
@@ -668,6 +616,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Resend a domain email. */
     resendDomainEmail: this.requestFunctionFactory(
       descriptors.domainResendDomainEmail
+    ),
+    /** Get a domain ownership. */
+    getSpecificDomainOwnership: this.requestFunctionFactory(
+      descriptors.domainGetSpecificDomainOwnership
+    ),
+    /** Verify a domain ownership. */
+    verifyDomainOwnership: this.requestFunctionFactory(
+      descriptors.domainVerifyDomainOwnership
     ),
     /** Create an Ingress. */
     ingressCreate: this.requestFunctionFactory(descriptors.ingressCreate),
@@ -693,6 +649,50 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Update an Ingresses tls settings. */
     ingressTls: this.requestFunctionFactory(descriptors.ingressTls),
+    /** Abort a declare process. */
+    abortDeclareProcess: this.requestFunctionFactory(
+      descriptors.domainAbortDeclareProcess
+    ),
+    /** Get a HandleSchema. */
+    getHandleFields: this.requestFunctionFactory(
+      descriptors.domainGetHandleFields
+    ),
+    /** List all supported top level domains. */
+    getSupportedTlds: this.requestFunctionFactory(
+      descriptors.domainGetSupportedTlds
+    ),
+    /** Check if a Domain is available to register. */
+    checkDomainAvailability: this.requestFunctionFactory(
+      descriptors.domainCheckDomainAvailability
+    ),
+    /** Create an AuthCode for a Domains transfer out process. */
+    createAuthcodeForDomain: this.requestFunctionFactory(
+      descriptors.domainCreateAuthcodeForDomain
+    ),
+    /** Create an AuthCode2. */
+    createAuthcode2ForDomain: this.requestFunctionFactory(
+      descriptors.domainCreateAuthcode2ForDomain
+    ),
+    /** Update an AuthCode. */
+    declareProcessChangeAuthcode: this.requestFunctionFactory(
+      descriptors.domainDeclareProcessChangeAuthcode
+    ),
+    /** Update a Domain's OwnerC handle. */
+    declareProcessChangeHandles: this.requestFunctionFactory(
+      descriptors.domainDeclareProcessChangeHandles
+    ),
+    /** Change the owner contact of a domain. */
+    changeOwnercOfDomain: this.requestFunctionFactory(
+      descriptors.domainChangeOwnercOfDomain
+    ),
+    /** Change the Project relation of a Domain. */
+    changeProjectOfDomain: this.requestFunctionFactory(
+      descriptors.domainChangeProjectOfDomain
+    ),
+    /** Change all nameservers of a Domain. */
+    declareNameservers: this.requestFunctionFactory(
+      descriptors.domainDeclareNameservers
+    ),
   };
 
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */

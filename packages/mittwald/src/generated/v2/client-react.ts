@@ -366,25 +366,10 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.domainGetDomain,
     baseClient.domain.getDomain
   ).getApiResource,
-  /** Get a HandleSchema. */
-  getHandleFields: new ApiCallAsyncResourceFactory(
-    descriptors.domainGetHandleFields,
-    baseClient.domain.getHandleFields
-  ).getApiResource,
   /** Get File Service Reference for a Screenshot of a domain. */
   getScreenshotForDomain: new ApiCallAsyncResourceFactory(
     descriptors.domainGetScreenshotForDomain,
     baseClient.domain.getScreenshotForDomain
-  ).getApiResource,
-  /** Get a domain ownership. */
-  getSpecificDomainOwnership: new ApiCallAsyncResourceFactory(
-    descriptors.domainGetSpecificDomainOwnership,
-    baseClient.domain.getSpecificDomainOwnership
-  ).getApiResource,
-  /** List all supported top level domains. */
-  getSupportedTlds: new ApiCallAsyncResourceFactory(
-    descriptors.domainGetSupportedTlds,
-    baseClient.domain.getSupportedTlds
   ).getApiResource,
   /** List all domain ownerships of a project. */
   listDomainOwnerships: new ApiCallAsyncResourceFactory(
@@ -395,6 +380,11 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   listDomains: new ApiCallAsyncResourceFactory(
     descriptors.domainListDomains,
     baseClient.domain.listDomains
+  ).getApiResource,
+  /** Get a domain ownership. */
+  getSpecificDomainOwnership: new ApiCallAsyncResourceFactory(
+    descriptors.domainGetSpecificDomainOwnership,
+    baseClient.domain.getSpecificDomainOwnership
   ).getApiResource,
   /** Get an Ingress. */
   ingressGetSpecific: new ApiCallAsyncResourceFactory(
@@ -410,6 +400,16 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   ingressListForProject: new ApiCallAsyncResourceFactory(
     descriptors.ingressListForProject,
     baseClient.domain.ingressListForProject
+  ).getApiResource,
+  /** Get a HandleSchema. */
+  getHandleFields: new ApiCallAsyncResourceFactory(
+    descriptors.domainGetHandleFields,
+    baseClient.domain.getHandleFields
+  ).getApiResource,
+  /** List all supported top level domains. */
+  getSupportedTlds: new ApiCallAsyncResourceFactory(
+    descriptors.domainGetSupportedTlds,
+    baseClient.domain.getSupportedTlds
   ).getApiResource,
 });
 
