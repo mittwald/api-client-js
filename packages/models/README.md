@@ -201,9 +201,7 @@ class ProjectDetailed {
 const project = await Project.get("497f6eca-6276-4993-bfeb-53cbbbba6f08");
 
 // Create a project proxy
-const projectProxy = Project.createProxy(
-  "497f6eca-6276-4993-bfeb-53cbbbba6f08",
-);
+const projectProxy = Project.ofId("497f6eca-6276-4993-bfeb-53cbbbba6f08");
 
 // Get the detailed project from the proxy
 const detailedProject = await projectProxy.getDetailed();

@@ -6,16 +6,37 @@ import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import Project from "../../project/Project/Project.js";
 import { ExceptFirstParameters, FirstParameter } from "../../lib/types.js";
+import { isUuid } from "../../lib/isUuid.js";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
 
 export class ServerProxy extends ProxyModel {
-  public static createProxy(id: string): ServerProxy {
+  public async getUuid(): Promise<string> {
+    return ServerProxy.getUuid(this.id);
+  }
+
+  public static async getUuid(shortIdOrUuid: string): Promise<string> {
+    if (isUuid(shortIdOrUuid)) {
+      return shortIdOrUuid;
+    }
+    const allServers = await ServerListItem.list();
+
+    const uuid = allServers.find((p) => p.data.shortId === shortIdOrUuid)?.id;
+
+    if (uuid === undefined) {
+      throw new ObjectNotFoundError(Server.name, shortIdOrUuid);
+    }
+
+    return uuid;
+  }
+
+  public static ofId(id: string): ServerProxy {
     return new ServerProxy(id);
   }
 
   public async createProject(
     ...parameters: ExceptFirstParameters<typeof Project.create>
   ): ReturnType<typeof Project.create> {
-    return Project.create(this.id, ...parameters);
+    return Project.create(await this.getUuid(), ...parameters);
   }
 
   public async listProjects(
@@ -23,12 +44,12 @@ export class ServerProxy extends ProxyModel {
   ): ReturnType<typeof Project.list> {
     return Project.list({
       ...query,
-      serverId: this.id,
+      serverId: await this.getUuid(),
     });
   }
 
   public async getDetailed(): Promise<ServerDetailed> {
-    return ServerDetailed.get(this.id);
+    return ServerDetailed.get(await this.getUuid());
   }
 }
 
@@ -55,7 +76,10 @@ export class ServerListItem extends classes(
 
 export class ServerDetailed extends classes(ServerBase, DataModel<ServerData>) {
   public static async find(id: string): Promise<Server | undefined> {
-    const serverData = await config.behaviors.server.find(id);
+    const serverData = await config.behaviors.server.find(
+      await ServerProxy.getUuid(id),
+    );
+
     if (serverData !== undefined) {
       return new ServerDetailed([serverData]);
     }

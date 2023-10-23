@@ -5,18 +5,42 @@ import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import { ProxyModel } from "../../base/ProxyModel.js";
 import { ServerProxy } from "../../server/Server/Server.js";
+import { isUuid } from "../../lib/isUuid.js";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
 
 export class ProjectProxy extends ProxyModel {
+  protected async getUuid(): Promise<string> {
+    return ProjectProxy.getUuid(this.id);
+  }
+
+  public static async getUuid(shortIdOrUuid: string): Promise<string> {
+    if (isUuid(shortIdOrUuid)) {
+      return shortIdOrUuid;
+    }
+    const allProjects = await ProjectListItem.list();
+
+    const uuid = allProjects.find((p) => p.data.shortId === shortIdOrUuid)?.id;
+
+    if (uuid === undefined) {
+      throw new ObjectNotFoundError(Project.name, shortIdOrUuid);
+    }
+
+    return uuid;
+  }
+
   public async updateDescription(description: string): Promise<void> {
-    await config.behaviors.project.updateDescription(this.id, description);
+    await config.behaviors.project.updateDescription(
+      await this.getUuid(),
+      description,
+    );
   }
 
   public async leave(): Promise<void> {
-    await config.behaviors.project.leave(this.id);
+    await config.behaviors.project.leave(await this.getUuid());
   }
 
   public async delete(): Promise<void> {
-    await config.behaviors.project.delete(this.id);
+    await config.behaviors.project.delete(await this.getUuid());
   }
 
   public async getDetailed(): Promise<ProjectDetailed> {
@@ -24,10 +48,10 @@ export class ProjectProxy extends ProxyModel {
       return this;
     }
 
-    return Project.get(this.id);
+    return Project.get(await this.getUuid());
   }
 
-  public static createProxy(id: string): ProjectProxy {
+  public static ofId(id: string): ProjectProxy {
     return new ProjectProxy(id);
   }
 }
@@ -40,9 +64,7 @@ export class ProjectBase extends classes(
 
   public constructor(data: ProjectCompactData | ProjectData) {
     super([data], [data.id]);
-    this.server = data.serverId
-      ? ServerProxy.createProxy(data.serverId)
-      : undefined;
+    this.server = data.serverId ? ServerProxy.ofId(data.serverId) : undefined;
   }
 }
 
@@ -51,7 +73,9 @@ export class ProjectDetailed extends classes(
   DataModel<ProjectData>,
 ) {
   public static async find(id: string): Promise<ProjectDetailed | undefined> {
-    const data = await config.behaviors.project.find(id);
+    const data = await config.behaviors.project.find(
+      await ProjectProxy.getUuid(id),
+    );
     if (data !== undefined) {
       return new ProjectDetailed([data]);
     }
