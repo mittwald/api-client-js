@@ -599,6 +599,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     dnsZonesForProject: this.requestFunctionFactory(
       descriptors.dnsZonesForProject
     ),
+    /** Update the nameservers of a Domain. */
+    updateDomainNameservers: this.requestFunctionFactory(
+      descriptors.domainUpdateDomainNameservers
+    ),
     /** Get a Domain. */
     getDomain: this.requestFunctionFactory(descriptors.domainGetDomain),
     /** Delete a Domain. */
@@ -607,21 +611,21 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getScreenshotForDomain: this.requestFunctionFactory(
       descriptors.domainGetScreenshotForDomain
     ),
-    /** List all domain ownerships of a project. */
+    /** Get a DomainOwnership. */
+    getDomainOwnership: this.requestFunctionFactory(
+      descriptors.domainGetDomainOwnership
+    ),
+    /** List the DomainOwnerships of a project. */
     listDomainOwnerships: this.requestFunctionFactory(
       descriptors.domainListDomainOwnerships
     ),
     /** List Domains belonging to a Project. */
     listDomains: this.requestFunctionFactory(descriptors.domainListDomains),
-    /** Resend a domain email. */
+    /** Resend a Domain email. */
     resendDomainEmail: this.requestFunctionFactory(
       descriptors.domainResendDomainEmail
     ),
-    /** Get a domain ownership. */
-    getSpecificDomainOwnership: this.requestFunctionFactory(
-      descriptors.domainGetSpecificDomainOwnership
-    ),
-    /** Verify a domain ownership. */
+    /** Verify a DomainOwnership. */
     verifyDomainOwnership: this.requestFunctionFactory(
       descriptors.domainVerifyDomainOwnership
     ),
@@ -649,49 +653,43 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Update an Ingresses tls settings. */
     ingressTls: this.requestFunctionFactory(descriptors.ingressTls),
-    /** Abort a declare process. */
-    abortDeclareProcess: this.requestFunctionFactory(
-      descriptors.domainAbortDeclareProcess
+    /** Abort a Domain declaration. */
+    abortDomainDeclaration: this.requestFunctionFactory(
+      descriptors.domainAbortDomainDeclaration
     ),
-    /** Get a HandleSchema. */
-    getHandleFields: this.requestFunctionFactory(
-      descriptors.domainGetHandleFields
+    /** List TLDs. */
+    listTlds: this.requestFunctionFactory(descriptors.domainListTlds),
+    /** List the contact schemas for a TLD. */
+    listTldContactSchemas: this.requestFunctionFactory(
+      descriptors.domainListTldContactSchemas
     ),
-    /** List all supported top level domains. */
-    getSupportedTlds: this.requestFunctionFactory(
-      descriptors.domainGetSupportedTlds
+    /** Update the auth code of a Domain. */
+    updateDomainAuthCode: this.requestFunctionFactory(
+      descriptors.domainUpdateDomainAuthCode
+    ),
+    /** Update a contact of a Domain. */
+    updateDomainContact: this.requestFunctionFactory(
+      descriptors.domainUpdateDomainContact
+    ),
+    /** Update a Domain's project id. */
+    updateDomainProjectId: this.requestFunctionFactory(
+      descriptors.domainUpdateDomainProjectId
+    ),
+    /** Create an auth code for a Domains transfer-out process. */
+    createDomainAuthCode: this.requestFunctionFactory(
+      descriptors.domainCreateDomainAuthCode
+    ),
+    /** Create an auth code 2. */
+    createDomainAuthCode2: this.requestFunctionFactory(
+      descriptors.domainCreateDomainAuthCode2
     ),
     /** Check if a Domain is available to register. */
-    checkDomainAvailability: this.requestFunctionFactory(
-      descriptors.domainCheckDomainAvailability
+    checkDomainRegistrability: this.requestFunctionFactory(
+      descriptors.domainCheckDomainRegistrability
     ),
-    /** Create an AuthCode for a Domains transfer out process. */
-    createAuthcodeForDomain: this.requestFunctionFactory(
-      descriptors.domainCreateAuthcodeForDomain
-    ),
-    /** Create an AuthCode2. */
-    createAuthcode2ForDomain: this.requestFunctionFactory(
-      descriptors.domainCreateAuthcode2ForDomain
-    ),
-    /** Update an AuthCode. */
-    declareProcessChangeAuthcode: this.requestFunctionFactory(
-      descriptors.domainDeclareProcessChangeAuthcode
-    ),
-    /** Update a Domain's OwnerC handle. */
-    declareProcessChangeHandles: this.requestFunctionFactory(
-      descriptors.domainDeclareProcessChangeHandles
-    ),
-    /** Change the owner contact of a domain. */
-    changeOwnercOfDomain: this.requestFunctionFactory(
-      descriptors.domainChangeOwnercOfDomain
-    ),
-    /** Change the Project relation of a Domain. */
-    changeProjectOfDomain: this.requestFunctionFactory(
-      descriptors.domainChangeProjectOfDomain
-    ),
-    /** Change all nameservers of a Domain. */
-    declareNameservers: this.requestFunctionFactory(
-      descriptors.domainDeclareNameservers
+    /** Check if a Domain is available to register. */
+    checkDomainRegistrabilityV2Deprecated: this.requestFunctionFactory(
+      descriptors.domainCheckDomainRegistrabilityV2Deprecated
     ),
   };
 
