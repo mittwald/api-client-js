@@ -46,7 +46,10 @@ publish-commons:
       yarn config set npmScopes.mittwald.npmPublishRegistry "https://registry.npmjs.org"
       yarn npm publish --access=public
   only:
-    - tags
+    refs:
+      - tags
+    changes:
+      - ${CI_PROJECT_DIR}/packages/commons/**/*
 
 publish-models:
   stage: publish
@@ -63,7 +66,10 @@ publish-models:
       yarn config set npmScopes.mittwald.npmPublishRegistry "https://registry.npmjs.org"
       yarn npm publish --access=public
   only:
-    - tags
+    refs:
+      - tags
+    changes:
+      - ${CI_PROJECT_DIR}/packages/models/**/*
 
 publish-client:
   stage: publish
@@ -103,9 +109,13 @@ publish-client:
         yarn config set npmScopes.mittwald.npmPublishRegistry "https://registry.npmjs.org"
         yarn npm publish --access=public
       fi
+
   only:
-    - schedules
-    - web
+    refs:
+      - schedules
+      - web
+    changes:
+      - ${CI_PROJECT_DIR}/packages/commons/**/*
 
 publish-client-dev:
   stage: publish
@@ -120,8 +130,11 @@ publish-client-dev:
       1.0.0-alpha.${CI_JOB_ID}
     - yarn npm publish
   only:
-    - schedules
-    - web
+    refs:
+      - schedules
+      - web
+    changes:
+      - ${CI_PROJECT_DIR}/packages/commons/**/*
   tags:
     - coab
     - dev
@@ -139,4 +152,7 @@ publish-generator:
     - npm version --no-workspaces-update --no-git-tag-version ${CI_COMMIT_TAG}
     - yarn npm publish
   only:
-    - tags
+    refs:
+      - tags
+    changes:
+      - ${CI_PROJECT_DIR}/packages/commons/**/*
