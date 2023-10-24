@@ -26,16 +26,6 @@
         "require": "./dist/cjs/index.js",
         "default": "./dist/esm/index.js"
       }
-    },
-    "./react": {
-      "types": {
-        "require": "./dist/cjs/react.d.ts",
-        "default": "./dist/esm/react.d.ts"
-      },
-      "default": {
-        "require": "./dist/cjs/react.js",
-        "default": "./dist/esm/react.js"
-      }
     }
   },
   "files": [

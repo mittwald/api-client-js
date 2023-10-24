@@ -5,6 +5,9 @@
       "path": "./packages/mittwald/tsconfig.cjs.json"
     },
     {
+      "path": "./packages/models/tsconfig.cjs.json"
+    },
+    {
       "path": "./packages/commons/tsconfig.cjs.json"
     }
   ]
