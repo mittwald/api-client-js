@@ -351,16 +351,6 @@ const buildDatabaseApi = (baseClient: MittwaldAPIV2Client) => ({
 });
 
 const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** gets a specific zone */
-  dnsZoneGetSpecific: new ApiCallAsyncResourceFactory(
-    descriptors.dnsZoneGetSpecific,
-    baseClient.domain.dnsZoneGetSpecific
-  ).getApiResource,
-  /** gets all dns zones by project id */
-  dnsZonesForProject: new ApiCallAsyncResourceFactory(
-    descriptors.dnsZonesForProject,
-    baseClient.domain.dnsZonesForProject
-  ).getApiResource,
   /** Get a Domain. */
   getDomain: new ApiCallAsyncResourceFactory(
     descriptors.domainGetDomain,
@@ -371,11 +361,6 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.domainGetScreenshotForDomain,
     baseClient.domain.getScreenshotForDomain
   ).getApiResource,
-  /** Get a DomainOwnership. */
-  getDomainOwnership: new ApiCallAsyncResourceFactory(
-    descriptors.domainGetDomainOwnership,
-    baseClient.domain.getDomainOwnership
-  ).getApiResource,
   /** List the DomainOwnerships of a project. */
   listDomainOwnerships: new ApiCallAsyncResourceFactory(
     descriptors.domainListDomainOwnerships,
@@ -385,6 +370,11 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   listDomains: new ApiCallAsyncResourceFactory(
     descriptors.domainListDomains,
     baseClient.domain.listDomains
+  ).getApiResource,
+  /** Get a DomainOwnership. */
+  getDomainOwnership: new ApiCallAsyncResourceFactory(
+    descriptors.domainGetDomainOwnership,
+    baseClient.domain.getDomainOwnership
   ).getApiResource,
   /** Get an Ingress. */
   ingressGetSpecific: new ApiCallAsyncResourceFactory(
@@ -410,6 +400,16 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   listTldContactSchemas: new ApiCallAsyncResourceFactory(
     descriptors.domainListTldContactSchemas,
     baseClient.domain.listTldContactSchemas
+  ).getApiResource,
+  /** Get a DNSZone. */
+  dnsGetDnsZone: new ApiCallAsyncResourceFactory(
+    descriptors.dnsGetDnsZone,
+    baseClient.domain.dnsGetDnsZone
+  ).getApiResource,
+  /** List DNSZones belonging to a Project. */
+  dnsListDnsZones: new ApiCallAsyncResourceFactory(
+    descriptors.dnsListDnsZones,
+    baseClient.domain.dnsListDnsZones
   ).getApiResource,
 });
 

@@ -565,44 +565,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The domain API allows you to manage your domains, DNS records and ingress resources. */
   public readonly domain = {
-    /** updates a-records for a specific zone */
-    dnsRecordAsetCustom: this.requestFunctionFactory(
-      descriptors.dnsRecordAsetCustom
-    ),
-    /** set a-records managed by ingress for a specific zone */
-    dnsRecordAsetManagedByIngress: this.requestFunctionFactory(
-      descriptors.dnsRecordAsetManagedByIngress
-    ),
-    /** updates cname-record for a specific zone */
-    dnsRecordCnameSet: this.requestFunctionFactory(
-      descriptors.dnsRecordCnameSet
-    ),
-    /** updates mx-records for a specific zone */
-    dnsRecordMxSetCustom: this.requestFunctionFactory(
-      descriptors.dnsRecordMxSetCustom
-    ),
-    /** sets mx-records to managed for a specific zone */
-    dnsRecordMxSetManaged: this.requestFunctionFactory(
-      descriptors.dnsRecordMxSetManaged
-    ),
-    /** updates srv-records for a specific zone */
-    dnsRecordSrvSet: this.requestFunctionFactory(descriptors.dnsRecordSrvSet),
-    /** updates txt-records for a specific zone */
-    dnsRecordTxtSet: this.requestFunctionFactory(descriptors.dnsRecordTxtSet),
-    /** creates a sub zone for a given dns zone */
-    dnsSubZoneCreate: this.requestFunctionFactory(descriptors.dnsSubZoneCreate),
-    /** gets a specific zone */
-    dnsZoneGetSpecific: this.requestFunctionFactory(
-      descriptors.dnsZoneGetSpecific
-    ),
-    /** gets all dns zones by project id */
-    dnsZonesForProject: this.requestFunctionFactory(
-      descriptors.dnsZonesForProject
-    ),
-    /** Update the nameservers of a Domain. */
-    updateDomainNameservers: this.requestFunctionFactory(
-      descriptors.domainUpdateDomainNameservers
-    ),
     /** Get a Domain. */
     getDomain: this.requestFunctionFactory(descriptors.domainGetDomain),
     /** Delete a Domain. */
@@ -610,10 +572,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Get File Service Reference for a Screenshot of a domain. */
     getScreenshotForDomain: this.requestFunctionFactory(
       descriptors.domainGetScreenshotForDomain
-    ),
-    /** Get a DomainOwnership. */
-    getDomainOwnership: this.requestFunctionFactory(
-      descriptors.domainGetDomainOwnership
     ),
     /** List the DomainOwnerships of a project. */
     listDomainOwnerships: this.requestFunctionFactory(
@@ -624,6 +582,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Resend a Domain email. */
     resendDomainEmail: this.requestFunctionFactory(
       descriptors.domainResendDomainEmail
+    ),
+    /** Get a DomainOwnership. */
+    getDomainOwnership: this.requestFunctionFactory(
+      descriptors.domainGetDomainOwnership
     ),
     /** Verify a DomainOwnership. */
     verifyDomainOwnership: this.requestFunctionFactory(
@@ -671,6 +633,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateDomainContact: this.requestFunctionFactory(
       descriptors.domainUpdateDomainContact
     ),
+    /** Update the nameservers of a Domain. */
+    updateDomainNameservers: this.requestFunctionFactory(
+      descriptors.domainUpdateDomainNameservers
+    ),
     /** Update a Domain's project id. */
     updateDomainProjectId: this.requestFunctionFactory(
       descriptors.domainUpdateDomainProjectId
@@ -687,9 +653,21 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     checkDomainRegistrability: this.requestFunctionFactory(
       descriptors.domainCheckDomainRegistrability
     ),
-    /** Check if a Domain is available to register. */
-    checkDomainRegistrabilityV2Deprecated: this.requestFunctionFactory(
-      descriptors.domainCheckDomainRegistrabilityV2Deprecated
+    /** Get a DNSZone. */
+    dnsGetDnsZone: this.requestFunctionFactory(descriptors.dnsGetDnsZone),
+    /** Delete a DNSZone. */
+    dnsDeleteDnsZone: this.requestFunctionFactory(descriptors.dnsDeleteDnsZone),
+    /** List DNSZones belonging to a Project. */
+    dnsListDnsZones: this.requestFunctionFactory(descriptors.dnsListDnsZones),
+    /** Set a record set on a DNSZone to managed. */
+    dnsSetRecordSetManaged: this.requestFunctionFactory(
+      descriptors.dnsSetRecordSetManaged
+    ),
+    /** Create a DNSZone. */
+    dnsCreateDnsZone: this.requestFunctionFactory(descriptors.dnsCreateDnsZone),
+    /** Update a record set on a DNSZone. */
+    dnsUpdateRecordSet: this.requestFunctionFactory(
+      descriptors.dnsUpdateRecordSet
     ),
   };
 
