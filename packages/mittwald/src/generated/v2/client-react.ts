@@ -371,7 +371,12 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.domainGetScreenshotForDomain,
     baseClient.domain.getScreenshotForDomain
   ).getApiResource,
-  /** List all domain ownerships of a project. */
+  /** Get a DomainOwnership. */
+  getDomainOwnership: new ApiCallAsyncResourceFactory(
+    descriptors.domainGetDomainOwnership,
+    baseClient.domain.getDomainOwnership
+  ).getApiResource,
+  /** List the DomainOwnerships of a project. */
   listDomainOwnerships: new ApiCallAsyncResourceFactory(
     descriptors.domainListDomainOwnerships,
     baseClient.domain.listDomainOwnerships
@@ -380,11 +385,6 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   listDomains: new ApiCallAsyncResourceFactory(
     descriptors.domainListDomains,
     baseClient.domain.listDomains
-  ).getApiResource,
-  /** Get a domain ownership. */
-  getSpecificDomainOwnership: new ApiCallAsyncResourceFactory(
-    descriptors.domainGetSpecificDomainOwnership,
-    baseClient.domain.getSpecificDomainOwnership
   ).getApiResource,
   /** Get an Ingress. */
   ingressGetSpecific: new ApiCallAsyncResourceFactory(
@@ -401,15 +401,15 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.ingressListForProject,
     baseClient.domain.ingressListForProject
   ).getApiResource,
-  /** Get a HandleSchema. */
-  getHandleFields: new ApiCallAsyncResourceFactory(
-    descriptors.domainGetHandleFields,
-    baseClient.domain.getHandleFields
+  /** List TLDs. */
+  listTlds: new ApiCallAsyncResourceFactory(
+    descriptors.domainListTlds,
+    baseClient.domain.listTlds
   ).getApiResource,
-  /** List all supported top level domains. */
-  getSupportedTlds: new ApiCallAsyncResourceFactory(
-    descriptors.domainGetSupportedTlds,
-    baseClient.domain.getSupportedTlds
+  /** List the contact schemas for a TLD. */
+  listTldContactSchemas: new ApiCallAsyncResourceFactory(
+    descriptors.domainListTldContactSchemas,
+    baseClient.domain.listTldContactSchemas
   ).getApiResource,
 });
 

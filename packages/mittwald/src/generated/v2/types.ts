@@ -1350,6 +1350,17 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.dnsZonesForProject, TStatus>;
     }
 
+    namespace DomainUpdateDomainNameservers {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainUpdateDomainNameservers
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainUpdateDomainNameservers,
+          TStatus
+        >;
+    }
+
     namespace DomainGetDomain {
       type RequestData = InferredRequestData<
         typeof descriptors.domainGetDomain
@@ -1373,6 +1384,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.domainGetScreenshotForDomain,
+          TStatus
+        >;
+    }
+
+    namespace DomainGetDomainOwnership {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainGetDomainOwnership
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainGetDomainOwnership,
           TStatus
         >;
     }
@@ -1403,17 +1425,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.domainResendDomainEmail,
-          TStatus
-        >;
-    }
-
-    namespace DomainGetSpecificDomainOwnership {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainGetSpecificDomainOwnership
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainGetSpecificDomainOwnership,
           TStatus
         >;
     }
@@ -2774,120 +2785,107 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace DomainAbortDeclareProcess {
+    namespace DomainAbortDomainDeclaration {
       type RequestData = InferredRequestData<
-        typeof descriptors.domainAbortDeclareProcess
+        typeof descriptors.domainAbortDomainDeclaration
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.domainAbortDeclareProcess,
+          typeof descriptors.domainAbortDomainDeclaration,
           TStatus
         >;
     }
 
-    namespace DomainGetHandleFields {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainGetHandleFields
-      >;
+    namespace DomainListTlds {
+      type RequestData = InferredRequestData<typeof descriptors.domainListTlds>;
       type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.domainGetHandleFields, TStatus>;
+        InferredResponseData<typeof descriptors.domainListTlds, TStatus>;
     }
 
-    namespace DomainGetSupportedTlds {
+    namespace DomainListTldContactSchemas {
       type RequestData = InferredRequestData<
-        typeof descriptors.domainGetSupportedTlds
+        typeof descriptors.domainListTldContactSchemas
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.domainGetSupportedTlds,
+          typeof descriptors.domainListTldContactSchemas,
           TStatus
         >;
     }
 
-    namespace DomainCheckDomainAvailability {
+    namespace DomainUpdateDomainAuthCode {
       type RequestData = InferredRequestData<
-        typeof descriptors.domainCheckDomainAvailability
+        typeof descriptors.domainUpdateDomainAuthCode
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.domainCheckDomainAvailability,
+          typeof descriptors.domainUpdateDomainAuthCode,
           TStatus
         >;
     }
 
-    namespace DomainCreateAuthcodeForDomain {
+    namespace DomainUpdateDomainContact {
       type RequestData = InferredRequestData<
-        typeof descriptors.domainCreateAuthcodeForDomain
+        typeof descriptors.domainUpdateDomainContact
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.domainCreateAuthcodeForDomain,
+          typeof descriptors.domainUpdateDomainContact,
           TStatus
         >;
     }
 
-    namespace DomainCreateAuthcode2ForDomain {
+    namespace DomainUpdateDomainProjectId {
       type RequestData = InferredRequestData<
-        typeof descriptors.domainCreateAuthcode2ForDomain
+        typeof descriptors.domainUpdateDomainProjectId
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.domainCreateAuthcode2ForDomain,
+          typeof descriptors.domainUpdateDomainProjectId,
           TStatus
         >;
     }
 
-    namespace DomainDeclareProcessChangeAuthcode {
+    namespace DomainCreateDomainAuthCode {
       type RequestData = InferredRequestData<
-        typeof descriptors.domainDeclareProcessChangeAuthcode
+        typeof descriptors.domainCreateDomainAuthCode
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.domainDeclareProcessChangeAuthcode,
+          typeof descriptors.domainCreateDomainAuthCode,
           TStatus
         >;
     }
 
-    namespace DomainDeclareProcessChangeHandles {
+    namespace DomainCreateDomainAuthCode2 {
       type RequestData = InferredRequestData<
-        typeof descriptors.domainDeclareProcessChangeHandles
+        typeof descriptors.domainCreateDomainAuthCode2
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.domainDeclareProcessChangeHandles,
+          typeof descriptors.domainCreateDomainAuthCode2,
           TStatus
         >;
     }
 
-    namespace DomainChangeOwnercOfDomain {
+    namespace DomainCheckDomainRegistrability {
       type RequestData = InferredRequestData<
-        typeof descriptors.domainChangeOwnercOfDomain
+        typeof descriptors.domainCheckDomainRegistrability
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.domainChangeOwnercOfDomain,
+          typeof descriptors.domainCheckDomainRegistrability,
           TStatus
         >;
     }
 
-    namespace DomainChangeProjectOfDomain {
+    namespace DomainCheckDomainRegistrabilityV2Deprecated {
       type RequestData = InferredRequestData<
-        typeof descriptors.domainChangeProjectOfDomain
+        typeof descriptors.domainCheckDomainRegistrabilityV2Deprecated
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.domainChangeProjectOfDomain,
-          TStatus
-        >;
-    }
-
-    namespace DomainDeclareNameservers {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainDeclareNameservers
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainDeclareNameservers,
+          typeof descriptors.domainCheckDomainRegistrabilityV2Deprecated,
           TStatus
         >;
     }
@@ -3348,6 +3346,7 @@ export declare module MittwaldAPIV2 {
         articles: MittwaldAPIV2.Components.Schemas.ContractArticle[];
         contractPeriod: number;
         description: string;
+        freeTrialDays: number;
         groupByProjectId?: string;
         invoicingPeriod: number;
         isActivated: boolean;
@@ -11316,6 +11315,71 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2DomainsDomainIdHandlesOwnerc {}
+
+    namespace V2DomainsDomainIdProjectId {}
+
+    namespace V2DomainsDomainIdActionsCreateAuthcode {}
+
+    namespace V2DomainsDomainIdActionsCreateAuthcode2 {}
+
+    namespace V2DomainsDomainIdNameservers {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            domainId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * @minItems 2
+             */
+            nameservers?: [string, string, ...string[]];
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DomainsDomainIdDeclarationsAuthcode {}
+
+    namespace V2DomainsDomainIdDeclarationsHandles {}
+
     namespace V2DomainsDomainId {
       namespace Get {
         namespace Parameters {
@@ -11370,7 +11434,7 @@ export declare module MittwaldAPIV2 {
 
           export interface RequestBody {
             /**
-             * If true, Domain is in grace period.
+             * Only for .de Domains.
              */
             transit?: boolean;
           }
@@ -11438,6 +11502,53 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export interface ApplicationJson {
                 references?: string[];
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DomainOwnershipsDomainOwnershipId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            domainOwnershipId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DomainDomainOwnership;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
               }
             }
           }
@@ -11593,52 +11704,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2DomainOwnershipsDomainOwnershipId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            domainOwnershipId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DomainDomainOwnership;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
+    namespace V2DomainOwnershipsDomainOwnershipIdActionsVerify {
       namespace Post {
         namespace Parameters {
           export type Path = {
@@ -18836,7 +18902,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2DomainsDomainIdDeclarations {
+    namespace V2DomainsDomainIdDeclarations {}
+
+    namespace V2DomainsDomainIdDeclaration {
       namespace Delete {
         namespace Parameters {
           export type Path = {
@@ -18882,39 +18950,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2DomainsHandleSchemaDomainName {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            domainName: string;
-          };
+    namespace V2DomainsHandleSchemaDomainName {}
 
-          export type Header = {};
+    namespace V2DomainsSupportedTlds {}
 
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                jsonSchemaAdminC?: {};
-                jsonSchemaOwnerC: {};
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DomainsSupportedTlds {
+    namespace V2DomainTlds {
       namespace Get {
         namespace Parameters {
           export type Path = {};
@@ -18942,14 +18982,12 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2Domains {
-      namespace Post {
+    namespace V2DomainTldsTldContactSchemas {
+      namespace Get {
         namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            domain: string;
-          }
+          export type Path = {
+            tld: string;
+          };
 
           export type Header = {};
 
@@ -18959,12 +18997,59 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export interface ApplicationJson {
-                available: boolean;
+                jsonSchemaAdminC?: {};
+                jsonSchemaOwnerC: {};
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DomainsDomainIdAuthcode {}
+
+    namespace V2DomainsDomainIdAuthCode {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            domainId: string;
+          };
+
+          export interface RequestBody {
+            authCode: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
               }
             }
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -18983,7 +19068,116 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2DomainsDomainIdActionsCreateAuthcode {
+    namespace V2DomainsDomainIdContactsContact {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            domainId: string;
+            contact: "owner";
+          };
+
+          export interface RequestBody {
+            /**
+             * @minItems 1
+             */
+            contact: [
+              MittwaldAPIV2.Components.Schemas.DomainHandleField,
+              ...MittwaldAPIV2.Components.Schemas.DomainHandleField[]
+            ];
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DomainsDomainIdProjectId {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            domainId: string;
+          };
+
+          export interface RequestBody {
+            projectId?: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DomainsDomainIdActionsAuthCode {
       namespace Post {
         namespace Parameters {
           export type Path = {
@@ -19035,7 +19229,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2DomainsDomainIdActionsCreateAuthcode2 {
+    namespace V2DomainsDomainIdActionsAuthCode2 {
       namespace Post {
         namespace Parameters {
           export type Path = {
@@ -19085,19 +19279,16 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2DomainsDomainIdDeclarationsAuthcode {
-      namespace Put {
+    namespace V2DomainRegistrable {
+      namespace Post {
         namespace Parameters {
-          export type Path = {
-            domainId: string;
-          };
+          export type Path = {};
 
           export interface RequestBody {
-            authCode: string;
+            domain: string;
           }
 
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+          export type Header = {};
 
           export type Query = {};
         }
@@ -19105,20 +19296,12 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export interface ApplicationJson {
-                [k: string]: unknown;
+                registrable: boolean;
               }
             }
           }
 
           namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -19137,25 +19320,16 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2DomainsDomainIdDeclarationsHandles {
-      namespace Put {
+    namespace V2Domains {
+      namespace Post {
         namespace Parameters {
-          export type Path = {
-            domainId: string;
-          };
+          export type Path = {};
 
           export interface RequestBody {
-            /**
-             * @minItems 1
-             */
-            ownerC: [
-              MittwaldAPIV2.Components.Schemas.DomainHandleField,
-              ...MittwaldAPIV2.Components.Schemas.DomainHandleField[]
-            ];
+            domain: string;
           }
 
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+          export type Header = {};
 
           export type Query = {};
         }
@@ -19163,181 +19337,12 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export interface ApplicationJson {
-                [k: string]: unknown;
+                available: boolean;
               }
             }
           }
 
           namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DomainsDomainIdHandlesOwnerc {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            domainId: string;
-          };
-
-          export interface RequestBody {
-            /**
-             * @minItems 1
-             */
-            ownerC: [
-              MittwaldAPIV2.Components.Schemas.DomainHandleField,
-              ...MittwaldAPIV2.Components.Schemas.DomainHandleField[]
-            ];
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DomainsDomainIdProjectId {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            domainId: string;
-          };
-
-          export interface RequestBody {
-            projectId?: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DomainsDomainIdNameservers {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            domainId: string;
-          };
-
-          export interface RequestBody {
-            /**
-             * @minItems 2
-             */
-            nameservers?: [string, string, ...string[]];
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
