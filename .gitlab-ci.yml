@@ -23,6 +23,7 @@ typescript-compile:
       - ${CI_PROJECT_DIR}/packages/commons/dist/
       - ${CI_PROJECT_DIR}/packages/commons/dist-cjs/
       - ${CI_PROJECT_DIR}/packages/generator/dist/
+      - ${CI_PROJECT_DIR}/packages/models/dist/
     expire_in: 1 hour
 
 test:
