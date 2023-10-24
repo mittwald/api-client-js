@@ -1,4 +1,4 @@
-export type ExceptFirstParameters<T extends (...args: any) => any> = T extends (
+export type ParamsExceptFirst<T extends (...args: any) => any> = T extends (
   ignoredFirst: any,
   ...args: infer P
 ) => any

@@ -5,7 +5,7 @@ import { classes } from "polytype";
 import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import Project from "../../project/Project/Project.js";
-import { ExceptFirstParameters, FirstParameter } from "../../lib/types.js";
+import { ParamsExceptFirst, FirstParameter } from "../../lib/types.js";
 import { isUuid } from "../../lib/isUuid.js";
 import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
 
@@ -34,7 +34,7 @@ export class ServerProxy extends ProxyModel {
   }
 
   public async createProject(
-    ...parameters: ExceptFirstParameters<typeof Project.create>
+    ...parameters: ParamsExceptFirst<typeof Project.create>
   ): ReturnType<typeof Project.create> {
     return Project.create(await this.getUuid(), ...parameters);
   }
