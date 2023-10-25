@@ -351,10 +351,25 @@ const buildDatabaseApi = (baseClient: MittwaldAPIV2Client) => ({
 });
 
 const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get a DNSZone. */
+  dnsGetDnsZone: new ApiCallAsyncResourceFactory(
+    descriptors.dnsGetDnsZone,
+    baseClient.domain.dnsGetDnsZone
+  ).getApiResource,
+  /** List DNSZones belonging to a Project. */
+  dnsListDnsZones: new ApiCallAsyncResourceFactory(
+    descriptors.dnsListDnsZones,
+    baseClient.domain.dnsListDnsZones
+  ).getApiResource,
   /** Get a Domain. */
   getDomain: new ApiCallAsyncResourceFactory(
     descriptors.domainGetDomain,
     baseClient.domain.getDomain
+  ).getApiResource,
+  /** Get a DomainOwnership. */
+  getDomainOwnership: new ApiCallAsyncResourceFactory(
+    descriptors.domainGetDomainOwnership,
+    baseClient.domain.getDomainOwnership
   ).getApiResource,
   /** Get File Service Reference for a Screenshot of a domain. */
   getScreenshotForDomain: new ApiCallAsyncResourceFactory(
@@ -371,10 +386,15 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.domainListDomains,
     baseClient.domain.listDomains
   ).getApiResource,
-  /** Get a DomainOwnership. */
-  getDomainOwnership: new ApiCallAsyncResourceFactory(
-    descriptors.domainGetDomainOwnership,
-    baseClient.domain.getDomainOwnership
+  /** List the contact schemas for a TLD. */
+  listTldContactSchemas: new ApiCallAsyncResourceFactory(
+    descriptors.domainListTldContactSchemas,
+    baseClient.domain.listTldContactSchemas
+  ).getApiResource,
+  /** List TLDs. */
+  listTlds: new ApiCallAsyncResourceFactory(
+    descriptors.domainListTlds,
+    baseClient.domain.listTlds
   ).getApiResource,
   /** Get an Ingress. */
   ingressGetSpecific: new ApiCallAsyncResourceFactory(
@@ -390,26 +410,6 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   ingressListForProject: new ApiCallAsyncResourceFactory(
     descriptors.ingressListForProject,
     baseClient.domain.ingressListForProject
-  ).getApiResource,
-  /** List TLDs. */
-  listTlds: new ApiCallAsyncResourceFactory(
-    descriptors.domainListTlds,
-    baseClient.domain.listTlds
-  ).getApiResource,
-  /** List the contact schemas for a TLD. */
-  listTldContactSchemas: new ApiCallAsyncResourceFactory(
-    descriptors.domainListTldContactSchemas,
-    baseClient.domain.listTldContactSchemas
-  ).getApiResource,
-  /** Get a DNSZone. */
-  dnsGetDnsZone: new ApiCallAsyncResourceFactory(
-    descriptors.dnsGetDnsZone,
-    baseClient.domain.dnsGetDnsZone
-  ).getApiResource,
-  /** List DNSZones belonging to a Project. */
-  dnsListDnsZones: new ApiCallAsyncResourceFactory(
-    descriptors.dnsListDnsZones,
-    baseClient.domain.dnsListDnsZones
   ).getApiResource,
 });
 

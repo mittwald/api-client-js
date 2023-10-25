@@ -565,10 +565,50 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The domain API allows you to manage your domains, DNS records and ingress resources. */
   public readonly domain = {
+    /** Create a DNSZone. */
+    dnsCreateDnsZone: this.requestFunctionFactory(descriptors.dnsCreateDnsZone),
+    /** Get a DNSZone. */
+    dnsGetDnsZone: this.requestFunctionFactory(descriptors.dnsGetDnsZone),
+    /** Delete a DNSZone. */
+    dnsDeleteDnsZone: this.requestFunctionFactory(descriptors.dnsDeleteDnsZone),
+    /** List DNSZones belonging to a Project. */
+    dnsListDnsZones: this.requestFunctionFactory(descriptors.dnsListDnsZones),
+    /** Set a record set on a DNSZone to managed. */
+    dnsSetRecordSetManaged: this.requestFunctionFactory(
+      descriptors.dnsSetRecordSetManaged
+    ),
+    /** Update a record set on a DNSZone. */
+    dnsUpdateRecordSet: this.requestFunctionFactory(
+      descriptors.dnsUpdateRecordSet
+    ),
+    /** Abort a Domain declaration. */
+    abortDomainDeclaration: this.requestFunctionFactory(
+      descriptors.domainAbortDomainDeclaration
+    ),
+    /** Check if a Domain is available to register. */
+    checkDomainRegistrability: this.requestFunctionFactory(
+      descriptors.domainCheckDomainRegistrability
+    ),
+    /** Create an auth code 2. */
+    createDomainAuthCode2: this.requestFunctionFactory(
+      descriptors.domainCreateDomainAuthCode2
+    ),
+    /** Create an auth code for a Domains transfer-out process. */
+    createDomainAuthCode: this.requestFunctionFactory(
+      descriptors.domainCreateDomainAuthCode
+    ),
+    /** Update the nameservers of a Domain. */
+    updateDomainNameservers: this.requestFunctionFactory(
+      descriptors.domainUpdateDomainNameservers
+    ),
     /** Get a Domain. */
     getDomain: this.requestFunctionFactory(descriptors.domainGetDomain),
     /** Delete a Domain. */
     deleteDomain: this.requestFunctionFactory(descriptors.domainDeleteDomain),
+    /** Get a DomainOwnership. */
+    getDomainOwnership: this.requestFunctionFactory(
+      descriptors.domainGetDomainOwnership
+    ),
     /** Get File Service Reference for a Screenshot of a domain. */
     getScreenshotForDomain: this.requestFunctionFactory(
       descriptors.domainGetScreenshotForDomain
@@ -579,13 +619,27 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** List Domains belonging to a Project. */
     listDomains: this.requestFunctionFactory(descriptors.domainListDomains),
+    /** List the contact schemas for a TLD. */
+    listTldContactSchemas: this.requestFunctionFactory(
+      descriptors.domainListTldContactSchemas
+    ),
+    /** List TLDs. */
+    listTlds: this.requestFunctionFactory(descriptors.domainListTlds),
     /** Resend a Domain email. */
     resendDomainEmail: this.requestFunctionFactory(
       descriptors.domainResendDomainEmail
     ),
-    /** Get a DomainOwnership. */
-    getDomainOwnership: this.requestFunctionFactory(
-      descriptors.domainGetDomainOwnership
+    /** Update the auth code of a Domain. */
+    updateDomainAuthCode: this.requestFunctionFactory(
+      descriptors.domainUpdateDomainAuthCode
+    ),
+    /** Update a contact of a Domain. */
+    updateDomainContact: this.requestFunctionFactory(
+      descriptors.domainUpdateDomainContact
+    ),
+    /** Update a Domain's project id. */
+    updateDomainProjectId: this.requestFunctionFactory(
+      descriptors.domainUpdateDomainProjectId
     ),
     /** Verify a DomainOwnership. */
     verifyDomainOwnership: this.requestFunctionFactory(
@@ -615,60 +669,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Update an Ingresses tls settings. */
     ingressTls: this.requestFunctionFactory(descriptors.ingressTls),
-    /** Abort a Domain declaration. */
-    abortDomainDeclaration: this.requestFunctionFactory(
-      descriptors.domainAbortDomainDeclaration
-    ),
-    /** List TLDs. */
-    listTlds: this.requestFunctionFactory(descriptors.domainListTlds),
-    /** List the contact schemas for a TLD. */
-    listTldContactSchemas: this.requestFunctionFactory(
-      descriptors.domainListTldContactSchemas
-    ),
-    /** Update the auth code of a Domain. */
-    updateDomainAuthCode: this.requestFunctionFactory(
-      descriptors.domainUpdateDomainAuthCode
-    ),
-    /** Update a contact of a Domain. */
-    updateDomainContact: this.requestFunctionFactory(
-      descriptors.domainUpdateDomainContact
-    ),
-    /** Update the nameservers of a Domain. */
-    updateDomainNameservers: this.requestFunctionFactory(
-      descriptors.domainUpdateDomainNameservers
-    ),
-    /** Update a Domain's project id. */
-    updateDomainProjectId: this.requestFunctionFactory(
-      descriptors.domainUpdateDomainProjectId
-    ),
-    /** Create an auth code for a Domains transfer-out process. */
-    createDomainAuthCode: this.requestFunctionFactory(
-      descriptors.domainCreateDomainAuthCode
-    ),
-    /** Create an auth code 2. */
-    createDomainAuthCode2: this.requestFunctionFactory(
-      descriptors.domainCreateDomainAuthCode2
-    ),
-    /** Check if a Domain is available to register. */
-    checkDomainRegistrability: this.requestFunctionFactory(
-      descriptors.domainCheckDomainRegistrability
-    ),
-    /** Get a DNSZone. */
-    dnsGetDnsZone: this.requestFunctionFactory(descriptors.dnsGetDnsZone),
-    /** Delete a DNSZone. */
-    dnsDeleteDnsZone: this.requestFunctionFactory(descriptors.dnsDeleteDnsZone),
-    /** List DNSZones belonging to a Project. */
-    dnsListDnsZones: this.requestFunctionFactory(descriptors.dnsListDnsZones),
-    /** Set a record set on a DNSZone to managed. */
-    dnsSetRecordSetManaged: this.requestFunctionFactory(
-      descriptors.dnsSetRecordSetManaged
-    ),
-    /** Create a DNSZone. */
-    dnsCreateDnsZone: this.requestFunctionFactory(descriptors.dnsCreateDnsZone),
-    /** Update a record set on a DNSZone. */
-    dnsUpdateRecordSet: this.requestFunctionFactory(
-      descriptors.dnsUpdateRecordSet
-    ),
   };
 
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */

@@ -3870,6 +3870,345 @@ export const newsletterSubscribeUser: OpenAPIOperation<
   operationId: "newsletter-subscribe-user",
 };
 
+/** Create a DNSZone. */
+export const dnsCreateDnsZone: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns-zones",
+  method: "POST",
+  operationId: "dns-create-dns-zone",
+};
+
+/** Get a DNSZone. */
+export const dnsGetDnsZone: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns-zones/{dnsZoneId}",
+  method: "GET",
+  operationId: "dns-get-dns-zone",
+};
+
+/** Delete a DNSZone. */
+export const dnsDeleteDnsZone: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns-zones/{dnsZoneId}",
+  method: "DELETE",
+  operationId: "dns-delete-dns-zone",
+};
+
+/** List DNSZones belonging to a Project. */
+export const dnsListDnsZones: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/dns-zones",
+  method: "GET",
+  operationId: "dns-list-dns-zones",
+};
+
+/** Set a record set on a DNSZone to managed. */
+export const dnsSetRecordSetManaged: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Responses.$204.Content.ApplicationJson>,
+      204,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns-zones/{dnsZoneId}/record-sets/{recordSet}/actions/set-managed",
+  method: "POST",
+  operationId: "dns-set-record-set-managed",
+};
+
+/** Update a record set on a DNSZone. */
+export const dnsUpdateRecordSet: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSet.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSet.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSet.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSet.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSet.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSet.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSet.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns-zones/{dnsZoneId}/record-sets/{recordSet}",
+  method: "PUT",
+  operationId: "dns-update-record-set",
+};
+
+/** Abort a Domain declaration. */
+export const domainAbortDomainDeclaration: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/declaration",
+  method: "DELETE",
+  operationId: "domain-abort-domain-declaration",
+};
+
+/** Check if a Domain is available to register. */
+export const domainCheckDomainRegistrability: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domain-registrable",
+  method: "POST",
+  operationId: "domain-check-domain-registrability",
+};
+
+/** Create an auth code 2. */
+export const domainCreateDomainAuthCode2: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/actions/auth-code-2",
+  method: "POST",
+  operationId: "domain-create-domain-auth-code-2",
+};
+
+/** Create an auth code for a Domains transfer-out process. */
+export const domainCreateDomainAuthCode: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/actions/auth-code",
+  method: "POST",
+  operationId: "domain-create-domain-auth-code",
+};
+
+/** Update the nameservers of a Domain. */
+export const domainUpdateDomainNameservers: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/nameservers",
+  method: "PATCH",
+  operationId: "domain-update-domain-nameservers",
+};
+
 /** Get a Domain. */
 export const domainGetDomain: OpenAPIOperation<
   RequestType<
@@ -3936,6 +4275,40 @@ export const domainDeleteDomain: OpenAPIOperation<
   path: "/v2/domains/{domainId}",
   method: "DELETE",
   operationId: "domain-delete-domain",
+};
+
+/** Get a DomainOwnership. */
+export const domainGetDomainOwnership: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domain-ownerships/{domainOwnershipId}",
+  method: "GET",
+  operationId: "domain-get-domain-ownership",
 };
 
 /** Get File Service Reference for a Screenshot of a domain. */
@@ -4025,6 +4398,54 @@ export const domainListDomains: OpenAPIOperation<
   operationId: "domain-list-domains",
 };
 
+/** List the contact schemas for a TLD. */
+export const domainListTldContactSchemas: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainTldsTldContactSchemas.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainTldsTldContactSchemas.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainTldsTldContactSchemas.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainTldsTldContactSchemas.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainTldsTldContactSchemas.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domain-tlds/{tld}/contact-schemas",
+  method: "GET",
+  operationId: "domain-list-tld-contact-schemas",
+};
+
+/** List TLDs. */
+export const domainListTlds: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainTlds.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainTlds.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainTlds.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainTlds.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainTlds.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domain-tlds",
+  method: "GET",
+  operationId: "domain-list-tlds",
+};
+
 /** Resend a Domain email. */
 export const domainResendDomainEmail: OpenAPIOperation<
   RequestType<
@@ -4059,38 +4480,106 @@ export const domainResendDomainEmail: OpenAPIOperation<
   operationId: "domain-resend-domain-email",
 };
 
-/** Get a DomainOwnership. */
-export const domainGetDomainOwnership: OpenAPIOperation<
+/** Update the auth code of a Domain. */
+export const domainUpdateDomainAuthCode: OpenAPIOperation<
   RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Get.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/domain-ownerships/{domainOwnershipId}",
-  method: "GET",
-  operationId: "domain-get-domain-ownership",
+  path: "/v2/domains/{domainId}/auth-code",
+  method: "PATCH",
+  operationId: "domain-update-domain-auth-code",
+};
+
+/** Update a contact of a Domain. */
+export const domainUpdateDomainContact: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/contacts/{contact}",
+  method: "PATCH",
+  operationId: "domain-update-domain-contact",
+};
+
+/** Update a Domain's project id. */
+export const domainUpdateDomainProjectId: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/project-id",
+  method: "PATCH",
+  operationId: "domain-update-domain-project-id",
 };
 
 /** Verify a DomainOwnership. */
@@ -6019,6 +6508,30 @@ export const pageinsightsListPerformanceDataForProject: OpenAPIOperation<
   path: "/v2/projects/{id}/pageinsights",
   method: "GET",
   operationId: "pageinsights-list-performance-data-for-project",
+};
+
+/** Get a password policy. */
+export const passwordValidationGetPasswordPolicy: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/password/policies/{path}",
+  method: "GET",
+  operationId: "password-validation-get-password-policy",
 };
 
 /** Accept a ProjectInvite. */
@@ -8855,517 +9368,4 @@ export const userVerifyRegistration: OpenAPIOperation<
   path: "/v2/verify-registration",
   method: "POST",
   operationId: "user-verify-registration",
-};
-
-/** Abort a Domain declaration. */
-export const domainAbortDomainDeclaration: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domains/{domainId}/declaration",
-  method: "DELETE",
-  operationId: "domain-abort-domain-declaration",
-};
-
-/** List TLDs. */
-export const domainListTlds: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainTlds.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainTlds.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainTlds.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainTlds.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainTlds.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domain-tlds",
-  method: "GET",
-  operationId: "domain-list-tlds",
-};
-
-/** List the contact schemas for a TLD. */
-export const domainListTldContactSchemas: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainTldsTldContactSchemas.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainTldsTldContactSchemas.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainTldsTldContactSchemas.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainTldsTldContactSchemas.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainTldsTldContactSchemas.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domain-tlds/{tld}/contact-schemas",
-  method: "GET",
-  operationId: "domain-list-tld-contact-schemas",
-};
-
-/** Update the auth code of a Domain. */
-export const domainUpdateDomainAuthCode: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domains/{domainId}/auth-code",
-  method: "PATCH",
-  operationId: "domain-update-domain-auth-code",
-};
-
-/** Update a contact of a Domain. */
-export const domainUpdateDomainContact: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domains/{domainId}/contacts/{contact}",
-  method: "PATCH",
-  operationId: "domain-update-domain-contact",
-};
-
-/** Update the nameservers of a Domain. */
-export const domainUpdateDomainNameservers: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domains/{domainId}/nameservers",
-  method: "PATCH",
-  operationId: "domain-update-domain-nameservers",
-};
-
-/** Update a Domain's project id. */
-export const domainUpdateDomainProjectId: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domains/{domainId}/project-id",
-  method: "PATCH",
-  operationId: "domain-update-domain-project-id",
-};
-
-/** Create an auth code for a Domains transfer-out process. */
-export const domainCreateDomainAuthCode: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domains/{domainId}/actions/auth-code",
-  method: "POST",
-  operationId: "domain-create-domain-auth-code",
-};
-
-/** Create an auth code 2. */
-export const domainCreateDomainAuthCode2: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domains/{domainId}/actions/auth-code-2",
-  method: "POST",
-  operationId: "domain-create-domain-auth-code-2",
-};
-
-/** Check if a Domain is available to register. */
-export const domainCheckDomainRegistrability: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domain-registrable",
-  method: "POST",
-  operationId: "domain-check-domain-registrability",
-};
-
-/** Get a password policy. */
-export const passwordValidationGetPasswordPolicy: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/password/policies/{path}",
-  method: "GET",
-  operationId: "password-validation-get-password-policy",
-};
-
-/** Get a DNSZone. */
-export const dnsGetDnsZone: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/dns-zones/{dnsZoneId}",
-  method: "GET",
-  operationId: "dns-get-dns-zone",
-};
-
-/** Delete a DNSZone. */
-export const dnsDeleteDnsZone: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Responses.$200.Content.Empty>,
-      200,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/dns-zones/{dnsZoneId}",
-  method: "DELETE",
-  operationId: "dns-delete-dns-zone",
-};
-
-/** List DNSZones belonging to a Project. */
-export const dnsListDnsZones: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/{projectId}/dns-zones",
-  method: "GET",
-  operationId: "dns-list-dns-zones",
-};
-
-/** Set a record set on a DNSZone to managed. */
-export const dnsSetRecordSetManaged: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Responses.$204.Content.ApplicationJson>,
-      204,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/dns-zones/{dnsZoneId}/record-sets/{recordSet}/actions/set-managed",
-  method: "POST",
-  operationId: "dns-set-record-set-managed",
-};
-
-/** Create a DNSZone. */
-export const dnsCreateDnsZone: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/dns-zones",
-  method: "POST",
-  operationId: "dns-create-dns-zone",
-};
-
-/** Update a record set on a DNSZone. */
-export const dnsUpdateRecordSet: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSet.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSet.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSet.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSet.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSet.Put.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSet.Put.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSet.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/dns-zones/{dnsZoneId}/record-sets/{recordSet}",
-  method: "PUT",
-  operationId: "dns-update-record-set",
 };
