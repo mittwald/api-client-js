@@ -8436,8 +8436,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2Customercategories {}
-
     namespace V2CustomerCategories {
       namespace Get {
         namespace Parameters {
@@ -8686,8 +8684,6 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
-
-    namespace V2CustomercategoriesCategoryId {}
 
     namespace V2CustomerCategoriesCategoryId {
       namespace Get {
@@ -9836,11 +9832,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MysqlDatabasesId {
+    namespace V2MysqlDatabasesMysqlDatabaseId {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mysqlDatabaseId: string;
           };
 
           export type Header =
@@ -9893,7 +9889,7 @@ export declare module MittwaldAPIV2 {
       namespace Delete {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mysqlDatabaseId: string;
           };
 
           export type Header =
@@ -9957,11 +9953,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MysqlUsersId {
+    namespace V2MysqlUsersMysqlUserId {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mysqlUserId: string;
           };
 
           export type Header =
@@ -10006,7 +10002,7 @@ export declare module MittwaldAPIV2 {
       namespace Put {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mysqlUserId: string;
           };
 
           export interface RequestBody {
@@ -10057,7 +10053,7 @@ export declare module MittwaldAPIV2 {
       namespace Delete {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mysqlUserId: string;
           };
 
           export type Header =
@@ -10105,11 +10101,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2RedisDatabasesId {
+    namespace V2RedisDatabasesRedisDatabaseId {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            id: string;
+            redisDatabaseId: string;
           };
 
           export type Header =
@@ -10162,7 +10158,7 @@ export declare module MittwaldAPIV2 {
       namespace Delete {
         namespace Parameters {
           export type Path = {
-            id: string;
+            redisDatabaseId: string;
           };
 
           export type Header =
@@ -10226,11 +10222,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MysqlUsersIdActionsDisable {
+    namespace V2MysqlUsersMysqlUserIdActionsDisable {
       namespace Post {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mysqlUserId: string;
           };
 
           export interface RequestBody {
@@ -10276,11 +10272,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MysqlUsersIdActionsEnable {
+    namespace V2MysqlUsersMysqlUserIdActionsEnable {
       namespace Post {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mysqlUserId: string;
           };
 
           export interface RequestBody {
@@ -10326,11 +10322,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MysqlUsersIdPhpMyAdminUrl {
+    namespace V2MysqlUsersMysqlUserIdPhpMyAdminUrl {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mysqlUserId: string;
           };
 
           export type Header =
@@ -10514,11 +10510,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MysqlDatabasesIdDefaultCharset {
+    namespace V2MysqlDatabasesMysqlDatabaseIdDefaultCharset {
       namespace Patch {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mysqlDatabaseId: string;
           };
 
           export interface RequestBody {
@@ -10564,11 +10560,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MysqlDatabasesIdDescription {
+    namespace V2MysqlDatabasesMysqlDatabaseIdDescription {
       namespace Patch {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mysqlDatabaseId: string;
           };
 
           export interface RequestBody {
@@ -10614,11 +10610,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MysqlUsersIdPassword {
+    namespace V2MysqlUsersMysqlUserIdPassword {
       namespace Patch {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mysqlUserId: string;
           };
 
           export interface RequestBody {
@@ -10664,11 +10660,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2RedisDatabasesIdConfiguration {
+    namespace V2RedisDatabasesRedisDatabaseIdConfiguration {
       namespace Patch {
         namespace Parameters {
           export type Path = {
-            id: string;
+            redisDatabaseId: string;
           };
 
           export interface RequestBody {
@@ -10714,11 +10710,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2RedisDatabasesIdDescription {
+    namespace V2RedisDatabasesRedisDatabaseIdDescription {
       namespace Patch {
         namespace Parameters {
           export type Path = {
-            id: string;
+            redisDatabaseId: string;
           };
 
           export interface RequestBody {
