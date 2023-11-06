@@ -7,7 +7,7 @@ import { Response } from "@mittwald/api-client-commons";
 import { OpenAPIOperation } from "@mittwald/api-client-commons";
 import { MittwaldAPIV2 } from "./types.js";
 
-/** Execute a runtime concerning action on a specific `AppInstallation`. */
+/** execute a runtime concerning action on a specific `AppInstallation` */
 export const appExecuteAction: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdActionsAction.Post.Parameters.RequestBody>,
@@ -36,7 +36,7 @@ export const appExecuteAction: OpenAPIOperation<
   operationId: "app-execute-action",
 };
 
-/** Get a specific `App`. */
+/** get a specific `App` */
 export const appGetApp: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -65,7 +65,7 @@ export const appGetApp: OpenAPIOperation<
   operationId: "app-get-app",
 };
 
-/** Get a specific `AppInstallation`. */
+/** get a specific `AppInstallation` */
 export const appGetAppinstallation: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -94,7 +94,7 @@ export const appGetAppinstallation: OpenAPIOperation<
   operationId: "app-get-appinstallation",
 };
 
-/** Start uninstallation process for a specific `AppInstallation`. */
+/** start uninstallation process for a specific `AppInstallation` */
 export const appUninstallAppinstallation: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -123,7 +123,7 @@ export const appUninstallAppinstallation: OpenAPIOperation<
   operationId: "app-uninstall-appinstallation",
 };
 
-/** Patch desired properties of a specific `AppInstallation`. */
+/** patch desired properties of a specific `AppInstallation` */
 export const appPatchAppinstallation: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Patch.Parameters.RequestBody>,
@@ -152,7 +152,7 @@ export const appPatchAppinstallation: OpenAPIOperation<
   operationId: "app-patch-appinstallation",
 };
 
-/** Get a specific `AppVersion`. */
+/** get a specific `AppVersion` */
 export const appGetAppversion: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -181,7 +181,7 @@ export const appGetAppversion: OpenAPIOperation<
   operationId: "app-get-appversion",
 };
 
-/** Get the missing requirements of an appInstallation for a specific target AppVersion. */
+/** get the missing requirements of an appInstallation for a specific target AppVersion */
 export const appGetMissingDependenciesForAppinstallation: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -210,7 +210,7 @@ export const appGetMissingDependenciesForAppinstallation: OpenAPIOperation<
   operationId: "app-get-missing-dependencies-for-appinstallation",
 };
 
-/** Get a specific `SystemSoftware`. */
+/** get a specific `SystemSoftware` */
 export const appGetSystemsoftware: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -239,7 +239,7 @@ export const appGetSystemsoftware: OpenAPIOperation<
   operationId: "app-get-systemsoftware",
 };
 
-/** Get a specific `SystemSoftwareVersion`. */
+/** get a specific `SystemSoftwareVersion` */
 export const appGetSystemsoftwareversion: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -268,7 +268,7 @@ export const appGetSystemsoftwareversion: OpenAPIOperation<
   operationId: "app-get-systemsoftwareversion",
 };
 
-/** Create linkage between an `AppInstallation` and a MySql-`Database`. */
+/** create linkage between an `AppInstallation` and a `Database` */
 export const appLinkDatabase: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabases.Put.Parameters.RequestBody>,
@@ -297,7 +297,7 @@ export const appLinkDatabase: OpenAPIOperation<
   operationId: "app-link-database",
 };
 
-/** Get all `AppInstallations` inside a specific `Project`. */
+/** get all `AppInstallations` inside a specific `Project` */
 export const appListAppinstallations: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -321,7 +321,7 @@ export const appListAppinstallations: OpenAPIOperation<
   operationId: "app-list-appinstallations",
 };
 
-/** Request a new `AppInstallation`. */
+/** request a new `AppInstallation` */
 export const appRequestAppinstallation: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Post.Parameters.RequestBody>,
@@ -350,7 +350,7 @@ export const appRequestAppinstallation: OpenAPIOperation<
   operationId: "app-request-appinstallation",
 };
 
-/** Get all available `Apps`. */
+/** get all available `Apps` */
 export const appListApps: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -374,7 +374,7 @@ export const appListApps: OpenAPIOperation<
   operationId: "app-list-apps",
 };
 
-/** Get all `AppVersions` of a specific `App`. */
+/** get all `AppVersions` of a specific `App` */
 export const appListAppversions: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -398,7 +398,7 @@ export const appListAppversions: OpenAPIOperation<
   operationId: "app-list-appversions",
 };
 
-/** Get all available `SystemSoftware`. */
+/** get all available `SystemSoftware` */
 export const appListSystemsoftwares: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -422,7 +422,7 @@ export const appListSystemsoftwares: OpenAPIOperation<
   operationId: "app-list-systemsoftwares",
 };
 
-/** Get all available `SystemSoftwareVersions` of a specific `SystemSoftware`. */
+/** get all available `SystemSoftwareVersions` of a specific `SystemSoftware` */
 export const appListSystemsoftwareversions: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -446,7 +446,7 @@ export const appListSystemsoftwareversions: OpenAPIOperation<
   operationId: "app-list-systemsoftwareversions",
 };
 
-/** Get all update candidates for a specific `AppVersion`. */
+/** get all update candidates for a specific `AppVersion` */
 export const appListUpdateCandidatesForAppversion: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -470,7 +470,7 @@ export const appListUpdateCandidatesForAppversion: OpenAPIOperation<
   operationId: "app-list-update-candidates-for-appversion",
 };
 
-/** Request a copy of an `AppInstallation`. */
+/** request a copy of an `AppInstallation` */
 export const appRequestAppinstallationCopy: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsCopy.Post.Parameters.RequestBody>,
@@ -499,7 +499,7 @@ export const appRequestAppinstallationCopy: OpenAPIOperation<
   operationId: "app-request-appinstallation-copy",
 };
 
-/** Get runtime status of a specific `AppInstallation`. */
+/** get runtime status of a specific `AppInstallation` */
 export const appRetrieveStatus: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -528,7 +528,7 @@ export const appRetrieveStatus: OpenAPIOperation<
   operationId: "app-retrieve-status",
 };
 
-/** Create linkage between an `AppInstallation` and `DatabaseUsers`. */
+/** create linkage between an `AppInstallation` and `DatabaseUsers` */
 export const appSetDatabaseUsers: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.RequestBody>,
@@ -557,7 +557,7 @@ export const appSetDatabaseUsers: OpenAPIOperation<
   operationId: "app-set-database-users",
 };
 
-/** Remove linkage between an `AppInstallation` and a `Database`. */
+/** remove linkage between an `AppInstallation` and a `Database` */
 export const appUnlinkDatabase: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -6152,22 +6152,22 @@ export const newsletterUnsubscribeUser: OpenAPIOperation<
 export const notificationsCountUnreadNotifications: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2NotificationUnreadCounts.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2NotificationUnreadCounts.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2NotificationUnreadCounts.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2NotificationsUnreadCounts.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationsUnreadCounts.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationsUnreadCounts.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2NotificationUnreadCounts.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2NotificationsUnreadCounts.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2NotificationUnreadCounts.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2NotificationsUnreadCounts.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/notification-unread-counts",
+  path: "/v2/notifications/unread-counts",
   method: "GET",
   operationId: "notifications-count-unread-notifications",
 };
@@ -7048,7 +7048,7 @@ export const projectFileSystemGetDirectories: OpenAPIOperation<
       "application/json"
     >
 > = {
-  path: "/v2/projects/{projectId}/filesystem-directories",
+  path: "/v2/projects/{projectId}/filesystem/directories",
   method: "GET",
   operationId: "project-file-system-get-directories",
 };
@@ -7057,37 +7057,37 @@ export const projectFileSystemGetDirectories: OpenAPIOperation<
 export const projectFileSystemGetDiskUsage: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDiskUsage.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDiskUsage.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDiskUsage.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemUsagesDisk.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemUsagesDisk.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemUsagesDisk.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDiskUsage.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemUsagesDisk.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDiskUsage.Get.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemUsagesDisk.Get.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDiskUsage.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemUsagesDisk.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDiskUsage.Get.Responses.$503.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemUsagesDisk.Get.Responses.$503.Content.ApplicationJson>,
       503,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDiskUsage.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemUsagesDisk.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/projects/{projectId}/filesystem-disk-usage",
+  path: "/v2/projects/{projectId}/filesystem/usages/disk",
   method: "GET",
   operationId: "project-file-system-get-disk-usage",
 };
@@ -7096,37 +7096,37 @@ export const projectFileSystemGetDiskUsage: OpenAPIOperation<
 export const projectFileSystemGetFileContent: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFileContent.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFileContent.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFileContent.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesRaw.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesRaw.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesRaw.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFileContent.Get.Responses.$200.Content.TextPlain>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesRaw.Get.Responses.$200.Content.TextPlain>,
       200,
       "text/plain"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFileContent.Get.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesRaw.Get.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFileContent.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesRaw.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFileContent.Get.Responses.$503.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesRaw.Get.Responses.$503.Content.ApplicationJson>,
       503,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFileContent.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesRaw.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/projects/{projectId}/filesystem-file-content",
+  path: "/v2/projects/{projectId}/filesystem/files/raw",
   method: "GET",
   operationId: "project-file-system-get-file-content",
 };
@@ -7199,7 +7199,7 @@ export const projectFileSystemListFiles: OpenAPIOperation<
       "application/json"
     >
 > = {
-  path: "/v2/projects/{projectId}/filesystem-files",
+  path: "/v2/projects/{projectId}/filesystem/files",
   method: "GET",
   operationId: "project-file-system-list-files",
 };
