@@ -7,75 +7,75 @@ import { ApiClientBase } from "@mittwald/api-client-commons";
 export class MittwaldAPIV2Client extends ApiClientBase {
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app = {
-    /** Execute a runtime concerning action on a specific `AppInstallation`. */
+    /** execute a runtime concerning action on a specific `AppInstallation` */
     executeAction: this.requestFunctionFactory(descriptors.appExecuteAction),
-    /** Get a specific `App`. */
+    /** get a specific `App` */
     getApp: this.requestFunctionFactory(descriptors.appGetApp),
-    /** Get a specific `AppInstallation`. */
+    /** get a specific `AppInstallation` */
     getAppinstallation: this.requestFunctionFactory(
       descriptors.appGetAppinstallation
     ),
-    /** Start uninstallation process for a specific `AppInstallation`. */
+    /** start uninstallation process for a specific `AppInstallation` */
     uninstallAppinstallation: this.requestFunctionFactory(
       descriptors.appUninstallAppinstallation
     ),
-    /** Patch desired properties of a specific `AppInstallation`. */
+    /** patch desired properties of a specific `AppInstallation` */
     patchAppinstallation: this.requestFunctionFactory(
       descriptors.appPatchAppinstallation
     ),
-    /** Get a specific `AppVersion`. */
+    /** get a specific `AppVersion` */
     getAppversion: this.requestFunctionFactory(descriptors.appGetAppversion),
-    /** Get the missing requirements of an appInstallation for a specific target AppVersion. */
+    /** get the missing requirements of an appInstallation for a specific target AppVersion */
     getMissingDependenciesForAppinstallation: this.requestFunctionFactory(
       descriptors.appGetMissingDependenciesForAppinstallation
     ),
-    /** Get a specific `SystemSoftware`. */
+    /** get a specific `SystemSoftware` */
     getSystemsoftware: this.requestFunctionFactory(
       descriptors.appGetSystemsoftware
     ),
-    /** Get a specific `SystemSoftwareVersion`. */
+    /** get a specific `SystemSoftwareVersion` */
     getSystemsoftwareversion: this.requestFunctionFactory(
       descriptors.appGetSystemsoftwareversion
     ),
-    /** Create linkage between an `AppInstallation` and a MySql-`Database`. */
+    /** create linkage between an `AppInstallation` and a `Database` */
     linkDatabase: this.requestFunctionFactory(descriptors.appLinkDatabase),
-    /** Get all `AppInstallations` inside a specific `Project`. */
+    /** get all `AppInstallations` inside a specific `Project` */
     listAppinstallations: this.requestFunctionFactory(
       descriptors.appListAppinstallations
     ),
-    /** Request a new `AppInstallation`. */
+    /** request a new `AppInstallation` */
     requestAppinstallation: this.requestFunctionFactory(
       descriptors.appRequestAppinstallation
     ),
-    /** Get all available `Apps`. */
+    /** get all available `Apps` */
     listApps: this.requestFunctionFactory(descriptors.appListApps),
-    /** Get all `AppVersions` of a specific `App`. */
+    /** get all `AppVersions` of a specific `App` */
     listAppversions: this.requestFunctionFactory(
       descriptors.appListAppversions
     ),
-    /** Get all available `SystemSoftware`. */
+    /** get all available `SystemSoftware` */
     listSystemsoftwares: this.requestFunctionFactory(
       descriptors.appListSystemsoftwares
     ),
-    /** Get all available `SystemSoftwareVersions` of a specific `SystemSoftware`. */
+    /** get all available `SystemSoftwareVersions` of a specific `SystemSoftware` */
     listSystemsoftwareversions: this.requestFunctionFactory(
       descriptors.appListSystemsoftwareversions
     ),
-    /** Get all update candidates for a specific `AppVersion`. */
+    /** get all update candidates for a specific `AppVersion` */
     listUpdateCandidatesForAppversion: this.requestFunctionFactory(
       descriptors.appListUpdateCandidatesForAppversion
     ),
-    /** Request a copy of an `AppInstallation`. */
+    /** request a copy of an `AppInstallation` */
     requestAppinstallationCopy: this.requestFunctionFactory(
       descriptors.appRequestAppinstallationCopy
     ),
-    /** Get runtime status of a specific `AppInstallation`. */
+    /** get runtime status of a specific `AppInstallation` */
     retrieveStatus: this.requestFunctionFactory(descriptors.appRetrieveStatus),
-    /** Create linkage between an `AppInstallation` and `DatabaseUsers`. */
+    /** create linkage between an `AppInstallation` and `DatabaseUsers` */
     setDatabaseUsers: this.requestFunctionFactory(
       descriptors.appSetDatabaseUsers
     ),
-    /** Remove linkage between an `AppInstallation` and a `Database`. */
+    /** remove linkage between an `AppInstallation` and a `Database` */
     unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
   };
 

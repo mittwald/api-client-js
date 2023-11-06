@@ -6152,7 +6152,6 @@ export declare module MittwaldAPIV2 {
 
           export interface RequestBody {
             description: string;
-            targetProjectId?: string;
           }
 
           export type Header = {};
@@ -14522,9 +14521,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2NotificationsUnreadCounts {}
-
-    namespace V2NotificationUnreadCounts {
+    namespace V2NotificationsUnreadCounts {
       namespace Get {
         namespace Parameters {
           export type Path = {};
@@ -15797,8 +15794,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsProjectIdFilesystemDirectories {}
-
     namespace V2ProjectsProjectIdFilesystemDirectories {
       namespace Get {
         namespace Parameters {
@@ -15861,9 +15856,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsProjectIdFilesystemUsagesDisk {}
-
-    namespace V2ProjectsProjectIdFilesystemDiskUsage {
+    namespace V2ProjectsProjectIdFilesystemUsagesDisk {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -15920,9 +15913,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsProjectIdFilesystemFilesRaw {}
-
-    namespace V2ProjectsProjectIdFilesystemFileContent {
+    namespace V2ProjectsProjectIdFilesystemFilesRaw {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -16025,8 +16016,6 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
-
-    namespace V2ProjectsProjectIdFilesystemFiles {}
 
     namespace V2ProjectsProjectIdFilesystemFiles {
       namespace Get {
