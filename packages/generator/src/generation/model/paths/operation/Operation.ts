@@ -91,8 +91,8 @@ export class Operation {
 
     return `\
         namespace ${t.ns} {
-          type RequestData = InferredRequestData<typeof descriptors.${t.descriptor}>;
-          type ResponseData<TStatus extends HttpStatus = 200> = InferredResponseData<typeof descriptors.${t.descriptor}, TStatus>;
+          type RequestData = Simplify<Commons.RequestData<typeof descriptors.${t.descriptor}>>;
+          type ResponseData<TStatus extends HttpStatus = 200> = Simplify<Commons.ResponseData<typeof descriptors.${t.descriptor}, TStatus>>;
         }
     `;
   }

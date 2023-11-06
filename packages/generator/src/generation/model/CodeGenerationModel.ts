@@ -41,12 +41,9 @@ export class CodeGenerationModel {
 
     return `\
       import * as descriptors from "./descriptors.js";
-      import { 
-        RequestData as InferredRequestData, 
-        ResponseData as InferredResponseData, 
-        HttpStatus 
-      } from "@mittwald/api-client-commons";
-
+      import { HttpStatus, Simplify } from "@mittwald/api-client-commons";
+      import * as Commons from "@mittwald/api-client-commons";
+      
       export declare module ${t.ns} {
         ${t.operationTypes}
         ${t.components}

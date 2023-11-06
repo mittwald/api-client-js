@@ -33,8 +33,8 @@ const RAW_RUNTIME_STATE =
   "enableTopLevelFallback": true,\
   "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
   "fallbackExclusionList": [\
-    ["@mittwald/api-client", ["virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#workspace:packages/mittwald", "workspace:packages/mittwald"]],\
-    ["@mittwald/api-client-commons", ["virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#workspace:packages/commons", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#workspace:packages/commons", "workspace:packages/commons"]],\
+    ["@mittwald/api-client", ["workspace:packages/mittwald"]],\
+    ["@mittwald/api-client-commons", ["virtual:10704bb27f4c85028b610c854b50e74d99864cfcb703d0140c7f03ac5311637fbdc61c4b82e98e390526fa21370157e30221474ecb26738a4e486f0030dc1ca8#workspace:packages/commons", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#workspace:packages/commons", "workspace:packages/commons"]],\
     ["@mittwald/api-code-generator", ["workspace:packages/generator"]],\
     ["@mittwald/api-models", ["workspace:packages/models"]],\
     ["@mittwald/api-tools", ["workspace:."]]\
@@ -1603,23 +1603,27 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@mittwald/api-client", [\
-      ["virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#workspace:packages/mittwald", {\
-        "packageLocation": "./.yarn/__virtual__/@mittwald-api-client-virtual-ad873fae75/1/packages/mittwald/",\
+      ["npm:3.0.29", {\
+        "packageLocation": "./.yarn/cache/@mittwald-api-client-npm-3.0.29-6e9cc443d3-53471d5f8e.zip/node_modules/@mittwald/api-client/",\
         "packageDependencies": [\
-          ["@mittwald/api-client", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#workspace:packages/mittwald"],\
-          ["@mittwald/api-client-commons", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#workspace:packages/commons"],\
-          ["@mittwald/api-code-generator", "workspace:packages/generator"],\
+          ["@mittwald/api-client", "npm:3.0.29"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#npm:3.0.29", {\
+        "packageLocation": "./.yarn/__virtual__/@mittwald-api-client-virtual-10704bb27f/0/cache/@mittwald-api-client-npm-3.0.29-6e9cc443d3-53471d5f8e.zip/node_modules/@mittwald/api-client/",\
+        "packageDependencies": [\
+          ["@mittwald/api-client", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#npm:3.0.29"],\
+          ["@mittwald/api-client-commons", "virtual:10704bb27f4c85028b610c854b50e74d99864cfcb703d0140c7f03ac5311637fbdc61c4b82e98e390526fa21370157e30221474ecb26738a4e486f0030dc1ca8#workspace:packages/commons"],\
           ["@mittwald/react-use-promise", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#npm:1.3.6"],\
           ["@types/mittwald__react-use-promise", null],\
-          ["browser-or-node", "npm:2.1.1"],\
-          ["tsup", "virtual:cb6e12912a04aaab9e2aa4237c688ef82a8c378536cefd6506a1770ad00abf3ff9ba8e601153f5e69d9373d14ef8dafd1ae488394e3078efa94705e372b50aa9#npm:7.2.0"],\
-          ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"]\
+          ["browser-or-node", "npm:2.1.1"]\
         ],\
         "packagePeers": [\
           "@mittwald/react-use-promise",\
           "@types/mittwald__react-use-promise"\
         ],\
-        "linkType": "SOFT"\
+        "linkType": "HARD"\
       }],\
       ["workspace:packages/mittwald", {\
         "packageLocation": "./packages/mittwald/",\
@@ -1636,6 +1640,38 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@mittwald/api-client-commons", [\
+      ["npm:4.2.0-alpha.4", {\
+        "packageLocation": "./.yarn/cache/@mittwald-api-client-commons-npm-4.2.0-alpha.4-f9a06cf217-ac6ebdf9a8.zip/node_modules/@mittwald/api-client-commons/",\
+        "packageDependencies": [\
+          ["@mittwald/api-client-commons", "npm:4.2.0-alpha.4"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:10704bb27f4c85028b610c854b50e74d99864cfcb703d0140c7f03ac5311637fbdc61c4b82e98e390526fa21370157e30221474ecb26738a4e486f0030dc1ca8#workspace:packages/commons", {\
+        "packageLocation": "./.yarn/__virtual__/@mittwald-api-client-commons-virtual-35b59ee796/1/packages/commons/",\
+        "packageDependencies": [\
+          ["@mittwald/api-client-commons", "virtual:10704bb27f4c85028b610c854b50e74d99864cfcb703d0140c7f03ac5311637fbdc61c4b82e98e390526fa21370157e30221474ecb26738a4e486f0030dc1ca8#workspace:packages/commons"],\
+          ["@jest/globals", "npm:29.7.0"],\
+          ["@mittwald/react-use-promise", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#npm:1.3.6"],\
+          ["@types/jest", "npm:29.5.7"],\
+          ["@types/mittwald__react-use-promise", null],\
+          ["@types/parse-path", "npm:7.0.2"],\
+          ["axios", "npm:1.6.0"],\
+          ["jest", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:29.7.0"],\
+          ["parse-path", "npm:7.0.0"],\
+          ["path-to-regexp", "npm:6.2.1"],\
+          ["react", "npm:18.2.0"],\
+          ["ts-jest", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:29.1.1"],\
+          ["tsup", "virtual:cb6e12912a04aaab9e2aa4237c688ef82a8c378536cefd6506a1770ad00abf3ff9ba8e601153f5e69d9373d14ef8dafd1ae488394e3078efa94705e372b50aa9#npm:7.2.0"],\
+          ["type-fest", "npm:4.6.0"],\
+          ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"]\
+        ],\
+        "packagePeers": [\
+          "@mittwald/react-use-promise",\
+          "@types/mittwald__react-use-promise"\
+        ],\
+        "linkType": "SOFT"\
+      }],\
       ["virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#workspace:packages/commons", {\
         "packageLocation": "./.yarn/__virtual__/@mittwald-api-client-commons-virtual-7b98ca03c4/1/packages/commons/",\
         "packageDependencies": [\
@@ -1661,30 +1697,23 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#workspace:packages/commons", {\
-        "packageLocation": "./.yarn/__virtual__/@mittwald-api-client-commons-virtual-b74d170717/1/packages/commons/",\
+      ["virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#npm:4.2.0-alpha.4", {\
+        "packageLocation": "./.yarn/__virtual__/@mittwald-api-client-commons-virtual-c347f0ea56/0/cache/@mittwald-api-client-commons-npm-4.2.0-alpha.4-f9a06cf217-ac6ebdf9a8.zip/node_modules/@mittwald/api-client-commons/",\
         "packageDependencies": [\
-          ["@mittwald/api-client-commons", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#workspace:packages/commons"],\
-          ["@jest/globals", "npm:29.7.0"],\
+          ["@mittwald/api-client-commons", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#npm:4.2.0-alpha.4"],\
           ["@mittwald/react-use-promise", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#npm:1.3.6"],\
-          ["@types/jest", "npm:29.5.7"],\
           ["@types/mittwald__react-use-promise", null],\
           ["@types/parse-path", "npm:7.0.2"],\
           ["axios", "npm:1.6.0"],\
-          ["jest", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:29.7.0"],\
           ["parse-path", "npm:7.0.0"],\
           ["path-to-regexp", "npm:6.2.1"],\
-          ["react", "npm:18.2.0"],\
-          ["ts-jest", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:29.1.1"],\
-          ["tsup", "virtual:cb6e12912a04aaab9e2aa4237c688ef82a8c378536cefd6506a1770ad00abf3ff9ba8e601153f5e69d9373d14ef8dafd1ae488394e3078efa94705e372b50aa9#npm:7.2.0"],\
-          ["type-fest", "npm:4.6.0"],\
-          ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"]\
+          ["type-fest", "npm:4.6.0"]\
         ],\
         "packagePeers": [\
           "@mittwald/react-use-promise",\
           "@types/mittwald__react-use-promise"\
         ],\
-        "linkType": "SOFT"\
+        "linkType": "HARD"\
       }],\
       ["workspace:packages/commons", {\
         "packageLocation": "./packages/commons/",\
@@ -1754,8 +1783,8 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/models/",\
         "packageDependencies": [\
           ["@mittwald/api-models", "workspace:packages/models"],\
-          ["@mittwald/api-client", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#workspace:packages/mittwald"],\
-          ["@mittwald/api-client-commons", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#workspace:packages/commons"],\
+          ["@mittwald/api-client", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#npm:3.0.29"],\
+          ["@mittwald/api-client-commons", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#npm:4.2.0-alpha.4"],\
           ["@mittwald/react-use-promise", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#npm:1.3.6"],\
           ["@types/react", "npm:18.2.36"],\
           ["another-deep-freeze", "npm:1.0.0"],\

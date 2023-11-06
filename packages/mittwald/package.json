@@ -33,7 +33,7 @@
     "generate:client-dev": "yarn generate:client-dev:v2 && yarn post:generate",
     "generate:client-dev:v2": "curl --silent https://api-public.dev.mittwald.systems/openapi | ./transform-openapi.sh | yarn acg generate --name MittwaldAPIV2 - src/generated/v2 --optionalHeader x-access-token",
     "generate:client:v2": "curl --silent https://api.mittwald.de/openapi | ./transform-openapi.sh | yarn acg generate --name MittwaldAPIV2 - src/generated/v2 --optionalHeader x-access-token",
-    "post:generate": "yarn run -T compile && yarn run -T compile:cjs"
+    "post:generate": "yarn run -T compile"
   },
   "files": [
     "dist/**/*"

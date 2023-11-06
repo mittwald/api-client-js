@@ -8,6 +8,7 @@
   },
   "type": "module",
   "scripts": {
+    "compile": "yarn tsc --build",
     "test": "node --experimental-vm-modules $(yarn bin jest)"
   },
   "files": [

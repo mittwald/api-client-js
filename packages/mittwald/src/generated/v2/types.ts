@@ -2,2910 +2,3209 @@
 /* prettier-ignore */
 /* This file is auto-generated with acg (@mittwald/api-code-generator) */
 import * as descriptors from "./descriptors.js";
-import {
-  RequestData as InferredRequestData,
-  ResponseData as InferredResponseData,
-  HttpStatus,
-} from "@mittwald/api-client-commons";
+import { HttpStatus, Simplify } from "@mittwald/api-client-commons";
+import * as Commons from "@mittwald/api-client-commons";
 
 export declare module MittwaldAPIV2 {
   namespace Operations {
     namespace AppExecuteAction {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appExecuteAction
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.appExecuteAction>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appExecuteAction, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.appExecuteAction, TStatus>
+      >;
     }
 
     namespace AppGetApp {
-      type RequestData = InferredRequestData<typeof descriptors.appGetApp>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appGetApp, TStatus>;
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.appGetApp>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.appGetApp, TStatus>
+      >;
     }
 
     namespace AppGetAppinstallation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appGetAppinstallation
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.appGetAppinstallation>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appGetAppinstallation, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.appGetAppinstallation, TStatus>
+      >;
     }
 
     namespace AppUninstallAppinstallation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appUninstallAppinstallation
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.appUninstallAppinstallation>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.appUninstallAppinstallation,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace AppPatchAppinstallation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appPatchAppinstallation
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.appPatchAppinstallation>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.appPatchAppinstallation,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace AppGetAppversion {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appGetAppversion
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.appGetAppversion>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appGetAppversion, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.appGetAppversion, TStatus>
+      >;
     }
 
     namespace AppGetMissingDependenciesForAppinstallation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appGetMissingDependenciesForAppinstallation
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.appGetMissingDependenciesForAppinstallation
+        >
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.appGetMissingDependenciesForAppinstallation,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace AppGetSystemsoftware {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appGetSystemsoftware
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.appGetSystemsoftware>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appGetSystemsoftware, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.appGetSystemsoftware, TStatus>
+      >;
     }
 
     namespace AppGetSystemsoftwareversion {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appGetSystemsoftwareversion
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.appGetSystemsoftwareversion>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.appGetSystemsoftwareversion,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace AppLinkDatabase {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appLinkDatabase
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.appLinkDatabase>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appLinkDatabase, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.appLinkDatabase, TStatus>
+      >;
     }
 
     namespace AppListAppinstallations {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appListAppinstallations
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.appListAppinstallations>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.appListAppinstallations,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace AppRequestAppinstallation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appRequestAppinstallation
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.appRequestAppinstallation>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.appRequestAppinstallation,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace AppListApps {
-      type RequestData = InferredRequestData<typeof descriptors.appListApps>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appListApps, TStatus>;
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.appListApps>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.appListApps, TStatus>
+      >;
     }
 
     namespace AppListAppversions {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appListAppversions
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.appListAppversions>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appListAppversions, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.appListAppversions, TStatus>
+      >;
     }
 
     namespace AppListSystemsoftwares {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appListSystemsoftwares
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.appListSystemsoftwares>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.appListSystemsoftwares,
-          TStatus
-        >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.appListSystemsoftwares, TStatus>
+      >;
     }
 
     namespace AppListSystemsoftwareversions {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appListSystemsoftwareversions
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.appListSystemsoftwareversions>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.appListSystemsoftwareversions,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace AppListUpdateCandidatesForAppversion {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appListUpdateCandidatesForAppversion
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.appListUpdateCandidatesForAppversion
+        >
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.appListUpdateCandidatesForAppversion,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace AppRequestAppinstallationCopy {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appRequestAppinstallationCopy
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.appRequestAppinstallationCopy>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.appRequestAppinstallationCopy,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace AppRetrieveStatus {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appRetrieveStatus
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.appRetrieveStatus>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appRetrieveStatus, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.appRetrieveStatus, TStatus>
+      >;
     }
 
     namespace AppSetDatabaseUsers {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appSetDatabaseUsers
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.appSetDatabaseUsers>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appSetDatabaseUsers, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.appSetDatabaseUsers, TStatus>
+      >;
     }
 
     namespace AppUnlinkDatabase {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appUnlinkDatabase
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.appUnlinkDatabase>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appUnlinkDatabase, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.appUnlinkDatabase, TStatus>
+      >;
     }
 
     namespace ArticleGetArticle {
-      type RequestData = InferredRequestData<
-        typeof descriptors.articleGetArticle
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.articleGetArticle>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.articleGetArticle, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.articleGetArticle, TStatus>
+      >;
     }
 
     namespace ArticleListArticles {
-      type RequestData = InferredRequestData<
-        typeof descriptors.articleListArticles
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.articleListArticles>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.articleListArticles, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.articleListArticles, TStatus>
+      >;
     }
 
     namespace BackupCreateProjectBackupExport {
-      type RequestData = InferredRequestData<
-        typeof descriptors.backupCreateProjectBackupExport
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.backupCreateProjectBackupExport>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.backupCreateProjectBackupExport,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace BackupDeleteProjectBackupExport {
-      type RequestData = InferredRequestData<
-        typeof descriptors.backupDeleteProjectBackupExport
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.backupDeleteProjectBackupExport>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.backupDeleteProjectBackupExport,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace BackupListProjectBackupSchedules {
-      type RequestData = InferredRequestData<
-        typeof descriptors.backupListProjectBackupSchedules
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.backupListProjectBackupSchedules>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.backupListProjectBackupSchedules,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace BackupCreateProjectBackupSchedule {
-      type RequestData = InferredRequestData<
-        typeof descriptors.backupCreateProjectBackupSchedule
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.backupCreateProjectBackupSchedule
+        >
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.backupCreateProjectBackupSchedule,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace BackupListProjectBackups {
-      type RequestData = InferredRequestData<
-        typeof descriptors.backupListProjectBackups
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.backupListProjectBackups>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.backupListProjectBackups,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace BackupCreateProjectBackup {
-      type RequestData = InferredRequestData<
-        typeof descriptors.backupCreateProjectBackup
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.backupCreateProjectBackup>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.backupCreateProjectBackup,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace BackupGetProjectBackupSchedule {
-      type RequestData = InferredRequestData<
-        typeof descriptors.backupGetProjectBackupSchedule
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.backupGetProjectBackupSchedule>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.backupGetProjectBackupSchedule,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace BackupDeleteProjectBackupSchedule {
-      type RequestData = InferredRequestData<
-        typeof descriptors.backupDeleteProjectBackupSchedule
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.backupDeleteProjectBackupSchedule
+        >
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.backupDeleteProjectBackupSchedule,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace BackupUpdateProjectBackupSchedule {
-      type RequestData = InferredRequestData<
-        typeof descriptors.backupUpdateProjectBackupSchedule
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.backupUpdateProjectBackupSchedule
+        >
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.backupUpdateProjectBackupSchedule,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace BackupGetProjectBackup {
-      type RequestData = InferredRequestData<
-        typeof descriptors.backupGetProjectBackup
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.backupGetProjectBackup>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.backupGetProjectBackup,
-          TStatus
-        >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.backupGetProjectBackup, TStatus>
+      >;
     }
 
     namespace BackupDeleteProjectBackup {
-      type RequestData = InferredRequestData<
-        typeof descriptors.backupDeleteProjectBackup
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.backupDeleteProjectBackup>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.backupDeleteProjectBackup,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace BackupUpdateProjectBackupDescription {
-      type RequestData = InferredRequestData<
-        typeof descriptors.backupUpdateProjectBackupDescription
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.backupUpdateProjectBackupDescription
+        >
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.backupUpdateProjectBackupDescription,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace ContractTerminateContractItem {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contractTerminateContractItem
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.contractTerminateContractItem>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.contractTerminateContractItem,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace ContractCancelContractItemTermination {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contractCancelContractItemTermination
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.contractCancelContractItemTermination
+        >
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.contractCancelContractItemTermination,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace ContractCancelContractTariffChange {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contractCancelContractTariffChange
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.contractCancelContractTariffChange
+        >
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.contractCancelContractTariffChange,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace ContractTerminateContract {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contractTerminateContract
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.contractTerminateContract>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.contractTerminateContract,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace ContractCancelContractTermination {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contractCancelContractTermination
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.contractCancelContractTermination
+        >
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.contractCancelContractTermination,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace ContractGetBaseItemOfContract {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contractGetBaseItemOfContract
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.contractGetBaseItemOfContract>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.contractGetBaseItemOfContract,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace ContractGetDetailOfContractByDomain {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contractGetDetailOfContractByDomain
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.contractGetDetailOfContractByDomain
+        >
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.contractGetDetailOfContractByDomain,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace ContractGetDetailOfContractByProject {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contractGetDetailOfContractByProject
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.contractGetDetailOfContractByProject
+        >
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.contractGetDetailOfContractByProject,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace ContractGetDetailOfContractByServer {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contractGetDetailOfContractByServer
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.contractGetDetailOfContractByServer
+        >
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.contractGetDetailOfContractByServer,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace ContractGetDetailOfContractItem {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contractGetDetailOfContractItem
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.contractGetDetailOfContractItem>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.contractGetDetailOfContractItem,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace ContractGetDetailOfContract {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contractGetDetailOfContract
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.contractGetDetailOfContract>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.contractGetDetailOfContract,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace ContractGetNextTerminationDateForItem {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contractGetNextTerminationDateForItem
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.contractGetNextTerminationDateForItem
+        >
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.contractGetNextTerminationDateForItem,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace ContractListContracts {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contractListContracts
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.contractListContracts>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.contractListContracts, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.contractListContracts, TStatus>
+      >;
     }
 
     namespace ConversationListConversations {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationListConversations
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.conversationListConversations>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.conversationListConversations,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace ConversationCreateConversation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationCreateConversation
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.conversationCreateConversation>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.conversationCreateConversation,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace ConversationListMessagesByConversation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationListMessagesByConversation
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.conversationListMessagesByConversation
+        >
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.conversationListMessagesByConversation,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace ConversationCreateMessage {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationCreateMessage
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.conversationCreateMessage>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.conversationCreateMessage,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace ConversationGetCategory {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationGetCategory
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.conversationGetCategory>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.conversationGetCategory,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace ConversationGetConversation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationGetConversation
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.conversationGetConversation>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.conversationGetConversation,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace ConversationUpdateConversation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationUpdateConversation
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.conversationUpdateConversation>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.conversationUpdateConversation,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace ConversationListCategories {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationListCategories
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.conversationListCategories>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.conversationListCategories,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace ConversationRequestFileUpload {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationRequestFileUpload
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.conversationRequestFileUpload>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.conversationRequestFileUpload,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace ConversationSetConversationStatus {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationSetConversationStatus
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.conversationSetConversationStatus
+        >
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.conversationSetConversationStatus,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace ConversationUpdateMessage {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationUpdateMessage
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.conversationUpdateMessage>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.conversationUpdateMessage,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace CronjobAbortExecution {
-      type RequestData = InferredRequestData<
-        typeof descriptors.cronjobAbortExecution
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.cronjobAbortExecution>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.cronjobAbortExecution, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.cronjobAbortExecution, TStatus>
+      >;
     }
 
     namespace CronjobListCronjobs {
-      type RequestData = InferredRequestData<
-        typeof descriptors.cronjobListCronjobs
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.cronjobListCronjobs>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.cronjobListCronjobs, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.cronjobListCronjobs, TStatus>
+      >;
     }
 
     namespace CronjobCreateCronjob {
-      type RequestData = InferredRequestData<
-        typeof descriptors.cronjobCreateCronjob
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.cronjobCreateCronjob>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.cronjobCreateCronjob, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.cronjobCreateCronjob, TStatus>
+      >;
     }
 
     namespace CronjobListExecutions {
-      type RequestData = InferredRequestData<
-        typeof descriptors.cronjobListExecutions
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.cronjobListExecutions>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.cronjobListExecutions, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.cronjobListExecutions, TStatus>
+      >;
     }
 
     namespace CronjobCreateExecution {
-      type RequestData = InferredRequestData<
-        typeof descriptors.cronjobCreateExecution
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.cronjobCreateExecution>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.cronjobCreateExecution,
-          TStatus
-        >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.cronjobCreateExecution, TStatus>
+      >;
     }
 
     namespace CronjobGetCronjob {
-      type RequestData = InferredRequestData<
-        typeof descriptors.cronjobGetCronjob
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.cronjobGetCronjob>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.cronjobGetCronjob, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.cronjobGetCronjob, TStatus>
+      >;
     }
 
     namespace CronjobDeleteCronjob {
-      type RequestData = InferredRequestData<
-        typeof descriptors.cronjobDeleteCronjob
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.cronjobDeleteCronjob>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.cronjobDeleteCronjob, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.cronjobDeleteCronjob, TStatus>
+      >;
     }
 
     namespace CronjobUpdateCronjob {
-      type RequestData = InferredRequestData<
-        typeof descriptors.cronjobUpdateCronjob
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.cronjobUpdateCronjob>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.cronjobUpdateCronjob, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.cronjobUpdateCronjob, TStatus>
+      >;
     }
 
     namespace CronjobGetExecution {
-      type RequestData = InferredRequestData<
-        typeof descriptors.cronjobGetExecution
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.cronjobGetExecution>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.cronjobGetExecution, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.cronjobGetExecution, TStatus>
+      >;
     }
 
     namespace CronjobUpdateCronjobAppId {
-      type RequestData = InferredRequestData<
-        typeof descriptors.cronjobUpdateCronjobAppId
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.cronjobUpdateCronjobAppId>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.cronjobUpdateCronjobAppId,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace CustomerAcceptCustomerInvite {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerAcceptCustomerInvite
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerAcceptCustomerInvite>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.customerAcceptCustomerInvite,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace CustomerListOfCustomerCategories {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerListOfCustomerCategories
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerListOfCustomerCategories>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.customerListOfCustomerCategories,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace CustomerCreateCategory {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerCreateCategory
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerCreateCategory>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.customerCreateCategory,
-          TStatus
-        >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.customerCreateCategory, TStatus>
+      >;
     }
 
     namespace CustomerCreateCustomerInvite {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerCreateCustomerInvite
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerCreateCustomerInvite>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.customerCreateCustomerInvite,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace CustomerListCustomers {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerListCustomers
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerListCustomers>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.customerListCustomers, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.customerListCustomers, TStatus>
+      >;
     }
 
     namespace CustomerCreateCustomer {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerCreateCustomer
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerCreateCustomer>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.customerCreateCustomer,
-          TStatus
-        >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.customerCreateCustomer, TStatus>
+      >;
     }
 
     namespace CustomerDeclineCustomerInvite {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerDeclineCustomerInvite
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerDeclineCustomerInvite>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.customerDeclineCustomerInvite,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace CustomerGetCustomerCategory {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerGetCustomerCategory
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerGetCustomerCategory>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.customerGetCustomerCategory,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace CustomerUpdateCategory {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerUpdateCategory
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerUpdateCategory>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.customerUpdateCategory,
-          TStatus
-        >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.customerUpdateCategory, TStatus>
+      >;
     }
 
     namespace CustomerDeleteCategory {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerDeleteCategory
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerDeleteCategory>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.customerDeleteCategory,
-          TStatus
-        >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.customerDeleteCategory, TStatus>
+      >;
     }
 
     namespace CustomerGetCustomerInvite {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerGetCustomerInvite
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerGetCustomerInvite>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.customerGetCustomerInvite,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace CustomerDeleteCustomerInvite {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerDeleteCustomerInvite
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerDeleteCustomerInvite>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.customerDeleteCustomerInvite,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace CustomerGetCustomerMembership {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerGetCustomerMembership
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerGetCustomerMembership>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.customerGetCustomerMembership,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace CustomerDeleteCustomerMembership {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerDeleteCustomerMembership
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerDeleteCustomerMembership>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.customerDeleteCustomerMembership,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace CustomerUpdateCustomerMembership {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerUpdateCustomerMembership
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerUpdateCustomerMembership>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.customerUpdateCustomerMembership,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace CustomerGetCustomer {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerGetCustomer
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerGetCustomer>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.customerGetCustomer, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.customerGetCustomer, TStatus>
+      >;
     }
 
     namespace CustomerUpdateCustomer {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerUpdateCustomer
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerUpdateCustomer>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.customerUpdateCustomer,
-          TStatus
-        >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.customerUpdateCustomer, TStatus>
+      >;
     }
 
     namespace CustomerDeleteCustomer {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerDeleteCustomer
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerDeleteCustomer>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.customerDeleteCustomer,
-          TStatus
-        >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.customerDeleteCustomer, TStatus>
+      >;
     }
 
     namespace CustomerGetCustomerTokenInvite {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerGetCustomerTokenInvite
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerGetCustomerTokenInvite>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.customerGetCustomerTokenInvite,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace CustomerIsCustomerLegallyCompetent {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerIsCustomerLegallyCompetent
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.customerIsCustomerLegallyCompetent
+        >
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.customerIsCustomerLegallyCompetent,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace CustomerLeaveCustomer {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerLeaveCustomer
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerLeaveCustomer>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.customerLeaveCustomer, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.customerLeaveCustomer, TStatus>
+      >;
     }
 
     namespace CustomerListCustomerInvites {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerListCustomerInvites
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerListCustomerInvites>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.customerListCustomerInvites,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace CustomerListCustomerMemberships {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerListCustomerMemberships
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerListCustomerMemberships>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.customerListCustomerMemberships,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace CustomerListInvitesForCustomer {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerListInvitesForCustomer
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerListInvitesForCustomer>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.customerListInvitesForCustomer,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace CustomerListMembershipsForCustomer {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerListMembershipsForCustomer
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.customerListMembershipsForCustomer
+        >
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.customerListMembershipsForCustomer,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace CustomerRequestAvatarUpload {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerRequestAvatarUpload
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerRequestAvatarUpload>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.customerRequestAvatarUpload,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace CustomerRemoveAvatar {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerRemoveAvatar
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerRemoveAvatar>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.customerRemoveAvatar, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.customerRemoveAvatar, TStatus>
+      >;
     }
 
     namespace CustomerResendCustomerInviteMail {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerResendCustomerInviteMail
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.customerResendCustomerInviteMail>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.customerResendCustomerInviteMail,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace DatabaseListMysqlDatabases {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseListMysqlDatabases
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.databaseListMysqlDatabases>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.databaseListMysqlDatabases,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace DatabaseCreateMysqlDatabase {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseCreateMysqlDatabase
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.databaseCreateMysqlDatabase>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.databaseCreateMysqlDatabase,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace DatabaseListMysqlUsers {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseListMysqlUsers
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.databaseListMysqlUsers>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.databaseListMysqlUsers,
-          TStatus
-        >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.databaseListMysqlUsers, TStatus>
+      >;
     }
 
     namespace DatabaseCreateMysqlUser {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseCreateMysqlUser
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.databaseCreateMysqlUser>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.databaseCreateMysqlUser,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace DatabaseListRedisDatabases {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseListRedisDatabases
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.databaseListRedisDatabases>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.databaseListRedisDatabases,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace DatabaseCreateRedisDatabase {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseCreateRedisDatabase
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.databaseCreateRedisDatabase>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.databaseCreateRedisDatabase,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace DatabaseGetMysqlDatabase {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseGetMysqlDatabase
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.databaseGetMysqlDatabase>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.databaseGetMysqlDatabase,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace DatabaseDeleteMysqlDatabase {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseDeleteMysqlDatabase
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.databaseDeleteMysqlDatabase>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.databaseDeleteMysqlDatabase,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace DatabaseGetMysqlUser {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseGetMysqlUser
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.databaseGetMysqlUser>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.databaseGetMysqlUser, TStatus>;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.databaseGetMysqlUser, TStatus>
+      >;
     }
 
     namespace DatabaseUpdateMysqlUser {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseUpdateMysqlUser
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.databaseUpdateMysqlUser>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.databaseUpdateMysqlUser,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace DatabaseDeleteMysqlUser {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseDeleteMysqlUser
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.databaseDeleteMysqlUser>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.databaseDeleteMysqlUser,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace DatabaseGetRedisDatabase {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseGetRedisDatabase
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.databaseGetRedisDatabase>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.databaseGetRedisDatabase,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace DatabaseDeleteRedisDatabase {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseDeleteRedisDatabase
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.databaseDeleteRedisDatabase>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.databaseDeleteRedisDatabase,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace DatabaseDisableMysqlUser {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseDisableMysqlUser
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.databaseDisableMysqlUser>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.databaseDisableMysqlUser,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace DatabaseEnableMysqlUser {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseEnableMysqlUser
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.databaseEnableMysqlUser>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.databaseEnableMysqlUser,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace DatabaseGetMysqlUserPhpMyAdminUrl {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseGetMysqlUserPhpMyAdminUrl
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.databaseGetMysqlUserPhpMyAdminUrl
+        >
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.databaseGetMysqlUserPhpMyAdminUrl,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace DatabaseListMysqlCharsets {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseListMysqlCharsets
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.databaseListMysqlCharsets>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.databaseListMysqlCharsets,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace DatabaseListMysqlVersions {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseListMysqlVersions
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.databaseListMysqlVersions>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.databaseListMysqlVersions,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace DatabaseListRedisVersions {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseListRedisVersions
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.databaseListRedisVersions>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.databaseListRedisVersions,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace DatabaseUpdateMysqlDatabaseDefaultCharset {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseUpdateMysqlDatabaseDefaultCharset
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.databaseUpdateMysqlDatabaseDefaultCharset
+        >
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.databaseUpdateMysqlDatabaseDefaultCharset,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace DatabaseUpdateMysqlDatabaseDescription {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseUpdateMysqlDatabaseDescription
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.databaseUpdateMysqlDatabaseDescription
+        >
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.databaseUpdateMysqlDatabaseDescription,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace DatabaseUpdateMysqlUserPassword {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseUpdateMysqlUserPassword
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.databaseUpdateMysqlUserPassword>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.databaseUpdateMysqlUserPassword,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace DatabaseUpdateRedisDatabaseConfiguration {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseUpdateRedisDatabaseConfiguration
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.databaseUpdateRedisDatabaseConfiguration
+        >
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.databaseUpdateRedisDatabaseConfiguration,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace DatabaseUpdateRedisDatabaseDescription {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseUpdateRedisDatabaseDescription
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.databaseUpdateRedisDatabaseDescription
+        >
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.databaseUpdateRedisDatabaseDescription,
           TStatus
-        >;
+        >
+      >;
     }
 
     namespace NewsletterSubscribeUser {
-      type RequestData = InferredRequestData<
-        typeof descriptors.newsletterSubscribeUser
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.newsletterSubscribeUser>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.newsletterSubscribeUser,
           TStatus
-        >;
-    }
-
-    namespace DnsRecordASetCustom {
-      type RequestData = InferredRequestData<
-        typeof descriptors.dnsRecordAsetCustom
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.dnsRecordAsetCustom, TStatus>;
-    }
-
-    namespace DnsRecordASetManagedByIngress {
-      type RequestData = InferredRequestData<
-        typeof descriptors.dnsRecordAsetManagedByIngress
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.dnsRecordAsetManagedByIngress,
-          TStatus
-        >;
-    }
-
-    namespace DnsRecordCnameSet {
-      type RequestData = InferredRequestData<
-        typeof descriptors.dnsRecordCnameSet
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.dnsRecordCnameSet, TStatus>;
-    }
-
-    namespace DnsRecordMxSetCustom {
-      type RequestData = InferredRequestData<
-        typeof descriptors.dnsRecordMxSetCustom
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.dnsRecordMxSetCustom, TStatus>;
-    }
-
-    namespace DnsRecordMxSetManaged {
-      type RequestData = InferredRequestData<
-        typeof descriptors.dnsRecordMxSetManaged
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.dnsRecordMxSetManaged, TStatus>;
-    }
-
-    namespace DnsRecordSrvSet {
-      type RequestData = InferredRequestData<
-        typeof descriptors.dnsRecordSrvSet
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.dnsRecordSrvSet, TStatus>;
-    }
-
-    namespace DnsRecordTxtSet {
-      type RequestData = InferredRequestData<
-        typeof descriptors.dnsRecordTxtSet
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.dnsRecordTxtSet, TStatus>;
-    }
-
-    namespace DnsSubZoneCreate {
-      type RequestData = InferredRequestData<
-        typeof descriptors.dnsSubZoneCreate
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.dnsSubZoneCreate, TStatus>;
-    }
-
-    namespace DnsZoneGetSpecific {
-      type RequestData = InferredRequestData<
-        typeof descriptors.dnsZoneGetSpecific
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.dnsZoneGetSpecific, TStatus>;
-    }
-
-    namespace DnsZonesForProject {
-      type RequestData = InferredRequestData<
-        typeof descriptors.dnsZonesForProject
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.dnsZonesForProject, TStatus>;
-    }
-
-    namespace DomainUpdateDomainNameservers {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainUpdateDomainNameservers
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainUpdateDomainNameservers,
-          TStatus
-        >;
-    }
-
-    namespace DomainGetDomain {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainGetDomain
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.domainGetDomain, TStatus>;
-    }
-
-    namespace DomainDeleteDomain {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainDeleteDomain
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.domainDeleteDomain, TStatus>;
-    }
-
-    namespace DomainGetScreenshotForDomain {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainGetScreenshotForDomain
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainGetScreenshotForDomain,
-          TStatus
-        >;
-    }
-
-    namespace DomainGetDomainOwnership {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainGetDomainOwnership
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainGetDomainOwnership,
-          TStatus
-        >;
-    }
-
-    namespace DomainListDomainOwnerships {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainListDomainOwnerships
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainListDomainOwnerships,
-          TStatus
-        >;
-    }
-
-    namespace DomainListDomains {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainListDomains
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.domainListDomains, TStatus>;
-    }
-
-    namespace DomainResendDomainEmail {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainResendDomainEmail
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainResendDomainEmail,
-          TStatus
-        >;
-    }
-
-    namespace DomainVerifyDomainOwnership {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainVerifyDomainOwnership
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainVerifyDomainOwnership,
-          TStatus
-        >;
-    }
-
-    namespace FileCreateFile {
-      type RequestData = InferredRequestData<typeof descriptors.fileCreateFile>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.fileCreateFile, TStatus>;
-    }
-
-    namespace FileGetFileMeta {
-      type RequestData = InferredRequestData<
-        typeof descriptors.fileGetFileMeta
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.fileGetFileMeta, TStatus>;
-    }
-
-    namespace FileGetFileTokenRules {
-      type RequestData = InferredRequestData<
-        typeof descriptors.fileGetFileTokenRules
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.fileGetFileTokenRules, TStatus>;
-    }
-
-    namespace FileGetFileTypeRules {
-      type RequestData = InferredRequestData<
-        typeof descriptors.fileGetFileTypeRules
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.fileGetFileTypeRules, TStatus>;
-    }
-
-    namespace FileGetFile {
-      type RequestData = InferredRequestData<typeof descriptors.fileGetFile>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.fileGetFile, TStatus>;
-    }
-
-    namespace IngressCreate {
-      type RequestData = InferredRequestData<typeof descriptors.ingressCreate>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.ingressCreate, TStatus>;
-    }
-
-    namespace IngressGetSpecific {
-      type RequestData = InferredRequestData<
-        typeof descriptors.ingressGetSpecific
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.ingressGetSpecific, TStatus>;
-    }
-
-    namespace IngressDelete {
-      type RequestData = InferredRequestData<typeof descriptors.ingressDelete>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.ingressDelete, TStatus>;
-    }
-
-    namespace IngressListAccessible {
-      type RequestData = InferredRequestData<
-        typeof descriptors.ingressListAccessible
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.ingressListAccessible, TStatus>;
-    }
-
-    namespace IngressListForProject {
-      type RequestData = InferredRequestData<
-        typeof descriptors.ingressListForProject
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.ingressListForProject, TStatus>;
-    }
-
-    namespace IngressPaths {
-      type RequestData = InferredRequestData<typeof descriptors.ingressPaths>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.ingressPaths, TStatus>;
-    }
-
-    namespace IngressRequestAcmeCertificateIssuance {
-      type RequestData = InferredRequestData<
-        typeof descriptors.ingressRequestAcmeCertificateIssuance
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.ingressRequestAcmeCertificateIssuance,
-          TStatus
-        >;
-    }
-
-    namespace IngressTls {
-      type RequestData = InferredRequestData<typeof descriptors.ingressTls>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.ingressTls, TStatus>;
-    }
-
-    namespace InvoiceDetailOfInvoice {
-      type RequestData = InferredRequestData<
-        typeof descriptors.invoiceDetailOfInvoice
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.invoiceDetailOfInvoice,
-          TStatus
-        >;
-    }
-
-    namespace InvoiceGetDetailOfInvoiceSettings {
-      type RequestData = InferredRequestData<
-        typeof descriptors.invoiceGetDetailOfInvoiceSettings
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.invoiceGetDetailOfInvoiceSettings,
-          TStatus
-        >;
-    }
-
-    namespace InvoiceUpdateInvoiceSettings {
-      type RequestData = InferredRequestData<
-        typeof descriptors.invoiceUpdateInvoiceSettings
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.invoiceUpdateInvoiceSettings,
-          TStatus
-        >;
-    }
-
-    namespace InvoiceListCustomerInvoices {
-      type RequestData = InferredRequestData<
-        typeof descriptors.invoiceListCustomerInvoices
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.invoiceListCustomerInvoices,
-          TStatus
-        >;
-    }
-
-    namespace MailListDeliveryBoxes {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailListDeliveryBoxes
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.mailListDeliveryBoxes, TStatus>;
-    }
-
-    namespace MailCreateDeliverybox {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailCreateDeliverybox
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.mailCreateDeliverybox, TStatus>;
-    }
-
-    namespace MailListMailAddresses {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailListMailAddresses
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.mailListMailAddresses, TStatus>;
-    }
-
-    namespace MailCreateMailAddress {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailCreateMailAddress
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.mailCreateMailAddress, TStatus>;
-    }
-
-    namespace MailGetDeliveryBox {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailGetDeliveryBox
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.mailGetDeliveryBox, TStatus>;
-    }
-
-    namespace MailDeleteDeliveryBox {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailDeleteDeliveryBox
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.mailDeleteDeliveryBox, TStatus>;
-    }
-
-    namespace MailGetMailAddress {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailGetMailAddress
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.mailGetMailAddress, TStatus>;
-    }
-
-    namespace MailDeleteMailAddress {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailDeleteMailAddress
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.mailDeleteMailAddress, TStatus>;
-    }
-
-    namespace MailListProjectMailSettings {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailListProjectMailSettings
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.mailListProjectMailSettings,
-          TStatus
-        >;
-    }
-
-    namespace MailUpdateDeliveryBoxDescription {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailUpdateDeliveryBoxDescription
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.mailUpdateDeliveryBoxDescription,
-          TStatus
-        >;
-    }
-
-    namespace MailUpdateDeliveryBoxPassword {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailUpdateDeliveryBoxPassword
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.mailUpdateDeliveryBoxPassword,
-          TStatus
-        >;
-    }
-
-    namespace MailUpdateMailAddressAddress {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailUpdateMailAddressAddress
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.mailUpdateMailAddressAddress,
-          TStatus
-        >;
-    }
-
-    namespace MailUpdateMailAddressAutoresponder {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailUpdateMailAddressAutoresponder
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.mailUpdateMailAddressAutoresponder,
-          TStatus
-        >;
-    }
-
-    namespace MailUpdateMailAddressCatchall {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailUpdateMailAddressCatchall
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.mailUpdateMailAddressCatchall,
-          TStatus
-        >;
-    }
-
-    namespace MailUpdateMailAddressForwardAddresses {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailUpdateMailAddressForwardAddresses
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.mailUpdateMailAddressForwardAddresses,
-          TStatus
-        >;
-    }
-
-    namespace MailUpdateMailAddressPassword {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailUpdateMailAddressPassword
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.mailUpdateMailAddressPassword,
-          TStatus
-        >;
-    }
-
-    namespace MailUpdateMailAddressQuota {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailUpdateMailAddressQuota
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.mailUpdateMailAddressQuota,
-          TStatus
-        >;
-    }
-
-    namespace MailUpdateMailAddressSpamProtection {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailUpdateMailAddressSpamProtection
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.mailUpdateMailAddressSpamProtection,
-          TStatus
-        >;
-    }
-
-    namespace MailUpdateProjectMailSetting {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailUpdateProjectMailSetting
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.mailUpdateProjectMailSetting,
-          TStatus
-        >;
-    }
-
-    namespace NewsletterGetInfo {
-      type RequestData = InferredRequestData<
-        typeof descriptors.newsletterGetInfo
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.newsletterGetInfo, TStatus>;
-    }
-
-    namespace NewsletterUnsubscribeUser {
-      type RequestData = InferredRequestData<
-        typeof descriptors.newsletterUnsubscribeUser
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.newsletterUnsubscribeUser,
-          TStatus
-        >;
-    }
-
-    namespace NotificationsCountUnreadNotifications {
-      type RequestData = InferredRequestData<
-        typeof descriptors.notificationsCountUnreadNotifications
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.notificationsCountUnreadNotifications,
-          TStatus
-        >;
-    }
-
-    namespace NotificationsListNotifications {
-      type RequestData = InferredRequestData<
-        typeof descriptors.notificationsListNotifications
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.notificationsListNotifications,
-          TStatus
-        >;
-    }
-
-    namespace NotificationsReadAllNotifications {
-      type RequestData = InferredRequestData<
-        typeof descriptors.notificationsReadAllNotifications
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.notificationsReadAllNotifications,
-          TStatus
-        >;
-    }
-
-    namespace NotificationsReadNotification {
-      type RequestData = InferredRequestData<
-        typeof descriptors.notificationsReadNotification
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.notificationsReadNotification,
-          TStatus
-        >;
-    }
-
-    namespace OrderCreateOrder {
-      type RequestData = InferredRequestData<
-        typeof descriptors.orderCreateOrder
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.orderCreateOrder, TStatus>;
-    }
-
-    namespace OrderCreateTariffChange {
-      type RequestData = InferredRequestData<
-        typeof descriptors.orderCreateTariffChange
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.orderCreateTariffChange,
-          TStatus
-        >;
-    }
-
-    namespace OrderGetOrder {
-      type RequestData = InferredRequestData<typeof descriptors.orderGetOrder>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.orderGetOrder, TStatus>;
-    }
-
-    namespace OrderListCustomerOrders {
-      type RequestData = InferredRequestData<
-        typeof descriptors.orderListCustomerOrders
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.orderListCustomerOrders,
-          TStatus
-        >;
-    }
-
-    namespace OrderListProjectOrders {
-      type RequestData = InferredRequestData<
-        typeof descriptors.orderListProjectOrders
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.orderListProjectOrders,
-          TStatus
-        >;
-    }
-
-    namespace OrderPreviewOrder {
-      type RequestData = InferredRequestData<
-        typeof descriptors.orderPreviewOrder
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.orderPreviewOrder, TStatus>;
-    }
-
-    namespace OrderPreviewTariffChange {
-      type RequestData = InferredRequestData<
-        typeof descriptors.orderPreviewTariffChange
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.orderPreviewTariffChange,
-          TStatus
-        >;
-    }
-
-    namespace PageinsightsGetPerformanceData {
-      type RequestData = InferredRequestData<
-        typeof descriptors.pageinsightsGetPerformanceData
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.pageinsightsGetPerformanceData,
-          TStatus
-        >;
-    }
-
-    namespace PageinsightsListPerformanceDataForProject {
-      type RequestData = InferredRequestData<
-        typeof descriptors.pageinsightsListPerformanceDataForProject
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.pageinsightsListPerformanceDataForProject,
-          TStatus
-        >;
-    }
-
-    namespace PasswordValidationGetPasswordPolicy {
-      type RequestData = InferredRequestData<
-        typeof descriptors.passwordValidationGetPasswordPolicy
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.passwordValidationGetPasswordPolicy,
-          TStatus
-        >;
-    }
-
-    namespace ProjectAcceptProjectInvite {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectAcceptProjectInvite
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectAcceptProjectInvite,
-          TStatus
-        >;
-    }
-
-    namespace ProjectCreateProjectInvite {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectCreateProjectInvite
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectCreateProjectInvite,
-          TStatus
-        >;
-    }
-
-    namespace ProjectCreateProject {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectCreateProject
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.projectCreateProject, TStatus>;
-    }
-
-    namespace ProjectDeclineProjectInvite {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectDeclineProjectInvite
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectDeclineProjectInvite,
-          TStatus
-        >;
-    }
-
-    namespace ProjectRequestProjectAvatarUpload {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectRequestProjectAvatarUpload
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectRequestProjectAvatarUpload,
-          TStatus
-        >;
-    }
-
-    namespace ProjectDeleteProjectAvatar {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectDeleteProjectAvatar
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectDeleteProjectAvatar,
-          TStatus
-        >;
-    }
-
-    namespace ProjectGetProjectInvite {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectGetProjectInvite
+        >
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectGetProjectInvite,
-          TStatus
-        >;
     }
 
-    namespace ProjectDeleteProjectInvite {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectDeleteProjectInvite
+    namespace DnsCreateDnsZone {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.dnsCreateDnsZone>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectDeleteProjectInvite,
-          TStatus
-        >;
-    }
-
-    namespace ProjectGetProjectMembership {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectGetProjectMembership
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectGetProjectMembership,
-          TStatus
-        >;
-    }
-
-    namespace ProjectDeleteProjectMembership {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectDeleteProjectMembership
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectDeleteProjectMembership,
-          TStatus
-        >;
-    }
-
-    namespace ProjectUpdateProjectMembership {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectUpdateProjectMembership
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectUpdateProjectMembership,
-          TStatus
-        >;
-    }
-
-    namespace ProjectGetProject {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectGetProject
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.projectGetProject, TStatus>;
-    }
-
-    namespace ProjectDeleteProject {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectDeleteProject
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.projectDeleteProject, TStatus>;
-    }
-
-    namespace ProjectRequestServerAvatarUpload {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectRequestServerAvatarUpload
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectRequestServerAvatarUpload,
-          TStatus
-        >;
-    }
-
-    namespace ProjectDeleteServerAvatar {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectDeleteServerAvatar
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectDeleteServerAvatar,
-          TStatus
-        >;
-    }
-
-    namespace ProjectFileSystemGetDirectories {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectFileSystemGetDirectories
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectFileSystemGetDirectories,
-          TStatus
-        >;
-    }
-
-    namespace ProjectFileSystemGetDiskUsage {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectFileSystemGetDiskUsage
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectFileSystemGetDiskUsage,
-          TStatus
-        >;
-    }
-
-    namespace ProjectFileSystemGetFileContent {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectFileSystemGetFileContent
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectFileSystemGetFileContent,
-          TStatus
-        >;
-    }
-
-    namespace ProjectFileSystemGetJwt {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectFileSystemGetJwt
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectFileSystemGetJwt,
-          TStatus
-        >;
-    }
-
-    namespace ProjectFileSystemListFiles {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectFileSystemListFiles
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectFileSystemListFiles,
-          TStatus
-        >;
-    }
-
-    namespace ProjectGetProjectTokenInvite {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectGetProjectTokenInvite
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectGetProjectTokenInvite,
-          TStatus
-        >;
-    }
-
-    namespace ProjectGetSelfMembershipForProject {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectGetSelfMembershipForProject
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectGetSelfMembershipForProject,
-          TStatus
-        >;
-    }
-
-    namespace ProjectGetServer {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectGetServer
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.projectGetServer, TStatus>;
-    }
-
-    namespace ProjectLeaveProject {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectLeaveProject
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.projectLeaveProject, TStatus>;
-    }
-
-    namespace ProjectListInvitesForProject {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectListInvitesForProject
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectListInvitesForProject,
-          TStatus
-        >;
-    }
-
-    namespace ProjectListMembershipsForProject {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectListMembershipsForProject
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectListMembershipsForProject,
-          TStatus
-        >;
-    }
-
-    namespace ProjectListProjectInvites {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectListProjectInvites
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectListProjectInvites,
-          TStatus
-        >;
-    }
-
-    namespace ProjectListProjectMemberships {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectListProjectMemberships
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectListProjectMemberships,
-          TStatus
-        >;
-    }
-
-    namespace ProjectListProjects {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectListProjects
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.projectListProjects, TStatus>;
-    }
-
-    namespace ProjectListServers {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectListServers
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.projectListServers, TStatus>;
-    }
-
-    namespace ProjectResendProjectInviteMail {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectResendProjectInviteMail
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectResendProjectInviteMail,
-          TStatus
-        >;
-    }
-
-    namespace ProjectUpdateProjectDescription {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectUpdateProjectDescription
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectUpdateProjectDescription,
-          TStatus
-        >;
-    }
-
-    namespace ProjectUpdateServerDescription {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectUpdateServerDescription
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectUpdateServerDescription,
-          TStatus
-        >;
-    }
-
-    namespace RelocationCreateLegacyTariffChange {
-      type RequestData = InferredRequestData<
-        typeof descriptors.relocationCreateLegacyTariffChange
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.relocationCreateLegacyTariffChange,
-          TStatus
-        >;
-    }
-
-    namespace RelocationCreateRelocation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.relocationCreateRelocation
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.relocationCreateRelocation,
-          TStatus
-        >;
-    }
-
-    namespace ServicetokenAuthenticateService {
-      type RequestData = InferredRequestData<
-        typeof descriptors.servicetokenAuthenticateService
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.servicetokenAuthenticateService,
-          TStatus
-        >;
-    }
-
-    namespace SftpUserListSftpUsers {
-      type RequestData = InferredRequestData<
-        typeof descriptors.sftpUserListSftpUsers
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.sftpUserListSftpUsers, TStatus>;
-    }
-
-    namespace SftpUserCreateSftpUser {
-      type RequestData = InferredRequestData<
-        typeof descriptors.sftpUserCreateSftpUser
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.sftpUserCreateSftpUser,
-          TStatus
-        >;
-    }
-
-    namespace SftpUserGetSftpUser {
-      type RequestData = InferredRequestData<
-        typeof descriptors.sftpUserGetSftpUser
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.sftpUserGetSftpUser, TStatus>;
-    }
-
-    namespace SftpUserDeleteSftpUser {
-      type RequestData = InferredRequestData<
-        typeof descriptors.sftpUserDeleteSftpUser
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.sftpUserDeleteSftpUser,
-          TStatus
-        >;
-    }
-
-    namespace SftpUserUpdateSftpUser {
-      type RequestData = InferredRequestData<
-        typeof descriptors.sftpUserUpdateSftpUser
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.sftpUserUpdateSftpUser,
-          TStatus
-        >;
-    }
-
-    namespace SshUserListSshUsers {
-      type RequestData = InferredRequestData<
-        typeof descriptors.sshUserListSshUsers
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.sshUserListSshUsers, TStatus>;
-    }
-
-    namespace SshUserCreateSshUser {
-      type RequestData = InferredRequestData<
-        typeof descriptors.sshUserCreateSshUser
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.sshUserCreateSshUser, TStatus>;
-    }
-
-    namespace SshUserGetSshUser {
-      type RequestData = InferredRequestData<
-        typeof descriptors.sshUserGetSshUser
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.sshUserGetSshUser, TStatus>;
-    }
-
-    namespace SshUserDeleteSshUser {
-      type RequestData = InferredRequestData<
-        typeof descriptors.sshUserDeleteSshUser
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.sshUserDeleteSshUser, TStatus>;
-    }
-
-    namespace SshUserUpdateSshUser {
-      type RequestData = InferredRequestData<
-        typeof descriptors.sshUserUpdateSshUser
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.dnsCreateDnsZone, TStatus>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.sshUserUpdateSshUser, TStatus>;
     }
 
-    namespace UserAddPhoneNumber {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userAddPhoneNumber
+    namespace DnsGetDnsZone {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.dnsGetDnsZone>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userAddPhoneNumber, TStatus>;
-    }
-
-    namespace UserRemovePhoneNumber {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userRemovePhoneNumber
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userRemovePhoneNumber, TStatus>;
-    }
-
-    namespace UserAuthenticateMfa {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userAuthenticateMfa
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userAuthenticateMfa, TStatus>;
-    }
-
-    namespace UserAuthenticate {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userAuthenticate
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userAuthenticate, TStatus>;
-    }
-
-    namespace UserGetOwnEmail {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userGetOwnEmail
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userGetOwnEmail, TStatus>;
-    }
-
-    namespace UserChangeEmail {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userChangeEmail
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userChangeEmail, TStatus>;
-    }
-
-    namespace UserChangePassword {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userChangePassword
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userChangePassword, TStatus>;
-    }
-
-    namespace UserCheckToken {
-      type RequestData = InferredRequestData<typeof descriptors.userCheckToken>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userCheckToken, TStatus>;
-    }
-
-    namespace UserGetMfaStatus {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userGetMfaStatus
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userGetMfaStatus, TStatus>;
-    }
-
-    namespace UserResetRecoverycodes {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userResetRecoverycodes
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userResetRecoverycodes,
-          TStatus
-        >;
-    }
-
-    namespace UserConfirmMfa {
-      type RequestData = InferredRequestData<typeof descriptors.userConfirmMfa>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userConfirmMfa, TStatus>;
-    }
-
-    namespace UserDisableMfa {
-      type RequestData = InferredRequestData<typeof descriptors.userDisableMfa>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userDisableMfa, TStatus>;
-    }
-
-    namespace UserConfirmPasswordReset {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userConfirmPasswordReset
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userConfirmPasswordReset,
-          TStatus
-        >;
-    }
-
-    namespace UserListApiTokens {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userListApiTokens
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userListApiTokens, TStatus>;
-    }
-
-    namespace UserCreateApiToken {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userCreateApiToken
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userCreateApiToken, TStatus>;
-    }
-
-    namespace UserCreateFeedback {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userCreateFeedback
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userCreateFeedback, TStatus>;
-    }
-
-    namespace UserListSshKeys {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userListSshKeys
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userListSshKeys, TStatus>;
-    }
-
-    namespace UserCreateSshKey {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userCreateSshKey
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userCreateSshKey, TStatus>;
-    }
-
-    namespace UserGetApiToken {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userGetApiToken
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userGetApiToken, TStatus>;
-    }
-
-    namespace UserEditApiToken {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userEditApiToken
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userEditApiToken, TStatus>;
-    }
-
-    namespace UserDeleteApiToken {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userDeleteApiToken
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.dnsGetDnsZone, TStatus>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userDeleteApiToken, TStatus>;
     }
 
-    namespace UserGetSshKey {
-      type RequestData = InferredRequestData<typeof descriptors.userGetSshKey>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userGetSshKey, TStatus>;
-    }
-
-    namespace UserEditSshKey {
-      type RequestData = InferredRequestData<typeof descriptors.userEditSshKey>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userEditSshKey, TStatus>;
-    }
-
-    namespace UserDeleteSshKey {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userDeleteSshKey
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userDeleteSshKey, TStatus>;
-    }
-
-    namespace UserDeleteUser {
-      type RequestData = InferredRequestData<typeof descriptors.userDeleteUser>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userDeleteUser, TStatus>;
-    }
-
-    namespace UserGetOwnAccount {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userGetOwnAccount
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userGetOwnAccount, TStatus>;
-    }
-
-    namespace UserUpdateAccount {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userUpdateAccount
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userUpdateAccount, TStatus>;
-    }
-
-    namespace UserGetPasswordUpdatedAt {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userGetPasswordUpdatedAt
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userGetPasswordUpdatedAt,
-          TStatus
-        >;
-    }
-
-    namespace UserGetPersonalizedSettings {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userGetPersonalizedSettings
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userGetPersonalizedSettings,
-          TStatus
-        >;
-    }
-
-    namespace UserUpdatePersonalizedSettings {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userUpdatePersonalizedSettings
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userUpdatePersonalizedSettings,
-          TStatus
-        >;
-    }
-
-    namespace UserGetSession {
-      type RequestData = InferredRequestData<typeof descriptors.userGetSession>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userGetSession, TStatus>;
-    }
-
-    namespace UserTerminateSession {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userTerminateSession
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userTerminateSession, TStatus>;
-    }
-
-    namespace UserGetUser {
-      type RequestData = InferredRequestData<typeof descriptors.userGetUser>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userGetUser, TStatus>;
-    }
-
-    namespace UserUpdatePersonalInformation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userUpdatePersonalInformation
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userUpdatePersonalInformation,
-          TStatus
-        >;
-    }
-
-    namespace UserInitMfa {
-      type RequestData = InferredRequestData<typeof descriptors.userInitMfa>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userInitMfa, TStatus>;
-    }
-
-    namespace UserInitPasswordReset {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userInitPasswordReset
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userInitPasswordReset, TStatus>;
-    }
-
-    namespace UserListFeedback {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userListFeedback
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userListFeedback, TStatus>;
-    }
-
-    namespace UserListSessions {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userListSessions
+    namespace DnsDeleteDnsZone {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.dnsDeleteDnsZone>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userListSessions, TStatus>;
-    }
-
-    namespace UserTerminateAllSessions {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userTerminateAllSessions
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userTerminateAllSessions,
-          TStatus
-        >;
-    }
-
-    namespace UserLogout {
-      type RequestData = InferredRequestData<typeof descriptors.userLogout>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userLogout, TStatus>;
-    }
-
-    namespace UserRegister {
-      type RequestData = InferredRequestData<typeof descriptors.userRegister>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userRegister, TStatus>;
-    }
-
-    namespace UserRequestAvatarUpload {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userRequestAvatarUpload
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.dnsDeleteDnsZone, TStatus>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userRequestAvatarUpload,
-          TStatus
-        >;
     }
 
-    namespace UserRemoveAvatar {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userRemoveAvatar
+    namespace DnsListDnsZones {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.dnsListDnsZones>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userRemoveAvatar, TStatus>;
-    }
-
-    namespace UserResendVerificationEmail {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userResendVerificationEmail
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.dnsListDnsZones, TStatus>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userResendVerificationEmail,
-          TStatus
-        >;
     }
 
-    namespace UserSupportCodeRequest {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userSupportCodeRequest
+    namespace DnsSetRecordSetManaged {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.dnsSetRecordSetManaged>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userSupportCodeRequest,
-          TStatus
-        >;
-    }
-
-    namespace UserVerifyEmail {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userVerifyEmail
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.dnsSetRecordSetManaged, TStatus>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userVerifyEmail, TStatus>;
     }
 
-    namespace UserVerifyPhoneNumber {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userVerifyPhoneNumber
+    namespace DnsUpdateRecordSet {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.dnsUpdateRecordSet>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userVerifyPhoneNumber, TStatus>;
-    }
-
-    namespace UserVerifyRegistration {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userVerifyRegistration
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.dnsUpdateRecordSet, TStatus>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userVerifyRegistration,
-          TStatus
-        >;
     }
 
     namespace DomainAbortDomainDeclaration {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainAbortDomainDeclaration
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.domainAbortDomainDeclaration>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.domainAbortDomainDeclaration,
           TStatus
-        >;
-    }
-
-    namespace DomainListTlds {
-      type RequestData = InferredRequestData<typeof descriptors.domainListTlds>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.domainListTlds, TStatus>;
-    }
-
-    namespace DomainListTldContactSchemas {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainListTldContactSchemas
+        >
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainListTldContactSchemas,
-          TStatus
-        >;
-    }
-
-    namespace DomainUpdateDomainAuthCode {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainUpdateDomainAuthCode
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainUpdateDomainAuthCode,
-          TStatus
-        >;
-    }
-
-    namespace DomainUpdateDomainContact {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainUpdateDomainContact
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainUpdateDomainContact,
-          TStatus
-        >;
-    }
-
-    namespace DomainUpdateDomainProjectId {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainUpdateDomainProjectId
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainUpdateDomainProjectId,
-          TStatus
-        >;
-    }
-
-    namespace DomainCreateDomainAuthCode {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainCreateDomainAuthCode
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainCreateDomainAuthCode,
-          TStatus
-        >;
-    }
-
-    namespace DomainCreateDomainAuthCode2 {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainCreateDomainAuthCode2
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainCreateDomainAuthCode2,
-          TStatus
-        >;
     }
 
     namespace DomainCheckDomainRegistrability {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainCheckDomainRegistrability
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.domainCheckDomainRegistrability>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
           typeof descriptors.domainCheckDomainRegistrability,
           TStatus
-        >;
+        >
+      >;
     }
 
-    namespace DomainCheckDomainRegistrabilityV2Deprecated {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainCheckDomainRegistrabilityV2Deprecated
+    namespace DomainCreateDomainAuthCode2 {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.domainCreateDomainAuthCode2>
       >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainCheckDomainRegistrabilityV2Deprecated,
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.domainCreateDomainAuthCode2,
           TStatus
-        >;
+        >
+      >;
+    }
+
+    namespace DomainCreateDomainAuthCode {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.domainCreateDomainAuthCode>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.domainCreateDomainAuthCode,
+          TStatus
+        >
+      >;
+    }
+
+    namespace DomainUpdateDomainNameservers {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.domainUpdateDomainNameservers>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.domainUpdateDomainNameservers,
+          TStatus
+        >
+      >;
+    }
+
+    namespace DomainGetDomain {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.domainGetDomain>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.domainGetDomain, TStatus>
+      >;
+    }
+
+    namespace DomainDeleteDomain {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.domainDeleteDomain>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.domainDeleteDomain, TStatus>
+      >;
+    }
+
+    namespace DomainGetDomainOwnership {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.domainGetDomainOwnership>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.domainGetDomainOwnership,
+          TStatus
+        >
+      >;
+    }
+
+    namespace DomainGetScreenshotForDomain {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.domainGetScreenshotForDomain>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.domainGetScreenshotForDomain,
+          TStatus
+        >
+      >;
+    }
+
+    namespace DomainListDomainOwnerships {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.domainListDomainOwnerships>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.domainListDomainOwnerships,
+          TStatus
+        >
+      >;
+    }
+
+    namespace DomainListDomains {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.domainListDomains>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.domainListDomains, TStatus>
+      >;
+    }
+
+    namespace DomainListTldContactSchemas {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.domainListTldContactSchemas>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.domainListTldContactSchemas,
+          TStatus
+        >
+      >;
+    }
+
+    namespace DomainListTlds {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.domainListTlds>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.domainListTlds, TStatus>
+      >;
+    }
+
+    namespace DomainResendDomainEmail {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.domainResendDomainEmail>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.domainResendDomainEmail,
+          TStatus
+        >
+      >;
+    }
+
+    namespace DomainUpdateDomainAuthCode {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.domainUpdateDomainAuthCode>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.domainUpdateDomainAuthCode,
+          TStatus
+        >
+      >;
+    }
+
+    namespace DomainUpdateDomainContact {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.domainUpdateDomainContact>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.domainUpdateDomainContact,
+          TStatus
+        >
+      >;
+    }
+
+    namespace DomainUpdateDomainProjectId {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.domainUpdateDomainProjectId>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.domainUpdateDomainProjectId,
+          TStatus
+        >
+      >;
+    }
+
+    namespace DomainVerifyDomainOwnership {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.domainVerifyDomainOwnership>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.domainVerifyDomainOwnership,
+          TStatus
+        >
+      >;
+    }
+
+    namespace FileCreateFile {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.fileCreateFile>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.fileCreateFile, TStatus>
+      >;
+    }
+
+    namespace FileGetFileMeta {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.fileGetFileMeta>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.fileGetFileMeta, TStatus>
+      >;
+    }
+
+    namespace FileGetFileTokenRules {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.fileGetFileTokenRules>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.fileGetFileTokenRules, TStatus>
+      >;
+    }
+
+    namespace FileGetFileTypeRules {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.fileGetFileTypeRules>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.fileGetFileTypeRules, TStatus>
+      >;
+    }
+
+    namespace FileGetFile {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.fileGetFile>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.fileGetFile, TStatus>
+      >;
+    }
+
+    namespace IngressCreate {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.ingressCreate>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.ingressCreate, TStatus>
+      >;
+    }
+
+    namespace IngressGetSpecific {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.ingressGetSpecific>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.ingressGetSpecific, TStatus>
+      >;
+    }
+
+    namespace IngressDelete {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.ingressDelete>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.ingressDelete, TStatus>
+      >;
+    }
+
+    namespace IngressListAccessible {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.ingressListAccessible>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.ingressListAccessible, TStatus>
+      >;
+    }
+
+    namespace IngressListForProject {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.ingressListForProject>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.ingressListForProject, TStatus>
+      >;
+    }
+
+    namespace IngressPaths {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.ingressPaths>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.ingressPaths, TStatus>
+      >;
+    }
+
+    namespace IngressRequestAcmeCertificateIssuance {
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.ingressRequestAcmeCertificateIssuance
+        >
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.ingressRequestAcmeCertificateIssuance,
+          TStatus
+        >
+      >;
+    }
+
+    namespace IngressTls {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.ingressTls>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.ingressTls, TStatus>
+      >;
+    }
+
+    namespace InvoiceDetailOfInvoice {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.invoiceDetailOfInvoice>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.invoiceDetailOfInvoice, TStatus>
+      >;
+    }
+
+    namespace InvoiceGetDetailOfInvoiceSettings {
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.invoiceGetDetailOfInvoiceSettings
+        >
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.invoiceGetDetailOfInvoiceSettings,
+          TStatus
+        >
+      >;
+    }
+
+    namespace InvoiceUpdateInvoiceSettings {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.invoiceUpdateInvoiceSettings>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.invoiceUpdateInvoiceSettings,
+          TStatus
+        >
+      >;
+    }
+
+    namespace InvoiceListCustomerInvoices {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.invoiceListCustomerInvoices>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.invoiceListCustomerInvoices,
+          TStatus
+        >
+      >;
+    }
+
+    namespace MailListDeliveryBoxes {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.mailListDeliveryBoxes>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.mailListDeliveryBoxes, TStatus>
+      >;
+    }
+
+    namespace MailCreateDeliverybox {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.mailCreateDeliverybox>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.mailCreateDeliverybox, TStatus>
+      >;
+    }
+
+    namespace MailListMailAddresses {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.mailListMailAddresses>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.mailListMailAddresses, TStatus>
+      >;
+    }
+
+    namespace MailCreateMailAddress {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.mailCreateMailAddress>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.mailCreateMailAddress, TStatus>
+      >;
+    }
+
+    namespace MailGetDeliveryBox {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.mailGetDeliveryBox>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.mailGetDeliveryBox, TStatus>
+      >;
+    }
+
+    namespace MailDeleteDeliveryBox {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.mailDeleteDeliveryBox>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.mailDeleteDeliveryBox, TStatus>
+      >;
+    }
+
+    namespace MailGetMailAddress {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.mailGetMailAddress>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.mailGetMailAddress, TStatus>
+      >;
+    }
+
+    namespace MailDeleteMailAddress {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.mailDeleteMailAddress>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.mailDeleteMailAddress, TStatus>
+      >;
+    }
+
+    namespace MailListProjectMailSettings {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.mailListProjectMailSettings>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.mailListProjectMailSettings,
+          TStatus
+        >
+      >;
+    }
+
+    namespace MailUpdateDeliveryBoxDescription {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.mailUpdateDeliveryBoxDescription>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.mailUpdateDeliveryBoxDescription,
+          TStatus
+        >
+      >;
+    }
+
+    namespace MailUpdateDeliveryBoxPassword {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.mailUpdateDeliveryBoxPassword>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.mailUpdateDeliveryBoxPassword,
+          TStatus
+        >
+      >;
+    }
+
+    namespace MailUpdateMailAddressAddress {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.mailUpdateMailAddressAddress>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.mailUpdateMailAddressAddress,
+          TStatus
+        >
+      >;
+    }
+
+    namespace MailUpdateMailAddressAutoresponder {
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.mailUpdateMailAddressAutoresponder
+        >
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.mailUpdateMailAddressAutoresponder,
+          TStatus
+        >
+      >;
+    }
+
+    namespace MailUpdateMailAddressCatchall {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.mailUpdateMailAddressCatchall>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.mailUpdateMailAddressCatchall,
+          TStatus
+        >
+      >;
+    }
+
+    namespace MailUpdateMailAddressForwardAddresses {
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.mailUpdateMailAddressForwardAddresses
+        >
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.mailUpdateMailAddressForwardAddresses,
+          TStatus
+        >
+      >;
+    }
+
+    namespace MailUpdateMailAddressPassword {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.mailUpdateMailAddressPassword>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.mailUpdateMailAddressPassword,
+          TStatus
+        >
+      >;
+    }
+
+    namespace MailUpdateMailAddressQuota {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.mailUpdateMailAddressQuota>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.mailUpdateMailAddressQuota,
+          TStatus
+        >
+      >;
+    }
+
+    namespace MailUpdateMailAddressSpamProtection {
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.mailUpdateMailAddressSpamProtection
+        >
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.mailUpdateMailAddressSpamProtection,
+          TStatus
+        >
+      >;
+    }
+
+    namespace MailUpdateProjectMailSetting {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.mailUpdateProjectMailSetting>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.mailUpdateProjectMailSetting,
+          TStatus
+        >
+      >;
+    }
+
+    namespace NewsletterGetInfo {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.newsletterGetInfo>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.newsletterGetInfo, TStatus>
+      >;
+    }
+
+    namespace NewsletterUnsubscribeUser {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.newsletterUnsubscribeUser>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.newsletterUnsubscribeUser,
+          TStatus
+        >
+      >;
+    }
+
+    namespace NotificationsCountUnreadNotifications {
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.notificationsCountUnreadNotifications
+        >
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.notificationsCountUnreadNotifications,
+          TStatus
+        >
+      >;
+    }
+
+    namespace NotificationsListNotifications {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.notificationsListNotifications>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.notificationsListNotifications,
+          TStatus
+        >
+      >;
+    }
+
+    namespace NotificationsReadAllNotifications {
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.notificationsReadAllNotifications
+        >
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.notificationsReadAllNotifications,
+          TStatus
+        >
+      >;
+    }
+
+    namespace NotificationsReadNotification {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.notificationsReadNotification>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.notificationsReadNotification,
+          TStatus
+        >
+      >;
+    }
+
+    namespace OrderCreateOrder {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.orderCreateOrder>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.orderCreateOrder, TStatus>
+      >;
+    }
+
+    namespace OrderCreateTariffChange {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.orderCreateTariffChange>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.orderCreateTariffChange,
+          TStatus
+        >
+      >;
+    }
+
+    namespace OrderGetOrder {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.orderGetOrder>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.orderGetOrder, TStatus>
+      >;
+    }
+
+    namespace OrderListCustomerOrders {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.orderListCustomerOrders>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.orderListCustomerOrders,
+          TStatus
+        >
+      >;
+    }
+
+    namespace OrderListProjectOrders {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.orderListProjectOrders>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.orderListProjectOrders, TStatus>
+      >;
+    }
+
+    namespace OrderPreviewOrder {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.orderPreviewOrder>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.orderPreviewOrder, TStatus>
+      >;
+    }
+
+    namespace OrderPreviewTariffChange {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.orderPreviewTariffChange>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.orderPreviewTariffChange,
+          TStatus
+        >
+      >;
+    }
+
+    namespace PageinsightsGetPerformanceData {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.pageinsightsGetPerformanceData>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.pageinsightsGetPerformanceData,
+          TStatus
+        >
+      >;
+    }
+
+    namespace PageinsightsListPerformanceDataForProject {
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.pageinsightsListPerformanceDataForProject
+        >
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.pageinsightsListPerformanceDataForProject,
+          TStatus
+        >
+      >;
+    }
+
+    namespace PasswordValidationGetPasswordPolicy {
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.passwordValidationGetPasswordPolicy
+        >
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.passwordValidationGetPasswordPolicy,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectAcceptProjectInvite {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectAcceptProjectInvite>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectAcceptProjectInvite,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectCreateProjectInvite {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectCreateProjectInvite>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectCreateProjectInvite,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectCreateProject {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectCreateProject>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.projectCreateProject, TStatus>
+      >;
+    }
+
+    namespace ProjectDeclineProjectInvite {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectDeclineProjectInvite>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectDeclineProjectInvite,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectRequestProjectAvatarUpload {
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.projectRequestProjectAvatarUpload
+        >
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectRequestProjectAvatarUpload,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectDeleteProjectAvatar {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectDeleteProjectAvatar>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectDeleteProjectAvatar,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectGetProjectInvite {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectGetProjectInvite>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectGetProjectInvite,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectDeleteProjectInvite {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectDeleteProjectInvite>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectDeleteProjectInvite,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectGetProjectMembership {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectGetProjectMembership>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectGetProjectMembership,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectDeleteProjectMembership {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectDeleteProjectMembership>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectDeleteProjectMembership,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectUpdateProjectMembership {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectUpdateProjectMembership>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectUpdateProjectMembership,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectGetProject {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectGetProject>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.projectGetProject, TStatus>
+      >;
+    }
+
+    namespace ProjectDeleteProject {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectDeleteProject>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.projectDeleteProject, TStatus>
+      >;
+    }
+
+    namespace ProjectRequestServerAvatarUpload {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectRequestServerAvatarUpload>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectRequestServerAvatarUpload,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectDeleteServerAvatar {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectDeleteServerAvatar>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectDeleteServerAvatar,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectFileSystemGetDirectories {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectFileSystemGetDirectories>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectFileSystemGetDirectories,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectFileSystemGetDiskUsage {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectFileSystemGetDiskUsage>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectFileSystemGetDiskUsage,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectFileSystemGetFileContent {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectFileSystemGetFileContent>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectFileSystemGetFileContent,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectFileSystemGetJwt {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectFileSystemGetJwt>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectFileSystemGetJwt,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectFileSystemListFiles {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectFileSystemListFiles>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectFileSystemListFiles,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectGetProjectTokenInvite {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectGetProjectTokenInvite>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectGetProjectTokenInvite,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectGetSelfMembershipForProject {
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.projectGetSelfMembershipForProject
+        >
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectGetSelfMembershipForProject,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectGetServer {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectGetServer>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.projectGetServer, TStatus>
+      >;
+    }
+
+    namespace ProjectLeaveProject {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectLeaveProject>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.projectLeaveProject, TStatus>
+      >;
+    }
+
+    namespace ProjectListInvitesForProject {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectListInvitesForProject>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectListInvitesForProject,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectListMembershipsForProject {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectListMembershipsForProject>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectListMembershipsForProject,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectListProjectInvites {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectListProjectInvites>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectListProjectInvites,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectListProjectMemberships {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectListProjectMemberships>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectListProjectMemberships,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectListProjects {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectListProjects>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.projectListProjects, TStatus>
+      >;
+    }
+
+    namespace ProjectListServers {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectListServers>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.projectListServers, TStatus>
+      >;
+    }
+
+    namespace ProjectResendProjectInviteMail {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectResendProjectInviteMail>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectResendProjectInviteMail,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectUpdateProjectDescription {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectUpdateProjectDescription>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectUpdateProjectDescription,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ProjectUpdateServerDescription {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.projectUpdateServerDescription>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.projectUpdateServerDescription,
+          TStatus
+        >
+      >;
+    }
+
+    namespace RelocationCreateLegacyTariffChange {
+      type RequestData = Simplify<
+        Commons.RequestData<
+          typeof descriptors.relocationCreateLegacyTariffChange
+        >
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.relocationCreateLegacyTariffChange,
+          TStatus
+        >
+      >;
+    }
+
+    namespace RelocationCreateRelocation {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.relocationCreateRelocation>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.relocationCreateRelocation,
+          TStatus
+        >
+      >;
+    }
+
+    namespace ServicetokenAuthenticateService {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.servicetokenAuthenticateService>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.servicetokenAuthenticateService,
+          TStatus
+        >
+      >;
+    }
+
+    namespace SftpUserListSftpUsers {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.sftpUserListSftpUsers>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.sftpUserListSftpUsers, TStatus>
+      >;
+    }
+
+    namespace SftpUserCreateSftpUser {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.sftpUserCreateSftpUser>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.sftpUserCreateSftpUser, TStatus>
+      >;
+    }
+
+    namespace SftpUserGetSftpUser {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.sftpUserGetSftpUser>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.sftpUserGetSftpUser, TStatus>
+      >;
+    }
+
+    namespace SftpUserDeleteSftpUser {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.sftpUserDeleteSftpUser>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.sftpUserDeleteSftpUser, TStatus>
+      >;
+    }
+
+    namespace SftpUserUpdateSftpUser {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.sftpUserUpdateSftpUser>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.sftpUserUpdateSftpUser, TStatus>
+      >;
+    }
+
+    namespace SshUserListSshUsers {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.sshUserListSshUsers>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.sshUserListSshUsers, TStatus>
+      >;
+    }
+
+    namespace SshUserCreateSshUser {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.sshUserCreateSshUser>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.sshUserCreateSshUser, TStatus>
+      >;
+    }
+
+    namespace SshUserGetSshUser {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.sshUserGetSshUser>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.sshUserGetSshUser, TStatus>
+      >;
+    }
+
+    namespace SshUserDeleteSshUser {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.sshUserDeleteSshUser>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.sshUserDeleteSshUser, TStatus>
+      >;
+    }
+
+    namespace SshUserUpdateSshUser {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.sshUserUpdateSshUser>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.sshUserUpdateSshUser, TStatus>
+      >;
+    }
+
+    namespace UserAddPhoneNumber {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userAddPhoneNumber>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userAddPhoneNumber, TStatus>
+      >;
+    }
+
+    namespace UserRemovePhoneNumber {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userRemovePhoneNumber>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userRemovePhoneNumber, TStatus>
+      >;
+    }
+
+    namespace UserAuthenticateMfa {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userAuthenticateMfa>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userAuthenticateMfa, TStatus>
+      >;
+    }
+
+    namespace UserAuthenticate {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userAuthenticate>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userAuthenticate, TStatus>
+      >;
+    }
+
+    namespace UserGetOwnEmail {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userGetOwnEmail>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userGetOwnEmail, TStatus>
+      >;
+    }
+
+    namespace UserChangeEmail {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userChangeEmail>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userChangeEmail, TStatus>
+      >;
+    }
+
+    namespace UserChangePassword {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userChangePassword>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userChangePassword, TStatus>
+      >;
+    }
+
+    namespace UserCheckToken {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userCheckToken>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userCheckToken, TStatus>
+      >;
+    }
+
+    namespace UserGetMfaStatus {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userGetMfaStatus>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userGetMfaStatus, TStatus>
+      >;
+    }
+
+    namespace UserResetRecoverycodes {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userResetRecoverycodes>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userResetRecoverycodes, TStatus>
+      >;
+    }
+
+    namespace UserConfirmMfa {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userConfirmMfa>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userConfirmMfa, TStatus>
+      >;
+    }
+
+    namespace UserDisableMfa {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userDisableMfa>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userDisableMfa, TStatus>
+      >;
+    }
+
+    namespace UserConfirmPasswordReset {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userConfirmPasswordReset>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.userConfirmPasswordReset,
+          TStatus
+        >
+      >;
+    }
+
+    namespace UserListApiTokens {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userListApiTokens>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userListApiTokens, TStatus>
+      >;
+    }
+
+    namespace UserCreateApiToken {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userCreateApiToken>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userCreateApiToken, TStatus>
+      >;
+    }
+
+    namespace UserCreateFeedback {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userCreateFeedback>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userCreateFeedback, TStatus>
+      >;
+    }
+
+    namespace UserListSshKeys {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userListSshKeys>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userListSshKeys, TStatus>
+      >;
+    }
+
+    namespace UserCreateSshKey {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userCreateSshKey>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userCreateSshKey, TStatus>
+      >;
+    }
+
+    namespace UserGetApiToken {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userGetApiToken>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userGetApiToken, TStatus>
+      >;
+    }
+
+    namespace UserEditApiToken {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userEditApiToken>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userEditApiToken, TStatus>
+      >;
+    }
+
+    namespace UserDeleteApiToken {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userDeleteApiToken>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userDeleteApiToken, TStatus>
+      >;
+    }
+
+    namespace UserGetSshKey {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userGetSshKey>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userGetSshKey, TStatus>
+      >;
+    }
+
+    namespace UserEditSshKey {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userEditSshKey>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userEditSshKey, TStatus>
+      >;
+    }
+
+    namespace UserDeleteSshKey {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userDeleteSshKey>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userDeleteSshKey, TStatus>
+      >;
+    }
+
+    namespace UserDeleteUser {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userDeleteUser>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userDeleteUser, TStatus>
+      >;
+    }
+
+    namespace UserGetOwnAccount {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userGetOwnAccount>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userGetOwnAccount, TStatus>
+      >;
+    }
+
+    namespace UserUpdateAccount {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userUpdateAccount>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userUpdateAccount, TStatus>
+      >;
+    }
+
+    namespace UserGetPasswordUpdatedAt {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userGetPasswordUpdatedAt>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.userGetPasswordUpdatedAt,
+          TStatus
+        >
+      >;
+    }
+
+    namespace UserGetPersonalizedSettings {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userGetPersonalizedSettings>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.userGetPersonalizedSettings,
+          TStatus
+        >
+      >;
+    }
+
+    namespace UserUpdatePersonalizedSettings {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userUpdatePersonalizedSettings>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.userUpdatePersonalizedSettings,
+          TStatus
+        >
+      >;
+    }
+
+    namespace UserGetSession {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userGetSession>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userGetSession, TStatus>
+      >;
+    }
+
+    namespace UserTerminateSession {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userTerminateSession>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userTerminateSession, TStatus>
+      >;
+    }
+
+    namespace UserGetUser {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userGetUser>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userGetUser, TStatus>
+      >;
+    }
+
+    namespace UserUpdatePersonalInformation {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userUpdatePersonalInformation>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.userUpdatePersonalInformation,
+          TStatus
+        >
+      >;
+    }
+
+    namespace UserInitMfa {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userInitMfa>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userInitMfa, TStatus>
+      >;
+    }
+
+    namespace UserInitPasswordReset {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userInitPasswordReset>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userInitPasswordReset, TStatus>
+      >;
+    }
+
+    namespace UserListFeedback {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userListFeedback>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userListFeedback, TStatus>
+      >;
+    }
+
+    namespace UserListSessions {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userListSessions>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userListSessions, TStatus>
+      >;
+    }
+
+    namespace UserTerminateAllSessions {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userTerminateAllSessions>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.userTerminateAllSessions,
+          TStatus
+        >
+      >;
+    }
+
+    namespace UserLogout {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userLogout>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userLogout, TStatus>
+      >;
+    }
+
+    namespace UserRegister {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userRegister>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userRegister, TStatus>
+      >;
+    }
+
+    namespace UserRequestAvatarUpload {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userRequestAvatarUpload>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.userRequestAvatarUpload,
+          TStatus
+        >
+      >;
+    }
+
+    namespace UserRemoveAvatar {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userRemoveAvatar>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userRemoveAvatar, TStatus>
+      >;
+    }
+
+    namespace UserResendVerificationEmail {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userResendVerificationEmail>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<
+          typeof descriptors.userResendVerificationEmail,
+          TStatus
+        >
+      >;
+    }
+
+    namespace UserSupportCodeRequest {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userSupportCodeRequest>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userSupportCodeRequest, TStatus>
+      >;
+    }
+
+    namespace UserVerifyEmail {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userVerifyEmail>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userVerifyEmail, TStatus>
+      >;
+    }
+
+    namespace UserVerifyPhoneNumber {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userVerifyPhoneNumber>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userVerifyPhoneNumber, TStatus>
+      >;
+    }
+
+    namespace UserVerifyRegistration {
+      type RequestData = Simplify<
+        Commons.RequestData<typeof descriptors.userVerifyRegistration>
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> = Simplify<
+        Commons.ResponseData<typeof descriptors.userVerifyRegistration, TStatus>
+      >;
     }
   }
 
   namespace Components {
     namespace Schemas {
       /**
-       * An `Action` is a string that describes a runtime concerning action which can be executed on an `AppInstallation` or an `App` can be capable of
+       * An `Action` is a string that describes a runtime concerning action which can be executed on an `AppInstallation` or an `App` can be capable of.
        */
       export type AppAction = "start" | "stop" | "restart";
 
       /**
-       * `ActionCapabilities` is an array that contains supported actions of an `App`
+       * `ActionCapabilities` is an array that contains supported actions of an `App`.
        */
       export type AppActionCapabilities =
         MittwaldAPIV2.Components.Schemas.AppAction[];
 
       /**
-       * An `App` is to be understood as a manifest for `AppInstallations`. E.g. "WordPress" only exists inside our ecosystem, because there is an `App`-Manifest for it
+       * An `App` is to be understood as a manifest for `AppInstallations`. E.g. 'WordPress' only exists inside our ecosystem, because there is an `App`-Manifest for it.
        */
       export interface AppApp {
         actionCapabilities?: MittwaldAPIV2.Components.Schemas.AppActionCapabilities;
@@ -2915,7 +3214,7 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * `AppInstallationStatus` describes the overall runtime status of an `AppInstallation`
+       * `AppInstallationStatus` describes the overall runtime status of an `AppInstallation`.
        */
       export interface AppAppInstallationStatus {
         lastExitCode?: number;
@@ -2936,7 +3235,7 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * `AppUpdatePolicy` describes which updates should be applied automatically by our systems
+       * `AppUpdatePolicy` describes which updates should be applied automatically by our systems.
        */
       export type AppAppUpdatePolicy = "none" | "patchLevel" | "all";
 
@@ -2963,7 +3262,7 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * The `AppInstallationLifecycle` can be used to express a specific point in the `AppInstallation` Lifecycle, e.g. while installing a new `AppInstallation`
+       * The `AppInstallationLifecycle` can be used to express a specific point in the `AppInstallation` Lifecycle, e.g. while installing a new `AppInstallation`.
        */
       export type AppAppInstallationLifecycle =
         | "installation"
@@ -2971,7 +3270,7 @@ export declare module MittwaldAPIV2 {
         | "reconfigure";
 
       /**
-       * An `AppVersion` is an officially supported version of an `App`, containing the necessary and recommended configuration und dependencies
+       * An `AppVersion` is an officially supported version of an `App`, containing the necessary and recommended configuration und dependencies.
        */
       export interface AppAppVersion {
         breakingNote?: MittwaldAPIV2.Components.Schemas.AppBreakingNote;
@@ -2988,14 +3287,14 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * A `BreakingNote` is a hint that something serious has changed in the `AppVersion` containing it, so an automatic update is not possible
+       * A `BreakingNote` is a hint that something serious has changed in the `AppVersion` containing it, so an automatic update is not possible.
        */
       export interface AppBreakingNote {
         faqLink: string;
       }
 
       /**
-       * A ´DatabaseDependency` is a generic description of need for a database, used by `AppVersions`
+       * A `DatabaseDependency` is a generic description of need for a database, used by `AppVersions`.
        */
       export interface AppDatabaseDependency {
         description: string;
@@ -3012,7 +3311,7 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * `InstalledSystemSoftware` describes the currently configured and installed `SystemSoftwareVersion` of a `SystemSoftware` besides the desired `SystemSoftwareUpdatePolicy` inside an `AppInstallation`
+       * `InstalledSystemSoftware` describes the currently configured and installed `SystemSoftwareVersion` of a `SystemSoftware` besides the desired `SystemSoftwareUpdatePolicy` inside an `AppInstallation`.
        */
       export interface AppInstalledSystemSoftware {
         systemSoftwareId: string;
@@ -3021,7 +3320,7 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * `LinkedDatabase` is a reference to a concrete `Database` and `DatabaseUsers`
+       * `LinkedDatabase` is a reference to a concrete `Database` and `DatabaseUsers`.
        */
       export interface AppLinkedDatabase {
         databaseId: string;
@@ -3033,7 +3332,7 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * `RequestHandlerRequirement` describes the necessary properties to internally resolve the request handler or process to start
+       * `RequestHandlerRequirement` describes the necessary properties to internally resolve the request handler or process to start.
        */
       export interface AppRequestHandlerRequirement {
         exampleValues?: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
@@ -3043,7 +3342,7 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * A `SavedUserInput` is an entered value for a desired `UserInput` of an `AppVersion` or `SystemSoftwareVersion`
+       * A `SavedUserInput` is an entered value for a desired `UserInput` of an `AppVersion` or `SystemSoftwareVersion`.
        */
       export interface AppSavedUserInput {
         name: string;
@@ -3059,7 +3358,7 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * `SystemSoftwareUpdatePolicy` describes which updates should be applied automatically by our systems
+       * `SystemSoftwareUpdatePolicy` describes which updates should be applied automatically by our systems.
        */
       export type AppSystemSoftwareUpdatePolicy =
         | "none"
@@ -3077,7 +3376,7 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * A `SystemSoftwareVersion` is an officially  supported version of a `SystemSoftware`, containing the necessary and recommended configuration und dependencies
+       * A `SystemSoftwareVersion` is an officially  supported version of a `SystemSoftware`, containing the necessary and recommended configuration und dependencies.
        */
       export interface AppSystemSoftwareVersion {
         externalVersion: string;
@@ -3089,11 +3388,11 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * A `UserInput` is a description of an information which cannot be determined or estimated by mittwald, but has to be given by the person who is requesting an `AppInstallation` or `SystemSoftware`
+       * A `UserInput` is a description of an information which cannot be determined or estimated by mittwald, but has to be given by the person who is requesting an `AppInstallation` or `SystemSoftware`.
        */
       export interface AppUserInput {
         /**
-         * Optional field to tell the frontend, which data to put into the select
+         * Optional field to tell the frontend, which data to put into the select.
          */
         dataSource?: string;
         dataType: MittwaldAPIV2.Components.Schemas.AppUserInputDataType;
@@ -3104,13 +3403,13 @@ export declare module MittwaldAPIV2 {
         positionMeta?: MittwaldAPIV2.Components.Schemas.AppUserInputPositionMeta;
         required: boolean;
         /**
-         * JSON Schema formatted (https://json-schema.org/)
+         * JSON Schema formatted (https://json-schema.org/).
          */
         validationSchema: string;
       }
 
       /**
-       * `UserInputDataType` is an enum, describing the possible data types of a `UserInput`
+       * `UserInputDataType` is an enum, describing the possible data types of a `UserInput`.
        */
       export type AppUserInputDataType =
         | "text"
@@ -3119,12 +3418,12 @@ export declare module MittwaldAPIV2 {
         | "select";
 
       /**
-       * `UserInputFormat` is an enum, describing the possible data formats of a `UserInput`, the given values can be validated against
+       * `UserInputFormat` is an enum, describing the possible data formats of a `UserInput`, the given values can be validated against.
        */
       export type AppUserInputFormat = "email" | "password" | "url";
 
       /**
-       * `UserInputPositionMeta´ is a utility information, helping to position the `UserInput` properly on the frontend
+       * `UserInputPositionMeta´ is a utility information, helping to position the `UserInput` properly on the frontend.
        */
       export interface AppUserInputPositionMeta {
         index?: number;
@@ -3133,7 +3432,7 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * `VersionStatus` describes the current and desired version of something like the `AppVersion` of an `AppInstallation`. If diverging, an internal process is going to assert, the `current` value will be aligned
+       * `VersionStatus` describes the current and desired version of something like the `AppVersion` of an `AppInstallation`. If diverging, an internal process is going to assert, the `current` value will be aligned.
        */
       export interface AppVersionStatus {
         current?: string;
@@ -3557,7 +3856,13 @@ export declare module MittwaldAPIV2 {
         };
         durationInMilliseconds: number;
         end?: string;
+        /**
+         * @deprecated
+         */
         executionEnd?: string;
+        /**
+         * @deprecated
+         */
         executionStart?: string;
         id: string;
         logPath?: string;
@@ -5000,76 +5305,6 @@ export declare module MittwaldAPIV2 {
         tokenId: string;
       }
 
-      export interface VarnishConfigRevision {
-        expire?: number;
-        files: MittwaldAPIV2.Components.Schemas.VarnishConfigFileRef[];
-        note?: string;
-        revision: number;
-        updated: string;
-      }
-
-      export interface VarnishConfigTemplate {
-        /**
-         * A set of config file references.
-         */
-        files: MittwaldAPIV2.Components.Schemas.VarnishConfigFileRef[];
-        isGlobal?: boolean;
-        note?: string;
-        projectId?: string;
-        softwareConfigTemplateId: string;
-        softwareTemplateId: string;
-        updatedAt?: string;
-      }
-
-      export interface VarnishConfigFile {
-        content: string;
-        meta?: MittwaldAPIV2.Components.Schemas.VarnishConfigFileMetadata;
-      }
-
-      export interface VarnishConfigFileMetadata {
-        name: string;
-        path?: string;
-      }
-
-      export interface VarnishConfigFileRef {
-        meta?: MittwaldAPIV2.Components.Schemas.VarnishConfigFileMetadata;
-        refId?: string;
-      }
-
-      export interface VarnishGlobalConfigTemplate {
-        data: string;
-        name: string;
-        updatedAt: string;
-      }
-
-      export interface VarnishSoftware {
-        config: MittwaldAPIV2.Components.Schemas.VarnishSoftwareConfig;
-        projectId: string;
-        settings?: {
-          [k: string]: string;
-        };
-        softwareId: string;
-        softwareTemplateId: string;
-        softwareVersion: string;
-        updatedAt: string;
-      }
-
-      export interface VarnishSoftwareConfig {
-        configExpiration?: MittwaldAPIV2.Components.Schemas.VarnishConfigExpiration;
-        latestConfigRevision?: number;
-        revisions?: MittwaldAPIV2.Components.Schemas.VarnishConfigRevision[];
-      }
-
-      export interface VarnishConfigExpiration {
-        maxVersions?: number;
-        retentionTime?: number;
-      }
-
-      export interface VarnishSoftwareSetting {
-        name: string;
-        value: string;
-      }
-
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -5917,6 +6152,7 @@ export declare module MittwaldAPIV2 {
 
           export interface RequestBody {
             description: string;
+            targetProjectId?: string;
           }
 
           export type Header = {};
@@ -8481,8 +8717,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2Customercategories {}
-
     namespace V2CustomerCategories {
       namespace Get {
         namespace Parameters {
@@ -8731,8 +8965,6 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
-
-    namespace V2CustomercategoriesCategoryId {}
 
     namespace V2CustomerCategoriesCategoryId {
       namespace Get {
@@ -9881,11 +10113,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MysqlDatabasesId {
+    namespace V2MysqlDatabasesMysqlDatabaseId {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mysqlDatabaseId: string;
           };
 
           export type Header =
@@ -9938,7 +10170,7 @@ export declare module MittwaldAPIV2 {
       namespace Delete {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mysqlDatabaseId: string;
           };
 
           export type Header =
@@ -10002,11 +10234,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MysqlUsersId {
+    namespace V2MysqlUsersMysqlUserId {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mysqlUserId: string;
           };
 
           export type Header =
@@ -10051,7 +10283,7 @@ export declare module MittwaldAPIV2 {
       namespace Put {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mysqlUserId: string;
           };
 
           export interface RequestBody {
@@ -10102,7 +10334,7 @@ export declare module MittwaldAPIV2 {
       namespace Delete {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mysqlUserId: string;
           };
 
           export type Header =
@@ -10150,11 +10382,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2RedisDatabasesId {
+    namespace V2RedisDatabasesRedisDatabaseId {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            id: string;
+            redisDatabaseId: string;
           };
 
           export type Header =
@@ -10207,7 +10439,7 @@ export declare module MittwaldAPIV2 {
       namespace Delete {
         namespace Parameters {
           export type Path = {
-            id: string;
+            redisDatabaseId: string;
           };
 
           export type Header =
@@ -10271,11 +10503,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MysqlUsersIdActionsDisable {
+    namespace V2MysqlUsersMysqlUserIdActionsDisable {
       namespace Post {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mysqlUserId: string;
           };
 
           export interface RequestBody {
@@ -10321,11 +10553,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MysqlUsersIdActionsEnable {
+    namespace V2MysqlUsersMysqlUserIdActionsEnable {
       namespace Post {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mysqlUserId: string;
           };
 
           export interface RequestBody {
@@ -10371,11 +10603,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MysqlUsersIdPhpMyAdminUrl {
+    namespace V2MysqlUsersMysqlUserIdPhpMyAdminUrl {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mysqlUserId: string;
           };
 
           export type Header =
@@ -10559,11 +10791,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MysqlDatabasesIdDefaultCharset {
+    namespace V2MysqlDatabasesMysqlDatabaseIdDefaultCharset {
       namespace Patch {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mysqlDatabaseId: string;
           };
 
           export interface RequestBody {
@@ -10609,11 +10841,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MysqlDatabasesIdDescription {
+    namespace V2MysqlDatabasesMysqlDatabaseIdDescription {
       namespace Patch {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mysqlDatabaseId: string;
           };
 
           export interface RequestBody {
@@ -10659,11 +10891,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MysqlUsersIdPassword {
+    namespace V2MysqlUsersMysqlUserIdPassword {
       namespace Patch {
         namespace Parameters {
           export type Path = {
-            id: string;
+            mysqlUserId: string;
           };
 
           export interface RequestBody {
@@ -10709,11 +10941,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2RedisDatabasesIdConfiguration {
+    namespace V2RedisDatabasesRedisDatabaseIdConfiguration {
       namespace Patch {
         namespace Parameters {
           export type Path = {
-            id: string;
+            redisDatabaseId: string;
           };
 
           export interface RequestBody {
@@ -10759,11 +10991,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2RedisDatabasesIdDescription {
+    namespace V2RedisDatabasesRedisDatabaseIdDescription {
       namespace Patch {
         namespace Parameters {
           export type Path = {
-            id: string;
+            redisDatabaseId: string;
           };
 
           export interface RequestBody {
@@ -10902,297 +11134,7 @@ export declare module MittwaldAPIV2 {
 
     namespace V2SignupEmailVerify {}
 
-    namespace V2DnsZonesZoneIdRecordsetAcombinedCustom {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            zoneId: string;
-          };
-
-          export type RequestBody =
-            | MittwaldAPIV2.Components.Schemas.DnsRecordUnset
-            | MittwaldAPIV2.Components.Schemas.DnsCombinedACustom;
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DnsZonesZoneIdRecordsetAcombinedManagedIngress {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            zoneId: string;
-          };
-
-          export interface RequestBody {}
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export interface ApplicationJson {
-                ingressId: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DnsZonesZoneIdRecordsetCname {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            zoneId: string;
-          };
-
-          export type RequestBody =
-            | MittwaldAPIV2.Components.Schemas.DnsRecordUnset
-            | MittwaldAPIV2.Components.Schemas.DnsRecordCNAMEComponent;
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DnsZonesZoneIdRecordsetMxCustom {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            zoneId: string;
-          };
-
-          export type RequestBody =
-            | MittwaldAPIV2.Components.Schemas.DnsRecordUnset
-            | MittwaldAPIV2.Components.Schemas.DnsRecordMXCustom;
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DnsZonesZoneIdRecordsetMxManaged {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            zoneId: string;
-          };
-
-          export interface RequestBody {}
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DnsZonesZoneIdRecordsetSrv {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            zoneId: string;
-          };
-
-          export type RequestBody =
-            | MittwaldAPIV2.Components.Schemas.DnsRecordUnset
-            | MittwaldAPIV2.Components.Schemas.DnsRecordSRVComponent;
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DnsZonesZoneIdRecordsetTxt {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            zoneId: string;
-          };
-
-          export type RequestBody =
-            | MittwaldAPIV2.Components.Schemas.DnsRecordUnset
-            | MittwaldAPIV2.Components.Schemas.DnsRecordTXTComponent;
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
+    namespace V2DnsZones {}
 
     namespace V2DnsZones {
       namespace Post {
@@ -11237,11 +11179,13 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2DnsZonesZoneId {
+    namespace V2DnsZonesDnsZoneId {}
+
+    namespace V2DnsZonesDnsZoneId {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            zoneId: string;
+            dnsZoneId: string;
           };
 
           export type Header =
@@ -11274,7 +11218,45 @@ export declare module MittwaldAPIV2 {
           }
         }
       }
+
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            dnsZoneId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
     }
+
+    namespace V2ProjectsProjectIdDnsZones {}
 
     namespace V2ProjectsProjectIdDnsZones {
       namespace Get {
@@ -11315,13 +11297,310 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2DnsZonesZoneIdRecordsetAcombinedCustom {}
+
+    namespace V2DnsZonesZoneIdRecordsetAcombinedManagedIngress {}
+
+    namespace V2DnsZonesZoneIdRecordsetCname {}
+
+    namespace V2DnsZonesZoneIdRecordsetMxCustom {}
+
+    namespace V2DnsZonesZoneIdRecordsetMxManaged {}
+
+    namespace V2DnsZonesZoneIdRecordsetSrv {}
+
+    namespace V2DnsZonesZoneIdRecordsetTxt {}
+
+    namespace V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            dnsZoneId: string;
+            recordSet: "a" | "mx";
+          };
+
+          export interface RequestBody {}
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export interface ApplicationJson {
+                ingressId?: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DnsZonesDnsZoneIdRecordSetsRecordSet {
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            dnsZoneId: string;
+            recordSet: "a" | "mx" | "txt" | "srv" | "cname";
+          };
+
+          export type RequestBody =
+            | MittwaldAPIV2.Components.Schemas.DnsRecordUnset
+            | MittwaldAPIV2.Components.Schemas.DnsCombinedACustom
+            | MittwaldAPIV2.Components.Schemas.DnsRecordMXCustom
+            | MittwaldAPIV2.Components.Schemas.DnsRecordTXTComponent
+            | MittwaldAPIV2.Components.Schemas.DnsRecordSRVComponent
+            | MittwaldAPIV2.Components.Schemas.DnsRecordCNAMEComponent;
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DomainsDomainIdDeclarations {}
+
+    namespace V2DomainsDomainIdDeclaration {
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            domainId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2DomainsDomainIdHandlesOwnerc {}
 
     namespace V2DomainsDomainIdProjectId {}
 
-    namespace V2DomainsDomainIdActionsCreateAuthcode {}
+    namespace V2DomainRegistrable {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            domain: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                registrable: boolean;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2Domains {}
 
     namespace V2DomainsDomainIdActionsCreateAuthcode2 {}
+
+    namespace V2DomainsDomainIdActionsAuthCode2 {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            domainId: string;
+          };
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DomainsDomainIdActionsCreateAuthcode {}
+
+    namespace V2DomainsDomainIdActionsAuthCode {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            domainId: string;
+          };
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                authCode: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
     namespace V2DomainsDomainIdNameservers {
       namespace Patch {
@@ -11480,51 +11759,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2DomainsDomainIdScreenshotsNewest {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            domainId: string;
-          };
-
-          export interface RequestBody {
-            domainName: string;
-            path: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                references?: string[];
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2DomainOwnershipsDomainOwnershipId {
       namespace Get {
         namespace Parameters {
@@ -11549,6 +11783,53 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DomainsHandleSchemaDomainName {}
+
+    namespace V2DomainsDomainIdScreenshotsNewest {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            domainId: string;
+          };
+
+          export interface RequestBody {
+            domainName: string;
+            path: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                references?: string[];
               }
             }
           }
@@ -11654,6 +11935,68 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2DomainTldsTldContactSchemas {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            tld: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                jsonSchemaAdminC?: {};
+                jsonSchemaOwnerC: {};
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DomainsSupportedTlds {}
+
+    namespace V2DomainTlds {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DomainTopLevel[];
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2DomainsDomainIdActionsResendEmail {
       namespace Post {
         namespace Parameters {
@@ -11663,6 +12006,169 @@ export declare module MittwaldAPIV2 {
 
           export interface RequestBody {
             [k: string]: unknown;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DomainsDomainIdAuthcode {}
+
+    namespace V2DomainsDomainIdAuthCode {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            domainId: string;
+          };
+
+          export interface RequestBody {
+            authCode: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DomainsDomainIdContactsContact {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            domainId: string;
+            contact: "owner";
+          };
+
+          export interface RequestBody {
+            /**
+             * @minItems 1
+             */
+            contact: [
+              MittwaldAPIV2.Components.Schemas.DomainHandleField,
+              ...MittwaldAPIV2.Components.Schemas.DomainHandleField[]
+            ];
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DomainsDomainIdProjectId {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            domainId: string;
+          };
+
+          export interface RequestBody {
+            projectId?: string;
           }
 
           export type Header =
@@ -14016,7 +14522,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2NotificationsUnreadCounts {
+    namespace V2NotificationsUnreadCounts {}
+
+    namespace V2NotificationUnreadCounts {
       namespace Get {
         namespace Parameters {
           export type Path = {};
@@ -15289,6 +15797,8 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2ProjectsProjectIdFilesystemDirectories {}
+
     namespace V2ProjectsProjectIdFilesystemDirectories {
       namespace Get {
         namespace Parameters {
@@ -15351,7 +15861,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsProjectIdFilesystemUsagesDisk {
+    namespace V2ProjectsProjectIdFilesystemUsagesDisk {}
+
+    namespace V2ProjectsProjectIdFilesystemDiskUsage {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -15408,7 +15920,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsProjectIdFilesystemFilesRaw {
+    namespace V2ProjectsProjectIdFilesystemFilesRaw {}
+
+    namespace V2ProjectsProjectIdFilesystemFileContent {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -15511,6 +16025,8 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
+
+    namespace V2ProjectsProjectIdFilesystemFiles {}
 
     namespace V2ProjectsProjectIdFilesystemFiles {
       namespace Get {
@@ -18884,465 +19400,6 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DomainsDomainIdDeclarations {}
-
-    namespace V2DomainsDomainIdDeclaration {
-      namespace Delete {
-        namespace Parameters {
-          export type Path = {
-            domainId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DomainsHandleSchemaDomainName {}
-
-    namespace V2DomainsSupportedTlds {}
-
-    namespace V2DomainTlds {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DomainTopLevel[];
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DomainTldsTldContactSchemas {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            tld: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                jsonSchemaAdminC?: {};
-                jsonSchemaOwnerC: {};
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DomainsDomainIdAuthcode {}
-
-    namespace V2DomainsDomainIdAuthCode {
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            domainId: string;
-          };
-
-          export interface RequestBody {
-            authCode: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DomainsDomainIdContactsContact {
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            domainId: string;
-            contact: "owner";
-          };
-
-          export interface RequestBody {
-            /**
-             * @minItems 1
-             */
-            contact: [
-              MittwaldAPIV2.Components.Schemas.DomainHandleField,
-              ...MittwaldAPIV2.Components.Schemas.DomainHandleField[]
-            ];
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DomainsDomainIdProjectId {
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            domainId: string;
-          };
-
-          export interface RequestBody {
-            projectId?: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DomainsDomainIdActionsAuthCode {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            domainId: string;
-          };
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                authCode: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DomainsDomainIdActionsAuthCode2 {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            domainId: string;
-          };
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DomainRegistrable {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            domain: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                registrable: boolean;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2Domains {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            domain: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                available: boolean;
-              }
-            }
-          }
-
-          namespace $400 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;

@@ -7,7 +7,7 @@ import { Response } from "@mittwald/api-client-commons";
 import { OpenAPIOperation } from "@mittwald/api-client-commons";
 import { MittwaldAPIV2 } from "./types.js";
 
-/** execute a runtime concerning action on a specific `AppInstallation` */
+/** Execute a runtime concerning action on a specific `AppInstallation`. */
 export const appExecuteAction: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdActionsAction.Post.Parameters.RequestBody>,
@@ -36,7 +36,7 @@ export const appExecuteAction: OpenAPIOperation<
   operationId: "app-execute-action",
 };
 
-/** get a specific `App` */
+/** Get a specific `App`. */
 export const appGetApp: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -65,7 +65,7 @@ export const appGetApp: OpenAPIOperation<
   operationId: "app-get-app",
 };
 
-/** get a specific `AppInstallation` */
+/** Get a specific `AppInstallation`. */
 export const appGetAppinstallation: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -94,7 +94,7 @@ export const appGetAppinstallation: OpenAPIOperation<
   operationId: "app-get-appinstallation",
 };
 
-/** start uninstallation process for a specific `AppInstallation` */
+/** Start uninstallation process for a specific `AppInstallation`. */
 export const appUninstallAppinstallation: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -123,7 +123,7 @@ export const appUninstallAppinstallation: OpenAPIOperation<
   operationId: "app-uninstall-appinstallation",
 };
 
-/** patch desired properties of a specific `AppInstallation` */
+/** Patch desired properties of a specific `AppInstallation`. */
 export const appPatchAppinstallation: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Patch.Parameters.RequestBody>,
@@ -152,7 +152,7 @@ export const appPatchAppinstallation: OpenAPIOperation<
   operationId: "app-patch-appinstallation",
 };
 
-/** get a specific `AppVersion` */
+/** Get a specific `AppVersion`. */
 export const appGetAppversion: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -181,7 +181,7 @@ export const appGetAppversion: OpenAPIOperation<
   operationId: "app-get-appversion",
 };
 
-/** get the missing requirements of an appInstallation for a specific target AppVersion */
+/** Get the missing requirements of an appInstallation for a specific target AppVersion. */
 export const appGetMissingDependenciesForAppinstallation: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -210,7 +210,7 @@ export const appGetMissingDependenciesForAppinstallation: OpenAPIOperation<
   operationId: "app-get-missing-dependencies-for-appinstallation",
 };
 
-/** get a specific `SystemSoftware` */
+/** Get a specific `SystemSoftware`. */
 export const appGetSystemsoftware: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -239,7 +239,7 @@ export const appGetSystemsoftware: OpenAPIOperation<
   operationId: "app-get-systemsoftware",
 };
 
-/** get a specific `SystemSoftwareVersion` */
+/** Get a specific `SystemSoftwareVersion`. */
 export const appGetSystemsoftwareversion: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -268,7 +268,7 @@ export const appGetSystemsoftwareversion: OpenAPIOperation<
   operationId: "app-get-systemsoftwareversion",
 };
 
-/** create linkage between an `AppInstallation` and a `Database` */
+/** Create linkage between an `AppInstallation` and a MySql-`Database`. */
 export const appLinkDatabase: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabases.Put.Parameters.RequestBody>,
@@ -297,7 +297,7 @@ export const appLinkDatabase: OpenAPIOperation<
   operationId: "app-link-database",
 };
 
-/** get all `AppInstallations` inside a specific `Project` */
+/** Get all `AppInstallations` inside a specific `Project`. */
 export const appListAppinstallations: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -321,7 +321,7 @@ export const appListAppinstallations: OpenAPIOperation<
   operationId: "app-list-appinstallations",
 };
 
-/** request a new `AppInstallation` */
+/** Request a new `AppInstallation`. */
 export const appRequestAppinstallation: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Post.Parameters.RequestBody>,
@@ -350,7 +350,7 @@ export const appRequestAppinstallation: OpenAPIOperation<
   operationId: "app-request-appinstallation",
 };
 
-/** get all available `Apps` */
+/** Get all available `Apps`. */
 export const appListApps: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -374,7 +374,7 @@ export const appListApps: OpenAPIOperation<
   operationId: "app-list-apps",
 };
 
-/** get all `AppVersions` of a specific `App` */
+/** Get all `AppVersions` of a specific `App`. */
 export const appListAppversions: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -398,7 +398,7 @@ export const appListAppversions: OpenAPIOperation<
   operationId: "app-list-appversions",
 };
 
-/** get all available `SystemSoftware` */
+/** Get all available `SystemSoftware`. */
 export const appListSystemsoftwares: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -422,7 +422,7 @@ export const appListSystemsoftwares: OpenAPIOperation<
   operationId: "app-list-systemsoftwares",
 };
 
-/** get all available `SystemSoftwareVersions` of a specific `SystemSoftware` */
+/** Get all available `SystemSoftwareVersions` of a specific `SystemSoftware`. */
 export const appListSystemsoftwareversions: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -446,7 +446,7 @@ export const appListSystemsoftwareversions: OpenAPIOperation<
   operationId: "app-list-systemsoftwareversions",
 };
 
-/** get all update candidates for a specific `AppVersion` */
+/** Get all update candidates for a specific `AppVersion`. */
 export const appListUpdateCandidatesForAppversion: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -470,7 +470,7 @@ export const appListUpdateCandidatesForAppversion: OpenAPIOperation<
   operationId: "app-list-update-candidates-for-appversion",
 };
 
-/** request a copy of an `AppInstallation` */
+/** Request a copy of an `AppInstallation`. */
 export const appRequestAppinstallationCopy: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsCopy.Post.Parameters.RequestBody>,
@@ -499,7 +499,7 @@ export const appRequestAppinstallationCopy: OpenAPIOperation<
   operationId: "app-request-appinstallation-copy",
 };
 
-/** get runtime status of a specific `AppInstallation` */
+/** Get runtime status of a specific `AppInstallation`. */
 export const appRetrieveStatus: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -528,7 +528,7 @@ export const appRetrieveStatus: OpenAPIOperation<
   operationId: "app-retrieve-status",
 };
 
-/** create linkage between an `AppInstallation` and `DatabaseUsers` */
+/** Create linkage between an `AppInstallation` and `DatabaseUsers`. */
 export const appSetDatabaseUsers: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.RequestBody>,
@@ -557,7 +557,7 @@ export const appSetDatabaseUsers: OpenAPIOperation<
   operationId: "app-set-database-users",
 };
 
-/** remove linkage between an `AppInstallation` and a `Database` */
+/** Remove linkage between an `AppInstallation` and a `Database`. */
 export const appUnlinkDatabase: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -3188,37 +3188,37 @@ export const databaseCreateRedisDatabase: OpenAPIOperation<
 export const databaseGetMysqlDatabase: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesId.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesId.Get.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesId.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesId.Get.Responses.$500.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Get.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesId.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/mysql-databases/{id}",
+  path: "/v2/mysql-databases/{mysqlDatabaseId}",
   method: "GET",
   operationId: "database-get-mysql-database",
 };
@@ -3227,47 +3227,47 @@ export const databaseGetMysqlDatabase: OpenAPIOperation<
 export const databaseDeleteMysqlDatabase: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesId.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesId.Delete.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesId.Delete.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Delete.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesId.Delete.Responses.$200.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Delete.Responses.$200.Content.Empty>,
       200,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesId.Delete.Responses.$204.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Delete.Responses.$204.Content.Empty>,
       204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesId.Delete.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Delete.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesId.Delete.Responses.$412.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Delete.Responses.$412.Content.ApplicationJson>,
       412,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesId.Delete.Responses.$500.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Delete.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesId.Delete.Responses.$503.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Delete.Responses.$503.Content.ApplicationJson>,
       503,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesId.Delete.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/mysql-databases/{id}",
+  path: "/v2/mysql-databases/{mysqlDatabaseId}",
   method: "DELETE",
   operationId: "database-delete-mysql-database",
 };
@@ -3276,32 +3276,32 @@ export const databaseDeleteMysqlDatabase: OpenAPIOperation<
 export const databaseGetMysqlUser: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Get.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/mysql-users/{id}",
+  path: "/v2/mysql-users/{mysqlUserId}",
   method: "GET",
   operationId: "database-get-mysql-user",
 };
@@ -3309,33 +3309,33 @@ export const databaseGetMysqlUser: OpenAPIOperation<
 /** Update a MySQLUser. */
 export const databaseUpdateMysqlUser: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Put.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Put.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Put.Responses.$200.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Put.Responses.$200.Content.Empty>,
       200,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Put.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Put.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Put.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Put.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Put.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Put.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/mysql-users/{id}",
+  path: "/v2/mysql-users/{mysqlUserId}",
   method: "PUT",
   operationId: "database-update-mysql-user",
 };
@@ -3344,37 +3344,37 @@ export const databaseUpdateMysqlUser: OpenAPIOperation<
 export const databaseDeleteMysqlUser: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Delete.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Delete.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Delete.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Delete.Responses.$200.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Delete.Responses.$200.Content.Empty>,
       200,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Delete.Responses.$204.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Delete.Responses.$204.Content.Empty>,
       204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Delete.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Delete.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Delete.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Delete.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersId.Delete.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/mysql-users/{id}",
+  path: "/v2/mysql-users/{mysqlUserId}",
   method: "DELETE",
   operationId: "database-delete-mysql-user",
 };
@@ -3383,37 +3383,37 @@ export const databaseDeleteMysqlUser: OpenAPIOperation<
 export const databaseGetRedisDatabase: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesId.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesId.Get.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesId.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesId.Get.Responses.$500.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Get.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesId.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/redis-databases/{id}",
+  path: "/v2/redis-databases/{redisDatabaseId}",
   method: "GET",
   operationId: "database-get-redis-database",
 };
@@ -3422,47 +3422,47 @@ export const databaseGetRedisDatabase: OpenAPIOperation<
 export const databaseDeleteRedisDatabase: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesId.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesId.Delete.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesId.Delete.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Delete.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesId.Delete.Responses.$200.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Delete.Responses.$200.Content.Empty>,
       200,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesId.Delete.Responses.$204.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Delete.Responses.$204.Content.Empty>,
       204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesId.Delete.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Delete.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesId.Delete.Responses.$412.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Delete.Responses.$412.Content.ApplicationJson>,
       412,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesId.Delete.Responses.$500.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Delete.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesId.Delete.Responses.$503.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Delete.Responses.$503.Content.ApplicationJson>,
       503,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesId.Delete.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/redis-databases/{id}",
+  path: "/v2/redis-databases/{redisDatabaseId}",
   method: "DELETE",
   operationId: "database-delete-redis-database",
 };
@@ -3470,33 +3470,33 @@ export const databaseDeleteRedisDatabase: OpenAPIOperation<
 /** Disable a MySQLUser. */
 export const databaseDisableMysqlUser: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdActionsDisable.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdActionsDisable.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdActionsDisable.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdActionsDisable.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsDisable.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsDisable.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsDisable.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsDisable.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdActionsDisable.Post.Responses.$200.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsDisable.Post.Responses.$200.Content.Empty>,
       200,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdActionsDisable.Post.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsDisable.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdActionsDisable.Post.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsDisable.Post.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdActionsDisable.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsDisable.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/mysql-users/{id}/actions/disable",
+  path: "/v2/mysql-users/{mysqlUserId}/actions/disable",
   method: "POST",
   operationId: "database-disable-mysql-user",
 };
@@ -3504,33 +3504,33 @@ export const databaseDisableMysqlUser: OpenAPIOperation<
 /** Enable a MySQLUser. */
 export const databaseEnableMysqlUser: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdActionsEnable.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdActionsEnable.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdActionsEnable.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdActionsEnable.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsEnable.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsEnable.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsEnable.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsEnable.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdActionsEnable.Post.Responses.$200.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsEnable.Post.Responses.$200.Content.Empty>,
       200,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdActionsEnable.Post.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsEnable.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdActionsEnable.Post.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsEnable.Post.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdActionsEnable.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsEnable.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/mysql-users/{id}/actions/enable",
+  path: "/v2/mysql-users/{mysqlUserId}/actions/enable",
   method: "POST",
   operationId: "database-enable-mysql-user",
 };
@@ -3539,32 +3539,32 @@ export const databaseEnableMysqlUser: OpenAPIOperation<
 export const databaseGetMysqlUserPhpMyAdminUrl: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdPhpMyAdminUrl.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdPhpMyAdminUrl.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdPhpMyAdminUrl.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPhpMyAdminUrl.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPhpMyAdminUrl.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPhpMyAdminUrl.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdPhpMyAdminUrl.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPhpMyAdminUrl.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdPhpMyAdminUrl.Get.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPhpMyAdminUrl.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdPhpMyAdminUrl.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPhpMyAdminUrl.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdPhpMyAdminUrl.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPhpMyAdminUrl.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/mysql-users/{id}/php-my-admin-url",
+  path: "/v2/mysql-users/{mysqlUserId}/php-my-admin-url",
   method: "GET",
   operationId: "database-get-mysql-user-php-my-admin-url",
 };
@@ -3674,33 +3674,33 @@ export const databaseListRedisVersions: OpenAPIOperation<
 /** Update a MySQLDatabase's default character settings. */
 export const databaseUpdateMysqlDatabaseDefaultCharset: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesIdDefaultCharset.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesIdDefaultCharset.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesIdDefaultCharset.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesIdDefaultCharset.Patch.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesIdDefaultCharset.Patch.Responses.$200.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.$200.Content.Empty>,
       200,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesIdDefaultCharset.Patch.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesIdDefaultCharset.Patch.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesIdDefaultCharset.Patch.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/mysql-databases/{id}/default-charset",
+  path: "/v2/mysql-databases/{mysqlDatabaseId}/default-charset",
   method: "PATCH",
   operationId: "database-update-mysql-database-default-charset",
 };
@@ -3708,33 +3708,33 @@ export const databaseUpdateMysqlDatabaseDefaultCharset: OpenAPIOperation<
 /** Update a MySQLDatabase's description. */
 export const databaseUpdateMysqlDatabaseDescription: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesIdDescription.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesIdDescription.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesIdDescription.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesIdDescription.Patch.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesIdDescription.Patch.Responses.$200.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.$200.Content.Empty>,
       200,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesIdDescription.Patch.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/mysql-databases/{id}/description",
+  path: "/v2/mysql-databases/{mysqlDatabaseId}/description",
   method: "PATCH",
   operationId: "database-update-mysql-database-description",
 };
@@ -3742,33 +3742,33 @@ export const databaseUpdateMysqlDatabaseDescription: OpenAPIOperation<
 /** Update a MySQLUser's password. */
 export const databaseUpdateMysqlUserPassword: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdPassword.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdPassword.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdPassword.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdPassword.Patch.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPassword.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPassword.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPassword.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPassword.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdPassword.Patch.Responses.$200.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPassword.Patch.Responses.$200.Content.Empty>,
       200,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdPassword.Patch.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPassword.Patch.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdPassword.Patch.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPassword.Patch.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersIdPassword.Patch.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPassword.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/mysql-users/{id}/password",
+  path: "/v2/mysql-users/{mysqlUserId}/password",
   method: "PATCH",
   operationId: "database-update-mysql-user-password",
 };
@@ -3776,33 +3776,33 @@ export const databaseUpdateMysqlUserPassword: OpenAPIOperation<
 /** Update a RedisDatabase's configuration. */
 export const databaseUpdateRedisDatabaseConfiguration: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdConfiguration.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdConfiguration.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdConfiguration.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdConfiguration.Patch.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdConfiguration.Patch.Responses.$200.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.$200.Content.Empty>,
       200,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdConfiguration.Patch.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdConfiguration.Patch.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdConfiguration.Patch.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/redis-databases/{id}/configuration",
+  path: "/v2/redis-databases/{redisDatabaseId}/configuration",
   method: "PATCH",
   operationId: "database-update-redis-database-configuration",
 };
@@ -3810,33 +3810,33 @@ export const databaseUpdateRedisDatabaseConfiguration: OpenAPIOperation<
 /** Update a RedisDatabase's description. */
 export const databaseUpdateRedisDatabaseDescription: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdDescription.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdDescription.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdDescription.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdDescription.Patch.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdDescription.Patch.Responses.$200.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Responses.$200.Content.Empty>,
       200,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdDescription.Patch.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/redis-databases/{id}/description",
+  path: "/v2/redis-databases/{redisDatabaseId}/description",
   method: "PATCH",
   operationId: "database-update-redis-database-description",
 };
@@ -3870,211 +3870,8 @@ export const newsletterSubscribeUser: OpenAPIOperation<
   operationId: "newsletter-subscribe-user",
 };
 
-/** updates a-records for a specific zone */
-export const dnsRecordAsetCustom: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedCustom.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedCustom.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedCustom.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedCustom.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedCustom.Put.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedCustom.Put.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedCustom.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/dns/zones/{zoneId}/recordset/acombined/custom",
-  method: "PUT",
-  operationId: "dns-record-a-set-custom",
-};
-
-/** set a-records managed by ingress for a specific zone */
-export const dnsRecordAsetManagedByIngress: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Responses.$204.Content.ApplicationJson>,
-      204,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/dns/zones/{zoneId}/recordset/acombined/managed/ingress",
-  method: "POST",
-  operationId: "dns-record-a-set-managed-by-ingress",
-};
-
-/** updates cname-record for a specific zone */
-export const dnsRecordCnameSet: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetCname.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetCname.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetCname.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetCname.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetCname.Put.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetCname.Put.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetCname.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/dns/zones/{zoneId}/recordset/cname",
-  method: "PUT",
-  operationId: "dns-record-cname-set",
-};
-
-/** updates mx-records for a specific zone */
-export const dnsRecordMxSetCustom: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxCustom.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxCustom.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxCustom.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxCustom.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxCustom.Put.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxCustom.Put.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxCustom.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/dns/zones/{zoneId}/recordset/mx/custom",
-  method: "PUT",
-  operationId: "dns-record-mx-set-custom",
-};
-
-/** sets mx-records to managed for a specific zone */
-export const dnsRecordMxSetManaged: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxManaged.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxManaged.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxManaged.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxManaged.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxManaged.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxManaged.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxManaged.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/dns/zones/{zoneId}/recordset/mx/managed",
-  method: "POST",
-  operationId: "dns-record-mx-set-managed",
-};
-
-/** updates srv-records for a specific zone */
-export const dnsRecordSrvSet: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Put.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Put.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/dns/zones/{zoneId}/recordset/srv",
-  method: "PUT",
-  operationId: "dns-record-srv-set",
-};
-
-/** updates txt-records for a specific zone */
-export const dnsRecordTxtSet: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetTxt.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetTxt.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetTxt.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetTxt.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetTxt.Put.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetTxt.Put.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetTxt.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/dns/zones/{zoneId}/recordset/txt",
-  method: "PUT",
-  operationId: "dns-record-txt-set",
-};
-
-/** creates a sub zone for a given dns zone */
-export const dnsSubZoneCreate: OpenAPIOperation<
+/** Create a DNSZone. */
+export const dnsCreateDnsZone: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.Path>,
@@ -4097,42 +3894,71 @@ export const dnsSubZoneCreate: OpenAPIOperation<
       "application/json"
     >
 > = {
-  path: "/v2/dns/zones",
+  path: "/v2/dns-zones",
   method: "POST",
-  operationId: "dns-sub-zone-create",
+  operationId: "dns-create-dns-zone",
 };
 
-/** gets a specific zone */
-export const dnsZoneGetSpecific: OpenAPIOperation<
+/** Get a DNSZone. */
+export const dnsGetDnsZone: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneId.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneId.Get.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneId.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/dns/zones/{zoneId}",
+  path: "/v2/dns-zones/{dnsZoneId}",
   method: "GET",
-  operationId: "dns-zone-get-specific",
+  operationId: "dns-get-dns-zone",
 };
 
-/** gets all dns zones by project id */
-export const dnsZonesForProject: OpenAPIOperation<
+/** Delete a DNSZone. */
+export const dnsDeleteDnsZone: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns-zones/{dnsZoneId}",
+  method: "DELETE",
+  operationId: "dns-delete-dns-zone",
+};
+
+/** List DNSZones belonging to a Project. */
+export const dnsListDnsZones: OpenAPIOperation<
   RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Parameters.Path>,
@@ -4155,9 +3981,198 @@ export const dnsZonesForProject: OpenAPIOperation<
       "application/json"
     >
 > = {
-  path: "/v2/projects/{projectId}/dns/zones",
+  path: "/v2/projects/{projectId}/dns-zones",
   method: "GET",
-  operationId: "dns-zones-for-project",
+  operationId: "dns-list-dns-zones",
+};
+
+/** Set a record set on a DNSZone to managed. */
+export const dnsSetRecordSetManaged: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Responses.$204.Content.ApplicationJson>,
+      204,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns-zones/{dnsZoneId}/record-sets/{recordSet}/actions/set-managed",
+  method: "POST",
+  operationId: "dns-set-record-set-managed",
+};
+
+/** Update a record set on a DNSZone. */
+export const dnsUpdateRecordSet: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSet.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSet.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSet.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSet.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSet.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSet.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSet.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns-zones/{dnsZoneId}/record-sets/{recordSet}",
+  method: "PUT",
+  operationId: "dns-update-record-set",
+};
+
+/** Abort a Domain declaration. */
+export const domainAbortDomainDeclaration: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/declaration",
+  method: "DELETE",
+  operationId: "domain-abort-domain-declaration",
+};
+
+/** Check if a Domain is available to register. */
+export const domainCheckDomainRegistrability: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domain-registrable",
+  method: "POST",
+  operationId: "domain-check-domain-registrability",
+};
+
+/** Create an auth code 2. */
+export const domainCreateDomainAuthCode2: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/actions/auth-code-2",
+  method: "POST",
+  operationId: "domain-create-domain-auth-code-2",
+};
+
+/** Create an auth code for a Domains transfer-out process. */
+export const domainCreateDomainAuthCode: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/actions/auth-code",
+  method: "POST",
+  operationId: "domain-create-domain-auth-code",
 };
 
 /** Update the nameservers of a Domain. */
@@ -4262,35 +4277,6 @@ export const domainDeleteDomain: OpenAPIOperation<
   operationId: "domain-delete-domain",
 };
 
-/** Get File Service Reference for a Screenshot of a domain. */
-export const domainGetScreenshotForDomain: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domains/{domainId}/screenshots/newest",
-  method: "GET",
-  operationId: "domain-get-screenshot-for-domain",
-};
-
 /** Get a DomainOwnership. */
 export const domainGetDomainOwnership: OpenAPIOperation<
   RequestType<
@@ -4323,6 +4309,35 @@ export const domainGetDomainOwnership: OpenAPIOperation<
   path: "/v2/domain-ownerships/{domainOwnershipId}",
   method: "GET",
   operationId: "domain-get-domain-ownership",
+};
+
+/** Get File Service Reference for a Screenshot of a domain. */
+export const domainGetScreenshotForDomain: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/screenshots/newest",
+  method: "GET",
+  operationId: "domain-get-screenshot-for-domain",
 };
 
 /** List the DomainOwnerships of a project. */
@@ -4383,6 +4398,54 @@ export const domainListDomains: OpenAPIOperation<
   operationId: "domain-list-domains",
 };
 
+/** List the contact schemas for a TLD. */
+export const domainListTldContactSchemas: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainTldsTldContactSchemas.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainTldsTldContactSchemas.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainTldsTldContactSchemas.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainTldsTldContactSchemas.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainTldsTldContactSchemas.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domain-tlds/{tld}/contact-schemas",
+  method: "GET",
+  operationId: "domain-list-tld-contact-schemas",
+};
+
+/** List TLDs. */
+export const domainListTlds: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainTlds.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainTlds.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainTlds.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainTlds.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainTlds.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domain-tlds",
+  method: "GET",
+  operationId: "domain-list-tlds",
+};
+
 /** Resend a Domain email. */
 export const domainResendDomainEmail: OpenAPIOperation<
   RequestType<
@@ -4415,6 +4478,108 @@ export const domainResendDomainEmail: OpenAPIOperation<
   path: "/v2/domains/{domainId}/actions/resend-email",
   method: "POST",
   operationId: "domain-resend-domain-email",
+};
+
+/** Update the auth code of a Domain. */
+export const domainUpdateDomainAuthCode: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/auth-code",
+  method: "PATCH",
+  operationId: "domain-update-domain-auth-code",
+};
+
+/** Update a contact of a Domain. */
+export const domainUpdateDomainContact: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/contacts/{contact}",
+  method: "PATCH",
+  operationId: "domain-update-domain-contact",
+};
+
+/** Update a Domain's project id. */
+export const domainUpdateDomainProjectId: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/project-id",
+  method: "PATCH",
+  operationId: "domain-update-domain-project-id",
 };
 
 /** Verify a DomainOwnership. */
@@ -5987,22 +6152,22 @@ export const newsletterUnsubscribeUser: OpenAPIOperation<
 export const notificationsCountUnreadNotifications: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2NotificationsUnreadCounts.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2NotificationsUnreadCounts.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2NotificationsUnreadCounts.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2NotificationUnreadCounts.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationUnreadCounts.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationUnreadCounts.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2NotificationsUnreadCounts.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2NotificationUnreadCounts.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2NotificationsUnreadCounts.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2NotificationUnreadCounts.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/notifications/unread-counts",
+  path: "/v2/notification-unread-counts",
   method: "GET",
   operationId: "notifications-count-unread-notifications",
 };
@@ -6883,7 +7048,7 @@ export const projectFileSystemGetDirectories: OpenAPIOperation<
       "application/json"
     >
 > = {
-  path: "/v2/projects/{projectId}/filesystem/directories",
+  path: "/v2/projects/{projectId}/filesystem-directories",
   method: "GET",
   operationId: "project-file-system-get-directories",
 };
@@ -6892,37 +7057,37 @@ export const projectFileSystemGetDirectories: OpenAPIOperation<
 export const projectFileSystemGetDiskUsage: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemUsagesDisk.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemUsagesDisk.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemUsagesDisk.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDiskUsage.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDiskUsage.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDiskUsage.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemUsagesDisk.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDiskUsage.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemUsagesDisk.Get.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDiskUsage.Get.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemUsagesDisk.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDiskUsage.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemUsagesDisk.Get.Responses.$503.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDiskUsage.Get.Responses.$503.Content.ApplicationJson>,
       503,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemUsagesDisk.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDiskUsage.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/projects/{projectId}/filesystem/usages/disk",
+  path: "/v2/projects/{projectId}/filesystem-disk-usage",
   method: "GET",
   operationId: "project-file-system-get-disk-usage",
 };
@@ -6931,37 +7096,37 @@ export const projectFileSystemGetDiskUsage: OpenAPIOperation<
 export const projectFileSystemGetFileContent: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesRaw.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesRaw.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesRaw.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFileContent.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFileContent.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFileContent.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesRaw.Get.Responses.$200.Content.TextPlain>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFileContent.Get.Responses.$200.Content.TextPlain>,
       200,
       "text/plain"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesRaw.Get.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFileContent.Get.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesRaw.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFileContent.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesRaw.Get.Responses.$503.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFileContent.Get.Responses.$503.Content.ApplicationJson>,
       503,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesRaw.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFileContent.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/projects/{projectId}/filesystem/files/raw",
+  path: "/v2/projects/{projectId}/filesystem-file-content",
   method: "GET",
   operationId: "project-file-system-get-file-content",
 };
@@ -7034,7 +7199,7 @@ export const projectFileSystemListFiles: OpenAPIOperation<
       "application/json"
     >
 > = {
-  path: "/v2/projects/{projectId}/filesystem/files",
+  path: "/v2/projects/{projectId}/filesystem-files",
   method: "GET",
   operationId: "project-file-system-list-files",
 };
@@ -9203,314 +9368,4 @@ export const userVerifyRegistration: OpenAPIOperation<
   path: "/v2/verify-registration",
   method: "POST",
   operationId: "user-verify-registration",
-};
-
-/** Abort a Domain declaration. */
-export const domainAbortDomainDeclaration: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domains/{domainId}/declaration",
-  method: "DELETE",
-  operationId: "domain-abort-domain-declaration",
-};
-
-/** List TLDs. */
-export const domainListTlds: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainTlds.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainTlds.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainTlds.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainTlds.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainTlds.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domain-tlds",
-  method: "GET",
-  operationId: "domain-list-tlds",
-};
-
-/** List the contact schemas for a TLD. */
-export const domainListTldContactSchemas: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainTldsTldContactSchemas.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainTldsTldContactSchemas.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainTldsTldContactSchemas.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainTldsTldContactSchemas.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainTldsTldContactSchemas.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domain-tlds/{tld}/contact-schemas",
-  method: "GET",
-  operationId: "domain-list-tld-contact-schemas",
-};
-
-/** Update the auth code of a Domain. */
-export const domainUpdateDomainAuthCode: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domains/{domainId}/auth-code",
-  method: "PATCH",
-  operationId: "domain-update-domain-auth-code",
-};
-
-/** Update a contact of a Domain. */
-export const domainUpdateDomainContact: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domains/{domainId}/contacts/{contact}",
-  method: "PATCH",
-  operationId: "domain-update-domain-contact",
-};
-
-/** Update a Domain's project id. */
-export const domainUpdateDomainProjectId: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domains/{domainId}/project-id",
-  method: "PATCH",
-  operationId: "domain-update-domain-project-id",
-};
-
-/** Create an auth code for a Domains transfer-out process. */
-export const domainCreateDomainAuthCode: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domains/{domainId}/actions/auth-code",
-  method: "POST",
-  operationId: "domain-create-domain-auth-code",
-};
-
-/** Create an auth code 2. */
-export const domainCreateDomainAuthCode2: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domains/{domainId}/actions/auth-code-2",
-  method: "POST",
-  operationId: "domain-create-domain-auth-code-2",
-};
-
-/** Check if a Domain is available to register. */
-export const domainCheckDomainRegistrability: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domain-registrable",
-  method: "POST",
-  operationId: "domain-check-domain-registrability",
-};
-
-/** Check if a Domain is available to register. */
-export const domainCheckDomainRegistrabilityV2Deprecated: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2Domains.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2Domains.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2Domains.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2Domains.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Domains.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Domains.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Domains.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domains",
-  method: "POST",
-  operationId: "domain-check-domain-registrability-v2-deprecated",
 };

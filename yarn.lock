@@ -1033,7 +1033,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mittwald/api-client-commons@workspace:^, @mittwald/api-client-commons@workspace:packages/commons":
+"@mittwald/api-client-commons@npm:^4.0.0, @mittwald/api-client-commons@workspace:^, @mittwald/api-client-commons@workspace:packages/commons":
   version: 0.0.0-use.local
   resolution: "@mittwald/api-client-commons@workspace:packages/commons"
   dependencies:
@@ -1058,7 +1058,40 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@mittwald/api-client@workspace:^, @mittwald/api-client@workspace:packages/mittwald":
+"@mittwald/api-client-commons@npm:^4.2.0-alpha.4":
+  version: 4.2.0-alpha.4
+  resolution: "@mittwald/api-client-commons@npm:4.2.0-alpha.4"
+  dependencies:
+    "@types/parse-path": "npm:^7.0.2"
+    axios: "npm:^1.6.0"
+    parse-path: "npm:^7.0.0"
+    path-to-regexp: "npm:^6.2.1"
+    type-fest: "npm:^4.6.0"
+  peerDependencies:
+    "@mittwald/react-use-promise": ^1.3.2
+  peerDependenciesMeta:
+    "@mittwald/react-use-promise":
+      optional: true
+  checksum: ac6ebdf9a88b02d76ca78f67764ba57e7c74a61cb94c4793d3f5b278205a3e54b1f8edabded366223c472bea23d94e7e64aa8273b93f7c982786392b478535de
+  languageName: node
+  linkType: hard
+
+"@mittwald/api-client@npm:3.0.29":
+  version: 3.0.29
+  resolution: "@mittwald/api-client@npm:3.0.29"
+  dependencies:
+    "@mittwald/api-client-commons": "npm:^4.0.0"
+    browser-or-node: "npm:^2.1.1"
+  peerDependencies:
+    "@mittwald/react-use-promise": ^1.3.2
+  peerDependenciesMeta:
+    "@mittwald/react-use-promise":
+      optional: true
+  checksum: 53471d5f8e79ec98b014dfbf4814fd62b0b518f7b9472a86f69988c63446e434f08876e67b08af73544a7f2d22be4014f33c140525c4c8ae3b411378f6ab4bd3
+  languageName: node
+  linkType: hard
+
+"@mittwald/api-client@workspace:packages/mittwald":
   version: 0.0.0-use.local
   resolution: "@mittwald/api-client@workspace:packages/mittwald"
   dependencies:
@@ -1122,8 +1155,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@mittwald/api-models@workspace:packages/models"
   dependencies:
-    "@mittwald/api-client": "workspace:^"
-    "@mittwald/api-client-commons": "workspace:^"
+    "@mittwald/api-client": "npm:3.0.29"
+    "@mittwald/api-client-commons": "npm:^4.2.0-alpha.4"
     "@mittwald/react-use-promise": "npm:^1.3.6"
     "@types/react": "npm:^18.2.36"
     another-deep-freeze: "npm:^1.0.0"

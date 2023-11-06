@@ -1,3 +1,16 @@
 {
-  "extends": "./tsconfig.esm.json"
+  "compilerOptions": {
+    "rootDir": "./src",
+    "paths": {
+      "@mittwald/api-client-commons/*": ["./../commons/*"]
+    }
+  },
+  "exclude": ["test-d/**/*", "*.test.ts"],
+  "extends": "../../tsconfig.packages.json",
+  "include": ["src/**/*.ts"],
+  "references": [
+    {
+      "path": "../commons"
+    }
+  ]
 }

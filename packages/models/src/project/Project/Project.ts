@@ -58,7 +58,7 @@ export class ProjectProxy extends ProxyModel {
   }
 }
 
-export class ProjectBase extends classes(
+class ProjectBase extends classes(
   DataModel<ProjectCompactData | ProjectData>,
   ProjectProxy,
 ) {
@@ -70,10 +70,9 @@ export class ProjectBase extends classes(
   }
 }
 
-export class ProjectDetailed extends classes(
-  ProjectBase,
-  DataModel<ProjectData>,
-) {
+export class ProjectDetailed extends classes<
+  [typeof ProjectBase, typeof DataModel<ProjectData>]
+>(ProjectBase, DataModel<ProjectData>) {
   public constructor(data: ProjectData) {
     super([data], [data]);
   }
@@ -98,10 +97,9 @@ export class ProjectDetailed extends classes(
   );
 }
 
-export class ProjectListItem extends classes(
-  ProjectBase,
-  DataModel<ProjectCompactData>,
-) {
+export class ProjectListItem extends classes<
+  [typeof ProjectBase, typeof DataModel<ProjectCompactData>]
+>(ProjectBase, DataModel<ProjectCompactData>) {
   public constructor(data: ProjectCompactData) {
     super([data], [data]);
   }

@@ -70,10 +70,9 @@ export class ServerBase extends classes(
   }
 }
 
-export class ServerListItem extends classes(
-  ServerBase,
-  DataModel<ServerCompactData>,
-) {
+export class ServerListItem extends classes<
+  [typeof ServerBase, typeof DataModel<ServerCompactData>]
+>(ServerBase, DataModel<ServerCompactData>) {
   public static list = withAsyncResourceVariant(
     async (query: ServerListQuery = {}): Promise<ServerListItem[]> => {
       const projectListData = await config.behaviors.server.list(query);
@@ -82,7 +81,9 @@ export class ServerListItem extends classes(
   );
 }
 
-export class ServerDetailed extends classes(ServerBase, DataModel<ServerData>) {
+export class ServerDetailed extends classes<
+  [typeof ServerBase, typeof DataModel<ServerData>]
+>(ServerBase, DataModel<ServerData>) {
   public static find = withAsyncResourceVariant(
     async (id: string): Promise<Server | undefined> => {
       const serverData = await config.behaviors.server.find(
