@@ -7,75 +7,75 @@ import { ApiClientBase } from "@mittwald/api-client-commons";
 export class MittwaldAPIV2Client extends ApiClientBase {
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app = {
-    /** execute a runtime concerning action on a specific `AppInstallation` */
+    /** Execute a runtime concerning action on a specific `AppInstallation`. */
     executeAction: this.requestFunctionFactory(descriptors.appExecuteAction),
-    /** get a specific `App` */
+    /** Get a specific `App`. */
     getApp: this.requestFunctionFactory(descriptors.appGetApp),
-    /** get a specific `AppInstallation` */
+    /** Get a specific `AppInstallation`. */
     getAppinstallation: this.requestFunctionFactory(
       descriptors.appGetAppinstallation
     ),
-    /** start uninstallation process for a specific `AppInstallation` */
+    /** Start uninstallation process for a specific `AppInstallation`. */
     uninstallAppinstallation: this.requestFunctionFactory(
       descriptors.appUninstallAppinstallation
     ),
-    /** patch desired properties of a specific `AppInstallation` */
+    /** Patch desired properties of a specific `AppInstallation`. */
     patchAppinstallation: this.requestFunctionFactory(
       descriptors.appPatchAppinstallation
     ),
-    /** get a specific `AppVersion` */
+    /** Get a specific `AppVersion`. */
     getAppversion: this.requestFunctionFactory(descriptors.appGetAppversion),
-    /** get the missing requirements of an appInstallation for a specific target AppVersion */
+    /** Get the missing requirements of an appInstallation for a specific target AppVersion. */
     getMissingDependenciesForAppinstallation: this.requestFunctionFactory(
       descriptors.appGetMissingDependenciesForAppinstallation
     ),
-    /** get a specific `SystemSoftware` */
+    /** Get a specific `SystemSoftware`. */
     getSystemsoftware: this.requestFunctionFactory(
       descriptors.appGetSystemsoftware
     ),
-    /** get a specific `SystemSoftwareVersion` */
+    /** Get a specific `SystemSoftwareVersion`. */
     getSystemsoftwareversion: this.requestFunctionFactory(
       descriptors.appGetSystemsoftwareversion
     ),
-    /** create linkage between an `AppInstallation` and a `Database` */
+    /** Create linkage between an `AppInstallation` and a MySql-`Database`. */
     linkDatabase: this.requestFunctionFactory(descriptors.appLinkDatabase),
-    /** get all `AppInstallations` inside a specific `Project` */
+    /** Get all `AppInstallations` inside a specific `Project`. */
     listAppinstallations: this.requestFunctionFactory(
       descriptors.appListAppinstallations
     ),
-    /** request a new `AppInstallation` */
+    /** Request a new `AppInstallation`. */
     requestAppinstallation: this.requestFunctionFactory(
       descriptors.appRequestAppinstallation
     ),
-    /** get all available `Apps` */
+    /** Get all available `Apps`. */
     listApps: this.requestFunctionFactory(descriptors.appListApps),
-    /** get all `AppVersions` of a specific `App` */
+    /** Get all `AppVersions` of a specific `App`. */
     listAppversions: this.requestFunctionFactory(
       descriptors.appListAppversions
     ),
-    /** get all available `SystemSoftware` */
+    /** Get all available `SystemSoftware`. */
     listSystemsoftwares: this.requestFunctionFactory(
       descriptors.appListSystemsoftwares
     ),
-    /** get all available `SystemSoftwareVersions` of a specific `SystemSoftware` */
+    /** Get all available `SystemSoftwareVersions` of a specific `SystemSoftware`. */
     listSystemsoftwareversions: this.requestFunctionFactory(
       descriptors.appListSystemsoftwareversions
     ),
-    /** get all update candidates for a specific `AppVersion` */
+    /** Get all update candidates for a specific `AppVersion`. */
     listUpdateCandidatesForAppversion: this.requestFunctionFactory(
       descriptors.appListUpdateCandidatesForAppversion
     ),
-    /** request a copy of an `AppInstallation` */
+    /** Request a copy of an `AppInstallation`. */
     requestAppinstallationCopy: this.requestFunctionFactory(
       descriptors.appRequestAppinstallationCopy
     ),
-    /** get runtime status of a specific `AppInstallation` */
+    /** Get runtime status of a specific `AppInstallation`. */
     retrieveStatus: this.requestFunctionFactory(descriptors.appRetrieveStatus),
-    /** create linkage between an `AppInstallation` and `DatabaseUsers` */
+    /** Create linkage between an `AppInstallation` and `DatabaseUsers`. */
     setDatabaseUsers: this.requestFunctionFactory(
       descriptors.appSetDatabaseUsers
     ),
-    /** remove linkage between an `AppInstallation` and a `Database` */
+    /** Remove linkage between an `AppInstallation` and a `Database`. */
     unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
   };
 
@@ -765,6 +765,154 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
+  /** The page insights API allows you to get page insights information. */
+  public readonly pageInsights = {
+    /** Get detailed performance data for a given domain and path. */
+    pageinsightsGetPerformanceData: this.requestFunctionFactory(
+      descriptors.pageinsightsGetPerformanceData
+    ),
+    /** List websites (specified as domain and path) from a project where performance data is available. */
+    pageinsightsListPerformanceDataForProject: this.requestFunctionFactory(
+      descriptors.pageinsightsListPerformanceDataForProject
+    ),
+  };
+
+  /** The user API allows you to manage your own user and access information of other users that might be visible to you. */
+  public readonly user = {
+    /** Get a password policy. */
+    passwordValidationGetPasswordPolicy: this.requestFunctionFactory(
+      descriptors.passwordValidationGetPasswordPolicy
+    ),
+    /** Add phone number and start verification process. */
+    addPhoneNumber: this.requestFunctionFactory(descriptors.userAddPhoneNumber),
+    /** Remove phone number. */
+    removePhoneNumber: this.requestFunctionFactory(
+      descriptors.userRemovePhoneNumber
+    ),
+    /** Validate your second factor. */
+    authenticateMfa: this.requestFunctionFactory(
+      descriptors.userAuthenticateMfa
+    ),
+    /** Authenticate yourself to get an access token. */
+    authenticate: this.requestFunctionFactory(descriptors.userAuthenticate),
+    /** Get your verified Email-Address. */
+    getOwnEmail: this.requestFunctionFactory(descriptors.userGetOwnEmail),
+    /** Change your Email-Address. */
+    changeEmail: this.requestFunctionFactory(descriptors.userChangeEmail),
+    /** Change your password. */
+    changePassword: this.requestFunctionFactory(descriptors.userChangePassword),
+    /** Check token for validity. */
+    checkToken: this.requestFunctionFactory(descriptors.userCheckToken),
+    /** Get your current multi factor auth status. */
+    getMfaStatus: this.requestFunctionFactory(descriptors.userGetMfaStatus),
+    /** Reset RecoveryCodes for MFA. */
+    resetRecoverycodes: this.requestFunctionFactory(
+      descriptors.userResetRecoverycodes
+    ),
+    /** Confirm Multi Factor Authentication. */
+    confirmMfa: this.requestFunctionFactory(descriptors.userConfirmMfa),
+    /** Disable Multi Factor Authentication. */
+    disableMfa: this.requestFunctionFactory(descriptors.userDisableMfa),
+    /** Confirm password reset. */
+    confirmPasswordReset: this.requestFunctionFactory(
+      descriptors.userConfirmPasswordReset
+    ),
+    /** List all of your ApiTokens. */
+    listApiTokens: this.requestFunctionFactory(descriptors.userListApiTokens),
+    /** Store a new ApiToken. */
+    createApiToken: this.requestFunctionFactory(descriptors.userCreateApiToken),
+    /** Submit your user feedback. */
+    createFeedback: this.requestFunctionFactory(descriptors.userCreateFeedback),
+    /** Get your stored ssh-keys. */
+    listSshKeys: this.requestFunctionFactory(descriptors.userListSshKeys),
+    /** Store a new ssh-key. */
+    createSshKey: this.requestFunctionFactory(descriptors.userCreateSshKey),
+    /** Get a specific ApiToken. */
+    getApiToken: this.requestFunctionFactory(descriptors.userGetApiToken),
+    /** Update an existing `ApiToken`. */
+    editApiToken: this.requestFunctionFactory(descriptors.userEditApiToken),
+    /** Deletes an ApiToken. */
+    deleteApiToken: this.requestFunctionFactory(descriptors.userDeleteApiToken),
+    /** Get a specific stored ssh-key. */
+    getSshKey: this.requestFunctionFactory(descriptors.userGetSshKey),
+    /** Edit a stored ssh-key. */
+    editSshKey: this.requestFunctionFactory(descriptors.userEditSshKey),
+    /** Remove a ssh-key. */
+    deleteSshKey: this.requestFunctionFactory(descriptors.userDeleteSshKey),
+    /** Delete your account and all your personal data. */
+    deleteUser: this.requestFunctionFactory(descriptors.userDeleteUser),
+    /** Get your account information. */
+    getOwnAccount: this.requestFunctionFactory(descriptors.userGetOwnAccount),
+    /** Update your account information. */
+    updateAccount: this.requestFunctionFactory(descriptors.userUpdateAccount),
+    /** The timestamp of your latest password change. */
+    getPasswordUpdatedAt: this.requestFunctionFactory(
+      descriptors.userGetPasswordUpdatedAt
+    ),
+    /** Get personalized settings. */
+    getPersonalizedSettings: this.requestFunctionFactory(
+      descriptors.userGetPersonalizedSettings
+    ),
+    /** Update personalized GUI settings. */
+    updatePersonalizedSettings: this.requestFunctionFactory(
+      descriptors.userUpdatePersonalizedSettings
+    ),
+    /** Get a specific session. */
+    getSession: this.requestFunctionFactory(descriptors.userGetSession),
+    /** Terminate a specific Session. */
+    terminateSession: this.requestFunctionFactory(
+      descriptors.userTerminateSession
+    ),
+    /** Get profile information for a user. */
+    getUser: this.requestFunctionFactory(descriptors.userGetUser),
+    /** Change personal information. */
+    updatePersonalInformation: this.requestFunctionFactory(
+      descriptors.userUpdatePersonalInformation
+    ),
+    /** Initialize Multi Factor Authentication. If successful, it needs to be confirmed, before usage of mfa. */
+    initMfa: this.requestFunctionFactory(descriptors.userInitMfa),
+    /** Initialize password reset process. */
+    initPasswordReset: this.requestFunctionFactory(
+      descriptors.userInitPasswordReset
+    ),
+    /** Submitted feedback of the given user. */
+    listFeedback: this.requestFunctionFactory(descriptors.userListFeedback),
+    /** List all sessions. */
+    listSessions: this.requestFunctionFactory(descriptors.userListSessions),
+    /** Terminate all sessions, except the current session. */
+    terminateAllSessions: this.requestFunctionFactory(
+      descriptors.userTerminateAllSessions
+    ),
+    /** Terminate session and invalidate access token. */
+    logout: this.requestFunctionFactory(descriptors.userLogout),
+    /** Register with email and password. */
+    register: this.requestFunctionFactory(descriptors.userRegister),
+    /** Request a new avatar image upload. */
+    requestAvatarUpload: this.requestFunctionFactory(
+      descriptors.userRequestAvatarUpload
+    ),
+    /** Remove Avatar. */
+    removeAvatar: this.requestFunctionFactory(descriptors.userRemoveAvatar),
+    /** Resend the Email-Address verification email. */
+    resendVerificationEmail: this.requestFunctionFactory(
+      descriptors.userResendVerificationEmail
+    ),
+    /** Request a support code. */
+    supportCodeRequest: this.requestFunctionFactory(
+      descriptors.userSupportCodeRequest
+    ),
+    /** Verify an added Email-Address. */
+    verifyEmail: this.requestFunctionFactory(descriptors.userVerifyEmail),
+    /** Verify phone number. */
+    verifyPhoneNumber: this.requestFunctionFactory(
+      descriptors.userVerifyPhoneNumber
+    ),
+    /** Verify your registration. */
+    verifyRegistration: this.requestFunctionFactory(
+      descriptors.userVerifyRegistration
+    ),
+  };
+
   /** The project API allows you to manage your projects, and also any kinds of user memberships concerning these projects. */
   public readonly project = {
     /** Accept a ProjectInvite. */
@@ -893,6 +1041,18 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
+  /** The relocation API allows you to manage your relocations. */
+  public readonly relocation = {
+    /** Register a tariff change for a legacy tariff. */
+    createLegacyTariffChange: this.requestFunctionFactory(
+      descriptors.relocationCreateLegacyTariffChange
+    ),
+    /** Relocate an external Project to mittwald. */
+    createRelocation: this.requestFunctionFactory(
+      descriptors.relocationCreateRelocation
+    ),
+  };
+
   /** The SSH/SFTP User API allows you to manage your SSH/SFTP users within a project. */
   public readonly sshsftpUser = {
     /** Get all SFTPUsers for a Project. */
@@ -934,138 +1094,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update an SSHUser. */
     sshUserUpdateSshUser: this.requestFunctionFactory(
       descriptors.sshUserUpdateSshUser
-    ),
-  };
-
-  /** The user API allows you to manage your own user and access information of other users that might be visible to you. */
-  public readonly user = {
-    /** Add phone number and start verification process. */
-    addPhoneNumber: this.requestFunctionFactory(descriptors.userAddPhoneNumber),
-    /** Remove phone number. */
-    removePhoneNumber: this.requestFunctionFactory(
-      descriptors.userRemovePhoneNumber
-    ),
-    /** Validate your second factor. */
-    authenticateMfa: this.requestFunctionFactory(
-      descriptors.userAuthenticateMfa
-    ),
-    /** Authenticate yourself to get an access token. */
-    authenticate: this.requestFunctionFactory(descriptors.userAuthenticate),
-    /** Get your verified Email-Address. */
-    getOwnEmail: this.requestFunctionFactory(descriptors.userGetOwnEmail),
-    /** Change your Email-Address. */
-    changeEmail: this.requestFunctionFactory(descriptors.userChangeEmail),
-    /** Change your password. */
-    changePassword: this.requestFunctionFactory(descriptors.userChangePassword),
-    /** Check token for validity. */
-    checkToken: this.requestFunctionFactory(descriptors.userCheckToken),
-    /** Get your current multi factor auth status. */
-    getMfaStatus: this.requestFunctionFactory(descriptors.userGetMfaStatus),
-    /** Reset RecoveryCodes for MFA. */
-    resetRecoverycodes: this.requestFunctionFactory(
-      descriptors.userResetRecoverycodes
-    ),
-    /** Confirm Multi Factor Authentication. */
-    confirmMfa: this.requestFunctionFactory(descriptors.userConfirmMfa),
-    /** Disable Multi Factor Authentication. */
-    disableMfa: this.requestFunctionFactory(descriptors.userDisableMfa),
-    /** Confirm password reset. */
-    confirmPasswordReset: this.requestFunctionFactory(
-      descriptors.userConfirmPasswordReset
-    ),
-    /** List all of your ApiTokens. */
-    listApiTokens: this.requestFunctionFactory(descriptors.userListApiTokens),
-    /** Store a new ApiToken. */
-    createApiToken: this.requestFunctionFactory(descriptors.userCreateApiToken),
-    /** Submit your user feedback. */
-    createFeedback: this.requestFunctionFactory(descriptors.userCreateFeedback),
-    /** Get your stored ssh-keys. */
-    listSshKeys: this.requestFunctionFactory(descriptors.userListSshKeys),
-    /** Store a new ssh-key. */
-    createSshKey: this.requestFunctionFactory(descriptors.userCreateSshKey),
-    /** Get a specific ApiToken. */
-    getApiToken: this.requestFunctionFactory(descriptors.userGetApiToken),
-    /** Update an existing `ApiToken`. */
-    editApiToken: this.requestFunctionFactory(descriptors.userEditApiToken),
-    /** Deletes an ApiToken. */
-    deleteApiToken: this.requestFunctionFactory(descriptors.userDeleteApiToken),
-    /** Get a specific stored ssh-key. */
-    getSshKey: this.requestFunctionFactory(descriptors.userGetSshKey),
-    /** Edit a stored ssh-key. */
-    editSshKey: this.requestFunctionFactory(descriptors.userEditSshKey),
-    /** Remove a ssh-key. */
-    deleteSshKey: this.requestFunctionFactory(descriptors.userDeleteSshKey),
-    /** Delete your account and all your personal data. */
-    deleteUser: this.requestFunctionFactory(descriptors.userDeleteUser),
-    /** Get your account information. */
-    getOwnAccount: this.requestFunctionFactory(descriptors.userGetOwnAccount),
-    /** Update your account information. */
-    updateAccount: this.requestFunctionFactory(descriptors.userUpdateAccount),
-    /** The timestamp of your latest password change. */
-    getPasswordUpdatedAt: this.requestFunctionFactory(
-      descriptors.userGetPasswordUpdatedAt
-    ),
-    /** Get personalized settings. */
-    getPersonalizedSettings: this.requestFunctionFactory(
-      descriptors.userGetPersonalizedSettings
-    ),
-    /** Update personalized GUI settings. */
-    updatePersonalizedSettings: this.requestFunctionFactory(
-      descriptors.userUpdatePersonalizedSettings
-    ),
-    /** Get a specific session. */
-    getSession: this.requestFunctionFactory(descriptors.userGetSession),
-    /** Terminate a specific Session. */
-    terminateSession: this.requestFunctionFactory(
-      descriptors.userTerminateSession
-    ),
-    /** Get profile information for a user. */
-    getUser: this.requestFunctionFactory(descriptors.userGetUser),
-    /** Change personal information. */
-    updatePersonalInformation: this.requestFunctionFactory(
-      descriptors.userUpdatePersonalInformation
-    ),
-    /** Initialize Multi Factor Authentication. If successful, it needs to be confirmed, before usage of mfa. */
-    initMfa: this.requestFunctionFactory(descriptors.userInitMfa),
-    /** Initialize password reset process. */
-    initPasswordReset: this.requestFunctionFactory(
-      descriptors.userInitPasswordReset
-    ),
-    /** Submitted feedback of the given user. */
-    listFeedback: this.requestFunctionFactory(descriptors.userListFeedback),
-    /** List all sessions. */
-    listSessions: this.requestFunctionFactory(descriptors.userListSessions),
-    /** Terminate all sessions, except the current session. */
-    terminateAllSessions: this.requestFunctionFactory(
-      descriptors.userTerminateAllSessions
-    ),
-    /** Terminate session and invalidate access token. */
-    logout: this.requestFunctionFactory(descriptors.userLogout),
-    /** Register with email and password. */
-    register: this.requestFunctionFactory(descriptors.userRegister),
-    /** Request a new avatar image upload. */
-    requestAvatarUpload: this.requestFunctionFactory(
-      descriptors.userRequestAvatarUpload
-    ),
-    /** Remove Avatar. */
-    removeAvatar: this.requestFunctionFactory(descriptors.userRemoveAvatar),
-    /** Resend the Email-Address verification email. */
-    resendVerificationEmail: this.requestFunctionFactory(
-      descriptors.userResendVerificationEmail
-    ),
-    /** Request a support code. */
-    supportCodeRequest: this.requestFunctionFactory(
-      descriptors.userSupportCodeRequest
-    ),
-    /** Verify an added Email-Address. */
-    verifyEmail: this.requestFunctionFactory(descriptors.userVerifyEmail),
-    /** Verify phone number. */
-    verifyPhoneNumber: this.requestFunctionFactory(
-      descriptors.userVerifyPhoneNumber
-    ),
-    /** Verify your registration. */
-    verifyRegistration: this.requestFunctionFactory(
-      descriptors.userVerifyRegistration
     ),
   };
 }

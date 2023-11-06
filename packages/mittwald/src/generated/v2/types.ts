@@ -2849,18 +2849,18 @@ export declare module MittwaldAPIV2 {
   namespace Components {
     namespace Schemas {
       /**
-       * An `Action` is a string that describes a runtime concerning action which can be executed on an `AppInstallation` or an `App` can be capable of
+       * An `Action` is a string that describes a runtime concerning action which can be executed on an `AppInstallation` or an `App` can be capable of.
        */
       export type AppAction = "start" | "stop" | "restart";
 
       /**
-       * `ActionCapabilities` is an array that contains supported actions of an `App`
+       * `ActionCapabilities` is an array that contains supported actions of an `App`.
        */
       export type AppActionCapabilities =
         MittwaldAPIV2.Components.Schemas.AppAction[];
 
       /**
-       * An `App` is to be understood as a manifest for `AppInstallations`. E.g. "WordPress" only exists inside our ecosystem, because there is an `App`-Manifest for it
+       * An `App` is to be understood as a manifest for `AppInstallations`. E.g. 'WordPress' only exists inside our ecosystem, because there is an `App`-Manifest for it.
        */
       export interface AppApp {
         actionCapabilities?: MittwaldAPIV2.Components.Schemas.AppActionCapabilities;
@@ -2870,7 +2870,7 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * `AppInstallationStatus` describes the overall runtime status of an `AppInstallation`
+       * `AppInstallationStatus` describes the overall runtime status of an `AppInstallation`.
        */
       export interface AppAppInstallationStatus {
         lastExitCode?: number;
@@ -2891,7 +2891,7 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * `AppUpdatePolicy` describes which updates should be applied automatically by our systems
+       * `AppUpdatePolicy` describes which updates should be applied automatically by our systems.
        */
       export type AppAppUpdatePolicy = "none" | "patchLevel" | "all";
 
@@ -2918,7 +2918,7 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * The `AppInstallationLifecycle` can be used to express a specific point in the `AppInstallation` Lifecycle, e.g. while installing a new `AppInstallation`
+       * The `AppInstallationLifecycle` can be used to express a specific point in the `AppInstallation` Lifecycle, e.g. while installing a new `AppInstallation`.
        */
       export type AppAppInstallationLifecycle =
         | "installation"
@@ -2926,7 +2926,7 @@ export declare module MittwaldAPIV2 {
         | "reconfigure";
 
       /**
-       * An `AppVersion` is an officially supported version of an `App`, containing the necessary and recommended configuration und dependencies
+       * An `AppVersion` is an officially supported version of an `App`, containing the necessary and recommended configuration und dependencies.
        */
       export interface AppAppVersion {
         breakingNote?: MittwaldAPIV2.Components.Schemas.AppBreakingNote;
@@ -2943,14 +2943,14 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * A `BreakingNote` is a hint that something serious has changed in the `AppVersion` containing it, so an automatic update is not possible
+       * A `BreakingNote` is a hint that something serious has changed in the `AppVersion` containing it, so an automatic update is not possible.
        */
       export interface AppBreakingNote {
         faqLink: string;
       }
 
       /**
-       * A ´DatabaseDependency` is a generic description of need for a database, used by `AppVersions`
+       * A `DatabaseDependency` is a generic description of need for a database, used by `AppVersions`.
        */
       export interface AppDatabaseDependency {
         description: string;
@@ -2967,7 +2967,7 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * `InstalledSystemSoftware` describes the currently configured and installed `SystemSoftwareVersion` of a `SystemSoftware` besides the desired `SystemSoftwareUpdatePolicy` inside an `AppInstallation`
+       * `InstalledSystemSoftware` describes the currently configured and installed `SystemSoftwareVersion` of a `SystemSoftware` besides the desired `SystemSoftwareUpdatePolicy` inside an `AppInstallation`.
        */
       export interface AppInstalledSystemSoftware {
         systemSoftwareId: string;
@@ -2976,7 +2976,7 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * `LinkedDatabase` is a reference to a concrete `Database` and `DatabaseUsers`
+       * `LinkedDatabase` is a reference to a concrete `Database` and `DatabaseUsers`.
        */
       export interface AppLinkedDatabase {
         databaseId: string;
@@ -2988,7 +2988,7 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * `RequestHandlerRequirement` describes the necessary properties to internally resolve the request handler or process to start
+       * `RequestHandlerRequirement` describes the necessary properties to internally resolve the request handler or process to start.
        */
       export interface AppRequestHandlerRequirement {
         exampleValues?: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
@@ -2998,7 +2998,7 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * A `SavedUserInput` is an entered value for a desired `UserInput` of an `AppVersion` or `SystemSoftwareVersion`
+       * A `SavedUserInput` is an entered value for a desired `UserInput` of an `AppVersion` or `SystemSoftwareVersion`.
        */
       export interface AppSavedUserInput {
         name: string;
@@ -3014,7 +3014,7 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * `SystemSoftwareUpdatePolicy` describes which updates should be applied automatically by our systems
+       * `SystemSoftwareUpdatePolicy` describes which updates should be applied automatically by our systems.
        */
       export type AppSystemSoftwareUpdatePolicy =
         | "none"
@@ -3032,7 +3032,7 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * A `SystemSoftwareVersion` is an officially  supported version of a `SystemSoftware`, containing the necessary and recommended configuration und dependencies
+       * A `SystemSoftwareVersion` is an officially  supported version of a `SystemSoftware`, containing the necessary and recommended configuration und dependencies.
        */
       export interface AppSystemSoftwareVersion {
         externalVersion: string;
@@ -3044,11 +3044,11 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * A `UserInput` is a description of an information which cannot be determined or estimated by mittwald, but has to be given by the person who is requesting an `AppInstallation` or `SystemSoftware`
+       * A `UserInput` is a description of an information which cannot be determined or estimated by mittwald, but has to be given by the person who is requesting an `AppInstallation` or `SystemSoftware`.
        */
       export interface AppUserInput {
         /**
-         * Optional field to tell the frontend, which data to put into the select
+         * Optional field to tell the frontend, which data to put into the select.
          */
         dataSource?: string;
         dataType: MittwaldAPIV2.Components.Schemas.AppUserInputDataType;
@@ -3059,13 +3059,13 @@ export declare module MittwaldAPIV2 {
         positionMeta?: MittwaldAPIV2.Components.Schemas.AppUserInputPositionMeta;
         required: boolean;
         /**
-         * JSON Schema formatted (https://json-schema.org/)
+         * JSON Schema formatted (https://json-schema.org/).
          */
         validationSchema: string;
       }
 
       /**
-       * `UserInputDataType` is an enum, describing the possible data types of a `UserInput`
+       * `UserInputDataType` is an enum, describing the possible data types of a `UserInput`.
        */
       export type AppUserInputDataType =
         | "text"
@@ -3074,12 +3074,12 @@ export declare module MittwaldAPIV2 {
         | "select";
 
       /**
-       * `UserInputFormat` is an enum, describing the possible data formats of a `UserInput`, the given values can be validated against
+       * `UserInputFormat` is an enum, describing the possible data formats of a `UserInput`, the given values can be validated against.
        */
       export type AppUserInputFormat = "email" | "password" | "url";
 
       /**
-       * `UserInputPositionMeta´ is a utility information, helping to position the `UserInput` properly on the frontend
+       * `UserInputPositionMeta´ is a utility information, helping to position the `UserInput` properly on the frontend.
        */
       export interface AppUserInputPositionMeta {
         index?: number;
@@ -3088,7 +3088,7 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * `VersionStatus` describes the current and desired version of something like the `AppVersion` of an `AppInstallation`. If diverging, an internal process is going to assert, the `current` value will be aligned
+       * `VersionStatus` describes the current and desired version of something like the `AppVersion` of an `AppInstallation`. If diverging, an internal process is going to assert, the `current` value will be aligned.
        */
       export interface AppVersionStatus {
         current?: string;
@@ -4955,76 +4955,6 @@ export declare module MittwaldAPIV2 {
         tokenId: string;
       }
 
-      export interface VarnishConfigRevision {
-        expire?: number;
-        files: MittwaldAPIV2.Components.Schemas.VarnishConfigFileRef[];
-        note?: string;
-        revision: number;
-        updated: string;
-      }
-
-      export interface VarnishConfigTemplate {
-        /**
-         * A set of config file references.
-         */
-        files: MittwaldAPIV2.Components.Schemas.VarnishConfigFileRef[];
-        isGlobal?: boolean;
-        note?: string;
-        projectId?: string;
-        softwareConfigTemplateId: string;
-        softwareTemplateId: string;
-        updatedAt?: string;
-      }
-
-      export interface VarnishConfigFile {
-        content: string;
-        meta?: MittwaldAPIV2.Components.Schemas.VarnishConfigFileMetadata;
-      }
-
-      export interface VarnishConfigFileMetadata {
-        name: string;
-        path?: string;
-      }
-
-      export interface VarnishConfigFileRef {
-        meta?: MittwaldAPIV2.Components.Schemas.VarnishConfigFileMetadata;
-        refId?: string;
-      }
-
-      export interface VarnishGlobalConfigTemplate {
-        data: string;
-        name: string;
-        updatedAt: string;
-      }
-
-      export interface VarnishSoftware {
-        config: MittwaldAPIV2.Components.Schemas.VarnishSoftwareConfig;
-        projectId: string;
-        settings?: {
-          [k: string]: string;
-        };
-        softwareId: string;
-        softwareTemplateId: string;
-        softwareVersion: string;
-        updatedAt: string;
-      }
-
-      export interface VarnishSoftwareConfig {
-        configExpiration?: MittwaldAPIV2.Components.Schemas.VarnishConfigExpiration;
-        latestConfigRevision?: number;
-        revisions?: MittwaldAPIV2.Components.Schemas.VarnishConfigRevision[];
-      }
-
-      export interface VarnishConfigExpiration {
-        maxVersions?: number;
-        retentionTime?: number;
-      }
-
-      export interface VarnishSoftwareSetting {
-        name: string;
-        value: string;
-      }
-
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -5872,6 +5802,7 @@ export declare module MittwaldAPIV2 {
 
           export interface RequestBody {
             description: string;
+            targetProjectId?: string;
           }
 
           export type Header = {};
@@ -14241,7 +14172,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2NotificationsUnreadCounts {
+    namespace V2NotificationsUnreadCounts {}
+
+    namespace V2NotificationUnreadCounts {
       namespace Get {
         namespace Parameters {
           export type Path = {};
@@ -15514,6 +15447,8 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2ProjectsProjectIdFilesystemDirectories {}
+
     namespace V2ProjectsProjectIdFilesystemDirectories {
       namespace Get {
         namespace Parameters {
@@ -15576,7 +15511,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsProjectIdFilesystemUsagesDisk {
+    namespace V2ProjectsProjectIdFilesystemUsagesDisk {}
+
+    namespace V2ProjectsProjectIdFilesystemDiskUsage {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -15633,7 +15570,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsProjectIdFilesystemFilesRaw {
+    namespace V2ProjectsProjectIdFilesystemFilesRaw {}
+
+    namespace V2ProjectsProjectIdFilesystemFileContent {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -15736,6 +15675,8 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
+
+    namespace V2ProjectsProjectIdFilesystemFiles {}
 
     namespace V2ProjectsProjectIdFilesystemFiles {
       namespace Get {
