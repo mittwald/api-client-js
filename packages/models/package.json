@@ -41,7 +41,7 @@
     "rest"
   ],
   "peerDependencies": {
-    "@mittwald/api-client": "^3.0.0",
+    "@mittwald/api-client": "workspace:^",
     "@mittwald/react-use-promise": "^1.3.6"
   },
   "peerDependenciesMeta": {
@@ -50,13 +50,13 @@
     }
   },
   "dependencies": {
-    "@mittwald/api-client": "3.0.29",
-    "@mittwald/api-client-commons": "^4.2.0-alpha.4",
+    "@mittwald/api-client-commons": "workspace:^",
     "another-deep-freeze": "^1.0.0",
     "polytype": "^0.17.0",
     "type-fest": "^4.6.0"
   },
   "devDependencies": {
+    "@mittwald/api-client": "workspace:^",
     "@mittwald/react-use-promise": "^1.3.6",
     "@types/react": "^18.2.36",
     "react": "^18.2.0",

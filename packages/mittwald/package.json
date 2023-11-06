@@ -46,7 +46,7 @@
     "rest"
   ],
   "peerDependencies": {
-    "@mittwald/react-use-promise": "^1.3.2"
+    "@mittwald/react-use-promise": "^1.3.6"
   },
   "peerDependenciesMeta": {
     "@mittwald/react-use-promise": {
@@ -58,7 +58,7 @@
     "browser-or-node": "^2.1.1"
   },
   "devDependencies": {
-    "@mittwald/api-code-generator": "*",
+    "@mittwald/api-code-generator": "workspace:^",
     "@mittwald/react-use-promise": "^1.3.6",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2"
