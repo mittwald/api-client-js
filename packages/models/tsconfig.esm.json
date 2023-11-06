@@ -3,8 +3,8 @@
     "outDir": "./dist/esm",
     "rootDir": "./src",
     "paths": {
-      "@mittwald/api-client-commons/*": ["packages/commons/*"],
-      "@mittwald/api-client/*": ["packages/mittwald/*"]
+      "@mittwald/api-client-commons/*": ["./packages/commons/*"],
+      "@mittwald/api-client/*": ["./packages/mittwald/*"]
     }
   },
   "exclude": ["test-d/**/*", "*.test.ts"],

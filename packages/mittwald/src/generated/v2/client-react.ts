@@ -4,7 +4,6 @@
 import MittwaldAPIV2Client from "./client.js";
 import { ApiCallAsyncResourceFactory } from "@mittwald/api-client-commons/react";
 import * as descriptors from "./descriptors.js";
-export * from "@mittwald/react-use-promise/types";
 
 const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
   /** get a specific `App` */

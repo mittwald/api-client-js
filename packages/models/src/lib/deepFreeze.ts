@@ -1,6 +1,6 @@
 import deepFreezeLib from "another-deep-freeze";
-import { ReadonlyDeep } from "type-fest";
-export { ReadonlyDeep } from "type-fest";
+import type { ReadonlyDeep } from "type-fest";
+export type { ReadonlyDeep } from "type-fest";
 
 type DeepFreeze = <T>(subject: T) => ReadonlyDeep<T>;
 

@@ -4,9 +4,11 @@ import { classes } from "polytype";
 import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import { ProxyModel } from "../../base/ProxyModel.js";
-import { ServerProxy } from "../../server/Server/Server.js";
+import { ServerProxy } from "../../server/index.js";
 import { isUuid } from "../../lib/isUuid.js";
 import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import type { AsyncResourceVariant } from "../../react/index.js";
+import { withAsyncResourceVariant } from "../../react/index.js";
 
 export class ProjectProxy extends ProxyModel {
   protected async getUuid(): Promise<string> {
@@ -43,13 +45,13 @@ export class ProjectProxy extends ProxyModel {
     await config.behaviors.project.delete(await this.getUuid());
   }
 
-  public async getDetailed(): Promise<ProjectDetailed> {
+  public getDetailed = withAsyncResourceVariant(async () => {
     if (this instanceof ProjectDetailed) {
       return this;
     }
 
     return Project.get(await this.getUuid());
-  }
+  }) as AsyncResourceVariant<ProjectDetailed, []>;
 
   public static ofId(id: string): ProjectProxy {
     return new ProjectProxy(id);
@@ -72,35 +74,47 @@ export class ProjectDetailed extends classes(
   ProjectBase,
   DataModel<ProjectData>,
 ) {
-  public static async find(id: string): Promise<ProjectDetailed | undefined> {
-    const data = await config.behaviors.project.find(
-      await ProjectProxy.getUuid(id),
-    );
-    if (data !== undefined) {
-      return new ProjectDetailed([data]);
-    }
+  public constructor(data: ProjectData) {
+    super([data], [data]);
   }
 
-  public static async get(id: string): Promise<ProjectDetailed> {
-    const project = await this.find(id);
-    assertObjectFound(project, this, id);
-    return project;
-  }
+  public static find = withAsyncResourceVariant(
+    async (id: string): Promise<ProjectDetailed | undefined> => {
+      const data = await config.behaviors.project.find(
+        await ProjectProxy.getUuid(id),
+      );
+      if (data !== undefined) {
+        return new ProjectDetailed(data);
+      }
+    },
+  );
+
+  public static get = withAsyncResourceVariant(
+    async (id: string): Promise<ProjectDetailed> => {
+      const project = await this.find(id);
+      assertObjectFound(project, this, id);
+      return project;
+    },
+  );
 }
 
 export class ProjectListItem extends classes(
   ProjectBase,
   DataModel<ProjectCompactData>,
 ) {
-  public static async list(
-    query: ProjectListQuery = {},
-  ): Promise<Array<ProjectListItem>> {
-    const data = await config.behaviors.project.list(query);
-    return data.map((d) => new ProjectListItem([d]));
+  public constructor(data: ProjectCompactData) {
+    super([data], [data]);
   }
+
+  public static list = withAsyncResourceVariant(
+    async (query: ProjectListQuery = {}): Promise<Array<ProjectListItem>> => {
+      const data = await config.behaviors.project.list(query);
+      return data.map((d) => new ProjectListItem(d));
+    },
+  );
 }
 
-export default class Project extends classes(ProjectDetailed, ProjectListItem) {
+export class Project extends classes(ProjectDetailed, ProjectListItem) {
   public static async create(
     serverId: string,
     description: string,
