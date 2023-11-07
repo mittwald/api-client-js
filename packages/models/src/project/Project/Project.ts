@@ -3,12 +3,16 @@ import { config } from "../../config/config.js";
 import { classes } from "polytype";
 import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
-import { ProxyModel } from "../../base/ProxyModel.js";
 import { ServerProxy } from "../../server/index.js";
+import {
+  type AsyncResourceVariant,
+  withAsyncResourceVariant,
+} from "../../react/index.js";
+import { CustomerProxy } from "../../customer/Customer/Customer.js";
+import { ProxyModel } from "../../base/ProxyModel.js";
 import { isUuid } from "../../lib/isUuid.js";
 import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
-import type { AsyncResourceVariant } from "../../react/index.js";
-import { withAsyncResourceVariant } from "../../react/index.js";
+import { Ingress, IngressListItem } from "../../domain/index.js";
 
 export class ProjectProxy extends ProxyModel {
   protected async getUuid(): Promise<string> {
@@ -45,13 +49,20 @@ export class ProjectProxy extends ProxyModel {
     await config.behaviors.project.delete(await this.getUuid());
   }
 
-  public getDetailed = withAsyncResourceVariant(async () => {
-    if (this instanceof ProjectDetailed) {
-      return this;
-    }
+  public getDetailed = withAsyncResourceVariant(() =>
+    Project.get(this.id),
+  ) as AsyncResourceVariant<ProjectDetailed, []>;
 
-    return Project.get(await this.getUuid());
-  }) as AsyncResourceVariant<ProjectDetailed, []>;
+  public listIngresses = withAsyncResourceVariant(() =>
+    Ingress.list({ projectId: this.id }),
+  ) as AsyncResourceVariant<IngressListItem[], []>;
+
+  public getDefaultIngress = withAsyncResourceVariant(async () => {
+    const ingresses = await ProjectProxy.ofId(this.id).listIngresses();
+    const defaultIngress = ingresses.find((i) => i.data.isDefault);
+    assertObjectFound(defaultIngress, IngressListItem, this);
+    return defaultIngress;
+  }) as AsyncResourceVariant<IngressListItem, []>;
 
   public static ofId(id: string): ProjectProxy {
     return new ProjectProxy(id);
@@ -63,16 +74,19 @@ class ProjectBase extends classes(
   ProjectProxy,
 ) {
   public readonly server: ServerProxy | undefined;
+  public readonly customer: CustomerProxy;
 
   public constructor(data: ProjectCompactData | ProjectData) {
     super([data], [data.id]);
     this.server = data.serverId ? ServerProxy.ofId(data.serverId) : undefined;
+    this.customer = CustomerProxy.ofId(data.customerId);
   }
 }
 
-export class ProjectDetailed extends classes<
-  [typeof ProjectBase, typeof DataModel<ProjectData>]
->(ProjectBase, DataModel<ProjectData>) {
+export class ProjectDetailed extends classes(
+  ProjectBase,
+  DataModel<ProjectData>,
+) {
   public constructor(data: ProjectData) {
     super([data], [data]);
   }
@@ -97,9 +111,10 @@ export class ProjectDetailed extends classes<
   );
 }
 
-export class ProjectListItem extends classes<
-  [typeof ProjectBase, typeof DataModel<ProjectCompactData>]
->(ProjectBase, DataModel<ProjectCompactData>) {
+export class ProjectListItem extends classes(
+  ProjectBase,
+  DataModel<ProjectCompactData>,
+) {
   public constructor(data: ProjectCompactData) {
     super([data], [data]);
   }

@@ -46,7 +46,7 @@ const RAW_RUNTIME_STATE =
       [null, {\
         "packageLocation": "./",\
         "packageDependencies": [\
-          ["@types/copyfiles", "npm:2.4.2"],\
+          ["@types/copyfiles", "npm:2.4.3"],\
           ["@typescript-eslint/eslint-plugin", "virtual:cb6e12912a04aaab9e2aa4237c688ef82a8c378536cefd6506a1770ad00abf3ff9ba8e601153f5e69d9373d14ef8dafd1ae488394e3078efa94705e372b50aa9#npm:5.62.0"],\
           ["@typescript-eslint/parser", "virtual:cb6e12912a04aaab9e2aa4237c688ef82a8c378536cefd6506a1770ad00abf3ff9ba8e601153f5e69d9373d14ef8dafd1ae488394e3078efa94705e372b50aa9#npm:5.62.0"],\
           ["@yarnpkg/pnpify", "npm:4.0.0"],\
@@ -1609,7 +1609,7 @@ const RAW_RUNTIME_STATE =
           ["@mittwald/api-client", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#workspace:packages/mittwald"],\
           ["@mittwald/api-client-commons", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#workspace:packages/commons"],\
           ["@mittwald/api-code-generator", "workspace:packages/generator"],\
-          ["@mittwald/react-use-promise", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#npm:1.3.6"],\
+          ["@mittwald/react-use-promise", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#npm:2.0.1"],\
           ["@types/mittwald__react-use-promise", null],\
           ["browser-or-node", "npm:2.1.1"],\
           ["tsup", "virtual:cb6e12912a04aaab9e2aa4237c688ef82a8c378536cefd6506a1770ad00abf3ff9ba8e601153f5e69d9373d14ef8dafd1ae488394e3078efa94705e372b50aa9#npm:7.2.0"],\
@@ -1627,7 +1627,7 @@ const RAW_RUNTIME_STATE =
           ["@mittwald/api-client", "workspace:packages/mittwald"],\
           ["@mittwald/api-client-commons", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#workspace:packages/commons"],\
           ["@mittwald/api-code-generator", "workspace:packages/generator"],\
-          ["@mittwald/react-use-promise", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#npm:1.3.6"],\
+          ["@mittwald/react-use-promise", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#npm:2.0.1"],\
           ["browser-or-node", "npm:2.1.1"],\
           ["tsup", "virtual:cb6e12912a04aaab9e2aa4237c688ef82a8c378536cefd6506a1770ad00abf3ff9ba8e601153f5e69d9373d14ef8dafd1ae488394e3078efa94705e372b50aa9#npm:7.2.0"],\
           ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"]\
@@ -1641,7 +1641,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@mittwald/api-client-commons", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#workspace:packages/commons"],\
           ["@jest/globals", "npm:29.7.0"],\
-          ["@mittwald/react-use-promise", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#npm:1.3.6"],\
+          ["@mittwald/react-use-promise", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#npm:2.0.1"],\
           ["@types/jest", "npm:29.5.7"],\
           ["@types/mittwald__react-use-promise", null],\
           ["@types/parse-path", "npm:7.0.2"],\
@@ -1666,7 +1666,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@mittwald/api-client-commons", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#workspace:packages/commons"],\
           ["@jest/globals", "npm:29.7.0"],\
-          ["@mittwald/react-use-promise", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#npm:1.3.6"],\
+          ["@mittwald/react-use-promise", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#npm:2.0.1"],\
           ["@types/jest", "npm:29.5.7"],\
           ["@types/mittwald__react-use-promise", null],\
           ["@types/parse-path", "npm:7.0.2"],\
@@ -1691,7 +1691,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@mittwald/api-client-commons", "workspace:packages/commons"],\
           ["@jest/globals", "npm:29.7.0"],\
-          ["@mittwald/react-use-promise", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:1.3.6"],\
+          ["@mittwald/react-use-promise", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:2.0.1"],\
           ["@types/jest", "npm:29.5.7"],\
           ["@types/parse-path", "npm:7.0.2"],\
           ["axios", "npm:1.6.0"],\
@@ -1717,8 +1717,8 @@ const RAW_RUNTIME_STATE =
           ["@oclif/plugin-help", "npm:5.2.20"],\
           ["@oclif/plugin-plugins", "npm:3.9.4"],\
           ["@sindresorhus/is", "npm:5.6.0"],\
-          ["@types/clone-deep", "npm:4.0.3"],\
-          ["@types/invariant", "npm:2.2.36"],\
+          ["@types/clone-deep", "npm:4.0.4"],\
+          ["@types/invariant", "npm:2.2.37"],\
           ["@types/jest", "npm:29.5.7"],\
           ["@types/js-yaml", "npm:4.0.8"],\
           ["@types/prettier", "npm:2.7.3"],\
@@ -1756,7 +1756,7 @@ const RAW_RUNTIME_STATE =
           ["@mittwald/api-models", "workspace:packages/models"],\
           ["@mittwald/api-client", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#workspace:packages/mittwald"],\
           ["@mittwald/api-client-commons", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#workspace:packages/commons"],\
-          ["@mittwald/react-use-promise", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#npm:1.3.6"],\
+          ["@mittwald/react-use-promise", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#npm:2.0.1"],\
           ["@types/react", "npm:18.2.36"],\
           ["another-deep-freeze", "npm:1.0.0"],\
           ["polytype", "npm:0.17.0"],\
@@ -1773,7 +1773,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["@mittwald/api-tools", "workspace:."],\
-          ["@types/copyfiles", "npm:2.4.2"],\
+          ["@types/copyfiles", "npm:2.4.3"],\
           ["@typescript-eslint/eslint-plugin", "virtual:cb6e12912a04aaab9e2aa4237c688ef82a8c378536cefd6506a1770ad00abf3ff9ba8e601153f5e69d9373d14ef8dafd1ae488394e3078efa94705e372b50aa9#npm:5.62.0"],\
           ["@typescript-eslint/parser", "virtual:cb6e12912a04aaab9e2aa4237c688ef82a8c378536cefd6506a1770ad00abf3ff9ba8e601153f5e69d9373d14ef8dafd1ae488394e3078efa94705e372b50aa9#npm:5.62.0"],\
           ["@yarnpkg/pnpify", "npm:4.0.0"],\
@@ -1795,18 +1795,18 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@mittwald/react-use-promise", [\
-      ["npm:1.3.6", {\
-        "packageLocation": "./.yarn/cache/@mittwald-react-use-promise-npm-1.3.6-e775570117-5b539ec93c.zip/node_modules/@mittwald/react-use-promise/",\
+      ["npm:2.0.1", {\
+        "packageLocation": "./.yarn/cache/@mittwald-react-use-promise-npm-2.0.1-35fbe31891-a73e0894ce.zip/node_modules/@mittwald/react-use-promise/",\
         "packageDependencies": [\
-          ["@mittwald/react-use-promise", "npm:1.3.6"]\
+          ["@mittwald/react-use-promise", "npm:2.0.1"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:1.3.6", {\
-        "packageLocation": "./.yarn/__virtual__/@mittwald-react-use-promise-virtual-60b48726bb/0/cache/@mittwald-react-use-promise-npm-1.3.6-e775570117-5b539ec93c.zip/node_modules/@mittwald/react-use-promise/",\
+      ["virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:2.0.1", {\
+        "packageLocation": "./.yarn/__virtual__/@mittwald-react-use-promise-virtual-c7fc2119d5/0/cache/@mittwald-react-use-promise-npm-2.0.1-35fbe31891-a73e0894ce.zip/node_modules/@mittwald/react-use-promise/",\
         "packageDependencies": [\
-          ["@mittwald/react-use-promise", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:1.3.6"],\
-          ["@types/luxon", "npm:3.3.2"],\
+          ["@mittwald/react-use-promise", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:2.0.1"],\
+          ["@types/luxon", "npm:3.3.3"],\
           ["@types/react", null],\
           ["luxon", "npm:3.4.3"],\
           ["minimatch", "npm:9.0.3"],\
@@ -1819,11 +1819,11 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#npm:1.3.6", {\
-        "packageLocation": "./.yarn/__virtual__/@mittwald-react-use-promise-virtual-ea71bdb800/0/cache/@mittwald-react-use-promise-npm-1.3.6-e775570117-5b539ec93c.zip/node_modules/@mittwald/react-use-promise/",\
+      ["virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#npm:2.0.1", {\
+        "packageLocation": "./.yarn/__virtual__/@mittwald-react-use-promise-virtual-87f087e256/0/cache/@mittwald-react-use-promise-npm-2.0.1-35fbe31891-a73e0894ce.zip/node_modules/@mittwald/react-use-promise/",\
         "packageDependencies": [\
-          ["@mittwald/react-use-promise", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#npm:1.3.6"],\
-          ["@types/luxon", "npm:3.3.2"],\
+          ["@mittwald/react-use-promise", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#npm:2.0.1"],\
+          ["@types/luxon", "npm:3.3.3"],\
           ["@types/react", null],\
           ["luxon", "npm:3.4.3"],\
           ["minimatch", "npm:9.0.3"],\
@@ -1836,11 +1836,11 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#npm:1.3.6", {\
-        "packageLocation": "./.yarn/__virtual__/@mittwald-react-use-promise-virtual-e3a35b2102/0/cache/@mittwald-react-use-promise-npm-1.3.6-e775570117-5b539ec93c.zip/node_modules/@mittwald/react-use-promise/",\
+      ["virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#npm:2.0.1", {\
+        "packageLocation": "./.yarn/__virtual__/@mittwald-react-use-promise-virtual-4531975d0c/0/cache/@mittwald-react-use-promise-npm-2.0.1-35fbe31891-a73e0894ce.zip/node_modules/@mittwald/react-use-promise/",\
         "packageDependencies": [\
-          ["@mittwald/react-use-promise", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#npm:1.3.6"],\
-          ["@types/luxon", "npm:3.3.2"],\
+          ["@mittwald/react-use-promise", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#npm:2.0.1"],\
+          ["@types/luxon", "npm:3.3.3"],\
           ["@types/react", "npm:18.2.36"],\
           ["luxon", "npm:3.4.3"],\
           ["minimatch", "npm:9.0.3"],\
@@ -2455,19 +2455,19 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@types/clone-deep", [\
-      ["npm:4.0.3", {\
-        "packageLocation": "./.yarn/cache/@types-clone-deep-npm-4.0.3-8fa6314912-ce604fc834.zip/node_modules/@types/clone-deep/",\
+      ["npm:4.0.4", {\
+        "packageLocation": "./.yarn/cache/@types-clone-deep-npm-4.0.4-30fdceae51-84cfd1ad9a.zip/node_modules/@types/clone-deep/",\
         "packageDependencies": [\
-          ["@types/clone-deep", "npm:4.0.3"]\
+          ["@types/clone-deep", "npm:4.0.4"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@types/copyfiles", [\
-      ["npm:2.4.2", {\
-        "packageLocation": "./.yarn/cache/@types-copyfiles-npm-2.4.2-afc7f54a34-984ea1df5d.zip/node_modules/@types/copyfiles/",\
+      ["npm:2.4.3", {\
+        "packageLocation": "./.yarn/cache/@types-copyfiles-npm-2.4.3-a058cae927-884ce29738.zip/node_modules/@types/copyfiles/",\
         "packageDependencies": [\
-          ["@types/copyfiles", "npm:2.4.2"]\
+          ["@types/copyfiles", "npm:2.4.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2522,10 +2522,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@types/invariant", [\
-      ["npm:2.2.36", {\
-        "packageLocation": "./.yarn/cache/@types-invariant-npm-2.2.36-8ba0533efc-8f9855a5da.zip/node_modules/@types/invariant/",\
+      ["npm:2.2.37", {\
+        "packageLocation": "./.yarn/cache/@types-invariant-npm-2.2.37-dc183d055f-dd6ee07af8.zip/node_modules/@types/invariant/",\
         "packageDependencies": [\
-          ["@types/invariant", "npm:2.2.36"]\
+          ["@types/invariant", "npm:2.2.37"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2608,10 +2608,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@types/luxon", [\
-      ["npm:3.3.2", {\
-        "packageLocation": "./.yarn/cache/@types-luxon-npm-3.3.2-50448fff51-05a73a1c42.zip/node_modules/@types/luxon/",\
+      ["npm:3.3.3", {\
+        "packageLocation": "./.yarn/cache/@types-luxon-npm-3.3.3-64838dc4b1-a29f4d794f.zip/node_modules/@types/luxon/",\
         "packageDependencies": [\
-          ["@types/luxon", "npm:3.3.2"]\
+          ["@types/luxon", "npm:3.3.3"]\
         ],\
         "linkType": "HARD"\
       }]\

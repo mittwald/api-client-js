@@ -54,10 +54,8 @@ export class ServerProxy extends ProxyModel {
     },
   );
 
-  public getDetailed = withAsyncResourceVariant(
-    async (): Promise<ServerDetailed> => {
-      return ServerDetailed.get(await this.getUuid());
-    },
+  public getDetailed = withAsyncResourceVariant(() =>
+    ServerDetailed.get(this.id),
   ) as AsyncResourceVariant<ServerDetailed, []>;
 }
 

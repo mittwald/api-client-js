@@ -1038,7 +1038,7 @@ __metadata:
   resolution: "@mittwald/api-client-commons@workspace:packages/commons"
   dependencies:
     "@jest/globals": "npm:^29.7.0"
-    "@mittwald/react-use-promise": "npm:^1.3.6"
+    "@mittwald/react-use-promise": "npm:^2.0.1"
     "@types/jest": "npm:^29.5.7"
     "@types/parse-path": "npm:^7.0.2"
     axios: "npm:^1.6.0"
@@ -1064,7 +1064,7 @@ __metadata:
   dependencies:
     "@mittwald/api-client-commons": "workspace:^"
     "@mittwald/api-code-generator": "workspace:^"
-    "@mittwald/react-use-promise": "npm:^1.3.6"
+    "@mittwald/react-use-promise": "npm:^2.0.1"
     browser-or-node: "npm:^2.1.1"
     tsup: "npm:^7.2.0"
     typescript: "npm:^5.2.2"
@@ -1085,8 +1085,8 @@ __metadata:
     "@oclif/plugin-help": "npm:^5.2.20"
     "@oclif/plugin-plugins": "npm:^3.9.4"
     "@sindresorhus/is": "npm:^5.6.0"
-    "@types/clone-deep": "npm:^4.0.3"
-    "@types/invariant": "npm:^2.2.36"
+    "@types/clone-deep": "npm:^4.0.4"
+    "@types/invariant": "npm:^2.2.37"
     "@types/jest": "npm:^29.5.7"
     "@types/js-yaml": "npm:^4.0.8"
     "@types/prettier": "npm:^2.7.3"
@@ -1124,7 +1124,7 @@ __metadata:
   dependencies:
     "@mittwald/api-client": "workspace:^"
     "@mittwald/api-client-commons": "workspace:^"
-    "@mittwald/react-use-promise": "npm:^1.3.6"
+    "@mittwald/react-use-promise": "npm:^2.0.1"
     "@types/react": "npm:^18.2.36"
     another-deep-freeze: "npm:^1.0.0"
     polytype: "npm:^0.17.0"
@@ -1145,7 +1145,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@mittwald/api-tools@workspace:."
   dependencies:
-    "@types/copyfiles": "npm:^2.4.2"
+    "@types/copyfiles": "npm:^2.4.3"
     "@typescript-eslint/eslint-plugin": "npm:^5.62.0"
     "@typescript-eslint/parser": "npm:^5.62.0"
     "@yarnpkg/pnpify": "npm:^4.0.0"
@@ -1165,17 +1165,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@mittwald/react-use-promise@npm:^1.3.6":
-  version: 1.3.6
-  resolution: "@mittwald/react-use-promise@npm:1.3.6"
+"@mittwald/react-use-promise@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@mittwald/react-use-promise@npm:2.0.1"
   dependencies:
-    "@types/luxon": "npm:^3.3.0"
-    luxon: "npm:^3.3.0"
-    minimatch: "npm:^9.0.1"
-    object-code: "npm:^1.2.4"
+    "@types/luxon": "npm:3.3.3"
+    luxon: "npm:~3.4.3"
+    minimatch: "npm:^9.0.3"
+    object-code: "npm:^1.3.0"
   peerDependencies:
     react: ">=17.0"
-  checksum: 5b539ec93c19922f0edd404acc10a44ecf8e3e38a16a2bd06b35e7da26c180a69766a93b41b3c25754f8674a1e2ac26cdb00b83fa2e3a3bceddf70d3818ca153
+  dependenciesMeta:
+    prettier@2.8.8:
+      unplugged: true
+  checksum: a73e0894cec98294079ce17c8daa9f3c1767cfc63ffcf924c7c650c0956dc9d0f4b23c1e90b6ad5b4a22f21de99a1de03052aa507ecc2b5f676a5786a9e398fe
   languageName: node
   linkType: hard
 
@@ -1728,17 +1731,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/clone-deep@npm:^4.0.3":
-  version: 4.0.3
-  resolution: "@types/clone-deep@npm:4.0.3"
-  checksum: ce604fc83412a361c9170d9aaae304a436d7ed447caaa571e2d40b6e7fa427f306fb9f1447e6b5e3ec5b47849ee14453db5b4f386d903bd8cc4262b3c90e6303
+"@types/clone-deep@npm:^4.0.4":
+  version: 4.0.4
+  resolution: "@types/clone-deep@npm:4.0.4"
+  checksum: 84cfd1ad9abe164aed3c8c4e9af0b3beab6f68f959cb77174cc00618ce3a752954b9025af0783e8f9923e736286dd5be4d2883ec712d6c86fbc2b66a7176433d
   languageName: node
   linkType: hard
 
-"@types/copyfiles@npm:^2.4.2":
-  version: 2.4.2
-  resolution: "@types/copyfiles@npm:2.4.2"
-  checksum: 984ea1df5da421e83e782e902ee131bedde726f811dec5d01f68593c8f319a3c6346d90f7f8827bb9f1c85ab0817f819cfc7449bf664316af6e30343fcc48df3
+"@types/copyfiles@npm:^2.4.3":
+  version: 2.4.3
+  resolution: "@types/copyfiles@npm:2.4.3"
+  checksum: 884ce29738921c08f1b0a750005e83e44fc0d92bb6eb08ef32f3c2f2b956ea60530b7f9239e7368970a257cf4ed6e3e50fb803916aee84e6574e98333c1a76b1
   languageName: node
   linkType: hard
 
@@ -1784,10 +1787,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/invariant@npm:^2.2.36":
-  version: 2.2.36
-  resolution: "@types/invariant@npm:2.2.36"
-  checksum: 8f9855a5da7aeef0292bda3ef14ce1d893059e2f70934d870d5533744c789fb4087035dc2e510ffa036d89890812d8170fb1a0e241991cc15e0ffccfaf7d9c13
+"@types/invariant@npm:^2.2.37":
+  version: 2.2.37
+  resolution: "@types/invariant@npm:2.2.37"
+  checksum: dd6ee07af8516d21c868f95fd96c601c50a231e69c2df69360cb491b5858c76cf9b5a646df166cb4197b5078ca824da3dd90d6142d01a3cefc1176c57278b129
   languageName: node
   linkType: hard
 
@@ -1856,10 +1859,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/luxon@npm:^3.3.0":
-  version: 3.3.2
-  resolution: "@types/luxon@npm:3.3.2"
-  checksum: 05a73a1c4252304637f2eda7ee2267a51dcd50f66b5f2e1ea185caff2c22313597c854e80912397009b20fb900a14b0ffcdfd0fc712e3b700363c03157d361e4
+"@types/luxon@npm:3.3.3":
+  version: 3.3.3
+  resolution: "@types/luxon@npm:3.3.3"
+  checksum: a29f4d794f04ef13fed93a124d133c2e67c5151ec5dd95729d99dc5efa9cbbd2b169ea1374a8439bd32b1568caaeae5c2084123d3c19b6a6a5ab6e8e8c664fb7
   languageName: node
   linkType: hard
 
@@ -6012,7 +6015,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"luxon@npm:^3.3.0":
+"luxon@npm:~3.4.3":
   version: 3.4.3
   resolution: "luxon@npm:3.4.3"
   checksum: b155c9961cf45dadae763b0ec2f5a38d81a2197714154c1dece3ed3a553f1984a34138c1856f248863c998cb623796b27de96b7f7286acdeae68220451e24540
@@ -7007,7 +7010,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object-code@npm:^1.2.4":
+"object-code@npm:^1.3.0":
   version: 1.3.0
   resolution: "object-code@npm:1.3.0"
   checksum: ebe1cd67d1407d95d74bac0feab286c769e30a3dfcff896453e0c0f8a473c8d17dc170ec4875ca14a9ee9d9239ee02262bfeb30eb29db5896bea71719a33e9ef

@@ -13,7 +13,7 @@ export const withAsyncResourceVariant = <TValue, TParams extends FnParameters>(
     asResource: (...params: TParams) =>
       reactUsePromise.getAsyncResource(loader, params),
     use: (...params: TParams) =>
-      reactUsePromise.getAsyncResource(loader, params).watch({}),
+      reactUsePromise.getAsyncResource(loader, params).use(),
   }) as AsyncResourceVariant<TValue, TParams>;
 
 export type AsyncResourceVariant<
