@@ -2,7 +2,7 @@ import { config } from "../../config/config.js";
 import { classes } from "polytype";
 import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
-import { ProxyModel } from "../../base/ProxyModel.js";
+import { ReferenceModel } from "../../base/ReferenceModel.js";
 import { isUuid } from "../../lib/isUuid.js";
 import type { AsyncResourceVariant } from "../../react/index.js";
 import { withAsyncResourceVariant } from "../../react/index.js";
@@ -12,7 +12,7 @@ import {
   CustomerListQuery,
 } from "./types.js";
 
-export class Customer extends ProxyModel {
+export class Customer extends ReferenceModel {
   public static ofId(id: string): Customer {
     return new Customer(id);
   }

@@ -1,11 +1,11 @@
 import ObjectNotFoundError from "../errors/ObjectNotFoundError.js";
 import { Constructor } from "type-fest";
-import { ProxyModel } from "./ProxyModel.js";
+import { ReferenceModel } from "./ReferenceModel.js";
 
 export default function assertObjectFound<T>(
   obj: T | undefined,
   theClass: Constructor<unknown>,
-  refIdOrObject: string | ProxyModel,
+  refIdOrObject: string | ReferenceModel,
 ): asserts obj is T {
   if (obj === undefined) {
     const refName =

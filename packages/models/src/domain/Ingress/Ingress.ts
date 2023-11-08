@@ -2,14 +2,14 @@ import { config } from "../../config/config.js";
 import { classes } from "polytype";
 import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
-import { ProxyModel } from "../../base/ProxyModel.js";
+import { ReferenceModel } from "../../base/ReferenceModel.js";
 import { isUuid } from "../../lib/isUuid.js";
 import type { AsyncResourceVariant } from "../../react/index.js";
 import { withAsyncResourceVariant } from "../../react/index.js";
 import { IngressCompactData, IngressData, IngressListQuery } from "./types.js";
 import { IngressPath } from "../IngressPath/IngressPath.js";
 
-export class Ingress extends ProxyModel {
+export class Ingress extends ReferenceModel {
   public static ofId(id: string): Ingress {
     return new Ingress(id);
   }

@@ -9,11 +9,11 @@ import {
   withAsyncResourceVariant,
 } from "../../react/index.js";
 import { Customer } from "../../customer/Customer/Customer.js";
-import { ProxyModel } from "../../base/ProxyModel.js";
+import { ReferenceModel } from "../../base/ReferenceModel.js";
 import { isUuid } from "../../lib/isUuid.js";
 import { Ingress, IngressListItem } from "../../domain/index.js";
 
-export class Project extends ProxyModel {
+export class Project extends ReferenceModel {
   public static ofId(id: string): Project {
     return new Project(id);
   }

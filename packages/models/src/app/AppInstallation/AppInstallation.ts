@@ -2,7 +2,7 @@ import { config } from "../../config/config.js";
 import { classes } from "polytype";
 import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
-import { ProxyModel } from "../../base/ProxyModel.js";
+import { ReferenceModel } from "../../base/ReferenceModel.js";
 import type { AsyncResourceVariant } from "../../react/index.js";
 import { withAsyncResourceVariant } from "../../react/index.js";
 import {
@@ -11,7 +11,7 @@ import {
   AppInstallationListQuery,
 } from "./types.js";
 
-export class AppInstallation extends ProxyModel {
+export class AppInstallation extends ReferenceModel {
   public static find = withAsyncResourceVariant(
     async (id: string): Promise<AppInstallationDetailed | undefined> => {
       const data = await config.behaviors.appInstallation.find(id);

@@ -1,4 +1,4 @@
-export abstract class ProxyModel {
+export abstract class ReferenceModel {
   public readonly id: string;
 
   public constructor(id: string) {

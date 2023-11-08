@@ -1,4 +1,4 @@
-import { ProxyModel } from "../../base/ProxyModel.js";
+import { ReferenceModel } from "../../base/ReferenceModel.js";
 import { ServerCompactData, ServerData, ServerListQuery } from "./types.js";
 import { config } from "../../config/config.js";
 import { classes } from "polytype";
@@ -12,7 +12,7 @@ import {
   withAsyncResourceVariant,
 } from "../../react/index.js";
 
-export class Server extends ProxyModel {
+export class Server extends ReferenceModel {
   public static find = withAsyncResourceVariant(
     async (id: string): Promise<Server | undefined> => {
       const serverData = await config.behaviors.server.find(

@@ -27,17 +27,17 @@ const detailedProject = await Project.get("p-vka9t3");
 // Create a project reference
 const projectRef = Project.ofId("p-vka9t3");
 
-// Get the detailed project from the proxy
+// Get the detailed project from the reference
 const anotherDetailedProject = await projectRef.getDetailed();
 
 // Update project description
 await detailedProject.updateDescription("My new description!");
 
 // This method just needs the ID and a description and
-// thus is also available on the proxy!
+// thus is also available on the reference
 await projectRef.updateDescription("My new description!");
 
-// Accessing the projects server (proxy)
+// Accessing the projects server reference
 const server = project.server;
 
 // List all projects of this server
@@ -79,10 +79,10 @@ const detailedProject = Project.get.use("p-vka9t3");
 // Create a project reference
 const projectRef = Project.ofId("p-vka9t3");
 
-// Get the detailed project from the proxy
+// Get the detailed project from the reference
 const anotherDetailedProject = projectRef.getDetailed.use();
 
-// Accessing the projects server (proxy)
+// Accessing the projects server reference
 const server = project.server;
 
 // List all projects of this server
@@ -129,11 +129,11 @@ classes in `src/base`. The following classes are available.
 The DataModel is the foundation of all model classes that contain a set of
 immutable generic data.
 
-#### `ProxyModel`
+#### `ReferenceModel`
 
-A ProxyModel represents a certain model just by its ID. As the most basic model
-operations often just need the ID and some input data (deleting, renaming, ...),
-Proxy Models can avoid unnecessary API round trips.
+A ReferenceModel represents a certain model just by its ID. As the most basic
+model operations often just need the ID and some input data (deleting, renaming,
+...), Reference Models can avoid unnecessary API round trips.
 
 ### Stick to the ubiquitous language
 
@@ -163,17 +163,17 @@ of the comprehensive model. Add separate classes for the Detailed Model (name it
 If both model share a common code base, you should add a Common Model (name it
 `[Model]Common`).
 
-#### Proxy Models
+#### Reference Models
 
-A Proxy Model represents a certain model just by its ID. As the most basic model
-operations often just need the ID and some input data (deleting, renaming, ...),
-Proxy Models can avoid unnecessary API round trips. These classes should be used
-as a return type for new created models or for linked models.
+A Reference Model represents a certain model just by its ID. As the most basic
+model operations often just need the ID and some input data (deleting, renaming,
+...), Reference Models can avoid unnecessary API round trips. These classes
+should be used as a return type for new created models or for linked models.
 
-To get the actual Detailed Model, Proxy Models must have a
+To get the actual Detailed Model, Reference Models must have a
 `function getDetailed(): Promise<ModelDetailed>` method.
 
-Consider extending the Proxy Model when implementing the Entry-Point Model.
+Consider extending the Reference Model when implementing the Entry-Point Model.
 
 #### Implementation details
 
@@ -185,8 +185,8 @@ implementation examples.
 #### Entry-Point Model
 
 Provide a single model (name it `[Model]`) as an entry point for all different
-model types (detailed, list, proxy, ...). As a convention provide a default
-export for this model.
+model types (detailed, list, ...). As a convention provide a default export for
+this model.
 
 ### Use the correct verbs
 
@@ -210,7 +210,7 @@ When a list of objects should be loaded use a `list` method. It may support a
 #### `create`
 
 When a model should be created use a static `create` method. This method should
-return a proxy of the created resource.
+return a reference of the created resource.
 
 ### Accessing "linked" models
 
@@ -219,10 +219,10 @@ methods to get the parent and child models, like `project.getServer()`,
 `server.listProjects()` or `server.getCustomer()`. Use `get`, `list` or `find`
 prefixes as described above.
 
-#### Use Proxy Models resp. Entry-Point Models when possible!
+#### Use Reference Models resp. Entry-Point Models when possible!
 
-When a linked model provides a Proxy Model or Entry-point Model, create it in
-the model constructor, to avoid unnecessary API round trips.
+When a linked model provides a Reference Model or Entry-point Model, create it
+in the model constructor, to avoid unnecessary API round trips.
 
 ### Abstraction of model behaviors
 
