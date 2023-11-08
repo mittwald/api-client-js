@@ -18,6 +18,80 @@ You can install this package from the regular NPM registry:
 yarn add @mittwald/api-models
 ```
 
+## Examples
+
+```typescript
+// Get a detailed project
+const detailedProject = await Project.get("p-vka9t3");
+
+// Create a project reference
+const projectRef = Project.ofId("p-vka9t3");
+
+// Get the detailed project from the proxy
+const anotherDetailedProject = await projectRef.getDetailed();
+
+// Update project description
+await detailedProject.updateDescription("My new description!");
+
+// This method just needs the ID and a description and
+// thus is also available on the proxy!
+await projectRef.updateDescription("My new description!");
+
+// Accessing the projects server (proxy)
+const server = project.server;
+
+// List all projects of this server
+const serversProjects = await server.listProjects();
+
+// List all projects
+const allProjects = await Project.list();
+
+// Iterate over project List Models
+for (const project of serversProjects) {
+  await project.leave();
+}
+```
+
+## Usage in React
+
+This package also provides methods aligned to be used in React components. It
+uses
+[@mittwald/react-use-promise](https://www.npmjs.com/package/@mittwald/react-use-promise)
+to encapsulate all asynchronous functions into AsyncResources. More details
+about how to use AsyncResources see the package documentation.
+
+### Installation
+
+To use the React client you have to install the additional
+@mittwald/react-use-promise package:
+
+```shell
+yarn add @mittwald/react-use-promise
+```
+
+All asynchronous methods provide a `use`-method property. This method uses
+[@mittwald/react-use-promise](https://www.npmjs.com/package/@mittwald/react-use-promise)
+under the hood to "resolve" the promise in the "React way".
+
+```typescript
+const detailedProject = Project.get.use("p-vka9t3");
+
+// Create a project reference
+const projectRef = Project.ofId("p-vka9t3");
+
+// Get the detailed project from the proxy
+const anotherDetailedProject = projectRef.getDetailed.use();
+
+// Accessing the projects server (proxy)
+const server = project.server;
+
+// List all projects of this server
+const serversProjects = server.listProjects.use();
+
+// List all projects
+const allProjects = Project.list.use();
+```
+
 ## Immutability and state updates
 
 Most of all models provided by this package represent an associated counter-part
@@ -199,39 +273,5 @@ class ProjectDetailed {
       return new Project(data.id, data);
     }
   }
-}
-```
-
-## Examples
-
-```typescript
-// Get a detailed project
-const project = await Project.get("497f6eca-6276-4993-bfeb-53cbbbba6f08");
-
-// Create a project proxy
-const projectProxy = Project.ofId("497f6eca-6276-4993-bfeb-53cbbbba6f08");
-
-// Get the detailed project from the proxy
-const detailedProject = await projectProxy.getDetailed();
-
-// Update project description
-await project.updateDescription("My new description!");
-
-// This method just needs the ID and a description and
-// thus is also available on the proxy!
-await projectProxy.updateDescription("My new description!");
-
-// Accessing the projects server (proxy)
-const server = project.server;
-
-// List all projects of this server
-const serversProjects = await server.listProjects();
-
-// List all projects
-const allProjects = await Project.list();
-
-// Iterate over project List Models
-for (const project of serversProjects) {
-  await project.leave();
 }
 ```
