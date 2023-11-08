@@ -1122,13 +1122,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@mittwald/api-models@workspace:packages/models"
   dependencies:
+    "@jest/globals": "npm:^29.7.0"
     "@mittwald/api-client": "workspace:^"
     "@mittwald/api-client-commons": "workspace:^"
     "@mittwald/react-use-promise": "npm:^2.0.1"
+    "@types/jest": "npm:^29.5.7"
     "@types/react": "npm:^18.2.36"
     another-deep-freeze: "npm:^1.0.0"
+    jest: "npm:^29.7.0"
     polytype: "npm:^0.17.0"
     react: "npm:^18.2.0"
+    ts-jest: "npm:^29.1.1"
     tsup: "npm:^7.2.0"
     type-fest: "npm:^4.6.0"
     typescript: "npm:^5.2.2"

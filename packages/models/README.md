@@ -27,8 +27,8 @@ incorporated into the model instance. To keep it simple and predictable this
 you must create a new instance to get an updated model and propagate it
 throughout the runtime code.
 
-This also applies for operations initiated at your client-side. For example when
-you call the `updateDescription` method on a project, the project instance will
+This also applies for operations initiated at client-side. For example when the
+`updateDescription` method is called on a project, the project instance will
 still have the old description.
 
 "Watching for changes" is not scope of this package and will be implemented in
@@ -69,7 +69,13 @@ uncertain.
 
 ### Models as abstraction layer
 
-**to be written**
+Models should cover the following aspects:
+
+- Coherent representation of the business logic
+- Simple loading of models and there linked entities
+- Methods to interact with the model in an intuitive way
+- Preprocessing of the models raw data to increase DX
+- Consistent API
 
 ### Type of models
 
@@ -80,10 +86,10 @@ lists. To reduce the amount of data, the list response type is usually a subset
 of the comprehensive model. Add separate classes for the Detailed Model (name it
 `[Model]Detailed`) and the List Model (name it `[Model]ListItem`).
 
-If both model share a common code base, you should add a Base Model (name it
-`[Model]Base`).
+If both model share a common code base, you should add a Common Model (name it
+`[Model]Common`).
 
-#### Proxy models
+#### Proxy Models
 
 A Proxy Model represents a certain model just by its ID. As the most basic model
 operations often just need the ID and some input data (deleting, renaming, ...),
@@ -93,18 +99,20 @@ as a return type for new created models or for linked models.
 To get the actual Detailed Model, Proxy Models must have a
 `function getDetailed(): Promise<ModelDetailed>` method.
 
+Consider extending the Proxy Model when implementing the Entry-Point Model.
+
 #### Implementation details
 
-When implementing shared functionality, like in the Base Models, you can use the
-[`polytype`](https://www.npmjs.com/package/polytype) library to realize dynamic
-multiple inheritance. Be sure to look at the existing source code for
+When implementing shared functionality, like in the Common Models, you can use
+the [`polytype`](https://www.npmjs.com/package/polytype) library to realize
+dynamic multiple inheritance. Be sure to look at the existing source code for
 implementation examples.
 
-#### Entry point model
+#### Entry-Point Model
 
 Provide a single model (name it `[Model]`) as an entry point for all different
 model types (detailed, list, proxy, ...). As a convention provide a default
-export for this model. You can also use `polytype` to put all models together.
+export for this model.
 
 ### Use the correct verbs
 
@@ -137,10 +145,10 @@ methods to get the parent and child models, like `project.getServer()`,
 `server.listProjects()` or `server.getCustomer()`. Use `get`, `list` or `find`
 prefixes as described above.
 
-#### Use Proxy Models when possible!
+#### Use Proxy Models resp. Entry-Point Models when possible!
 
-When a linked model provides a Proxy Model, create it in the model constructor,
-to avoid unnecessary API round trips.
+When a linked model provides a Proxy Model or Entry-point Model, create it in
+the model constructor, to avoid unnecessary API round trips.
 
 ### Abstraction of model behaviors
 

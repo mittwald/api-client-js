@@ -7,34 +7,56 @@ import assertObjectFound from "../../base/assertObjectFound.js";
 import { Project } from "../../project/index.js";
 import { FirstParameter, ParamsExceptFirst } from "../../lib/types.js";
 import { isUuid } from "../../lib/isUuid.js";
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
 import {
   AsyncResourceVariant,
   withAsyncResourceVariant,
 } from "../../react/index.js";
 
-export class ServerProxy extends ProxyModel {
-  public async getUuid(): Promise<string> {
-    return ServerProxy.getUuid(this.id);
+export class Server extends ProxyModel {
+  public static find = withAsyncResourceVariant(
+    async (id: string): Promise<Server | undefined> => {
+      const serverData = await config.behaviors.server.find(
+        await Server.getUuid(id),
+      );
+
+      if (serverData !== undefined) {
+        return new ServerDetailed([serverData]);
+      }
+    },
+  );
+
+  public static get = withAsyncResourceVariant(
+    async (id: string): Promise<Server> => {
+      const server = await ServerDetailed.find(id);
+      assertObjectFound(server, this, id);
+      return server;
+    },
+  );
+
+  public static list = withAsyncResourceVariant(
+    async (query: ServerListQuery = {}): Promise<ServerListItem[]> => {
+      const projectListData = await config.behaviors.server.list(query);
+      return projectListData.map((d) => new ServerListItem([d]));
+    },
+  );
+
+  public static ofId(id: string): Server {
+    return new Server(id);
   }
 
-  public static async getUuid(shortIdOrUuid: string): Promise<string> {
+  private async getUuid(): Promise<string> {
+    return Server.getUuid(this.id);
+  }
+
+  private static async getUuid(shortIdOrUuid: string): Promise<string> {
     if (isUuid(shortIdOrUuid)) {
       return shortIdOrUuid;
     }
     const allServers = await ServerListItem.list();
 
     const uuid = allServers.find((p) => p.data.shortId === shortIdOrUuid)?.id;
-
-    if (uuid === undefined) {
-      throw new ObjectNotFoundError(Server.name, shortIdOrUuid);
-    }
-
+    assertObjectFound(uuid, Server, shortIdOrUuid);
     return uuid;
-  }
-
-  public static ofId(id: string): ServerProxy {
-    return new ServerProxy(id);
   }
 
   public async createProject(
@@ -59,9 +81,10 @@ export class ServerProxy extends ProxyModel {
   ) as AsyncResourceVariant<ServerDetailed, []>;
 }
 
-export class ServerBase extends classes(
+// Common class for future extension
+class ServerCommon extends classes(
   DataModel<ServerCompactData | ServerData>,
-  ServerProxy,
+  Server,
 ) {
   public constructor(data: ServerCompactData | ServerData) {
     super([data], [data.id]);
@@ -69,38 +92,9 @@ export class ServerBase extends classes(
 }
 
 export class ServerListItem extends classes<
-  [typeof ServerBase, typeof DataModel<ServerCompactData>]
->(ServerBase, DataModel<ServerCompactData>) {
-  public static list = withAsyncResourceVariant(
-    async (query: ServerListQuery = {}): Promise<ServerListItem[]> => {
-      const projectListData = await config.behaviors.server.list(query);
-      return projectListData.map((d) => new ServerListItem([d]));
-    },
-  );
-}
+  [typeof ServerCommon, typeof DataModel<ServerCompactData>]
+>(ServerCommon, DataModel<ServerCompactData>) {}
 
 export class ServerDetailed extends classes<
-  [typeof ServerBase, typeof DataModel<ServerData>]
->(ServerBase, DataModel<ServerData>) {
-  public static find = withAsyncResourceVariant(
-    async (id: string): Promise<Server | undefined> => {
-      const serverData = await config.behaviors.server.find(
-        await ServerProxy.getUuid(id),
-      );
-
-      if (serverData !== undefined) {
-        return new ServerDetailed([serverData]);
-      }
-    },
-  );
-
-  public static get = withAsyncResourceVariant(
-    async (id: string): Promise<Server> => {
-      const server = await ServerDetailed.find(id);
-      assertObjectFound(server, this, id);
-      return server;
-    },
-  );
-}
-
-export class Server extends classes(ServerDetailed, ServerListItem) {}
+  [typeof ServerCommon, typeof DataModel<ServerData>]
+>(ServerCommon, DataModel<ServerData>) {}

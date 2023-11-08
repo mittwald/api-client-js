@@ -1754,13 +1754,17 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/models/",\
         "packageDependencies": [\
           ["@mittwald/api-models", "workspace:packages/models"],\
+          ["@jest/globals", "npm:29.7.0"],\
           ["@mittwald/api-client", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#workspace:packages/mittwald"],\
           ["@mittwald/api-client-commons", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#workspace:packages/commons"],\
           ["@mittwald/react-use-promise", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#npm:2.0.1"],\
+          ["@types/jest", "npm:29.5.7"],\
           ["@types/react", "npm:18.2.36"],\
           ["another-deep-freeze", "npm:1.0.0"],\
+          ["jest", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:29.7.0"],\
           ["polytype", "npm:0.17.0"],\
           ["react", "npm:18.2.0"],\
+          ["ts-jest", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:29.1.1"],\
           ["tsup", "virtual:cb6e12912a04aaab9e2aa4237c688ef82a8c378536cefd6506a1770ad00abf3ff9ba8e601153f5e69d9373d14ef8dafd1ae488394e3078efa94705e372b50aa9#npm:7.2.0"],\
           ["type-fest", "npm:4.6.0"],\
           ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"]\

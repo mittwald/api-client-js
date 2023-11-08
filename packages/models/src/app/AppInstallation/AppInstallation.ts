@@ -11,33 +11,7 @@ import {
   AppInstallationListQuery,
 } from "./types.js";
 
-export class AppInstallationProxy extends ProxyModel {
-  public getDetailed = withAsyncResourceVariant(() =>
-    AppInstallation.get(this.id),
-  ) as AsyncResourceVariant<AppInstallationDetailed, []>;
-
-  public static ofId(id: string): AppInstallationProxy {
-    return new AppInstallationProxy(id);
-  }
-}
-
-class AppInstallationBase extends classes(
-  DataModel<AppInstallationCompactData | AppInstallationData>,
-  AppInstallationProxy,
-) {
-  public constructor(data: AppInstallationCompactData | AppInstallationData) {
-    super([data], [data.id]);
-  }
-}
-
-export class AppInstallationDetailed extends classes(
-  AppInstallationBase,
-  DataModel<AppInstallationData>,
-) {
-  public constructor(data: AppInstallationData) {
-    super([data], [data]);
-  }
-
+export class AppInstallation extends ProxyModel {
   public static find = withAsyncResourceVariant(
     async (id: string): Promise<AppInstallationDetailed | undefined> => {
       const data = await config.behaviors.appInstallation.find(id);
@@ -54,14 +28,9 @@ export class AppInstallationDetailed extends classes(
       return appInstallation;
     },
   );
-}
 
-export class AppInstallationListItem extends classes(
-  AppInstallationBase,
-  DataModel<AppInstallationCompactData>,
-) {
-  public constructor(data: AppInstallationCompactData) {
-    super([data], [data]);
+  public static ofId(id: string): AppInstallation {
+    return new AppInstallation(id);
   }
 
   public static list = withAsyncResourceVariant(
@@ -72,9 +41,36 @@ export class AppInstallationListItem extends classes(
       return data.map((d) => new AppInstallationListItem(d));
     },
   );
+
+  public getDetailed = withAsyncResourceVariant(() =>
+    AppInstallation.get(this.id),
+  ) as AsyncResourceVariant<AppInstallationDetailed, []>;
 }
 
-export class AppInstallation extends classes(
-  AppInstallationDetailed,
-  AppInstallationListItem,
-) {}
+// Common class for future extension
+class AppInstallationCommon extends classes(
+  DataModel<AppInstallationCompactData | AppInstallationData>,
+  AppInstallation,
+) {
+  public constructor(data: AppInstallationCompactData | AppInstallationData) {
+    super([data], [data.id]);
+  }
+}
+
+export class AppInstallationDetailed extends classes(
+  AppInstallationCommon,
+  DataModel<AppInstallationData>,
+) {
+  public constructor(data: AppInstallationData) {
+    super([data], [data]);
+  }
+}
+
+export class AppInstallationListItem extends classes(
+  AppInstallationCommon,
+  DataModel<AppInstallationCompactData>,
+) {
+  public constructor(data: AppInstallationCompactData) {
+    super([data], [data]);
+  }
+}

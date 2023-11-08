@@ -4,7 +4,6 @@ import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import { ProxyModel } from "../../base/ProxyModel.js";
 import { isUuid } from "../../lib/isUuid.js";
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
 import type { AsyncResourceVariant } from "../../react/index.js";
 import { withAsyncResourceVariant } from "../../react/index.js";
 import {
@@ -13,62 +12,28 @@ import {
   CustomerListQuery,
 } from "./types.js";
 
-export class CustomerProxy extends ProxyModel {
-  protected async getUuid(): Promise<string> {
-    return CustomerProxy.getUuid(this.id);
-  }
-
-  public static async getUuid(numberOrUuid: string): Promise<string> {
-    if (isUuid(numberOrUuid)) {
-      return numberOrUuid;
-    }
-    const allCustomers = await CustomerListItem.list();
-
-    const uuid = allCustomers.find(
-      (p) => p.data.customerNumber === numberOrUuid,
-    )?.id;
-
-    if (uuid === undefined) {
-      throw new ObjectNotFoundError(Customer.name, numberOrUuid);
-    }
-
-    return uuid;
-  }
-
-  public getDetailed = withAsyncResourceVariant(() =>
-    Customer.get(this.id),
-  ) as AsyncResourceVariant<CustomerDetailed, []>;
-
-  public static ofId(id: string): CustomerProxy {
-    return new CustomerProxy(id);
-  }
-}
-
-class CustomerBase extends classes(
-  DataModel<CustomerCompactData | CustomerData>,
-  CustomerProxy,
-) {
-  public constructor(data: CustomerCompactData | CustomerData) {
-    super([data], [data.customerId]);
-  }
-}
-
-export class CustomerDetailed extends classes(
-  CustomerBase,
-  DataModel<CustomerData>,
-) {
-  public constructor(data: CustomerData) {
-    super([data], [data]);
+export class Customer extends ProxyModel {
+  public static ofId(id: string): Customer {
+    return new Customer(id);
   }
 
   public static find = withAsyncResourceVariant(
     async (id: string): Promise<CustomerDetailed | undefined> => {
       const data = await config.behaviors.customer.find(
-        await CustomerProxy.getUuid(id),
+        await Customer.getUuid(id),
       );
       if (data !== undefined) {
         return new CustomerDetailed(data);
       }
+    },
+  );
+
+  public static list = withAsyncResourceVariant(
+    async (
+      query: CustomerListQuery = {},
+    ): Promise<Readonly<Array<CustomerListItem>>> => {
+      const data = await config.behaviors.customer.list(query);
+      return Object.freeze(data.map((d) => new CustomerListItem(d)));
     },
   );
 
@@ -79,22 +44,49 @@ export class CustomerDetailed extends classes(
       return customer;
     },
   );
+
+  private static async getUuid(numberOrUuid: string): Promise<string> {
+    if (isUuid(numberOrUuid)) {
+      return numberOrUuid;
+    }
+    const allCustomers = await CustomerListItem.list();
+
+    const uuid = allCustomers.find(
+      (p) => p.data.customerNumber === numberOrUuid,
+    )?.id;
+    assertObjectFound(uuid, Customer, numberOrUuid);
+    return uuid;
+  }
+
+  public getDetailed = withAsyncResourceVariant(() =>
+    Customer.get(this.id),
+  ) as AsyncResourceVariant<CustomerDetailed, []>;
+}
+
+// Common class for future extension
+class CustomerCommon extends classes(
+  DataModel<CustomerCompactData | CustomerData>,
+  Customer,
+) {
+  public constructor(data: CustomerCompactData | CustomerData) {
+    super([data], [data.customerId]);
+  }
+}
+
+export class CustomerDetailed extends classes(
+  CustomerCommon,
+  DataModel<CustomerData>,
+) {
+  public constructor(data: CustomerData) {
+    super([data], [data]);
+  }
 }
 
 export class CustomerListItem extends classes(
-  CustomerBase,
+  CustomerCommon,
   DataModel<CustomerCompactData>,
 ) {
   public constructor(data: CustomerCompactData) {
     super([data], [data]);
   }
-
-  public static list = withAsyncResourceVariant(
-    async (query: CustomerListQuery = {}): Promise<Array<CustomerListItem>> => {
-      const data = await config.behaviors.customer.list(query);
-      return data.map((d) => new CustomerListItem(d));
-    },
-  );
 }
-
-export class Customer extends classes(CustomerDetailed, CustomerListItem) {}

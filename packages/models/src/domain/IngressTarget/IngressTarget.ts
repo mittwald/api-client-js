@@ -7,10 +7,7 @@ import {
   IngressTargetData,
 } from "./types.js";
 import { IngressPath } from "../IngressPath/IngressPath.js";
-import {
-  AppInstallation,
-  AppInstallationProxy,
-} from "../../app/AppInstallation/index.js";
+import { AppInstallation } from "../../app/AppInstallation/index.js";
 
 abstract class IngressTargetBase<
   T extends IngressTargetData,
@@ -45,7 +42,7 @@ export class IngressDirectoryTarget extends IngressTargetBase<IngressDirectoryTa
 
 export class IngressAppInstallationTarget extends IngressTargetBase<IngressAppInstallationTargetData> {
   public readonly type = "installation";
-  public readonly appInstallation: AppInstallationProxy;
+  public readonly appInstallation: AppInstallation;
 
   public constructor(
     path: IngressPath,

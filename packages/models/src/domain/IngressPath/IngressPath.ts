@@ -1,18 +1,18 @@
 import { DataModel } from "../../base/DataModel.js";
 import { IngressPathData } from "./types.js";
-import { IngressBase, IngressProxy } from "../Ingress/index.js";
+import { IngressCommon, Ingress } from "../Ingress/index.js";
 import {
   IngressTarget,
   ingressTargetFactory,
 } from "../IngressTarget/IngressTarget.js";
 
 export class IngressPath extends DataModel<IngressPathData> {
-  public readonly ingress: IngressProxy;
+  public readonly ingress: Ingress;
   public readonly path: string;
   public readonly url: URL;
   public readonly target: IngressTarget;
 
-  public constructor(ingress: IngressBase, data: IngressPathData) {
+  public constructor(ingress: IngressCommon, data: IngressPathData) {
     super(data);
     this.ingress = ingress;
     this.path = data.path;
