@@ -12100,6 +12100,7 @@ export declare module MittwaldAPIV2 {
           export type Header = {
             Accept?: "binary" | "base64" | "ocr";
             Download?: boolean;
+            Token?: string;
           };
 
           export type Query = {};
