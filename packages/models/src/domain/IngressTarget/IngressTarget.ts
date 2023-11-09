@@ -41,7 +41,7 @@ export class IngressDirectoryTarget extends IngressTargetBase<IngressDirectoryTa
 }
 
 export class IngressAppInstallationTarget extends IngressTargetBase<IngressAppInstallationTargetData> {
-  public readonly type = "installation";
+  public readonly type = "appInstallation";
   public readonly appInstallation: AppInstallation;
 
   public constructor(

@@ -13,6 +13,6 @@ if (target.type === "directory") {
   void target.directory;
 }
 
-if (target.type === "installation") {
+if (target.type === "appInstallation") {
   void target.appInstallation.id;
 }

@@ -68,11 +68,18 @@ export class IngressCommon extends classes(
 ) {
   public readonly baseUrl: string;
   public readonly paths: Readonly<IngressPath[]>;
+  public readonly defaultPath: IngressPath;
 
   public constructor(data: IngressCompactData | IngressData) {
     super([data], [data.id]);
     this.baseUrl = `https://${data.hostname}`;
     this.paths = Object.freeze(data.paths.map((p) => new IngressPath(this, p)));
+
+    const defaultPath = this.paths.find((p) => p.path === "/");
+    if (defaultPath === undefined) {
+      throw new Error(`Ingress ${this.describe()} has no default path.`);
+    }
+    this.defaultPath = defaultPath;
   }
 }
 
