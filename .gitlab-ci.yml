@@ -20,7 +20,7 @@ typescript-compile:
   artifacts:
     paths:
       - ${CI_PROJECT_DIR}/packages/commons/dist/
-      - ${CI_PROJECT_DIR}/packages/commons/dist-cjs/
+      - ${CI_PROJECT_DIR}/packages/mittwald/dist/
       - ${CI_PROJECT_DIR}/packages/generator/dist/
       - ${CI_PROJECT_DIR}/packages/models/dist/
     expire_in: 1 hour
@@ -40,11 +40,17 @@ publish-commons:
       --no-workspaces-update
     - |
       yarn config set npmScopes.mittwald.npmAuthToken "${GITHUB_TOKEN}"
-      yarn npm publish
+      DIST_TAG=$(npx npm-dist-tag)
+      if [[ $DIST_TAG ]]; then
+        yarn npm publish --tag=$DIST_TAG
+      fi
     - |
       yarn config set npmScopes.mittwald.npmAuthToken "${NPMJS_TOKEN}"
       yarn config set npmScopes.mittwald.npmPublishRegistry "https://registry.npmjs.org"
-      yarn npm publish --access=public
+      DIST_TAG=$(npx npm-dist-tag)
+      if [[ $DIST_TAG ]]; then
+        yarn npm publish --access=public --tag=$DIST_TAG
+      fi
   only:
     refs:
       - tags
@@ -60,11 +66,17 @@ publish-models:
       --no-workspaces-update
     - |
       yarn config set npmScopes.mittwald.npmAuthToken "${GITHUB_TOKEN}"
-      yarn npm publish
+      DIST_TAG=$(npx npm-dist-tag)
+      if [[ $DIST_TAG ]]; then
+        yarn npm publish --tag=$DIST_TAG
+      fi
     - |
       yarn config set npmScopes.mittwald.npmAuthToken "${NPMJS_TOKEN}"
       yarn config set npmScopes.mittwald.npmPublishRegistry "https://registry.npmjs.org"
-      yarn npm publish --access=public
+      DIST_TAG=$(npx npm-dist-tag)
+      if [[ $DIST_TAG ]]; then
+        yarn npm publish --access=public --tag=$DIST_TAG
+      fi
   only:
     refs:
       - tags
@@ -103,11 +115,18 @@ publish-client:
         git push "https://project:${PAT}@${CI_REPOSITORY_URL#*@}" "HEAD:${CI_COMMIT_BRANCH}"
 
         yarn config set npmScopes.mittwald.npmAuthToken "${GITHUB_TOKEN}"
-        yarn npm publish
+        DIST_TAG=$(npx npm-dist-tag)
+        if [[ $DIST_TAG ]]; then
+          yarn npm publish --tag=$DIST_TAG
+        fi
 
         yarn config set npmScopes.mittwald.npmAuthToken "${NPMJS_TOKEN}"
         yarn config set npmScopes.mittwald.npmPublishRegistry "https://registry.npmjs.org"
-        yarn npm publish --access=public
+
+        DIST_TAG=$(npx npm-dist-tag)
+        if [[ $DIST_TAG ]]; then
+          yarn npm publish --access=public --tag=$DIST_TAG
+        fi
       fi
 
   only:
@@ -150,7 +169,12 @@ publish-generator:
       yarn config set npmScopes.mittwald.npmPublishRegistry https://npm.mittwald.it
       yarn config set npmAuthToken ${NPM_TOKEN}
     - npm version --no-workspaces-update --no-git-tag-version ${CI_COMMIT_TAG}
-    - yarn npm publish
+    - |
+      DIST_TAG=$(npx npm-dist-tag)
+      if [[ $DIST_TAG ]]; then
+        yarn npm publish --tag=$DIST_TAG
+      fi
+
   only:
     refs:
       - tags
