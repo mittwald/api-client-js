@@ -40,11 +40,11 @@ publish-commons:
       --no-workspaces-update
     - |
       yarn config set npmScopes.mittwald.npmAuthToken "${GITHUB_TOKEN}"
-      yarn npm publish
+      yarn npm publish --tag=$(npx auto-dist-tag)
     - |
       yarn config set npmScopes.mittwald.npmAuthToken "${NPMJS_TOKEN}"
       yarn config set npmScopes.mittwald.npmPublishRegistry "https://registry.npmjs.org"
-      yarn npm publish --access=public
+      yarn npm publish --access=public --tag=$(npx auto-dist-tag)
   only:
     - tags
 
@@ -80,11 +80,11 @@ publish-client:
         git push "https://project:${PAT}@${CI_REPOSITORY_URL#*@}" "HEAD:${CI_COMMIT_BRANCH}"
 
         yarn config set npmScopes.mittwald.npmAuthToken "${GITHUB_TOKEN}"
-        yarn npm publish
+        yarn npm publish --tag=$(npx auto-dist-tag)
 
         yarn config set npmScopes.mittwald.npmAuthToken "${NPMJS_TOKEN}"
         yarn config set npmScopes.mittwald.npmPublishRegistry "https://registry.npmjs.org"
-        yarn npm publish --access=public
+        yarn npm publish --access=public --tag=$(npx auto-dist-tag)
       fi
   only:
     - schedules
@@ -101,7 +101,7 @@ publish-client-dev:
       yarn config set npmAuthToken ${NPM_TOKEN}
     - npm version --no-workspaces-update --no-git-tag-version
       1.0.0-alpha.${CI_JOB_ID}
-    - yarn npm publish
+    - yarn npm publish --tag=$(npx auto-dist-tag)
   only:
     - schedules
     - web
