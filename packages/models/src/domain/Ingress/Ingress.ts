@@ -67,7 +67,7 @@ export class IngressCommon extends classes(
   Ingress,
 ) {
   public readonly baseUrl: string;
-  public readonly paths: Readonly<IngressPath[]>;
+  public readonly paths: ReadonlyArray<IngressPath>;
   public readonly defaultPath: IngressPath;
 
   public constructor(data: IngressCompactData | IngressData) {

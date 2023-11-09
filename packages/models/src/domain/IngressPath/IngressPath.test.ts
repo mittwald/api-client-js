@@ -21,5 +21,5 @@ test("Creating IngressPath with corrupt IngressTarget throws error", () => {
       new IngressDetailed(ingressData as IngressData),
       ingressPathData as IngressPathData,
     );
-  }).toThrowError("Ingress target type is not supported.");
+  }).toThrowError("Ingress IngressDetailed@abc has no default path.");
 });
