@@ -209,6 +209,11 @@ const buildConversationApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.conversationListCategories,
     baseClient.conversation.listCategories
   ).getApiResource,
+  /** Request an access token for the File belonging to the Conversation. */
+  getFileAccessToken: new ApiCallAsyncResourceFactory(
+    descriptors.conversationGetFileAccessToken,
+    baseClient.conversation.getFileAccessToken
+  ).getApiResource,
 });
 
 const buildCronjobApi = (baseClient: MittwaldAPIV2Client) => ({
@@ -396,20 +401,15 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.domainListTlds,
     baseClient.domain.listTlds
   ).getApiResource,
+  /** List Ingresses. */
+  ingressListIngresses: new ApiCallAsyncResourceFactory(
+    descriptors.ingressListIngresses,
+    baseClient.domain.ingressListIngresses
+  ).getApiResource,
   /** Get an Ingress. */
-  ingressGetSpecific: new ApiCallAsyncResourceFactory(
-    descriptors.ingressGetSpecific,
-    baseClient.domain.ingressGetSpecific
-  ).getApiResource,
-  /** List Ingresses the user has access to. */
-  ingressListAccessible: new ApiCallAsyncResourceFactory(
-    descriptors.ingressListAccessible,
-    baseClient.domain.ingressListAccessible
-  ).getApiResource,
-  /** List Ingresses belonging to a project. */
-  ingressListForProject: new ApiCallAsyncResourceFactory(
-    descriptors.ingressListForProject,
-    baseClient.domain.ingressListForProject
+  ingressGetIngress: new ApiCallAsyncResourceFactory(
+    descriptors.ingressGetIngress,
+    baseClient.domain.ingressGetIngress
   ).getApiResource,
 });
 
@@ -496,7 +496,7 @@ const buildPageInsightsApi = (baseClient: MittwaldAPIV2Client) => ({
 });
 
 const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** Get a password policy. */
+  /** Get a PasswordPolicy. */
   passwordValidationGetPasswordPolicy: new ApiCallAsyncResourceFactory(
     descriptors.passwordValidationGetPasswordPolicy,
     baseClient.user.passwordValidationGetPasswordPolicy

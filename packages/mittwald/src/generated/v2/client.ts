@@ -281,6 +281,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateMessage: this.requestFunctionFactory(
       descriptors.conversationUpdateMessage
     ),
+    /** Request an access token for the File belonging to the Conversation. */
+    getFileAccessToken: this.requestFunctionFactory(
+      descriptors.conversationGetFileAccessToken
+    ),
   };
 
   /** The cronjob API allows you to manage cronjobs within a project. */
@@ -645,30 +649,34 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     verifyDomainOwnership: this.requestFunctionFactory(
       descriptors.domainVerifyDomainOwnership
     ),
+    /** List Ingresses. */
+    ingressListIngresses: this.requestFunctionFactory(
+      descriptors.ingressListIngresses
+    ),
     /** Create an Ingress. */
-    ingressCreate: this.requestFunctionFactory(descriptors.ingressCreate),
+    ingressCreateIngress: this.requestFunctionFactory(
+      descriptors.ingressCreateIngress
+    ),
     /** Get an Ingress. */
-    ingressGetSpecific: this.requestFunctionFactory(
-      descriptors.ingressGetSpecific
+    ingressGetIngress: this.requestFunctionFactory(
+      descriptors.ingressGetIngress
     ),
     /** Delete an Ingress. */
-    ingressDelete: this.requestFunctionFactory(descriptors.ingressDelete),
-    /** List Ingresses the user has access to. */
-    ingressListAccessible: this.requestFunctionFactory(
-      descriptors.ingressListAccessible
+    ingressDeleteIngress: this.requestFunctionFactory(
+      descriptors.ingressDeleteIngress
     ),
-    /** List Ingresses belonging to a project. */
-    ingressListForProject: this.requestFunctionFactory(
-      descriptors.ingressListForProject
+    /** Update the paths of an Ingress. */
+    ingressUpdateIngressPaths: this.requestFunctionFactory(
+      descriptors.ingressUpdateIngressPaths
     ),
-    /** Update an Ingresses paths. */
-    ingressPaths: this.requestFunctionFactory(descriptors.ingressPaths),
-    /** Request ACME certificate issuance */
-    ingressRequestAcmeCertificateIssuance: this.requestFunctionFactory(
-      descriptors.ingressRequestAcmeCertificateIssuance
+    /** Request the ACME certificate issuance of an Ingress. */
+    ingressRequestIngressAcmeCertificateIssuance: this.requestFunctionFactory(
+      descriptors.ingressRequestIngressAcmeCertificateIssuance
     ),
-    /** Update an Ingresses tls settings. */
-    ingressTls: this.requestFunctionFactory(descriptors.ingressTls),
+    /** Update the tls settings of an Ingress. */
+    ingressUpdateIngressTls: this.requestFunctionFactory(
+      descriptors.ingressUpdateIngressTls
+    ),
   };
 
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
@@ -740,8 +748,8 @@ export class MittwaldAPIV2Client extends ApiClientBase {
       descriptors.mailUpdateMailAddressAutoresponder
     ),
     /** Update the catchall of a MailAddress. */
-    updateMailAddressCatchall: this.requestFunctionFactory(
-      descriptors.mailUpdateMailAddressCatchall
+    updateMailAddressCatchAll: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressCatchAll
     ),
     /** Update the forward addresses of a MailAddresses. */
     updateMailAddressForwardAddresses: this.requestFunctionFactory(
@@ -779,7 +787,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The user API allows you to manage your own user and access information of other users that might be visible to you. */
   public readonly user = {
-    /** Get a password policy. */
+    /** Get a PasswordPolicy. */
     passwordValidationGetPasswordPolicy: this.requestFunctionFactory(
       descriptors.passwordValidationGetPasswordPolicy
     ),

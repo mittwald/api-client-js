@@ -1536,63 +1536,69 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.fileGetFile, TStatus>;
     }
 
-    namespace IngressCreate {
-      type RequestData = InferredRequestData<typeof descriptors.ingressCreate>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.ingressCreate, TStatus>;
-    }
-
-    namespace IngressGetSpecific {
+    namespace IngressListIngresses {
       type RequestData = InferredRequestData<
-        typeof descriptors.ingressGetSpecific
+        typeof descriptors.ingressListIngresses
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.ingressGetSpecific, TStatus>;
+        InferredResponseData<typeof descriptors.ingressListIngresses, TStatus>;
     }
 
-    namespace IngressDelete {
-      type RequestData = InferredRequestData<typeof descriptors.ingressDelete>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.ingressDelete, TStatus>;
-    }
-
-    namespace IngressListAccessible {
+    namespace IngressCreateIngress {
       type RequestData = InferredRequestData<
-        typeof descriptors.ingressListAccessible
+        typeof descriptors.ingressCreateIngress
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.ingressListAccessible, TStatus>;
+        InferredResponseData<typeof descriptors.ingressCreateIngress, TStatus>;
     }
 
-    namespace IngressListForProject {
+    namespace IngressGetIngress {
       type RequestData = InferredRequestData<
-        typeof descriptors.ingressListForProject
+        typeof descriptors.ingressGetIngress
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.ingressListForProject, TStatus>;
+        InferredResponseData<typeof descriptors.ingressGetIngress, TStatus>;
     }
 
-    namespace IngressPaths {
-      type RequestData = InferredRequestData<typeof descriptors.ingressPaths>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.ingressPaths, TStatus>;
-    }
-
-    namespace IngressRequestAcmeCertificateIssuance {
+    namespace IngressDeleteIngress {
       type RequestData = InferredRequestData<
-        typeof descriptors.ingressRequestAcmeCertificateIssuance
+        typeof descriptors.ingressDeleteIngress
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.ingressDeleteIngress, TStatus>;
+    }
+
+    namespace IngressUpdateIngressPaths {
+      type RequestData = InferredRequestData<
+        typeof descriptors.ingressUpdateIngressPaths
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.ingressRequestAcmeCertificateIssuance,
+          typeof descriptors.ingressUpdateIngressPaths,
           TStatus
         >;
     }
 
-    namespace IngressTls {
-      type RequestData = InferredRequestData<typeof descriptors.ingressTls>;
+    namespace IngressRequestIngressAcmeCertificateIssuance {
+      type RequestData = InferredRequestData<
+        typeof descriptors.ingressRequestIngressAcmeCertificateIssuance
+      >;
       type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.ingressTls, TStatus>;
+        InferredResponseData<
+          typeof descriptors.ingressRequestIngressAcmeCertificateIssuance,
+          TStatus
+        >;
+    }
+
+    namespace IngressUpdateIngressTls {
+      type RequestData = InferredRequestData<
+        typeof descriptors.ingressUpdateIngressTls
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.ingressUpdateIngressTls,
+          TStatus
+        >;
     }
 
     namespace InvoiceDetailOfInvoice {
@@ -1758,13 +1764,13 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace MailUpdateMailAddressCatchall {
+    namespace MailUpdateMailAddressCatchAll {
       type RequestData = InferredRequestData<
-        typeof descriptors.mailUpdateMailAddressCatchall
+        typeof descriptors.mailUpdateMailAddressCatchAll
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.mailUpdateMailAddressCatchall,
+          typeof descriptors.mailUpdateMailAddressCatchAll,
           TStatus
         >;
     }
@@ -2841,6 +2847,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.userVerifyRegistration,
+          TStatus
+        >;
+    }
+
+    namespace ConversationGetFileAccessToken {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationGetFileAccessToken
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationGetFileAccessToken,
           TStatus
         >;
     }
@@ -12152,6 +12169,43 @@ export declare module MittwaldAPIV2 {
     }
 
     namespace V2Ingresses {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            projectId?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.IngressIngress[];
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
       namespace Post {
         namespace Parameters {
           export type Path = {};
@@ -12273,84 +12327,10 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2Ingresses {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.IngressIngress[];
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectsProjectIdIngresses {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.IngressIngress[];
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
+    namespace V2ProjectsProjectIdIngresses {}
 
     namespace V2IngressesIngressIdPaths {
-      namespace Put {
+      namespace Patch {
         namespace Parameters {
           export type Path = {
             ingressId: string;
@@ -12437,7 +12417,7 @@ export declare module MittwaldAPIV2 {
     }
 
     namespace V2IngressesIngressIdTls {
-      namespace Put {
+      namespace Patch {
         namespace Parameters {
           export type Path = {
             ingressId: string;
@@ -13570,10 +13550,8 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MailaddressesMailAddressIdAutoResponder {}
-
     namespace V2MailAddressesMailAddressIdAutoresponder {
-      namespace Put {
+      namespace Patch {
         namespace Parameters {
           export type Path = {
             mailAddressId: string;
@@ -13651,10 +13629,10 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MailaddressesMailAddressIdCatchAll {}
+    namespace V2MailaddressesMailAddressIdAutoResponder {}
 
-    namespace V2MailAddressesMailAddressIdCatchall {
-      namespace Put {
+    namespace V2MailAddressesMailAddressIdCatchAll {
+      namespace Patch {
         namespace Parameters {
           export type Path = {
             mailAddressId: string;
@@ -13727,10 +13705,12 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MailaddressesMailAddressIdForwardaddresses {}
+    namespace V2MailaddressesMailAddressIdCatchAll {}
+
+    namespace V2MailAddressesMailAddressIdCatchall {}
 
     namespace V2MailAddressesMailAddressIdForwardAddresses {
-      namespace Put {
+      namespace Patch {
         namespace Parameters {
           export type Path = {
             mailAddressId: string;
@@ -13803,10 +13783,10 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MailaddressesMailAddressIdPassword {}
+    namespace V2MailaddressesMailAddressIdForwardaddresses {}
 
     namespace V2MailAddressesMailAddressIdPassword {
-      namespace Put {
+      namespace Patch {
         namespace Parameters {
           export type Path = {
             mailAddressId: string;
@@ -13879,10 +13859,10 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MailaddressesMailAddressIdQuota {}
+    namespace V2MailaddressesMailAddressIdPassword {}
 
     namespace V2MailAddressesMailAddressIdQuota {
-      namespace Put {
+      namespace Patch {
         namespace Parameters {
           export type Path = {
             mailAddressId: string;
@@ -13955,10 +13935,10 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MailaddressesMailAddressIdSpamprotection {}
+    namespace V2MailaddressesMailAddressIdQuota {}
 
     namespace V2MailAddressesMailAddressIdSpamProtection {
-      namespace Put {
+      namespace Patch {
         namespace Parameters {
           export type Path = {
             mailAddressId: string;
@@ -14036,8 +14016,10 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2MailaddressesMailAddressIdSpamprotection {}
+
     namespace V2ProjectsProjectIdMailSettingsSetting {
-      namespace Put {
+      namespace Patch {
         namespace Parameters {
           export type Path = {
             projectId: string;
@@ -14736,11 +14718,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2PasswordPoliciesPath {
+    namespace V2PasswordPoliciesPasswordPolicy {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            path: string;
+            passwordPolicy: string;
           };
 
           export type Header = {};
@@ -14765,6 +14747,8 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
+
+    namespace V2PasswordPoliciesPath {}
 
     namespace V2ProjectInvitesInviteIdActionsAccept {
       namespace Post {
@@ -19047,6 +19031,57 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ConversationsConversationIdFilesFileIdAccessToken {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            conversationId: string;
+            fileId: string;
+          };
+
+          export interface RequestBody {}
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                accessToken: string;
+                expiresAt: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 

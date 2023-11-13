@@ -4796,95 +4796,8 @@ export const fileGetFile: OpenAPIOperation<
   operationId: "file-get-file",
 };
 
-/** Create an Ingress. */
-export const ingressCreate: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2Ingresses.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2Ingresses.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2Ingresses.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2Ingresses.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Ingresses.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Ingresses.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Ingresses.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/ingresses/",
-  method: "POST",
-  operationId: "ingress-create",
-};
-
-/** Get an Ingress. */
-export const ingressGetSpecific: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/ingresses/{ingressId}",
-  method: "GET",
-  operationId: "ingress-get-specific",
-};
-
-/** Delete an Ingress. */
-export const ingressDelete: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Delete.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Delete.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Delete.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Delete.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Delete.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/ingresses/{ingressId}",
-  method: "DELETE",
-  operationId: "ingress-delete",
-};
-
-/** List Ingresses the user has access to. */
-export const ingressListAccessible: OpenAPIOperation<
+/** List Ingresses. */
+export const ingressListIngresses: OpenAPIOperation<
   RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2Ingresses.Get.Parameters.Path>,
@@ -4909,69 +4822,127 @@ export const ingressListAccessible: OpenAPIOperation<
 > = {
   path: "/v2/ingresses",
   method: "GET",
-  operationId: "ingress-list-accessible",
+  operationId: "ingress-list-ingresses",
 };
 
-/** List Ingresses belonging to a project. */
-export const ingressListForProject: OpenAPIOperation<
+/** Create an Ingress. */
+export const ingressCreateIngress: OpenAPIOperation<
   RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdIngresses.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdIngresses.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdIngresses.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2Ingresses.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2Ingresses.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2Ingresses.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2Ingresses.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdIngresses.Get.Responses.$200.Content.ApplicationJson>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2Ingresses.Post.Responses.$201.Content.ApplicationJson>,
+      201,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdIngresses.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2Ingresses.Post.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdIngresses.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2Ingresses.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/projects/{projectId}/ingresses",
-  method: "GET",
-  operationId: "ingress-list-for-project",
+  path: "/v2/ingresses",
+  method: "POST",
+  operationId: "ingress-create-ingress",
 };
 
-/** Update an Ingresses paths. */
-export const ingressPaths: OpenAPIOperation<
+/** Get an Ingress. */
+export const ingressGetIngress: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Put.Parameters.Header>
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Put.Responses.$204.Content.Empty>,
-      204,
-      "empty"
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Put.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Put.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/ingresses/{ingressId}",
+  method: "GET",
+  operationId: "ingress-get-ingress",
+};
+
+/** Delete an Ingress. */
+export const ingressDeleteIngress: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Delete.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/ingresses/{ingressId}",
+  method: "DELETE",
+  operationId: "ingress-delete-ingress",
+};
+
+/** Update the paths of an Ingress. */
+export const ingressUpdateIngressPaths: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
   path: "/v2/ingresses/{ingressId}/paths",
-  method: "PUT",
-  operationId: "ingress-paths",
+  method: "PATCH",
+  operationId: "ingress-update-ingress-paths",
 };
 
-/** Request ACME certificate issuance */
-export const ingressRequestAcmeCertificateIssuance: OpenAPIOperation<
+/** Request the ACME certificate issuance of an Ingress. */
+export const ingressRequestIngressAcmeCertificateIssuance: OpenAPIOperation<
   RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdActionsRequestAcmeCertificateIssuance.Post.Parameters.Path>,
@@ -5001,36 +4972,36 @@ export const ingressRequestAcmeCertificateIssuance: OpenAPIOperation<
 > = {
   path: "/v2/ingresses/{ingressId}/actions/request-acme-certificate-issuance",
   method: "POST",
-  operationId: "ingress-request-acme-certificate-issuance",
+  operationId: "ingress-request-ingress-acme-certificate-issuance",
 };
 
-/** Update an Ingresses tls settings. */
-export const ingressTls: OpenAPIOperation<
+/** Update the tls settings of an Ingress. */
+export const ingressUpdateIngressTls: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Put.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Put.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Patch.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Put.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Patch.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Put.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
   path: "/v2/ingresses/{ingressId}/tls",
-  method: "PUT",
-  operationId: "ingress-tls",
+  method: "PATCH",
+  operationId: "ingress-update-ingress-tls",
 };
 
 /** Get details of an Invoice. */
@@ -5760,343 +5731,343 @@ export const mailUpdateMailAddressAddress: OpenAPIOperation<
 /** Update the autoresponder of a MailAddress. */
 export const mailUpdateMailAddressAutoresponder: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Put.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Put.Responses.$200.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Patch.Responses.$200.Content.Empty>,
       200,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Put.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Patch.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Put.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Patch.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Put.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Patch.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Put.Responses.$500.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Patch.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Put.Responses.$503.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Patch.Responses.$503.Content.ApplicationJson>,
       503,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Put.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
   path: "/v2/mail-addresses/{mailAddressId}/autoresponder",
-  method: "PUT",
+  method: "PATCH",
   operationId: "mail-update-mail-address-autoresponder",
 };
 
 /** Update the catchall of a MailAddress. */
-export const mailUpdateMailAddressCatchall: OpenAPIOperation<
+export const mailUpdateMailAddressCatchAll: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchall.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchall.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchall.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchall.Put.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchAll.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchAll.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchAll.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchAll.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchall.Put.Responses.$200.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchAll.Patch.Responses.$200.Content.Empty>,
       200,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchall.Put.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchAll.Patch.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchall.Put.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchAll.Patch.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchall.Put.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchAll.Patch.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchall.Put.Responses.$500.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchAll.Patch.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchall.Put.Responses.$503.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchAll.Patch.Responses.$503.Content.ApplicationJson>,
       503,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchall.Put.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchAll.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/mail-addresses/{mailAddressId}/catchall",
-  method: "PUT",
-  operationId: "mail-update-mail-address-catchall",
+  path: "/v2/mail-addresses/{mailAddressId}/catch-all",
+  method: "PATCH",
+  operationId: "mail-update-mail-address-catch-all",
 };
 
 /** Update the forward addresses of a MailAddresses. */
 export const mailUpdateMailAddressForwardAddresses: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Put.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Put.Responses.$200.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Patch.Responses.$200.Content.Empty>,
       200,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Put.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Patch.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Put.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Patch.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Put.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Patch.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Put.Responses.$500.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Patch.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Put.Responses.$503.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Patch.Responses.$503.Content.ApplicationJson>,
       503,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Put.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
   path: "/v2/mail-addresses/{mailAddressId}/forward-addresses",
-  method: "PUT",
+  method: "PATCH",
   operationId: "mail-update-mail-address-forward-addresses",
 };
 
 /** Update the password for a MailAddress. */
 export const mailUpdateMailAddressPassword: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Put.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Put.Responses.$200.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Patch.Responses.$200.Content.Empty>,
       200,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Put.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Patch.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Put.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Patch.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Put.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Patch.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Put.Responses.$500.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Patch.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Put.Responses.$503.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Patch.Responses.$503.Content.ApplicationJson>,
       503,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Put.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
   path: "/v2/mail-addresses/{mailAddressId}/password",
-  method: "PUT",
+  method: "PATCH",
   operationId: "mail-update-mail-address-password",
 };
 
 /** Update the quota of a MailAddress. */
 export const mailUpdateMailAddressQuota: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Put.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Put.Responses.$200.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Patch.Responses.$200.Content.Empty>,
       200,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Put.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Patch.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Put.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Patch.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Put.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Patch.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Put.Responses.$500.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Patch.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Put.Responses.$503.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Patch.Responses.$503.Content.ApplicationJson>,
       503,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Put.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
   path: "/v2/mail-addresses/{mailAddressId}/quota",
-  method: "PUT",
+  method: "PATCH",
   operationId: "mail-update-mail-address-quota",
 };
 
 /** Update the spam protection of a MailAddress. */
 export const mailUpdateMailAddressSpamProtection: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Put.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Put.Responses.$200.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Patch.Responses.$200.Content.Empty>,
       200,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Put.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Patch.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Put.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Patch.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Put.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Patch.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Put.Responses.$500.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Patch.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Put.Responses.$503.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Patch.Responses.$503.Content.ApplicationJson>,
       503,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Put.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
   path: "/v2/mail-addresses/{mailAddressId}/spam-protection",
-  method: "PUT",
+  method: "PATCH",
   operationId: "mail-update-mail-address-spam-protection",
 };
 
 /** Update a mail setting of a Project. */
 export const mailUpdateProjectMailSetting: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Put.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Put.Responses.$200.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Patch.Responses.$200.Content.Empty>,
       200,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Put.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Patch.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Put.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Patch.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Put.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Patch.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Put.Responses.$500.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Patch.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Put.Responses.$503.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Patch.Responses.$503.Content.ApplicationJson>,
       503,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Put.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
   path: "/v2/projects/{projectId}/mail-settings/{setting}",
-  method: "PUT",
+  method: "PATCH",
   operationId: "mail-update-project-mail-setting",
 };
 
@@ -6510,26 +6481,26 @@ export const pageinsightsListPerformanceDataForProject: OpenAPIOperation<
   operationId: "pageinsights-list-performance-data-for-project",
 };
 
-/** Get a password policy. */
+/** Get a PasswordPolicy. */
 export const passwordValidationGetPasswordPolicy: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPasswordPolicy.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPasswordPolicy.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPasswordPolicy.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPasswordPolicy.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPasswordPolicy.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/password/policies/{path}",
+  path: "/v2/password-policies/{passwordPolicy}",
   method: "GET",
   operationId: "password-validation-get-password-policy",
 };
@@ -9368,4 +9339,38 @@ export const userVerifyRegistration: OpenAPIOperation<
   path: "/v2/verify-registration",
   method: "POST",
   operationId: "user-verify-registration",
+};
+
+/** Request an access token for the File belonging to the Conversation. */
+export const conversationGetFileAccessToken: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/conversations/{conversationId}/files/{fileId}/access-token",
+  method: "GET",
+  operationId: "conversation-get-file-access-token",
 };
