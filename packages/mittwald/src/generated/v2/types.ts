@@ -569,6 +569,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ConversationGetFileAccessToken {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationGetFileAccessToken
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationGetFileAccessToken,
+          TStatus
+        >;
+    }
+
     namespace ConversationListCategories {
       type RequestData = InferredRequestData<
         typeof descriptors.conversationListCategories
@@ -2847,17 +2858,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.userVerifyRegistration,
-          TStatus
-        >;
-    }
-
-    namespace ConversationGetFileAccessToken {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationGetFileAccessToken
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.conversationGetFileAccessToken,
           TStatus
         >;
     }
@@ -7627,6 +7627,57 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ConversationsConversationIdFilesFileIdAccessToken {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            conversationId: string;
+            fileId: string;
+          };
+
+          export interface RequestBody {}
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                accessToken: string;
+                expiresAt: string;
+              }
+            }
+          }
+
+          namespace $400 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -16848,9 +16899,7 @@ export declare module MittwaldAPIV2 {
           }
         }
       }
-    }
 
-    namespace V2SshusersSshUserId {
       namespace Patch {
         namespace Parameters {
           export type Path = {
@@ -16895,6 +16944,8 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
+
+    namespace V2SshusersSshUserId {}
 
     namespace V2UsersUserIdPhone {
       namespace Post {
@@ -19031,57 +19082,6 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ConversationsConversationIdFilesFileIdAccessToken {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            conversationId: string;
-            fileId: string;
-          };
-
-          export interface RequestBody {}
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                accessToken: string;
-                expiresAt: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 

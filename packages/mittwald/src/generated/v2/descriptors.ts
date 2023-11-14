@@ -1722,6 +1722,40 @@ export const conversationUpdateConversation: OpenAPIOperation<
   operationId: "conversation-update-conversation",
 };
 
+/** Request an access token for the File belonging to the Conversation. */
+export const conversationGetFileAccessToken: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/conversations/{conversationId}/files/{fileId}/access-token",
+  method: "GET",
+  operationId: "conversation-get-file-access-token",
+};
+
 /** Get all conversation categories. */
 export const conversationListCategories: OpenAPIOperation<
   RequestType<
@@ -7903,28 +7937,28 @@ export const sshUserDeleteSshUser: OpenAPIOperation<
 /** Update an SSHUser. */
 export const sshUserUpdateSshUser: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2SshusersSshUserId.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2SshusersSshUserId.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SshusersSshUserId.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2SshusersSshUserId.Patch.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2SshUsersSshUserId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SshUsersSshUserId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SshUsersSshUserId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SshUsersSshUserId.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SshusersSshUserId.Patch.Responses.$204.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2SshUsersSshUserId.Patch.Responses.$204.Content.Empty>,
       204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SshusersSshUserId.Patch.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SshUsersSshUserId.Patch.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SshusersSshUserId.Patch.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SshUsersSshUserId.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/sshusers/{sshUserId}",
+  path: "/v2/ssh-users/{sshUserId}",
   method: "PATCH",
   operationId: "ssh-user-update-ssh-user",
 };
@@ -9339,38 +9373,4 @@ export const userVerifyRegistration: OpenAPIOperation<
   path: "/v2/verify-registration",
   method: "POST",
   operationId: "user-verify-registration",
-};
-
-/** Request an access token for the File belonging to the Conversation. */
-export const conversationGetFileAccessToken: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/conversations/{conversationId}/files/{fileId}/access-token",
-  method: "GET",
-  operationId: "conversation-get-file-access-token",
 };
