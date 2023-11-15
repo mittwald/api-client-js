@@ -265,10 +265,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateConversation: this.requestFunctionFactory(
       descriptors.conversationUpdateConversation
     ),
-    /** Request an access token for the File belonging to the Conversation. */
-    getFileAccessToken: this.requestFunctionFactory(
-      descriptors.conversationGetFileAccessToken
-    ),
     /** Get all conversation categories. */
     listCategories: this.requestFunctionFactory(
       descriptors.conversationListCategories
@@ -284,6 +280,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update the content of the message */
     updateMessage: this.requestFunctionFactory(
       descriptors.conversationUpdateMessage
+    ),
+    /** Request an access token for the File belonging to the Conversation. */
+    getFileAccessToken: this.requestFunctionFactory(
+      descriptors.conversationGetFileAccessToken
     ),
   };
 
@@ -613,10 +613,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getDomainOwnership: this.requestFunctionFactory(
       descriptors.domainGetDomainOwnership
     ),
-    /** Get File Service Reference for a Screenshot of a domain. */
-    getScreenshotForDomain: this.requestFunctionFactory(
-      descriptors.domainGetScreenshotForDomain
-    ),
     /** List the DomainOwnerships of a project. */
     listDomainOwnerships: this.requestFunctionFactory(
       descriptors.domainListDomainOwnerships
@@ -676,6 +672,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update the tls settings of an Ingress. */
     ingressUpdateIngressTls: this.requestFunctionFactory(
       descriptors.ingressUpdateIngressTls
+    ),
+    /** Get the latest screenshot's FileReference belonging to a Domain. */
+    getLatestScreenshot: this.requestFunctionFactory(
+      descriptors.domainGetLatestScreenshot
     ),
   };
 

@@ -1722,40 +1722,6 @@ export const conversationUpdateConversation: OpenAPIOperation<
   operationId: "conversation-update-conversation",
 };
 
-/** Request an access token for the File belonging to the Conversation. */
-export const conversationGetFileAccessToken: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/conversations/{conversationId}/files/{fileId}/access-token",
-  method: "GET",
-  operationId: "conversation-get-file-access-token",
-};
-
 /** Get all conversation categories. */
 export const conversationListCategories: OpenAPIOperation<
   RequestType<
@@ -4345,35 +4311,6 @@ export const domainGetDomainOwnership: OpenAPIOperation<
   operationId: "domain-get-domain-ownership",
 };
 
-/** Get File Service Reference for a Screenshot of a domain. */
-export const domainGetScreenshotForDomain: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domains/{domainId}/screenshots/newest",
-  method: "GET",
-  operationId: "domain-get-screenshot-for-domain",
-};
-
 /** List the DomainOwnerships of a project. */
 export const domainListDomainOwnerships: OpenAPIOperation<
   RequestType<
@@ -6451,32 +6388,32 @@ export const orderPreviewTariffChange: OpenAPIOperation<
 export const pageinsightsGetPerformanceData: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2Pageinsights.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2Pageinsights.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2Pageinsights.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2PageInsights.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2PageInsights.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2PageInsights.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Pageinsights.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2PageInsights.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Pageinsights.Get.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2PageInsights.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Pageinsights.Get.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2PageInsights.Get.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Pageinsights.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2PageInsights.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/pageinsights",
+  path: "/v2/page-insights",
   method: "GET",
   operationId: "pageinsights-get-performance-data",
 };
@@ -6485,32 +6422,32 @@ export const pageinsightsGetPerformanceData: OpenAPIOperation<
 export const pageinsightsListPerformanceDataForProject: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsIdPageinsights.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsIdPageinsights.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsIdPageinsights.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdPageInsights.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdPageInsights.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdPageInsights.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsIdPageinsights.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdPageInsights.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsIdPageinsights.Get.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdPageInsights.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsIdPageinsights.Get.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdPageInsights.Get.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsIdPageinsights.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdPageInsights.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/projects/{id}/pageinsights",
+  path: "/v2/projects/{projectId}/page-insights",
   method: "GET",
   operationId: "pageinsights-list-performance-data-for-project",
 };
@@ -9373,4 +9310,67 @@ export const userVerifyRegistration: OpenAPIOperation<
   path: "/v2/verify-registration",
   method: "POST",
   operationId: "user-verify-registration",
+};
+
+/** Request an access token for the File belonging to the Conversation. */
+export const conversationGetFileAccessToken: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/conversations/{conversationId}/files/{fileId}/access-token",
+  method: "GET",
+  operationId: "conversation-get-file-access-token",
+};
+
+/** Get the latest screenshot's FileReference belonging to a Domain. */
+export const domainGetLatestScreenshot: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdLatestScreenshot.Get.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdLatestScreenshot.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdLatestScreenshot.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdLatestScreenshot.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdLatestScreenshot.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdLatestScreenshot.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdLatestScreenshot.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/latest-screenshot",
+  method: "GET",
+  operationId: "domain-get-latest-screenshot",
 };

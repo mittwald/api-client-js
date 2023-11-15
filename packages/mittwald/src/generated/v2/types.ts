@@ -569,17 +569,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace ConversationGetFileAccessToken {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationGetFileAccessToken
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.conversationGetFileAccessToken,
-          TStatus
-        >;
-    }
-
     namespace ConversationListCategories {
       type RequestData = InferredRequestData<
         typeof descriptors.conversationListCategories
@@ -1405,17 +1394,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.domainGetDomainOwnership,
-          TStatus
-        >;
-    }
-
-    namespace DomainGetScreenshotForDomain {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainGetScreenshotForDomain
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainGetScreenshotForDomain,
           TStatus
         >;
     }
@@ -2858,6 +2836,28 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.userVerifyRegistration,
+          TStatus
+        >;
+    }
+
+    namespace ConversationGetFileAccessToken {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationGetFileAccessToken
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationGetFileAccessToken,
+          TStatus
+        >;
+    }
+
+    namespace DomainGetLatestScreenshot {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainGetLatestScreenshot
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainGetLatestScreenshot,
           TStatus
         >;
     }
@@ -7653,57 +7653,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ConversationsConversationIdFilesFileIdAccessToken {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            conversationId: string;
-            fileId: string;
-          };
-
-          export interface RequestBody {}
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                accessToken: string;
-                expiresAt: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2ConversationCategories {
       namespace Get {
         namespace Parameters {
@@ -11526,51 +11475,6 @@ export declare module MittwaldAPIV2 {
 
     namespace V2DomainsHandleSchemaDomainName {}
 
-    namespace V2DomainsDomainIdScreenshotsNewest {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            domainId: string;
-          };
-
-          export interface RequestBody {
-            domainName: string;
-            path: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                references?: string[];
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2ProjectsProjectIdDomainOwnerships {
       namespace Get {
         namespace Parameters {
@@ -14649,7 +14553,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2Pageinsights {
+    namespace V2Pageinsights {}
+
+    namespace V2PageInsights {
       namespace Get {
         namespace Parameters {
           export type Path = {};
@@ -14713,11 +14619,13 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsIdPageinsights {
+    namespace V2ProjectsProjectIdPageinsights {}
+
+    namespace V2ProjectsProjectIdPageInsights {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            id: string;
+            projectId: string;
           };
 
           export type Header =
@@ -19082,6 +18990,104 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ConversationsConversationIdFilesFileIdAccessToken {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            conversationId: string;
+            fileId: string;
+          };
+
+          export interface RequestBody {}
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                accessToken: string;
+                expiresAt: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DomainsDomainIdScreenshotsNewest {}
+
+    namespace V2DomainsDomainIdLatestScreenshot {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            domainId: string;
+          };
+
+          export interface RequestBody {
+            domainName: string;
+            path: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                reference?: string;
+              }
             }
           }
 
