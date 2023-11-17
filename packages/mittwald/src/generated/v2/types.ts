@@ -569,6 +569,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ConversationGetFileAccessToken {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationGetFileAccessToken
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationGetFileAccessToken,
+          TStatus
+        >;
+    }
+
     namespace ConversationListCategories {
       type RequestData = InferredRequestData<
         typeof descriptors.conversationListCategories
@@ -2836,17 +2847,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.userVerifyRegistration,
-          TStatus
-        >;
-    }
-
-    namespace ConversationGetFileAccessToken {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationGetFileAccessToken
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.conversationGetFileAccessToken,
           TStatus
         >;
     }
@@ -5157,7 +5157,9 @@ export declare module MittwaldAPIV2 {
   }
 
   namespace Paths {
-    namespace V2AppinstallationsAppInstallationIdActionsAction {
+    namespace V2AppinstallationsAppInstallationIdActionsAction {}
+
+    namespace V2AppInstallationsAppInstallationIdActionsAction {
       namespace Post {
         namespace Parameters {
           export type Path = {
@@ -5236,7 +5238,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2AppinstallationsAppInstallationId {
+    namespace V2AppinstallationsAppInstallationId {}
+
+    namespace V2AppInstallationsAppInstallationId {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -5400,7 +5404,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2AppinstallationsAppInstallationIdMissingDependencies {
+    namespace V2AppinstallationsAppInstallationIdMissingDependencies {}
+
+    namespace V2AppInstallationsAppInstallationIdMissingDependencies {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -5443,7 +5449,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SystemsoftwaresSystemSoftwareId {
+    namespace V2SystemsoftwaresSystemSoftwareId {}
+
+    namespace V2SystemSoftwaresSystemSoftwareId {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -5482,7 +5490,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SystemsoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId {
+    namespace V2SystemsoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId {}
+
+    namespace V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -5522,8 +5532,8 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2AppinstallationsAppInstallationIdDatabases {
-      namespace Put {
+    namespace V2AppInstallationsAppInstallationIdDatabase {
+      namespace Patch {
         namespace Parameters {
           export type Path = {
             appInstallationId: string;
@@ -5568,7 +5578,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsProjectIdAppinstallations {
+    namespace V2ProjectsProjectIdAppinstallations {}
+
+    namespace V2ProjectsProjectIdAppInstallations {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -5712,7 +5724,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2Systemsoftwares {
+    namespace V2Systemsoftwares {}
+
+    namespace V2SystemSoftwares {
       namespace Get {
         namespace Parameters {
           export type Path = {};
@@ -5745,7 +5759,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SystemsoftwareSystemSoftwareIdVersions {
+    namespace V2SystemsoftwareSystemSoftwareIdVersions {}
+
+    namespace V2SystemSoftwareSystemSoftwareIdVersions {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -5810,7 +5826,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2AppinstallationsIdActionsCopy {
+    namespace V2AppinstallationsIdActionsCopy {}
+
+    namespace V2AppInstallationsIdActionsCopy {
       namespace Post {
         namespace Parameters {
           export type Path = {
@@ -5854,7 +5872,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2AppinstallationsAppInstallationIdStatus {
+    namespace V2AppinstallationsAppInstallationIdStatus {}
+
+    namespace V2AppInstallationsAppInstallationIdStatus {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -5892,7 +5912,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2AppinstallationsAppInstallationIdDatabasesDatabaseId {
+    namespace V2AppinstallationsAppInstallationIdDatabasesDatabaseId {}
+
+    namespace V2AppInstallationsAppInstallationIdDatabasesDatabaseId {
       namespace Put {
         namespace Parameters {
           export type Path = {
@@ -7627,6 +7649,57 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ConversationsConversationIdFilesFileIdAccessToken {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            conversationId: string;
+            fileId: string;
+          };
+
+          export interface RequestBody {}
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                accessToken: string;
+                expiresAt: string;
+              }
+            }
+          }
+
+          namespace $400 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -19012,57 +19085,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ConversationsConversationIdFilesFileIdAccessToken {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            conversationId: string;
-            fileId: string;
-          };
-
-          export interface RequestBody {}
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                accessToken: string;
-                expiresAt: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2DomainsDomainIdScreenshotsNewest {}
 
     namespace V2DomainsDomainIdLatestScreenshot {
@@ -19109,5 +19131,7 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
+
+    namespace V2AppinstallationsAppInstallationIdDatabases {}
   }
 }

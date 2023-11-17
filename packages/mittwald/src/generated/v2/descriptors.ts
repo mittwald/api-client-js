@@ -10,28 +10,28 @@ import { MittwaldAPIV2 } from "./types.js";
 /** Execute a runtime concerning action on a specific `AppInstallation`. */
 export const appExecuteAction: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdActionsAction.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdActionsAction.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdActionsAction.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdActionsAction.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdActionsAction.Post.Responses.$204.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Responses.$204.Content.Empty>,
       204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdActionsAction.Post.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdActionsAction.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/appinstallations/{appInstallationId}/actions/{action}",
+  path: "/v2/app-installations/{appInstallationId}/actions/{action}",
   method: "POST",
   operationId: "app-execute-action",
 };
@@ -69,27 +69,27 @@ export const appGetApp: OpenAPIOperation<
 export const appGetAppinstallation: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/appinstallations/{appInstallationId}",
+  path: "/v2/app-installations/{appInstallationId}",
   method: "GET",
   operationId: "app-get-appinstallation",
 };
@@ -98,27 +98,27 @@ export const appGetAppinstallation: OpenAPIOperation<
 export const appUninstallAppinstallation: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Delete.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Delete.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Delete.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Delete.Responses.$204.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Delete.Responses.$204.Content.Empty>,
       204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Delete.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Delete.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Delete.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/appinstallations/{appInstallationId}",
+  path: "/v2/app-installations/{appInstallationId}",
   method: "DELETE",
   operationId: "app-uninstall-appinstallation",
 };
@@ -126,28 +126,28 @@ export const appUninstallAppinstallation: OpenAPIOperation<
 /** Patch desired properties of a specific `AppInstallation`. */
 export const appPatchAppinstallation: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Patch.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Patch.Responses.$204.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Patch.Responses.$204.Content.Empty>,
       204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Patch.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Patch.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Patch.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/appinstallations/{appInstallationId}",
+  path: "/v2/app-installations/{appInstallationId}",
   method: "PATCH",
   operationId: "app-patch-appinstallation",
 };
@@ -185,27 +185,27 @@ export const appGetAppversion: OpenAPIOperation<
 export const appGetMissingDependenciesForAppinstallation: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdMissingDependencies.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdMissingDependencies.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdMissingDependencies.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdMissingDependencies.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdMissingDependencies.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdMissingDependencies.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdMissingDependencies.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdMissingDependencies.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdMissingDependencies.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdMissingDependencies.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdMissingDependencies.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdMissingDependencies.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/appinstallations/{appInstallationId}/missing-dependencies",
+  path: "/v2/app-installations/{appInstallationId}/missing-dependencies",
   method: "GET",
   operationId: "app-get-missing-dependencies-for-appinstallation",
 };
@@ -214,27 +214,27 @@ export const appGetMissingDependenciesForAppinstallation: OpenAPIOperation<
 export const appGetSystemsoftware: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2SystemsoftwaresSystemSoftwareId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SystemsoftwaresSystemSoftwareId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2SystemsoftwaresSystemSoftwareId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareId.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SystemsoftwaresSystemSoftwareId.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareId.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SystemsoftwaresSystemSoftwareId.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SystemsoftwaresSystemSoftwareId.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/systemsoftwares/{systemSoftwareId}",
+  path: "/v2/system-softwares/{systemSoftwareId}",
   method: "GET",
   operationId: "app-get-systemsoftware",
 };
@@ -243,27 +243,27 @@ export const appGetSystemsoftware: OpenAPIOperation<
 export const appGetSystemsoftwareversion: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2SystemsoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SystemsoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2SystemsoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SystemsoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SystemsoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SystemsoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/systemsoftware/{systemSoftwareId}/versions/{systemSoftwareVersionId}",
+  path: "/v2/system-software/{systemSoftwareId}/versions/{systemSoftwareVersionId}",
   method: "GET",
   operationId: "app-get-systemsoftwareversion",
 };
@@ -271,29 +271,29 @@ export const appGetSystemsoftwareversion: OpenAPIOperation<
 /** Create linkage between an `AppInstallation` and a MySql-`Database`. */
 export const appLinkDatabase: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabases.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabases.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabases.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabases.Put.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabase.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabase.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabase.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabase.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabases.Put.Responses.$204.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabase.Patch.Responses.$204.Content.Empty>,
       204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabases.Put.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabase.Patch.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabases.Put.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabase.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/appinstallations/{appInstallationId}/databases",
-  method: "PUT",
+  path: "/v2/app-installations/{appInstallationId}/database",
+  method: "PATCH",
   operationId: "app-link-database",
 };
 
@@ -301,22 +301,22 @@ export const appLinkDatabase: OpenAPIOperation<
 export const appListAppinstallations: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppInstallations.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppInstallations.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppInstallations.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppInstallations.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppInstallations.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/projects/{projectId}/appinstallations",
+  path: "/v2/projects/{projectId}/app-installations",
   method: "GET",
   operationId: "app-list-appinstallations",
 };
@@ -324,28 +324,28 @@ export const appListAppinstallations: OpenAPIOperation<
 /** Request a new `AppInstallation`. */
 export const appRequestAppinstallation: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppInstallations.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppInstallations.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppInstallations.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppInstallations.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Post.Responses.$201.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppInstallations.Post.Responses.$201.Content.ApplicationJson>,
       201,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Post.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppInstallations.Post.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppInstallations.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/projects/{projectId}/appinstallations",
+  path: "/v2/projects/{projectId}/app-installations",
   method: "POST",
   operationId: "app-request-appinstallation",
 };
@@ -402,22 +402,22 @@ export const appListAppversions: OpenAPIOperation<
 export const appListSystemsoftwares: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2Systemsoftwares.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2Systemsoftwares.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2Systemsoftwares.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwares.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwares.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwares.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Systemsoftwares.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwares.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Systemsoftwares.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwares.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/systemsoftwares",
+  path: "/v2/system-softwares",
   method: "GET",
   operationId: "app-list-systemsoftwares",
 };
@@ -426,22 +426,22 @@ export const appListSystemsoftwares: OpenAPIOperation<
 export const appListSystemsoftwareversions: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2SystemsoftwareSystemSoftwareIdVersions.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SystemsoftwareSystemSoftwareIdVersions.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2SystemsoftwareSystemSoftwareIdVersions.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersions.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersions.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersions.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SystemsoftwareSystemSoftwareIdVersions.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersions.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SystemsoftwareSystemSoftwareIdVersions.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersions.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/systemsoftware/{systemSoftwareId}/versions",
+  path: "/v2/system-software/{systemSoftwareId}/versions",
   method: "GET",
   operationId: "app-list-systemsoftwareversions",
 };
@@ -473,28 +473,28 @@ export const appListUpdateCandidatesForAppversion: OpenAPIOperation<
 /** Request a copy of an `AppInstallation`. */
 export const appRequestAppinstallationCopy: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsCopy.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsCopy.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsCopy.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsCopy.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsIdActionsCopy.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsIdActionsCopy.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsIdActionsCopy.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsIdActionsCopy.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsCopy.Post.Responses.$201.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsIdActionsCopy.Post.Responses.$201.Content.ApplicationJson>,
       201,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsCopy.Post.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsIdActionsCopy.Post.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsIdActionsCopy.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsIdActionsCopy.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/appinstallations/{id}/actions/copy",
+  path: "/v2/app-installations/{id}/actions/copy",
   method: "POST",
   operationId: "app-request-appinstallation-copy",
 };
@@ -503,27 +503,27 @@ export const appRequestAppinstallationCopy: OpenAPIOperation<
 export const appRetrieveStatus: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdStatus.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdStatus.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdStatus.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdStatus.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdStatus.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdStatus.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdStatus.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdStatus.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdStatus.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdStatus.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdStatus.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdStatus.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/appinstallations/{appInstallationId}/status",
+  path: "/v2/app-installations/{appInstallationId}/status",
   method: "GET",
   operationId: "app-retrieve-status",
 };
@@ -531,28 +531,28 @@ export const appRetrieveStatus: OpenAPIOperation<
 /** Create linkage between an `AppInstallation` and `DatabaseUsers`. */
 export const appSetDatabaseUsers: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Put.Responses.$204.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Put.Responses.$204.Content.Empty>,
       204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Put.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Put.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Put.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Put.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/appinstallations/{appInstallationId}/databases/{databaseId}",
+  path: "/v2/app-installations/{appInstallationId}/databases/{databaseId}",
   method: "PUT",
   operationId: "app-set-database-users",
 };
@@ -561,27 +561,27 @@ export const appSetDatabaseUsers: OpenAPIOperation<
 export const appUnlinkDatabase: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Delete.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Delete.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Delete.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Delete.Responses.$204.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Delete.Responses.$204.Content.Empty>,
       204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Delete.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Delete.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Delete.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/appinstallations/{appInstallationId}/databases/{databaseId}",
+  path: "/v2/app-installations/{appInstallationId}/databases/{databaseId}",
   method: "DELETE",
   operationId: "app-unlink-database",
 };
@@ -1720,6 +1720,40 @@ export const conversationUpdateConversation: OpenAPIOperation<
   path: "/v2/conversations/{conversationId}",
   method: "PUT",
   operationId: "conversation-update-conversation",
+};
+
+/** Request an access token for the File belonging to the Conversation. */
+export const conversationGetFileAccessToken: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/conversations/{conversationId}/files/{fileId}/access-token",
+  method: "GET",
+  operationId: "conversation-get-file-access-token",
 };
 
 /** Get all conversation categories. */
@@ -9310,40 +9344,6 @@ export const userVerifyRegistration: OpenAPIOperation<
   path: "/v2/verify-registration",
   method: "POST",
   operationId: "user-verify-registration",
-};
-
-/** Request an access token for the File belonging to the Conversation. */
-export const conversationGetFileAccessToken: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/conversations/{conversationId}/files/{fileId}/access-token",
-  method: "GET",
-  operationId: "conversation-get-file-access-token",
 };
 
 /** Get the latest screenshot's FileReference belonging to a Domain. */
