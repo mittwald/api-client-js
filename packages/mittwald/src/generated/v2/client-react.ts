@@ -204,15 +204,15 @@ const buildConversationApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.conversationGetConversation,
     baseClient.conversation.getConversation
   ).getApiResource,
-  /** Request an access token for the File belonging to the Conversation. */
-  getFileAccessToken: new ApiCallAsyncResourceFactory(
-    descriptors.conversationGetFileAccessToken,
-    baseClient.conversation.getFileAccessToken
-  ).getApiResource,
   /** Get all conversation categories. */
   listCategories: new ApiCallAsyncResourceFactory(
     descriptors.conversationListCategories,
     baseClient.conversation.listCategories
+  ).getApiResource,
+  /** Request an access token for the File belonging to the Conversation. */
+  getFileAccessToken: new ApiCallAsyncResourceFactory(
+    descriptors.conversationGetFileAccessToken,
+    baseClient.conversation.getFileAccessToken
   ).getApiResource,
 });
 
