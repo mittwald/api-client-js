@@ -4684,74 +4684,6 @@ export const fileGetFileMeta: OpenAPIOperation<
   operationId: "file-get-file-meta",
 };
 
-/** Get a Token's upload rules. */
-export const fileGetFileTokenRules: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2FileTokenRulesToken.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2FileTokenRulesToken.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2FileTokenRulesToken.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FileTokenRulesToken.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FileTokenRulesToken.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FileTokenRulesToken.Get.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FileTokenRulesToken.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/file-token-rules/{token}",
-  method: "GET",
-  operationId: "file-get-file-token-rules",
-};
-
-/** Get a Type's upload rules. */
-export const fileGetFileTypeRules: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2FileTypeRulesName.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2FileTypeRulesName.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2FileTypeRulesName.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FileTypeRulesName.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FileTypeRulesName.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FileTypeRulesName.Get.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2FileTypeRulesName.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/file-type-rules/{name}",
-  method: "GET",
-  operationId: "file-get-file-type-rules",
-};
-
 /** Get a File. */
 export const fileGetFile: OpenAPIOperation<
   RequestType<
@@ -6030,48 +5962,48 @@ export const mailUpdateMailAddressSpamProtection: OpenAPIOperation<
 /** Update a mail setting of a Project. */
 export const mailUpdateProjectMailSetting: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Patch.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Patch.Responses.$200.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Patch.Responses.$200.Content.Empty>,
       200,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Patch.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Patch.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Patch.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Patch.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Patch.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Patch.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Patch.Responses.$500.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Patch.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Patch.Responses.$503.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Patch.Responses.$503.Content.ApplicationJson>,
       503,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsSetting.Patch.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/projects/{projectId}/mail-settings/{setting}",
+  path: "/v2/projects/{projectId}/mail-settings/{mailSetting}",
   method: "PATCH",
   operationId: "mail-update-project-mail-setting",
 };
@@ -9373,4 +9305,72 @@ export const domainGetLatestScreenshot: OpenAPIOperation<
   path: "/v2/domains/{domainId}/latest-screenshot",
   method: "GET",
   operationId: "domain-get-latest-screenshot",
+};
+
+/** Get a FileUploadToken's rules. */
+export const fileGetFileUploadTokenRules: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2FileUploadTokensFileUploadTokenRules.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2FileUploadTokensFileUploadTokenRules.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2FileUploadTokensFileUploadTokenRules.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2FileUploadTokensFileUploadTokenRules.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2FileUploadTokensFileUploadTokenRules.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2FileUploadTokensFileUploadTokenRules.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2FileUploadTokensFileUploadTokenRules.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/file-upload-tokens/{fileUploadToken}/rules",
+  method: "GET",
+  operationId: "file-get-file-upload-token-rules",
+};
+
+/** Get a FileUploadType's rules. */
+export const fileGetFileUploadTypeRules: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2FileUploadTypesFileUploadTypeRules.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2FileUploadTypesFileUploadTypeRules.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2FileUploadTypesFileUploadTypeRules.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2FileUploadTypesFileUploadTypeRules.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2FileUploadTypesFileUploadTypeRules.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2FileUploadTypesFileUploadTypeRules.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2FileUploadTypesFileUploadTypeRules.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/file-upload-types/{fileUploadType}/rules",
+  method: "GET",
+  operationId: "file-get-file-upload-type-rules",
 };

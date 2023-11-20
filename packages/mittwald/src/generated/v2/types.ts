@@ -1514,22 +1514,6 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.fileGetFileMeta, TStatus>;
     }
 
-    namespace FileGetFileTokenRules {
-      type RequestData = InferredRequestData<
-        typeof descriptors.fileGetFileTokenRules
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.fileGetFileTokenRules, TStatus>;
-    }
-
-    namespace FileGetFileTypeRules {
-      type RequestData = InferredRequestData<
-        typeof descriptors.fileGetFileTypeRules
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.fileGetFileTypeRules, TStatus>;
-    }
-
     namespace FileGetFile {
       type RequestData = InferredRequestData<typeof descriptors.fileGetFile>;
       type ResponseData<TStatus extends HttpStatus = 200> =
@@ -2858,6 +2842,28 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.domainGetLatestScreenshot,
+          TStatus
+        >;
+    }
+
+    namespace FileGetFileUploadTokenRules {
+      type RequestData = InferredRequestData<
+        typeof descriptors.fileGetFileUploadTokenRules
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.fileGetFileUploadTokenRules,
+          TStatus
+        >;
+    }
+
+    namespace FileGetFileUploadTypeRules {
+      type RequestData = InferredRequestData<
+        typeof descriptors.fileGetFileUploadTypeRules
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.fileGetFileUploadTypeRules,
           TStatus
         >;
     }
@@ -12043,98 +12049,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2FileTokenRulesToken {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            token: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.FileFileUploadRules;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2FileTypeRulesName {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            name: "avatar" | "conversation";
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.FileFileUploadRules;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2FilesFileId {
       namespace Get {
         namespace Parameters {
@@ -14046,12 +13960,12 @@ export declare module MittwaldAPIV2 {
 
     namespace V2MailaddressesMailAddressIdSpamprotection {}
 
-    namespace V2ProjectsProjectIdMailSettingsSetting {
+    namespace V2ProjectsProjectIdMailSettingsMailSetting {
       namespace Patch {
         namespace Parameters {
           export type Path = {
             projectId: string;
-            setting: "blacklist" | "whitelist";
+            mailSetting: "blacklist" | "whitelist";
           };
 
           export type RequestBody =
@@ -14124,6 +14038,8 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
+
+    namespace V2ProjectsProjectIdMailSettingsSetting {}
 
     namespace V2NewsletterSubscriptionsSelf {
       namespace Get {
@@ -19133,5 +19049,101 @@ export declare module MittwaldAPIV2 {
     }
 
     namespace V2AppinstallationsAppInstallationIdDatabases {}
+
+    namespace V2FileUploadTokensFileUploadTokenRules {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            fileUploadToken: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.FileFileUploadRules;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2FileUploadTypesFileUploadTypeRules {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            fileUploadType: "avatar" | "conversation";
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.FileFileUploadRules;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2FileTokenRulesToken {}
+
+    namespace V2FileTypeRulesName {}
   }
 }

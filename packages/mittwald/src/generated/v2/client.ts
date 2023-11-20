@@ -685,16 +685,16 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     createFile: this.requestFunctionFactory(descriptors.fileCreateFile),
     /** Get a File's meta. */
     getFileMeta: this.requestFunctionFactory(descriptors.fileGetFileMeta),
-    /** Get a Token's upload rules. */
-    getFileTokenRules: this.requestFunctionFactory(
-      descriptors.fileGetFileTokenRules
-    ),
-    /** Get a Type's upload rules. */
-    getFileTypeRules: this.requestFunctionFactory(
-      descriptors.fileGetFileTypeRules
-    ),
     /** Get a File. */
     getFile: this.requestFunctionFactory(descriptors.fileGetFile),
+    /** Get a FileUploadToken's rules. */
+    getFileUploadTokenRules: this.requestFunctionFactory(
+      descriptors.fileGetFileUploadTokenRules
+    ),
+    /** Get a FileUploadType's rules. */
+    getFileUploadTypeRules: this.requestFunctionFactory(
+      descriptors.fileGetFileUploadTypeRules
+    ),
   };
 
   /** The mail API allows you to manage your mail accounts. */
