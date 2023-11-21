@@ -613,6 +613,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getDomainOwnership: this.requestFunctionFactory(
       descriptors.domainGetDomainOwnership
     ),
+    /** Get the latest screenshot's FileReference belonging to a Domain. */
+    getLatestScreenshot: this.requestFunctionFactory(
+      descriptors.domainGetLatestScreenshot
+    ),
     /** List the DomainOwnerships of a project. */
     listDomainOwnerships: this.requestFunctionFactory(
       descriptors.domainListDomainOwnerships
@@ -672,10 +676,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update the tls settings of an Ingress. */
     ingressUpdateIngressTls: this.requestFunctionFactory(
       descriptors.ingressUpdateIngressTls
-    ),
-    /** Get the latest screenshot's FileReference belonging to a Domain. */
-    getLatestScreenshot: this.requestFunctionFactory(
-      descriptors.domainGetLatestScreenshot
     ),
   };
 

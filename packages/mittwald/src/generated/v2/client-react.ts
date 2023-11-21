@@ -376,6 +376,11 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.domainGetDomainOwnership,
     baseClient.domain.getDomainOwnership
   ).getApiResource,
+  /** Get the latest screenshot's FileReference belonging to a Domain. */
+  getLatestScreenshot: new ApiCallAsyncResourceFactory(
+    descriptors.domainGetLatestScreenshot,
+    baseClient.domain.getLatestScreenshot
+  ).getApiResource,
   /** List the DomainOwnerships of a project. */
   listDomainOwnerships: new ApiCallAsyncResourceFactory(
     descriptors.domainListDomainOwnerships,
@@ -405,11 +410,6 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   ingressGetIngress: new ApiCallAsyncResourceFactory(
     descriptors.ingressGetIngress,
     baseClient.domain.ingressGetIngress
-  ).getApiResource,
-  /** Get the latest screenshot's FileReference belonging to a Domain. */
-  getLatestScreenshot: new ApiCallAsyncResourceFactory(
-    descriptors.domainGetLatestScreenshot,
-    baseClient.domain.getLatestScreenshot
   ).getApiResource,
 });
 

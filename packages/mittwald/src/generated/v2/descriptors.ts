@@ -4345,6 +4345,35 @@ export const domainGetDomainOwnership: OpenAPIOperation<
   operationId: "domain-get-domain-ownership",
 };
 
+/** Get the latest screenshot's FileReference belonging to a Domain. */
+export const domainGetLatestScreenshot: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdLatestScreenshot.Get.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdLatestScreenshot.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdLatestScreenshot.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdLatestScreenshot.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdLatestScreenshot.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdLatestScreenshot.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdLatestScreenshot.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/latest-screenshot",
+  method: "GET",
+  operationId: "domain-get-latest-screenshot",
+};
+
 /** List the DomainOwnerships of a project. */
 export const domainListDomainOwnerships: OpenAPIOperation<
   RequestType<
@@ -9276,35 +9305,6 @@ export const userVerifyRegistration: OpenAPIOperation<
   path: "/v2/verify-registration",
   method: "POST",
   operationId: "user-verify-registration",
-};
-
-/** Get the latest screenshot's FileReference belonging to a Domain. */
-export const domainGetLatestScreenshot: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdLatestScreenshot.Get.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdLatestScreenshot.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdLatestScreenshot.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdLatestScreenshot.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdLatestScreenshot.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdLatestScreenshot.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdLatestScreenshot.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domains/{domainId}/latest-screenshot",
-  method: "GET",
-  operationId: "domain-get-latest-screenshot",
 };
 
 /** Get a FileUploadToken's rules. */

@@ -1409,6 +1409,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace DomainGetLatestScreenshot {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainGetLatestScreenshot
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainGetLatestScreenshot,
+          TStatus
+        >;
+    }
+
     namespace DomainListDomainOwnerships {
       type RequestData = InferredRequestData<
         typeof descriptors.domainListDomainOwnerships
@@ -2831,17 +2842,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.userVerifyRegistration,
-          TStatus
-        >;
-    }
-
-    namespace DomainGetLatestScreenshot {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainGetLatestScreenshot
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainGetLatestScreenshot,
           TStatus
         >;
     }
@@ -10793,6 +10793,8 @@ export declare module MittwaldAPIV2 {
 
     namespace V2ServersServerIdContracts {}
 
+    namespace V2DomainsDomainIdScreenshotsNewest {}
+
     namespace V2NewsletterSubscriptions {
       namespace Post {
         namespace Parameters {
@@ -11553,6 +11555,51 @@ export declare module MittwaldAPIV2 {
     }
 
     namespace V2DomainsHandleSchemaDomainName {}
+
+    namespace V2DomainsDomainIdLatestScreenshot {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            domainId: string;
+          };
+
+          export interface RequestBody {
+            domainName: string;
+            path: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                reference?: string;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
     namespace V2ProjectsProjectIdDomainOwnerships {
       namespace Get {
@@ -18979,53 +19026,6 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DomainsDomainIdScreenshotsNewest {}
-
-    namespace V2DomainsDomainIdLatestScreenshot {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            domainId: string;
-          };
-
-          export interface RequestBody {
-            domainName: string;
-            path: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                reference?: string;
-              }
             }
           }
 
