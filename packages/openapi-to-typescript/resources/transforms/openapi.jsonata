@@ -50,6 +50,12 @@
         $value ? $value : $or
     };
 
+    $withoutDeprecated := function($obj)<x:a> {
+        $obj ~> $sift(function($v, $k) {
+            $v.deprecated ? $v.deprecated = false : true
+        })
+    };
+
     /* finds refs in the root object and spreads the refs content into the current node */
     $resolveRefs := function($obj)<j:o>{
         (
@@ -193,6 +199,7 @@
                 $path ~> $mapValues(function($method) {
                     $method{
                         "operationId": operationId,
+                        "deprecated": deprecated,
                         "parameters": [
                             $constructParams([parameters, $getApiKeyParams($exists(security) ? security : $$.security)]) ~> $mergeInResponseContentTypeAcceptHeader(responses),
                             {
@@ -201,7 +208,7 @@
                         ] ~> $merge,
                         "responses": responses ? $constructResponses(responses) : { }
                     }
-                })
+                }) ~> $withoutDeprecated
             }),
             "components": (components ? components : { }){
                 "schemas": schemas ? schemas : { },
