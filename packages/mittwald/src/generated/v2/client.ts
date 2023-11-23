@@ -613,6 +613,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getDomainOwnership: this.requestFunctionFactory(
       descriptors.domainGetDomainOwnership
     ),
+    /** Get the latest screenshot's FileReference belonging to a Domain. */
+    getLatestScreenshot: this.requestFunctionFactory(
+      descriptors.domainGetLatestScreenshot
+    ),
     /** List the DomainOwnerships of a project. */
     listDomainOwnerships: this.requestFunctionFactory(
       descriptors.domainListDomainOwnerships
@@ -673,10 +677,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ingressUpdateIngressTls: this.requestFunctionFactory(
       descriptors.ingressUpdateIngressTls
     ),
-    /** Get the latest screenshot's FileReference belonging to a Domain. */
-    getLatestScreenshot: this.requestFunctionFactory(
-      descriptors.domainGetLatestScreenshot
-    ),
   };
 
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
@@ -699,22 +699,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The mail API allows you to manage your mail accounts. */
   public readonly mail = {
-    /** List DeliveryBoxes belonging to a Project. */
-    listDeliveryBoxes: this.requestFunctionFactory(
-      descriptors.mailListDeliveryBoxes
-    ),
-    /** Create a DeliveryBox. */
-    createDeliverybox: this.requestFunctionFactory(
-      descriptors.mailCreateDeliverybox
-    ),
-    /** List MailAddresses belonging to a Project. */
-    listMailAddresses: this.requestFunctionFactory(
-      descriptors.mailListMailAddresses
-    ),
-    /** Create a MailAddress. */
-    createMailAddress: this.requestFunctionFactory(
-      descriptors.mailCreateMailAddress
-    ),
     /** Get a DeliveryBox. */
     getDeliveryBox: this.requestFunctionFactory(descriptors.mailGetDeliveryBox),
     /** Delete a DeliveryBox. */
@@ -726,6 +710,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Delete a MailAddress. */
     deleteMailAddress: this.requestFunctionFactory(
       descriptors.mailDeleteMailAddress
+    ),
+    /** List DeliveryBoxes belonging to a Project. */
+    listDeliveryBoxes: this.requestFunctionFactory(
+      descriptors.mailListDeliveryBoxes
+    ),
+    /** List MailAddresses belonging to a Project. */
+    listMailAddresses: this.requestFunctionFactory(
+      descriptors.mailListMailAddresses
     ),
     /** List mail settings of a Project. */
     listProjectMailSettings: this.requestFunctionFactory(

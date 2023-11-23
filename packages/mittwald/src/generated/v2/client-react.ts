@@ -376,6 +376,11 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.domainGetDomainOwnership,
     baseClient.domain.getDomainOwnership
   ).getApiResource,
+  /** Get the latest screenshot's FileReference belonging to a Domain. */
+  getLatestScreenshot: new ApiCallAsyncResourceFactory(
+    descriptors.domainGetLatestScreenshot,
+    baseClient.domain.getLatestScreenshot
+  ).getApiResource,
   /** List the DomainOwnerships of a project. */
   listDomainOwnerships: new ApiCallAsyncResourceFactory(
     descriptors.domainListDomainOwnerships,
@@ -406,11 +411,6 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.ingressGetIngress,
     baseClient.domain.ingressGetIngress
   ).getApiResource,
-  /** Get the latest screenshot's FileReference belonging to a Domain. */
-  getLatestScreenshot: new ApiCallAsyncResourceFactory(
-    descriptors.domainGetLatestScreenshot,
-    baseClient.domain.getLatestScreenshot
-  ).getApiResource,
 });
 
 const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({
@@ -437,16 +437,6 @@ const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({
 });
 
 const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** List DeliveryBoxes belonging to a Project. */
-  listDeliveryBoxes: new ApiCallAsyncResourceFactory(
-    descriptors.mailListDeliveryBoxes,
-    baseClient.mail.listDeliveryBoxes
-  ).getApiResource,
-  /** List MailAddresses belonging to a Project. */
-  listMailAddresses: new ApiCallAsyncResourceFactory(
-    descriptors.mailListMailAddresses,
-    baseClient.mail.listMailAddresses
-  ).getApiResource,
   /** Get a DeliveryBox. */
   getDeliveryBox: new ApiCallAsyncResourceFactory(
     descriptors.mailGetDeliveryBox,
@@ -456,6 +446,16 @@ const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
   getMailAddress: new ApiCallAsyncResourceFactory(
     descriptors.mailGetMailAddress,
     baseClient.mail.getMailAddress
+  ).getApiResource,
+  /** List DeliveryBoxes belonging to a Project. */
+  listDeliveryBoxes: new ApiCallAsyncResourceFactory(
+    descriptors.mailListDeliveryBoxes,
+    baseClient.mail.listDeliveryBoxes
+  ).getApiResource,
+  /** List MailAddresses belonging to a Project. */
+  listMailAddresses: new ApiCallAsyncResourceFactory(
+    descriptors.mailListMailAddresses,
+    baseClient.mail.listMailAddresses
   ).getApiResource,
   /** List mail settings of a Project. */
   listProjectMailSettings: new ApiCallAsyncResourceFactory(
