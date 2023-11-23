@@ -192,48 +192,6 @@ export declare module Test {
       }
     }
 
-    namespace V2_Signup_Authentication_Legacy {
-      namespace Post {
-        namespace Parameters {
-          interface Header {
-            "x-access-token": string;
-            Accept?: "application/json";
-          }
-
-          interface RequestBody {
-            account: string;
-            password: string;
-          }
-        }
-
-        namespace Responses {
-          namespace $200 {
-            namespace Content {}
-          }
-
-          namespace $400 {
-            namespace Content {
-              type Application_Json =
-                Test.Components.Schemas.De_Mittwald_V1_Common_ValidationErrors;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {}
-          }
-
-          namespace $500 {
-            namespace Content {
-              type Application_Json =
-                Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
-                  name?: "InternalServerError";
-                };
-            }
-          }
-        }
-      }
-    }
-
     namespace V2_Signup_Authentication_Mfa {
       namespace Post {
         namespace Parameters {
@@ -2013,32 +1971,6 @@ export const signupApiAuthenticate: OperationDescriptor<
   operationId: "signupApiAuthenticate",
 };
 
-export const signupApiAuthenticateLegacy: OperationDescriptor<
-  {
-    requestBody: Test.Paths.V2_Signup_Authentication_Legacy.Post.Parameters.RequestBody;
-
-    header: Test.Paths.V2_Signup_Authentication_Legacy.Post.Parameters.Header;
-  },
-  | ({ status: 200 } & {
-      content: undefined;
-    })
-  | ({ status: 400 } & {
-      mediaType: "application/json";
-      content: Test.Paths.V2_Signup_Authentication_Legacy.Post.Responses.$400.Content.Application_Json;
-    })
-  | ({ status: 429 } & {
-      content: undefined;
-    })
-  | ({ status: 500 } & {
-      mediaType: "application/json";
-      content: Test.Paths.V2_Signup_Authentication_Legacy.Post.Responses.$500.Content.Application_Json;
-    })
-> = {
-  path: "/v2/signup/authentication/legacy",
-  method: "post",
-  operationId: "signupApiAuthenticateLegacy",
-};
-
 export const signupApiAuthenticateMfa: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Signup_Authentication_Mfa.Post.Parameters.RequestBody;
@@ -3027,10 +2959,6 @@ export class TestClient {
 
   public signupApiAuthenticate: RequestFunction<typeof signupApiAuthenticate>;
 
-  public signupApiAuthenticateLegacy: RequestFunction<
-    typeof signupApiAuthenticateLegacy
-  >;
-
   public signupApiAuthenticateMfa: RequestFunction<
     typeof signupApiAuthenticateMfa
   >;
@@ -3179,10 +3107,6 @@ export class TestClient {
 
     this.signupApiAuthenticate = client.requestFunctionFactory(
       signupApiAuthenticate
-    );
-
-    this.signupApiAuthenticateLegacy = client.requestFunctionFactory(
-      signupApiAuthenticateLegacy
     );
 
     this.signupApiAuthenticateMfa = client.requestFunctionFactory(
@@ -3388,16 +3312,6 @@ export const test = {
 
     request: TestClient.getInstance().signupApiAuthenticate,
     descriptor: signupApiAuthenticate,
-  },
-
-  signupApiAuthenticateLegacy: {
-    getResource: createGetApiOperationResource(
-      signupApiAuthenticateLegacy,
-      TestClient.getInstance().signupApiAuthenticateLegacy
-    ),
-
-    request: TestClient.getInstance().signupApiAuthenticateLegacy,
-    descriptor: signupApiAuthenticateLegacy,
   },
 
   signupApiAuthenticateMfa: {
@@ -3813,10 +3727,6 @@ export const testRequestMocking = {
     descriptors.signupApiAuthenticate
   ),
 
-  mockSignupApiAuthenticateLegacy: mockRequestFactory(
-    descriptors.signupApiAuthenticateLegacy
-  ),
-
   mockSignupApiAuthenticateMfa: mockRequestFactory(
     descriptors.signupApiAuthenticateMfa
   ),
@@ -4113,48 +4023,6 @@ export declare module Test {
                   name?: "SecondFactorRequired";
                 };
             }
-          }
-
-          namespace $400 {
-            namespace Content {
-              type Application_Json =
-                Test.Components.Schemas.De_Mittwald_V1_Common_ValidationErrors;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {}
-          }
-
-          namespace $500 {
-            namespace Content {
-              type Application_Json =
-                Test.Components.Schemas.De_Mittwald_V1_Signup_DomainError & {
-                  name?: "InternalServerError";
-                };
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2_Signup_Authentication_Legacy {
-      namespace Post {
-        namespace Parameters {
-          interface Header {
-            "x-access-token"?: string;
-            Accept?: "application/json";
-          }
-
-          interface RequestBody {
-            account: string;
-            password: string;
-          }
-        }
-
-        namespace Responses {
-          namespace $200 {
-            namespace Content {}
           }
 
           namespace $400 {
@@ -5959,32 +5827,6 @@ export const signupApiAuthenticate: OperationDescriptor<
   operationId: "signupApiAuthenticate",
 };
 
-export const signupApiAuthenticateLegacy: OperationDescriptor<
-  {
-    requestBody: Test.Paths.V2_Signup_Authentication_Legacy.Post.Parameters.RequestBody;
-
-    header: Test.Paths.V2_Signup_Authentication_Legacy.Post.Parameters.Header;
-  },
-  | ({ status: 200 } & {
-      content: undefined;
-    })
-  | ({ status: 400 } & {
-      mediaType: "application/json";
-      content: Test.Paths.V2_Signup_Authentication_Legacy.Post.Responses.$400.Content.Application_Json;
-    })
-  | ({ status: 429 } & {
-      content: undefined;
-    })
-  | ({ status: 500 } & {
-      mediaType: "application/json";
-      content: Test.Paths.V2_Signup_Authentication_Legacy.Post.Responses.$500.Content.Application_Json;
-    })
-> = {
-  path: "/v2/signup/authentication/legacy",
-  method: "post",
-  operationId: "signupApiAuthenticateLegacy",
-};
-
 export const signupApiAuthenticateMfa: OperationDescriptor<
   {
     requestBody: Test.Paths.V2_Signup_Authentication_Mfa.Post.Parameters.RequestBody;
@@ -6973,10 +6815,6 @@ export class TestClient {
 
   public signupApiAuthenticate: RequestFunction<typeof signupApiAuthenticate>;
 
-  public signupApiAuthenticateLegacy: RequestFunction<
-    typeof signupApiAuthenticateLegacy
-  >;
-
   public signupApiAuthenticateMfa: RequestFunction<
     typeof signupApiAuthenticateMfa
   >;
@@ -7125,10 +6963,6 @@ export class TestClient {
 
     this.signupApiAuthenticate = client.requestFunctionFactory(
       signupApiAuthenticate
-    );
-
-    this.signupApiAuthenticateLegacy = client.requestFunctionFactory(
-      signupApiAuthenticateLegacy
     );
 
     this.signupApiAuthenticateMfa = client.requestFunctionFactory(
@@ -7302,11 +7136,6 @@ export const test = {
   signupApiAuthenticate: {
     request: TestClient.getInstance().signupApiAuthenticate,
     descriptor: signupApiAuthenticate,
-  },
-
-  signupApiAuthenticateLegacy: {
-    request: TestClient.getInstance().signupApiAuthenticateLegacy,
-    descriptor: signupApiAuthenticateLegacy,
   },
 
   signupApiAuthenticateMfa: {

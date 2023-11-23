@@ -681,7 +681,8 @@
     "/v2/signup/authentication/legacy": {
       "post": {
         "operationId": "signup-api-authenticate-legacy",
-        "responses": {
+          "deprecated": true,
+          "responses": {
           "200": {
             "description": "Given legacy credentials were correct"
           },
