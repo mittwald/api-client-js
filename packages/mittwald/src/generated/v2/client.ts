@@ -715,9 +715,17 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listDeliveryBoxes: this.requestFunctionFactory(
       descriptors.mailListDeliveryBoxes
     ),
+    /** Create a DeliveryBox. */
+    createDeliverybox: this.requestFunctionFactory(
+      descriptors.mailCreateDeliverybox
+    ),
     /** List MailAddresses belonging to a Project. */
     listMailAddresses: this.requestFunctionFactory(
       descriptors.mailListMailAddresses
+    ),
+    /** Create a MailAddress. */
+    createMailAddress: this.requestFunctionFactory(
+      descriptors.mailCreateMailAddress
     ),
     /** List mail settings of a Project. */
     listProjectMailSettings: this.requestFunctionFactory(
