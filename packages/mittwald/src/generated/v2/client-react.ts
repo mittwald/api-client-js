@@ -419,11 +419,6 @@ const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.fileGetFileMeta,
     baseClient.file.getFileMeta
   ).getApiResource,
-  /** Get a File. */
-  getFile: new ApiCallAsyncResourceFactory(
-    descriptors.fileGetFile,
-    baseClient.file.getFile
-  ).getApiResource,
   /** Get a FileUploadToken's rules. */
   getFileUploadTokenRules: new ApiCallAsyncResourceFactory(
     descriptors.fileGetFileUploadTokenRules,
@@ -433,6 +428,11 @@ const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({
   getFileUploadTypeRules: new ApiCallAsyncResourceFactory(
     descriptors.fileGetFileUploadTypeRules,
     baseClient.file.getFileUploadTypeRules
+  ).getApiResource,
+  /** Get a File. */
+  getFile: new ApiCallAsyncResourceFactory(
+    descriptors.fileGetFile,
+    baseClient.file.getFile
   ).getApiResource,
 });
 
