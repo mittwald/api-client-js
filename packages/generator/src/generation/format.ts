@@ -2,9 +2,9 @@ import prettier from "prettier";
 import VError from "verror";
 import { makeError } from "../lib/makeError.js";
 
-export const format = (ts: string): string => {
+export const format = async (ts: string): Promise<string> => {
   try {
-    return prettier.format(ts, {
+    return await prettier.format(ts, {
       plugins: [],
       parser: "typescript",
     });

@@ -1,60 +1,63 @@
 {
   "name": "@mittwald/api-client",
   "version": "3.1.18",
+  "author": "Mittwald CM Service GmbH & Co. KG <opensource@mittwald.de>",
+  "type": "module",
   "description": "Auto-generated client for the mittwald API",
-  "license": "MIT",
-  "repository": "github:mittwald/api-client-js",
-  "author": {
-    "name": "Mittwald CM Service GmbH & Co. KG",
-    "email": "opensource@mittwald.de"
-  },
+  "keywords": [
+    "api",
+    "client",
+    "mittwald",
+    "rest",
+    "sdk"
+  ],
   "homepage": "https://developer.mittwald.de",
+  "repository": "github:mittwald/api-client-js",
   "bugs": {
     "url": "https://github.com/mittwald/api-client-js/issues"
   },
-  "main": "dist/cjs/index.js",
-  "type": "module",
+  "license": "MIT",
   "exports": {
-    ".": {
-      "types": {
-        "import": "./dist/esm/index.d.ts",
-        "require": "./dist/cjs/index.d.ts",
-        "default": "./dist/esm/index.d.ts"
-      },
-      "default": {
-        "import": "./dist/esm/index.js",
-        "require": "./dist/cjs/index.js",
-        "default": "./dist/esm/index.js"
-      }
-    },
-    "./react": {
-      "types": {
-        "require": "./dist/cjs/react.d.ts",
-        "default": "./dist/esm/react.d.ts"
-      },
-      "default": {
-        "require": "./dist/cjs/react.js",
-        "default": "./dist/esm/react.js"
-      }
-    }
-  },
-  "scripts": {
-    "generate:client": "yarn generate:client:v2 && yarn post:generate",
-    "generate:client-dev": "yarn generate:client-dev:v2 && yarn post:generate",
-    "generate:client-dev:v2": "curl --silent https://api-public.dev.mittwald.systems/openapi | ./transform-openapi.sh | yarn acg generate --name MittwaldAPIV2 - src/generated/v2 --optionalHeader x-access-token",
-    "generate:client:v2": "curl --silent https://api.mittwald.de/openapi | ./transform-openapi.sh | yarn acg generate --name MittwaldAPIV2 - src/generated/v2 --optionalHeader x-access-token",
-    "post:generate": "yarn run -T compile && yarn run -T compile:cjs"
+    ".": "./dist/index.mjs",
+    "./react": "./dist/react.mjs"
   },
   "files": [
-    "dist/**/*.{js,d.ts}"
+    "dist"
   ],
-  "keywords": [
-    "mittwald",
-    "api",
-    "client",
-    "sdk",
-    "rest"
-  ],
+  "scripts": {
+    "build": "yarn unbuild",
+    "build-dev": "yarn build",
+    "format": "prettier --write '**/*.{ts,tsx,yaml,yml,json,md,mdx,js}'",
+    "generate:client": "yarn acg generate --name MittwaldAPIV2 spec/openapi.json src/generated/v2 --optionalHeader x-access-token",
+    "generate:client-dev": "yarn acg generate --name MittwaldAPIV2 spec/openapi-dev.json src/generated/v2 --optionalHeader x-access-token",
+    "lint": "eslint .",
+    "spec:refresh": "concurrently yarn:spec:refresh:v2 yarn:spec:refresh-dev:v2",
+    "spec:refresh:v2": "curl --silent https://api.mittwald.de/openapi | spec/transform-openapi.sh > spec/openapi.json",
+    "spec:refresh-dev:v2": "curl --silent https://api-public.dev.mittwald.systems/openapi | spec/transform-openapi.sh  > spec/openapi-dev.json"
+  },
+  "dependencies": {
+    "@mittwald/api-client-commons": "workspace:*",
+    "browser-or-node": "^3.0.0-pre.0"
+  },
+  "devDependencies": {
+    "@mittwald/api-code-generator": "workspace:*",
+    "@mittwald/react-use-promise": "^2.1.0",
+    "@types/react": "^18",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "has-flag": "^5.0.1",
+    "prettier": "^3.1.0",
+    "prettier-plugin-jsdoc": "^1.1.1",
+    "prettier-plugin-pkgsort": "^0.2.1",
+    "prettier-plugin-sort-json": "^3.1.0",
+    "react": "^18.2.0",
+    "unbuild": "^2.0.0"
+  },
   "peerDependencies": {
     "@mittwald/react-use-promise": "^1.3.2"
   },
@@ -63,13 +66,49 @@
       "optional": true
     }
   },
-  "dependencies": {
-    "@mittwald/api-client-commons": "workspace:^",
-    "browser-or-node": "^2.1.1"
+  "nx": {
+    "targets": {
+      "build": {
+        "cache": true,
+        "dependsOn": [
+          "^build",
+          "generate:client"
+        ]
+      },
+      "build-dev": {
+        "cache": true,
+        "dependsOn": [
+          "^build",
+          "generate:client-dev"
+        ]
+      },
+      "generate:client": {
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [
+          "{projectRoot}/spec/*"
+        ],
+        "outputs": [
+          "{projectRoot}/src/generated/**/*"
+        ]
+      },
+      "generate:client-dev": {
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [
+          "{projectRoot}/spec/*"
+        ],
+        "outputs": [
+          "{projectRoot}/src/generated/**/*"
+        ]
+      }
+    }
   },
-  "devDependencies": {
-    "@mittwald/api-code-generator": "workspace:^",
-    "@mittwald/react-use-promise": "^1.3.2"
-  },
-  "types": "dist/cjs/index.d.ts"
+  "unbuild": {
+    "declaration": true
+  }
 }

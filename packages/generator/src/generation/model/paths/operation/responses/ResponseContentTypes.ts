@@ -23,8 +23,8 @@ export class ResponseContentTypes {
       "content" in responseDoc
         ? this.buildContentTypesFromResponseObject(responseDoc)
         : "$ref" in responseDoc
-        ? this.buildContentTypesFromReferenceObject(responseDoc)
-        : [ResponseContent.buildEmpty(this)];
+          ? this.buildContentTypesFromReferenceObject(responseDoc)
+          : [ResponseContent.buildEmpty(this)];
   }
 
   private buildContentTypesFromResponseObject(

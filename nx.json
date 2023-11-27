@@ -1,0 +1,28 @@
+{
+  "affected": {
+    "defaultBase": "master"
+  },
+  "namedInputs": {
+    "src": ["{projectRoot}/src/**/!(*.{test,test-types}).*"],
+    "test": ["{projectRoot}/src/**/*.{test,test-types}.*"],
+    "default": ["src"],
+    "production": ["default"]
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["default", "^default"],
+      "outputs": ["{projectRoot}/dist"],
+      "cache": true
+    },
+    "lint": {
+      "cache": true,
+      "inputs": ["{projectRoot}/src", "{projectRoot}/.eslintignore"]
+    },
+    "test": {
+      "inputs": ["test", "default", "^default"],
+      "dependsOn": ["^build"],
+      "cache": true
+    }
+  }
+}
