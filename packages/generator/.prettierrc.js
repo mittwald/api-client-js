@@ -1,3 +1,3 @@
-import config from "../../.prettierrc.js";
+import config from "../../config/.prettierrc.js";
 
 export default config;
