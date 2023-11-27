@@ -9374,3 +9374,37 @@ export const userVerifyRegistration: OpenAPIOperation<
   method: "POST",
   operationId: "user-verify-registration",
 };
+
+/** Request an Access Token for the Invoice file. */
+export const invoiceGetFileAccessToken: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceIdFileAccessToken.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceIdFileAccessToken.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceIdFileAccessToken.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceIdFileAccessToken.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceIdFileAccessToken.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceIdFileAccessToken.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceIdFileAccessToken.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/invoices/{invoiceId}/file-access-token",
+  method: "GET",
+  operationId: "invoice-get-file-access-token",
+};

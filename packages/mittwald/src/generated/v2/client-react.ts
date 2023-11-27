@@ -181,6 +181,11 @@ const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.orderListProjectOrders,
     baseClient.contract.orderListProjectOrders
   ).getApiResource,
+  /** Request an Access Token for the Invoice file. */
+  invoiceGetFileAccessToken: new ApiCallAsyncResourceFactory(
+    descriptors.invoiceGetFileAccessToken,
+    baseClient.contract.invoiceGetFileAccessToken
+  ).getApiResource,
 });
 
 const buildConversationApi = (baseClient: MittwaldAPIV2Client) => ({

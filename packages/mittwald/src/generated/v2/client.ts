@@ -233,6 +233,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     orderPreviewTariffChange: this.requestFunctionFactory(
       descriptors.orderPreviewTariffChange
     ),
+    /** Request an Access Token for the Invoice file. */
+    invoiceGetFileAccessToken: this.requestFunctionFactory(
+      descriptors.invoiceGetFileAccessToken
+    ),
   };
 
   /** The conversation API allows you to manage your support conversations. */

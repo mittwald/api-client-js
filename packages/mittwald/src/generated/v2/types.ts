@@ -2867,6 +2867,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace InvoiceGetFileAccessToken {
+      type RequestData = InferredRequestData<
+        typeof descriptors.invoiceGetFileAccessToken
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.invoiceGetFileAccessToken,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -11225,6 +11236,7 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export interface ApplicationJson {
+                isPremium: boolean;
                 registrable: boolean;
               }
             }
@@ -19125,6 +19137,56 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CustomersCustomerIdInvoicesInvoiceIdFileAccessToken {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+            invoiceId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                accessToken: string;
+                expiresAt: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
