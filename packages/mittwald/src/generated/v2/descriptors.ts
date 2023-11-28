@@ -9408,3 +9408,42 @@ export const invoiceGetFileAccessToken: OpenAPIOperation<
   method: "GET",
   operationId: "invoice-get-file-access-token",
 };
+
+/** Get members of a support conversation. */
+export const conversationGetConversationMembers: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdMembers.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdMembers.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdMembers.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdMembers.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdMembers.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdMembers.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdMembers.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdMembers.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/conversations/{conversationId}/members",
+  method: "GET",
+  operationId: "conversation-get-conversation-members",
+};

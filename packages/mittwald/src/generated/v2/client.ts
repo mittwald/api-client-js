@@ -289,6 +289,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateMessage: this.requestFunctionFactory(
       descriptors.conversationUpdateMessage
     ),
+    /** Get members of a support conversation. */
+    getConversationMembers: this.requestFunctionFactory(
+      descriptors.conversationGetConversationMembers
+    ),
   };
 
   /** The cronjob API allows you to manage cronjobs within a project. */

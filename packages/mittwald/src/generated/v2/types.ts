@@ -2878,6 +2878,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace ConversationGetConversationMembers {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationGetConversationMembers
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationGetConversationMembers,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -3432,12 +3443,14 @@ export declare module MittwaldAPIV2 {
         createdBy?: MittwaldAPIV2.Components.Schemas.ConversationUser;
         lastMessageAt?: string;
         lastMessageBy?: MittwaldAPIV2.Components.Schemas.ConversationUser;
+        mainUser: MittwaldAPIV2.Components.Schemas.ConversationUser;
         relatedTo?: MittwaldAPIV2.Components.Schemas.ConversationAggregateReference;
         relations?: MittwaldAPIV2.Components.Schemas.ConversationAggregateReference[];
         sharedWith?: MittwaldAPIV2.Components.Schemas.ConversationAggregateReference;
         shortId: string;
         status: "open" | "closed" | "answered";
         title: string;
+        visibility: "shared" | "private";
       }
 
       export interface ConversationGetConversationIdResponse {
@@ -3510,6 +3523,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface ConversationUser {
+        active?: boolean;
         avatarRefId?: string;
         clearName?: string;
         department?: MittwaldAPIV2.Components.Schemas.ConversationDepartment;
@@ -4989,6 +5003,33 @@ export declare module MittwaldAPIV2 {
         location?: MittwaldAPIV2.Components.Schemas.SignupLocation;
         tokenId: string;
       }
+
+      export type ConversationConversationMembers =
+        (MittwaldAPIV2.Components.Schemas.ConversationUser & {
+          active: boolean;
+        })[];
+
+      export type ConversationShareableAggregateReference =
+        | {
+            aggregate: "user";
+            domain: "user";
+            id: string;
+          }
+        | {
+            aggregate: "customer";
+            domain: "customer";
+            id: string;
+          }
+        | {
+            aggregate: "project";
+            domain: "project";
+            id: string;
+          }
+        | {
+            aggregate: "placementgroup";
+            domain: "project";
+            id: string;
+          };
 
       export interface CommonsAddress {
         street: string;
@@ -7390,8 +7431,9 @@ export declare module MittwaldAPIV2 {
 
           export interface RequestBody {
             categoryId?: string;
+            mainUserId?: string;
             relatedTo?: MittwaldAPIV2.Components.Schemas.ConversationAggregateReference;
-            sharedWith?: MittwaldAPIV2.Components.Schemas.ConversationAggregateReference;
+            sharedWith?: MittwaldAPIV2.Components.Schemas.ConversationShareableAggregateReference;
             title?: string;
           }
 
@@ -10800,12 +10842,6 @@ export declare module MittwaldAPIV2 {
     }
 
     namespace V2AppinstallationsAppInstallationIdDatabases {}
-
-    namespace V2DomainsDomainIdContracts {}
-
-    namespace V2ProjectsProjectIdContracts {}
-
-    namespace V2ServersServerIdContracts {}
 
     namespace V2DomainsDomainIdScreenshotsNewest {}
 
@@ -19183,6 +19219,60 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ConversationsConversationIdMembers {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            conversationId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ConversationConversationMembers;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;

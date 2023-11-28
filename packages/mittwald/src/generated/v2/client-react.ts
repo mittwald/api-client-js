@@ -219,6 +219,11 @@ const buildConversationApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.conversationListCategories,
     baseClient.conversation.listCategories
   ).getApiResource,
+  /** Get members of a support conversation. */
+  getConversationMembers: new ApiCallAsyncResourceFactory(
+    descriptors.conversationGetConversationMembers,
+    baseClient.conversation.getConversationMembers
+  ).getApiResource,
 });
 
 const buildCronjobApi = (baseClient: MittwaldAPIV2Client) => ({
