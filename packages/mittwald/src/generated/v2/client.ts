@@ -205,6 +205,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     invoiceUpdateInvoiceSettings: this.requestFunctionFactory(
       descriptors.invoiceUpdateInvoiceSettings
     ),
+    /** Request an Access Token for the Invoice file. */
+    invoiceGetFileAccessToken: this.requestFunctionFactory(
+      descriptors.invoiceGetFileAccessToken
+    ),
     /** List Invoices of a Customer. */
     invoiceListCustomerInvoices: this.requestFunctionFactory(
       descriptors.invoiceListCustomerInvoices
@@ -233,10 +237,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     orderPreviewTariffChange: this.requestFunctionFactory(
       descriptors.orderPreviewTariffChange
     ),
-    /** Request an Access Token for the Invoice file. */
-    invoiceGetFileAccessToken: this.requestFunctionFactory(
-      descriptors.invoiceGetFileAccessToken
-    ),
   };
 
   /** The conversation API allows you to manage your support conversations. */
@@ -260,6 +260,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Get a specific conversation category. */
     getCategory: this.requestFunctionFactory(
       descriptors.conversationGetCategory
+    ),
+    /** Get members of a support conversation. */
+    getConversationMembers: this.requestFunctionFactory(
+      descriptors.conversationGetConversationMembers
     ),
     /** Get a support conversation. */
     getConversation: this.requestFunctionFactory(
@@ -288,10 +292,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update the content of the message */
     updateMessage: this.requestFunctionFactory(
       descriptors.conversationUpdateMessage
-    ),
-    /** Get members of a support conversation. */
-    getConversationMembers: this.requestFunctionFactory(
-      descriptors.conversationGetConversationMembers
     ),
   };
 
@@ -707,18 +707,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The mail API allows you to manage your mail accounts. */
   public readonly mail = {
-    /** Get a DeliveryBox. */
-    getDeliveryBox: this.requestFunctionFactory(descriptors.mailGetDeliveryBox),
-    /** Delete a DeliveryBox. */
-    deleteDeliveryBox: this.requestFunctionFactory(
-      descriptors.mailDeleteDeliveryBox
-    ),
-    /** Get a MailAddress. */
-    getMailAddress: this.requestFunctionFactory(descriptors.mailGetMailAddress),
-    /** Delete a MailAddress. */
-    deleteMailAddress: this.requestFunctionFactory(
-      descriptors.mailDeleteMailAddress
-    ),
     /** List DeliveryBoxes belonging to a Project. */
     listDeliveryBoxes: this.requestFunctionFactory(
       descriptors.mailListDeliveryBoxes
@@ -734,6 +722,18 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Create a MailAddress. */
     createMailAddress: this.requestFunctionFactory(
       descriptors.mailCreateMailAddress
+    ),
+    /** Get a DeliveryBox. */
+    getDeliveryBox: this.requestFunctionFactory(descriptors.mailGetDeliveryBox),
+    /** Delete a DeliveryBox. */
+    deleteDeliveryBox: this.requestFunctionFactory(
+      descriptors.mailDeleteDeliveryBox
+    ),
+    /** Get a MailAddress. */
+    getMailAddress: this.requestFunctionFactory(descriptors.mailGetMailAddress),
+    /** Delete a MailAddress. */
+    deleteMailAddress: this.requestFunctionFactory(
+      descriptors.mailDeleteMailAddress
     ),
     /** List mail settings of a Project. */
     listProjectMailSettings: this.requestFunctionFactory(

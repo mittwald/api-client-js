@@ -161,6 +161,11 @@ const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.invoiceGetDetailOfInvoiceSettings,
     baseClient.contract.invoiceGetDetailOfInvoiceSettings
   ).getApiResource,
+  /** Request an Access Token for the Invoice file. */
+  invoiceGetFileAccessToken: new ApiCallAsyncResourceFactory(
+    descriptors.invoiceGetFileAccessToken,
+    baseClient.contract.invoiceGetFileAccessToken
+  ).getApiResource,
   /** List Invoices of a Customer. */
   invoiceListCustomerInvoices: new ApiCallAsyncResourceFactory(
     descriptors.invoiceListCustomerInvoices,
@@ -181,11 +186,6 @@ const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.orderListProjectOrders,
     baseClient.contract.orderListProjectOrders
   ).getApiResource,
-  /** Request an Access Token for the Invoice file. */
-  invoiceGetFileAccessToken: new ApiCallAsyncResourceFactory(
-    descriptors.invoiceGetFileAccessToken,
-    baseClient.contract.invoiceGetFileAccessToken
-  ).getApiResource,
 });
 
 const buildConversationApi = (baseClient: MittwaldAPIV2Client) => ({
@@ -204,6 +204,11 @@ const buildConversationApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.conversationGetCategory,
     baseClient.conversation.getCategory
   ).getApiResource,
+  /** Get members of a support conversation. */
+  getConversationMembers: new ApiCallAsyncResourceFactory(
+    descriptors.conversationGetConversationMembers,
+    baseClient.conversation.getConversationMembers
+  ).getApiResource,
   /** Get a support conversation. */
   getConversation: new ApiCallAsyncResourceFactory(
     descriptors.conversationGetConversation,
@@ -218,11 +223,6 @@ const buildConversationApi = (baseClient: MittwaldAPIV2Client) => ({
   listCategories: new ApiCallAsyncResourceFactory(
     descriptors.conversationListCategories,
     baseClient.conversation.listCategories
-  ).getApiResource,
-  /** Get members of a support conversation. */
-  getConversationMembers: new ApiCallAsyncResourceFactory(
-    descriptors.conversationGetConversationMembers,
-    baseClient.conversation.getConversationMembers
   ).getApiResource,
 });
 
@@ -447,16 +447,6 @@ const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({
 });
 
 const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** Get a DeliveryBox. */
-  getDeliveryBox: new ApiCallAsyncResourceFactory(
-    descriptors.mailGetDeliveryBox,
-    baseClient.mail.getDeliveryBox
-  ).getApiResource,
-  /** Get a MailAddress. */
-  getMailAddress: new ApiCallAsyncResourceFactory(
-    descriptors.mailGetMailAddress,
-    baseClient.mail.getMailAddress
-  ).getApiResource,
   /** List DeliveryBoxes belonging to a Project. */
   listDeliveryBoxes: new ApiCallAsyncResourceFactory(
     descriptors.mailListDeliveryBoxes,
@@ -466,6 +456,16 @@ const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
   listMailAddresses: new ApiCallAsyncResourceFactory(
     descriptors.mailListMailAddresses,
     baseClient.mail.listMailAddresses
+  ).getApiResource,
+  /** Get a DeliveryBox. */
+  getDeliveryBox: new ApiCallAsyncResourceFactory(
+    descriptors.mailGetDeliveryBox,
+    baseClient.mail.getDeliveryBox
+  ).getApiResource,
+  /** Get a MailAddress. */
+  getMailAddress: new ApiCallAsyncResourceFactory(
+    descriptors.mailGetMailAddress,
+    baseClient.mail.getMailAddress
   ).getApiResource,
   /** List mail settings of a Project. */
   listProjectMailSettings: new ApiCallAsyncResourceFactory(
