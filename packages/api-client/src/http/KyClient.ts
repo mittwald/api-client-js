@@ -7,7 +7,7 @@ import { setPathParams } from "./path.js";
 import { mapResponse } from "./response.js";
 import { convertQueryToUrlSearchParams } from "./request.js";
 import RequestError from "../RequestError.js";
-import { patchedFetchForSafari } from "./safari.js";
+//import { patchedFetchForSafari } from "./safari.js";
 
 const d = debug.extend("KyHTTPClient");
 
@@ -17,7 +17,7 @@ const defaultOptions: Required<Options> = {
     defaultHeaders: {},
     requestOptionsHook: (opts) => opts,
     ky: {
-        fetch: patchedFetchForSafari,
+        // fetch: patchedFetchForSafari, this was super broken, might work without
     },
 };
 
