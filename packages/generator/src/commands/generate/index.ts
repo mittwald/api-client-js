@@ -62,7 +62,7 @@ export default class Generate extends Command {
     const descriptorsFileContent = model.paths.compileDescriptors();
     await jetpack.writeAsync(
       path.join(args.output, "descriptors.ts"),
-      prepareTypeScriptOutput(descriptorsFileContent),
+      await prepareTypeScriptOutput(descriptorsFileContent),
     );
     ux.action.stop();
 
@@ -73,7 +73,7 @@ export default class Generate extends Command {
     });
     await jetpack.writeAsync(
       path.join(args.output, "types.ts"),
-      prepareTypeScriptOutput(typesFileContent),
+      await prepareTypeScriptOutput(typesFileContent),
     );
     ux.action.stop();
 
@@ -81,7 +81,7 @@ export default class Generate extends Command {
     const clientFileContent = model.paths.compileClient();
     await jetpack.writeAsync(
       path.join(args.output, "client.ts"),
-      prepareTypeScriptOutput(clientFileContent),
+      await prepareTypeScriptOutput(clientFileContent),
     );
     ux.action.stop();
 
@@ -89,7 +89,7 @@ export default class Generate extends Command {
     const reactClientFileContent = model.paths.compileReactClient();
     await jetpack.writeAsync(
       path.join(args.output, "client-react.ts"),
-      prepareTypeScriptOutput(reactClientFileContent),
+      await prepareTypeScriptOutput(reactClientFileContent),
     );
     ux.action.stop();
   }

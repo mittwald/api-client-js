@@ -1,17 +1,13 @@
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./packages/commons"
-    },
-    {
-      "path": "./packages/mittwald"
-    },
-    {
-      "path": "./packages/generator"
-    }
-  ],
-  "ts-node": {
-    "esm": true
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "stripInternal": true,
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "baseUrl": "."
   }
 }

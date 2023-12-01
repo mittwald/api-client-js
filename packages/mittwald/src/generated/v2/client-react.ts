@@ -4,73 +4,73 @@
 import MittwaldAPIV2Client from "./client.js";
 import { ApiCallAsyncResourceFactory } from "@mittwald/api-client-commons/react";
 import * as descriptors from "./descriptors.js";
-export * from "@mittwald/react-use-promise/types";
+export * from "@mittwald/react-use-promise";
 
 const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
   /** Get a specific `App`. */
   getApp: new ApiCallAsyncResourceFactory(
     descriptors.appGetApp,
-    baseClient.app.getApp
+    baseClient.app.getApp,
   ).getApiResource,
   /** Get a specific `AppInstallation`. */
   getAppinstallation: new ApiCallAsyncResourceFactory(
     descriptors.appGetAppinstallation,
-    baseClient.app.getAppinstallation
+    baseClient.app.getAppinstallation,
   ).getApiResource,
   /** Get a specific `AppVersion`. */
   getAppversion: new ApiCallAsyncResourceFactory(
     descriptors.appGetAppversion,
-    baseClient.app.getAppversion
+    baseClient.app.getAppversion,
   ).getApiResource,
   /** Get the missing requirements of an appInstallation for a specific target AppVersion. */
   getMissingDependenciesForAppinstallation: new ApiCallAsyncResourceFactory(
     descriptors.appGetMissingDependenciesForAppinstallation,
-    baseClient.app.getMissingDependenciesForAppinstallation
+    baseClient.app.getMissingDependenciesForAppinstallation,
   ).getApiResource,
   /** Get a specific `SystemSoftware`. */
   getSystemsoftware: new ApiCallAsyncResourceFactory(
     descriptors.appGetSystemsoftware,
-    baseClient.app.getSystemsoftware
+    baseClient.app.getSystemsoftware,
   ).getApiResource,
   /** Get a specific `SystemSoftwareVersion`. */
   getSystemsoftwareversion: new ApiCallAsyncResourceFactory(
     descriptors.appGetSystemsoftwareversion,
-    baseClient.app.getSystemsoftwareversion
+    baseClient.app.getSystemsoftwareversion,
   ).getApiResource,
   /** Get all `AppInstallations` inside a specific `Project`. */
   listAppinstallations: new ApiCallAsyncResourceFactory(
     descriptors.appListAppinstallations,
-    baseClient.app.listAppinstallations
+    baseClient.app.listAppinstallations,
   ).getApiResource,
   /** Get all available `Apps`. */
   listApps: new ApiCallAsyncResourceFactory(
     descriptors.appListApps,
-    baseClient.app.listApps
+    baseClient.app.listApps,
   ).getApiResource,
   /** Get all `AppVersions` of a specific `App`. */
   listAppversions: new ApiCallAsyncResourceFactory(
     descriptors.appListAppversions,
-    baseClient.app.listAppversions
+    baseClient.app.listAppversions,
   ).getApiResource,
   /** Get all available `SystemSoftware`. */
   listSystemsoftwares: new ApiCallAsyncResourceFactory(
     descriptors.appListSystemsoftwares,
-    baseClient.app.listSystemsoftwares
+    baseClient.app.listSystemsoftwares,
   ).getApiResource,
   /** Get all available `SystemSoftwareVersions` of a specific `SystemSoftware`. */
   listSystemsoftwareversions: new ApiCallAsyncResourceFactory(
     descriptors.appListSystemsoftwareversions,
-    baseClient.app.listSystemsoftwareversions
+    baseClient.app.listSystemsoftwareversions,
   ).getApiResource,
   /** Get all update candidates for a specific `AppVersion`. */
   listUpdateCandidatesForAppversion: new ApiCallAsyncResourceFactory(
     descriptors.appListUpdateCandidatesForAppversion,
-    baseClient.app.listUpdateCandidatesForAppversion
+    baseClient.app.listUpdateCandidatesForAppversion,
   ).getApiResource,
   /** Get runtime status of a specific `AppInstallation`. */
   retrieveStatus: new ApiCallAsyncResourceFactory(
     descriptors.appRetrieveStatus,
-    baseClient.app.retrieveStatus
+    baseClient.app.retrieveStatus,
   ).getApiResource,
 });
 
@@ -78,12 +78,12 @@ const buildArticleApi = (baseClient: MittwaldAPIV2Client) => ({
   /** Get an Article. */
   getArticle: new ApiCallAsyncResourceFactory(
     descriptors.articleGetArticle,
-    baseClient.article.getArticle
+    baseClient.article.getArticle,
   ).getApiResource,
   /** List Articles. */
   listArticles: new ApiCallAsyncResourceFactory(
     descriptors.articleListArticles,
-    baseClient.article.listArticles
+    baseClient.article.listArticles,
   ).getApiResource,
 });
 
@@ -91,22 +91,22 @@ const buildBackupApi = (baseClient: MittwaldAPIV2Client) => ({
   /** List BackupSchedules belonging to a Project. */
   listProjectBackupSchedules: new ApiCallAsyncResourceFactory(
     descriptors.backupListProjectBackupSchedules,
-    baseClient.backup.listProjectBackupSchedules
+    baseClient.backup.listProjectBackupSchedules,
   ).getApiResource,
   /** List Backups belonging to a Project. */
   listProjectBackups: new ApiCallAsyncResourceFactory(
     descriptors.backupListProjectBackups,
-    baseClient.backup.listProjectBackups
+    baseClient.backup.listProjectBackups,
   ).getApiResource,
   /** Get a ProjectBackupSchedule. */
   getProjectBackupSchedule: new ApiCallAsyncResourceFactory(
     descriptors.backupGetProjectBackupSchedule,
-    baseClient.backup.getProjectBackupSchedule
+    baseClient.backup.getProjectBackupSchedule,
   ).getApiResource,
   /** Get a ProjectBackup. */
   getProjectBackup: new ApiCallAsyncResourceFactory(
     descriptors.backupGetProjectBackup,
-    baseClient.backup.getProjectBackup
+    baseClient.backup.getProjectBackup,
   ).getApiResource,
 });
 
@@ -114,77 +114,77 @@ const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
   /** Return the BaseItem of the Contract with the given ID. */
   getBaseItemOfContract: new ApiCallAsyncResourceFactory(
     descriptors.contractGetBaseItemOfContract,
-    baseClient.contract.getBaseItemOfContract
+    baseClient.contract.getBaseItemOfContract,
   ).getApiResource,
   /** Return the Contract for the given Domain. */
   getDetailOfContractByDomain: new ApiCallAsyncResourceFactory(
     descriptors.contractGetDetailOfContractByDomain,
-    baseClient.contract.getDetailOfContractByDomain
+    baseClient.contract.getDetailOfContractByDomain,
   ).getApiResource,
   /** Return the Contract for the given Project. */
   getDetailOfContractByProject: new ApiCallAsyncResourceFactory(
     descriptors.contractGetDetailOfContractByProject,
-    baseClient.contract.getDetailOfContractByProject
+    baseClient.contract.getDetailOfContractByProject,
   ).getApiResource,
   /** Return the Contract for the given Server. */
   getDetailOfContractByServer: new ApiCallAsyncResourceFactory(
     descriptors.contractGetDetailOfContractByServer,
-    baseClient.contract.getDetailOfContractByServer
+    baseClient.contract.getDetailOfContractByServer,
   ).getApiResource,
   /** Get the ContractItem with the given ID. */
   getDetailOfContractItem: new ApiCallAsyncResourceFactory(
     descriptors.contractGetDetailOfContractItem,
-    baseClient.contract.getDetailOfContractItem
+    baseClient.contract.getDetailOfContractItem,
   ).getApiResource,
   /** Returns the Contract with the given ID. */
   getDetailOfContract: new ApiCallAsyncResourceFactory(
     descriptors.contractGetDetailOfContract,
-    baseClient.contract.getDetailOfContract
+    baseClient.contract.getDetailOfContract,
   ).getApiResource,
   /** Return the next TerminationDate for the ContractItem with the given ID. */
   getNextTerminationDateForItem: new ApiCallAsyncResourceFactory(
     descriptors.contractGetNextTerminationDateForItem,
-    baseClient.contract.getNextTerminationDateForItem
+    baseClient.contract.getNextTerminationDateForItem,
   ).getApiResource,
   /** Return a list of Contracts for the given Customer. */
   listContracts: new ApiCallAsyncResourceFactory(
     descriptors.contractListContracts,
-    baseClient.contract.listContracts
+    baseClient.contract.listContracts,
   ).getApiResource,
   /** Get details of an Invoice. */
   invoiceDetailOfInvoice: new ApiCallAsyncResourceFactory(
     descriptors.invoiceDetailOfInvoice,
-    baseClient.contract.invoiceDetailOfInvoice
+    baseClient.contract.invoiceDetailOfInvoice,
   ).getApiResource,
   /** Get InvoiceSettings of a Customer. */
   invoiceGetDetailOfInvoiceSettings: new ApiCallAsyncResourceFactory(
     descriptors.invoiceGetDetailOfInvoiceSettings,
-    baseClient.contract.invoiceGetDetailOfInvoiceSettings
+    baseClient.contract.invoiceGetDetailOfInvoiceSettings,
   ).getApiResource,
   /** Request an Access Token for the Invoice file. */
   invoiceGetFileAccessToken: new ApiCallAsyncResourceFactory(
     descriptors.invoiceGetFileAccessToken,
-    baseClient.contract.invoiceGetFileAccessToken
+    baseClient.contract.invoiceGetFileAccessToken,
   ).getApiResource,
   /** List Invoices of a Customer. */
   invoiceListCustomerInvoices: new ApiCallAsyncResourceFactory(
     descriptors.invoiceListCustomerInvoices,
-    baseClient.contract.invoiceListCustomerInvoices
+    baseClient.contract.invoiceListCustomerInvoices,
   ).getApiResource,
   /** Get Order for Customer. */
   orderGetOrder: new ApiCallAsyncResourceFactory(
     descriptors.orderGetOrder,
-    baseClient.contract.orderGetOrder
+    baseClient.contract.orderGetOrder,
   ).getApiResource,
   /** Get list of Orders of a Customer. */
   orderListCustomerOrders: new ApiCallAsyncResourceFactory(
     descriptors.orderListCustomerOrders,
-    baseClient.contract.orderListCustomerOrders
+    baseClient.contract.orderListCustomerOrders,
   ).getApiResource,
   /** Get list of Orders of a Project. */
   orderListProjectOrders: new ApiCallAsyncResourceFactory(
     descriptors.orderListProjectOrders,
-    baseClient.contract.orderListProjectOrders
+    baseClient.contract.orderListProjectOrders,
   ).getApiResource,
 });
 
@@ -192,37 +192,37 @@ const buildConversationApi = (baseClient: MittwaldAPIV2Client) => ({
   /** Get all conversation the authenticated user has created or has access to. */
   listConversations: new ApiCallAsyncResourceFactory(
     descriptors.conversationListConversations,
-    baseClient.conversation.listConversations
+    baseClient.conversation.listConversations,
   ).getApiResource,
   /** Get all message of the conversation. */
   listMessagesByConversation: new ApiCallAsyncResourceFactory(
     descriptors.conversationListMessagesByConversation,
-    baseClient.conversation.listMessagesByConversation
+    baseClient.conversation.listMessagesByConversation,
   ).getApiResource,
   /** Get a specific conversation category. */
   getCategory: new ApiCallAsyncResourceFactory(
     descriptors.conversationGetCategory,
-    baseClient.conversation.getCategory
+    baseClient.conversation.getCategory,
   ).getApiResource,
   /** Get members of a support conversation. */
   getConversationMembers: new ApiCallAsyncResourceFactory(
     descriptors.conversationGetConversationMembers,
-    baseClient.conversation.getConversationMembers
+    baseClient.conversation.getConversationMembers,
   ).getApiResource,
   /** Get a support conversation. */
   getConversation: new ApiCallAsyncResourceFactory(
     descriptors.conversationGetConversation,
-    baseClient.conversation.getConversation
+    baseClient.conversation.getConversation,
   ).getApiResource,
   /** Request an access token for the File belonging to the Conversation. */
   getFileAccessToken: new ApiCallAsyncResourceFactory(
     descriptors.conversationGetFileAccessToken,
-    baseClient.conversation.getFileAccessToken
+    baseClient.conversation.getFileAccessToken,
   ).getApiResource,
   /** Get all conversation categories. */
   listCategories: new ApiCallAsyncResourceFactory(
     descriptors.conversationListCategories,
-    baseClient.conversation.listCategories
+    baseClient.conversation.listCategories,
   ).getApiResource,
 });
 
@@ -230,22 +230,22 @@ const buildCronjobApi = (baseClient: MittwaldAPIV2Client) => ({
   /** List Cronjobs belonging to a Project. */
   listCronjobs: new ApiCallAsyncResourceFactory(
     descriptors.cronjobListCronjobs,
-    baseClient.cronjob.listCronjobs
+    baseClient.cronjob.listCronjobs,
   ).getApiResource,
   /** List CronjobExecutions belonging to a Cronjob. */
   listExecutions: new ApiCallAsyncResourceFactory(
     descriptors.cronjobListExecutions,
-    baseClient.cronjob.listExecutions
+    baseClient.cronjob.listExecutions,
   ).getApiResource,
   /** Get a Cronjob. */
   getCronjob: new ApiCallAsyncResourceFactory(
     descriptors.cronjobGetCronjob,
-    baseClient.cronjob.getCronjob
+    baseClient.cronjob.getCronjob,
   ).getApiResource,
   /** Get a CronjobExecution. */
   getExecution: new ApiCallAsyncResourceFactory(
     descriptors.cronjobGetExecution,
-    baseClient.cronjob.getExecution
+    baseClient.cronjob.getExecution,
   ).getApiResource,
 });
 
@@ -253,62 +253,62 @@ const buildCustomerApi = (baseClient: MittwaldAPIV2Client) => ({
   /** Get all customer categories. */
   listOfCustomerCategories: new ApiCallAsyncResourceFactory(
     descriptors.customerListOfCustomerCategories,
-    baseClient.customer.listOfCustomerCategories
+    baseClient.customer.listOfCustomerCategories,
   ).getApiResource,
   /** Get all customer profiles the authenticated user has access to. */
   listCustomers: new ApiCallAsyncResourceFactory(
     descriptors.customerListCustomers,
-    baseClient.customer.listCustomers
+    baseClient.customer.listCustomers,
   ).getApiResource,
   /** Get a customer category. */
   getCustomerCategory: new ApiCallAsyncResourceFactory(
     descriptors.customerGetCustomerCategory,
-    baseClient.customer.getCustomerCategory
+    baseClient.customer.getCustomerCategory,
   ).getApiResource,
   /** Get a CustomerInvite. */
   getCustomerInvite: new ApiCallAsyncResourceFactory(
     descriptors.customerGetCustomerInvite,
-    baseClient.customer.getCustomerInvite
+    baseClient.customer.getCustomerInvite,
   ).getApiResource,
   /** Get a CustomerMembership. */
   getCustomerMembership: new ApiCallAsyncResourceFactory(
     descriptors.customerGetCustomerMembership,
-    baseClient.customer.getCustomerMembership
+    baseClient.customer.getCustomerMembership,
   ).getApiResource,
   /** Get a customer profile. */
   getCustomer: new ApiCallAsyncResourceFactory(
     descriptors.customerGetCustomer,
-    baseClient.customer.getCustomer
+    baseClient.customer.getCustomer,
   ).getApiResource,
   /** Get a CustomerInvite by token. */
   getCustomerTokenInvite: new ApiCallAsyncResourceFactory(
     descriptors.customerGetCustomerTokenInvite,
-    baseClient.customer.getCustomerTokenInvite
+    baseClient.customer.getCustomerTokenInvite,
   ).getApiResource,
   /** Check if the customer profile has a valid contract partner configured. */
   isCustomerLegallyCompetent: new ApiCallAsyncResourceFactory(
     descriptors.customerIsCustomerLegallyCompetent,
-    baseClient.customer.isCustomerLegallyCompetent
+    baseClient.customer.isCustomerLegallyCompetent,
   ).getApiResource,
   /** List CustomerInvites belonging to the executing user. */
   listCustomerInvites: new ApiCallAsyncResourceFactory(
     descriptors.customerListCustomerInvites,
-    baseClient.customer.listCustomerInvites
+    baseClient.customer.listCustomerInvites,
   ).getApiResource,
   /** List CustomerMemberships belonging to the executing user. */
   listCustomerMemberships: new ApiCallAsyncResourceFactory(
     descriptors.customerListCustomerMemberships,
-    baseClient.customer.listCustomerMemberships
+    baseClient.customer.listCustomerMemberships,
   ).getApiResource,
   /** List Invites belonging to a Customer. */
   listInvitesForCustomer: new ApiCallAsyncResourceFactory(
     descriptors.customerListInvitesForCustomer,
-    baseClient.customer.listInvitesForCustomer
+    baseClient.customer.listInvitesForCustomer,
   ).getApiResource,
   /** List Memberships belonging to a Customer. */
   listMembershipsForCustomer: new ApiCallAsyncResourceFactory(
     descriptors.customerListMembershipsForCustomer,
-    baseClient.customer.listMembershipsForCustomer
+    baseClient.customer.listMembershipsForCustomer,
   ).getApiResource,
 });
 
@@ -316,52 +316,52 @@ const buildDatabaseApi = (baseClient: MittwaldAPIV2Client) => ({
   /** List MySQLDatabases belonging to a Project. */
   listMysqlDatabases: new ApiCallAsyncResourceFactory(
     descriptors.databaseListMysqlDatabases,
-    baseClient.database.listMysqlDatabases
+    baseClient.database.listMysqlDatabases,
   ).getApiResource,
   /** List MySQLUsers belonging to a Database. */
   listMysqlUsers: new ApiCallAsyncResourceFactory(
     descriptors.databaseListMysqlUsers,
-    baseClient.database.listMysqlUsers
+    baseClient.database.listMysqlUsers,
   ).getApiResource,
   /** List RedisDatabases belonging to a Project. */
   listRedisDatabases: new ApiCallAsyncResourceFactory(
     descriptors.databaseListRedisDatabases,
-    baseClient.database.listRedisDatabases
+    baseClient.database.listRedisDatabases,
   ).getApiResource,
   /** Get a MySQLDatabase. */
   getMysqlDatabase: new ApiCallAsyncResourceFactory(
     descriptors.databaseGetMysqlDatabase,
-    baseClient.database.getMysqlDatabase
+    baseClient.database.getMysqlDatabase,
   ).getApiResource,
   /** Get a MySQLUser. */
   getMysqlUser: new ApiCallAsyncResourceFactory(
     descriptors.databaseGetMysqlUser,
-    baseClient.database.getMysqlUser
+    baseClient.database.getMysqlUser,
   ).getApiResource,
   /** Get a RedisDatabase. */
   getRedisDatabase: new ApiCallAsyncResourceFactory(
     descriptors.databaseGetRedisDatabase,
-    baseClient.database.getRedisDatabase
+    baseClient.database.getRedisDatabase,
   ).getApiResource,
   /** Get a MySQLUser's PhpMyAdmin-URL. */
   getMysqlUserPhpMyAdminUrl: new ApiCallAsyncResourceFactory(
     descriptors.databaseGetMysqlUserPhpMyAdminUrl,
-    baseClient.database.getMysqlUserPhpMyAdminUrl
+    baseClient.database.getMysqlUserPhpMyAdminUrl,
   ).getApiResource,
   /** List available MySQL character sets and collations, optionally filtered by a MySQLVersion. */
   listMysqlCharsets: new ApiCallAsyncResourceFactory(
     descriptors.databaseListMysqlCharsets,
-    baseClient.database.listMysqlCharsets
+    baseClient.database.listMysqlCharsets,
   ).getApiResource,
   /** List MySQLVersions. */
   listMysqlVersions: new ApiCallAsyncResourceFactory(
     descriptors.databaseListMysqlVersions,
-    baseClient.database.listMysqlVersions
+    baseClient.database.listMysqlVersions,
   ).getApiResource,
   /** List RedisVersions. */
   listRedisVersions: new ApiCallAsyncResourceFactory(
     descriptors.databaseListRedisVersions,
-    baseClient.database.listRedisVersions
+    baseClient.database.listRedisVersions,
   ).getApiResource,
 });
 
@@ -369,57 +369,57 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   /** Get a DNSZone. */
   dnsGetDnsZone: new ApiCallAsyncResourceFactory(
     descriptors.dnsGetDnsZone,
-    baseClient.domain.dnsGetDnsZone
+    baseClient.domain.dnsGetDnsZone,
   ).getApiResource,
   /** List DNSZones belonging to a Project. */
   dnsListDnsZones: new ApiCallAsyncResourceFactory(
     descriptors.dnsListDnsZones,
-    baseClient.domain.dnsListDnsZones
+    baseClient.domain.dnsListDnsZones,
   ).getApiResource,
   /** Get a Domain. */
   getDomain: new ApiCallAsyncResourceFactory(
     descriptors.domainGetDomain,
-    baseClient.domain.getDomain
+    baseClient.domain.getDomain,
   ).getApiResource,
   /** Get a DomainOwnership. */
   getDomainOwnership: new ApiCallAsyncResourceFactory(
     descriptors.domainGetDomainOwnership,
-    baseClient.domain.getDomainOwnership
+    baseClient.domain.getDomainOwnership,
   ).getApiResource,
   /** Get the latest screenshot's FileReference belonging to a Domain. */
   getLatestScreenshot: new ApiCallAsyncResourceFactory(
     descriptors.domainGetLatestScreenshot,
-    baseClient.domain.getLatestScreenshot
+    baseClient.domain.getLatestScreenshot,
   ).getApiResource,
   /** List the DomainOwnerships of a project. */
   listDomainOwnerships: new ApiCallAsyncResourceFactory(
     descriptors.domainListDomainOwnerships,
-    baseClient.domain.listDomainOwnerships
+    baseClient.domain.listDomainOwnerships,
   ).getApiResource,
   /** List Domains belonging to a Project. */
   listDomains: new ApiCallAsyncResourceFactory(
     descriptors.domainListDomains,
-    baseClient.domain.listDomains
+    baseClient.domain.listDomains,
   ).getApiResource,
   /** List the contact schemas for a TLD. */
   listTldContactSchemas: new ApiCallAsyncResourceFactory(
     descriptors.domainListTldContactSchemas,
-    baseClient.domain.listTldContactSchemas
+    baseClient.domain.listTldContactSchemas,
   ).getApiResource,
   /** List TLDs. */
   listTlds: new ApiCallAsyncResourceFactory(
     descriptors.domainListTlds,
-    baseClient.domain.listTlds
+    baseClient.domain.listTlds,
   ).getApiResource,
   /** List Ingresses. */
   ingressListIngresses: new ApiCallAsyncResourceFactory(
     descriptors.ingressListIngresses,
-    baseClient.domain.ingressListIngresses
+    baseClient.domain.ingressListIngresses,
   ).getApiResource,
   /** Get an Ingress. */
   ingressGetIngress: new ApiCallAsyncResourceFactory(
     descriptors.ingressGetIngress,
-    baseClient.domain.ingressGetIngress
+    baseClient.domain.ingressGetIngress,
   ).getApiResource,
 });
 
@@ -427,22 +427,22 @@ const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({
   /** Get a File's meta. */
   getFileMeta: new ApiCallAsyncResourceFactory(
     descriptors.fileGetFileMeta,
-    baseClient.file.getFileMeta
+    baseClient.file.getFileMeta,
   ).getApiResource,
   /** Get a FileUploadToken's rules. */
   getFileUploadTokenRules: new ApiCallAsyncResourceFactory(
     descriptors.fileGetFileUploadTokenRules,
-    baseClient.file.getFileUploadTokenRules
+    baseClient.file.getFileUploadTokenRules,
   ).getApiResource,
   /** Get a FileUploadType's rules. */
   getFileUploadTypeRules: new ApiCallAsyncResourceFactory(
     descriptors.fileGetFileUploadTypeRules,
-    baseClient.file.getFileUploadTypeRules
+    baseClient.file.getFileUploadTypeRules,
   ).getApiResource,
   /** Get a File. */
   getFile: new ApiCallAsyncResourceFactory(
     descriptors.fileGetFile,
-    baseClient.file.getFile
+    baseClient.file.getFile,
   ).getApiResource,
 });
 
@@ -450,27 +450,27 @@ const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
   /** List DeliveryBoxes belonging to a Project. */
   listDeliveryBoxes: new ApiCallAsyncResourceFactory(
     descriptors.mailListDeliveryBoxes,
-    baseClient.mail.listDeliveryBoxes
+    baseClient.mail.listDeliveryBoxes,
   ).getApiResource,
   /** List MailAddresses belonging to a Project. */
   listMailAddresses: new ApiCallAsyncResourceFactory(
     descriptors.mailListMailAddresses,
-    baseClient.mail.listMailAddresses
+    baseClient.mail.listMailAddresses,
   ).getApiResource,
   /** Get a DeliveryBox. */
   getDeliveryBox: new ApiCallAsyncResourceFactory(
     descriptors.mailGetDeliveryBox,
-    baseClient.mail.getDeliveryBox
+    baseClient.mail.getDeliveryBox,
   ).getApiResource,
   /** Get a MailAddress. */
   getMailAddress: new ApiCallAsyncResourceFactory(
     descriptors.mailGetMailAddress,
-    baseClient.mail.getMailAddress
+    baseClient.mail.getMailAddress,
   ).getApiResource,
   /** List mail settings of a Project. */
   listProjectMailSettings: new ApiCallAsyncResourceFactory(
     descriptors.mailListProjectMailSettings,
-    baseClient.mail.listProjectMailSettings
+    baseClient.mail.listProjectMailSettings,
   ).getApiResource,
 });
 
@@ -478,17 +478,17 @@ const buildNotificationApi = (baseClient: MittwaldAPIV2Client) => ({
   /** Getting the subscription status of the subscription. */
   newsletterGetInfo: new ApiCallAsyncResourceFactory(
     descriptors.newsletterGetInfo,
-    baseClient.notification.newsletterGetInfo
+    baseClient.notification.newsletterGetInfo,
   ).getApiResource,
   /** Get the counts for unread notifications of the user. */
   scountUnreadNotifications: new ApiCallAsyncResourceFactory(
     descriptors.notificationsCountUnreadNotifications,
-    baseClient.notification.scountUnreadNotifications
+    baseClient.notification.scountUnreadNotifications,
   ).getApiResource,
   /** List all unread notifications. */
   slistNotifications: new ApiCallAsyncResourceFactory(
     descriptors.notificationsListNotifications,
-    baseClient.notification.slistNotifications
+    baseClient.notification.slistNotifications,
   ).getApiResource,
 });
 
@@ -496,12 +496,12 @@ const buildPageInsightsApi = (baseClient: MittwaldAPIV2Client) => ({
   /** Get detailed performance data for a given domain and path. */
   pageinsightsGetPerformanceData: new ApiCallAsyncResourceFactory(
     descriptors.pageinsightsGetPerformanceData,
-    baseClient.pageInsights.pageinsightsGetPerformanceData
+    baseClient.pageInsights.pageinsightsGetPerformanceData,
   ).getApiResource,
   /** List websites (specified as domain and path) from a project where performance data is available. */
   pageinsightsListPerformanceDataForProject: new ApiCallAsyncResourceFactory(
     descriptors.pageinsightsListPerformanceDataForProject,
-    baseClient.pageInsights.pageinsightsListPerformanceDataForProject
+    baseClient.pageInsights.pageinsightsListPerformanceDataForProject,
   ).getApiResource,
 });
 
@@ -509,77 +509,77 @@ const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
   /** Get a PasswordPolicy. */
   passwordValidationGetPasswordPolicy: new ApiCallAsyncResourceFactory(
     descriptors.passwordValidationGetPasswordPolicy,
-    baseClient.user.passwordValidationGetPasswordPolicy
+    baseClient.user.passwordValidationGetPasswordPolicy,
   ).getApiResource,
   /** Get your verified Email-Address. */
   getOwnEmail: new ApiCallAsyncResourceFactory(
     descriptors.userGetOwnEmail,
-    baseClient.user.getOwnEmail
+    baseClient.user.getOwnEmail,
   ).getApiResource,
   /** Get your current multi factor auth status. */
   getMfaStatus: new ApiCallAsyncResourceFactory(
     descriptors.userGetMfaStatus,
-    baseClient.user.getMfaStatus
+    baseClient.user.getMfaStatus,
   ).getApiResource,
   /** List all of your ApiTokens. */
   listApiTokens: new ApiCallAsyncResourceFactory(
     descriptors.userListApiTokens,
-    baseClient.user.listApiTokens
+    baseClient.user.listApiTokens,
   ).getApiResource,
   /** Get your stored ssh-keys. */
   listSshKeys: new ApiCallAsyncResourceFactory(
     descriptors.userListSshKeys,
-    baseClient.user.listSshKeys
+    baseClient.user.listSshKeys,
   ).getApiResource,
   /** Get a specific ApiToken. */
   getApiToken: new ApiCallAsyncResourceFactory(
     descriptors.userGetApiToken,
-    baseClient.user.getApiToken
+    baseClient.user.getApiToken,
   ).getApiResource,
   /** Get a specific stored ssh-key. */
   getSshKey: new ApiCallAsyncResourceFactory(
     descriptors.userGetSshKey,
-    baseClient.user.getSshKey
+    baseClient.user.getSshKey,
   ).getApiResource,
   /** Get your account information. */
   getOwnAccount: new ApiCallAsyncResourceFactory(
     descriptors.userGetOwnAccount,
-    baseClient.user.getOwnAccount
+    baseClient.user.getOwnAccount,
   ).getApiResource,
   /** The timestamp of your latest password change. */
   getPasswordUpdatedAt: new ApiCallAsyncResourceFactory(
     descriptors.userGetPasswordUpdatedAt,
-    baseClient.user.getPasswordUpdatedAt
+    baseClient.user.getPasswordUpdatedAt,
   ).getApiResource,
   /** Get personalized settings. */
   getPersonalizedSettings: new ApiCallAsyncResourceFactory(
     descriptors.userGetPersonalizedSettings,
-    baseClient.user.getPersonalizedSettings
+    baseClient.user.getPersonalizedSettings,
   ).getApiResource,
   /** Get a specific session. */
   getSession: new ApiCallAsyncResourceFactory(
     descriptors.userGetSession,
-    baseClient.user.getSession
+    baseClient.user.getSession,
   ).getApiResource,
   /** Get profile information for a user. */
   getUser: new ApiCallAsyncResourceFactory(
     descriptors.userGetUser,
-    baseClient.user.getUser
+    baseClient.user.getUser,
   ).getApiResource,
   /** Submitted feedback of the given user. */
   listFeedback: new ApiCallAsyncResourceFactory(
     descriptors.userListFeedback,
-    baseClient.user.listFeedback
+    baseClient.user.listFeedback,
   ).getApiResource,
   /** List all sessions. */
   listSessions: new ApiCallAsyncResourceFactory(
     descriptors.userListSessions,
-    baseClient.user.listSessions
+    baseClient.user.listSessions,
   ).getApiResource,
   /** Request a support code. */
   supportCodeRequest: new ApiCallAsyncResourceFactory(
     descriptors.userSupportCodeRequest,
-    baseClient.user.supportCodeRequest
+    baseClient.user.supportCodeRequest,
   ).getApiResource,
 });
 
@@ -587,62 +587,62 @@ const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
   /** Get a ProjectInvite. */
   getProjectInvite: new ApiCallAsyncResourceFactory(
     descriptors.projectGetProjectInvite,
-    baseClient.project.getProjectInvite
+    baseClient.project.getProjectInvite,
   ).getApiResource,
   /** Get a ProjectMembership */
   getProjectMembership: new ApiCallAsyncResourceFactory(
     descriptors.projectGetProjectMembership,
-    baseClient.project.getProjectMembership
+    baseClient.project.getProjectMembership,
   ).getApiResource,
   /** Get a Project. */
   getProject: new ApiCallAsyncResourceFactory(
     descriptors.projectGetProject,
-    baseClient.project.getProject
+    baseClient.project.getProject,
   ).getApiResource,
   /** Get a ProjectInvite by token. */
   getProjectTokenInvite: new ApiCallAsyncResourceFactory(
     descriptors.projectGetProjectTokenInvite,
-    baseClient.project.getProjectTokenInvite
+    baseClient.project.getProjectTokenInvite,
   ).getApiResource,
   /** Get the executing user's membership in a Project. */
   getSelfMembershipForProject: new ApiCallAsyncResourceFactory(
     descriptors.projectGetSelfMembershipForProject,
-    baseClient.project.getSelfMembershipForProject
+    baseClient.project.getSelfMembershipForProject,
   ).getApiResource,
   /** Get a Server. */
   getServer: new ApiCallAsyncResourceFactory(
     descriptors.projectGetServer,
-    baseClient.project.getServer
+    baseClient.project.getServer,
   ).getApiResource,
   /** List Invites belonging to a Project. */
   listInvitesForProject: new ApiCallAsyncResourceFactory(
     descriptors.projectListInvitesForProject,
-    baseClient.project.listInvitesForProject
+    baseClient.project.listInvitesForProject,
   ).getApiResource,
   /** List Memberships belonging to a Project. */
   listMembershipsForProject: new ApiCallAsyncResourceFactory(
     descriptors.projectListMembershipsForProject,
-    baseClient.project.listMembershipsForProject
+    baseClient.project.listMembershipsForProject,
   ).getApiResource,
   /** List ProjectInvites belonging to the executing user. */
   listProjectInvites: new ApiCallAsyncResourceFactory(
     descriptors.projectListProjectInvites,
-    baseClient.project.listProjectInvites
+    baseClient.project.listProjectInvites,
   ).getApiResource,
   /** List ProjectMemberships belonging to the executing user. */
   listProjectMemberships: new ApiCallAsyncResourceFactory(
     descriptors.projectListProjectMemberships,
-    baseClient.project.listProjectMemberships
+    baseClient.project.listProjectMemberships,
   ).getApiResource,
   /** List Projects belonging to the executing user. */
   listProjects: new ApiCallAsyncResourceFactory(
     descriptors.projectListProjects,
-    baseClient.project.listProjects
+    baseClient.project.listProjects,
   ).getApiResource,
   /** List Servers belonging to the executing user. */
   listServers: new ApiCallAsyncResourceFactory(
     descriptors.projectListServers,
-    baseClient.project.listServers
+    baseClient.project.listServers,
   ).getApiResource,
 });
 
@@ -650,27 +650,27 @@ const buildProjectFileSystemApi = (baseClient: MittwaldAPIV2Client) => ({
   /** List directories belonging to a Project. */
   getDirectories: new ApiCallAsyncResourceFactory(
     descriptors.projectFileSystemGetDirectories,
-    baseClient.projectFileSystem.getDirectories
+    baseClient.projectFileSystem.getDirectories,
   ).getApiResource,
   /** Get a Project directory filesystem usage. */
   getDiskUsage: new ApiCallAsyncResourceFactory(
     descriptors.projectFileSystemGetDiskUsage,
-    baseClient.projectFileSystem.getDiskUsage
+    baseClient.projectFileSystem.getDiskUsage,
   ).getApiResource,
   /** Get a Project file's content. */
   getFileContent: new ApiCallAsyncResourceFactory(
     descriptors.projectFileSystemGetFileContent,
-    baseClient.projectFileSystem.getFileContent
+    baseClient.projectFileSystem.getFileContent,
   ).getApiResource,
   /** Get a Project's file/filesystem authorization token. */
   getJwt: new ApiCallAsyncResourceFactory(
     descriptors.projectFileSystemGetJwt,
-    baseClient.projectFileSystem.getJwt
+    baseClient.projectFileSystem.getJwt,
   ).getApiResource,
   /** Get a Project file's information. */
   listFiles: new ApiCallAsyncResourceFactory(
     descriptors.projectFileSystemListFiles,
-    baseClient.projectFileSystem.listFiles
+    baseClient.projectFileSystem.listFiles,
   ).getApiResource,
 });
 
@@ -678,22 +678,22 @@ const buildSshsftpUserApi = (baseClient: MittwaldAPIV2Client) => ({
   /** Get all SFTPUsers for a Project. */
   sftpUserListSftpUsers: new ApiCallAsyncResourceFactory(
     descriptors.sftpUserListSftpUsers,
-    baseClient.sshsftpUser.sftpUserListSftpUsers
+    baseClient.sshsftpUser.sftpUserListSftpUsers,
   ).getApiResource,
   /** Get an SFTPUser. */
   sftpUserGetSftpUser: new ApiCallAsyncResourceFactory(
     descriptors.sftpUserGetSftpUser,
-    baseClient.sshsftpUser.sftpUserGetSftpUser
+    baseClient.sshsftpUser.sftpUserGetSftpUser,
   ).getApiResource,
   /** Get all SSHUsers for a Project. */
   sshUserListSshUsers: new ApiCallAsyncResourceFactory(
     descriptors.sshUserListSshUsers,
-    baseClient.sshsftpUser.sshUserListSshUsers
+    baseClient.sshsftpUser.sshUserListSshUsers,
   ).getApiResource,
   /** Get an SSHUser. */
   sshUserGetSshUser: new ApiCallAsyncResourceFactory(
     descriptors.sshUserGetSshUser,
-    baseClient.sshsftpUser.sshUserGetSshUser
+    baseClient.sshsftpUser.sshUserGetSshUser,
   ).getApiResource,
 });
 
@@ -788,7 +788,7 @@ export class MittwaldAPIV2ClientReact {
   }
 
   public static fromBaseClient(
-    baseClient: MittwaldAPIV2Client
+    baseClient: MittwaldAPIV2Client,
   ): MittwaldAPIV2ClientReact {
     return new MittwaldAPIV2ClientReact(baseClient);
   }
