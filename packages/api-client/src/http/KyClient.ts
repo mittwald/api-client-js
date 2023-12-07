@@ -5,9 +5,9 @@ import { AnyRequestFunctionFactory, Client } from "./Client.js";
 import { mapHeaders } from "./headers.js";
 import { setPathParams } from "./path.js";
 import { mapResponse } from "./response.js";
-import { patchedFetchForSafari } from "./safari.js";
 import { convertQueryToUrlSearchParams } from "./request.js";
 import RequestError from "../RequestError.js";
+import { patchedFetchForSafari } from "./safari.js";
 
 const d = debug.extend("KyHTTPClient");
 
@@ -38,7 +38,7 @@ export class KyClient implements Client {
             ...defaultOptions,
             ...options,
         };
-        this.ky = ky.create({
+        this.ky = ky.extend({
             ...defaultOptions.ky,
             ...(options.ky ?? {}),
         });
