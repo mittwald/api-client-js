@@ -4605,6 +4605,7 @@ export declare module MittwaldAPIV2 {
         addons?: MittwaldAPIV2.Components.Schemas.OrderAddons[];
         amount: number;
         articleId: string;
+        articleName?: string;
         articleTemplateName?: string;
         attributeConfiguration?: MittwaldAPIV2.Components.Schemas.OrderAttributeConfiguration[];
         isInclusive: boolean;
