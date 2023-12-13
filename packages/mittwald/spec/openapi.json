@@ -5486,6 +5486,10 @@
             "example": "PS23-PLUS-0004",
             "type": "string"
           },
+          "articleName": {
+            "example": "proSpace",
+            "type": "string"
+          },
           "articleTemplateName": {
             "example": "Pro-Space-Hosting",
             "type": "string"
@@ -6835,6 +6839,10 @@
             "type": "string",
             "example": "DE",
             "description": "ISO 3166-1 alpha-2 country code"
+          },
+          "addressPrefix": {
+            "type": "string",
+            "example": "c/o Ada Lovelace"
           }
         },
         "required": [
@@ -25025,6 +25033,78 @@
     },
     "/v2/project/{projectId}/invites": {
       "post": {
+        "parameters": [
+          {
+            "description": "ID of the Project to create a ProjectInvite for.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "mailAddress": {
+                    "description": "Mail-address of the person to be invited.",
+                    "format": "email",
+                    "type": "string"
+                  },
+                  "membershipExpiresAt": {
+                    "description": "Time the resulting ProjectMembership should expire at.",
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "message": {
+                    "description": "Message contained in the ProjectInvite.",
+                    "type": "string"
+                  },
+                  "role": {
+                    "$ref": "#/components/schemas/membership.ProjectRoles"
+                  }
+                },
+                "required": [
+                  "mailAddress",
+                  "role"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "308": {
+            "description": "This route is deprecated, and will redirect you to another URL.",
+            "headers": {
+              "location": {
+                "description": "The new URL to use; clients should redirect their request to this URL, using the same request method and body as the original request.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "Create a ProjectInvite.",
+        "tags": [
+          "Project"
+        ],
+        "deprecated": true
+      }
+    },
+    "/v2/projects/{projectId}/invites": {
+      "post": {
         "operationId": "project-create-project-invite",
         "parameters": [
           {
@@ -25098,6 +25178,83 @@
           }
         ],
         "summary": "Create a ProjectInvite.",
+        "tags": [
+          "Project"
+        ]
+      },
+      "get": {
+        "operationId": "project-list-invites-for-project",
+        "parameters": [
+          {
+            "description": "ID of the Project to list invites for.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "skip",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/membership.ProjectInvite"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "OK",
+            "headers": {
+              "X-Pagination-Limit": {
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "X-Pagination-Skip": {
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "X-Pagination-TotalCount": {
+                "schema": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/commons.NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "List Invites belonging to a Project.",
         "tags": [
           "Project"
         ]
@@ -26481,85 +26638,6 @@
           }
         ],
         "summary": "Leave a Project.",
-        "tags": [
-          "Project"
-        ]
-      }
-    },
-    "/v2/projects/{projectId}/invites": {
-      "get": {
-        "operationId": "project-list-invites-for-project",
-        "parameters": [
-          {
-            "description": "ID of the Project to list invites for.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "limit",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "skip",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/membership.ProjectInvite"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "OK",
-            "headers": {
-              "X-Pagination-Limit": {
-                "schema": {
-                  "type": "number"
-                }
-              },
-              "X-Pagination-Skip": {
-                "schema": {
-                  "type": "number"
-                }
-              },
-              "X-Pagination-TotalCount": {
-                "schema": {
-                  "type": "number"
-                }
-              }
-            }
-          },
-          "404": {
-            "$ref": "#/components/responses/commons.NotFoundError"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "List Invites belonging to a Project.",
         "tags": [
           "Project"
         ]

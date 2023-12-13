@@ -2042,6 +2042,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ProjectListInvitesForProject {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectListInvitesForProject
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectListInvitesForProject,
+          TStatus
+        >;
+    }
+
     namespace ProjectCreateProjectInvite {
       type RequestData = InferredRequestData<
         typeof descriptors.projectCreateProjectInvite
@@ -2278,17 +2289,6 @@ export declare module MittwaldAPIV2 {
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<typeof descriptors.projectLeaveProject, TStatus>;
-    }
-
-    namespace ProjectListInvitesForProject {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectListInvitesForProject
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectListInvitesForProject,
-          TStatus
-        >;
     }
 
     namespace ProjectListMembershipsForProject {
@@ -5047,6 +5047,7 @@ export declare module MittwaldAPIV2 {
          * ISO 3166-1 alpha-2 country code
          */
         countryCode: string;
+        addressPrefix?: string;
       }
 
       export interface CommonsError {
@@ -15064,7 +15065,49 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectProjectIdInvites {
+    namespace V2ProjectProjectIdInvites {}
+
+    namespace V2ProjectsProjectIdInvites {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MembershipProjectInvite[];
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
       namespace Post {
         namespace Parameters {
           export type Path = {
@@ -16117,48 +16160,6 @@ export declare module MittwaldAPIV2 {
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectsProjectIdInvites {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            limit?: number;
-            skip?: number;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.MembershipProjectInvite[];
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
