@@ -12,16 +12,14 @@ before_script:
   - chmod +x /usr/bin/jq
   - yarn install
 
-typescript-compile:
+build:
   stage: build
   image: node:${NODE_VERSION}
   script:
-    - yarn compile
-    - yarn compile:cjs
+    - yarn build
   artifacts:
     paths:
       - ${CI_PROJECT_DIR}/packages/commons/dist/
-      - ${CI_PROJECT_DIR}/packages/commons/dist-cjs/
       - ${CI_PROJECT_DIR}/packages/generator/dist/
     expire_in: 1 hour
 
@@ -30,6 +28,12 @@ test:
   image: node:${NODE_VERSION}
   script:
     - yarn test
+
+lint:
+  stage: test
+  image: node:${NODE_VERSION}
+  script:
+    - yarn lint
 
 publish-commons:
   stage: publish
@@ -52,8 +56,9 @@ publish-client:
   stage: publish
   image: node:${NODE_VERSION}
   script:
+    - yarn api-client:spec:refresh
+    - yarn api-client:build
     - cd ${CI_PROJECT_DIR}/packages/mittwald
-    - yarn generate:client
     - git status
     - |
       if [ ${CI_PIPELINE_SOURCE} == "schedule" ] ; then
@@ -94,8 +99,9 @@ publish-client-dev:
   stage: publish
   image: node:${NODE_VERSION}
   script:
+    - yarn lerna run spec:refresh --scope=@mittwald/api-client
+    - yarn lerna run build-dev --scope=@mittwald/api-client
     - cd ${CI_PROJECT_DIR}/packages/mittwald
-    - yarn generate:client-dev
     - |
       yarn config set npmScopes.mittwald.npmPublishRegistry https://npm.mittwald.it
       yarn config set npmAuthToken ${NPM_TOKEN}

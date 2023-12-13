@@ -1,76 +1,70 @@
 {
   "name": "@mittwald/api-client-commons",
   "version": "4.1.0",
-  "description": "Common types and utilities for mittwald API clients",
-  "license": "MIT",
-  "repository": "https://github.com/mittwald/api-client-js.git",
-  "author": {
-    "name": "Mittwald CM Service GmbH & Co. KG",
-    "email": "opensource@mittwald.de"
-  },
-  "homepage": "https://developer.mittwald.de",
-  "bugs": "https://github.com/mittwald/api-client-js/issues",
-  "main": "dist/cjs/index.js",
+  "author": "Mittwald CM Service GmbH & Co. KG <opensource@mittwald.de>",
   "type": "module",
-  "exports": {
-    ".": {
-      "types": {
-        "require": "./dist/cjs/index.d.ts",
-        "default": "./dist/esm/index.d.ts"
-      },
-      "default": {
-        "require": "./dist/cjs/index.js",
-        "default": "./dist/esm/index.js"
-      }
-    },
-    "./react": {
-      "types": {
-        "require": "./dist/cjs/react/index.d.ts",
-        "default": "./dist/esm/react/index.d.ts"
-      },
-      "default": {
-        "require": "./dist/cjs/react/index.js",
-        "default": "./dist/esm/react/index.js"
-      }
-    }
-  },
-  "scripts": {
-    "test": "node --experimental-vm-modules $(yarn bin jest)"
-  },
-  "files": [
-    "dist/**/*.{js,d.ts}"
-  ],
+  "description": "Common types and utilities for mittwald API clients",
   "keywords": [
-    "mittwald",
     "api",
     "client",
-    "sdk",
-    "rest"
+    "mittwald",
+    "rest",
+    "sdk"
   ],
+  "homepage": "https://developer.mittwald.de",
+  "repository": "https://github.com/mittwald/api-client-js.git",
+  "bugs": "https://github.com/mittwald/api-client-js/issues",
+  "license": "MIT",
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./react": "./dist/react/index.mjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn unbuild",
+    "format": "prettier --write '**/*.{ts,tsx,yaml,yml,json,md,mdx,js}'",
+    "lint": "eslint .",
+    "test": "node --experimental-vm-modules $(yarn bin jest)"
+  },
+  "dependencies": {
+    "@types/parse-path": "^7.0.3",
+    "axios": "^1.6.2",
+    "parse-path": "^7.0.0",
+    "path-to-regexp": "^6.2.1",
+    "type-fest": "^4.8.2"
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@mittwald/react-use-promise": "^2.1.0",
+    "@types/jest": "^29.5.10",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "jest": "^29.7.0",
+    "prettier": "^3.1.0",
+    "prettier-plugin-jsdoc": "^1.1.1",
+    "prettier-plugin-pkgsort": "^0.2.1",
+    "prettier-plugin-sort-json": "^3.1.0",
+    "react": "^18.2.0",
+    "ts-jest": "^29.1.1",
+    "tsd": "^0.29.0",
+    "typescript": "^5.3.2",
+    "unbuild": "^2.0.0"
+  },
   "peerDependencies": {
-    "@mittwald/react-use-promise": "^1.3.2"
+    "@mittwald/react-use-promise": "^2.1.0"
   },
   "peerDependenciesMeta": {
     "@mittwald/react-use-promise": {
       "optional": true
     }
   },
-  "dependencies": {
-    "@types/parse-path": "^7.0.0",
-    "axios": "^1.4.0",
-    "parse-path": "^7.0.0",
-    "path-to-regexp": "^6.2.1",
-    "type-fest": "^3.12.0"
-  },
-  "devDependencies": {
-    "@jest/globals": "^29.6.0",
-    "@mittwald/react-use-promise": "^1.3.2",
-    "@types/jest": "^29.5.2",
-    "@yarnpkg/pnpify": "^4.0.0-rc.48",
-    "jest": "^29.6.1",
-    "react": "^18.2.0",
-    "ts-jest": "^29.1.1",
-    "tsd": "^0.28.1"
-  },
-  "types": "dist/cjs/index.d.ts"
+  "unbuild": {
+    "declaration": true
+  }
 }

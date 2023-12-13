@@ -3587,7 +3587,13 @@ export declare module MittwaldAPIV2 {
         };
         durationInMilliseconds: number;
         end?: string;
+        /**
+         * @deprecated
+         */
         executionEnd?: string;
+        /**
+         * @deprecated
+         */
         executionStart?: string;
         id: string;
         logPath?: string;
@@ -3856,25 +3862,25 @@ export declare module MittwaldAPIV2 {
           | [MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord]
           | [
               MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
-              MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord
-            ]
-          | [
               MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
-              MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
-              MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord
             ]
           | [
               MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
               MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
               MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
-              MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord
             ]
           | [
               MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
               MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
               MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
               MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
-              MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord
+            ]
+          | [
+              MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
+              MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
+              MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
+              MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
+              MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
             ];
         settings: MittwaldAPIV2.Components.Schemas.DnsRecordSettings;
       }
@@ -3904,7 +3910,7 @@ export declare module MittwaldAPIV2 {
          */
         records: [
           MittwaldAPIV2.Components.Schemas.DnsRecordSRVRecord,
-          ...MittwaldAPIV2.Components.Schemas.DnsRecordSRVRecord[]
+          ...MittwaldAPIV2.Components.Schemas.DnsRecordSRVRecord[],
         ];
         settings: MittwaldAPIV2.Components.Schemas.DnsRecordSettings;
       }
@@ -4580,7 +4586,7 @@ export declare module MittwaldAPIV2 {
            */
           ownerC: [
             MittwaldAPIV2.Components.Schemas.OrderDomainHandleField,
-            ...MittwaldAPIV2.Components.Schemas.OrderDomainHandleField[]
+            ...MittwaldAPIV2.Components.Schemas.OrderDomainHandleField[],
           ];
         };
         projectId: string;
@@ -11973,7 +11979,7 @@ export declare module MittwaldAPIV2 {
              */
             contact: [
               MittwaldAPIV2.Components.Schemas.DomainHandleField,
-              ...MittwaldAPIV2.Components.Schemas.DomainHandleField[]
+              ...MittwaldAPIV2.Components.Schemas.DomainHandleField[],
             ];
           }
 
@@ -17637,7 +17643,7 @@ export declare module MittwaldAPIV2 {
                   string,
                   string,
                   string,
-                  string
+                  string,
                 ];
               }
             }
@@ -17704,7 +17710,7 @@ export declare module MittwaldAPIV2 {
                   string,
                   string,
                   string,
-                  string
+                  string,
                 ];
               }
             }

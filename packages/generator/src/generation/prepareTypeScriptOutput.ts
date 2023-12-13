@@ -6,7 +6,9 @@ const header = `\
 /* This file is auto-generated with acg (@mittwald/api-code-generator) */
 `;
 
-export const prepareTypeScriptOutput = (content: string): string => {
-  const formatted = format(content);
+export const prepareTypeScriptOutput = async (
+  content: string,
+): Promise<string> => {
+  const formatted = await format(content);
   return header + formatted;
 };

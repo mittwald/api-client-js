@@ -226,7 +226,7 @@ export class Paths {
       import ${t.baseClientClassName} from "./client.js";
       import { ApiCallAsyncResourceFactory } from "@mittwald/api-client-commons/react";
       import * as descriptors from "./descriptors.js";
-      export * from "@mittwald/react-use-promise/types";
+      export * from "@mittwald/react-use-promise";
       
       ${t.apiBuilder}   
       

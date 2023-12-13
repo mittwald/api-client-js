@@ -44,10 +44,10 @@ export class UniversalContentLoader {
     return source.endsWith(".json")
       ? "json"
       : source.endsWith(".yaml")
-      ? "yaml"
-      : source.endsWith(".yml")
-      ? "yaml"
-      : undefined;
+        ? "yaml"
+        : source.endsWith(".yml")
+          ? "yaml"
+          : undefined;
   }
 
   private static async tryParseUnknown(content: string): Promise<unknown> {
