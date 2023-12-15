@@ -935,10 +935,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     acceptProjectInvite: this.requestFunctionFactory(
       descriptors.projectAcceptProjectInvite,
     ),
-    /** List Invites belonging to a Project. */
-    listInvitesForProject: this.requestFunctionFactory(
-      descriptors.projectListInvitesForProject,
-    ),
     /** Create a ProjectInvite. */
     createProjectInvite: this.requestFunctionFactory(
       descriptors.projectCreateProjectInvite,
@@ -1005,6 +1001,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getServer: this.requestFunctionFactory(descriptors.projectGetServer),
     /** Leave a Project. */
     leaveProject: this.requestFunctionFactory(descriptors.projectLeaveProject),
+    /** List Invites belonging to a Project. */
+    listInvitesForProject: this.requestFunctionFactory(
+      descriptors.projectListInvitesForProject,
+    ),
     /** List Memberships belonging to a Project. */
     listMembershipsForProject: this.requestFunctionFactory(
       descriptors.projectListMembershipsForProject,

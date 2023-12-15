@@ -2042,17 +2042,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace ProjectListInvitesForProject {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectListInvitesForProject
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectListInvitesForProject,
-          TStatus
-        >;
-    }
-
     namespace ProjectCreateProjectInvite {
       type RequestData = InferredRequestData<
         typeof descriptors.projectCreateProjectInvite
@@ -2289,6 +2278,17 @@ export declare module MittwaldAPIV2 {
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<typeof descriptors.projectLeaveProject, TStatus>;
+    }
+
+    namespace ProjectListInvitesForProject {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectListInvitesForProject
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectListInvitesForProject,
+          TStatus
+        >;
     }
 
     namespace ProjectListMembershipsForProject {
@@ -8518,11 +8518,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2CustomerInvitesCustomerInviteIdActionsAccept {
+    namespace V2CustomerInvitesInviteIdActionsAccept {
       namespace Post {
         namespace Parameters {
           export type Path = {
-            customerInviteId: string;
+            inviteId: string;
           };
 
           export interface RequestBody {
@@ -8794,11 +8794,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2CustomerInvitesCustomerInviteIdActionsDecline {
+    namespace V2CustomerInvitesInviteIdActionsDecline {
       namespace Post {
         namespace Parameters {
           export type Path = {
-            customerInviteId: string;
+            inviteId: string;
           };
 
           export interface RequestBody {
@@ -8942,11 +8942,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2CustomerInvitesCustomerInviteId {
+    namespace V2CustomerInvitesInviteId {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            customerInviteId: string;
+            inviteId: string;
           };
 
           export type Header =
@@ -8983,7 +8983,7 @@ export declare module MittwaldAPIV2 {
       namespace Delete {
         namespace Parameters {
           export type Path = {
-            customerInviteId: string;
+            inviteId: string;
           };
 
           export type Header =
@@ -9009,11 +9009,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2CustomerMembershipsCustomerMembershipId {
+    namespace V2CustomerMembershipsMembershipId {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            customerMembershipId: string;
+            membershipId: string;
           };
 
           export type Header =
@@ -9050,7 +9050,7 @@ export declare module MittwaldAPIV2 {
       namespace Delete {
         namespace Parameters {
           export type Path = {
-            customerMembershipId: string;
+            membershipId: string;
           };
 
           export type Header =
@@ -9078,7 +9078,7 @@ export declare module MittwaldAPIV2 {
       namespace Patch {
         namespace Parameters {
           export type Path = {
-            customerMembershipId: string;
+            membershipId: string;
           };
 
           export interface RequestBody {
@@ -9633,11 +9633,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2CustomerInvitesCustomerInviteIdActionsResend {
+    namespace V2CustomerInvitesInviteIdActionsResend {
       namespace Post {
         namespace Parameters {
           export type Path = {
-            customerInviteId: string;
+            inviteId: string;
           };
 
           export interface RequestBody {
@@ -12156,30 +12156,6 @@ export declare module MittwaldAPIV2 {
             }
           }
 
-          namespace $401 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $406 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $422 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
           namespace $500 {
             namespace Content {
               export interface ApplicationJson {
@@ -12218,47 +12194,7 @@ export declare module MittwaldAPIV2 {
             }
           }
 
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $401 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
           namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $422 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -12293,14 +12229,6 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.FileFileUploadRules;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
@@ -12347,14 +12275,6 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.FileFileUploadRules;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
@@ -12419,31 +12339,7 @@ export declare module MittwaldAPIV2 {
             }
           }
 
-          namespace $401 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
           namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $422 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -15108,11 +15004,11 @@ export declare module MittwaldAPIV2 {
 
     namespace V2PasswordPoliciesPath {}
 
-    namespace V2ProjectInvitesProjectInviteIdActionsAccept {
+    namespace V2ProjectInvitesInviteIdActionsAccept {
       namespace Post {
         namespace Parameters {
           export type Path = {
-            projectInviteId: string;
+            inviteId: string;
           };
 
           export interface RequestBody {
@@ -15169,49 +15065,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectProjectIdInvites {}
-
-    namespace V2ProjectsProjectIdInvites {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            limit?: number;
-            skip?: number;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.MembershipProjectInvite[];
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
+    namespace V2ProjectProjectIdInvites {
       namespace Post {
         namespace Parameters {
           export type Path = {
@@ -15337,11 +15191,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectInvitesProjectInviteIdActionsDecline {
+    namespace V2ProjectInvitesInviteIdActionsDecline {
       namespace Post {
         namespace Parameters {
           export type Path = {
-            projectInviteId: string;
+            inviteId: string;
           };
 
           export interface RequestBody {
@@ -15464,11 +15318,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectInvitesProjectInviteId {
+    namespace V2ProjectInvitesInviteId {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            projectInviteId: string;
+            inviteId: string;
           };
 
           export type Header =
@@ -15505,7 +15359,7 @@ export declare module MittwaldAPIV2 {
       namespace Delete {
         namespace Parameters {
           export type Path = {
-            projectInviteId: string;
+            inviteId: string;
           };
 
           export type Header =
@@ -15531,11 +15385,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectMembershipsProjectMembershipId {
+    namespace V2ProjectMembershipsMembershipId {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            projectMembershipId: string;
+            membershipId: string;
           };
 
           export type Header =
@@ -15572,7 +15426,7 @@ export declare module MittwaldAPIV2 {
       namespace Delete {
         namespace Parameters {
           export type Path = {
-            projectMembershipId: string;
+            membershipId: string;
           };
 
           export type Header =
@@ -15600,7 +15454,7 @@ export declare module MittwaldAPIV2 {
       namespace Patch {
         namespace Parameters {
           export type Path = {
-            projectMembershipId: string;
+            membershipId: string;
           };
 
           export interface RequestBody {
@@ -16278,6 +16132,48 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2ProjectsProjectIdInvites {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MembershipProjectInvite[];
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2ProjectsProjectIdMemberships {
       namespace Get {
         namespace Parameters {
@@ -16508,11 +16404,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectInvitesProjectInviteIdActionsResend {
+    namespace V2ProjectInvitesInviteIdActionsResend {
       namespace Post {
         namespace Parameters {
           export type Path = {
-            projectInviteId: string;
+            inviteId: string;
           };
 
           export interface RequestBody {
