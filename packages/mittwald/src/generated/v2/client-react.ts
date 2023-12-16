@@ -376,6 +376,11 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.dnsListDnsZones,
     baseClient.domain.dnsListDnsZones,
   ).getApiResource,
+  /** List Domains */
+  listDomains: new ApiCallAsyncResourceFactory(
+    descriptors.domainListDomains,
+    baseClient.domain.listDomains,
+  ).getApiResource,
   /** Get a Domain. */
   getDomain: new ApiCallAsyncResourceFactory(
     descriptors.domainGetDomain,
@@ -395,11 +400,6 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   listDomainOwnerships: new ApiCallAsyncResourceFactory(
     descriptors.domainListDomainOwnerships,
     baseClient.domain.listDomainOwnerships,
-  ).getApiResource,
-  /** List Domains belonging to a Project. */
-  listDomains: new ApiCallAsyncResourceFactory(
-    descriptors.domainListDomains,
-    baseClient.domain.listDomains,
   ).getApiResource,
   /** List the contact schemas for a TLD. */
   listTldContactSchemas: new ApiCallAsyncResourceFactory(
@@ -584,6 +584,11 @@ const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
 });
 
 const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** List Invites belonging to a Project. */
+  listInvitesForProject: new ApiCallAsyncResourceFactory(
+    descriptors.projectListInvitesForProject,
+    baseClient.project.listInvitesForProject,
+  ).getApiResource,
   /** Get a ProjectInvite. */
   getProjectInvite: new ApiCallAsyncResourceFactory(
     descriptors.projectGetProjectInvite,
@@ -613,11 +618,6 @@ const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
   getServer: new ApiCallAsyncResourceFactory(
     descriptors.projectGetServer,
     baseClient.project.getServer,
-  ).getApiResource,
-  /** List Invites belonging to a Project. */
-  listInvitesForProject: new ApiCallAsyncResourceFactory(
-    descriptors.projectListInvitesForProject,
-    baseClient.project.listInvitesForProject,
   ).getApiResource,
   /** List Memberships belonging to a Project. */
   listMembershipsForProject: new ApiCallAsyncResourceFactory(

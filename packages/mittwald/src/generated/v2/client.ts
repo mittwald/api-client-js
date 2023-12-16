@@ -601,6 +601,8 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     checkDomainRegistrability: this.requestFunctionFactory(
       descriptors.domainCheckDomainRegistrability,
     ),
+    /** List Domains */
+    listDomains: this.requestFunctionFactory(descriptors.domainListDomains),
     /** Create an auth code 2. */
     createDomainAuthCode2: this.requestFunctionFactory(
       descriptors.domainCreateDomainAuthCode2,
@@ -629,8 +631,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listDomainOwnerships: this.requestFunctionFactory(
       descriptors.domainListDomainOwnerships,
     ),
-    /** List Domains belonging to a Project. */
-    listDomains: this.requestFunctionFactory(descriptors.domainListDomains),
     /** List the contact schemas for a TLD. */
     listTldContactSchemas: this.requestFunctionFactory(
       descriptors.domainListTldContactSchemas,
@@ -935,6 +935,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     acceptProjectInvite: this.requestFunctionFactory(
       descriptors.projectAcceptProjectInvite,
     ),
+    /** List Invites belonging to a Project. */
+    listInvitesForProject: this.requestFunctionFactory(
+      descriptors.projectListInvitesForProject,
+    ),
     /** Create a ProjectInvite. */
     createProjectInvite: this.requestFunctionFactory(
       descriptors.projectCreateProjectInvite,
@@ -1001,10 +1005,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getServer: this.requestFunctionFactory(descriptors.projectGetServer),
     /** Leave a Project. */
     leaveProject: this.requestFunctionFactory(descriptors.projectLeaveProject),
-    /** List Invites belonging to a Project. */
-    listInvitesForProject: this.requestFunctionFactory(
-      descriptors.projectListInvitesForProject,
-    ),
     /** List Memberships belonging to a Project. */
     listMembershipsForProject: this.requestFunctionFactory(
       descriptors.projectListMembershipsForProject,

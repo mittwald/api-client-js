@@ -12096,14 +12096,14 @@
         ]
       }
     },
-    "/v2/customer-invites/{inviteId}/actions/accept": {
+    "/v2/customer-invites/{customerInviteId}/actions/accept": {
       "post": {
         "operationId": "customer-accept-customer-invite",
         "parameters": [
           {
             "description": "ID of the CustomerInvite to be accepted.",
             "in": "path",
-            "name": "inviteId",
+            "name": "customerInviteId",
             "required": true,
             "schema": {
               "format": "uuid",
@@ -12476,14 +12476,14 @@
         ]
       }
     },
-    "/v2/customer-invites/{inviteId}/actions/decline": {
+    "/v2/customer-invites/{customerInviteId}/actions/decline": {
       "post": {
         "operationId": "customer-decline-customer-invite",
         "parameters": [
           {
             "description": "ID of the CustomerInvite to be declined.",
             "in": "path",
-            "name": "inviteId",
+            "name": "customerInviteId",
             "required": true,
             "schema": {
               "format": "uuid",
@@ -12660,14 +12660,14 @@
         ]
       }
     },
-    "/v2/customer-invites/{inviteId}": {
+    "/v2/customer-invites/{customerInviteId}": {
       "delete": {
         "operationId": "customer-delete-customer-invite",
         "parameters": [
           {
             "description": "ID if the CustomerInvite to be deleted.",
             "in": "path",
-            "name": "inviteId",
+            "name": "customerInviteId",
             "required": true,
             "schema": {
               "format": "uuid",
@@ -12699,7 +12699,7 @@
           {
             "description": "ID of the CustomerInvite to be retrieved.",
             "in": "path",
-            "name": "inviteId",
+            "name": "customerInviteId",
             "required": true,
             "schema": {
               "type": "string"
@@ -12735,14 +12735,14 @@
         ]
       }
     },
-    "/v2/customer-memberships/{membershipId}": {
+    "/v2/customer-memberships/{customerMembershipId}": {
       "delete": {
         "operationId": "customer-delete-customer-membership",
         "parameters": [
           {
             "description": "ID of the CustomerMembership to be deleted.",
             "in": "path",
-            "name": "membershipId",
+            "name": "customerMembershipId",
             "required": true,
             "schema": {
               "format": "uuid",
@@ -12774,7 +12774,7 @@
           {
             "description": "ID of the CustomerMembership to retrieve.",
             "in": "path",
-            "name": "membershipId",
+            "name": "customerMembershipId",
             "required": true,
             "schema": {
               "type": "string"
@@ -12815,7 +12815,7 @@
           {
             "description": "ID of the CustomerMembership to be updated.",
             "in": "path",
-            "name": "membershipId",
+            "name": "customerMembershipId",
             "required": true,
             "schema": {
               "format": "uuid",
@@ -13635,14 +13635,14 @@
         ]
       }
     },
-    "/v2/customer-invites/{inviteId}/actions/resend": {
+    "/v2/customer-invites/{customerInviteId}/actions/resend": {
       "post": {
         "operationId": "customer-resend-customer-invite-mail",
         "parameters": [
           {
             "description": "ID of the CustomerInvite to resend the mail for.",
             "in": "path",
-            "name": "inviteId",
+            "name": "customerInviteId",
             "required": true,
             "schema": {
               "format": "uuid",
@@ -18251,6 +18251,77 @@
         "tags": [
           "Domain"
         ]
+      },
+      "get": {
+        "operationId": "domain-list-domains",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "projectId",
+            "required": false,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Search for domain names in these list. Works only in combination with projectId. Input will be handled like '%YourInput%'",
+            "in": "query",
+            "name": "domainSearchName",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/domain.Domain"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/commons.ValidationError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "List Domains",
+        "tags": [
+          "Domain"
+        ]
       }
     },
     "/v2/domains/{domainId}/actions/create-authcode2": {
@@ -19039,79 +19110,6 @@
         ]
       }
     },
-    "/v2/projects/{projectId}/domains": {
-      "get": {
-        "operationId": "domain-list-domains",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "page",
-            "required": false,
-            "schema": {
-              "minimum": 1,
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "limit",
-            "required": false,
-            "schema": {
-              "minimum": 1,
-              "type": "integer"
-            }
-          },
-          {
-            "description": "Search for domain names in these list. Input will be handled like '%YourInput%'",
-            "in": "query",
-            "name": "domainSearchName",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/domain.Domain"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "400": {
-            "$ref": "#/components/responses/commons.ValidationError"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "List Domains belonging to a Project.",
-        "tags": [
-          "Domain"
-        ]
-      }
-    },
     "/v2/domain-tlds/{tld}/contact-schemas": {
       "get": {
         "operationId": "domain-list-tld-contact-schemas",
@@ -19595,6 +19593,15 @@
           "400": {
             "$ref": "#/components/responses/commons.ValidationError"
           },
+          "401": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          },
+          "406": {
+            "$ref": "#/components/responses/commons.ValidationError"
+          },
+          "422": {
+            "$ref": "#/components/responses/commons.ValidationError"
+          },
           "500": {
             "$ref": "#/components/responses/commons.DefaultError"
           },
@@ -19635,8 +19642,23 @@
             },
             "description": "OK"
           },
+          "400": {
+            "$ref": "#/components/responses/commons.ValidationError"
+          },
+          "401": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          },
+          "403": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          },
           "404": {
             "$ref": "#/components/responses/commons.NotFoundError"
+          },
+          "422": {
+            "$ref": "#/components/responses/commons.ValidationError"
+          },
+          "500": {
+            "$ref": "#/components/responses/commons.DefaultError"
           },
           "default": {
             "$ref": "#/components/responses/commons.DefaultError"
@@ -19674,6 +19696,9 @@
               }
             },
             "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/commons.ValidationError"
           },
           "404": {
             "$ref": "#/components/responses/commons.NotFoundError"
@@ -19720,6 +19745,9 @@
               }
             },
             "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/commons.ValidationError"
           },
           "404": {
             "$ref": "#/components/responses/commons.NotFoundError"
@@ -19816,8 +19844,17 @@
           "400": {
             "$ref": "#/components/responses/commons.ValidationError"
           },
+          "401": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          },
+          "403": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          },
           "404": {
             "$ref": "#/components/responses/commons.NotFoundError"
+          },
+          "422": {
+            "$ref": "#/components/responses/commons.ValidationError"
           },
           "500": {
             "$ref": "#/components/responses/commons.DefaultError"
@@ -24972,14 +25009,14 @@
         ]
       }
     },
-    "/v2/project-invites/{inviteId}/actions/accept": {
+    "/v2/project-invites/{projectInviteId}/actions/accept": {
       "post": {
         "operationId": "project-accept-project-invite",
         "parameters": [
           {
             "description": "ID of the ProjectInvite to be accepted.",
             "in": "path",
-            "name": "inviteId",
+            "name": "projectInviteId",
             "required": true,
             "schema": {
               "format": "uuid",
@@ -25032,6 +25069,78 @@
       }
     },
     "/v2/project/{projectId}/invites": {
+      "post": {
+        "parameters": [
+          {
+            "description": "ID of the Project to create a ProjectInvite for.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "mailAddress": {
+                    "description": "Mail-address of the person to be invited.",
+                    "format": "email",
+                    "type": "string"
+                  },
+                  "membershipExpiresAt": {
+                    "description": "Time the resulting ProjectMembership should expire at.",
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "message": {
+                    "description": "Message contained in the ProjectInvite.",
+                    "type": "string"
+                  },
+                  "role": {
+                    "$ref": "#/components/schemas/membership.ProjectRoles"
+                  }
+                },
+                "required": [
+                  "mailAddress",
+                  "role"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "308": {
+            "description": "This route is deprecated, and will redirect you to another URL.",
+            "headers": {
+              "location": {
+                "description": "The new URL to use; clients should redirect their request to this URL, using the same request method and body as the original request.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "Create a ProjectInvite.",
+        "tags": [
+          "Project"
+        ],
+        "deprecated": true
+      }
+    },
+    "/v2/projects/{projectId}/invites": {
       "post": {
         "operationId": "project-create-project-invite",
         "parameters": [
@@ -25106,6 +25215,83 @@
           }
         ],
         "summary": "Create a ProjectInvite.",
+        "tags": [
+          "Project"
+        ]
+      },
+      "get": {
+        "operationId": "project-list-invites-for-project",
+        "parameters": [
+          {
+            "description": "ID of the Project to list invites for.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "skip",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/membership.ProjectInvite"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "OK",
+            "headers": {
+              "X-Pagination-Limit": {
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "X-Pagination-Skip": {
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "X-Pagination-TotalCount": {
+                "schema": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/commons.NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "List Invites belonging to a Project.",
         "tags": [
           "Project"
         ]
@@ -25190,14 +25376,14 @@
         ]
       }
     },
-    "/v2/project-invites/{inviteId}/actions/decline": {
+    "/v2/project-invites/{projectInviteId}/actions/decline": {
       "post": {
         "operationId": "project-decline-project-invite",
         "parameters": [
           {
             "description": "ID of the ProjectInvite to be declined.",
             "in": "path",
-            "name": "inviteId",
+            "name": "projectInviteId",
             "required": true,
             "schema": {
               "format": "uuid",
@@ -25329,14 +25515,14 @@
         ]
       }
     },
-    "/v2/project-invites/{inviteId}": {
+    "/v2/project-invites/{projectInviteId}": {
       "delete": {
         "operationId": "project-delete-project-invite",
         "parameters": [
           {
             "description": "ID of the ProjectInvite to be deleted.",
             "in": "path",
-            "name": "inviteId",
+            "name": "projectInviteId",
             "required": true,
             "schema": {
               "format": "uuid",
@@ -25368,7 +25554,7 @@
           {
             "description": "ID of the ProjectInvite to be retrieved.",
             "in": "path",
-            "name": "inviteId",
+            "name": "projectInviteId",
             "required": true,
             "schema": {
               "type": "string"
@@ -25404,14 +25590,14 @@
         ]
       }
     },
-    "/v2/project-memberships/{membershipId}": {
+    "/v2/project-memberships/{projectMembershipId}": {
       "delete": {
         "operationId": "project-delete-project-membership",
         "parameters": [
           {
             "description": "ID of the ProjectMembership to be deleted.",
             "in": "path",
-            "name": "membershipId",
+            "name": "projectMembershipId",
             "required": true,
             "schema": {
               "format": "uuid",
@@ -25443,7 +25629,7 @@
           {
             "description": "ID of the ProjectMembership to be retrieved.",
             "in": "path",
-            "name": "membershipId",
+            "name": "projectMembershipId",
             "required": true,
             "schema": {
               "type": "string"
@@ -25484,7 +25670,7 @@
           {
             "description": "ID of the ProjectMembership to be updated.",
             "in": "path",
-            "name": "membershipId",
+            "name": "projectMembershipId",
             "required": true,
             "schema": {
               "format": "uuid",
@@ -26494,85 +26680,6 @@
         ]
       }
     },
-    "/v2/projects/{projectId}/invites": {
-      "get": {
-        "operationId": "project-list-invites-for-project",
-        "parameters": [
-          {
-            "description": "ID of the Project to list invites for.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "limit",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "skip",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/membership.ProjectInvite"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "OK",
-            "headers": {
-              "X-Pagination-Limit": {
-                "schema": {
-                  "type": "number"
-                }
-              },
-              "X-Pagination-Skip": {
-                "schema": {
-                  "type": "number"
-                }
-              },
-              "X-Pagination-TotalCount": {
-                "schema": {
-                  "type": "number"
-                }
-              }
-            }
-          },
-          "404": {
-            "$ref": "#/components/responses/commons.NotFoundError"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "List Invites belonging to a Project.",
-        "tags": [
-          "Project"
-        ]
-      }
-    },
     "/v2/projects/{projectId}/memberships": {
       "get": {
         "operationId": "project-list-memberships-for-project",
@@ -26988,14 +27095,14 @@
         ]
       }
     },
-    "/v2/project-invites/{inviteId}/actions/resend": {
+    "/v2/project-invites/{projectInviteId}/actions/resend": {
       "post": {
         "operationId": "project-resend-project-invite-mail",
         "parameters": [
           {
             "description": "ID of the ProjectInvite to resend the mail for.",
             "in": "path",
-            "name": "inviteId",
+            "name": "projectInviteId",
             "required": true,
             "schema": {
               "format": "uuid",
@@ -31854,6 +31961,80 @@
         "summary": "Verify your registration.",
         "tags": [
           "User"
+        ]
+      }
+    },
+    "/v2/projects/{projectId}/domains": {
+      "get": {
+        "operationId": "domain-list-domains-v2-deprecated",
+        "deprecated": true,
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Search for domain names in these list. Input will be handled like '%YourInput%'",
+            "in": "query",
+            "name": "domainSearchName",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/domain.Domain"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/commons.ValidationError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "List Domains belonging to a Project.",
+        "tags": [
+          "Domain"
         ]
       }
     }
