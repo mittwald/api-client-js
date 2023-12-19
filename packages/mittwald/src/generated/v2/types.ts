@@ -11462,10 +11462,6 @@ export declare module MittwaldAPIV2 {
             domainId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
@@ -11865,10 +11861,6 @@ export declare module MittwaldAPIV2 {
           export type Path = {
             domainId: string;
           };
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;

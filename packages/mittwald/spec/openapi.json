@@ -18428,11 +18428,6 @@
             }
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {}
-          }
-        },
         "responses": {
           "308": {
             "description": "This route is deprecated, and will redirect you to another URL.",
@@ -18472,13 +18467,6 @@
             }
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {}
-            }
-          }
-        },
         "responses": {
           "201": {
             "content": {
@@ -19229,13 +19217,6 @@
             }
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {}
-            }
-          }
-        },
         "responses": {
           "204": {
             "description": "No Content"

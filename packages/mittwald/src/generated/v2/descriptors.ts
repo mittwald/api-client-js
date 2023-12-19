@@ -4246,7 +4246,7 @@ export const domainCreateDomainAuthCode2: OpenAPIOperation<
 /** Create an auth code for a Domains transfer-out process. */
 export const domainCreateDomainAuthCode: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Parameters.Header>
@@ -4522,7 +4522,7 @@ export const domainListTlds: OpenAPIOperation<
 /** Resend a Domain email. */
 export const domainResendDomainEmail: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsResendEmail.Post.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsResendEmail.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsResendEmail.Post.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsResendEmail.Post.Parameters.Header>
