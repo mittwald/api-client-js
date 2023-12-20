@@ -3314,6 +3314,9 @@
             ]
           }
         },
+        "required": [
+          "managedBy"
+        ],
         "type": "object"
       },
       "dns.RecordMX": {

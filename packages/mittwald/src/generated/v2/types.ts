@@ -3843,7 +3843,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface DnsCombinedAManaged {
-        managedBy?: {
+        managedBy: {
           ingressId: string;
         };
       }
