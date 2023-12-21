@@ -6619,6 +6619,40 @@ export const pageinsightsGetPerformanceData: OpenAPIOperation<
   operationId: "pageinsights-get-performance-data",
 };
 
+/** Get all data for a given strace. */
+export const pageinsightsGetStraceData: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStracesStraceId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStracesStraceId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStracesStraceId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStracesStraceId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStracesStraceId.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStracesStraceId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStracesStraceId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/straces/{straceId}",
+  method: "GET",
+  operationId: "pageinsights-get-strace-data",
+};
+
 /** List websites (specified as domain and path) from a project where performance data is available. */
 export const pageinsightsListPerformanceDataForProject: OpenAPIOperation<
   RequestType<
@@ -6651,6 +6685,40 @@ export const pageinsightsListPerformanceDataForProject: OpenAPIOperation<
   path: "/v2/projects/{projectId}/page-insights",
   method: "GET",
   operationId: "pageinsights-list-performance-data-for-project",
+};
+
+/** Schedule a strace measurement for a single http request. */
+export const pageinsightsScheduleStrace: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStraces.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStraces.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStraces.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStraces.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStraces.Post.Responses.$202.Content.ApplicationJson>,
+      202,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStraces.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStraces.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStraces.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/straces",
+  method: "POST",
+  operationId: "pageinsights-schedule-strace",
 };
 
 /** Get a PasswordPolicy. */
@@ -8974,6 +9042,74 @@ export const userUpdatePersonalizedSettings: OpenAPIOperation<
   path: "/v2/users/{userId}/settings",
   method: "PUT",
   operationId: "user-update-personalized-settings",
+};
+
+/** Get poll settings for the specified user. */
+export const userGetPollStatus: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/poll-settings/{id}",
+  method: "GET",
+  operationId: "user-get-poll-status",
+};
+
+/** Store new or update poll settings. */
+export const userPostPollStatus: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/poll-settings/{id}",
+  method: "POST",
+  operationId: "user-post-poll-status",
 };
 
 /** Get a specific session. */

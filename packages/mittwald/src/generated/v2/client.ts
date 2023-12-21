@@ -787,9 +787,17 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     pageinsightsGetPerformanceData: this.requestFunctionFactory(
       descriptors.pageinsightsGetPerformanceData,
     ),
+    /** Get all data for a given strace. */
+    pageinsightsGetStraceData: this.requestFunctionFactory(
+      descriptors.pageinsightsGetStraceData,
+    ),
     /** List websites (specified as domain and path) from a project where performance data is available. */
     pageinsightsListPerformanceDataForProject: this.requestFunctionFactory(
       descriptors.pageinsightsListPerformanceDataForProject,
+    ),
+    /** Schedule a strace measurement for a single http request. */
+    pageinsightsScheduleStrace: this.requestFunctionFactory(
+      descriptors.pageinsightsScheduleStrace,
     ),
   };
 
@@ -873,6 +881,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updatePersonalizedSettings: this.requestFunctionFactory(
       descriptors.userUpdatePersonalizedSettings,
     ),
+    /** Get poll settings for the specified user. */
+    getPollStatus: this.requestFunctionFactory(descriptors.userGetPollStatus),
+    /** Store new or update poll settings. */
+    postPollStatus: this.requestFunctionFactory(descriptors.userPostPollStatus),
     /** Get a specific session. */
     getSession: this.requestFunctionFactory(descriptors.userGetSession),
     /** Terminate a specific Session. */

@@ -2009,6 +2009,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace PageinsightsGetStraceData {
+      type RequestData = InferredRequestData<
+        typeof descriptors.pageinsightsGetStraceData
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.pageinsightsGetStraceData,
+          TStatus
+        >;
+    }
+
     namespace PageinsightsListPerformanceDataForProject {
       type RequestData = InferredRequestData<
         typeof descriptors.pageinsightsListPerformanceDataForProject
@@ -2016,6 +2027,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.pageinsightsListPerformanceDataForProject,
+          TStatus
+        >;
+    }
+
+    namespace PageinsightsScheduleStrace {
+      type RequestData = InferredRequestData<
+        typeof descriptors.pageinsightsScheduleStrace
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.pageinsightsScheduleStrace,
           TStatus
         >;
     }
@@ -2736,6 +2758,22 @@ export declare module MittwaldAPIV2 {
           typeof descriptors.userUpdatePersonalizedSettings,
           TStatus
         >;
+    }
+
+    namespace UserGetPollStatus {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userGetPollStatus
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userGetPollStatus, TStatus>;
+    }
+
+    namespace UserPostPollStatus {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userPostPollStatus
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userPostPollStatus, TStatus>;
     }
 
     namespace UserGetSession {
@@ -3555,6 +3593,77 @@ export declare module MittwaldAPIV2 {
         clearName?: string;
         department?: MittwaldAPIV2.Components.Schemas.ConversationDepartment;
         userId: string;
+      }
+
+      export interface StraceData {
+        actualUrl: string;
+        dbQueries: {
+          /**
+           * The whole DB query.
+           */
+          query: string;
+          stats: MittwaldAPIV2.Components.Schemas.StraceStatistics;
+          /**
+           * Alerts when the time, syscall count or occurrence count of this group are abnormal.
+           */
+          warnLevel: "NO" | "WARN" | "SEVERE";
+        }[];
+        dbStats: MittwaldAPIV2.Components.Schemas.StraceStatistics;
+        fileOps: {
+          filename?: string;
+          filepath?: string;
+          stats: MittwaldAPIV2.Components.Schemas.StraceStatistics;
+          /**
+           * Alerts when the time, syscall count or occurrence count of this group are abnormal.
+           */
+          warnLevel: "NO" | "WARN" | "SEVERE";
+        }[];
+        fileOpsStats: MittwaldAPIV2.Components.Schemas.StraceStatistics;
+        miscStats: MittwaldAPIV2.Components.Schemas.StraceStatistics;
+        networkingOps: {
+          connectionType: "UNKNOWN" | "PRIVATE" | "INTERNAL" | "EXTERNAL";
+          stats: MittwaldAPIV2.Components.Schemas.StraceStatistics;
+          /**
+           * Hostname and port to which a connection was established. Can be empty.
+           */
+          url: string;
+          /**
+           * Alerts when the time, syscall count or occurrence count of this group are abnormal.
+           */
+          warnLevel: "NO" | "WARN" | "SEVERE";
+        }[];
+        networkingStats: MittwaldAPIV2.Components.Schemas.StraceStatistics;
+        /**
+         * Shows how much slower the websites TTFB was when it got traced (1.0 = 100% = same TTFB).
+         */
+        slowdownFactor: number;
+        /**
+         * Time to first byte in milliseconds while tracing the website.
+         */
+        ttfbMs: number;
+      }
+
+      export interface StraceError {
+        errorMessage: string;
+      }
+
+      export interface StraceStatistics {
+        /**
+         * Syscall count.
+         */
+        count: number;
+        /**
+         * Elapsed kernel space time in milliseconds.
+         */
+        kernelMs: number;
+        /**
+         * The number of times this group occurred.
+         */
+        occurrences: number;
+        /**
+         * Elapsed user space time in milliseconds.
+         */
+        userspaceMs: number;
       }
 
       export interface CronjobCronjobCommand {
@@ -5028,6 +5137,15 @@ export declare module MittwaldAPIV2 {
         fingerprint: string;
         key: string;
         sshKeyId: string;
+      }
+
+      export interface PollUserPollSettings {
+        completedAt?: string;
+        dontShowUntil?: string;
+        ignoredAt?: string;
+        shouldShow: boolean;
+        status: "completed" | "muted" | "ignored" | "new";
+        userId: string;
       }
 
       export interface SignupUserSession {
@@ -11793,6 +11911,8 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2ProjectsProjectIdDomains {}
+
     namespace V2DomainTldsTldContactSchemas {
       namespace Get {
         namespace Parameters {
@@ -15007,6 +15127,59 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2ProjectsProjectIdStracesStraceId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            straceId: string;
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                executedAt: string;
+                id: string;
+                result:
+                  | MittwaldAPIV2.Components.Schemas.StraceError
+                  | MittwaldAPIV2.Components.Schemas.StraceData;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2ProjectsProjectIdPageinsights {}
 
     namespace V2ProjectsProjectIdPageInsights {
@@ -15035,6 +15208,61 @@ export declare module MittwaldAPIV2 {
                   screenshotFileRef?: string;
                 }[];
               }[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectsProjectIdStraces {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * A call to this URL is measured via strace.
+             */
+            url: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $202 {
+            namespace Content {
+              export interface ApplicationJson {
+                id: string;
+              }
             }
           }
 
@@ -18592,6 +18820,103 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2PollSettingsId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            id: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson = {
+                id: string;
+              } & MittwaldAPIV2.Components.Schemas.PollUserPollSettings;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            id: string;
+          };
+
+          export interface RequestBody {
+            status: "completed" | "muted" | "ignored";
+            userId: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson = {
+                id: string;
+              } & MittwaldAPIV2.Components.Schemas.PollUserPollSettings;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2UsersSelfSessionsTokenId {
       namespace Get {
         namespace Parameters {
@@ -19399,7 +19724,5 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
-
-    namespace V2ProjectsProjectIdDomains {}
   }
 }

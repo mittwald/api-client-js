@@ -2337,6 +2337,193 @@
         ],
         "type": "object"
       },
+      "strace.Data": {
+        "properties": {
+          "actualUrl": {
+            "example": "https://www.mittwald.de/~b",
+            "type": "string"
+          },
+          "dbQueries": {
+            "items": {
+              "properties": {
+                "query": {
+                  "description": "The whole DB query.",
+                  "example": "SELECT * FROM my_table;",
+                  "type": "string"
+                },
+                "stats": {
+                  "$ref": "#/components/schemas/strace.Statistics"
+                },
+                "warnLevel": {
+                  "description": "Alerts when the time, syscall count or occurrence count of this group are abnormal.",
+                  "enum": [
+                    "NO",
+                    "WARN",
+                    "SEVERE"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "query",
+                "stats",
+                "warnLevel"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "dbStats": {
+            "$ref": "#/components/schemas/strace.Statistics"
+          },
+          "fileOps": {
+            "items": {
+              "properties": {
+                "filename": {
+                  "example": "my_file.php",
+                  "type": "string"
+                },
+                "filepath": {
+                  "example": "/html/my-project",
+                  "type": "string"
+                },
+                "stats": {
+                  "$ref": "#/components/schemas/strace.Statistics"
+                },
+                "warnLevel": {
+                  "description": "Alerts when the time, syscall count or occurrence count of this group are abnormal.",
+                  "enum": [
+                    "NO",
+                    "WARN",
+                    "SEVERE"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "stats",
+                "warnLevel"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "fileOpsStats": {
+            "$ref": "#/components/schemas/strace.Statistics"
+          },
+          "miscStats": {
+            "$ref": "#/components/schemas/strace.Statistics"
+          },
+          "networkingOps": {
+            "items": {
+              "properties": {
+                "connectionType": {
+                  "enum": [
+                    "UNKNOWN",
+                    "PRIVATE",
+                    "INTERNAL",
+                    "EXTERNAL"
+                  ],
+                  "type": "string"
+                },
+                "stats": {
+                  "$ref": "#/components/schemas/strace.Statistics"
+                },
+                "url": {
+                  "description": "Hostname and port to which a connection was established. Can be empty.",
+                  "type": "string"
+                },
+                "warnLevel": {
+                  "description": "Alerts when the time, syscall count or occurrence count of this group are abnormal.",
+                  "enum": [
+                    "NO",
+                    "WARN",
+                    "SEVERE"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "url",
+                "connectionType",
+                "stats",
+                "warnLevel"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "networkingStats": {
+            "$ref": "#/components/schemas/strace.Statistics"
+          },
+          "slowdownFactor": {
+            "description": "Shows how much slower the websites TTFB was when it got traced (1.0 = 100% = same TTFB).",
+            "example": 1.5,
+            "type": "number"
+          },
+          "ttfbMs": {
+            "description": "Time to first byte in milliseconds while tracing the website.",
+            "example": 1532,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "actualUrl",
+          "ttfbMs",
+          "slowdownFactor",
+          "fileOpsStats",
+          "networkingStats",
+          "dbStats",
+          "miscStats",
+          "fileOps",
+          "networkingOps",
+          "dbQueries"
+        ],
+        "type": "object"
+      },
+      "strace.Error": {
+        "properties": {
+          "errorMessage": {
+            "example": "wrong PHP version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "errorMessage"
+        ],
+        "type": "object"
+      },
+      "strace.Statistics": {
+        "properties": {
+          "count": {
+            "description": "Syscall count.",
+            "example": 4321,
+            "type": "integer"
+          },
+          "kernelMs": {
+            "description": "Elapsed kernel space time in milliseconds.",
+            "example": 1.2345,
+            "type": "number"
+          },
+          "occurrences": {
+            "description": "The number of times this group occurred.",
+            "example": 25,
+            "type": "integer"
+          },
+          "userspaceMs": {
+            "description": "Elapsed user space time in milliseconds.",
+            "example": 1.2345,
+            "type": "number"
+          }
+        },
+        "required": [
+          "kernelMs",
+          "userspaceMs",
+          "count",
+          "occurrences"
+        ],
+        "type": "object"
+      },
       "cronjob.CronjobCommand": {
         "properties": {
           "interpreter": {
@@ -6788,6 +6975,43 @@
           "comment",
           "fingerprint",
           "createdAt"
+        ],
+        "type": "object"
+      },
+      "poll.UserPollSettings": {
+        "properties": {
+          "completedAt": {
+            "format": "date",
+            "type": "string"
+          },
+          "dontShowUntil": {
+            "format": "date",
+            "type": "string"
+          },
+          "ignoredAt": {
+            "format": "date",
+            "type": "string"
+          },
+          "shouldShow": {
+            "type": "boolean"
+          },
+          "status": {
+            "enum": [
+              "completed",
+              "muted",
+              "ignored",
+              "new"
+            ],
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "userId",
+          "shouldShow",
+          "status"
         ],
         "type": "object"
       },
@@ -19101,6 +19325,80 @@
         ]
       }
     },
+    "/v2/projects/{projectId}/domains": {
+      "get": {
+        "operationId": "domain-list-domains-v2-deprecated",
+        "deprecated": true,
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Search for domain names in these list. Input will be handled like '%YourInput%'",
+            "in": "query",
+            "name": "domainSearchName",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/domain.Domain"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/commons.ValidationError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "List Domains belonging to a Project.",
+        "tags": [
+          "Domain"
+        ]
+      }
+    },
     "/v2/domain-tlds/{tld}/contact-schemas": {
       "get": {
         "operationId": "domain-list-tld-contact-schemas",
@@ -24769,6 +25067,88 @@
         ]
       }
     },
+    "/v2/projects/{projectId}/straces/{straceId}": {
+      "get": {
+        "operationId": "pageinsights-get-strace-data",
+        "parameters": [
+          {
+            "description": "ID of the strace to get the data for.",
+            "in": "path",
+            "name": "straceId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "description": "ID of the project the strace belongs to.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "executedAt": {
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "id": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "result": {
+                      "oneOf": [
+                        {
+                          "$ref": "#/components/schemas/strace.Error"
+                        },
+                        {
+                          "$ref": "#/components/schemas/strace.Data"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "executedAt",
+                    "result"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/commons.ValidationError"
+          },
+          "403": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "Get all data for a given strace.",
+        "tags": [
+          "Page Insights"
+        ]
+      }
+    },
     "/v2/projects/{projectId}/pageinsights": {
       "get": {
         "parameters": [
@@ -24908,6 +25288,82 @@
           }
         ],
         "summary": "List websites (specified as domain and path) from a project where performance data is available.",
+        "tags": [
+          "Page Insights"
+        ]
+      }
+    },
+    "/v2/projects/{projectId}/straces": {
+      "post": {
+        "operationId": "pageinsights-schedule-strace",
+        "parameters": [
+          {
+            "description": "ID of a project to own the created strace. It must exist a ingress with the same hostname as in the url to be measured.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "url": {
+                    "description": "A call to this URL is measured via strace.",
+                    "example": "https://example.com",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "url"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "description": ""
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "id": {
+                      "format": "uuid",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Scheduled"
+          },
+          "400": {
+            "$ref": "#/components/responses/commons.ValidationError"
+          },
+          "403": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "Schedule a strace measurement for a single http request.",
         "tags": [
           "Page Insights"
         ]
@@ -30627,6 +31083,142 @@
         ]
       }
     },
+    "/v2/poll-settings/{id}": {
+      "get": {
+        "operationId": "user-get-poll-status",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ],
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/poll.UserPollSettings"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": ""
+          },
+          "400": {
+            "$ref": "#/components/responses/commons.ValidationError"
+          },
+          "404": {
+            "$ref": "#/components/responses/commons.NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "summary": "Get poll settings for the specified user.",
+        "tags": [
+          "User"
+        ]
+      },
+      "post": {
+        "operationId": "user-post-poll-status",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "completed",
+                      "muted",
+                      "ignored"
+                    ],
+                    "type": "string"
+                  },
+                  "userId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "userId",
+                  "status"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "description": "",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ],
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/poll.UserPollSettings"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "The updated poll settings."
+          },
+          "400": {
+            "$ref": "#/components/responses/commons.ValidationError"
+          },
+          "403": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "summary": "Store new or update poll settings.",
+        "tags": [
+          "User"
+        ]
+      }
+    },
     "/v2/users/self/sessions/{tokenId}": {
       "get": {
         "operationId": "user-get-session",
@@ -31945,80 +32537,6 @@
         "summary": "Verify your registration.",
         "tags": [
           "User"
-        ]
-      }
-    },
-    "/v2/projects/{projectId}/domains": {
-      "get": {
-        "operationId": "domain-list-domains-v2-deprecated",
-        "deprecated": true,
-        "parameters": [
-          {
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "page",
-            "required": false,
-            "schema": {
-              "minimum": 1,
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "limit",
-            "required": false,
-            "schema": {
-              "minimum": 1,
-              "type": "integer"
-            }
-          },
-          {
-            "description": "Search for domain names in these list. Input will be handled like '%YourInput%'",
-            "in": "query",
-            "name": "domainSearchName",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/domain.Domain"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "400": {
-            "$ref": "#/components/responses/commons.ValidationError"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "List Domains belonging to a Project.",
-        "tags": [
-          "Domain"
         ]
       }
     }

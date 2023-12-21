@@ -498,6 +498,11 @@ const buildPageInsightsApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.pageinsightsGetPerformanceData,
     baseClient.pageInsights.pageinsightsGetPerformanceData,
   ).getApiResource,
+  /** Get all data for a given strace. */
+  pageinsightsGetStraceData: new ApiCallAsyncResourceFactory(
+    descriptors.pageinsightsGetStraceData,
+    baseClient.pageInsights.pageinsightsGetStraceData,
+  ).getApiResource,
   /** List websites (specified as domain and path) from a project where performance data is available. */
   pageinsightsListPerformanceDataForProject: new ApiCallAsyncResourceFactory(
     descriptors.pageinsightsListPerformanceDataForProject,
@@ -555,6 +560,11 @@ const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
   getPersonalizedSettings: new ApiCallAsyncResourceFactory(
     descriptors.userGetPersonalizedSettings,
     baseClient.user.getPersonalizedSettings,
+  ).getApiResource,
+  /** Get poll settings for the specified user. */
+  getPollStatus: new ApiCallAsyncResourceFactory(
+    descriptors.userGetPollStatus,
+    baseClient.user.getPollStatus,
   ).getApiResource,
   /** Get a specific session. */
   getSession: new ApiCallAsyncResourceFactory(
