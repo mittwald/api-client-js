@@ -6080,12 +6080,11 @@
         ],
         "type": "object"
       },
-      "project.DisableReason": {
+      "project.DeprecatedProjectReadinessStatus": {
         "enum": [
-          "maliciousCode",
-          "illegalContent",
-          "maliciousConduct",
-          "suspended"
+          "creating",
+          "ready",
+          "unready"
         ],
         "type": "string"
       },
@@ -6197,6 +6196,26 @@
         ],
         "type": "object"
       },
+      "project.DisableReason": {
+        "enum": [
+          "maliciousCode",
+          "illegalContent",
+          "maliciousConduct",
+          "suspended"
+        ],
+        "type": "string"
+      },
+      "project.ProjectStatus": {
+        "enum": [
+          "pending",
+          "ready",
+          "preparingForVolumeMigration",
+          "migratingVolume",
+          "error",
+          "disabled"
+        ],
+        "type": "string"
+      },
       "project.Project": {
         "properties": {
           "clusterDomain": {
@@ -6244,6 +6263,7 @@
             "type": "string"
           },
           "isReady": {
+            "deprecated": true,
             "description": "deprecated",
             "type": "boolean"
           },
@@ -6252,7 +6272,7 @@
             "type": "string"
           },
           "readiness": {
-            "$ref": "#/components/schemas/project.ProjectReadinessStatus"
+            "$ref": "#/components/schemas/project.DeprecatedProjectReadinessStatus"
           },
           "serverId": {
             "format": "uuid",
@@ -6279,6 +6299,9 @@
             "example": "pe-prod.staging.mcloud.services",
             "format": "hostname",
             "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/project.ProjectStatus"
           }
         },
         "required": [
@@ -6290,21 +6313,22 @@
           "directories",
           "createdAt",
           "isReady",
-          "readiness"
+          "readiness",
+          "status"
         ],
         "type": "object"
-      },
-      "project.ProjectReadinessStatus": {
-        "enum": [
-          "creating",
-          "ready",
-          "unready"
-        ],
-        "type": "string"
       },
       "project.ServerDisableReason": {
         "enum": [
           "suspended"
+        ],
+        "type": "string"
+      },
+      "project.ServerReadinessStatus": {
+        "enum": [
+          "creating",
+          "ready",
+          "unready"
         ],
         "type": "string"
       },
@@ -6343,7 +6367,7 @@
             "$ref": "#/components/schemas/project.MachineType"
           },
           "readiness": {
-            "$ref": "#/components/schemas/project.ProjectReadinessStatus"
+            "$ref": "#/components/schemas/project.ServerReadinessStatus"
           },
           "shortId": {
             "example": "s-4e7tz3",
@@ -27405,6 +27429,7 @@
                         "type": "string"
                       },
                       "isReady": {
+                        "deprecated": true,
                         "description": "deprecated",
                         "type": "boolean"
                       },
@@ -27413,13 +27438,16 @@
                         "type": "string"
                       },
                       "readiness": {
-                        "$ref": "#/components/schemas/project.ProjectReadinessStatus"
+                        "$ref": "#/components/schemas/project.DeprecatedProjectReadinessStatus"
                       },
                       "serverId": {
                         "type": "string"
                       },
                       "shortId": {
                         "type": "string"
+                      },
+                      "status": {
+                        "$ref": "#/components/schemas/project.ProjectStatus"
                       }
                     },
                     "required": [
@@ -27431,7 +27459,8 @@
                       "customerId",
                       "createdAt",
                       "isReady",
-                      "readiness"
+                      "readiness",
+                      "status"
                     ],
                     "type": "object"
                   },

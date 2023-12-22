@@ -4839,11 +4839,10 @@ export declare module MittwaldAPIV2 {
         };
       }
 
-      export type ProjectDisableReason =
-        | "maliciousCode"
-        | "illegalContent"
-        | "maliciousConduct"
-        | "suspended";
+      export type ProjectDeprecatedProjectReadinessStatus =
+        | "creating"
+        | "ready"
+        | "unready";
 
       export interface ProjectFilesystemDirectoryListing {
         absolutePath: string;
@@ -4879,6 +4878,20 @@ export declare module MittwaldAPIV2 {
         name: string;
       }
 
+      export type ProjectDisableReason =
+        | "maliciousCode"
+        | "illegalContent"
+        | "maliciousConduct"
+        | "suspended";
+
+      export type ProjectProjectStatus =
+        | "pending"
+        | "ready"
+        | "preparingForVolumeMigration"
+        | "migratingVolume"
+        | "error"
+        | "disabled";
+
       export interface ProjectProject {
         clusterDomain?: string;
         clusterID?: string;
@@ -4893,11 +4906,12 @@ export declare module MittwaldAPIV2 {
         id: string;
         imageRefId?: string;
         /**
+         * @deprecated
          * deprecated
          */
         isReady: boolean;
         projectHostingId?: string;
-        readiness: MittwaldAPIV2.Components.Schemas.ProjectProjectReadinessStatus;
+        readiness: MittwaldAPIV2.Components.Schemas.ProjectDeprecatedProjectReadinessStatus;
         serverId?: string;
         serverShortId?: string;
         shortId: string;
@@ -4905,14 +4919,15 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.ProjectVisitorSpec
           | MittwaldAPIV2.Components.Schemas.ProjectHardwareSpec;
         statisticsBaseDomain?: string;
+        status: MittwaldAPIV2.Components.Schemas.ProjectProjectStatus;
       }
 
-      export type ProjectProjectReadinessStatus =
+      export type ProjectServerDisableReason = "suspended";
+
+      export type ProjectServerReadinessStatus =
         | "creating"
         | "ready"
         | "unready";
-
-      export type ProjectServerDisableReason = "suspended";
 
       export interface ProjectServer {
         clusterName: string;
@@ -4924,7 +4939,7 @@ export declare module MittwaldAPIV2 {
         imageRefId?: string;
         isReady: boolean;
         machineType: MittwaldAPIV2.Components.Schemas.ProjectMachineType;
-        readiness: MittwaldAPIV2.Components.Schemas.ProjectProjectReadinessStatus;
+        readiness: MittwaldAPIV2.Components.Schemas.ProjectServerReadinessStatus;
         shortId: string;
         statisticsBaseDomain?: string;
         storage: string;
@@ -16645,13 +16660,15 @@ export declare module MittwaldAPIV2 {
                 id: string;
                 imageRefId?: string;
                 /**
+                 * @deprecated
                  * deprecated
                  */
                 isReady: boolean;
                 projectHostingId?: string;
-                readiness: MittwaldAPIV2.Components.Schemas.ProjectProjectReadinessStatus;
+                readiness: MittwaldAPIV2.Components.Schemas.ProjectDeprecatedProjectReadinessStatus;
                 serverId?: string;
                 shortId: string;
+                status: MittwaldAPIV2.Components.Schemas.ProjectProjectStatus;
               }[];
             }
           }
