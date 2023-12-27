@@ -16984,11 +16984,11 @@ export declare module MittwaldAPIV2 {
               product: (
                 | string
                 | (
-                    | "spaceServer"
+                    | "Space-Server"
                     | "proSpace"
-                    | "agencyServer"
-                    | "cmsHosting"
-                    | "shopHosting"
+                    | "Agentur-Server"
+                    | "CMS-Hosting"
+                    | "Shop-Hosting"
                   )
               ) &
                 string;
