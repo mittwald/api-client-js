@@ -14060,14 +14060,14 @@
         ]
       }
     },
-    "/v2/mysql-databases/{databaseId}/users": {
+    "/v2/mysql-databases/{mysqlDatabaseId}/users": {
       "post": {
         "operationId": "database-create-mysql-user",
         "parameters": [
           {
             "description": "ID of the MySQLDatabase to create a MySQLUser for.",
             "in": "path",
-            "name": "databaseId",
+            "name": "mysqlDatabaseId",
             "required": true,
             "schema": {
               "format": "uuid",
@@ -14130,7 +14130,7 @@
           {
             "description": "ID of the MySQLDatabase to list Users for.",
             "in": "path",
-            "name": "databaseId",
+            "name": "mysqlDatabaseId",
             "required": true,
             "schema": {
               "format": "uuid",
@@ -28948,7 +28948,7 @@
         },
         "responses": {
           "204": {
-            "description": "Phone number was added successfully. Now, it can be verified via /v2/users/:userId/phone/verify."
+            "description": "Phone number was added successfully. Now, it can be verified via /v2/users/:userId/actions/verify-phone."
           },
           "400": {
             "$ref": "#/components/responses/commons.ValidationError"
@@ -32361,6 +32361,91 @@
       }
     },
     "/v2/users/{userId}/phone/verify": {
+      "post": {
+        "parameters": [
+          {
+            "description": "`self` or the id of a user.",
+            "examples": {
+              "self": {
+                "summary": "You",
+                "value": "self"
+              },
+              "userId": {
+                "summary": "ID of a user.",
+                "value": "10203040-1234-5678-abcd-badc0de01234"
+              }
+            },
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "enum": [
+                    "self"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "code": {
+                    "example": "123456",
+                    "maxLength": 6,
+                    "minLength": 6,
+                    "type": "string"
+                  },
+                  "phoneNumber": {
+                    "format": "phone",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "phoneNumber",
+                  "code"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "308": {
+            "description": "This route is deprecated, and will redirect you to another URL.",
+            "headers": {
+              "location": {
+                "description": "The new URL to use; clients should redirect their request to this URL, using the same request method and body as the original request.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "Verify phone number.",
+        "tags": [
+          "User"
+        ],
+        "deprecated": true
+      }
+    },
+    "/v2/users/{userId}/actions/verify-phone": {
       "post": {
         "operationId": "user-verify-phone-number",
         "parameters": [

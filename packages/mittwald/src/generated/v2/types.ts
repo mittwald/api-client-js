@@ -9907,11 +9907,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MysqlDatabasesDatabaseIdUsers {
+    namespace V2MysqlDatabasesMysqlDatabaseIdUsers {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            databaseId: string;
+            mysqlDatabaseId: string;
           };
 
           export type Header =
@@ -9956,7 +9956,7 @@ export declare module MittwaldAPIV2 {
       namespace Post {
         namespace Parameters {
           export type Path = {
-            databaseId: string;
+            mysqlDatabaseId: string;
           };
 
           export type RequestBody =
@@ -19624,7 +19624,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2UsersUserIdPhoneVerify {
+    namespace V2UsersUserIdPhoneVerify {}
+
+    namespace V2UsersUserIdActionsVerifyPhone {
       namespace Post {
         namespace Parameters {
           export type Path = {

@@ -3125,32 +3125,32 @@ export const databaseCreateMysqlDatabase: OpenAPIOperation<
 export const databaseListMysqlUsers: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesDatabaseIdUsers.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesDatabaseIdUsers.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesDatabaseIdUsers.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdUsers.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdUsers.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdUsers.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesDatabaseIdUsers.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdUsers.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesDatabaseIdUsers.Get.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdUsers.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesDatabaseIdUsers.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdUsers.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesDatabaseIdUsers.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdUsers.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/mysql-databases/{databaseId}/users",
+  path: "/v2/mysql-databases/{mysqlDatabaseId}/users",
   method: "GET",
   operationId: "database-list-mysql-users",
 };
@@ -3158,33 +3158,33 @@ export const databaseListMysqlUsers: OpenAPIOperation<
 /** Create a MySQLUser. */
 export const databaseCreateMysqlUser: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesDatabaseIdUsers.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesDatabaseIdUsers.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesDatabaseIdUsers.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesDatabaseIdUsers.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdUsers.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdUsers.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdUsers.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdUsers.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesDatabaseIdUsers.Post.Responses.$201.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdUsers.Post.Responses.$201.Content.ApplicationJson>,
       201,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesDatabaseIdUsers.Post.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdUsers.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesDatabaseIdUsers.Post.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdUsers.Post.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesDatabaseIdUsers.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdUsers.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/mysql-databases/{databaseId}/users",
+  path: "/v2/mysql-databases/{mysqlDatabaseId}/users",
   method: "POST",
   operationId: "database-create-mysql-user",
 };
@@ -9579,38 +9579,38 @@ export const userVerifyEmail: OpenAPIOperation<
 /** Verify phone number. */
 export const userVerifyPhoneNumber: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhoneVerify.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhoneVerify.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhoneVerify.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhoneVerify.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2UsersUserIdActionsVerifyPhone.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersUserIdActionsVerifyPhone.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersUserIdActionsVerifyPhone.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersUserIdActionsVerifyPhone.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhoneVerify.Post.Responses.$204.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersUserIdActionsVerifyPhone.Post.Responses.$204.Content.Empty>,
       204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhoneVerify.Post.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersUserIdActionsVerifyPhone.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhoneVerify.Post.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersUserIdActionsVerifyPhone.Post.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhoneVerify.Post.Responses.$409.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersUserIdActionsVerifyPhone.Post.Responses.$409.Content.ApplicationJson>,
       409,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhoneVerify.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersUserIdActionsVerifyPhone.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/users/{userId}/phone/verify",
+  path: "/v2/users/{userId}/actions/verify-phone",
   method: "POST",
   operationId: "user-verify-phone-number",
 };
