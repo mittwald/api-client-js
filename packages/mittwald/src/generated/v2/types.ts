@@ -1368,17 +1368,6 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.domainListDomains, TStatus>;
     }
 
-    namespace DomainCreateDomainAuthCode2 {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainCreateDomainAuthCode2
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainCreateDomainAuthCode2,
-          TStatus
-        >;
-    }
-
     namespace DomainCreateDomainAuthCode {
       type RequestData = InferredRequestData<
         typeof descriptors.domainCreateDomainAuthCode
@@ -11534,58 +11523,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2DomainsDomainIdActionsCreateAuthcode2 {}
-
-    namespace V2DomainsDomainIdActionsAuthCode2 {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            domainId: string;
-          };
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2DomainsDomainIdActionsCreateAuthcode {}
 
     namespace V2DomainsDomainIdActionsAuthCode {
@@ -18837,11 +18774,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2PollSettingsId {
+    namespace V2PollSettingsUserId {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            id: string;
+            userId: string;
           };
 
           export type Header = {};
@@ -18851,9 +18788,8 @@ export declare module MittwaldAPIV2 {
         namespace Responses {
           namespace $200 {
             namespace Content {
-              export type ApplicationJson = {
-                id: string;
-              } & MittwaldAPIV2.Components.Schemas.PollUserPollSettings;
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.PollUserPollSettings;
             }
           }
 
@@ -18886,7 +18822,7 @@ export declare module MittwaldAPIV2 {
       namespace Post {
         namespace Parameters {
           export type Path = {
-            id: string;
+            userId: string;
           };
 
           export interface RequestBody {
@@ -18901,9 +18837,8 @@ export declare module MittwaldAPIV2 {
         namespace Responses {
           namespace $200 {
             namespace Content {
-              export type ApplicationJson = {
-                id: string;
-              } & MittwaldAPIV2.Components.Schemas.PollUserPollSettings;
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.PollUserPollSettings;
             }
           }
 

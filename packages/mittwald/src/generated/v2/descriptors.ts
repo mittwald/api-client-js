@@ -4209,40 +4209,6 @@ export const domainListDomains: OpenAPIOperation<
   operationId: "domain-list-domains",
 };
 
-/** Create an auth code 2. */
-export const domainCreateDomainAuthCode2: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode2.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domains/{domainId}/actions/auth-code-2",
-  method: "POST",
-  operationId: "domain-create-domain-auth-code-2",
-};
-
 /** Create an auth code for a Domains transfer-out process. */
 export const domainCreateDomainAuthCode: OpenAPIOperation<
   RequestType<
@@ -9048,32 +9014,32 @@ export const userUpdatePersonalizedSettings: OpenAPIOperation<
 export const userGetPollStatus: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Get.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/poll-settings/{id}",
+  path: "/v2/poll-settings/{userId}",
   method: "GET",
   operationId: "user-get-poll-status",
 };
@@ -9081,33 +9047,33 @@ export const userGetPollStatus: OpenAPIOperation<
 /** Store new or update poll settings. */
 export const userPostPollStatus: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Post.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Post.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Post.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Post.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Post.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2PollSettingsId.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/poll-settings/{id}",
+  path: "/v2/poll-settings/{userId}",
   method: "POST",
   operationId: "user-post-poll-status",
 };

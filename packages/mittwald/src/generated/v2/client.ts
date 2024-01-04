@@ -603,10 +603,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** List Domains */
     listDomains: this.requestFunctionFactory(descriptors.domainListDomains),
-    /** Create an auth code 2. */
-    createDomainAuthCode2: this.requestFunctionFactory(
-      descriptors.domainCreateDomainAuthCode2,
-    ),
     /** Create an auth code for a Domains transfer-out process. */
     createDomainAuthCode: this.requestFunctionFactory(
       descriptors.domainCreateDomainAuthCode,

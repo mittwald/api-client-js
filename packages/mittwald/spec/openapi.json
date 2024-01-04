@@ -7005,15 +7005,15 @@
       "poll.UserPollSettings": {
         "properties": {
           "completedAt": {
-            "format": "date",
+            "format": "date-time",
             "type": "string"
           },
           "dontShowUntil": {
-            "format": "date",
+            "format": "date-time",
             "type": "string"
           },
           "ignoredAt": {
-            "format": "date",
+            "format": "date-time",
             "type": "string"
           },
           "shouldShow": {
@@ -18570,97 +18570,6 @@
           }
         ],
         "summary": "List Domains",
-        "tags": [
-          "Domain"
-        ]
-      }
-    },
-    "/v2/domains/{domainId}/actions/create-authcode2": {
-      "post": {
-        "description": "Start an auth code 2 process for a DENIC Domain. You will receive a letter from DENIC.",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "domainId",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {}
-          }
-        },
-        "responses": {
-          "308": {
-            "description": "This route is deprecated, and will redirect you to another URL.",
-            "headers": {
-              "location": {
-                "description": "The new URL to use; clients should redirect their request to this URL, using the same request method and body as the original request.",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "Create an auth code 2.",
-        "tags": [
-          "Domain"
-        ],
-        "deprecated": true
-      }
-    },
-    "/v2/domains/{domainId}/actions/auth-code-2": {
-      "post": {
-        "operationId": "domain-create-domain-auth-code-2",
-        "description": "Start an auth code 2 process for a DENIC Domain. You will receive a letter from DENIC.",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "domainId",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {}
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "400": {
-            "$ref": "#/components/responses/commons.ValidationError"
-          },
-          "404": {
-            "$ref": "#/components/responses/commons.NotFoundError"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "Create an auth code 2.",
         "tags": [
           "Domain"
         ]
@@ -31112,13 +31021,13 @@
         ]
       }
     },
-    "/v2/poll-settings/{id}": {
+    "/v2/poll-settings/{userId}": {
       "get": {
         "operationId": "user-get-poll-status",
         "parameters": [
           {
             "in": "path",
-            "name": "id",
+            "name": "userId",
             "required": true,
             "schema": {
               "type": "string"
@@ -31130,22 +31039,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "allOf": [
-                    {
-                      "properties": {
-                        "id": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "id"
-                      ],
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/poll.UserPollSettings"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/poll.UserPollSettings"
                 }
               }
             },
@@ -31171,7 +31065,7 @@
         "parameters": [
           {
             "in": "path",
-            "name": "id",
+            "name": "userId",
             "required": true,
             "schema": {
               "type": "string"
@@ -31211,22 +31105,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "allOf": [
-                    {
-                      "properties": {
-                        "id": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "id"
-                      ],
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/poll.UserPollSettings"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/poll.UserPollSettings"
                 }
               }
             },
