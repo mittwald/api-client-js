@@ -32532,6 +32532,389 @@
           "User"
         ]
       }
+    },
+    "/v2/authenticate-token-retrieval-key": {
+      "post": {
+        "operationId": "user-authenticate-with-access-token-retrieval-key",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "accessTokenRetrievalKey": {
+                    "maxLength": 37,
+                    "minLength": 37,
+                    "type": "string"
+                  },
+                  "userId": {
+                    "format": "uuid",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "userId",
+                  "accessTokenRetrievalKey"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "expiresAt": {
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "token": {
+                      "description": "Public token to identify yourself against the public api.",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "token",
+                    "expires"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Your authentication request was successful and you've got an access token."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/commons.ValidationErrors"
+                }
+              }
+            },
+            "description": "Some of the specified values do not meet our requirements.\nPossible domain specific `type` values are:\n  * WrongRetrievalKey\n"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "summary": "Authenticate an user with an access token retrieval key.",
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/v2/users/self/token-retrieval-key": {
+      "post": {
+        "operationId": "user-create-access-token-retrieval-key",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {}
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "accessTokenRetrievalKey": {
+                      "description": "This retrieval can be used as a one time password. It is only valid once and for a short time.",
+                      "example": "mwrk-abcdefghijklmnopqrstuvwxyz012345",
+                      "maxLength": 37,
+                      "minLength": 37,
+                      "type": "string"
+                    },
+                    "userId": {
+                      "format": "uuid",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "userId",
+                    "accessTokenRetrievalKey"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "You got an access token retrieval key use it as a one time password to get an actual access token."
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "summary": "Create an access token retrieval key to acquire an access token for your user.",
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/v2/oauth2/authorize": {
+      "get": {
+        "operationId": "user-oauth-get-authorization",
+        "description": "The OAuth 2.0 client requests authorization from the resource owner according to\n[RFC6749](https://datatracker.ietf.org/doc/html/rfc6749). The\nauthorization request is made indirectly via the authorization\nserver as an intermediary.\n",
+        "parameters": [
+          {
+            "description": "Access Token of the Resource Owner.\n",
+            "in": "cookie",
+            "name": "x-access-token",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Can be set in combination with `Authorization`-Header to grant consent for the requested scopes.\nIf set to `true`, the scopes will be marked as consented and the authorization server will\nredirect the user-agent back to the client.\nIf set to `false`, the authorization server will redirect the user-agent back to the client with an\naccess denied error.\nIf not set and `Authorization`-Header is set, the user will be asked for consent.\n",
+            "in": "query",
+            "name": "grant_consent",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "The response type. Must be set to `code` for this endpoint.\n",
+            "in": "query",
+            "name": "response_type",
+            "required": true,
+            "schema": {
+              "enum": [
+                "code"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "The client identifier as described in\n[RFC6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.2).\n",
+            "in": "query",
+            "name": "client_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The redirection URI to which the authorization server\ndirects the user-agent back after the authorization\nendpoint. Must be a valid URI.\n",
+            "in": "query",
+            "name": "redirect_uri",
+            "required": false,
+            "schema": {
+              "format": "uri",
+              "type": "string"
+            }
+          },
+          {
+            "description": "The scope of the access request as described by\n[RFC6749](https://datatracker.ietf.org/doc/html/rfc6749#section-3.3).\n",
+            "in": "query",
+            "name": "scope",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "An opaque value used by the client to maintain state\nbetween the request and callback. The authorization server\nincludes this value when redirecting the user-agent back to\nthe client. The parameter SHOULD be used for preventing\ncross-site request forgery as described in\n[RFC6749](https://datatracker.ietf.org/doc/html/rfc6749#section-10.12).\n",
+            "in": "query",
+            "name": "state",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The code challenge as described by\n[RFC7636](https://datatracker.ietf.org/doc/html/rfc7636#section-4.2).\nIf the authorization code flow should be used with Proof Key for Code Exchange (PKCE), this parameter\n  must be set and the code verifier has to be given to the token endpoint.\n",
+            "in": "query",
+            "name": "code_challenge",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The code challenge method as described in\n[RFC7636](https://datatracker.ietf.org/doc/html/rfc7636#section-4.3).\nIf used, the code_challenge must be set as well and the code verifier\nhas to be given to the token endpoint\n",
+            "in": "query",
+            "name": "code_challenge_method",
+            "required": false,
+            "schema": {
+              "enum": [
+                "S256"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "The authorization server redirects the user-agent by\nsending the HTTP response with status code 302 and the HTTP\n`Location`-Header field containing the authorization endpoint URI\nwith either the query parameters `code` added, if successful or `error`\nand `error_description` added, if not. Fore more Information see\n[Authorization Response](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2).\n"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "enum": [
+                        "invalid_request"
+                      ],
+                      "type": "string"
+                    },
+                    "error_description": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "The request is missing a required parameter, includes an\ninvalid parameter value, includes a parameter more than\nonce, or is otherwise malformed.\n"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "summary": "Obtain authorization from the resource owner.",
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/v2/oauth2/token": {
+      "post": {
+        "operationId": "user-oauth-retrieve-access-token",
+        "description": "The OAuth 2.0 client retrieves an Access Token from an existing authorization code according to\n[RFC6749](https://datatracker.ietf.org/doc/html/rfc6749).\n",
+        "parameters": [
+          {
+            "description": "The client credentials (`client_id` and `client_secret`), separated with a colon\nand base64 encoded as described in\n[RFC6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1).\nSubmitting the `client_id` and `client_secret` as request-body as suggested is forbidden.\n",
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "example": "Basic Y2xpZW50X2lkOmNsaWVudF9zZWNyZXQ=",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "code": {
+                    "description": "The authorization code received from the authorization server.\n",
+                    "type": "string"
+                  },
+                  "code_verifier": {
+                    "description": "The code verifier used to generate the code challenge as described in\n[RFC7636](https://datatracker.ietf.org/doc/html/rfc7636#section-4.1).\nIf the authorization flow was initiated with a code challenge, this parameter is required.\n",
+                    "type": "string"
+                  },
+                  "grant_type": {
+                    "description": "The grant type as described in\n[RFC6749](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.3).\n",
+                    "enum": [
+                      "authorization_code"
+                    ],
+                    "type": "string"
+                  },
+                  "redirect_uri": {
+                    "description": "The redirection URI used in the authorization request.\nMust be a valid URI.\n",
+                    "format": "uri",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "grant_type",
+                  "redirect_uri",
+                  "code"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "access_token": {
+                      "description": "The access token issued by the authorization server.\n",
+                      "type": "string"
+                    },
+                    "expires_in": {
+                      "description": "The lifetime in seconds of the access token. For\nexample, the value \"3600\" denotes that the access\ntoken will expire in one hour from the time the\nresponse was generated.\n",
+                      "type": "integer"
+                    },
+                    "scope": {
+                      "description": "The scope of the access token as described by\n[RFC6749](https://datatracker.ietf.org/doc/html/rfc6749#section-3.3).\n",
+                      "type": "string"
+                    },
+                    "token_type": {
+                      "description": "The type of the token issued as described in\n[RFC6749](https://datatracker.ietf.org/doc/html/rfc6749#section-7.1).\n",
+                      "enum": [
+                        "bearer"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "access_token",
+                    "token_type",
+                    "expires_in"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "The authorization server issues an access token as described in\n[RFC6749](https://datatracker.ietf.org/doc/html/rfc6749#section-5.1).\n"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "enum": [
+                        "invalid_request",
+                        "invalid_client",
+                        "invalid_grant",
+                        "unauthorized_client",
+                        "unsupported_grant_type",
+                        "invalid_scope"
+                      ],
+                      "type": "string"
+                    },
+                    "error_description": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "The request of an access token is invalid as described in\n[RFC6749](https://datatracker.ietf.org/doc/html/rfc6749#section-5.2).\n"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "summary": "Retrieve Access Token from Authorization Code.",
+        "tags": [
+          "User"
+        ]
+      }
     }
   },
   "security": [

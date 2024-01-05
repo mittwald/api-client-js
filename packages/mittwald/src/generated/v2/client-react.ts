@@ -591,6 +591,11 @@ const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.userSupportCodeRequest,
     baseClient.user.supportCodeRequest,
   ).getApiResource,
+  /** Obtain authorization from the resource owner. */
+  oauthGetAuthorization: new ApiCallAsyncResourceFactory(
+    descriptors.userOauthGetAuthorization,
+    baseClient.user.oauthGetAuthorization,
+  ).getApiResource,
 });
 
 const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({

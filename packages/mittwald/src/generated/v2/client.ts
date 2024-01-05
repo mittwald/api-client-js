@@ -935,6 +935,22 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     verifyRegistration: this.requestFunctionFactory(
       descriptors.userVerifyRegistration,
     ),
+    /** Authenticate an user with an access token retrieval key. */
+    authenticateWithAccessTokenRetrievalKey: this.requestFunctionFactory(
+      descriptors.userAuthenticateWithAccessTokenRetrievalKey,
+    ),
+    /** Create an access token retrieval key to acquire an access token for your user. */
+    createAccessTokenRetrievalKey: this.requestFunctionFactory(
+      descriptors.userCreateAccessTokenRetrievalKey,
+    ),
+    /** Obtain authorization from the resource owner. */
+    oauthGetAuthorization: this.requestFunctionFactory(
+      descriptors.userOauthGetAuthorization,
+    ),
+    /** Retrieve Access Token from Authorization Code. */
+    oauthRetrieveAccessToken: this.requestFunctionFactory(
+      descriptors.userOauthRetrieveAccessToken,
+    ),
   };
 
   /** The project API allows you to manage your projects, and also any kinds of user memberships concerning these projects. */

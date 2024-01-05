@@ -2916,6 +2916,50 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace UserAuthenticateWithAccessTokenRetrievalKey {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userAuthenticateWithAccessTokenRetrievalKey
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userAuthenticateWithAccessTokenRetrievalKey,
+          TStatus
+        >;
+    }
+
+    namespace UserCreateAccessTokenRetrievalKey {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userCreateAccessTokenRetrievalKey
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userCreateAccessTokenRetrievalKey,
+          TStatus
+        >;
+    }
+
+    namespace UserOauthGetAuthorization {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userOauthGetAuthorization
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userOauthGetAuthorization,
+          TStatus
+        >;
+    }
+
+    namespace UserOauthRetrieveAccessToken {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userOauthRetrieveAccessToken
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userOauthRetrieveAccessToken,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -19664,6 +19708,207 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AuthenticateTokenRetrievalKey {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            accessTokenRetrievalKey: string;
+            userId: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                expiresAt?: string;
+                /**
+                 * Public token to identify yourself against the public api.
+                 */
+                token: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2UsersSelfTokenRetrievalKey {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * This retrieval can be used as a one time password. It is only valid once and for a short time.
+                 */
+                accessTokenRetrievalKey: string;
+                userId: string;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2Oauth2Authorize {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {
+            grant_consent?: boolean;
+            response_type: "code";
+            client_id: string;
+            redirect_uri?: string;
+            scope?: string;
+            state?: string;
+            code_challenge?: string;
+            code_challenge_method?: "S256";
+          };
+        }
+        namespace Responses {
+          namespace $302 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                error: "invalid_request";
+                error_description?: string;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2Oauth2Token {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header = {
+            Authorization?: string;
+          };
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * The access token issued by the authorization server.
+                 *
+                 */
+                access_token: string;
+                /**
+                 * The lifetime in seconds of the access token. For
+                 * example, the value "3600" denotes that the access
+                 * token will expire in one hour from the time the
+                 * response was generated.
+                 *
+                 */
+                expires_in: number;
+                /**
+                 * The scope of the access token as described by
+                 * [RFC6749](https://datatracker.ietf.org/doc/html/rfc6749#section-3.3).
+                 *
+                 */
+                scope?: string;
+                /**
+                 * The type of the token issued as described in
+                 * [RFC6749](https://datatracker.ietf.org/doc/html/rfc6749#section-7.1).
+                 *
+                 */
+                token_type: "bearer";
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                error:
+                  | "invalid_request"
+                  | "invalid_client"
+                  | "invalid_grant"
+                  | "unauthorized_client"
+                  | "unsupported_grant_type"
+                  | "invalid_scope";
+                error_description?: string;
               }
             }
           }
