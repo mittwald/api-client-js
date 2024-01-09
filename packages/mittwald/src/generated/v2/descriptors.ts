@@ -1935,9 +1935,9 @@ export const cronjobAbortExecution: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort.Post.Responses.$404.Content.ApplicationJson>,
@@ -2109,11 +2109,6 @@ export const cronjobDeleteCronjob: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobId.Delete.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobId.Delete.Responses.$200.Content.Empty>,
-      200,
-      "empty"
-    >
-  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobId.Delete.Responses.$204.Content.Empty>,
       204,
       "empty"
@@ -2148,9 +2143,9 @@ export const cronjobUpdateCronjob: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobId.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobId.Patch.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobId.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobId.Patch.Responses.$400.Content.ApplicationJson>,
@@ -2215,11 +2210,6 @@ export const cronjobUpdateCronjobAppId: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Parameters.Header>
   >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Responses.$204.Content.Empty>,
       204,
@@ -5016,6 +5006,40 @@ export const ingressDeleteIngress: OpenAPIOperation<
   operationId: "ingress-delete-ingress",
 };
 
+/** Verifiy the ownership of an Ingress. */
+export const ingressIngressVerifyOwnership: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdActionsVerifyOwnership.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdActionsVerifyOwnership.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdActionsVerifyOwnership.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdActionsVerifyOwnership.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdActionsVerifyOwnership.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdActionsVerifyOwnership.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdActionsVerifyOwnership.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/ingresses/{ingressId}/actions/verify-ownership",
+  method: "POST",
+  operationId: "ingress-ingress-verify-ownership",
+};
+
 /** Update the paths of an Ingress. */
 export const ingressUpdateIngressPaths: OpenAPIOperation<
   RequestType<
@@ -5054,8 +5078,8 @@ export const ingressRequestIngressAcmeCertificateIssuance: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdActionsRequestAcmeCertificateIssuance.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdActionsRequestAcmeCertificateIssuance.Post.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdActionsRequestAcmeCertificateIssuance.Post.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
@@ -8276,6 +8300,35 @@ export const userAuthenticate: OpenAPIOperation<
   operationId: "user-authenticate",
 };
 
+/** Authenticate an user with an access token retrieval key. */
+export const userAuthenticateWithAccessTokenRetrievalKey: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2AuthenticateTokenRetrievalKey.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2AuthenticateTokenRetrievalKey.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AuthenticateTokenRetrievalKey.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AuthenticateTokenRetrievalKey.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticateTokenRetrievalKey.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticateTokenRetrievalKey.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticateTokenRetrievalKey.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/authenticate-token-retrieval-key",
+  method: "POST",
+  operationId: "user-authenticate-with-access-token-retrieval-key",
+};
+
 /** Get your verified Email-Address. */
 export const userGetOwnEmail: OpenAPIOperation<
   RequestType<
@@ -8530,6 +8583,30 @@ export const userConfirmPasswordReset: OpenAPIOperation<
   path: "/v2/users/self/credentials/password/confirm-reset",
   method: "POST",
   operationId: "user-confirm-password-reset",
+};
+
+/** Create an access token retrieval key to acquire an access token for your user. */
+export const userCreateAccessTokenRetrievalKey: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfTokenRetrievalKey.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfTokenRetrievalKey.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfTokenRetrievalKey.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfTokenRetrievalKey.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfTokenRetrievalKey.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfTokenRetrievalKey.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/token-retrieval-key",
+  method: "POST",
+  operationId: "user-create-access-token-retrieval-key",
 };
 
 /** List all of your ApiTokens. */
@@ -9363,6 +9440,64 @@ export const userLogout: OpenAPIOperation<
   operationId: "user-logout",
 };
 
+/** Obtain authorization from the resource owner. */
+export const userOauthGetAuthorization: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2Oauth2Authorize.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2Oauth2Authorize.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2Oauth2Authorize.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Oauth2Authorize.Get.Responses.$302.Content.Empty>,
+      302,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Oauth2Authorize.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Oauth2Authorize.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/oauth2/authorize",
+  method: "GET",
+  operationId: "user-oauth-get-authorization",
+};
+
+/** Retrieve Access Token from Authorization Code. */
+export const userOauthRetrieveAccessToken: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2Oauth2Token.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2Oauth2Token.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2Oauth2Token.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2Oauth2Token.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Oauth2Token.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Oauth2Token.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Oauth2Token.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/oauth2/token",
+  method: "POST",
+  operationId: "user-oauth-retrieve-access-token",
+};
+
 /** Register with email and password. */
 export const userRegister: OpenAPIOperation<
   RequestType<
@@ -9613,115 +9748,4 @@ export const userVerifyRegistration: OpenAPIOperation<
   path: "/v2/verify-registration",
   method: "POST",
   operationId: "user-verify-registration",
-};
-
-/** Authenticate an user with an access token retrieval key. */
-export const userAuthenticateWithAccessTokenRetrievalKey: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2AuthenticateTokenRetrievalKey.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2AuthenticateTokenRetrievalKey.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2AuthenticateTokenRetrievalKey.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2AuthenticateTokenRetrievalKey.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AuthenticateTokenRetrievalKey.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AuthenticateTokenRetrievalKey.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AuthenticateTokenRetrievalKey.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/authenticate-token-retrieval-key",
-  method: "POST",
-  operationId: "user-authenticate-with-access-token-retrieval-key",
-};
-
-/** Create an access token retrieval key to acquire an access token for your user. */
-export const userCreateAccessTokenRetrievalKey: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfTokenRetrievalKey.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfTokenRetrievalKey.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfTokenRetrievalKey.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfTokenRetrievalKey.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfTokenRetrievalKey.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfTokenRetrievalKey.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/users/self/token-retrieval-key",
-  method: "POST",
-  operationId: "user-create-access-token-retrieval-key",
-};
-
-/** Obtain authorization from the resource owner. */
-export const userOauthGetAuthorization: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2Oauth2Authorize.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2Oauth2Authorize.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2Oauth2Authorize.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Oauth2Authorize.Get.Responses.$302.Content.Empty>,
-      302,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Oauth2Authorize.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Oauth2Authorize.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/oauth2/authorize",
-  method: "GET",
-  operationId: "user-oauth-get-authorization",
-};
-
-/** Retrieve Access Token from Authorization Code. */
-export const userOauthRetrieveAccessToken: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2Oauth2Token.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2Oauth2Token.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2Oauth2Token.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2Oauth2Token.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Oauth2Token.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Oauth2Token.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Oauth2Token.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/oauth2/token",
-  method: "POST",
-  operationId: "user-oauth-retrieve-access-token",
 };

@@ -669,6 +669,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ingressDeleteIngress: this.requestFunctionFactory(
       descriptors.ingressDeleteIngress,
     ),
+    /** Verifiy the ownership of an Ingress. */
+    ingressIngressVerifyOwnership: this.requestFunctionFactory(
+      descriptors.ingressIngressVerifyOwnership,
+    ),
     /** Update the paths of an Ingress. */
     ingressUpdateIngressPaths: this.requestFunctionFactory(
       descriptors.ingressUpdateIngressPaths,
@@ -815,6 +819,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Authenticate yourself to get an access token. */
     authenticate: this.requestFunctionFactory(descriptors.userAuthenticate),
+    /** Authenticate an user with an access token retrieval key. */
+    authenticateWithAccessTokenRetrievalKey: this.requestFunctionFactory(
+      descriptors.userAuthenticateWithAccessTokenRetrievalKey,
+    ),
     /** Get your verified Email-Address. */
     getOwnEmail: this.requestFunctionFactory(descriptors.userGetOwnEmail),
     /** Change your Email-Address. */
@@ -836,6 +844,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Confirm password reset. */
     confirmPasswordReset: this.requestFunctionFactory(
       descriptors.userConfirmPasswordReset,
+    ),
+    /** Create an access token retrieval key to acquire an access token for your user. */
+    createAccessTokenRetrievalKey: this.requestFunctionFactory(
+      descriptors.userCreateAccessTokenRetrievalKey,
     ),
     /** List all of your ApiTokens. */
     listApiTokens: this.requestFunctionFactory(descriptors.userListApiTokens),
@@ -909,6 +921,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Terminate session and invalidate access token. */
     logout: this.requestFunctionFactory(descriptors.userLogout),
+    /** Obtain authorization from the resource owner. */
+    oauthGetAuthorization: this.requestFunctionFactory(
+      descriptors.userOauthGetAuthorization,
+    ),
+    /** Retrieve Access Token from Authorization Code. */
+    oauthRetrieveAccessToken: this.requestFunctionFactory(
+      descriptors.userOauthRetrieveAccessToken,
+    ),
     /** Register with email and password. */
     register: this.requestFunctionFactory(descriptors.userRegister),
     /** Request a new avatar image upload. */
@@ -934,22 +954,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Verify your registration. */
     verifyRegistration: this.requestFunctionFactory(
       descriptors.userVerifyRegistration,
-    ),
-    /** Authenticate an user with an access token retrieval key. */
-    authenticateWithAccessTokenRetrievalKey: this.requestFunctionFactory(
-      descriptors.userAuthenticateWithAccessTokenRetrievalKey,
-    ),
-    /** Create an access token retrieval key to acquire an access token for your user. */
-    createAccessTokenRetrievalKey: this.requestFunctionFactory(
-      descriptors.userCreateAccessTokenRetrievalKey,
-    ),
-    /** Obtain authorization from the resource owner. */
-    oauthGetAuthorization: this.requestFunctionFactory(
-      descriptors.userOauthGetAuthorization,
-    ),
-    /** Retrieve Access Token from Authorization Code. */
-    oauthRetrieveAccessToken: this.requestFunctionFactory(
-      descriptors.userOauthRetrieveAccessToken,
     ),
   };
 

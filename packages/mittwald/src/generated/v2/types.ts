@@ -1585,6 +1585,17 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.ingressDeleteIngress, TStatus>;
     }
 
+    namespace IngressIngressVerifyOwnership {
+      type RequestData = InferredRequestData<
+        typeof descriptors.ingressIngressVerifyOwnership
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.ingressIngressVerifyOwnership,
+          TStatus
+        >;
+    }
+
     namespace IngressUpdateIngressPaths {
       type RequestData = InferredRequestData<
         typeof descriptors.ingressUpdateIngressPaths
@@ -2538,6 +2549,17 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.userAuthenticate, TStatus>;
     }
 
+    namespace UserAuthenticateWithAccessTokenRetrievalKey {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userAuthenticateWithAccessTokenRetrievalKey
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userAuthenticateWithAccessTokenRetrievalKey,
+          TStatus
+        >;
+    }
+
     namespace UserGetOwnEmail {
       type RequestData = InferredRequestData<
         typeof descriptors.userGetOwnEmail
@@ -2606,6 +2628,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.userConfirmPasswordReset,
+          TStatus
+        >;
+    }
+
+    namespace UserCreateAccessTokenRetrievalKey {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userCreateAccessTokenRetrievalKey
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userCreateAccessTokenRetrievalKey,
           TStatus
         >;
     }
@@ -2843,6 +2876,28 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.userLogout, TStatus>;
     }
 
+    namespace UserOauthGetAuthorization {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userOauthGetAuthorization
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userOauthGetAuthorization,
+          TStatus
+        >;
+    }
+
+    namespace UserOauthRetrieveAccessToken {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userOauthRetrieveAccessToken
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userOauthRetrieveAccessToken,
+          TStatus
+        >;
+    }
+
     namespace UserRegister {
       type RequestData = InferredRequestData<typeof descriptors.userRegister>;
       type ResponseData<TStatus extends HttpStatus = 200> =
@@ -2913,50 +2968,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.userVerifyRegistration,
-          TStatus
-        >;
-    }
-
-    namespace UserAuthenticateWithAccessTokenRetrievalKey {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userAuthenticateWithAccessTokenRetrievalKey
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userAuthenticateWithAccessTokenRetrievalKey,
-          TStatus
-        >;
-    }
-
-    namespace UserCreateAccessTokenRetrievalKey {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userCreateAccessTokenRetrievalKey
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userCreateAccessTokenRetrievalKey,
-          TStatus
-        >;
-    }
-
-    namespace UserOauthGetAuthorization {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userOauthGetAuthorization
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userOauthGetAuthorization,
-          TStatus
-        >;
-    }
-
-    namespace UserOauthRetrieveAccessToken {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userOauthRetrieveAccessToken
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userOauthRetrieveAccessToken,
           TStatus
         >;
     }
@@ -3720,6 +3731,7 @@ export declare module MittwaldAPIV2 {
         nextExecutionTime?: string;
         projectId?: string;
         shortId: string;
+        timeout: number;
         updatedAt: string;
       }
 
@@ -3746,7 +3758,8 @@ export declare module MittwaldAPIV2 {
           | "AbortedBySystem"
           | "Pending"
           | "Running"
-          | "AbortedByUser";
+          | "AbortedByUser"
+          | "TimedOut";
         successful: boolean;
         triggeredBy?: {
           id?: string;
@@ -3762,23 +3775,7 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.CronjobCronjobCommand;
         email?: string;
         interval: string;
-      }
-
-      export interface CronjobCronjobSpecific {
-        active: boolean;
-        appId: string;
-        createdAt: string;
-        description: string;
-        destination:
-          | MittwaldAPIV2.Components.Schemas.CronjobCronjobUrl
-          | MittwaldAPIV2.Components.Schemas.CronjobCronjobCommand;
-        email?: string;
-        executions?: MittwaldAPIV2.Components.Schemas.CronjobCronjobExecution[];
-        id: string;
-        interval: string;
-        nextExecutionTime?: string;
-        shortId: string;
-        updatedAt: string;
+        timeout: number;
       }
 
       export interface CronjobCronjobUrl {
@@ -4235,6 +4232,7 @@ export declare module MittwaldAPIV2 {
          */
         isDefault: boolean;
         isEnabled: boolean;
+        ownership: MittwaldAPIV2.Components.Schemas.IngressOwnership;
         /**
          * A list of paths. The default path `/` is always present and cannot be removed.
          */
@@ -4243,6 +4241,14 @@ export declare module MittwaldAPIV2 {
         tls:
           | MittwaldAPIV2.Components.Schemas.IngressTlsAcme
           | MittwaldAPIV2.Components.Schemas.IngressTlsCertificate;
+      }
+
+      export interface IngressOwnership {
+        txtRecord: string;
+        /**
+         * Whether the domain ownership is verified or not.
+         */
+        verified: boolean;
       }
 
       export interface IngressPath {
@@ -4304,7 +4310,7 @@ export declare module MittwaldAPIV2 {
       export interface InvoiceContractItemInvoiceDefinition {
         contractItemId: string;
         isDue?: boolean;
-        serviceDate?: MittwaldAPIV2.Components.Schemas.InvoiceServiceDate;
+        serviceDate?: string;
         servicePeriod: MittwaldAPIV2.Components.Schemas.InvoiceDatePeriod;
         vatRate: number;
       }
@@ -4328,17 +4334,17 @@ export declare module MittwaldAPIV2 {
         additionalDescription?: string;
         contractItemId: string;
         description: string;
-        id: string;
         itemCancelledOrCorrectedBy?: {
           sourceInvoiceId?: string;
           sourceInvoiceItemId?: string;
         }[];
+        itemId: string;
         price: MittwaldAPIV2.Components.Schemas.InvoicePrice;
         reference?: {
           sourceInvoiceId: string;
           sourceInvoiceItemId: string;
         };
-        serviceDate?: MittwaldAPIV2.Components.Schemas.InvoiceServiceDate;
+        serviceDate?: string;
         servicePeriod?: MittwaldAPIV2.Components.Schemas.InvoiceDatePeriod;
         vatRate: number;
       }
@@ -4429,8 +4435,6 @@ export declare module MittwaldAPIV2 {
         title?: string;
         useFormalTerm?: boolean;
       }
-
-      export type InvoiceServiceDate = string;
 
       export interface MailCreateMailAddress {
         address: string;
@@ -8237,9 +8241,9 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
-              export interface ApplicationJson {}
+              export type Empty = unknown;
             }
           }
 
@@ -8487,12 +8491,6 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
@@ -8539,6 +8537,7 @@ export declare module MittwaldAPIV2 {
               | MittwaldAPIV2.Components.Schemas.CronjobCronjobCommand;
             email?: string;
             interval?: string;
+            timeout?: number;
           }
 
           export type Header =
@@ -8547,9 +8546,9 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
-              export interface ApplicationJson {}
+              export type Empty = unknown;
             }
           }
 
@@ -8645,12 +8644,6 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {}
-            }
-          }
-
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
@@ -12636,6 +12629,7 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export interface ApplicationJson {
                 id: string;
+                ownership: MittwaldAPIV2.Components.Schemas.IngressOwnership;
               }
             }
           }
@@ -12734,6 +12728,52 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2IngressesIngressIdActionsVerifyOwnership {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            ingressId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {}
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2ProjectsProjectIdIngresses {}
 
     namespace V2IngressesIngressIdPaths {
@@ -12790,7 +12830,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -17703,6 +17743,51 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2AuthenticateTokenRetrievalKey {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            accessTokenRetrievalKey: string;
+            userId: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                expiresAt?: string;
+                /**
+                 * Public token to identify yourself against the public api.
+                 */
+                token: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2UsersSelfCredentialsEmail {
       namespace Get {
         namespace Parameters {
@@ -18129,6 +18214,43 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2UsersSelfTokenRetrievalKey {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * This retrieval can be used as a one time password. It is only valid once and for a short time.
+                 */
+                accessTokenRetrievalKey: string;
+                userId: string;
+              }
             }
           }
 
@@ -19298,6 +19420,125 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2Oauth2Authorize {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {
+            grant_consent?: boolean;
+            response_type: "code";
+            client_id: string;
+            redirect_uri?: string;
+            scope?: string;
+            state?: string;
+            code_challenge?: string;
+            code_challenge_method?: "S256";
+          };
+        }
+        namespace Responses {
+          namespace $302 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                error: "invalid_request";
+                error_description?: string;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2Oauth2Token {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header = {
+            Authorization?: string;
+          };
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * The access token issued by the authorization server.
+                 *
+                 */
+                access_token: string;
+                /**
+                 * The lifetime in seconds of the access token. For
+                 * example, the value "3600" denotes that the access
+                 * token will expire in one hour from the time the
+                 * response was generated.
+                 *
+                 */
+                expires_in: number;
+                /**
+                 * The scope of the access token as described by
+                 * [RFC6749](https://datatracker.ietf.org/doc/html/rfc6749#section-3.3).
+                 *
+                 */
+                scope?: string;
+                /**
+                 * The type of the token issued as described in
+                 * [RFC6749](https://datatracker.ietf.org/doc/html/rfc6749#section-7.1).
+                 *
+                 */
+                token_type: "bearer";
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                error:
+                  | "invalid_request"
+                  | "invalid_client"
+                  | "invalid_grant"
+                  | "unauthorized_client"
+                  | "unsupported_grant_type"
+                  | "invalid_scope";
+                error_description?: string;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2SignupRegistration {}
 
     namespace V2Register {
@@ -19708,207 +19949,6 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2AuthenticateTokenRetrievalKey {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            accessTokenRetrievalKey: string;
-            userId: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                expiresAt?: string;
-                /**
-                 * Public token to identify yourself against the public api.
-                 */
-                token: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2UsersSelfTokenRetrievalKey {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                /**
-                 * This retrieval can be used as a one time password. It is only valid once and for a short time.
-                 */
-                accessTokenRetrievalKey: string;
-                userId: string;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2Oauth2Authorize {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header = {};
-
-          export type Query = {
-            grant_consent?: boolean;
-            response_type: "code";
-            client_id: string;
-            redirect_uri?: string;
-            scope?: string;
-            state?: string;
-            code_challenge?: string;
-            code_challenge_method?: "S256";
-          };
-        }
-        namespace Responses {
-          namespace $302 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                error: "invalid_request";
-                error_description?: string;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2Oauth2Token {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
-          export type Header = {
-            Authorization?: string;
-          };
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                /**
-                 * The access token issued by the authorization server.
-                 *
-                 */
-                access_token: string;
-                /**
-                 * The lifetime in seconds of the access token. For
-                 * example, the value "3600" denotes that the access
-                 * token will expire in one hour from the time the
-                 * response was generated.
-                 *
-                 */
-                expires_in: number;
-                /**
-                 * The scope of the access token as described by
-                 * [RFC6749](https://datatracker.ietf.org/doc/html/rfc6749#section-3.3).
-                 *
-                 */
-                scope?: string;
-                /**
-                 * The type of the token issued as described in
-                 * [RFC6749](https://datatracker.ietf.org/doc/html/rfc6749#section-7.1).
-                 *
-                 */
-                token_type: "bearer";
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                error:
-                  | "invalid_request"
-                  | "invalid_client"
-                  | "invalid_grant"
-                  | "unauthorized_client"
-                  | "unsupported_grant_type"
-                  | "invalid_scope";
-                error_description?: string;
               }
             }
           }

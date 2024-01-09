@@ -586,15 +586,15 @@ const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.userListSessions,
     baseClient.user.listSessions,
   ).getApiResource,
-  /** Request a support code. */
-  supportCodeRequest: new ApiCallAsyncResourceFactory(
-    descriptors.userSupportCodeRequest,
-    baseClient.user.supportCodeRequest,
-  ).getApiResource,
   /** Obtain authorization from the resource owner. */
   oauthGetAuthorization: new ApiCallAsyncResourceFactory(
     descriptors.userOauthGetAuthorization,
     baseClient.user.oauthGetAuthorization,
+  ).getApiResource,
+  /** Request a support code. */
+  supportCodeRequest: new ApiCallAsyncResourceFactory(
+    descriptors.userSupportCodeRequest,
+    baseClient.user.supportCodeRequest,
   ).getApiResource,
 });
 
