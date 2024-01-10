@@ -4876,6 +4876,9 @@ export declare module MittwaldAPIV2 {
         };
       }
 
+      /**
+       * deprecated
+       */
       export type ProjectDeprecatedProjectReadinessStatus =
         | "creating"
         | "ready"
@@ -4939,6 +4942,7 @@ export declare module MittwaldAPIV2 {
           [k: string]: string;
         };
         disableReason?: MittwaldAPIV2.Components.Schemas.ProjectDisableReason;
+        disabledAt?: string;
         enabled: boolean;
         id: string;
         imageRefId?: string;
@@ -4957,14 +4961,10 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.ProjectHardwareSpec;
         statisticsBaseDomain?: string;
         status: MittwaldAPIV2.Components.Schemas.ProjectProjectStatus;
+        statusSetAt: string;
       }
 
       export type ProjectServerDisableReason = "suspended";
-
-      export type ProjectServerReadinessStatus =
-        | "creating"
-        | "ready"
-        | "unready";
 
       export interface ProjectServer {
         clusterName: string;
@@ -4974,11 +4974,16 @@ export declare module MittwaldAPIV2 {
         disabledReason?: MittwaldAPIV2.Components.Schemas.ProjectServerDisableReason;
         id: string;
         imageRefId?: string;
+        /**
+         * @deprecated
+         * deprecated
+         */
         isReady: boolean;
         machineType: MittwaldAPIV2.Components.Schemas.ProjectMachineType;
-        readiness: MittwaldAPIV2.Components.Schemas.ProjectServerReadinessStatus;
+        readiness: MittwaldAPIV2.Components.Schemas.ProjectDeprecatedServerReadinessStatus;
         shortId: string;
         statisticsBaseDomain?: string;
+        status: MittwaldAPIV2.Components.Schemas.ProjectServerStatus;
         storage: string;
       }
 
@@ -5207,6 +5212,16 @@ export declare module MittwaldAPIV2 {
         location?: MittwaldAPIV2.Components.Schemas.SignupLocation;
         tokenId: string;
       }
+
+      /**
+       * deprecated
+       */
+      export type ProjectDeprecatedServerReadinessStatus =
+        | "creating"
+        | "ready"
+        | "unready";
+
+      export type ProjectServerStatus = "pending" | "ready";
 
       export interface CommonsAddress {
         street: string;
@@ -12763,6 +12778,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -15684,6 +15707,12 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
@@ -16052,6 +16081,12 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
@@ -16677,6 +16712,7 @@ export declare module MittwaldAPIV2 {
                 };
                 description: string;
                 disableReason?: MittwaldAPIV2.Components.Schemas.ProjectDisableReason;
+                disabledAt?: string;
                 enabled: boolean;
                 id: string;
                 imageRefId?: string;
@@ -16690,6 +16726,7 @@ export declare module MittwaldAPIV2 {
                 serverId?: string;
                 shortId: string;
                 status: MittwaldAPIV2.Components.Schemas.ProjectProjectStatus;
+                statusSetAt: string;
               }[];
             }
           }
@@ -16828,6 +16865,12 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
           namespace $400 {
             namespace Content {
               export interface ApplicationJson {
@@ -16873,6 +16916,12 @@ export declare module MittwaldAPIV2 {
         }
         namespace Responses {
           namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }

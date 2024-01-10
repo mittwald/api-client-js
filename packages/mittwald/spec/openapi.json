@@ -6040,6 +6040,8 @@
         "type": "object"
       },
       "project.DeprecatedProjectReadinessStatus": {
+        "deprecated": true,
+        "description": "deprecated",
         "enum": [
           "creating",
           "ready",
@@ -6210,6 +6212,10 @@
           "disableReason": {
             "$ref": "#/components/schemas/project.DisableReason"
           },
+          "disabledAt": {
+            "format": "date-time",
+            "type": "string"
+          },
           "enabled": {
             "type": "boolean"
           },
@@ -6261,6 +6267,10 @@
           },
           "status": {
             "$ref": "#/components/schemas/project.ProjectStatus"
+          },
+          "statusSetAt": {
+            "format": "date-time",
+            "type": "string"
           }
         },
         "required": [
@@ -6273,21 +6283,14 @@
           "createdAt",
           "isReady",
           "readiness",
-          "status"
+          "status",
+          "statusSetAt"
         ],
         "type": "object"
       },
       "project.ServerDisableReason": {
         "enum": [
           "suspended"
-        ],
-        "type": "string"
-      },
-      "project.ServerReadinessStatus": {
-        "enum": [
-          "creating",
-          "ready",
-          "unready"
         ],
         "type": "string"
       },
@@ -6320,13 +6323,15 @@
             "type": "string"
           },
           "isReady": {
+            "deprecated": true,
+            "description": "deprecated",
             "type": "boolean"
           },
           "machineType": {
             "$ref": "#/components/schemas/project.MachineType"
           },
           "readiness": {
-            "$ref": "#/components/schemas/project.ServerReadinessStatus"
+            "$ref": "#/components/schemas/project.DeprecatedServerReadinessStatus"
           },
           "shortId": {
             "example": "s-4e7tz3",
@@ -6336,6 +6341,9 @@
             "example": "pe-prod.staging.mcloud.services",
             "format": "hostname",
             "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/project.ServerStatus"
           },
           "storage": {
             "example": "50Gi",
@@ -6352,7 +6360,8 @@
           "isReady",
           "readiness",
           "createdAt",
-          "clusterName"
+          "clusterName",
+          "status"
         ],
         "type": "object"
       },
@@ -7025,6 +7034,23 @@
           "tokenId"
         ],
         "type": "object"
+      },
+      "project.DeprecatedServerReadinessStatus": {
+        "deprecated": true,
+        "description": "deprecated",
+        "enum": [
+          "creating",
+          "ready",
+          "unready"
+        ],
+        "type": "string"
+      },
+      "project.ServerStatus": {
+        "enum": [
+          "pending",
+          "ready"
+        ],
+        "type": "string"
       },
       "commons.Address": {
         "type": "object",
@@ -20251,6 +20277,9 @@
           "404": {
             "$ref": "#/components/responses/commons.ValidationError"
           },
+          "412": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          },
           "default": {
             "$ref": "#/components/responses/commons.DefaultError"
           }
@@ -25793,6 +25822,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "OK"
+          },
           "204": {
             "description": "NoContent"
           },
@@ -26103,7 +26135,7 @@
                 }
               }
             },
-            "description": "Deleted"
+            "description": "OK"
           },
           "204": {
             "description": "NoContent"
@@ -26193,6 +26225,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "OK"
+          },
           "204": {
             "description": "NoContent"
           },
@@ -27315,6 +27350,10 @@
                       "disableReason": {
                         "$ref": "#/components/schemas/project.DisableReason"
                       },
+                      "disabledAt": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
                       "enabled": {
                         "type": "boolean"
                       },
@@ -27344,6 +27383,10 @@
                       },
                       "status": {
                         "$ref": "#/components/schemas/project.ProjectStatus"
+                      },
+                      "statusSetAt": {
+                        "format": "date-time",
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -27356,7 +27399,8 @@
                       "createdAt",
                       "isReady",
                       "readiness",
-                      "status"
+                      "status",
+                      "statusSetAt"
                     ],
                     "type": "object"
                   },
@@ -27540,6 +27584,9 @@
           "200": {
             "description": "OK"
           },
+          "204": {
+            "description": "NoContent"
+          },
           "400": {
             "$ref": "#/components/responses/commons.ValidationError"
           },
@@ -27596,6 +27643,9 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "204": {
+            "description": "NoContent"
           },
           "400": {
             "$ref": "#/components/responses/commons.ValidationError"

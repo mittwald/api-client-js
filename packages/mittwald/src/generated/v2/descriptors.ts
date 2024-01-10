@@ -5030,6 +5030,11 @@ export const ingressIngressVerifyOwnership: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdActionsVerifyOwnership.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdActionsVerifyOwnership.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -6943,6 +6948,11 @@ export const projectDeleteProjectAvatar: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAvatar.Delete.Parameters.Header>
   >,
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAvatar.Delete.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAvatar.Delete.Responses.$204.Content.Empty>,
       204,
       "empty"
@@ -7218,6 +7228,11 @@ export const projectDeleteServerAvatar: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2ServersServerIdAvatar.Delete.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2ServersServerIdAvatar.Delete.Parameters.Header>
   >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServersServerIdAvatar.Delete.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ServersServerIdAvatar.Delete.Responses.$204.Content.Empty>,
       204,
@@ -7743,6 +7758,11 @@ export const projectUpdateProjectDescription: OpenAPIOperation<
       "empty"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDescription.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
@@ -7774,6 +7794,11 @@ export const projectUpdateServerDescription: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ServersServerIdDescription.Patch.Responses.$200.Content.Empty>,
       200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServersServerIdDescription.Patch.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
