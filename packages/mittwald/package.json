@@ -42,7 +42,7 @@
     "spec:refresh-dev:v2": "curl --silent https://api-public.dev.mittwald.systems/openapi | spec/transform-openapi.sh  > spec/openapi-dev.json"
   },
   "dependencies": {
-    "@mittwald/api-client-commons": "workspace:*",
+    "@mittwald/api-client-commons": "workspace:^",
     "browser-or-node": "^3.0.0-pre.0"
   },
   "devDependencies": {

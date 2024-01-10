@@ -1346,7 +1346,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mittwald/api-client-commons@workspace:*, @mittwald/api-client-commons@workspace:packages/commons":
+"@mittwald/api-client-commons@workspace:^, @mittwald/api-client-commons@workspace:packages/commons":
   version: 0.0.0-use.local
   resolution: "@mittwald/api-client-commons@workspace:packages/commons"
   dependencies:
@@ -1386,7 +1386,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@mittwald/api-client@workspace:packages/mittwald"
   dependencies:
-    "@mittwald/api-client-commons": "workspace:*"
+    "@mittwald/api-client-commons": "workspace:^"
     "@mittwald/api-code-generator": "workspace:*"
     "@mittwald/react-use-promise": "npm:^2.1.0"
     "@types/react": "npm:^18"
