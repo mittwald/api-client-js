@@ -134,6 +134,7 @@ export class Paths {
     };
 
     return `\
+      import * as FixRollupDtsGenerationBug from "@mittwald/api-client-commons";
       import * as descriptors from "./descriptors.js";
       import { ApiClientBase } from "@mittwald/api-client-commons";
 

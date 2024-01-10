@@ -1,6 +1,7 @@
 /* eslint-disable */
 /* prettier-ignore */
 /* This file is auto-generated with acg (@mittwald/api-code-generator) */
+import * as FixRollupDtsGenerationBug from "@mittwald/api-client-commons";
 import * as descriptors from "./descriptors.js";
 import { ApiClientBase } from "@mittwald/api-client-commons";
 
