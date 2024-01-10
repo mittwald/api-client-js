@@ -42,8 +42,8 @@ export class CodeGenerationModel {
     return `\
       import * as descriptors from "./descriptors.js";
       import { 
-        RequestData as InferredRequestData, 
-        ResponseData as InferredResponseData, 
+        InferredRequestData, 
+        InferredResponseData, 
         HttpStatus 
       } from "@mittwald/api-client-commons";
 

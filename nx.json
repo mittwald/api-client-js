@@ -3,9 +3,10 @@
     "defaultBase": "master"
   },
   "namedInputs": {
+    "config": ["{projectRoot}/*.config.{cjs,js,ts,mjs,json}"],
     "src": ["{projectRoot}/src/**/!(*.{test,test-types}).*"],
     "test": ["{projectRoot}/src/**/*.{test,test-types}.*"],
-    "default": ["src"],
+    "default": ["src", "config"],
     "production": ["default"]
   },
   "targetDefaults": {
