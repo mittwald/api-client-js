@@ -616,17 +616,9 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getDomain: this.requestFunctionFactory(descriptors.domainGetDomain),
     /** Delete a Domain. */
     deleteDomain: this.requestFunctionFactory(descriptors.domainDeleteDomain),
-    /** Get a DomainOwnership. */
-    getDomainOwnership: this.requestFunctionFactory(
-      descriptors.domainGetDomainOwnership,
-    ),
     /** Get the latest screenshot's FileReference belonging to a Domain. */
     getLatestScreenshot: this.requestFunctionFactory(
       descriptors.domainGetLatestScreenshot,
-    ),
-    /** List the DomainOwnerships of a project. */
-    listDomainOwnerships: this.requestFunctionFactory(
-      descriptors.domainListDomainOwnerships,
     ),
     /** List the contact schemas for a TLD. */
     listTldContactSchemas: this.requestFunctionFactory(
@@ -649,10 +641,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update a Domain's project id. */
     updateDomainProjectId: this.requestFunctionFactory(
       descriptors.domainUpdateDomainProjectId,
-    ),
-    /** Verify a DomainOwnership. */
-    verifyDomainOwnership: this.requestFunctionFactory(
-      descriptors.domainVerifyDomainOwnership,
     ),
     /** List Ingresses. */
     ingressListIngresses: this.requestFunctionFactory(

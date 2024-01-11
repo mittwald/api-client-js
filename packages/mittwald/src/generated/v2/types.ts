@@ -1406,17 +1406,6 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.domainDeleteDomain, TStatus>;
     }
 
-    namespace DomainGetDomainOwnership {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainGetDomainOwnership
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainGetDomainOwnership,
-          TStatus
-        >;
-    }
-
     namespace DomainGetLatestScreenshot {
       type RequestData = InferredRequestData<
         typeof descriptors.domainGetLatestScreenshot
@@ -1424,17 +1413,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.domainGetLatestScreenshot,
-          TStatus
-        >;
-    }
-
-    namespace DomainListDomainOwnerships {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainListDomainOwnerships
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainListDomainOwnerships,
           TStatus
         >;
     }
@@ -1496,17 +1474,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.domainUpdateDomainProjectId,
-          TStatus
-        >;
-    }
-
-    namespace DomainVerifyDomainOwnership {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainVerifyDomainOwnership
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainVerifyDomainOwnership,
           TStatus
         >;
     }
@@ -3428,9 +3395,9 @@ export declare module MittwaldAPIV2 {
         articles: MittwaldAPIV2.Components.Schemas.ContractArticle[];
         contractPeriod: number;
         description: string;
-        freeTrialDays: number;
+        freeTrialDays?: number;
         groupByProjectId?: string;
-        invoicingPeriod: number;
+        invoicingPeriod?: number;
         isActivated: boolean;
         isBaseItem: boolean;
         isInFreeTrial?: boolean;
@@ -3462,9 +3429,6 @@ export declare module MittwaldAPIV2 {
         contractId: string;
         contractNumber: string;
         customerId: string;
-        isInvoicingDeactivated?: boolean;
-        isInvoicingPaused?: boolean;
-        owner: MittwaldAPIV2.Components.Schemas.ContractContact;
         termination?: MittwaldAPIV2.Components.Schemas.ContractTermination;
       }
 
@@ -4112,13 +4076,6 @@ export declare module MittwaldAPIV2 {
         ownerC: MittwaldAPIV2.Components.Schemas.DomainHandleField[];
       }
 
-      export interface DomainDomainOwnership {
-        domain: string;
-        id: string;
-        projectId: string;
-        txtRecord: string;
-      }
-
       export interface DomainDomain {
         authCode?: MittwaldAPIV2.Components.Schemas.DomainAuthCode;
         authCode2?: MittwaldAPIV2.Components.Schemas.DomainAuthCode2;
@@ -4457,6 +4414,18 @@ export declare module MittwaldAPIV2 {
         updatedAt: string;
       }
 
+      export interface MailDeliveryboxInternal {
+        authenticationEnabled: boolean;
+        description: string;
+        id: string;
+        mailsystemSettings: MittwaldAPIV2.Components.Schemas.MailMailsystemSettings;
+        name: string;
+        passwordUpdatedAt: string;
+        projectId: string;
+        sendingEnabled: boolean;
+        updatedAt: string;
+      }
+
       export interface MailError {
         message: string;
         type: string;
@@ -4472,7 +4441,7 @@ export declare module MittwaldAPIV2 {
         autoResponder: {
           active: boolean;
           expiresAt?: string;
-          message: string;
+          message?: string;
           startsAt?: string;
         };
         forwardAddresses: string[];
@@ -4480,6 +4449,7 @@ export declare module MittwaldAPIV2 {
         isArchived: boolean;
         isCatchAll: boolean;
         mailbox?: {
+          name: string;
           passwordUpdatedAt: string;
           sendingEnabled: boolean;
           spamProtection: {
@@ -4499,6 +4469,48 @@ export declare module MittwaldAPIV2 {
         projectId: string;
         receivingDisabled: boolean;
         updatedAt: string;
+      }
+
+      export interface MailMailAddressInternal {
+        address: string;
+        autoResponder: {
+          active: boolean;
+          expiresAt?: string;
+          message?: string;
+          startsAt?: string;
+        };
+        forwardAddresses: string[];
+        id: string;
+        isArchived: boolean;
+        isCatchAll: boolean;
+        mailbox?: {
+          mailsystemSettings: MittwaldAPIV2.Components.Schemas.MailMailsystemSettings;
+          name: string;
+          passwordUpdatedAt: string;
+          sendingEnabled: boolean;
+          spamProtection: {
+            active: boolean;
+            autoDeleteSpam: boolean;
+            folder: "spam" | "inbox";
+            relocationMinSpamScore: number;
+          };
+          storageInBytes: {
+            current: {
+              updatedAt: string;
+              value: number;
+            };
+            limit: number;
+          };
+        };
+        projectId: string;
+        receivingDisabled: boolean;
+        updatedAt: string;
+      }
+
+      export interface MailMailsystemSettings {
+        imapClusterId: string;
+        mailDirectory: string;
+        rateLimitId: string;
       }
 
       export type MembershipCustomerInheritedRoles =
@@ -4884,6 +4896,14 @@ export declare module MittwaldAPIV2 {
         | "ready"
         | "unready";
 
+      /**
+       * deprecated
+       */
+      export type ProjectDeprecatedServerReadinessStatus =
+        | "creating"
+        | "ready"
+        | "unready";
+
       export interface ProjectFilesystemDirectoryListing {
         absolutePath: string;
         isDirectory?: boolean;
@@ -4965,6 +4985,8 @@ export declare module MittwaldAPIV2 {
       }
 
       export type ProjectServerDisableReason = "suspended";
+
+      export type ProjectServerStatus = "pending" | "ready";
 
       export interface ProjectServer {
         clusterName: string;
@@ -5212,16 +5234,6 @@ export declare module MittwaldAPIV2 {
         location?: MittwaldAPIV2.Components.Schemas.SignupLocation;
         tokenId: string;
       }
-
-      /**
-       * deprecated
-       */
-      export type ProjectDeprecatedServerReadinessStatus =
-        | "creating"
-        | "ready"
-        | "unready";
-
-      export type ProjectServerStatus = "pending" | "ready";
 
       export interface CommonsAddress {
         street: string;
@@ -11782,53 +11794,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2DomainOwnershipsDomainOwnershipId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            domainOwnershipId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DomainDomainOwnership;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2DomainsHandleSchemaDomainName {}
 
     namespace V2DomainsDomainIdLatestScreenshot {
@@ -11858,45 +11823,6 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectsProjectIdDomainOwnerships {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DomainDomainOwnership[];
-            }
-          }
-
-          namespace $400 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -12147,56 +12073,6 @@ export declare module MittwaldAPIV2 {
 
           export interface RequestBody {
             projectId?: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DomainOwnershipsDomainOwnershipIdActionsVerify {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            domainOwnershipId: string;
-          };
-
-          export interface RequestBody {
-            [k: string]: unknown;
           }
 
           export type Header =
@@ -13564,7 +13440,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -13705,7 +13581,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -13865,7 +13741,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -13939,7 +13815,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -14013,7 +13889,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -14092,7 +13968,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -14168,7 +14044,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -14246,7 +14122,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -14322,7 +14198,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -14398,7 +14274,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -14479,7 +14355,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -14560,7 +14436,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -15707,12 +15583,6 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
@@ -15966,12 +15836,6 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {}
-            }
-          }
-
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
@@ -16081,12 +15945,6 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
@@ -16859,12 +16717,6 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
@@ -16915,12 +16767,6 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
           namespace $204 {
             namespace Content {
               export type Empty = unknown;

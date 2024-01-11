@@ -4335,40 +4335,6 @@ export const domainDeleteDomain: OpenAPIOperation<
   operationId: "domain-delete-domain",
 };
 
-/** Get a DomainOwnership. */
-export const domainGetDomainOwnership: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipId.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domain-ownerships/{domainOwnershipId}",
-  method: "GET",
-  operationId: "domain-get-domain-ownership",
-};
-
 /** Get the latest screenshot's FileReference belonging to a Domain. */
 export const domainGetLatestScreenshot: OpenAPIOperation<
   RequestType<
@@ -4396,35 +4362,6 @@ export const domainGetLatestScreenshot: OpenAPIOperation<
   path: "/v2/domains/{domainId}/latest-screenshot",
   method: "GET",
   operationId: "domain-get-latest-screenshot",
-};
-
-/** List the DomainOwnerships of a project. */
-export const domainListDomainOwnerships: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomainOwnerships.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomainOwnerships.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomainOwnerships.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomainOwnerships.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomainOwnerships.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomainOwnerships.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/{projectId}/domain-ownerships",
-  method: "GET",
-  operationId: "domain-list-domain-ownerships",
 };
 
 /** List the contact schemas for a TLD. */
@@ -4609,40 +4546,6 @@ export const domainUpdateDomainProjectId: OpenAPIOperation<
   path: "/v2/domains/{domainId}/project-id",
   method: "PATCH",
   operationId: "domain-update-domain-project-id",
-};
-
-/** Verify a DomainOwnership. */
-export const domainVerifyDomainOwnership: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipIdActionsVerify.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipIdActionsVerify.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipIdActionsVerify.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipIdActionsVerify.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipIdActionsVerify.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipIdActionsVerify.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipIdActionsVerify.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainOwnershipsDomainOwnershipIdActionsVerify.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domain-ownerships/{domainOwnershipId}/actions/verify",
-  method: "POST",
-  operationId: "domain-verify-domain-ownership",
 };
 
 /** Create a File. */
@@ -5561,8 +5464,8 @@ export const mailDeleteDeliveryBox: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2DeliveryBoxesDeliveryBoxId.Delete.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DeliveryBoxesDeliveryBoxId.Delete.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2DeliveryBoxesDeliveryBoxId.Delete.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
@@ -5659,8 +5562,8 @@ export const mailDeleteMailAddress: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressId.Delete.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressId.Delete.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressId.Delete.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
@@ -5757,8 +5660,8 @@ export const mailUpdateDeliveryBoxDescription: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2DeliveryBoxesDeliveryBoxIdDescription.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DeliveryBoxesDeliveryBoxIdDescription.Patch.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2DeliveryBoxesDeliveryBoxIdDescription.Patch.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
@@ -5806,8 +5709,8 @@ export const mailUpdateDeliveryBoxPassword: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2DeliveryBoxesDeliveryBoxIdPassword.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DeliveryBoxesDeliveryBoxIdPassword.Patch.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2DeliveryBoxesDeliveryBoxIdPassword.Patch.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
@@ -5855,8 +5758,8 @@ export const mailUpdateMailAddressAddress: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAddress.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAddress.Patch.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAddress.Patch.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
@@ -5904,8 +5807,8 @@ export const mailUpdateMailAddressAutoresponder: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Patch.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Patch.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
@@ -5953,8 +5856,8 @@ export const mailUpdateMailAddressCatchAll: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchAll.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchAll.Patch.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchAll.Patch.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
@@ -6002,8 +5905,8 @@ export const mailUpdateMailAddressForwardAddresses: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Patch.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Patch.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
@@ -6051,8 +5954,8 @@ export const mailUpdateMailAddressPassword: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Patch.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Patch.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
@@ -6100,8 +6003,8 @@ export const mailUpdateMailAddressQuota: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Patch.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Patch.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
@@ -6149,8 +6052,8 @@ export const mailUpdateMailAddressSpamProtection: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Patch.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Patch.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
@@ -6198,8 +6101,8 @@ export const mailUpdateProjectMailSetting: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Patch.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Patch.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
@@ -6948,11 +6851,6 @@ export const projectDeleteProjectAvatar: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAvatar.Delete.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAvatar.Delete.Responses.$200.Content.Empty>,
-      200,
-      "empty"
-    >
-  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAvatar.Delete.Responses.$204.Content.Empty>,
       204,
       "empty"
@@ -7146,11 +7044,6 @@ export const projectDeleteProject: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectId.Delete.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectId.Delete.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectId.Delete.Responses.$204.Content.Empty>,
       204,
       "empty"
@@ -7228,11 +7121,6 @@ export const projectDeleteServerAvatar: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2ServersServerIdAvatar.Delete.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2ServersServerIdAvatar.Delete.Parameters.Header>
   >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ServersServerIdAvatar.Delete.Responses.$200.Content.Empty>,
-      200,
-      "empty"
-    >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ServersServerIdAvatar.Delete.Responses.$204.Content.Empty>,
       204,
@@ -7753,11 +7641,6 @@ export const projectUpdateProjectDescription: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDescription.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDescription.Patch.Responses.$200.Content.Empty>,
-      200,
-      "empty"
-    >
-  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDescription.Patch.Responses.$204.Content.Empty>,
       204,
       "empty"
@@ -7791,11 +7674,6 @@ export const projectUpdateServerDescription: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2ServersServerIdDescription.Patch.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2ServersServerIdDescription.Patch.Parameters.Header>
   >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ServersServerIdDescription.Patch.Responses.$200.Content.Empty>,
-      200,
-      "empty"
-    >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ServersServerIdDescription.Patch.Responses.$204.Content.Empty>,
       204,

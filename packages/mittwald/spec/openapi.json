@@ -1649,7 +1649,6 @@
           },
           "invoicingPeriod": {
             "example": 1,
-            "minimum": 1,
             "type": "number"
           },
           "isActivated": {
@@ -1709,13 +1708,11 @@
           "itemId",
           "orderDate",
           "isActivated",
-          "invoicingPeriod",
           "contractPeriod",
           "articles",
           "totalPrice",
           "description",
-          "isBaseItem",
-          "freeTrialDays"
+          "isBaseItem"
         ],
         "type": "object"
       },
@@ -1742,15 +1739,6 @@
             "example": "3a201faa-5160-47e0-a758-325ba794b543",
             "type": "string"
           },
-          "isInvoicingDeactivated": {
-            "type": "boolean"
-          },
-          "isInvoicingPaused": {
-            "type": "boolean"
-          },
-          "owner": {
-            "$ref": "#/components/schemas/contract.Contact"
-          },
           "termination": {
             "$ref": "#/components/schemas/contract.Termination"
           }
@@ -1759,7 +1747,6 @@
           "contractId",
           "contractNumber",
           "customerId",
-          "owner",
           "baseItem"
         ],
         "type": "object"
@@ -1819,7 +1806,6 @@
             "type": "string"
           },
           "scheduledByUserId": {
-            "format": "uuid",
             "type": "string"
           },
           "targetDate": {
@@ -1841,15 +1827,14 @@
             "type": "string"
           },
           "scheduledAtDate": {
-            "format": "date",
+            "format": "date-time",
             "type": "string"
           },
           "scheduledByUserId": {
-            "format": "uuid",
             "type": "string"
           },
           "targetDate": {
-            "format": "date",
+            "format": "date-time",
             "type": "string"
           }
         },
@@ -3742,32 +3727,6 @@
         ],
         "type": "object"
       },
-      "domain.DomainOwnership": {
-        "properties": {
-          "domain": {
-            "format": "hostname",
-            "type": "string"
-          },
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "projectId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "txtRecord": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "id",
-          "domain",
-          "txtRecord",
-          "projectId"
-        ],
-        "type": "object"
-      },
       "domain.Domain": {
         "properties": {
           "authCode": {
@@ -4876,6 +4835,52 @@
         ],
         "type": "object"
       },
+      "mail.DeliveryboxInternal": {
+        "properties": {
+          "authenticationEnabled": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "mailsystemSettings": {
+            "$ref": "#/components/schemas/mail.MailsystemSettings"
+          },
+          "name": {
+            "type": "string"
+          },
+          "passwordUpdatedAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "projectId": {
+            "type": "string"
+          },
+          "sendingEnabled": {
+            "type": "boolean"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "projectId",
+          "description",
+          "authenticationEnabled",
+          "sendingEnabled",
+          "passwordUpdatedAt",
+          "updatedAt",
+          "mailsystemSettings"
+        ],
+        "type": "object"
+      },
       "mail.Error": {
         "properties": {
           "message": {
@@ -4927,7 +4932,6 @@
                 "type": "string"
               },
               "message": {
-                "minLength": 1,
                 "type": "string"
               },
               "startsAt": {
@@ -4936,8 +4940,7 @@
               }
             },
             "required": [
-              "active",
-              "message"
+              "active"
             ],
             "type": "object"
           },
@@ -4960,6 +4963,9 @@
           },
           "mailbox": {
             "properties": {
+              "name": {
+                "type": "string"
+              },
               "passwordUpdatedAt": {
                 "format": "date-time",
                 "type": "string"
@@ -5025,6 +5031,7 @@
               }
             },
             "required": [
+              "name",
               "sendingEnabled",
               "spamProtection",
               "storageInBytes",
@@ -5053,6 +5060,176 @@
           "updatedAt",
           "autoResponder",
           "isArchived"
+        ],
+        "type": "object"
+      },
+      "mail.MailAddressInternal": {
+        "properties": {
+          "address": {
+            "format": "email",
+            "type": "string"
+          },
+          "autoResponder": {
+            "properties": {
+              "active": {
+                "type": "boolean"
+              },
+              "expiresAt": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "startsAt": {
+                "format": "date-time",
+                "type": "string"
+              }
+            },
+            "required": [
+              "active"
+            ],
+            "type": "object"
+          },
+          "forwardAddresses": {
+            "items": {
+              "format": "email",
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "id": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "isArchived": {
+            "type": "boolean"
+          },
+          "isCatchAll": {
+            "type": "boolean"
+          },
+          "mailbox": {
+            "properties": {
+              "mailsystemSettings": {
+                "$ref": "#/components/schemas/mail.MailsystemSettings"
+              },
+              "name": {
+                "type": "string"
+              },
+              "passwordUpdatedAt": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "sendingEnabled": {
+                "type": "boolean"
+              },
+              "spamProtection": {
+                "properties": {
+                  "active": {
+                    "type": "boolean"
+                  },
+                  "autoDeleteSpam": {
+                    "type": "boolean"
+                  },
+                  "folder": {
+                    "enum": [
+                      "spam",
+                      "inbox"
+                    ],
+                    "type": "string"
+                  },
+                  "relocationMinSpamScore": {
+                    "maximum": 10,
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "active",
+                  "folder",
+                  "relocationMinSpamScore",
+                  "autoDeleteSpam"
+                ],
+                "type": "object"
+              },
+              "storageInBytes": {
+                "properties": {
+                  "current": {
+                    "properties": {
+                      "updatedAt": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "updatedAt"
+                    ],
+                    "type": "object"
+                  },
+                  "limit": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "limit",
+                  "current"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "name",
+              "sendingEnabled",
+              "spamProtection",
+              "storageInBytes",
+              "passwordUpdatedAt",
+              "mailsystemSettings"
+            ],
+            "type": "object"
+          },
+          "projectId": {
+            "type": "string"
+          },
+          "receivingDisabled": {
+            "type": "boolean"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "receivingDisabled",
+          "address",
+          "isCatchAll",
+          "projectId",
+          "forwardAddresses",
+          "updatedAt",
+          "autoResponder",
+          "isArchived"
+        ],
+        "type": "object"
+      },
+      "mail.MailsystemSettings": {
+        "properties": {
+          "imapClusterId": {
+            "type": "string"
+          },
+          "mailDirectory": {
+            "type": "string"
+          },
+          "rateLimitId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "imapClusterId",
+          "mailDirectory",
+          "rateLimitId"
         ],
         "type": "object"
       },
@@ -6049,6 +6226,16 @@
         ],
         "type": "string"
       },
+      "project.DeprecatedServerReadinessStatus": {
+        "deprecated": true,
+        "description": "deprecated",
+        "enum": [
+          "creating",
+          "ready",
+          "unready"
+        ],
+        "type": "string"
+      },
       "project.FilesystemDirectoryListing": {
         "properties": {
           "absolutePath": {
@@ -6291,6 +6478,13 @@
       "project.ServerDisableReason": {
         "enum": [
           "suspended"
+        ],
+        "type": "string"
+      },
+      "project.ServerStatus": {
+        "enum": [
+          "pending",
+          "ready"
         ],
         "type": "string"
       },
@@ -7034,23 +7228,6 @@
           "tokenId"
         ],
         "type": "object"
-      },
-      "project.DeprecatedServerReadinessStatus": {
-        "deprecated": true,
-        "description": "deprecated",
-        "enum": [
-          "creating",
-          "ready",
-          "unready"
-        ],
-        "type": "string"
-      },
-      "project.ServerStatus": {
-        "enum": [
-          "pending",
-          "ready"
-        ],
-        "type": "string"
       },
       "commons.Address": {
         "type": "object",
@@ -18964,94 +19141,6 @@
         ]
       }
     },
-    "/v2/domain-ownerships/{domainOwnershipId}": {
-      "get": {
-        "operationId": "domain-get-domain-ownership",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "domainOwnershipId",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/domain.DomainOwnership"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "400": {
-            "$ref": "#/components/responses/commons.ValidationError"
-          },
-          "404": {
-            "$ref": "#/components/responses/commons.NotFoundError"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "Get a DomainOwnership.",
-        "tags": [
-          "Domain"
-        ]
-      },
-      "post": {
-        "description": "Verify your access to a Domain with an already set TXT Record. On success, the domain will be linked with the webserver.",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "domainOwnershipId",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {}
-          }
-        },
-        "responses": {
-          "308": {
-            "description": "This route is deprecated, and will redirect you to another URL.",
-            "headers": {
-              "location": {
-                "description": "The new URL to use; clients should redirect their request to this URL, using the same request method and body as the original request.",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "Verify a DomainOwnership.",
-        "tags": [
-          "Domain"
-        ],
-        "deprecated": true
-      }
-    },
     "/v2/domains/handle-schema/{domainName}": {
       "get": {
         "operationId": "domain-get-handle-fields-v2-deprecated",
@@ -19169,52 +19258,6 @@
           }
         ],
         "summary": "Get the latest screenshot's FileReference belonging to a Domain.",
-        "tags": [
-          "Domain"
-        ]
-      }
-    },
-    "/v2/projects/{projectId}/domain-ownerships": {
-      "get": {
-        "operationId": "domain-list-domain-ownerships",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/domain.DomainOwnership"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "400": {
-            "$ref": "#/components/responses/commons.ValidationError"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "List the DomainOwnerships of a project.",
         "tags": [
           "Domain"
         ]
@@ -19670,53 +19713,6 @@
           }
         ],
         "summary": "Update a Domain's project id.",
-        "tags": [
-          "Domain"
-        ]
-      }
-    },
-    "/v2/domain-ownerships/{domainOwnershipId}/actions/verify": {
-      "post": {
-        "operationId": "domain-verify-domain-ownership",
-        "description": "Verify your access to a Domain with an already set TXT Record. On success, the domain will be linked with the webserver.",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "domainOwnershipId",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {}
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "400": {
-            "$ref": "#/components/responses/commons.ValidationError"
-          },
-          "404": {
-            "$ref": "#/components/responses/commons.NotFoundError"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "Verify a DomainOwnership.",
         "tags": [
           "Domain"
         ]
@@ -21514,7 +21510,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "204": {
             "description": "OK"
           },
           "400": {
@@ -21693,7 +21689,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "204": {
             "description": "OK"
           },
           "400": {
@@ -22241,7 +22237,7 @@
           "description": "Description of the DeliveryBox."
         },
         "responses": {
-          "200": {
+          "204": {
             "description": "OK"
           },
           "400": {
@@ -22306,7 +22302,7 @@
           }
         },
         "responses": {
-          "200": {
+          "204": {
             "description": "OK"
           },
           "400": {
@@ -22372,7 +22368,7 @@
           }
         },
         "responses": {
-          "200": {
+          "204": {
             "description": "OK"
           },
           "400": {
@@ -22459,7 +22455,7 @@
           "description": "Autoresponder for the MailAddress."
         },
         "responses": {
-          "200": {
+          "204": {
             "description": "OK"
           },
           "400": {
@@ -22688,7 +22684,7 @@
           "description": "Catchall of the MailAddress."
         },
         "responses": {
-          "200": {
+          "204": {
             "description": "OK"
           },
           "400": {
@@ -22880,7 +22876,7 @@
           }
         },
         "responses": {
-          "200": {
+          "204": {
             "description": "OK"
           },
           "400": {
@@ -23072,7 +23068,7 @@
           }
         },
         "responses": {
-          "200": {
+          "204": {
             "description": "OK"
           },
           "400": {
@@ -23257,7 +23253,7 @@
           }
         },
         "responses": {
-          "200": {
+          "204": {
             "description": "OK"
           },
           "400": {
@@ -23468,7 +23464,7 @@
           }
         },
         "responses": {
-          "200": {
+          "204": {
             "description": "OK"
           },
           "400": {
@@ -23738,7 +23734,7 @@
           }
         },
         "responses": {
-          "200": {
+          "204": {
             "description": "OK"
           },
           "400": {
@@ -25822,9 +25818,6 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "204": {
             "description": "NoContent"
           },
@@ -26127,16 +26120,6 @@
           }
         ],
         "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            },
-            "description": "OK"
-          },
           "204": {
             "description": "NoContent"
           },
@@ -26225,9 +26208,6 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "204": {
             "description": "NoContent"
           },
@@ -26491,7 +26471,7 @@
             "$ref": "#/components/responses/commons.DefaultError"
           },
           "404": {
-            "$ref": "#/components/responses/commons.DefaultError"
+            "$ref": "#/components/responses/commons.NotFoundError"
           },
           "503": {
             "$ref": "#/components/responses/commons.DefaultError"
@@ -26600,7 +26580,7 @@
             "$ref": "#/components/responses/commons.DefaultError"
           },
           "404": {
-            "$ref": "#/components/responses/commons.DefaultError"
+            "$ref": "#/components/responses/commons.NotFoundError"
           },
           "503": {
             "$ref": "#/components/responses/commons.DefaultError"
@@ -26727,7 +26707,7 @@
             "$ref": "#/components/responses/commons.DefaultError"
           },
           "404": {
-            "$ref": "#/components/responses/commons.DefaultError"
+            "$ref": "#/components/responses/commons.NotFoundError"
           },
           "503": {
             "$ref": "#/components/responses/commons.DefaultError"
@@ -26776,7 +26756,7 @@
             "$ref": "#/components/responses/commons.DefaultError"
           },
           "404": {
-            "$ref": "#/components/responses/commons.DefaultError"
+            "$ref": "#/components/responses/commons.NotFoundError"
           },
           "503": {
             "$ref": "#/components/responses/commons.DefaultError"
@@ -26882,7 +26862,7 @@
             "$ref": "#/components/responses/commons.DefaultError"
           },
           "404": {
-            "$ref": "#/components/responses/commons.DefaultError"
+            "$ref": "#/components/responses/commons.NotFoundError"
           },
           "503": {
             "$ref": "#/components/responses/commons.DefaultError"
@@ -27017,7 +26997,7 @@
             "$ref": "#/components/responses/commons.DefaultError"
           },
           "404": {
-            "$ref": "#/components/responses/commons.DefaultError"
+            "$ref": "#/components/responses/commons.NotFoundError"
           },
           "default": {
             "$ref": "#/components/responses/commons.DefaultError"
@@ -27581,9 +27561,6 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "204": {
             "description": "NoContent"
           },
@@ -27641,9 +27618,6 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "204": {
             "description": "NoContent"
           },

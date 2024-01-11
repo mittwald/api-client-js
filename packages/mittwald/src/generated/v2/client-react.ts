@@ -386,20 +386,10 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.domainGetDomain,
     baseClient.domain.getDomain,
   ).getApiResource,
-  /** Get a DomainOwnership. */
-  getDomainOwnership: new ApiCallAsyncResourceFactory(
-    descriptors.domainGetDomainOwnership,
-    baseClient.domain.getDomainOwnership,
-  ).getApiResource,
   /** Get the latest screenshot's FileReference belonging to a Domain. */
   getLatestScreenshot: new ApiCallAsyncResourceFactory(
     descriptors.domainGetLatestScreenshot,
     baseClient.domain.getLatestScreenshot,
-  ).getApiResource,
-  /** List the DomainOwnerships of a project. */
-  listDomainOwnerships: new ApiCallAsyncResourceFactory(
-    descriptors.domainListDomainOwnerships,
-    baseClient.domain.listDomainOwnerships,
   ).getApiResource,
   /** List the contact schemas for a TLD. */
   listTldContactSchemas: new ApiCallAsyncResourceFactory(
