@@ -117,6 +117,10 @@
     }
   },
   "unbuild": {
-    "declaration": true
+    "declaration": true,
+    "externals": [
+      "type-fest",
+      "axios"
+    ]
   }
 }
