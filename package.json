@@ -13,7 +13,13 @@
     "test:licenses:base": "yarn pnpify license-checker-rseidelsohn --excludePackages 'root'",
     "test:packages": "lerna run test",
     "api-client:spec:refresh": "lerna run spec:refresh --scope=@mittwald/api-client",
-    "api-client:build": "lerna run build --scope=@mittwald/api-client"
+    "api-client:build": "lerna run build --scope=@mittwald/api-client",
+    "postinstall": "yarn dlx simple-git-hooks"
+  },
+  "simple-git-hooks": {
+    "post-checkout": "yarn install",
+    "post-merge": "yarn install",
+    "pre-commit": "yarn lint"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.12.0",
