@@ -2091,30 +2091,14 @@
         ],
         "type": "object"
       },
-      "conversation.MessageHistoryItem": {
-        "properties": {
-          "content": {
-            "type": "string"
-          },
-          "updatedAt": {
-            "type": "string"
-          },
-          "updatedBy": {
-            "$ref": "#/components/schemas/conversation.User"
-          }
-        },
-        "required": [
-          "content",
-          "updatedAt"
-        ],
-        "type": "object"
-      },
       "conversation.Message": {
         "properties": {
           "conversationId": {
+            "format": "uuid",
             "type": "string"
           },
           "createdAt": {
+            "format": "date-time",
             "type": "string"
           },
           "createdBy": {
@@ -2123,12 +2107,6 @@
           "files": {
             "items": {
               "$ref": "#/components/schemas/conversation.File"
-            },
-            "type": "array"
-          },
-          "history": {
-            "items": {
-              "$ref": "#/components/schemas/conversation.MessageHistoryItem"
             },
             "type": "array"
           },
@@ -2153,7 +2131,6 @@
           "messageId",
           "conversationId",
           "createdAt",
-          "history",
           "type"
         ],
         "type": "object"
@@ -11468,8 +11445,7 @@
                     }
                   },
                   "required": [
-                    "conversationId",
-                    "status"
+                    "conversationId"
                   ],
                   "type": "object"
                 }

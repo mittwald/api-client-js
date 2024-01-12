@@ -3544,18 +3544,11 @@ export declare module MittwaldAPIV2 {
         type: string;
       }
 
-      export interface ConversationMessageHistoryItem {
-        content: string;
-        updatedAt: string;
-        updatedBy?: MittwaldAPIV2.Components.Schemas.ConversationUser;
-      }
-
       export interface ConversationMessage {
         conversationId: string;
         createdAt: string;
         createdBy?: MittwaldAPIV2.Components.Schemas.ConversationUser;
         files?: MittwaldAPIV2.Components.Schemas.ConversationFile[];
-        history: MittwaldAPIV2.Components.Schemas.ConversationMessageHistoryItem[];
         internal?: boolean;
         messageContent?: string;
         messageId: string;
