@@ -77,6 +77,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Remove linkage between an `AppInstallation` and a `Database`. */
     unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
+    /** Get the installed `SystemSoftware' for a specific `AppInstallation`. */
+    getInstalledSystemsoftwareForAppinstallation: this.requestFunctionFactory(
+      descriptors.appGetInstalledSystemsoftwareForAppinstallation,
+    ),
   };
 
   /** The article API allows you to read article information. */

@@ -392,8 +392,7 @@
         "required": [
           "id",
           "name",
-          "tags",
-          "images"
+          "tags"
         ],
         "type": "object"
       },
@@ -805,6 +804,12 @@
         "properties": {
           "id": {
             "type": "string"
+          },
+          "meta": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object"
           },
           "name": {
             "type": "string"
@@ -3281,7 +3286,6 @@
           "hostname",
           "port",
           "description",
-          "finalizers",
           "createdAt",
           "updatedAt",
           "name"
@@ -4464,7 +4468,6 @@
                 }
               },
               "required": [
-                "description",
                 "items"
               ],
               "type": "object"
@@ -8487,15 +8490,10 @@
                     "id": {
                       "format": "uuid",
                       "type": "string"
-                    },
-                    "processId": {
-                      "format": "uuid",
-                      "type": "string"
                     }
                   },
                   "required": [
-                    "id",
-                    "processId"
+                    "id"
                   ],
                   "type": "object"
                 }
@@ -14438,9 +14436,6 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "204": {
             "description": "NoContent"
           },
@@ -14535,9 +14530,6 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "204": {
             "description": "NoContent"
           },
@@ -14651,8 +14643,8 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "NoContent"
           },
           "400": {
             "$ref": "#/components/responses/commons.ValidationError"
@@ -14691,9 +14683,6 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "204": {
             "description": "NoContent"
           },
@@ -14795,8 +14784,8 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "NoContent"
           },
           "400": {
             "$ref": "#/components/responses/commons.ValidationError"
@@ -14842,8 +14831,8 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "NoContent"
           },
           "400": {
             "$ref": "#/components/responses/commons.ValidationError"
@@ -15093,8 +15082,8 @@
           "description": "The default character settings to be used for the MySQLDatabase."
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "NoContent"
           },
           "400": {
             "$ref": "#/components/responses/commons.ValidationError"
@@ -15149,8 +15138,8 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "NoContent"
           },
           "400": {
             "$ref": "#/components/responses/commons.ValidationError"
@@ -15205,8 +15194,8 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "NoContent"
           },
           "400": {
             "$ref": "#/components/responses/commons.ValidationError"
@@ -15258,8 +15247,8 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "NoContent"
           },
           "400": {
             "$ref": "#/components/responses/commons.ValidationError"
@@ -15314,8 +15303,8 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "NoContent"
           },
           "400": {
             "$ref": "#/components/responses/commons.ValidationError"
@@ -32900,6 +32889,59 @@
         "summary": "Verify your registration.",
         "tags": [
           "User"
+        ]
+      }
+    },
+    "/v2/app-installations/{appInstallationId}/systemSoftware": {
+      "get": {
+        "operationId": "app-get-installed-systemsoftware-for-appinstallation",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "appInstallationId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "tagFilter",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/app.SystemSoftware"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "The list of installed 'SystemSoftware'."
+          },
+          "404": {
+            "$ref": "#/components/responses/commons.NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "Get the installed `SystemSoftware' for a specific `AppInstallation`.",
+        "tags": [
+          "App"
         ]
       }
     }

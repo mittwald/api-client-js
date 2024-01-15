@@ -3295,11 +3295,6 @@ export const databaseDeleteMysqlDatabase: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Delete.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Delete.Responses.$200.Content.Empty>,
-      200,
-      "empty"
-    >
-  | Response<
       Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Delete.Responses.$204.Content.Empty>,
       204,
       "empty"
@@ -3378,8 +3373,8 @@ export const databaseUpdateMysqlUser: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Put.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Put.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Put.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
@@ -3411,11 +3406,6 @@ export const databaseDeleteMysqlUser: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Delete.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Delete.Parameters.Header>
   >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Delete.Responses.$200.Content.Empty>,
-      200,
-      "empty"
-    >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Delete.Responses.$204.Content.Empty>,
       204,
@@ -3490,11 +3480,6 @@ export const databaseDeleteRedisDatabase: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Delete.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Delete.Responses.$200.Content.Empty>,
-      200,
-      "empty"
-    >
-  | Response<
       Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Delete.Responses.$204.Content.Empty>,
       204,
       "empty"
@@ -3539,8 +3524,8 @@ export const databaseDisableMysqlUser: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsDisable.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsDisable.Post.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsDisable.Post.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
@@ -3573,8 +3558,8 @@ export const databaseEnableMysqlUser: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsEnable.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsEnable.Post.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsEnable.Post.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
@@ -3743,8 +3728,8 @@ export const databaseUpdateMysqlDatabaseDefaultCharset: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
@@ -3777,8 +3762,8 @@ export const databaseUpdateMysqlDatabaseDescription: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
@@ -3811,8 +3796,8 @@ export const databaseUpdateMysqlUserPassword: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPassword.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPassword.Patch.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPassword.Patch.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
@@ -3845,8 +3830,8 @@ export const databaseUpdateRedisDatabaseConfiguration: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
@@ -3879,8 +3864,8 @@ export const databaseUpdateRedisDatabaseDescription: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
@@ -9651,4 +9636,33 @@ export const userVerifyRegistration: OpenAPIOperation<
   path: "/v2/verify-registration",
   method: "POST",
   operationId: "user-verify-registration",
+};
+
+/** Get the installed `SystemSoftware' for a specific `AppInstallation`. */
+export const appGetInstalledSystemsoftwareForAppinstallation: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdSystemSoftware.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdSystemSoftware.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdSystemSoftware.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdSystemSoftware.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdSystemSoftware.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdSystemSoftware.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/app-installations/{appInstallationId}/systemSoftware",
+  method: "GET",
+  operationId: "app-get-installed-systemsoftware-for-appinstallation",
 };

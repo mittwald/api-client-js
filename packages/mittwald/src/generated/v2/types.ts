@@ -2938,6 +2938,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace AppGetInstalledSystemsoftwareForAppinstallation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appGetInstalledSystemsoftwareForAppinstallation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appGetInstalledSystemsoftwareForAppinstallation,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -3121,6 +3132,9 @@ export declare module MittwaldAPIV2 {
        */
       export interface AppSystemSoftware {
         id: string;
+        meta?: {
+          [k: string]: string;
+        };
         name: string;
         tags: string[];
       }
@@ -3891,7 +3905,7 @@ export declare module MittwaldAPIV2 {
         configuration?: MittwaldAPIV2.Components.Schemas.DatabaseRedisDatabaseConfiguration;
         createdAt: string;
         description: string;
-        finalizers: string[];
+        finalizers?: string[];
         hostname: string;
         id: string;
         name: string;
@@ -4311,7 +4325,7 @@ export declare module MittwaldAPIV2 {
         date: string;
         groups: {
           contractId?: string;
-          description: string;
+          description?: string;
           items: MittwaldAPIV2.Components.Schemas.InvoiceInvoiceItem[];
         }[];
         id: string;
@@ -5893,7 +5907,6 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export interface ApplicationJson {
                 id: string;
-                processId: string;
               }
             }
           }
@@ -10220,12 +10233,6 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
@@ -10340,7 +10347,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -10384,12 +10391,6 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
@@ -10489,12 +10490,6 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
@@ -10561,7 +10556,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -10611,7 +10606,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -10849,7 +10844,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -10899,7 +10894,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -10949,7 +10944,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -10999,7 +10994,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -11049,7 +11044,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -19830,6 +19825,47 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppInstallationsAppInstallationIdSystemSoftware {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            tagFilter?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AppSystemSoftware[];
             }
           }
 
