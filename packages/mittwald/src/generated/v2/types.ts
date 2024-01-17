@@ -62,6 +62,17 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.appGetAppversion, TStatus>;
     }
 
+    namespace AppGetInstalledSystemsoftwareForAppinstallation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appGetInstalledSystemsoftwareForAppinstallation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appGetInstalledSystemsoftwareForAppinstallation,
+          TStatus
+        >;
+    }
+
     namespace AppGetMissingDependenciesForAppinstallation {
       type RequestData = InferredRequestData<
         typeof descriptors.appGetMissingDependenciesForAppinstallation
@@ -2938,17 +2949,6 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
-
-    namespace AppGetInstalledSystemsoftwareForAppinstallation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appGetInstalledSystemsoftwareForAppinstallation
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.appGetInstalledSystemsoftwareForAppinstallation,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -3276,7 +3276,6 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface ArticleReadableArticle {
-        additionalArticles?: MittwaldAPIV2.Components.Schemas.ArticleReadableBookableArticleOptions[];
         addons?: MittwaldAPIV2.Components.Schemas.ArticleArticleAddons[];
         articleId: string;
         attributes?: MittwaldAPIV2.Components.Schemas.ArticleArticleAttributes[];
@@ -3299,7 +3298,6 @@ export declare module MittwaldAPIV2 {
           | "beta_testing"
           | "full"
           | "deprecated";
-        picture?: string;
         possibleArticleChanges?: MittwaldAPIV2.Components.Schemas.ArticleReadableChangeArticleOptions[];
         price?: number;
         tags?: MittwaldAPIV2.Components.Schemas.ArticleArticleTag[];
@@ -3942,11 +3940,11 @@ export declare module MittwaldAPIV2 {
 
       export interface DnsCombinedACustom {
         /**
-         * @maxItems 6
+         * @maxItems 10
          */
         a: MittwaldAPIV2.Components.Schemas.DnsCombinedAManagedARecord[];
         /**
-         * @maxItems 6
+         * @maxItems 10
          */
         aaaa: MittwaldAPIV2.Components.Schemas.DnsCombinedAManagedAAAARecord[];
         settings: MittwaldAPIV2.Components.Schemas.DnsRecordSettings;
@@ -3966,32 +3964,12 @@ export declare module MittwaldAPIV2 {
       export interface DnsRecordMXCustom {
         /**
          * @minItems 1
-         * @maxItems 5
+         * @maxItems 10
          */
-        records:
-          | [MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord]
-          | [
-              MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
-              MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
-            ]
-          | [
-              MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
-              MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
-              MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
-            ]
-          | [
-              MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
-              MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
-              MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
-              MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
-            ]
-          | [
-              MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
-              MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
-              MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
-              MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
-              MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
-            ];
+        records: [
+          MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord,
+          ...MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord[],
+        ];
         settings: MittwaldAPIV2.Components.Schemas.DnsRecordSettings;
       }
 
@@ -5675,6 +5653,47 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2AppInstallationsAppInstallationIdSystemSoftware {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            tagFilter?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AppSystemSoftware[];
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2AppinstallationsAppInstallationIdMissingDependencies {}
 
     namespace V2AppInstallationsAppInstallationIdMissingDependencies {
@@ -6754,7 +6773,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -19825,47 +19844,6 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2AppInstallationsAppInstallationIdSystemSoftware {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            tagFilter?: string;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AppSystemSoftware[];
             }
           }
 

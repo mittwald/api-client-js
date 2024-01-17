@@ -22,6 +22,11 @@ const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.appGetAppversion,
     baseClient.app.getAppversion,
   ).getApiResource,
+  /** Get the installed `SystemSoftware' for a specific `AppInstallation`. */
+  getInstalledSystemsoftwareForAppinstallation: new ApiCallAsyncResourceFactory(
+    descriptors.appGetInstalledSystemsoftwareForAppinstallation,
+    baseClient.app.getInstalledSystemsoftwareForAppinstallation,
+  ).getApiResource,
   /** Get the missing requirements of an appInstallation for a specific target AppVersion. */
   getMissingDependenciesForAppinstallation: new ApiCallAsyncResourceFactory(
     descriptors.appGetMissingDependenciesForAppinstallation,
@@ -71,11 +76,6 @@ const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
   retrieveStatus: new ApiCallAsyncResourceFactory(
     descriptors.appRetrieveStatus,
     baseClient.app.retrieveStatus,
-  ).getApiResource,
-  /** Get the installed `SystemSoftware' for a specific `AppInstallation`. */
-  getInstalledSystemsoftwareForAppinstallation: new ApiCallAsyncResourceFactory(
-    descriptors.appGetInstalledSystemsoftwareForAppinstallation,
-    baseClient.app.getInstalledSystemsoftwareForAppinstallation,
   ).getApiResource,
 });
 

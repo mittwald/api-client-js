@@ -1214,12 +1214,6 @@
       },
       "article.ReadableArticle": {
         "properties": {
-          "additionalArticles": {
-            "items": {
-              "$ref": "#/components/schemas/article.ReadableBookableArticleOptions"
-            },
-            "type": "array"
-          },
           "addons": {
             "items": {
               "$ref": "#/components/schemas/article.ArticleAddons"
@@ -1303,11 +1297,6 @@
               "full",
               "deprecated"
             ],
-            "type": "string"
-          },
-          "picture": {
-            "example": "https://mittwald.example/picture.png",
-            "format": "uri",
             "type": "string"
           },
           "possibleArticleChanges": {
@@ -3368,14 +3357,14 @@
             "items": {
               "$ref": "#/components/schemas/dns.CombinedAManagedARecord"
             },
-            "maxItems": 6,
+            "maxItems": 10,
             "type": "array"
           },
           "aaaa": {
             "items": {
               "$ref": "#/components/schemas/dns.CombinedAManagedAAAARecord"
             },
-            "maxItems": 6,
+            "maxItems": 10,
             "type": "array"
           },
           "settings": {
@@ -3432,7 +3421,7 @@
             "items": {
               "$ref": "#/components/schemas/dns.RecordMXRecord"
             },
-            "maxItems": 5,
+            "maxItems": 10,
             "minItems": 1,
             "type": "array",
             "uniqueItems": true
@@ -7869,6 +7858,59 @@
         ]
       }
     },
+    "/v2/app-installations/{appInstallationId}/systemSoftware": {
+      "get": {
+        "operationId": "app-get-installed-systemsoftware-for-appinstallation",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "appInstallationId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "tagFilter",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/app.SystemSoftware"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "The list of installed 'SystemSoftware'."
+          },
+          "404": {
+            "$ref": "#/components/responses/commons.NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "Get the installed `SystemSoftware' for a specific `AppInstallation`.",
+        "tags": [
+          "App"
+        ]
+      }
+    },
     "/v2/appinstallations/{appInstallationId}/missing-dependencies": {
       "get": {
         "parameters": [
@@ -10023,8 +10065,8 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "NoContent"
           },
           "400": {
             "$ref": "#/components/responses/commons.ValidationError"
@@ -28351,7 +28393,7 @@
         },
         "responses": {
           "204": {
-            "description": ""
+            "description": "NoContent"
           },
           "400": {
             "$ref": "#/components/responses/commons.ValidationError"
@@ -32889,59 +32931,6 @@
         "summary": "Verify your registration.",
         "tags": [
           "User"
-        ]
-      }
-    },
-    "/v2/app-installations/{appInstallationId}/systemSoftware": {
-      "get": {
-        "operationId": "app-get-installed-systemsoftware-for-appinstallation",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "appInstallationId",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "tagFilter",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/app.SystemSoftware"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "The list of installed 'SystemSoftware'."
-          },
-          "404": {
-            "$ref": "#/components/responses/commons.NotFoundError"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "Get the installed `SystemSoftware' for a specific `AppInstallation`.",
-        "tags": [
-          "App"
         ]
       }
     }
