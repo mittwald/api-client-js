@@ -1784,11 +1784,6 @@
       },
       "contract.TariffChange": {
         "properties": {
-          "executedAtDate": {
-            "description": "This is only set if the tariff change has already been carried out.",
-            "format": "date-time",
-            "type": "string"
-          },
           "newArticles": {
             "items": {
               "$ref": "#/components/schemas/contract.Article"
@@ -10978,7 +10973,7 @@
                       "type": "string"
                     },
                     "nextTerminationDate": {
-                      "format": "date",
+                      "format": "date-time",
                       "type": "string"
                     }
                   },

@@ -3458,10 +3458,6 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface ContractTariffChange {
-        /**
-         * This is only set if the tariff change has already been carried out.
-         */
-        executedAtDate?: string;
         newArticles: MittwaldAPIV2.Components.Schemas.ContractArticle[];
         scheduledAtDate: string;
         scheduledByUserId?: string;
