@@ -4169,6 +4169,7 @@ export declare module MittwaldAPIV2 {
          * Whether this ingress is the default ingress or not. A default ingress is automatically created, it cannot be deleted. There can be only one default ingress per project.
          */
         isDefault: boolean;
+        isDomain?: boolean;
         isEnabled: boolean;
         ownership: MittwaldAPIV2.Components.Schemas.IngressOwnership;
         /**
@@ -4182,7 +4183,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface IngressOwnership {
-        txtRecord: string;
+        txtRecord?: string;
         /**
          * Whether the domain ownership is verified or not.
          */

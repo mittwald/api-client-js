@@ -4024,6 +4024,9 @@
             "description": "Whether this ingress is the default ingress or not. A default ingress is automatically created, it cannot be deleted. There can be only one default ingress per project.",
             "type": "boolean"
           },
+          "isDomain": {
+            "type": "boolean"
+          },
           "isEnabled": {
             "type": "boolean"
           },
@@ -4077,8 +4080,7 @@
           }
         },
         "required": [
-          "verified",
-          "txtRecord"
+          "verified"
         ],
         "type": "object"
       },
