@@ -3630,7 +3630,19 @@ export declare module MittwaldAPIV2 {
         fileOpsStats: MittwaldAPIV2.Components.Schemas.StraceStatistics;
         miscStats: MittwaldAPIV2.Components.Schemas.StraceStatistics;
         networkingOps: {
-          connectionType: "UNKNOWN" | "PRIVATE" | "INTERNAL" | "EXTERNAL";
+          connectionType: "UNKNOWN" | "PRIVATE" | "EXTERNAL";
+          /**
+           * A short description of the network connection to provide additional context.
+           */
+          description: string;
+          /**
+           * IP address to which a connection was established.
+           */
+          ip: string;
+          /**
+           * Port to which a connection was established.
+           */
+          port: number;
           stats: MittwaldAPIV2.Components.Schemas.StraceStatistics;
           /**
            * Hostname and port to which a connection was established. Can be empty.
@@ -3669,6 +3681,10 @@ export declare module MittwaldAPIV2 {
          * The number of times this group occurred.
          */
         occurrences: number;
+        /**
+         * Syscall count.
+         */
+        syscallCount: number;
         /**
          * Elapsed user space time in milliseconds.
          */

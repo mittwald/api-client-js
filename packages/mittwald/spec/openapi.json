@@ -2372,10 +2372,21 @@
                   "enum": [
                     "UNKNOWN",
                     "PRIVATE",
-                    "INTERNAL",
                     "EXTERNAL"
                   ],
                   "type": "string"
+                },
+                "description": {
+                  "description": "A short description of the network connection to provide additional context.",
+                  "type": "string"
+                },
+                "ip": {
+                  "description": "IP address to which a connection was established.",
+                  "type": "string"
+                },
+                "port": {
+                  "description": "Port to which a connection was established.",
+                  "type": "integer"
                 },
                 "stats": {
                   "$ref": "#/components/schemas/strace.Statistics"
@@ -2396,6 +2407,9 @@
               },
               "required": [
                 "url",
+                "ip",
+                "port",
+                "description",
                 "connectionType",
                 "stats",
                 "warnLevel"
@@ -2461,6 +2475,11 @@
             "example": 25,
             "type": "integer"
           },
+          "syscallCount": {
+            "description": "Syscall count.",
+            "example": 4321,
+            "type": "integer"
+          },
           "userspaceMs": {
             "description": "Elapsed user space time in milliseconds.",
             "example": 1.2345,
@@ -2471,6 +2490,7 @@
           "kernelMs",
           "userspaceMs",
           "count",
+          "syscallCount",
           "occurrences"
         ],
         "type": "object"
