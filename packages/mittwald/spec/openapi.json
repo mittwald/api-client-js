@@ -2391,10 +2391,6 @@
                 "stats": {
                   "$ref": "#/components/schemas/strace.Statistics"
                 },
-                "url": {
-                  "description": "Hostname and port to which a connection was established. Can be empty.",
-                  "type": "string"
-                },
                 "warnLevel": {
                   "description": "Alerts when the time, syscall count or occurrence count of this group are abnormal.",
                   "enum": [
@@ -2406,7 +2402,6 @@
                 }
               },
               "required": [
-                "url",
                 "ip",
                 "port",
                 "description",
@@ -2460,11 +2455,6 @@
       },
       "strace.Statistics": {
         "properties": {
-          "count": {
-            "description": "Syscall count.",
-            "example": 4321,
-            "type": "integer"
-          },
           "kernelMs": {
             "description": "Elapsed kernel space time in milliseconds.",
             "example": 1.2345,
@@ -2489,7 +2479,6 @@
         "required": [
           "kernelMs",
           "userspaceMs",
-          "count",
           "syscallCount",
           "occurrences"
         ],
@@ -14161,7 +14150,7 @@
                 }
               }
             },
-            "description": "Accepted"
+            "description": "Created"
           },
           "400": {
             "$ref": "#/components/responses/commons.ValidationError"

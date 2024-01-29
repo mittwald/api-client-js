@@ -3645,10 +3645,6 @@ export declare module MittwaldAPIV2 {
           port: number;
           stats: MittwaldAPIV2.Components.Schemas.StraceStatistics;
           /**
-           * Hostname and port to which a connection was established. Can be empty.
-           */
-          url: string;
-          /**
            * Alerts when the time, syscall count or occurrence count of this group are abnormal.
            */
           warnLevel: "NO" | "WARN" | "SEVERE";
@@ -3669,10 +3665,6 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface StraceStatistics {
-        /**
-         * Syscall count.
-         */
-        count: number;
         /**
          * Elapsed kernel space time in milliseconds.
          */
