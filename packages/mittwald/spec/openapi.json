@@ -2653,7 +2653,6 @@
         "required": [
           "id",
           "status",
-          "durationInMilliseconds",
           "successful"
         ],
         "type": "object"
@@ -3914,6 +3913,10 @@
             "format": "uuid",
             "type": "string"
           },
+          "mimeType": {
+            "example": "image/jpeg",
+            "type": "string"
+          },
           "name": {
             "example": "me.jpeg",
             "type": "string"
@@ -3923,6 +3926,8 @@
             "type": "integer"
           },
           "type": {
+            "deprecated": true,
+            "description": "deprecated, see mimeType",
             "example": "image/jpeg",
             "type": "string"
           }
@@ -3932,12 +3937,19 @@
           "name",
           "type",
           "friendlyURL",
-          "sizeInBytes"
+          "sizeInBytes",
+          "mimeType"
         ],
         "type": "object"
       },
       "file.FileUploadRules": {
         "properties": {
+          "fileTypes": {
+            "items": {
+              "$ref": "#/components/schemas/file.FileType"
+            },
+            "type": "array"
+          },
           "maxSizeInKB": {
             "example": 3000,
             "type": "integer"
@@ -3945,8 +3957,8 @@
           "mimeTypes": {
             "items": {
               "example": [
-                "image/jpeg",
-                "image/png"
+                "image/png",
+                "image/jpeg"
               ],
               "type": "string"
             },
@@ -3986,8 +3998,9 @@
           }
         },
         "required": [
+          "maxSizeInKB",
           "mimeTypes",
-          "maxSizeInKB"
+          "fileTypes"
         ],
         "type": "object"
       },
@@ -5265,8 +5278,7 @@
           "role",
           "accepted",
           "information",
-          "customerName",
-          "avatarRefId"
+          "customerName"
         ],
         "type": "object"
       },
@@ -5310,13 +5322,13 @@
           "id",
           "customerId",
           "userId",
-          "role",
-          "inviteId"
+          "role"
         ],
         "type": "object"
       },
       "membership.CustomerRoles": {
         "enum": [
+          "notset",
           "owner",
           "member",
           "accountant"
@@ -5341,8 +5353,6 @@
           }
         },
         "required": [
-          "userId",
-          "invitationToken",
           "invitedBy"
         ],
         "type": "object"
@@ -5440,7 +5450,6 @@
           "projectId",
           "userId",
           "role",
-          "inviteId",
           "inherited"
         ],
         "type": "object"
@@ -5780,9 +5789,6 @@
             },
             "type": "array"
           },
-          "amount": {
-            "type": "number"
-          },
           "articleId": {
             "example": "PS23-PLUS-0004",
             "type": "string"
@@ -5824,8 +5830,7 @@
           "orderItemId",
           "articleId",
           "price",
-          "isInclusive",
-          "amount"
+          "isInclusive"
         ],
         "type": "object"
       },
@@ -5901,6 +5906,11 @@
             "type": "number"
           }
         },
+        "required": [
+          "totalPrice",
+          "domainPrice",
+          "feePrice"
+        ],
         "type": "object"
       },
       "order.HostingOrderPreviewResponse": {
@@ -7201,6 +7211,30 @@
           "device",
           "created",
           "tokenId"
+        ],
+        "type": "object"
+      },
+      "file.FileType": {
+        "properties": {
+          "extensions": {
+            "items": {
+              "example": [
+                ".jpe",
+                ".jpeg",
+                ".jpg"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "mimeType": {
+            "example": "image/jpeg",
+            "type": "string"
+          }
+        },
+        "required": [
+          "mimeType",
+          "extensions"
         ],
         "type": "object"
       },
@@ -12726,8 +12760,11 @@
           "400": {
             "$ref": "#/components/responses/commons.ValidationError"
           },
+          "403": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          },
           "409": {
-            "$ref": "#/components/responses/commons.ValidationError"
+            "$ref": "#/components/responses/commons.DefaultError"
           },
           "default": {
             "$ref": "#/components/responses/commons.DefaultError"
@@ -14074,7 +14111,7 @@
             "description": ""
           },
           "403": {
-            "$ref": "#/components/responses/commons.ValidationError"
+            "$ref": "#/components/responses/commons.DefaultError"
           },
           "default": {
             "$ref": "#/components/responses/commons.DefaultError"
@@ -25601,7 +25638,7 @@
             "$ref": "#/components/responses/commons.ValidationError"
           },
           "409": {
-            "$ref": "#/components/responses/commons.ValidationError"
+            "$ref": "#/components/responses/commons.DefaultError"
           },
           "default": {
             "$ref": "#/components/responses/commons.DefaultError"

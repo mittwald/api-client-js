@@ -3712,7 +3712,7 @@ export declare module MittwaldAPIV2 {
         abortedBy?: {
           id?: string;
         };
-        durationInMilliseconds: number;
+        durationInMilliseconds?: number;
         end?: string;
         /**
          * @deprecated
@@ -4136,12 +4136,18 @@ export declare module MittwaldAPIV2 {
       export interface FileFileMeta {
         friendlyURL: string;
         id: string;
+        mimeType: string;
         name: string;
         sizeInBytes: number;
+        /**
+         * @deprecated
+         * deprecated, see mimeType
+         */
         type: string;
       }
 
       export interface FileFileUploadRules {
+        fileTypes: MittwaldAPIV2.Components.Schemas.FileFileType[];
         maxSizeInKB: number;
         mimeTypes: string[];
         properties?: {
@@ -4513,7 +4519,7 @@ export declare module MittwaldAPIV2 {
         /**
          * Reference to the Customer's avatar.
          */
-        avatarRefId: string;
+        avatarRefId?: string;
         /**
          * ID of the Customer the invite is for.
          */
@@ -4558,7 +4564,7 @@ export declare module MittwaldAPIV2 {
         /**
          * ID of the CustomerInvite the membership was created from.
          */
-        inviteId: string;
+        inviteId?: string;
         /**
          * Date the CustomerMembership was created at.
          */
@@ -4570,13 +4576,17 @@ export declare module MittwaldAPIV2 {
         userId: string;
       }
 
-      export type MembershipCustomerRoles = "owner" | "member" | "accountant";
+      export type MembershipCustomerRoles =
+        | "notset"
+        | "owner"
+        | "member"
+        | "accountant";
 
       export interface MembershipInviteInformation {
         /**
          * Token for authentication purposes.
          */
-        invitationToken: string;
+        invitationToken?: string;
         /**
          * ID of the user that created the invite.
          */
@@ -4584,7 +4594,7 @@ export declare module MittwaldAPIV2 {
         /**
          * ID of the user this invite is for.
          */
-        userId: string;
+        userId?: string;
       }
 
       export interface MembershipProjectInvite {
@@ -4632,7 +4642,7 @@ export declare module MittwaldAPIV2 {
         /**
          * ID of the ProjectInvite the membership was created from.
          */
-        inviteId: string;
+        inviteId?: string;
         /**
          * Date the projectMembership was created at.
          */
@@ -4751,7 +4761,6 @@ export declare module MittwaldAPIV2 {
 
       export interface OrderOrderItem {
         addons?: MittwaldAPIV2.Components.Schemas.OrderAddons[];
-        amount: number;
         articleId: string;
         articleName?: string;
         articleTemplateName?: string;
@@ -4788,9 +4797,9 @@ export declare module MittwaldAPIV2 {
       export type OrderOrderType = "NEW_ORDER" | "CONTRACT_CHANGE";
 
       export interface OrderDomainOrderPreviewResponse {
-        domainPrice?: number;
-        feePrice?: number;
-        totalPrice?: number;
+        domainPrice: number;
+        feePrice: number;
+        totalPrice: number;
       }
 
       export interface OrderHostingOrderPreviewResponse {
@@ -5223,6 +5232,11 @@ export declare module MittwaldAPIV2 {
         lastAccess?: string;
         location?: MittwaldAPIV2.Components.Schemas.SignupLocation;
         tokenId: string;
+      }
+
+      export interface FileFileType {
+        extensions: string[];
+        mimeType: string;
       }
 
       export interface CommonsAddress {
@@ -8905,6 +8919,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
