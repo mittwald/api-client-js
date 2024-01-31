@@ -7,17 +7,17 @@ import * as descriptors from "./descriptors.js";
 export * from "@mittwald/react-use-promise";
 
 const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** Get a specific `App`. */
+  /** Get an App. */
   getApp: new ApiCallAsyncResourceFactory(
     descriptors.appGetApp,
     baseClient.app.getApp,
   ).getApiResource,
-  /** Get a specific `AppInstallation`. */
+  /** Get an AppInstallation. */
   getAppinstallation: new ApiCallAsyncResourceFactory(
     descriptors.appGetAppinstallation,
     baseClient.app.getAppinstallation,
   ).getApiResource,
-  /** Get a specific `AppVersion`. */
+  /** Get an AppVersion. */
   getAppversion: new ApiCallAsyncResourceFactory(
     descriptors.appGetAppversion,
     baseClient.app.getAppversion,
@@ -32,47 +32,47 @@ const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.appGetMissingDependenciesForAppinstallation,
     baseClient.app.getMissingDependenciesForAppinstallation,
   ).getApiResource,
-  /** Get a specific `SystemSoftware`. */
+  /** Get a SystemSoftware. */
   getSystemsoftware: new ApiCallAsyncResourceFactory(
     descriptors.appGetSystemsoftware,
     baseClient.app.getSystemsoftware,
   ).getApiResource,
-  /** Get a specific `SystemSoftwareVersion`. */
+  /** Get a SystemSoftwareVersion. */
   getSystemsoftwareversion: new ApiCallAsyncResourceFactory(
     descriptors.appGetSystemsoftwareversion,
     baseClient.app.getSystemsoftwareversion,
   ).getApiResource,
-  /** Get all `AppInstallations` inside a specific `Project`. */
+  /** List AppInstallations belonging to a Project. */
   listAppinstallations: new ApiCallAsyncResourceFactory(
     descriptors.appListAppinstallations,
     baseClient.app.listAppinstallations,
   ).getApiResource,
-  /** Get all available `Apps`. */
+  /** List Apps. */
   listApps: new ApiCallAsyncResourceFactory(
     descriptors.appListApps,
     baseClient.app.listApps,
   ).getApiResource,
-  /** Get all `AppVersions` of a specific `App`. */
+  /** List AppVersions belonging to an App. */
   listAppversions: new ApiCallAsyncResourceFactory(
     descriptors.appListAppversions,
     baseClient.app.listAppversions,
   ).getApiResource,
-  /** Get all available `SystemSoftware`. */
+  /** List SystemSoftwares. */
   listSystemsoftwares: new ApiCallAsyncResourceFactory(
     descriptors.appListSystemsoftwares,
     baseClient.app.listSystemsoftwares,
   ).getApiResource,
-  /** Get all available `SystemSoftwareVersions` of a specific `SystemSoftware`. */
+  /** List SystemSoftwareVersions belonging to a SystemSoftware. */
   listSystemsoftwareversions: new ApiCallAsyncResourceFactory(
     descriptors.appListSystemsoftwareversions,
     baseClient.app.listSystemsoftwareversions,
   ).getApiResource,
-  /** Get all update candidates for a specific `AppVersion`. */
+  /** List update candidates belonging to an AppVersion. */
   listUpdateCandidatesForAppversion: new ApiCallAsyncResourceFactory(
     descriptors.appListUpdateCandidatesForAppversion,
     baseClient.app.listUpdateCandidatesForAppversion,
   ).getApiResource,
-  /** Get runtime status of a specific `AppInstallation`. */
+  /** Get runtime status belonging to an AppInstallation. */
   retrieveStatus: new ApiCallAsyncResourceFactory(
     descriptors.appRetrieveStatus,
     baseClient.app.retrieveStatus,

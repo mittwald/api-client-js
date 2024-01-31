@@ -355,7 +355,7 @@
     },
     "schemas": {
       "app.Action": {
-        "description": "An `Action` is a string that describes a runtime concerning action which can be executed on an `AppInstallation` or an `App` can be capable of.",
+        "description": "An Action is a string that describes a runtime concerning action which can be executed on an AppInstallation or an  App  can be capable of.",
         "enum": [
           "start",
           "stop",
@@ -364,14 +364,13 @@
         "type": "string"
       },
       "app.ActionCapabilities": {
-        "description": "`ActionCapabilities` is an array that contains supported actions of an `App`.",
         "items": {
           "$ref": "#/components/schemas/app.Action"
         },
         "type": "array"
       },
       "app.App": {
-        "description": "An `App` is to be understood as a manifest for `AppInstallations`. E.g. 'WordPress' only exists inside our ecosystem, because there is an `App`-Manifest for it.",
+        "description": "An App is to be understood as a manifest for AppInstallations. E.g. 'WordPress' only exists inside our ecosystem, because there is an  App -Manifest for it.",
         "properties": {
           "actionCapabilities": {
             "$ref": "#/components/schemas/app.ActionCapabilities"
@@ -397,7 +396,7 @@
         "type": "object"
       },
       "app.AppInstallationStatus": {
-        "description": "`AppInstallationStatus` describes the overall runtime status of an `AppInstallation`.",
+        "description": "AppInstallationStatus describes the overall runtime status of an AppInstallation.",
         "properties": {
           "lastExitCode": {
             "type": "number"
@@ -458,7 +457,7 @@
         "type": "object"
       },
       "app.AppUpdatePolicy": {
-        "description": "`AppUpdatePolicy` describes which updates should be applied automatically by our systems.",
+        "description": "AppUpdatePolicy describes which updates should be applied automatically by our systems.",
         "enum": [
           "none",
           "patchLevel",
@@ -467,7 +466,7 @@
         "type": "string"
       },
       "app.AppInstallation": {
-        "description": "An `AppInstallation` is a concrete manifestation of an `App` in a specific `AppVersion`.",
+        "description": "An AppInstallation is a concrete manifestation of an App in a specific AppVersion.",
         "properties": {
           "appId": {
             "format": "uuid",
@@ -549,7 +548,7 @@
         "type": "object"
       },
       "app.AppInstallationLifecycle": {
-        "description": "The `AppInstallationLifecycle` can be used to express a specific point in the `AppInstallation` Lifecycle, e.g. while installing a new `AppInstallation`.",
+        "description": "The AppInstallationLifecycle can be used to express a specific point in the AppInstallation Lifecycle, e.g. while installing a new AppInstallation.",
         "enum": [
           "installation",
           "update",
@@ -558,7 +557,7 @@
         "type": "string"
       },
       "app.AppVersion": {
-        "description": "An `AppVersion` is an officially supported version of an `App`, containing the necessary and recommended configuration und dependencies.",
+        "description": "An AppVersion is an officially supported version of an App, containing the necessary and recommended configuration und dependencies.",
         "properties": {
           "breakingNote": {
             "$ref": "#/components/schemas/app.BreakingNote"
@@ -616,7 +615,7 @@
         "type": "object"
       },
       "app.BreakingNote": {
-        "description": "A `BreakingNote` is a hint that something serious has changed in the `AppVersion` containing it, so an automatic update is not possible.",
+        "description": "A BreakingNote is a hint that something serious has changed in the AppVersion containing it, so an automatic update is not possible.",
         "properties": {
           "faqLink": {
             "format": "uri",
@@ -629,7 +628,7 @@
         "type": "object"
       },
       "app.DatabaseDependency": {
-        "description": "A `DatabaseDependency` is a generic description of need for a database, used by `AppVersions`.",
+        "description": "A DatabaseDependency is a generic description of need for a database, used by AppVersions.",
         "properties": {
           "description": {
             "type": "string"
@@ -674,7 +673,7 @@
         "type": "object"
       },
       "app.InstalledSystemSoftware": {
-        "description": "`InstalledSystemSoftware` describes the currently configured and installed `SystemSoftwareVersion` of a `SystemSoftware` besides the desired `SystemSoftwareUpdatePolicy` inside an `AppInstallation`.",
+        "description": "InstalledSystemSoftware describes the currently configured and installed SystemSoftwareVersion of a SystemSoftware besides the desired SystemSoftwareUpdatePolicy inside an AppInstallation.",
         "properties": {
           "systemSoftwareId": {
             "format": "uuid",
@@ -695,7 +694,7 @@
         "type": "object"
       },
       "app.LinkedDatabase": {
-        "description": "`LinkedDatabase` is a reference to a concrete `Database` and `DatabaseUsers`.",
+        "description": "LinkedDatabase is a reference to a concrete Database and DatabaseUsers.",
         "properties": {
           "databaseId": {
             "format": "uuid",
@@ -731,7 +730,7 @@
         "type": "object"
       },
       "app.RequestHandlerRequirement": {
-        "description": "`RequestHandlerRequirement` describes the necessary properties to internally resolve the request handler or process to start.",
+        "description": "RequestHandlerRequirement describes the necessary properties to internally resolve the request handler or process to start.",
         "properties": {
           "exampleValues": {
             "items": {
@@ -757,7 +756,7 @@
         "type": "object"
       },
       "app.SavedUserInput": {
-        "description": "A `SavedUserInput` is an entered value for a desired `UserInput` of an `AppVersion` or `SystemSoftwareVersion`.",
+        "description": "A SavedUserInput is an entered value for a desired UserInput of an AppVersion or SystemSoftwareVersion.",
         "properties": {
           "name": {
             "type": "string"
@@ -773,7 +772,7 @@
         "type": "object"
       },
       "app.SystemSoftwareDependency": {
-        "description": "A `SystemSoftwareDependency` is a description of a need for a specific `SystemSoftware` in a semver versionRange.",
+        "description": "A SystemSoftwareDependency is a description of a need for a specific SystemSoftware in a semver versionRange.",
         "properties": {
           "systemSoftwareId": {
             "format": "uuid",
@@ -790,7 +789,7 @@
         "type": "object"
       },
       "app.SystemSoftwareUpdatePolicy": {
-        "description": "`SystemSoftwareUpdatePolicy` describes which updates should be applied automatically by our systems.",
+        "description": "SystemSoftwareUpdatePolicy describes which updates should be applied automatically by our systems.",
         "enum": [
           "none",
           "inheritedFromApp",
@@ -800,7 +799,7 @@
         "type": "string"
       },
       "app.SystemSoftware": {
-        "description": "A `SystemSoftware` is a software that can be installed for an `AppInstallation` but mostly is not itself externally reachable and/or deliverable.",
+        "description": "A SystemSoftware is a software that can be installed for an AppInstallation but mostly is not itself externally reachable and/or deliverable.",
         "properties": {
           "id": {
             "type": "string"
@@ -829,7 +828,7 @@
         "type": "object"
       },
       "app.SystemSoftwareVersion": {
-        "description": "A `SystemSoftwareVersion` is an officially  supported version of a `SystemSoftware`, containing the necessary and recommended configuration und dependencies.",
+        "description": "A SystemSoftwareVersion is an officially  supported version of a SystemSoftware, containing the necessary and recommended configuration und dependencies.",
         "properties": {
           "externalVersion": {
             "type": "string"
@@ -865,7 +864,7 @@
         "type": "object"
       },
       "app.UserInput": {
-        "description": "A `UserInput` is a description of an information which cannot be determined or estimated by mittwald, but has to be given by the person who is requesting an `AppInstallation` or `SystemSoftware`.",
+        "description": "A UserInput is a description of an information which cannot be determined or estimated by mittwald, but has to be given by the person who is requesting an AppInstallation or SystemSoftware.",
         "properties": {
           "dataSource": {
             "description": "Optional field to tell the frontend, which data to put into the select.",
@@ -907,7 +906,7 @@
         "type": "object"
       },
       "app.UserInputDataType": {
-        "description": "`UserInputDataType` is an enum, describing the possible data types of a `UserInput`.",
+        "description": "UserInputDataType is an enum, describing the possible data types of a UserInput.",
         "enum": [
           "text",
           "number",
@@ -917,7 +916,7 @@
         "type": "string"
       },
       "app.UserInputFormat": {
-        "description": "`UserInputFormat` is an enum, describing the possible data formats of a `UserInput`, the given values can be validated against.",
+        "description": "UserInputFormat is an enum, describing the possible data formats of a UserInput, the given values can be validated against.",
         "enum": [
           "email",
           "password",
@@ -926,7 +925,7 @@
         "type": "string"
       },
       "app.UserInputPositionMeta": {
-        "description": "`UserInputPositionMeta´ is a utility information, helping to position the `UserInput` properly on the frontend.",
+        "description": "UserInputPositionMeta is a utility information, helping to position the UserInput properly on the frontend.",
         "properties": {
           "index": {
             "type": "number"
@@ -941,7 +940,7 @@
         "type": "object"
       },
       "app.VersionStatus": {
-        "description": "`VersionStatus` describes the current and desired version of something like the `AppVersion` of an `AppInstallation`. If diverging, an internal process is going to assert, the `current` value will be aligned.",
+        "description": "VersionStatus describes the current and desired version of something like the AppVersion of an AppInstallation. If diverging, an internal process is going to assert, the current value will be aligned.",
         "properties": {
           "current": {
             "type": "string"
@@ -3942,6 +3941,30 @@
         ],
         "type": "object"
       },
+      "file.FileType": {
+        "properties": {
+          "extensions": {
+            "items": {
+              "example": [
+                ".jpe",
+                ".jpeg",
+                ".jpg"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "mimeType": {
+            "example": "image/jpeg",
+            "type": "string"
+          }
+        },
+        "required": [
+          "mimeType",
+          "extensions"
+        ],
+        "type": "object"
+      },
       "file.FileUploadRules": {
         "properties": {
           "fileTypes": {
@@ -4020,7 +4043,7 @@
             "type": "array"
           },
           "hostname": {
-            "format": "hostname",
+            "format": "idn-hostname",
             "type": "string"
           },
           "id": {
@@ -7214,30 +7237,6 @@
         ],
         "type": "object"
       },
-      "file.FileType": {
-        "properties": {
-          "extensions": {
-            "items": {
-              "example": [
-                ".jpe",
-                ".jpeg",
-                ".jpg"
-              ],
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "mimeType": {
-            "example": "image/jpeg",
-            "type": "string"
-          }
-        },
-        "required": [
-          "mimeType",
-          "extensions"
-        ],
-        "type": "object"
-      },
       "commons.Address": {
         "type": "object",
         "properties": {
@@ -7444,7 +7443,7 @@
             }
           }
         },
-        "summary": "Execute a runtime concerning action on a specific `AppInstallation`.",
+        "summary": "Trigger a runtime action belonging to an AppInstallation.",
         "tags": [
           "App"
         ],
@@ -7494,7 +7493,7 @@
             "$ref": "#/components/responses/commons.DefaultError"
           }
         },
-        "summary": "Execute a runtime concerning action on a specific `AppInstallation`.",
+        "summary": "Trigger a runtime action belonging to an AppInstallation.",
         "tags": [
           "App"
         ]
@@ -7537,7 +7536,7 @@
             "commons.AccessToken": []
           }
         ],
-        "summary": "Get a specific `App`.",
+        "summary": "Get an App.",
         "tags": [
           "App"
         ]
@@ -7574,7 +7573,7 @@
             "commons.AccessToken": []
           }
         ],
-        "summary": "Get a specific `AppInstallation`.",
+        "summary": "Get an AppInstallation.",
         "tags": [
           "App"
         ],
@@ -7635,7 +7634,7 @@
               }
             }
           },
-          "description": "Properties to update for the specified app installation.",
+          "description": "Properties to update for an AppInstallation.",
           "required": true
         },
         "responses": {
@@ -7651,7 +7650,7 @@
             }
           }
         },
-        "summary": "Patch desired properties of a specific `AppInstallation`.",
+        "summary": "Update properties belonging to an AppInstallation.",
         "tags": [
           "App"
         ],
@@ -7687,7 +7686,7 @@
             "commons.AccessToken": []
           }
         ],
-        "summary": "Start uninstallation process for a specific `AppInstallation`.",
+        "summary": "Trigger an uninstallation process for an AppInstallation.",
         "tags": [
           "App"
         ],
@@ -7717,7 +7716,7 @@
                 }
               }
             },
-            "description": "The appInstallation object."
+            "description": "The AppInstallation."
           },
           "404": {
             "$ref": "#/components/responses/commons.NotFoundError"
@@ -7731,7 +7730,7 @@
             "commons.AccessToken": []
           }
         ],
-        "summary": "Get a specific `AppInstallation`.",
+        "summary": "Get an AppInstallation.",
         "tags": [
           "App"
         ]
@@ -7792,7 +7791,7 @@
               }
             }
           },
-          "description": "Properties to update for the specified app installation.",
+          "description": "Properties to update for an AppInstallation.",
           "required": true
         },
         "responses": {
@@ -7806,7 +7805,7 @@
             "$ref": "#/components/responses/commons.DefaultError"
           }
         },
-        "summary": "Patch desired properties of a specific `AppInstallation`.",
+        "summary": "Update properties belonging to an AppInstallation.",
         "tags": [
           "App"
         ]
@@ -7840,7 +7839,7 @@
             "commons.AccessToken": []
           }
         ],
-        "summary": "Start uninstallation process for a specific `AppInstallation`.",
+        "summary": "Trigger an uninstallation process for an AppInstallation.",
         "tags": [
           "App"
         ]
@@ -7892,7 +7891,7 @@
             "commons.AccessToken": []
           }
         ],
-        "summary": "Get a specific `AppVersion`.",
+        "summary": "Get an AppVersion.",
         "tags": [
           "App"
         ]
@@ -8044,7 +8043,7 @@
                 }
               }
             },
-            "description": "The missing dependencies of the appInstallation for the target AppVersion."
+            "description": "The missing dependencies of the AppInstallation for the target AppVersion."
           },
           "404": {
             "$ref": "#/components/responses/commons.NotFoundError"
@@ -8095,7 +8094,7 @@
             "commons.AccessToken": []
           }
         ],
-        "summary": "Get a specific `SystemSoftware`.",
+        "summary": "Get a SystemSoftware.",
         "tags": [
           "App"
         ],
@@ -8125,7 +8124,7 @@
                 }
               }
             },
-            "description": "The systemSoftware object."
+            "description": "The SystemSoftware."
           },
           "404": {
             "$ref": "#/components/responses/commons.NotFoundError"
@@ -8139,7 +8138,7 @@
             "commons.AccessToken": []
           }
         ],
-        "summary": "Get a specific `SystemSoftware`.",
+        "summary": "Get a SystemSoftware.",
         "tags": [
           "App"
         ]
@@ -8185,7 +8184,7 @@
             "commons.AccessToken": []
           }
         ],
-        "summary": "Get a specific `SystemSoftwareVersion`.",
+        "summary": "Get a SystemSoftwareVersion.",
         "tags": [
           "App"
         ],
@@ -8238,7 +8237,7 @@
             "commons.AccessToken": []
           }
         ],
-        "summary": "Get a specific `SystemSoftwareVersion`.",
+        "summary": "Get a SystemSoftwareVersion.",
         "tags": [
           "App"
         ]
@@ -8290,7 +8289,6 @@
               }
             }
           },
-          "description": "Properties for linking a `Database`",
           "required": true
         },
         "responses": {
@@ -8309,7 +8307,7 @@
             "commons.AccessToken": []
           }
         ],
-        "summary": "Create linkage between an `AppInstallation` and a MySql-`Database`.",
+        "summary": "Create linkage between an AppInstallation and a MySQLDatabase.",
         "tags": [
           "App"
         ]
@@ -8373,7 +8371,7 @@
             "commons.AccessToken": []
           }
         ],
-        "summary": "Get all `AppInstallations` inside a specific `Project`.",
+        "summary": "List AppInstallations belonging to a Project.",
         "tags": [
           "App"
         ],
@@ -8423,7 +8421,6 @@
               }
             }
           },
-          "description": "Properties to request an app installation.",
           "required": true
         },
         "responses": {
@@ -8439,7 +8436,7 @@
             }
           }
         },
-        "summary": "Request a new `AppInstallation`.",
+        "summary": "Request an AppInstallation.",
         "tags": [
           "App"
         ],
@@ -8510,7 +8507,7 @@
             "commons.AccessToken": []
           }
         ],
-        "summary": "Get all `AppInstallations` inside a specific `Project`.",
+        "summary": "List AppInstallations belonging to a Project.",
         "tags": [
           "App"
         ]
@@ -8560,7 +8557,6 @@
               }
             }
           },
-          "description": "Properties to request an app installation.",
           "required": true
         },
         "responses": {
@@ -8590,7 +8586,7 @@
             "$ref": "#/components/responses/commons.DefaultError"
           }
         },
-        "summary": "Request a new `AppInstallation`.",
+        "summary": "Request an AppInstallation.",
         "tags": [
           "App"
         ]
@@ -8651,7 +8647,7 @@
             "commons.AccessToken": []
           }
         ],
-        "summary": "Get all available `Apps`.",
+        "summary": "List Apps.",
         "tags": [
           "App"
         ]
@@ -8668,6 +8664,14 @@
             "schema": {
               "format": "uuid",
               "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "recommended",
+            "required": false,
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
@@ -8711,7 +8715,7 @@
             "commons.AccessToken": []
           }
         ],
-        "summary": "Get all `AppVersions` of a specific `App`.",
+        "summary": "List AppVersions belonging to an App.",
         "tags": [
           "App"
         ]
@@ -8766,7 +8770,7 @@
             "commons.AccessToken": []
           }
         ],
-        "summary": "Get all available `SystemSoftware`.",
+        "summary": "List SystemSoftwares.",
         "tags": [
           "App"
         ],
@@ -8845,7 +8849,7 @@
             "commons.AccessToken": []
           }
         ],
-        "summary": "Get all available `SystemSoftware`.",
+        "summary": "List SystemSoftwares.",
         "tags": [
           "App"
         ]
@@ -8890,7 +8894,7 @@
             "commons.AccessToken": []
           }
         ],
-        "summary": "Get all available `SystemSoftwareVersions` of a specific `SystemSoftware`.",
+        "summary": "List SystemSoftwareVersions belonging to a SystemSoftware.",
         "tags": [
           "App"
         ],
@@ -8959,7 +8963,7 @@
             "commons.AccessToken": []
           }
         ],
-        "summary": "Get all available `SystemSoftwareVersions` of a specific `SystemSoftware`.",
+        "summary": "List SystemSoftwareVersions belonging to a SystemSoftware.",
         "tags": [
           "App"
         ]
@@ -9028,18 +9032,18 @@
             "commons.AccessToken": []
           }
         ],
-        "summary": "Get all update candidates for a specific `AppVersion`.",
+        "summary": "List update candidates belonging to an AppVersion.",
         "tags": [
           "App"
         ]
       }
     },
-    "/v2/appinstallations/{id}/actions/copy": {
+    "/v2/appinstallations/{appInstallationId}/actions/copy": {
       "post": {
         "parameters": [
           {
             "in": "path",
-            "name": "id",
+            "name": "appInstallationId",
             "required": true,
             "schema": {
               "format": "uuid",
@@ -9083,20 +9087,20 @@
             }
           }
         },
-        "summary": "Request a copy of an `AppInstallation`.",
+        "summary": "Request a copy of an AppInstallation.",
         "tags": [
           "App"
         ],
         "deprecated": true
       }
     },
-    "/v2/app-installations/{id}/actions/copy": {
+    "/v2/app-installations/{appInstallationId}/actions/copy": {
       "post": {
         "operationId": "app-request-appinstallation-copy",
         "parameters": [
           {
             "in": "path",
-            "name": "id",
+            "name": "appInstallationId",
             "required": true,
             "schema": {
               "format": "uuid",
@@ -9154,7 +9158,7 @@
             "$ref": "#/components/responses/commons.DefaultError"
           }
         },
-        "summary": "Request a copy of an `AppInstallation`.",
+        "summary": "Request a copy of an AppInstallation.",
         "tags": [
           "App"
         ]
@@ -9185,7 +9189,7 @@
             }
           }
         },
-        "summary": "Get runtime status of a specific `AppInstallation`.",
+        "summary": "Get runtime status belonging to an AppInstallation.",
         "tags": [
           "App"
         ],
@@ -9223,7 +9227,119 @@
             "$ref": "#/components/responses/commons.DefaultError"
           }
         },
-        "summary": "Get runtime status of a specific `AppInstallation`.",
+        "summary": "Get runtime status belonging to an AppInstallation.",
+        "tags": [
+          "App"
+        ]
+      }
+    },
+    "/v2/app-installations/{appInstallationId}/databases/{databaseId}": {
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "appInstallationId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "databaseId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "databaseUserIds": {
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "databaseUserIds"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "description": "Properties to update for the specified system software.",
+          "required": true
+        },
+        "responses": {
+          "308": {
+            "description": "This route is deprecated, and will redirect you to another URL.",
+            "headers": {
+              "location": {
+                "description": "The new URL to use; clients should redirect their request to this URL, using the same request method and body as the original request.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "Create linkage between an AppInstallation and DatabaseUsers.",
+        "tags": [
+          "App"
+        ],
+        "deprecated": true
+      },
+      "delete": {
+        "operationId": "app-unlink-database",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "appInstallationId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "databaseId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The database has been unlinked."
+          },
+          "404": {
+            "$ref": "#/components/responses/commons.NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "Remove linkage between an AppInstallation and a Database.",
         "tags": [
           "App"
         ]
@@ -9291,7 +9407,7 @@
             "commons.AccessToken": []
           }
         ],
-        "summary": "Create linkage between an `AppInstallation` and `DatabaseUsers`.",
+        "summary": "Create linkage between an AppInstallation and DatabaseUsers.",
         "tags": [
           "App"
         ],
@@ -9336,14 +9452,14 @@
             "commons.AccessToken": []
           }
         ],
-        "summary": "Remove linkage between an `AppInstallation` and a `Database`.",
+        "summary": "Remove linkage between an AppInstallation and a Database.",
         "tags": [
           "App"
         ],
         "deprecated": true
       }
     },
-    "/v2/app-installations/{appInstallationId}/databases/{databaseId}": {
+    "/v2/app-installations/{appInstallationId}/databases/{databaseId}/users": {
       "put": {
         "operationId": "app-set-database-users",
         "parameters": [
@@ -9404,50 +9520,7 @@
             "commons.AccessToken": []
           }
         ],
-        "summary": "Create linkage between an `AppInstallation` and `DatabaseUsers`.",
-        "tags": [
-          "App"
-        ]
-      },
-      "delete": {
-        "operationId": "app-unlink-database",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "appInstallationId",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "databaseId",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "The database has been unlinked."
-          },
-          "404": {
-            "$ref": "#/components/responses/commons.NotFoundError"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "Remove linkage between an `AppInstallation` and a `Database`.",
+        "summary": "Create linkage between an AppInstallation and DatabaseUsers.",
         "tags": [
           "App"
         ]
@@ -15415,6 +15488,7 @@
     "/v2/appinstallations/{appInstallationId}/databases": {
       "put": {
         "operationId": "deprecated-app-link-database",
+        "deprecated": true,
         "parameters": [
           {
             "in": "path",
@@ -15458,7 +15532,7 @@
               }
             }
           },
-          "description": "Properties for linking a `Database`",
+          "description": "Properties for linking a Database",
           "required": true
         },
         "responses": {
@@ -15477,11 +15551,10 @@
             "commons.AccessToken": []
           }
         ],
-        "summary": "Create linkage between an `AppInstallation` and a MySql-`Database`.",
+        "summary": "Create linkage between an AppInstallation and a MySql-Database.",
         "tags": [
           "App"
-        ],
-        "deprecated": true
+        ]
       }
     },
     "/v2/domains/{domainId}/screenshots/newest": {
@@ -20101,7 +20174,7 @@
               "schema": {
                 "properties": {
                   "hostname": {
-                    "format": "hostname",
+                    "format": "idn-hostname",
                     "type": "string"
                   },
                   "paths": {

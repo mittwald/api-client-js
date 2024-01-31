@@ -7,7 +7,7 @@ import { Response } from "@mittwald/api-client-commons";
 import { OpenAPIOperation } from "@mittwald/api-client-commons";
 import { MittwaldAPIV2 } from "./types.js";
 
-/** Execute a runtime concerning action on a specific `AppInstallation`. */
+/** Trigger a runtime action belonging to an AppInstallation. */
 export const appExecuteAction: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Parameters.RequestBody>,
@@ -36,7 +36,7 @@ export const appExecuteAction: OpenAPIOperation<
   operationId: "app-execute-action",
 };
 
-/** Get a specific `App`. */
+/** Get an App. */
 export const appGetApp: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -65,7 +65,7 @@ export const appGetApp: OpenAPIOperation<
   operationId: "app-get-app",
 };
 
-/** Get a specific `AppInstallation`. */
+/** Get an AppInstallation. */
 export const appGetAppinstallation: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -94,7 +94,7 @@ export const appGetAppinstallation: OpenAPIOperation<
   operationId: "app-get-appinstallation",
 };
 
-/** Start uninstallation process for a specific `AppInstallation`. */
+/** Trigger an uninstallation process for an AppInstallation. */
 export const appUninstallAppinstallation: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -123,7 +123,7 @@ export const appUninstallAppinstallation: OpenAPIOperation<
   operationId: "app-uninstall-appinstallation",
 };
 
-/** Patch desired properties of a specific `AppInstallation`. */
+/** Update properties belonging to an AppInstallation. */
 export const appPatchAppinstallation: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Patch.Parameters.RequestBody>,
@@ -152,7 +152,7 @@ export const appPatchAppinstallation: OpenAPIOperation<
   operationId: "app-patch-appinstallation",
 };
 
-/** Get a specific `AppVersion`. */
+/** Get an AppVersion. */
 export const appGetAppversion: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -239,7 +239,7 @@ export const appGetMissingDependenciesForAppinstallation: OpenAPIOperation<
   operationId: "app-get-missing-dependencies-for-appinstallation",
 };
 
-/** Get a specific `SystemSoftware`. */
+/** Get a SystemSoftware. */
 export const appGetSystemsoftware: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -268,7 +268,7 @@ export const appGetSystemsoftware: OpenAPIOperation<
   operationId: "app-get-systemsoftware",
 };
 
-/** Get a specific `SystemSoftwareVersion`. */
+/** Get a SystemSoftwareVersion. */
 export const appGetSystemsoftwareversion: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -297,7 +297,7 @@ export const appGetSystemsoftwareversion: OpenAPIOperation<
   operationId: "app-get-systemsoftwareversion",
 };
 
-/** Create linkage between an `AppInstallation` and a MySql-`Database`. */
+/** Create linkage between an AppInstallation and a MySQLDatabase. */
 export const appLinkDatabase: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabase.Patch.Parameters.RequestBody>,
@@ -326,7 +326,7 @@ export const appLinkDatabase: OpenAPIOperation<
   operationId: "app-link-database",
 };
 
-/** Get all `AppInstallations` inside a specific `Project`. */
+/** List AppInstallations belonging to a Project. */
 export const appListAppinstallations: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -350,7 +350,7 @@ export const appListAppinstallations: OpenAPIOperation<
   operationId: "app-list-appinstallations",
 };
 
-/** Request a new `AppInstallation`. */
+/** Request an AppInstallation. */
 export const appRequestAppinstallation: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppInstallations.Post.Parameters.RequestBody>,
@@ -379,7 +379,7 @@ export const appRequestAppinstallation: OpenAPIOperation<
   operationId: "app-request-appinstallation",
 };
 
-/** Get all available `Apps`. */
+/** List Apps. */
 export const appListApps: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -403,7 +403,7 @@ export const appListApps: OpenAPIOperation<
   operationId: "app-list-apps",
 };
 
-/** Get all `AppVersions` of a specific `App`. */
+/** List AppVersions belonging to an App. */
 export const appListAppversions: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -427,7 +427,7 @@ export const appListAppversions: OpenAPIOperation<
   operationId: "app-list-appversions",
 };
 
-/** Get all available `SystemSoftware`. */
+/** List SystemSoftwares. */
 export const appListSystemsoftwares: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -451,7 +451,7 @@ export const appListSystemsoftwares: OpenAPIOperation<
   operationId: "app-list-systemsoftwares",
 };
 
-/** Get all available `SystemSoftwareVersions` of a specific `SystemSoftware`. */
+/** List SystemSoftwareVersions belonging to a SystemSoftware. */
 export const appListSystemsoftwareversions: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -475,7 +475,7 @@ export const appListSystemsoftwareversions: OpenAPIOperation<
   operationId: "app-list-systemsoftwareversions",
 };
 
-/** Get all update candidates for a specific `AppVersion`. */
+/** List update candidates belonging to an AppVersion. */
 export const appListUpdateCandidatesForAppversion: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -499,36 +499,36 @@ export const appListUpdateCandidatesForAppversion: OpenAPIOperation<
   operationId: "app-list-update-candidates-for-appversion",
 };
 
-/** Request a copy of an `AppInstallation`. */
+/** Request a copy of an AppInstallation. */
 export const appRequestAppinstallationCopy: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsIdActionsCopy.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsIdActionsCopy.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsIdActionsCopy.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsIdActionsCopy.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsCopy.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsCopy.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsCopy.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsCopy.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsIdActionsCopy.Post.Responses.$201.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsCopy.Post.Responses.$201.Content.ApplicationJson>,
       201,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsIdActionsCopy.Post.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsCopy.Post.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsIdActionsCopy.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsCopy.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/app-installations/{id}/actions/copy",
+  path: "/v2/app-installations/{appInstallationId}/actions/copy",
   method: "POST",
   operationId: "app-request-appinstallation-copy",
 };
 
-/** Get runtime status of a specific `AppInstallation`. */
+/** Get runtime status belonging to an AppInstallation. */
 export const appRetrieveStatus: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -557,36 +557,7 @@ export const appRetrieveStatus: OpenAPIOperation<
   operationId: "app-retrieve-status",
 };
 
-/** Create linkage between an `AppInstallation` and `DatabaseUsers`. */
-export const appSetDatabaseUsers: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Put.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Put.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/app-installations/{appInstallationId}/databases/{databaseId}",
-  method: "PUT",
-  operationId: "app-set-database-users",
-};
-
-/** Remove linkage between an `AppInstallation` and a `Database`. */
+/** Remove linkage between an AppInstallation and a Database. */
 export const appUnlinkDatabase: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -613,6 +584,35 @@ export const appUnlinkDatabase: OpenAPIOperation<
   path: "/v2/app-installations/{appInstallationId}/databases/{databaseId}",
   method: "DELETE",
   operationId: "app-unlink-database",
+};
+
+/** Create linkage between an AppInstallation and DatabaseUsers. */
+export const appSetDatabaseUsers: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/app-installations/{appInstallationId}/databases/{databaseId}/users",
+  method: "PUT",
+  operationId: "app-set-database-users",
 };
 
 /** Get an Article. */
