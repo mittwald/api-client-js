@@ -5060,37 +5060,37 @@ export const ingressUpdateIngressTls: OpenAPIOperation<
 };
 
 /** Get details of an Invoice. */
-export const invoiceDetailOfInvoice: OpenAPIOperation<
+export const invoiceDetail: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2InvoicesInvoiceId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2InvoicesInvoiceId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2InvoicesInvoiceId.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceId.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2InvoicesInvoiceId.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceId.Get.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2InvoicesInvoiceId.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceId.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2InvoicesInvoiceId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceId.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2InvoicesInvoiceId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/customers/{customerId}/invoices/{invoiceId}",
+  path: "/v2/invoices/{invoiceId}",
   method: "GET",
-  operationId: "invoice-detail-of-invoice",
+  operationId: "invoice-detail",
 };
 
 /** Get InvoiceSettings of a Customer. */

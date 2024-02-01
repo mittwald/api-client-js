@@ -198,9 +198,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
       descriptors.contractListContracts,
     ),
     /** Get details of an Invoice. */
-    invoiceDetailOfInvoice: this.requestFunctionFactory(
-      descriptors.invoiceDetailOfInvoice,
-    ),
+    invoiceDetail: this.requestFunctionFactory(descriptors.invoiceDetail),
     /** Get InvoiceSettings of a Customer. */
     invoiceGetDetailOfInvoiceSettings: this.requestFunctionFactory(
       descriptors.invoiceGetDetailOfInvoiceSettings,

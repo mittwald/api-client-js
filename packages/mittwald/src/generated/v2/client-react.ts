@@ -157,9 +157,9 @@ const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
     baseClient.contract.listContracts,
   ).getApiResource,
   /** Get details of an Invoice. */
-  invoiceDetailOfInvoice: new ApiCallAsyncResourceFactory(
-    descriptors.invoiceDetailOfInvoice,
-    baseClient.contract.invoiceDetailOfInvoice,
+  invoiceDetail: new ApiCallAsyncResourceFactory(
+    descriptors.invoiceDetail,
+    baseClient.contract.invoiceDetail,
   ).getApiResource,
   /** Get InvoiceSettings of a Customer. */
   invoiceGetDetailOfInvoiceSettings: new ApiCallAsyncResourceFactory(

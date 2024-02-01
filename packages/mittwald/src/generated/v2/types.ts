@@ -1607,15 +1607,10 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace InvoiceDetailOfInvoice {
-      type RequestData = InferredRequestData<
-        typeof descriptors.invoiceDetailOfInvoice
-      >;
+    namespace InvoiceDetail {
+      type RequestData = InferredRequestData<typeof descriptors.invoiceDetail>;
       type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.invoiceDetailOfInvoice,
-          TStatus
-        >;
+        InferredResponseData<typeof descriptors.invoiceDetail, TStatus>;
     }
 
     namespace InvoiceGetDetailOfInvoiceSettings {
@@ -4133,23 +4128,12 @@ export declare module MittwaldAPIV2 {
       export interface FileFileMeta {
         friendlyURL: string;
         id: string;
-        mimeType: string;
         name: string;
         sizeInBytes: number;
-        /**
-         * @deprecated
-         * deprecated, see mimeType
-         */
         type: string;
       }
 
-      export interface FileFileType {
-        extensions: string[];
-        mimeType: string;
-      }
-
       export interface FileFileUploadRules {
-        fileTypes: MittwaldAPIV2.Components.Schemas.FileFileType[];
         maxSizeInKB: number;
         mimeTypes: string[];
         properties?: {
@@ -11132,6 +11116,8 @@ export declare module MittwaldAPIV2 {
 
     namespace V2FileTypeRulesName {}
 
+    namespace V2CustomersCustomerIdInvoicesInvoiceId {}
+
     namespace V2NewsletterSubscriptions {
       namespace Post {
         namespace Parameters {
@@ -12839,11 +12825,10 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2CustomersCustomerIdInvoicesInvoiceId {
+    namespace V2InvoicesInvoiceId {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            customerId: string;
             invoiceId: string;
           };
 

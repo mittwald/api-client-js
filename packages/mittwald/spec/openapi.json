@@ -3912,10 +3912,6 @@
             "format": "uuid",
             "type": "string"
           },
-          "mimeType": {
-            "example": "image/jpeg",
-            "type": "string"
-          },
           "name": {
             "example": "me.jpeg",
             "type": "string"
@@ -3925,8 +3921,6 @@
             "type": "integer"
           },
           "type": {
-            "deprecated": true,
-            "description": "deprecated, see mimeType",
             "example": "image/jpeg",
             "type": "string"
           }
@@ -3936,43 +3930,12 @@
           "name",
           "type",
           "friendlyURL",
-          "sizeInBytes",
-          "mimeType"
-        ],
-        "type": "object"
-      },
-      "file.FileType": {
-        "properties": {
-          "extensions": {
-            "items": {
-              "example": [
-                ".jpe",
-                ".jpeg",
-                ".jpg"
-              ],
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "mimeType": {
-            "example": "image/jpeg",
-            "type": "string"
-          }
-        },
-        "required": [
-          "mimeType",
-          "extensions"
+          "sizeInBytes"
         ],
         "type": "object"
       },
       "file.FileUploadRules": {
         "properties": {
-          "fileTypes": {
-            "items": {
-              "$ref": "#/components/schemas/file.FileType"
-            },
-            "type": "array"
-          },
           "maxSizeInKB": {
             "example": 3000,
             "type": "integer"
@@ -3980,8 +3943,8 @@
           "mimeTypes": {
             "items": {
               "example": [
-                "image/png",
-                "image/jpeg"
+                "image/jpeg",
+                "image/png"
               ],
               "type": "string"
             },
@@ -4021,9 +3984,8 @@
           }
         },
         "required": [
-          "maxSizeInKB",
           "mimeTypes",
-          "fileTypes"
+          "maxSizeInKB"
         ],
         "type": "object"
       },
@@ -15724,6 +15686,63 @@
         ]
       }
     },
+    "/v2/customers/{customerId}/invoices/{invoiceId}": {
+      "get": {
+        "operationId": "deprecated-invoice-detail-of-invoice",
+        "parameters": [
+          {
+            "example": "edefeee4-e8e9-4e2d-ab95-9a2eb6104cfb",
+            "in": "path",
+            "name": "customerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "example": "154219e9-bf4a-4f41-9c72-0449a98db62f",
+            "in": "path",
+            "name": "invoiceId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/invoice.Invoice"
+                }
+              }
+            },
+            "description": ""
+          },
+          "400": {
+            "$ref": "#/components/responses/commons.ValidationError"
+          },
+          "404": {
+            "$ref": "#/components/responses/commons.NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "Get details of an Invoice.",
+        "tags": [
+          "Contract"
+        ],
+        "deprecated": true
+      }
+    },
     "/v2/newsletter-subscriptions": {
       "post": {
         "operationId": "newsletter-subscribe-user",
@@ -20716,19 +20735,10 @@
         ]
       }
     },
-    "/v2/customers/{customerId}/invoices/{invoiceId}": {
+    "/v2/invoices/{invoiceId}": {
       "get": {
-        "operationId": "invoice-detail-of-invoice",
+        "operationId": "invoice-detail",
         "parameters": [
-          {
-            "example": "edefeee4-e8e9-4e2d-ab95-9a2eb6104cfb",
-            "in": "path",
-            "name": "customerId",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
           {
             "example": "154219e9-bf4a-4f41-9c72-0449a98db62f",
             "in": "path",
