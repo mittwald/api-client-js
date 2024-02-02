@@ -1556,7 +1556,6 @@
         "required": [
           "id",
           "name",
-          "description",
           "articleTemplateId",
           "amount",
           "unitPrice"
@@ -3912,6 +3911,10 @@
             "format": "uuid",
             "type": "string"
           },
+          "mimeType": {
+            "example": "image/jpeg",
+            "type": "string"
+          },
           "name": {
             "example": "me.jpeg",
             "type": "string"
@@ -3921,6 +3924,8 @@
             "type": "integer"
           },
           "type": {
+            "deprecated": true,
+            "description": "deprecated, see mimeType",
             "example": "image/jpeg",
             "type": "string"
           }
@@ -3930,12 +3935,19 @@
           "name",
           "type",
           "friendlyURL",
-          "sizeInBytes"
+          "sizeInBytes",
+          "mimeType"
         ],
         "type": "object"
       },
       "file.FileUploadRules": {
         "properties": {
+          "fileTypes": {
+            "items": {
+              "$ref": "#/components/schemas/file.FileType"
+            },
+            "type": "array"
+          },
           "maxSizeInKB": {
             "example": 3000,
             "type": "integer"
@@ -3943,8 +3955,8 @@
           "mimeTypes": {
             "items": {
               "example": [
-                "image/jpeg",
-                "image/png"
+                "image/png",
+                "image/jpeg"
               ],
               "type": "string"
             },
@@ -3984,8 +3996,9 @@
           }
         },
         "required": [
+          "maxSizeInKB",
           "mimeTypes",
-          "maxSizeInKB"
+          "fileTypes"
         ],
         "type": "object"
       },
@@ -7196,6 +7209,30 @@
           "device",
           "created",
           "tokenId"
+        ],
+        "type": "object"
+      },
+      "file.FileType": {
+        "properties": {
+          "extensions": {
+            "items": {
+              "example": [
+                ".jpe",
+                ".jpeg",
+                ".jpg"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "mimeType": {
+            "example": "image/jpeg",
+            "type": "string"
+          }
+        },
+        "required": [
+          "mimeType",
+          "extensions"
         ],
         "type": "object"
       },
@@ -16340,6 +16377,13 @@
         },
         "responses": {
           "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
             "description": "Multi Factor Authentication was disabled."
           },
           "400": {
@@ -29188,8 +29232,7 @@
                     }
                   },
                   "required": [
-                    "token",
-                    "expires"
+                    "token"
                   ],
                   "type": "object"
                 }
@@ -29334,8 +29377,7 @@
                     }
                   },
                   "required": [
-                    "token",
-                    "expires"
+                    "token"
                   ],
                   "type": "object"
                 }
@@ -29362,14 +29404,7 @@
             "description": "Multi factor authentication is activated for this user. After calling this, you need to call '/authentication/mfa' with a valid multi factor code.\n"
           },
           "400": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/commons.ValidationErrors"
-                }
-              }
-            },
-            "description": "Some of the specified values do not meet our requirements.\nPossible domain specific `type` values are:\n  * ValidationError\n  * LoginFailed\n"
+            "$ref": "#/components/responses/commons.DefaultError"
           },
           "401": {
             "content": {
@@ -29435,8 +29470,7 @@
                     }
                   },
                   "required": [
-                    "token",
-                    "expires"
+                    "token"
                   ],
                   "type": "object"
                 }
@@ -29445,14 +29479,7 @@
             "description": "Your authentication request was successful and you've got an access token."
           },
           "400": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/commons.ValidationErrors"
-                }
-              }
-            },
-            "description": "Some of the specified values do not meet our requirements.\nPossible domain specific `type` values are:\n  * WrongRetrievalKey\n"
+            "$ref": "#/components/responses/commons.ValidationError"
           },
           "default": {
             "$ref": "#/components/responses/commons.DefaultError"
@@ -29701,8 +29728,7 @@
                     }
                   },
                   "required": [
-                    "token",
-                    "expires"
+                    "token"
                   ],
                   "type": "object"
                 }
@@ -30220,6 +30246,11 @@
             "$ref": "#/components/responses/commons.DefaultError"
           }
         },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
         "summary": "Create an access token retrieval key to acquire an access token for your user.",
         "tags": [
           "User"
@@ -30616,6 +30647,13 @@
         },
         "responses": {
           "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
             "description": "The ssh-key was stored."
           },
           "400": {
@@ -31703,6 +31741,13 @@
         },
         "responses": {
           "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
             "description": "The password reset process has been initialized and an email with confirmation code has been sent.\n"
           },
           "400": {
@@ -31913,6 +31958,18 @@
             "required": false,
             "schema": {
               "type": "boolean"
+            }
+          },
+          {
+            "description": "The grant type. Must be set to `authorization_code` for this endpoint.\n",
+            "in": "query",
+            "name": "grant_type",
+            "required": false,
+            "schema": {
+              "enum": [
+                "authorization_code"
+              ],
+              "type": "string"
             }
           },
           {
@@ -32681,8 +32738,8 @@
                     }
                   },
                   "required": [
-                    "token",
-                    "expires"
+                    "supportCode",
+                    "expiresAt"
                   ],
                   "type": "object"
                 }
@@ -33035,6 +33092,13 @@
         },
         "responses": {
           "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
             "description": "User is verified and you can now login to your user account.\n"
           },
           "400": {

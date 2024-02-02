@@ -8651,9 +8651,9 @@ export const userCreateSshKey: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeys.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeys.Post.Responses.$201.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeys.Post.Responses.$201.Content.ApplicationJson>,
       201,
-      "empty"
+      "application/json"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeys.Post.Responses.$400.Content.ApplicationJson>,
@@ -9241,9 +9241,9 @@ export const userInitPasswordReset: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsActionsInitPasswordReset.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsActionsInitPasswordReset.Post.Responses.$201.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsActionsInitPasswordReset.Post.Responses.$201.Content.ApplicationJson>,
       201,
-      "empty"
+      "application/json"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsActionsInitPasswordReset.Post.Responses.$400.Content.ApplicationJson>,
@@ -9647,9 +9647,9 @@ export const userVerifyRegistration: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2VerifyRegistration.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2VerifyRegistration.Post.Responses.$200.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2VerifyRegistration.Post.Responses.$200.Content.ApplicationJson>,
       200,
-      "empty"
+      "application/json"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2VerifyRegistration.Post.Responses.$400.Content.ApplicationJson>,

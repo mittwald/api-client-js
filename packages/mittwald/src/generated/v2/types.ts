@@ -3375,7 +3375,7 @@ export declare module MittwaldAPIV2 {
       export interface ContractArticle {
         amount: number;
         articleTemplateId: string;
-        description: string;
+        description?: string;
         id: string;
         name: string;
         unitPrice: MittwaldAPIV2.Components.Schemas.ContractPrice;
@@ -4128,12 +4128,18 @@ export declare module MittwaldAPIV2 {
       export interface FileFileMeta {
         friendlyURL: string;
         id: string;
+        mimeType: string;
         name: string;
         sizeInBytes: number;
+        /**
+         * @deprecated
+         * deprecated, see mimeType
+         */
         type: string;
       }
 
       export interface FileFileUploadRules {
+        fileTypes: MittwaldAPIV2.Components.Schemas.FileFileType[];
         maxSizeInKB: number;
         mimeTypes: string[];
         properties?: {
@@ -5218,6 +5224,11 @@ export declare module MittwaldAPIV2 {
         lastAccess?: string;
         location?: MittwaldAPIV2.Components.Schemas.SignupLocation;
         tokenId: string;
+      }
+
+      export interface FileFileType {
+        extensions: string[];
+        mimeType: string;
       }
 
       export interface CommonsAddress {
@@ -17551,7 +17562,7 @@ export declare module MittwaldAPIV2 {
                 /**
                  * Expiration unix timestamp
                  */
-                expires: string;
+                expires?: string;
                 /**
                  * Public token to identify yourself against the api gateway.
                  */
@@ -17616,7 +17627,7 @@ export declare module MittwaldAPIV2 {
                 /**
                  * Expiration unix timestamp
                  */
-                expires: string;
+                expires?: string;
                 /**
                  * Public token to identify yourself against the api gateway.
                  */
@@ -17635,8 +17646,9 @@ export declare module MittwaldAPIV2 {
 
           namespace $400 {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -17687,8 +17699,9 @@ export declare module MittwaldAPIV2 {
 
           namespace $400 {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -17817,7 +17830,7 @@ export declare module MittwaldAPIV2 {
                 /**
                  * Expiration unix timestamp.
                  */
-                expires: string;
+                expires?: string;
                 /**
                  * Public token to identify yourself against the api gateway.
                  */
@@ -18152,7 +18165,8 @@ export declare module MittwaldAPIV2 {
             [k: string]: unknown;
           }
 
-          export type Header = {};
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {};
         }
@@ -18376,7 +18390,7 @@ export declare module MittwaldAPIV2 {
         namespace Responses {
           namespace $201 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {}
             }
           }
 
@@ -19188,7 +19202,7 @@ export declare module MittwaldAPIV2 {
         namespace Responses {
           namespace $201 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {}
             }
           }
 
@@ -19344,6 +19358,7 @@ export declare module MittwaldAPIV2 {
 
           export type Query = {
             grant_consent?: boolean;
+            grant_type?: "authorization_code";
             response_type: "code";
             client_id: string;
             redirect_uri?: string;
@@ -19685,11 +19700,11 @@ export declare module MittwaldAPIV2 {
                 /**
                  * Expiration of the support code
                  */
-                expiresAt?: string;
+                expiresAt: string;
                 /**
                  * support code to authenticate yourself against the mittwald support via telephone
                  */
-                supportCode?: string;
+                supportCode: string;
               }
             }
           }
@@ -19849,7 +19864,7 @@ export declare module MittwaldAPIV2 {
         namespace Responses {
           namespace $200 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {}
             }
           }
 
