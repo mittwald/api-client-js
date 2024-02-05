@@ -109,9 +109,7 @@
 
 
         $collectResponseContentTypes := function($responses)<o:a> {
-            $each($responses, function($response) {
-                $response.content ~> $keys
-            })
+            $responses ~> $each(function($v) { $v.content }) ~> $merge ~> $keys
         };
 
         /* fn to construct 'parameters' (header, path, query, ...) */
@@ -172,7 +170,7 @@
                             $parameters.header.properties ~> $spread, {
                                 "Accept": {
                                     "type": "string",
-                                    "enum": $responses ~> $collectResponseContentTypes ~> $distinct
+                                    "enum": $responses ~> $collectResponseContentTypes
                                 }
                             }
                     ] ~> $merge}

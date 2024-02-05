@@ -10,6 +10,39 @@ exports[`transformOpenAPIExpression.evaluate() creates correct snapshots for 'Mi
         "description": "Your request ran into a rate limit. You have to wait until rate limit expires
 ",
       },
+      "de.mittwald.v1.commons.ValidationError": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/de.mittwald.v1.commons.ValidationErrors",
+              "properties": {
+                "message": {
+                  "example": "Validation failed",
+                  "type": "string",
+                },
+                "type": {
+                  "enum": [
+                    "ValidationError",
+                  ],
+                  "type": "string",
+                },
+                "validationErrors": {
+                  "items": {
+                    "$ref": "#/components/schemas/de.mittwald.v1.commons.ValidationErrorSchema",
+                  },
+                  "type": "array",
+                },
+              },
+              "required": [
+                "type",
+                "validationErrors",
+              ],
+              "type": "object",
+            },
+          },
+        },
+        "description": "Validation Error caused by invalid input data in the request",
+      },
       "de.mittwald.v1.signup.InternalServerError": {
         "content": {
           "application/json": {
@@ -181,6 +214,105 @@ type that failed validation (e.g. "missingProperty" for type "required")
         "required": [
           "name",
           "errorObjects",
+        ],
+        "type": "object",
+      },
+      "de.mittwald.v1.commons.ValidationErrorSchema": {
+        "properties": {
+          "context": {
+            "additionalProperties": {
+              "type": "string",
+            },
+            "description": "The object with the additional information about the error that can be used to create custom error messages. Keys depend on the
+type that failed validation (e.g. "missingProperty" for type "required")
+",
+            "example": {
+              "format": "email",
+            },
+            "type": "object",
+          },
+          "message": {
+            "description": "The standard error message",
+            "example": "should be string",
+            "type": "string",
+          },
+          "path": {
+            "description": "The path to the part of the data that was validated. JavaScript property access notation (e.g., ".prop[1].subProp") is used.
+",
+            "example": ".address.street",
+            "type": "string",
+          },
+          "type": {
+            "description": "ajv validation error type (e.g. "format", "required", "type") or own validation error types",
+            "example": "format",
+            "type": "string",
+          },
+        },
+        "required": [
+          "message",
+          "path",
+          "type",
+        ],
+        "type": "object",
+      },
+      "de.mittwald.v1.commons.ValidationErrors": {
+        "properties": {
+          "message": {
+            "example": "Validation failed",
+            "type": "string",
+          },
+          "type": {
+            "enum": [
+              "ValidationError",
+            ],
+            "type": "string",
+          },
+          "validationErrors": {
+            "items": {
+              "$ref": "#/components/schemas/de.mittwald.v1.commons.ValidationErrorSchema",
+              "properties": {
+                "context": {
+                  "additionalProperties": {
+                    "type": "string",
+                  },
+                  "description": "The object with the additional information about the error that can be used to create custom error messages. Keys depend on the
+type that failed validation (e.g. "missingProperty" for type "required")
+",
+                  "example": {
+                    "format": "email",
+                  },
+                  "type": "object",
+                },
+                "message": {
+                  "description": "The standard error message",
+                  "example": "should be string",
+                  "type": "string",
+                },
+                "path": {
+                  "description": "The path to the part of the data that was validated. JavaScript property access notation (e.g., ".prop[1].subProp") is used.
+",
+                  "example": ".address.street",
+                  "type": "string",
+                },
+                "type": {
+                  "description": "ajv validation error type (e.g. "format", "required", "type") or own validation error types",
+                  "example": "format",
+                  "type": "string",
+                },
+              },
+              "required": [
+                "message",
+                "path",
+                "type",
+              ],
+              "type": "object",
+            },
+            "type": "array",
+          },
+        },
+        "required": [
+          "type",
+          "validationErrors",
         ],
         "type": "object",
       },
@@ -640,9 +772,9 @@ type that failed validation (e.g. "missingProperty" for type "required")
   },
   "definitions": {},
   "paths": {
-    "/v2/files/{fileID}": {
+    "/v2/files/{fileId}": {
       "get": {
-        "operationId": "file-service-files-get-by-id",
+        "operationId": "file-get-file",
         "parameters": {
           "header": {
             "properties": {
@@ -650,19 +782,39 @@ type that failed validation (e.g. "missingProperty" for type "required")
                 "enum": [
                   "application/octet-stream",
                   "base64",
+                  "ocr",
+                  "application/json",
                 ],
                 "type": "string",
               },
-            },
-          },
-          "path": {
-            "properties": {
-              "fileID": {
+              "Download": {
+                "default": false,
+                "example": false,
+                "type": "boolean",
+              },
+              "Token": {
+                "example": "jwt",
+                "type": "string",
+              },
+              "x-access-token": {
                 "type": "string",
               },
             },
             "required": [
-              "fileID",
+              "x-access-token",
+            ],
+            "type": "object",
+          },
+          "path": {
+            "properties": {
+              "fileId": {
+                "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                "format": "uuid",
+                "type": "string",
+              },
+            },
+            "required": [
+              "fileId",
             ],
             "type": "object",
           },
@@ -671,12 +823,26 @@ type that failed validation (e.g. "missingProperty" for type "required")
           "200": {
             "content": {
               "application/octet-stream": {
+                "example": "binary",
                 "format": "binary",
                 "type": "string",
               },
               "base64": {
+                "example": "base64",
                 "format": "byte",
                 "type": "string",
+              },
+              "ocr": {
+                "example": "ocr",
+                "format": "byte",
+                "type": "string",
+              },
+            },
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "$ref": "#/components/schemas/de.mittwald.v1.commons.ValidationErrors",
               },
             },
           },
