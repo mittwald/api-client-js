@@ -18,6 +18,16 @@
     "parameters": {},
     "requestBodies": {},
     "responses": {
+      "de.mittwald.v1.commons.ValidationError": {
+        "description": "Validation Error caused by invalid input data in the request",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/de.mittwald.v1.commons.ValidationErrors"
+            }
+          }
+        }
+      },
       "de.mittwald.v1.signup.InternalServerError": {
         "content": {
           "application/json": {
@@ -69,6 +79,57 @@
       }
     },
     "schemas": {
+      "de.mittwald.v1.commons.ValidationErrorSchema": {
+        "type": "object",
+        "required": ["message", "path", "type"],
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "The standard error message",
+            "example": "should be string"
+          },
+          "path": {
+            "type": "string",
+            "description": "The path to the part of the data that was validated. JavaScript property access notation (e.g., \".prop[1].subProp\") is used.\n",
+            "example": ".address.street"
+          },
+          "type": {
+            "type": "string",
+            "description": "ajv validation error type (e.g. \"format\", \"required\", \"type\") or own validation error types",
+            "example": "format"
+          },
+          "context": {
+            "type": "object",
+            "example": {
+              "format": "email"
+            },
+            "description": "The object with the additional information about the error that can be used to create custom error messages. Keys depend on the\ntype that failed validation (e.g. \"missingProperty\" for type \"required\")\n",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "de.mittwald.v1.commons.ValidationErrors": {
+        "type": "object",
+        "required": ["type", "validationErrors"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["ValidationError"]
+          },
+          "message": {
+            "type": "string",
+            "example": "Validation failed"
+          },
+          "validationErrors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/de.mittwald.v1.commons.ValidationErrorSchema"
+            }
+          }
+        }
+      },
       "de.mittwald.v1.signup.DeviceInfo": {
         "properties": {
           "browser": {
@@ -405,40 +466,84 @@
     }
   ],
   "paths": {
-    "/v2/files/{fileID}": {
+    "/v2/files/{fileId}": {
       "get": {
-        "operationId": "file-service-files-get-by-id",
+        "operationId": "file-get-file",
+        "parameters": [
+          {
+            "description": "ID of the File to be retrieved.",
+            "in": "path",
+            "name": "fileId",
+            "required": true,
+            "schema": {
+              "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Accept",
+            "schema": {
+              "default": "binary",
+              "enum": ["binary", "base64", "ocr"],
+              "example": "binary",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Download",
+            "schema": {
+              "default": false,
+              "example": false,
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Only needed for protected Files.",
+            "in": "header",
+            "name": "Token",
+            "required": false,
+            "schema": {
+              "example": "jwt",
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "content": {
               "application/octet-stream": {
                 "schema": {
+                  "example": "binary",
                   "format": "binary",
                   "type": "string"
                 }
               },
               "base64": {
                 "schema": {
+                  "example": "base64",
+                  "format": "byte",
+                  "type": "string"
+                }
+              },
+              "ocr": {
+                "schema": {
+                  "example": "ocr",
                   "format": "byte",
                   "type": "string"
                 }
               }
             },
-            "description": "The requested file"
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/de.mittwald.v1.commons.ValidationError"
           }
         },
-        "parameters": [
-          {
-            "in": "path",
-            "name": "fileID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "security": [],
-        "summary": "Download a file"
+        "summary": "Get a File.",
+        "tags": ["File"]
       }
     },
     "/v2/imapcluster": {
@@ -681,8 +786,8 @@
     "/v2/signup/authentication/legacy": {
       "post": {
         "operationId": "signup-api-authenticate-legacy",
-          "deprecated": true,
-          "responses": {
+        "deprecated": true,
+        "responses": {
           "200": {
             "description": "Given legacy credentials were correct"
           },

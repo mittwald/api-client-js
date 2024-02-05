@@ -24,12 +24,19 @@ export declare module Test {
       namespace Get {
         namespace Parameters {
           interface Path {
-            fileID: string;
+            fileId: string;
           }
 
-          type Header = {
-            Accept?: "application/octet-stream" | "base64";
-          };
+          interface Header {
+            Accept?:
+              | "application/octet-stream"
+              | "base64"
+              | "ocr"
+              | "application/json";
+            Download?: boolean;
+            Token?: string;
+            "x-access-token": string;
+          }
         }
 
         namespace Responses {
@@ -38,6 +45,15 @@ export declare module Test {
               type Application_Octet_Stream = string;
 
               type Base64 = string;
+
+              type Ocr = string;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json =
+                Test.Components.Schemas.De_Mittwald_V1_Commons_ValidationErrors;
             }
           }
         }
@@ -1722,6 +1738,21 @@ export declare module Test {
 
   namespace Components {
     namespace Schemas {
+      interface De_Mittwald_V1_Commons_ValidationErrorSchema {
+        message: string;
+        path: string;
+        type: string;
+        context?: {
+          [a: string]: any;
+        };
+      }
+
+      interface De_Mittwald_V1_Commons_ValidationErrors {
+        type: "ValidationError";
+        message?: string;
+        validationErrors: Test.Components.Schemas.De_Mittwald_V1_Commons_ValidationErrorSchema[];
+      }
+
       interface De_Mittwald_V1_Signup_DeviceInfo {
         browser?: string;
         model?: string;
@@ -1841,6 +1872,8 @@ export declare module Test {
     namespace Parameters {}
 
     namespace Responses {
+      type De_Mittwald_V1_Commons_ValidationError = any;
+
       type De_Mittwald_V1_Signup_InternalServerError = any;
 
       type De_Mittwald_V1_Signup_NoValidAccessTokenError = any;
@@ -1860,9 +1893,9 @@ export declare module Test {
  * ====================================
  */
 
-export const fileServiceFilesGetById: OperationDescriptor<
+export const fileGetFile: OperationDescriptor<
   {
-    header?: Test.Paths.V2_Files_FileId.Get.Parameters.Header;
+    header: Test.Paths.V2_Files_FileId.Get.Parameters.Header;
 
     path: Test.Paths.V2_Files_FileId.Get.Parameters.Path;
   },
@@ -1874,10 +1907,18 @@ export const fileServiceFilesGetById: OperationDescriptor<
       mediaType: "base64";
       content: Test.Paths.V2_Files_FileId.Get.Responses.$200.Content.Base64;
     })
+  | ({ status: 200 } & {
+      mediaType: "ocr";
+      content: Test.Paths.V2_Files_FileId.Get.Responses.$200.Content.Ocr;
+    })
+  | ({ status: 400 } & {
+      mediaType: "application/json";
+      content: Test.Paths.V2_Files_FileId.Get.Responses.$400.Content.Application_Json;
+    })
 > = {
-  path: "/v2/files/{fileID}",
+  path: "/v2/files/{fileId}",
   method: "get",
-  operationId: "fileServiceFilesGetById",
+  operationId: "fileGetFile",
 };
 
 export const mailsystemServiceImapclusterCreate: OperationDescriptor<
@@ -2937,9 +2978,7 @@ export class TestClient {
     TestClient.instance = client;
   }
 
-  public fileServiceFilesGetById: RequestFunction<
-    typeof fileServiceFilesGetById
-  >;
+  public fileGetFile: RequestFunction<typeof fileGetFile>;
 
   public mailsystemServiceImapclusterCreate: RequestFunction<
     typeof mailsystemServiceImapclusterCreate
@@ -3085,9 +3124,7 @@ export class TestClient {
         ? new KyClient({ ky: { prefixUrl: clientOrUrl } })
         : clientOrUrl;
 
-    this.fileServiceFilesGetById = client.requestFunctionFactory(
-      fileServiceFilesGetById
-    );
+    this.fileGetFile = client.requestFunctionFactory(fileGetFile);
 
     this.mailsystemServiceImapclusterCreate = client.requestFunctionFactory(
       mailsystemServiceImapclusterCreate
@@ -3254,14 +3291,14 @@ export class TestClient {
 import { createGetApiOperationResource } from "@mittwald/flow-lib/dist/resources/ApiOperationResource/createGetApiOperationResource";
 
 export const test = {
-  fileServiceFilesGetById: {
+  fileGetFile: {
     getResource: createGetApiOperationResource(
-      fileServiceFilesGetById,
-      TestClient.getInstance().fileServiceFilesGetById
+      fileGetFile,
+      TestClient.getInstance().fileGetFile
     ),
 
-    request: TestClient.getInstance().fileServiceFilesGetById,
-    descriptor: fileServiceFilesGetById,
+    request: TestClient.getInstance().fileGetFile,
+    descriptor: fileGetFile,
   },
 
   mailsystemServiceImapclusterCreate: {
@@ -3703,9 +3740,7 @@ import { mockRequestFactory } from "@mittwald/api-client/dist/http/mockRequestFa
 import * as descriptors from "./TestClient";
 
 export const testRequestMocking = {
-  mockFileServiceFilesGetById: mockRequestFactory(
-    descriptors.fileServiceFilesGetById
-  ),
+  mockFileGetFile: mockRequestFactory(descriptors.fileGetFile),
 
   mockMailsystemServiceImapclusterCreate: mockRequestFactory(
     descriptors.mailsystemServiceImapclusterCreate
@@ -3880,12 +3915,19 @@ export declare module Test {
       namespace Get {
         namespace Parameters {
           interface Path {
-            fileID: string;
+            fileId: string;
           }
 
-          type Header = {
-            Accept?: "application/octet-stream" | "base64";
-          };
+          interface Header {
+            Accept?:
+              | "application/octet-stream"
+              | "base64"
+              | "ocr"
+              | "application/json";
+            Download?: boolean;
+            Token?: string;
+            "x-access-token"?: string;
+          }
         }
 
         namespace Responses {
@@ -3894,6 +3936,15 @@ export declare module Test {
               type Application_Octet_Stream = string;
 
               type Base64 = string;
+
+              type Ocr = string;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              type Application_Json =
+                Test.Components.Schemas.De_Mittwald_V1_Commons_ValidationErrors;
             }
           }
         }
@@ -5578,6 +5629,21 @@ export declare module Test {
 
   namespace Components {
     namespace Schemas {
+      interface De_Mittwald_V1_Commons_ValidationErrorSchema {
+        message: string;
+        path: string;
+        type: string;
+        context?: {
+          [a: string]: any;
+        };
+      }
+
+      interface De_Mittwald_V1_Commons_ValidationErrors {
+        type: "ValidationError";
+        message?: string;
+        validationErrors: Test.Components.Schemas.De_Mittwald_V1_Commons_ValidationErrorSchema[];
+      }
+
       interface De_Mittwald_V1_Signup_DeviceInfo {
         browser?: string;
         model?: string;
@@ -5697,6 +5763,8 @@ export declare module Test {
     namespace Parameters {}
 
     namespace Responses {
+      type De_Mittwald_V1_Commons_ValidationError = any;
+
       type De_Mittwald_V1_Signup_InternalServerError = any;
 
       type De_Mittwald_V1_Signup_NoValidAccessTokenError = any;
@@ -5716,9 +5784,9 @@ export declare module Test {
  * ====================================
  */
 
-export const fileServiceFilesGetById: OperationDescriptor<
+export const fileGetFile: OperationDescriptor<
   {
-    header?: Test.Paths.V2_Files_FileId.Get.Parameters.Header;
+    header: Test.Paths.V2_Files_FileId.Get.Parameters.Header;
 
     path: Test.Paths.V2_Files_FileId.Get.Parameters.Path;
   },
@@ -5730,10 +5798,18 @@ export const fileServiceFilesGetById: OperationDescriptor<
       mediaType: "base64";
       content: Test.Paths.V2_Files_FileId.Get.Responses.$200.Content.Base64;
     })
+  | ({ status: 200 } & {
+      mediaType: "ocr";
+      content: Test.Paths.V2_Files_FileId.Get.Responses.$200.Content.Ocr;
+    })
+  | ({ status: 400 } & {
+      mediaType: "application/json";
+      content: Test.Paths.V2_Files_FileId.Get.Responses.$400.Content.Application_Json;
+    })
 > = {
-  path: "/v2/files/{fileID}",
+  path: "/v2/files/{fileId}",
   method: "get",
-  operationId: "fileServiceFilesGetById",
+  operationId: "fileGetFile",
 };
 
 export const mailsystemServiceImapclusterCreate: OperationDescriptor<
@@ -6793,9 +6869,7 @@ export class TestClient {
     TestClient.instance = client;
   }
 
-  public fileServiceFilesGetById: RequestFunction<
-    typeof fileServiceFilesGetById
-  >;
+  public fileGetFile: RequestFunction<typeof fileGetFile>;
 
   public mailsystemServiceImapclusterCreate: RequestFunction<
     typeof mailsystemServiceImapclusterCreate
@@ -6941,9 +7015,7 @@ export class TestClient {
         ? new KyClient({ ky: { prefixUrl: clientOrUrl } })
         : clientOrUrl;
 
-    this.fileServiceFilesGetById = client.requestFunctionFactory(
-      fileServiceFilesGetById
-    );
+    this.fileGetFile = client.requestFunctionFactory(fileGetFile);
 
     this.mailsystemServiceImapclusterCreate = client.requestFunctionFactory(
       mailsystemServiceImapclusterCreate
@@ -7108,9 +7180,9 @@ export class TestClient {
  */
 
 export const test = {
-  fileServiceFilesGetById: {
-    request: TestClient.getInstance().fileServiceFilesGetById,
-    descriptor: fileServiceFilesGetById,
+  fileGetFile: {
+    request: TestClient.getInstance().fileGetFile,
+    descriptor: fileGetFile,
   },
 
   mailsystemServiceImapclusterCreate: {
