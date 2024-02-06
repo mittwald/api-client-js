@@ -7529,9 +7529,7 @@ export declare module Test {
             status?: string;
           }
 
-          type Header = {
-            Accept?: string;
-          };
+          type Header = {};
         }
 
         namespace Responses {
@@ -7545,7 +7543,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             api_key?: string;
-            Accept?: string;
           }
 
           interface Path {
@@ -7669,9 +7666,7 @@ export declare module Test {
             orderId: number;
           }
 
-          type Header = {
-            Accept?: string;
-          };
+          type Header = {};
         }
 
         namespace Responses {
@@ -7689,9 +7684,7 @@ export declare module Test {
     namespace User {
       namespace Post {
         namespace Parameters {
-          type Header = {
-            Accept?: "application/json" | "application/xml";
-          };
+          type Header = {};
 
           type RequestBody = Test.Components.Schemas.User;
         }
@@ -7771,9 +7764,7 @@ export declare module Test {
     namespace User_Logout {
       namespace Get {
         namespace Parameters {
-          type Header = {
-            Accept?: string;
-          };
+          type Header = {};
         }
 
         namespace Responses {
@@ -7821,9 +7812,7 @@ export declare module Test {
             username: string;
           }
 
-          type Header = {
-            Accept?: string;
-          };
+          type Header = {};
 
           type RequestBody = Test.Components.Schemas.User;
         }
@@ -7841,9 +7830,7 @@ export declare module Test {
             username: string;
           }
 
-          type Header = {
-            Accept?: string;
-          };
+          type Header = {};
         }
 
         namespace Responses {
@@ -8919,9 +8906,7 @@ export declare module Test {
             status?: string;
           }
 
-          type Header = {
-            Accept?: string;
-          };
+          type Header = {};
         }
 
         namespace Responses {
@@ -8935,7 +8920,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             api_key?: string;
-            Accept?: string;
           }
 
           interface Path {
@@ -9059,9 +9043,7 @@ export declare module Test {
             orderId: number;
           }
 
-          type Header = {
-            Accept?: string;
-          };
+          type Header = {};
         }
 
         namespace Responses {
@@ -9079,9 +9061,7 @@ export declare module Test {
     namespace User {
       namespace Post {
         namespace Parameters {
-          type Header = {
-            Accept?: "application/json" | "application/xml";
-          };
+          type Header = {};
 
           type RequestBody = Test.Components.Schemas.User;
         }
@@ -9161,9 +9141,7 @@ export declare module Test {
     namespace User_Logout {
       namespace Get {
         namespace Parameters {
-          type Header = {
-            Accept?: string;
-          };
+          type Header = {};
         }
 
         namespace Responses {
@@ -9211,9 +9189,7 @@ export declare module Test {
             username: string;
           }
 
-          type Header = {
-            Accept?: string;
-          };
+          type Header = {};
 
           type RequestBody = Test.Components.Schemas.User;
         }
@@ -9231,9 +9207,7 @@ export declare module Test {
             username: string;
           }
 
-          type Header = {
-            Accept?: string;
-          };
+          type Header = {};
         }
 
         namespace Responses {

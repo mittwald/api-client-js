@@ -6175,9 +6175,6 @@ exports[`transformOpenAPIExpression.evaluate() creates correct snapshots for 'Pe
         "parameters": {
           "header": {
             "properties": {
-              "Accept": {
-                "type": "string",
-              },
               "api_key": {
                 "type": "string",
               },
@@ -6365,11 +6362,7 @@ exports[`transformOpenAPIExpression.evaluate() creates correct snapshots for 'Pe
         "operationId": "updatePetWithForm",
         "parameters": {
           "header": {
-            "properties": {
-              "Accept": {
-                "type": "string",
-              },
-            },
+            "properties": {},
           },
           "path": {
             "properties": {
@@ -6610,11 +6603,7 @@ exports[`transformOpenAPIExpression.evaluate() creates correct snapshots for 'Pe
         "operationId": "deleteOrder",
         "parameters": {
           "header": {
-            "properties": {
-              "Accept": {
-                "type": "string",
-              },
-            },
+            "properties": {},
           },
           "path": {
             "properties": {
@@ -6766,15 +6755,7 @@ exports[`transformOpenAPIExpression.evaluate() creates correct snapshots for 'Pe
         "operationId": "createUser",
         "parameters": {
           "header": {
-            "properties": {
-              "Accept": {
-                "enum": [
-                  "application/json",
-                  "application/xml",
-                ],
-                "type": "string",
-              },
-            },
+            "properties": {},
           },
           "requestBody": {
             "$ref": "#/components/schemas/User",
@@ -7143,11 +7124,7 @@ exports[`transformOpenAPIExpression.evaluate() creates correct snapshots for 'Pe
         "operationId": "logoutUser",
         "parameters": {
           "header": {
-            "properties": {
-              "Accept": {
-                "type": "string",
-              },
-            },
+            "properties": {},
           },
         },
         "responses": {
@@ -7162,11 +7139,7 @@ exports[`transformOpenAPIExpression.evaluate() creates correct snapshots for 'Pe
         "operationId": "deleteUser",
         "parameters": {
           "header": {
-            "properties": {
-              "Accept": {
-                "type": "string",
-              },
-            },
+            "properties": {},
           },
           "path": {
             "properties": {
@@ -7320,11 +7293,7 @@ exports[`transformOpenAPIExpression.evaluate() creates correct snapshots for 'Pe
         "operationId": "updateUser",
         "parameters": {
           "header": {
-            "properties": {
-              "Accept": {
-                "type": "string",
-              },
-            },
+            "properties": {},
           },
           "path": {
             "properties": {

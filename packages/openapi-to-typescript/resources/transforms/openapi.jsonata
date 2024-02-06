@@ -107,9 +107,14 @@
                 $obj.schema
         };
 
+        $getHttpStatus := function($status)<s:n>{
+            $status = "default" ? 500 : $status ~> $number
+        };
 
         $collectResponseContentTypes := function($responses)<o:a> {
-            $responses ~> $each(function($v, $k) { $k ~> $number < 300 and $k ~> $number >= 200 ? $v.content : { } }) ~> $merge ~> $keys
+            $responses ~> $each(function($v, $k) {
+                $k ~> $getHttpStatus < 300 and $k ~> $getHttpStatus >= 200 ? $v.content : { }
+            }) ~> $merge ~> $keys
         };
 
         /* fn to construct 'parameters' (header, path, query, ...) */
