@@ -4138,6 +4138,11 @@ export declare module MittwaldAPIV2 {
         type: string;
       }
 
+      export interface FileFileType {
+        extensions: string[];
+        mimeType: string;
+      }
+
       export interface FileFileUploadRules {
         fileTypes: MittwaldAPIV2.Components.Schemas.FileFileType[];
         maxSizeInKB: number;
@@ -5224,11 +5229,6 @@ export declare module MittwaldAPIV2 {
         lastAccess?: string;
         location?: MittwaldAPIV2.Components.Schemas.SignupLocation;
         tokenId: string;
-      }
-
-      export interface FileFileType {
-        extensions: string[];
-        mimeType: string;
       }
 
       export interface CommonsAddress {

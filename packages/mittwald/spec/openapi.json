@@ -3940,6 +3940,30 @@
         ],
         "type": "object"
       },
+      "file.FileType": {
+        "properties": {
+          "extensions": {
+            "items": {
+              "example": [
+                ".jpe",
+                ".jpeg",
+                ".jpg"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "mimeType": {
+            "example": "image/jpeg",
+            "type": "string"
+          }
+        },
+        "required": [
+          "mimeType",
+          "extensions"
+        ],
+        "type": "object"
+      },
       "file.FileUploadRules": {
         "properties": {
           "fileTypes": {
@@ -7209,30 +7233,6 @@
           "device",
           "created",
           "tokenId"
-        ],
-        "type": "object"
-      },
-      "file.FileType": {
-        "properties": {
-          "extensions": {
-            "items": {
-              "example": [
-                ".jpe",
-                ".jpeg",
-                ".jpg"
-              ],
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "mimeType": {
-            "example": "image/jpeg",
-            "type": "string"
-          }
-        },
-        "required": [
-          "mimeType",
-          "extensions"
         ],
         "type": "object"
       },
