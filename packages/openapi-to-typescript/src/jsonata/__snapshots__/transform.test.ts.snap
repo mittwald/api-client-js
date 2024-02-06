@@ -783,7 +783,6 @@ type that failed validation (e.g. "missingProperty" for type "required")
                   "application/octet-stream",
                   "base64",
                   "ocr",
-                  "application/json",
                 ],
                 "type": "string",
               },
@@ -855,9 +854,6 @@ type that failed validation (e.g. "missingProperty" for type "required")
         "parameters": {
           "header": {
             "properties": {
-              "Accept": {
-                "type": "string",
-              },
               "x-access-token": {
                 "type": "string",
               },
@@ -913,9 +909,6 @@ type that failed validation (e.g. "missingProperty" for type "required")
         "parameters": {
           "header": {
             "properties": {
-              "Accept": {
-                "type": "string",
-              },
               "x-access-token": {
                 "type": "string",
               },
@@ -973,9 +966,6 @@ type that failed validation (e.g. "missingProperty" for type "required")
         "parameters": {
           "header": {
             "properties": {
-              "Accept": {
-                "type": "string",
-              },
               "x-access-token": {
                 "type": "string",
               },
@@ -1012,9 +1002,6 @@ type that failed validation (e.g. "missingProperty" for type "required")
         "parameters": {
           "header": {
             "properties": {
-              "Accept": {
-                "type": "string",
-              },
               "x-access-token": {
                 "type": "string",
               },
@@ -1250,9 +1237,6 @@ type that failed validation (e.g. "missingProperty" for type "required")
         "parameters": {
           "header": {
             "properties": {
-              "Accept": {
-                "type": "string",
-              },
               "x-access-token": {
                 "type": "string",
               },
@@ -2258,10 +2242,6 @@ type that failed validation (e.g. "missingProperty" for type "required")
         "parameters": {
           "header": {
             "properties": {
-              "Accept": {
-                "enum": "application/json",
-                "type": "string",
-              },
               "x-access-token": {
                 "type": "string",
               },
@@ -2352,10 +2332,6 @@ type that failed validation (e.g. "missingProperty" for type "required")
         "parameters": {
           "header": {
             "properties": {
-              "Accept": {
-                "enum": "application/json",
-                "type": "string",
-              },
               "x-access-token": {
                 "type": "string",
               },
@@ -2442,10 +2418,6 @@ type that failed validation (e.g. "missingProperty" for type "required")
         "parameters": {
           "header": {
             "properties": {
-              "Accept": {
-                "enum": "application/json",
-                "type": "string",
-              },
               "x-access-token": {
                 "type": "string",
               },
@@ -2918,10 +2890,6 @@ can display it with \`<img src="data:image/png;base64,iVBORw0KGgoAAAANSUh.." />\
         "parameters": {
           "header": {
             "properties": {
-              "Accept": {
-                "enum": "application/json",
-                "type": "string",
-              },
               "x-access-token": {
                 "type": "string",
               },
@@ -3035,10 +3003,6 @@ can display it with \`<img src="data:image/png;base64,iVBORw0KGgoAAAANSUh.." />\
         "parameters": {
           "header": {
             "properties": {
-              "Accept": {
-                "enum": "application/json",
-                "type": "string",
-              },
               "x-access-token": {
                 "type": "string",
               },
@@ -3126,10 +3090,6 @@ can display it with \`<img src="data:image/png;base64,iVBORw0KGgoAAAANSUh.." />\
         "parameters": {
           "header": {
             "properties": {
-              "Accept": {
-                "enum": "application/json",
-                "type": "string",
-              },
               "x-access-token": {
                 "type": "string",
               },
@@ -3229,10 +3189,6 @@ can display it with \`<img src="data:image/png;base64,iVBORw0KGgoAAAANSUh.." />\
         "parameters": {
           "header": {
             "properties": {
-              "Accept": {
-                "enum": "application/json",
-                "type": "string",
-              },
               "x-access-token": {
                 "type": "string",
               },
@@ -3327,10 +3283,6 @@ can display it with \`<img src="data:image/png;base64,iVBORw0KGgoAAAANSUh.." />\
         "parameters": {
           "header": {
             "properties": {
-              "Accept": {
-                "enum": "application/json",
-                "type": "string",
-              },
               "x-access-token": {
                 "type": "string",
               },
@@ -3425,10 +3377,6 @@ can display it with \`<img src="data:image/png;base64,iVBORw0KGgoAAAANSUh.." />\
         "parameters": {
           "header": {
             "properties": {
-              "Accept": {
-                "enum": "application/json",
-                "type": "string",
-              },
               "x-access-token": {
                 "type": "string",
               },
@@ -3537,10 +3485,6 @@ can display it with \`<img src="data:image/png;base64,iVBORw0KGgoAAAANSUh.." />\
         "parameters": {
           "header": {
             "properties": {
-              "Accept": {
-                "enum": "application/json",
-                "type": "string",
-              },
               "x-access-token": {
                 "type": "string",
               },
@@ -3788,10 +3732,6 @@ can display it with \`<img src="data:image/png;base64,iVBORw0KGgoAAAANSUh.." />\
         "parameters": {
           "header": {
             "properties": {
-              "Accept": {
-                "enum": "application/json",
-                "type": "string",
-              },
               "x-access-token": {
                 "type": "string",
               },
@@ -4106,10 +4046,6 @@ can display it with \`<img src="data:image/png;base64,iVBORw0KGgoAAAANSUh.." />\
         "parameters": {
           "header": {
             "properties": {
-              "Accept": {
-                "enum": "application/json",
-                "type": "string",
-              },
               "x-access-token": {
                 "type": "string",
               },
@@ -4619,10 +4555,6 @@ can display it with \`<img src="data:image/png;base64,iVBORw0KGgoAAAANSUh.." />\
         "parameters": {
           "header": {
             "properties": {
-              "Accept": {
-                "enum": "application/json",
-                "type": "string",
-              },
               "x-access-token": {
                 "type": "string",
               },
@@ -4730,10 +4662,6 @@ can display it with \`<img src="data:image/png;base64,iVBORw0KGgoAAAANSUh.." />\
         "parameters": {
           "header": {
             "properties": {
-              "Accept": {
-                "enum": "application/json",
-                "type": "string",
-              },
               "x-access-token": {
                 "type": "string",
               },
@@ -4814,12 +4742,7 @@ can display it with \`<img src="data:image/png;base64,iVBORw0KGgoAAAANSUh.." />\
         "operationId": "signup-api-token-check",
         "parameters": {
           "header": {
-            "properties": {
-              "Accept": {
-                "enum": "application/json",
-                "type": "string",
-              },
-            },
+            "properties": {},
           },
         },
         "responses": {
