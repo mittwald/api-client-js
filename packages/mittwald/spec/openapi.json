@@ -20124,7 +20124,7 @@
         ]
       }
     },
-    "/v2/files/{fileId}": {
+    "/v2/files/{fileId}/{fileName}": {
       "get": {
         "operationId": "file-get-file",
         "parameters": [
@@ -20143,23 +20143,26 @@
             "in": "header",
             "name": "Accept",
             "schema": {
-              "default": "binary",
+              "default": "application/octet-stream",
               "enum": [
-                "binary",
-                "base64",
-                "ocr"
+                "application/octet-stream",
+                "text/plain;base64"
               ],
-              "example": "binary",
+              "example": "application/octet-stream",
               "type": "string"
             }
           },
           {
             "in": "header",
-            "name": "Download",
+            "name": "Content-Disposition",
             "schema": {
-              "default": false,
-              "example": false,
-              "type": "boolean"
+              "default": "inline",
+              "enum": [
+                "inline",
+                "attachment"
+              ],
+              "example": "inline",
+              "type": "string"
             }
           },
           {
@@ -20171,6 +20174,16 @@
               "example": "jwt",
               "type": "string"
             }
+          },
+          {
+            "description": "Name of the File to be retrieved.",
+            "in": "path",
+            "name": "fileName",
+            "required": false,
+            "schema": {
+              "example": "me.jpeg",
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -20178,22 +20191,11 @@
             "content": {
               "application/octet-stream": {
                 "schema": {
-                  "example": "binary",
-                  "format": "binary",
                   "type": "string"
                 }
               },
-              "base64": {
+              "text/plain;base64": {
                 "schema": {
-                  "example": "base64",
-                  "format": "byte",
-                  "type": "string"
-                }
-              },
-              "ocr": {
-                "schema": {
-                  "example": "ocr",
-                  "format": "byte",
                   "type": "string"
                 }
               }

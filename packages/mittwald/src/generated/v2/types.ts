@@ -12406,16 +12406,17 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2FilesFileId {
+    namespace V2FilesFileIdFileName {
       namespace Get {
         namespace Parameters {
           export type Path = {
             fileId: string;
+            fileName?: string;
           };
 
           export type Header = {
-            Accept?: "binary" | "base64" | "ocr";
-            Download?: boolean;
+            Accept?: "application/octet-stream" | "text/plain;base64";
+            "Content-Disposition"?: "inline" | "attachment";
             Token?: string;
           };
 
@@ -12426,9 +12427,7 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationOctetStream = string;
 
-              export type Base64 = string;
-
-              export type Ocr = string;
+              export type TextPlainBase64 = string;
             }
           }
 
