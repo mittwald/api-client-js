@@ -107,9 +107,14 @@
                 $obj.schema
         };
 
+        $getHttpStatus := function($status)<s:n>{
+            $status = "default" ? 500 : $status ~> $number
+        };
 
         $collectResponseContentTypes := function($responses)<o:a> {
-            $responses ~> $each(function($v) { $v.content }) ~> $merge ~> $keys
+            $responses ~> $each(function($v, $k) {
+                $k ~> $getHttpStatus < 300 and $k ~> $getHttpStatus >= 200 ? $v.content : { }
+            }) ~> $merge ~> $keys
         };
 
         /* fn to construct 'parameters' (header, path, query, ...) */
@@ -167,12 +172,16 @@
                 "header": [
                     $parameters.header ~> $spread, {
                         "properties": [
-                            $parameters.header.properties ~> $spread, {
-                                "Accept": {
-                                    "type": "string",
-                                    "enum": $responses ~> $collectResponseContentTypes
-                                }
-                            }
+                            $parameters.header.properties ~> $spread, (
+                                $contentTypes := $responses ~> $collectResponseContentTypes;
+
+                                $contentTypes ? {
+                                    "Accept": {
+                                        "type": "string",
+                                        "enum": $contentTypes
+                                    }
+                                } : { }
+                            )
                     ] ~> $merge}
                 ] ~> $merge
             }] ~> $merge

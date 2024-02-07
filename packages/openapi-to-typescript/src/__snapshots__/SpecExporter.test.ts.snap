@@ -28,11 +28,7 @@ export declare module Test {
           }
 
           interface Header {
-            Accept?:
-              | "application/octet-stream"
-              | "base64"
-              | "ocr"
-              | "application/json";
+            Accept?: "application/octet-stream" | "base64" | "ocr";
             Download?: boolean;
             Token?: string;
             "x-access-token": string;
@@ -65,7 +61,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token": string;
-            Accept?: string;
           }
 
           interface RequestBody {
@@ -89,7 +84,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token": string;
-            Accept?: string;
           }
 
           interface RequestBody {
@@ -115,7 +109,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token": string;
-            Accept?: string;
           }
 
           interface RequestBody {
@@ -135,7 +128,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token": string;
-            Accept?: string;
           }
 
           interface RequestBody {
@@ -270,7 +262,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token": string;
-            Accept?: "application/json";
           }
 
           interface RequestBody {
@@ -312,7 +303,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token": string;
-            Accept?: "application/json";
           }
 
           interface RequestBody {
@@ -407,7 +397,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token": string;
-            Accept?: "application/json";
           }
         }
 
@@ -502,7 +491,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token": string;
-            Accept?: "application/json";
           }
 
           interface RequestBody {
@@ -553,7 +541,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token": string;
-            Accept?: "application/json";
           }
 
           interface RequestBody {
@@ -596,7 +583,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token": string;
-            Accept?: "application/json";
           }
 
           interface RequestBody {
@@ -637,7 +623,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token": string;
-            Accept?: "application/json";
           }
         }
 
@@ -681,7 +666,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token": string;
-            Accept?: "application/json";
           }
         }
 
@@ -725,7 +709,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token": string;
-            Accept?: "application/json";
           }
 
           interface RequestBody {
@@ -775,7 +758,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token": string;
-            Accept?: "application/json";
           }
 
           interface RequestBody {
@@ -833,7 +815,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token": string;
-            Accept?: "application/json";
           }
 
           interface RequestBody {
@@ -1043,7 +1024,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token": string;
-            Accept?: "application/json";
           }
 
           interface RequestBody {
@@ -1192,7 +1172,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token": string;
-            Accept?: "application/json";
           }
 
           interface RequestBody {
@@ -1287,7 +1266,6 @@ export declare module Test {
 
           interface Header {
             "x-access-token": string;
-            Accept?: "application/json";
           }
         }
 
@@ -1324,9 +1302,7 @@ export declare module Test {
     namespace V2_Signup_Token_Check {
       namespace Post {
         namespace Parameters {
-          type Header = {
-            Accept?: "application/json";
-          };
+          type Header = {};
         }
 
         namespace Responses {
@@ -1648,7 +1624,6 @@ export declare module Test {
 
           interface Header {
             "x-access-token": string;
-            Accept?: string;
           }
         }
 
@@ -3919,11 +3894,7 @@ export declare module Test {
           }
 
           interface Header {
-            Accept?:
-              | "application/octet-stream"
-              | "base64"
-              | "ocr"
-              | "application/json";
+            Accept?: "application/octet-stream" | "base64" | "ocr";
             Download?: boolean;
             Token?: string;
             "x-access-token"?: string;
@@ -3956,7 +3927,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token"?: string;
-            Accept?: string;
           }
 
           interface RequestBody {
@@ -3980,7 +3950,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token"?: string;
-            Accept?: string;
           }
 
           interface RequestBody {
@@ -4006,7 +3975,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token"?: string;
-            Accept?: string;
           }
 
           interface RequestBody {
@@ -4026,7 +3994,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token"?: string;
-            Accept?: string;
           }
 
           interface RequestBody {
@@ -4161,7 +4128,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token"?: string;
-            Accept?: "application/json";
           }
 
           interface RequestBody {
@@ -4203,7 +4169,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token"?: string;
-            Accept?: "application/json";
           }
 
           interface RequestBody {
@@ -4298,7 +4263,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token"?: string;
-            Accept?: "application/json";
           }
         }
 
@@ -4393,7 +4357,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token"?: string;
-            Accept?: "application/json";
           }
 
           interface RequestBody {
@@ -4444,7 +4407,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token"?: string;
-            Accept?: "application/json";
           }
 
           interface RequestBody {
@@ -4487,7 +4449,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token"?: string;
-            Accept?: "application/json";
           }
 
           interface RequestBody {
@@ -4528,7 +4489,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token"?: string;
-            Accept?: "application/json";
           }
         }
 
@@ -4572,7 +4532,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token"?: string;
-            Accept?: "application/json";
           }
         }
 
@@ -4616,7 +4575,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token"?: string;
-            Accept?: "application/json";
           }
 
           interface RequestBody {
@@ -4666,7 +4624,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token"?: string;
-            Accept?: "application/json";
           }
 
           interface RequestBody {
@@ -4724,7 +4681,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token"?: string;
-            Accept?: "application/json";
           }
 
           interface RequestBody {
@@ -4934,7 +4890,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token"?: string;
-            Accept?: "application/json";
           }
 
           interface RequestBody {
@@ -5083,7 +5038,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             "x-access-token"?: string;
-            Accept?: "application/json";
           }
 
           interface RequestBody {
@@ -5178,7 +5132,6 @@ export declare module Test {
 
           interface Header {
             "x-access-token"?: string;
-            Accept?: "application/json";
           }
         }
 
@@ -5215,9 +5168,7 @@ export declare module Test {
     namespace V2_Signup_Token_Check {
       namespace Post {
         namespace Parameters {
-          type Header = {
-            Accept?: "application/json";
-          };
+          type Header = {};
         }
 
         namespace Responses {
@@ -5539,7 +5490,6 @@ export declare module Test {
 
           interface Header {
             "x-access-token"?: string;
-            Accept?: string;
           }
         }
 
@@ -7579,9 +7529,7 @@ export declare module Test {
             status?: string;
           }
 
-          type Header = {
-            Accept?: string;
-          };
+          type Header = {};
         }
 
         namespace Responses {
@@ -7595,7 +7543,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             api_key?: string;
-            Accept?: string;
           }
 
           interface Path {
@@ -7719,9 +7666,7 @@ export declare module Test {
             orderId: number;
           }
 
-          type Header = {
-            Accept?: string;
-          };
+          type Header = {};
         }
 
         namespace Responses {
@@ -7739,9 +7684,7 @@ export declare module Test {
     namespace User {
       namespace Post {
         namespace Parameters {
-          type Header = {
-            Accept?: "application/json" | "application/xml";
-          };
+          type Header = {};
 
           type RequestBody = Test.Components.Schemas.User;
         }
@@ -7821,9 +7764,7 @@ export declare module Test {
     namespace User_Logout {
       namespace Get {
         namespace Parameters {
-          type Header = {
-            Accept?: string;
-          };
+          type Header = {};
         }
 
         namespace Responses {
@@ -7871,9 +7812,7 @@ export declare module Test {
             username: string;
           }
 
-          type Header = {
-            Accept?: string;
-          };
+          type Header = {};
 
           type RequestBody = Test.Components.Schemas.User;
         }
@@ -7891,9 +7830,7 @@ export declare module Test {
             username: string;
           }
 
-          type Header = {
-            Accept?: string;
-          };
+          type Header = {};
         }
 
         namespace Responses {
@@ -8969,9 +8906,7 @@ export declare module Test {
             status?: string;
           }
 
-          type Header = {
-            Accept?: string;
-          };
+          type Header = {};
         }
 
         namespace Responses {
@@ -8985,7 +8920,6 @@ export declare module Test {
         namespace Parameters {
           interface Header {
             api_key?: string;
-            Accept?: string;
           }
 
           interface Path {
@@ -9109,9 +9043,7 @@ export declare module Test {
             orderId: number;
           }
 
-          type Header = {
-            Accept?: string;
-          };
+          type Header = {};
         }
 
         namespace Responses {
@@ -9129,9 +9061,7 @@ export declare module Test {
     namespace User {
       namespace Post {
         namespace Parameters {
-          type Header = {
-            Accept?: "application/json" | "application/xml";
-          };
+          type Header = {};
 
           type RequestBody = Test.Components.Schemas.User;
         }
@@ -9211,9 +9141,7 @@ export declare module Test {
     namespace User_Logout {
       namespace Get {
         namespace Parameters {
-          type Header = {
-            Accept?: string;
-          };
+          type Header = {};
         }
 
         namespace Responses {
@@ -9261,9 +9189,7 @@ export declare module Test {
             username: string;
           }
 
-          type Header = {
-            Accept?: string;
-          };
+          type Header = {};
 
           type RequestBody = Test.Components.Schemas.User;
         }
@@ -9281,9 +9207,7 @@ export declare module Test {
             username: string;
           }
 
-          type Header = {
-            Accept?: string;
-          };
+          type Header = {};
         }
 
         namespace Responses {
