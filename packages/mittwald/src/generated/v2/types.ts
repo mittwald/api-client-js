@@ -15051,7 +15051,7 @@ export declare module MittwaldAPIV2 {
                 metrics?: {
                   createdAt: string;
                   name: string;
-                  score: number;
+                  score?: number;
                   value: number;
                 }[];
                 moreDataAvailable?: string[];

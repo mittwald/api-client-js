@@ -25111,6 +25111,7 @@
                           },
                           "score": {
                             "format": "double",
+                            "nullable": true,
                             "type": "number"
                           },
                           "value": {
@@ -25121,7 +25122,6 @@
                         "required": [
                           "name",
                           "value",
-                          "score",
                           "createdAt"
                         ],
                         "type": "object"
