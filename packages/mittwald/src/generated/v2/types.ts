@@ -4551,6 +4551,10 @@ export declare module MittwaldAPIV2 {
          */
         customerId: string;
         /**
+         * Email used by the invited user.
+         */
+        email: string;
+        /**
          * Time the CustomerMembership should expire at.
          */
         expiresAt?: string;
@@ -4566,6 +4570,10 @@ export declare module MittwaldAPIV2 {
          * Date the CustomerMembership was created at.
          */
         memberSince?: string;
+        /**
+         * MFA activated by the user.
+         */
+        mfa: boolean;
         role: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
         /**
          * ID of the user the CustomerMembership is for.
@@ -4625,6 +4633,10 @@ export declare module MittwaldAPIV2 {
 
       export interface MembershipProjectMembership {
         /**
+         * Email used by the invited user.
+         */
+        email: string;
+        /**
          * Time the ProjectMembership should expire at.
          */
         expiresAt?: string;
@@ -4644,6 +4656,10 @@ export declare module MittwaldAPIV2 {
          * Date the projectMembership was created at.
          */
         memberSince?: string;
+        /**
+         * MFA activated by the user.
+         */
+        mfa: boolean;
         /**
          * ID of the Project the membership is for.
          */

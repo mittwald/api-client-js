@@ -5311,6 +5311,11 @@
             "format": "uuid",
             "type": "string"
           },
+          "email": {
+            "description": "Email used by the invited user.",
+            "format": "email",
+            "type": "string"
+          },
           "expiresAt": {
             "description": "Time the CustomerMembership should expire at.",
             "format": "date-time",
@@ -5331,6 +5336,10 @@
             "format": "date-time",
             "type": "string"
           },
+          "mfa": {
+            "description": "MFA activated by the user.",
+            "type": "boolean"
+          },
           "role": {
             "$ref": "#/components/schemas/membership.CustomerRoles"
           },
@@ -5344,7 +5353,9 @@
           "id",
           "customerId",
           "userId",
-          "role"
+          "role",
+          "email",
+          "mfa"
         ],
         "type": "object"
       },
@@ -5429,6 +5440,11 @@
       },
       "membership.ProjectMembership": {
         "properties": {
+          "email": {
+            "description": "Email used by the invited user.",
+            "format": "email",
+            "type": "string"
+          },
           "expiresAt": {
             "description": "Time the ProjectMembership should expire at.",
             "format": "date-time",
@@ -5453,6 +5469,10 @@
             "format": "date-time",
             "type": "string"
           },
+          "mfa": {
+            "description": "MFA activated by the user.",
+            "type": "boolean"
+          },
           "projectId": {
             "description": "ID of the Project the membership is for.",
             "format": "uuid",
@@ -5472,7 +5492,9 @@
           "projectId",
           "userId",
           "role",
-          "inherited"
+          "inherited",
+          "email",
+          "mfa"
         ],
         "type": "object"
       },
