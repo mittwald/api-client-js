@@ -8895,6 +8895,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "in": "query",
+            "name": "recommended",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -8941,6 +8949,14 @@
             "required": false,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "recommended",
+            "required": false,
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
@@ -33001,7 +33017,7 @@
             "$ref": "#/components/responses/commons.ValidationError"
           },
           "404": {
-            "$ref": "#/components/responses/commons.DefaultError"
+            "$ref": "#/components/responses/commons.NotFoundError"
           },
           "409": {
             "$ref": "#/components/responses/commons.DefaultError"

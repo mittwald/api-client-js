@@ -6091,6 +6091,7 @@ export declare module MittwaldAPIV2 {
 
           export type Query = {
             versionRange?: string;
+            recommended?: boolean;
           };
         }
         namespace Responses {
