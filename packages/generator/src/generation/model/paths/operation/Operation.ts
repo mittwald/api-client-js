@@ -5,7 +5,6 @@ import { Responses } from "./responses/Responses.js";
 import { Tag } from "../../tags/Tag.js";
 import { TypeCompilationOptions } from "../../CodeGenerationModel.js";
 import { OpenAPIV3 } from "openapi-types";
-import invariant from "invariant";
 
 export class Operation {
   public readonly path: Path;
@@ -21,11 +20,8 @@ export class Operation {
     httpMethod: Name,
     doc: OpenAPIV3.OperationObject,
   ) {
-    invariant(
-      doc.operationId !== undefined,
-      "Property 'operationId' does not exist in operation object",
-    );
-    this.id = new Name(doc.operationId);
+    const fallbackId = `${httpMethod.raw}-${path.name.raw}`;
+    this.id = new Name(doc.operationId ?? fallbackId);
     this.path = path;
     this.httpMethod = httpMethod;
     this.parameters = RequestParameters.fromDoc(this, doc);
