@@ -9666,3 +9666,32 @@ export const userVerifyRegistration: OpenAPIOperation<
   method: "POST",
   operationId: "user-verify-registration",
 };
+
+/** Check if a Domain is available to transfer. */
+export const domainCheckDomainTransferability: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainTransferable.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainTransferable.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainTransferable.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainTransferable.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainTransferable.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainTransferable.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainTransferable.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domain-transferable",
+  method: "POST",
+  operationId: "domain-check-domain-transferability",
+};

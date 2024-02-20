@@ -675,6 +675,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ingressUpdateIngressTls: this.requestFunctionFactory(
       descriptors.ingressUpdateIngressTls,
     ),
+    /** Check if a Domain is available to transfer. */
+    checkDomainTransferability: this.requestFunctionFactory(
+      descriptors.domainCheckDomainTransferability,
+    ),
   };
 
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
