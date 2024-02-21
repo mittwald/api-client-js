@@ -8,6 +8,20 @@ import { Parameters } from "./Parameters.js";
 import { RequestBodies } from "./RequestBodies.js";
 import { Responses } from "./Responses.js";
 import { SecuritySchemes } from "./SecuritySchemes.js";
+import { OpenAPIV3 } from "openapi-types";
+import { extractComponentRefName } from "../../refs/extractComponentRefName.js";
+import { assertNoRefs } from "../../refs/assertNoRefs.js";
+import invariant from "invariant";
+
+export type ComponentTypeName = keyof OpenAPIV3.ComponentsObject;
+
+export type ComponentType<T extends ComponentTypeName> =
+  Required<OpenAPIV3.ComponentsObject>[T][string];
+
+export type ResolvedComponentType<T extends ComponentTypeName> = Exclude<
+  ComponentType<T>,
+  OpenAPIV3.ReferenceObject
+>;
 
 export class Components {
   public static readonly ns = "Components";
@@ -18,8 +32,10 @@ export class Components {
   public parameters: Parameters;
   public requestBodies: RequestBodies;
   public responses: Responses;
+  public model: CodeGenerationModel;
 
   public constructor(model: CodeGenerationModel) {
+    this.model = model;
     this.name = new Name(Components.ns, model.rootNamespace);
 
     this.schemas = new Schemas(this, model.doc.components?.schemas ?? {});
@@ -60,5 +76,32 @@ export class Components {
         ${t.securitySchemes}
       }
     `;
+  }
+
+  public resolveRef<T extends ComponentTypeName>(
+    componentType: T,
+    obj: ComponentType<T>,
+  ): ResolvedComponentType<T> {
+    if ("$ref" in obj) {
+      invariant(
+        typeof obj.$ref === "string",
+        "PathItemRefs are not supported by now",
+      );
+
+      const refName = extractComponentRefName(obj.$ref, componentType);
+      const resolved = this.model.doc.components?.[componentType]?.[refName];
+
+      if (resolved === undefined) {
+        throw new Error(
+          `Could not find ref ${obj.$ref} in components.${componentType}`,
+        );
+      }
+
+      assertNoRefs(resolved);
+      return resolved as ResolvedComponentType<T>;
+    }
+
+    assertNoRefs(obj);
+    return obj;
   }
 }

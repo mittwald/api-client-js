@@ -31,8 +31,6 @@ export class OpenApiSpec {
     ux.action.start("Converting doc to OpenAPI v3");
     const spec = await convert(doc, {
       patch: true,
-      resolve: true,
-      resolveInternal: true,
     });
     ux.action.stop();
     return spec.openapi;

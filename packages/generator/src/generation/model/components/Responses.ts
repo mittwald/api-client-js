@@ -4,7 +4,7 @@ import { asyncStringJoin } from "../../asyncStringJoin.js";
 import { Response } from "./Response.js";
 import { TypeCompilationOptions } from "../CodeGenerationModel.js";
 import { OpenAPIV3 } from "openapi-types";
-import { assertNoRefs } from "../assertNoRefs.js";
+import { assertNoRefs } from "../../refs/assertNoRefs.js";
 
 export class Responses {
   public static readonly ns = "Responses";

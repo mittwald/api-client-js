@@ -4,8 +4,12 @@ import { Operation } from "./Operation.js";
 import { Name } from "../../global/Name.js";
 import { TypeCompilationOptions } from "../../CodeGenerationModel.js";
 import { OpenAPIV3 } from "openapi-types";
-import { assertNoRefs } from "../../assertNoRefs.js";
 import { SecurityScheme } from "../../components/SecurityScheme.js";
+import { Components, ComponentType } from "../../components/Components.js";
+import { isRef } from "../../../refs/isRef.js";
+import invariant from "invariant";
+
+type ParameterDocType = ComponentType<"parameters">;
 
 export class RequestParameters {
   public static readonly ns = "Parameters";
@@ -31,22 +35,33 @@ export class RequestParameters {
   }
 
   private static constructParametersSchema(
+    components: Components,
     name: Name,
     $in: string,
-    parameters: OpenAPIV3.OperationObject["parameters"] = [],
+    parameters: ParameterDocType[] = [],
     securitySchemes: SecurityScheme[],
   ): JSONSchema {
     const properties: Record<string, JSONSchemaObject> = {};
     const required: string[] = [];
 
     for (const parameter of parameters) {
-      assertNoRefs(parameter);
+      const resolvedParameter = components.resolveRef("parameters", parameter);
 
-      if (parameter.in === $in && parameter.schema) {
-        properties[parameter.name] = parameter.schema;
-      }
-      if (parameter.required) {
-        required.push(parameter.name);
+      if (resolvedParameter.in === $in) {
+        const jsonSchemaObject = isRef(parameter)
+          ? parameter
+          : parameter.schema;
+
+        invariant(
+          !!jsonSchemaObject,
+          `Could not find schema for request parameter ${name.raw}`,
+        );
+
+        properties[resolvedParameter.name] = jsonSchemaObject;
+
+        if (resolvedParameter.required) {
+          required.push(resolvedParameter.name);
+        }
       }
     }
 
@@ -88,7 +103,9 @@ export class RequestParameters {
       operation.path.paths.model.components.securitySchemes.requireScheme(name),
     );
 
+    const components = operation.path.paths.model.components;
     const path = RequestParameters.constructParametersSchema(
+      components,
       name,
       "path",
       doc.parameters,
@@ -96,6 +113,7 @@ export class RequestParameters {
     );
 
     const header = RequestParameters.constructParametersSchema(
+      components,
       name,
       "header",
       doc.parameters,
@@ -103,6 +121,7 @@ export class RequestParameters {
     );
 
     const query = RequestParameters.constructParametersSchema(
+      components,
       name,
       "query",
       doc.parameters,

@@ -2,7 +2,7 @@ import { Name } from "../global/Name.js";
 import { Components } from "./Components.js";
 import { OpenAPIV3 } from "openapi-types";
 import invariant from "invariant";
-import { assertNoRefs } from "../assertNoRefs.js";
+import { assertNoRefs } from "../../refs/assertNoRefs.js";
 import { asyncStringJoin } from "../../asyncStringJoin.js";
 import { SecurityScheme } from "./SecurityScheme.js";
 import { TypeCompilationOptions } from "../CodeGenerationModel.js";
