@@ -17,21 +17,22 @@
   "license": "MIT",
   "exports": {
     ".": {
-      "types": "./dist/index.d.mts",
-      "default": "./dist/index.mjs"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     },
     "./react": {
-      "types": "./dist/react/index.d.mts",
-      "default": "./dist/react/index.mjs"
+      "types": "./dist/react/index.d.ts",
+      "default": "./dist/react/index.js"
     }
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "yarn unbuild",
-    "format": "prettier --write '**/*.{ts,tsx,yaml,yml,json,md,mdx,js}'",
-    "lint": "eslint .",
+    "build": "run build:clean && run tsc",
+    "build:clean": "rimraf dist",
+    "format": "run prettier --write '**/*.{ts,tsx,yaml,yml,json,md,mdx,js}'",
+    "lint": "run eslint .",
     "test": "node --experimental-vm-modules $(yarn bin jest)"
   },
   "dependencies": {
@@ -43,10 +44,10 @@
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
-    "@mittwald/react-use-promise": "^2.3.11",
+    "@mittwald/react-use-promise": "^2.3.12",
     "@types/jest": "^29.5.12",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-json": "^3.1.0",
@@ -57,10 +58,10 @@
     "prettier-plugin-pkgsort": "^0.2.1",
     "prettier-plugin-sort-json": "^3.1.0",
     "react": "^18.2.0",
+    "rimraf": "^5.0.5",
     "ts-jest": "^29.1.2",
     "tsd": "^0.30.5",
-    "typescript": "^5.3.3",
-    "unbuild": "^2.0.0"
+    "typescript": "^5.3.3"
   },
   "peerDependencies": {
     "@mittwald/react-use-promise": "^2.1.0"
@@ -69,8 +70,5 @@
     "@mittwald/react-use-promise": {
       "optional": true
     }
-  },
-  "unbuild": {
-    "declaration": true
   }
 }
