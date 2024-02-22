@@ -1379,17 +1379,6 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.domainListDomains, TStatus>;
     }
 
-    namespace DomainCheckDomainTransferability {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainCheckDomainTransferability
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainCheckDomainTransferability,
-          TStatus
-        >;
-    }
-
     namespace DomainCreateDomainAuthCode {
       type RequestData = InferredRequestData<
         typeof descriptors.domainCreateDomainAuthCode
@@ -2952,6 +2941,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.userVerifyRegistration,
+          TStatus
+        >;
+    }
+
+    namespace DomainCheckDomainTransferability {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainCheckDomainTransferability
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainCheckDomainTransferability,
           TStatus
         >;
     }
@@ -11647,54 +11647,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2DomainTransferable {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            authCode: string;
-            domain: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                reasons: {
-                  domainAgeTooSmall: boolean;
-                  domainDoesNotExist: boolean;
-                  transferLock: boolean;
-                  wrongAuthCode: boolean;
-                };
-                transferable: boolean;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2DomainsDomainIdActionsCreateAuthcode {}
 
     namespace V2DomainsDomainIdActionsAuthCode {
@@ -19951,6 +19903,54 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DomainTransferable {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            authCode: string;
+            domain: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                reasons: {
+                  domainAgeTooSmall: boolean;
+                  domainDoesNotExist: boolean;
+                  transferLock: boolean;
+                  wrongAuthCode: boolean;
+                };
+                transferable: boolean;
+              }
+            }
+          }
+
+          namespace $400 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
