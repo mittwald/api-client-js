@@ -4,7 +4,10 @@
   },
   "namedInputs": {
     "config": ["{projectRoot}/*.{cjs,js,ts,mjs,json}"],
-    "src": ["{projectRoot}/src/**/!(*.{test,test-types}).*"],
+    "src": [
+      "{projectRoot}/src/**/*.ts",
+      "!{projectRoot}/src/**/*.{test,test-types}.*"
+    ],
     "test": ["{projectRoot}/src/**/*.{test,test-types}.*"],
     "default": ["src", "config"],
     "production": ["default"]
