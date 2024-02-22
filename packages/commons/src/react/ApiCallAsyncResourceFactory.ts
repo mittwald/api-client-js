@@ -47,7 +47,7 @@ export class ApiCallAsyncResourceFactory<TOp extends OpenAPIOperation> {
     const request = new Request(this.operation, requestObj);
 
     return getAsyncResource(
-      (requestObj) => this.executeRequest(requestObj),
+      (requestObj: RequestObject<TOp>) => this.executeRequest(requestObj),
       [requestObj],
       {
         tags: this.getAsyncResourceTags(request),

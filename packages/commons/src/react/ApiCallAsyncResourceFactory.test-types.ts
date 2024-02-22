@@ -44,7 +44,7 @@ function ignoredCheckResponseType() {
         requestString: "",
       },
     })
-    .watch();
+    .use();
 
   // @ts-expect-error Accessing unknown prop
   stuff.foo;

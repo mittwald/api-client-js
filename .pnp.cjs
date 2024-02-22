@@ -1926,7 +1926,7 @@ const RAW_RUNTIME_STATE =
           ["@mittwald/api-client", "workspace:packages/mittwald"],\
           ["@mittwald/api-client-commons", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#workspace:packages/commons"],\
           ["@mittwald/api-code-generator", "workspace:packages/generator"],\
-          ["@mittwald/react-use-promise", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#npm:2.1.0"],\
+          ["@mittwald/react-use-promise", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#npm:2.3.11"],\
           ["@types/react", "npm:18.2.38"],\
           ["@typescript-eslint/eslint-plugin", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#npm:6.12.0"],\
           ["@typescript-eslint/parser", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#npm:6.12.0"],\
@@ -1953,7 +1953,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@mittwald/api-client-commons", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#workspace:packages/commons"],\
           ["@jest/globals", "npm:29.7.0"],\
-          ["@mittwald/react-use-promise", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#npm:2.1.0"],\
+          ["@mittwald/react-use-promise", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#npm:2.3.11"],\
           ["@types/jest", "npm:29.5.10"],\
           ["@types/mittwald__react-use-promise", null],\
           ["@types/parse-path", "npm:7.0.3"],\
@@ -1989,7 +1989,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@mittwald/api-client-commons", "workspace:packages/commons"],\
           ["@jest/globals", "npm:29.7.0"],\
-          ["@mittwald/react-use-promise", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:2.1.0"],\
+          ["@mittwald/react-use-promise", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:2.3.11"],\
           ["@types/jest", "npm:29.5.10"],\
           ["@types/parse-path", "npm:7.0.3"],\
           ["@typescript-eslint/eslint-plugin", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:6.12.0"],\
@@ -2071,43 +2071,53 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@mittwald/react-use-promise", [\
-      ["npm:2.1.0", {\
-        "packageLocation": "./.yarn/cache/@mittwald-react-use-promise-npm-2.1.0-efa722b762-98fd6a8b98.zip/node_modules/@mittwald/react-use-promise/",\
+      ["npm:2.3.11", {\
+        "packageLocation": "./.yarn/cache/@mittwald-react-use-promise-npm-2.3.11-e40e7d416b-8ade14f473.zip/node_modules/@mittwald/react-use-promise/",\
         "packageDependencies": [\
-          ["@mittwald/react-use-promise", "npm:2.1.0"]\
+          ["@mittwald/react-use-promise", "npm:2.3.11"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:2.1.0", {\
-        "packageLocation": "./.yarn/__virtual__/@mittwald-react-use-promise-virtual-4579dcad35/0/cache/@mittwald-react-use-promise-npm-2.1.0-efa722b762-98fd6a8b98.zip/node_modules/@mittwald/react-use-promise/",\
+      ["virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:2.3.11", {\
+        "packageLocation": "./.yarn/__virtual__/@mittwald-react-use-promise-virtual-462349e557/0/cache/@mittwald-react-use-promise-npm-2.3.11-e40e7d416b-8ade14f473.zip/node_modules/@mittwald/react-use-promise/",\
         "packageDependencies": [\
-          ["@mittwald/react-use-promise", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:2.1.0"],\
-          ["@types/luxon", "npm:3.3.3"],\
+          ["@mittwald/react-use-promise", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:2.3.11"],\
+          ["@types/axios", null],\
+          ["@types/luxon", "npm:3.4.2"],\
           ["@types/react", null],\
+          ["axios", "npm:1.6.2"],\
+          ["browser-or-node", "npm:3.0.0-pre.0"],\
           ["luxon", "npm:3.4.4"],\
           ["minimatch", "npm:9.0.3"],\
-          ["object-code", "npm:1.3.0"],\
+          ["object-code", "npm:1.3.3"],\
           ["react", "npm:18.2.0"]\
         ],\
         "packagePeers": [\
+          "@types/axios",\
           "@types/react",\
+          "axios",\
           "react"\
         ],\
         "linkType": "HARD"\
       }],\
-      ["virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#npm:2.1.0", {\
-        "packageLocation": "./.yarn/__virtual__/@mittwald-react-use-promise-virtual-1453acd9c2/0/cache/@mittwald-react-use-promise-npm-2.1.0-efa722b762-98fd6a8b98.zip/node_modules/@mittwald/react-use-promise/",\
+      ["virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#npm:2.3.11", {\
+        "packageLocation": "./.yarn/__virtual__/@mittwald-react-use-promise-virtual-ffde37808d/0/cache/@mittwald-react-use-promise-npm-2.3.11-e40e7d416b-8ade14f473.zip/node_modules/@mittwald/react-use-promise/",\
         "packageDependencies": [\
-          ["@mittwald/react-use-promise", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#npm:2.1.0"],\
-          ["@types/luxon", "npm:3.3.3"],\
+          ["@mittwald/react-use-promise", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#npm:2.3.11"],\
+          ["@types/axios", null],\
+          ["@types/luxon", "npm:3.4.2"],\
           ["@types/react", "npm:18.2.38"],\
+          ["axios", null],\
+          ["browser-or-node", "npm:3.0.0-pre.0"],\
           ["luxon", "npm:3.4.4"],\
           ["minimatch", "npm:9.0.3"],\
-          ["object-code", "npm:1.3.0"],\
+          ["object-code", "npm:1.3.3"],\
           ["react", "npm:18.2.0"]\
         ],\
         "packagePeers": [\
+          "@types/axios",\
           "@types/react",\
+          "axios",\
           "react"\
         ],\
         "linkType": "HARD"\
@@ -3439,10 +3449,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@types/luxon", [\
-      ["npm:3.3.3", {\
-        "packageLocation": "./.yarn/cache/@types-luxon-npm-3.3.3-64838dc4b1-a29f4d794f.zip/node_modules/@types/luxon/",\
+      ["npm:3.4.2", {\
+        "packageLocation": "./.yarn/cache/@types-luxon-npm-3.4.2-092583f006-fd89566e30.zip/node_modules/@types/luxon/",\
         "packageDependencies": [\
-          ["@types/luxon", "npm:3.3.3"]\
+          ["@types/luxon", "npm:3.4.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -11649,10 +11659,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["object-code", [\
-      ["npm:1.3.0", {\
-        "packageLocation": "./.yarn/cache/object-code-npm-1.3.0-d30a77b2b5-ebe1cd67d1.zip/node_modules/object-code/",\
+      ["npm:1.3.3", {\
+        "packageLocation": "./.yarn/cache/object-code-npm-1.3.3-660d229673-f6413d2097.zip/node_modules/object-code/",\
         "packageDependencies": [\
-          ["object-code", "npm:1.3.0"]\
+          ["object-code", "npm:1.3.3"]\
         ],\
         "linkType": "HARD"\
       }]\

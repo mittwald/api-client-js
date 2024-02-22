@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@mittwald/api-code-generator": "workspace:*",
-    "@mittwald/react-use-promise": "^2.1.0",
+    "@mittwald/react-use-promise": "^2.3.11",
     "@types/react": "^18",
     "@typescript-eslint/eslint-plugin": "^6.12.0",
     "@typescript-eslint/parser": "^6.12.0",
