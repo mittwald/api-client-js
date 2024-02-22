@@ -73,7 +73,7 @@
   "oclif": {
     "bin": "acg",
     "dirname": "acg",
-    "commands": "./dist/commands",
+    "commands": "./dist/esm/commands",
     "plugins": [
       "@oclif/plugin-help",
       "@oclif/plugin-plugins"

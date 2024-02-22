@@ -17,12 +17,12 @@
   "license": "MIT",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "types": "./dist/types/index.d.ts",
+      "default": "./dist/esm/index.js"
     },
     "./react": {
-      "types": "./dist/react/index.d.ts",
-      "default": "./dist/react/index.js"
+      "types": "./dist/types/react/index.d.ts",
+      "default": "./dist/esm/react/index.js"
     }
   },
   "files": [
