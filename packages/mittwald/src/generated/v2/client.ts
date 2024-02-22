@@ -605,6 +605,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** List Domains */
     listDomains: this.requestFunctionFactory(descriptors.domainListDomains),
+    /** Check if a Domain is available to transfer. */
+    checkDomainTransferability: this.requestFunctionFactory(
+      descriptors.domainCheckDomainTransferability,
+    ),
     /** Create an auth code for a Domains transfer-out process. */
     createDomainAuthCode: this.requestFunctionFactory(
       descriptors.domainCreateDomainAuthCode,
@@ -674,10 +678,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update the tls settings of an Ingress. */
     ingressUpdateIngressTls: this.requestFunctionFactory(
       descriptors.ingressUpdateIngressTls,
-    ),
-    /** Check if a Domain is available to transfer. */
-    checkDomainTransferability: this.requestFunctionFactory(
-      descriptors.domainCheckDomainTransferability,
     ),
   };
 
