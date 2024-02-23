@@ -19008,6 +19008,9 @@
           "400": {
             "$ref": "#/components/responses/commons.ValidationError"
           },
+          "403": {
+            "$ref": "#/components/responses/commons.RateLimitError"
+          },
           "default": {
             "$ref": "#/components/responses/commons.DefaultError"
           }
