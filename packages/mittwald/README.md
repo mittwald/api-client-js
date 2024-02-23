@@ -182,8 +182,8 @@ const api = MittwaldAPIV2Client.newUnauthenticated();
 const apiReact = MittwaldAPIV2ClientReact.fromBaseClient(api);
 
 const ProjectsList = () => {
-  // apiReact.project.listProjects() returns an AsyncResource that can be "watched"
-  const projects = apiReact.project.listProjects().watch({
+  // apiReact.project.listProjects() returns an AsyncResource that can be "used"
+  const projects = apiReact.project.listProjects().use({
     autoRefresh: {
       seconds: 30,
     },

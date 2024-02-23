@@ -14,8 +14,7 @@ type PartialOnNoRequiredKeysDeep<T> = PartialOnUndefinedDeep<
   }>
 >;
 
-export type NullableOnNoRequiredKeysDeep<T> = HasRequiredKeys<
-  PartialOnNoRequiredKeysDeep<T>
-> extends true
-  ? PartialOnNoRequiredKeysDeep<T>
-  : PartialOnNoRequiredKeysDeep<T> | null;
+export type NullableOnNoRequiredKeysDeep<T> =
+  HasRequiredKeys<PartialOnNoRequiredKeysDeep<T>> extends true
+    ? PartialOnNoRequiredKeysDeep<T>
+    : PartialOnNoRequiredKeysDeep<T> | null;

@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
+    "declarationDir": "./dist/types",
+    "outDir": "./dist/esm",
     "rootDir": "./src"
   },
   "exclude": ["test-d/**/*", "*.test.ts"],

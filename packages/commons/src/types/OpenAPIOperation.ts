@@ -11,16 +11,11 @@ export interface OpenAPIOperation<
   method: HttpMethod;
 }
 
-export type InferredRequestType<TOp> = TOp extends OpenAPIOperation<infer TReq>
-  ? TReq
-  : never;
+export type InferredRequestType<TOp> =
+  TOp extends OpenAPIOperation<infer TReq> ? TReq : never;
 
-export type InferredResponseType<TOp> = TOp extends OpenAPIOperation<
-  RequestType,
-  infer TRes
->
-  ? TRes
-  : never;
+export type InferredResponseType<TOp> =
+  TOp extends OpenAPIOperation<RequestType, infer TRes> ? TRes : never;
 
 export type InferredResponseData<
   TOp,
