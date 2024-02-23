@@ -5,3 +5,4 @@ export * from "./OpenAPIOperation.js";
 export * from "./http.js";
 export * from "./simplify.js";
 export * from "./assertStatus.js";
+export * from "./assertOneOfStatus.js";
