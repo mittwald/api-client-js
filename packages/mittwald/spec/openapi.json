@@ -18938,90 +18938,6 @@
         ]
       }
     },
-    "/v2/domain-transferable": {
-      "post": {
-        "operationId": "domain-check-domain-transferability",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "authCode": {
-                    "type": "string"
-                  },
-                  "domain": {
-                    "format": "idn-hostname",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "domain",
-                  "authCode"
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "reasons": {
-                      "properties": {
-                        "domainAgeTooSmall": {
-                          "type": "boolean"
-                        },
-                        "domainDoesNotExist": {
-                          "type": "boolean"
-                        },
-                        "transferLock": {
-                          "type": "boolean"
-                        },
-                        "wrongAuthCode": {
-                          "type": "boolean"
-                        }
-                      },
-                      "required": [
-                        "domainDoesNotExist",
-                        "wrongAuthCode",
-                        "transferLock",
-                        "domainAgeTooSmall"
-                      ],
-                      "type": "object"
-                    },
-                    "transferable": {
-                      "type": "boolean"
-                    }
-                  },
-                  "required": [
-                    "transferable",
-                    "reasons"
-                  ],
-                  "type": "object"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "400": {
-            "$ref": "#/components/responses/commons.ValidationError"
-          },
-          "403": {
-            "$ref": "#/components/responses/commons.RateLimitError"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [],
-        "summary": "Check if a Domain is available to transfer.",
-        "tags": [
-          "Domain"
-        ]
-      }
-    },
     "/v2/domains/{domainId}/actions/create-authcode": {
       "post": {
         "parameters": [
@@ -33245,6 +33161,90 @@
         "summary": "Verify your registration.",
         "tags": [
           "User"
+        ]
+      }
+    },
+    "/v2/domain-transferable": {
+      "post": {
+        "operationId": "domain-check-domain-transferability",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "authCode": {
+                    "type": "string"
+                  },
+                  "domain": {
+                    "format": "idn-hostname",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "domain",
+                  "authCode"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "reasons": {
+                      "properties": {
+                        "domainAgeTooSmall": {
+                          "type": "boolean"
+                        },
+                        "domainDoesNotExist": {
+                          "type": "boolean"
+                        },
+                        "transferLock": {
+                          "type": "boolean"
+                        },
+                        "wrongAuthCode": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "domainDoesNotExist",
+                        "wrongAuthCode",
+                        "transferLock",
+                        "domainAgeTooSmall"
+                      ],
+                      "type": "object"
+                    },
+                    "transferable": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "transferable",
+                    "reasons"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/commons.ValidationError"
+          },
+          "403": {
+            "$ref": "#/components/responses/commons.RateLimitError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [],
+        "summary": "Check if a Domain is available to transfer.",
+        "tags": [
+          "Domain"
         ]
       }
     }
