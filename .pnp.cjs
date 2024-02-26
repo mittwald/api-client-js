@@ -1749,7 +1749,7 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.2.0"],\
           ["rimraf", "npm:5.0.5"],\
           ["ts-jest", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:29.1.2"],\
-          ["tsd", "npm:0.30.6"],\
+          ["tsd", "npm:0.30.7"],\
           ["type-fest", "npm:4.10.3"],\
           ["typescript", "patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>::version=5.3.3&hash=e012d7"]\
         ],\
@@ -1784,7 +1784,7 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.2.0"],\
           ["rimraf", "npm:5.0.5"],\
           ["ts-jest", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:29.1.2"],\
-          ["tsd", "npm:0.30.6"],\
+          ["tsd", "npm:0.30.7"],\
           ["type-fest", "npm:4.10.3"],\
           ["typescript", "patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>::version=5.3.3&hash=e012d7"]\
         ],\
@@ -12880,10 +12880,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["tsd", [\
-      ["npm:0.30.6", {\
-        "packageLocation": "./.yarn/cache/tsd-npm-0.30.6-c8f19d9182-e30b5a01d4.zip/node_modules/tsd/",\
+      ["npm:0.30.7", {\
+        "packageLocation": "./.yarn/cache/tsd-npm-0.30.7-c076bf1cf6-9f9fa2d463.zip/node_modules/tsd/",\
         "packageDependencies": [\
-          ["tsd", "npm:0.30.6"],\
+          ["tsd", "npm:0.30.7"],\
           ["@tsd/typescript", "npm:5.3.3"],\
           ["eslint-formatter-pretty", "npm:4.1.0"],\
           ["globby", "npm:11.1.0"],\
