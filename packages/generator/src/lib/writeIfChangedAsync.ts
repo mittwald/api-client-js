@@ -1,6 +1,6 @@
 import jetpack from "fs-jetpack";
 
-export const writeChangesAsync = async (
+export const writeIfChangedAsync = async (
   filename: string,
   content: string,
 ): Promise<void> => {

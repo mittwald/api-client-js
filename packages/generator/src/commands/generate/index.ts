@@ -5,7 +5,7 @@ import { CodeGenerationModel } from "../../generation/model/CodeGenerationModel.
 import * as path from "path";
 import { prepareTypeScriptOutput } from "../../generation/prepareTypeScriptOutput.js";
 import { UniversalFileLoader } from "../../loading/UniversalFileLoader.js";
-import { writeChangesAsync } from "../../lib/writeChangesAsync.js";
+import { writeIfChangedAsync } from "../../lib/writeIfChangedAsync.js";
 
 export default class Generate extends Command {
   static description = "Generate code from the provided OpenAPI spec.";
@@ -60,7 +60,7 @@ export default class Generate extends Command {
 
     ux.action.start("Generating descriptors");
     const descriptorsFileContent = model.paths.compileDescriptors();
-    await writeChangesAsync(
+    await writeIfChangedAsync(
       path.join(args.output, "descriptors.ts"),
       await prepareTypeScriptOutput(descriptorsFileContent),
     );
@@ -71,7 +71,7 @@ export default class Generate extends Command {
       rootNamespace: flags.name,
       optionalHeaders: flags.optionalHeader,
     });
-    await writeChangesAsync(
+    await writeIfChangedAsync(
       path.join(args.output, "types.ts"),
       await prepareTypeScriptOutput(typesFileContent),
     );
@@ -79,7 +79,7 @@ export default class Generate extends Command {
 
     ux.action.start("Generating client");
     const clientFileContent = model.paths.compileClient();
-    await writeChangesAsync(
+    await writeIfChangedAsync(
       path.join(args.output, "client.ts"),
       await prepareTypeScriptOutput(clientFileContent),
     );
@@ -87,7 +87,7 @@ export default class Generate extends Command {
 
     ux.action.start("Generating React client");
     const reactClientFileContent = model.paths.compileReactClient();
-    await writeChangesAsync(
+    await writeIfChangedAsync(
       path.join(args.output, "client-react.ts"),
       await prepareTypeScriptOutput(reactClientFileContent),
     );
