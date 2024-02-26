@@ -4,7 +4,6 @@ Thumbs.db
 
 # Yarn 2 Zero-Install (https://yarnpkg.com/features/zero-installs)
 .yarn/*
-!/**/.yarn/cache
 !/**/.yarn/releases
 !/**/.yarn/plugins
 !/**/.yarn/sdks
@@ -12,7 +11,6 @@ Thumbs.db
 
 # Dev
 dist/
-dist-cjs/
 coverage/
 *.tsbuildinfo
 
@@ -21,6 +19,5 @@ coverage/
 .idea/workspace.xml
 .idea/runConfigurations
 .eslintcache
-
 node_modules
 .nx/cache

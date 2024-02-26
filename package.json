@@ -1,19 +1,16 @@
 {
   "name": "root",
   "private": true,
-  "version": "3.0.0",
+  "version": "4.6.0",
   "packageManager": "yarn@4.1.0",
   "type": "module",
   "scripts": {
-    "build": "lerna run build",
-    "format": "yarn format:base --write",
-    "lint": "lerna run lint",
-    "test": "lerna run test",
-    "test:licenses": "yarn test:licenses:base --unknown --failOn 'UNLICENSED;UNKNOWN'",
-    "test:licenses:base": "yarn pnpify license-checker-rseidelsohn --excludePackages 'root'",
-    "test:packages": "lerna run test",
-    "api-client:spec:refresh": "lerna run spec:refresh --scope=@mittwald/api-client",
-    "api-client:build": "lerna run build --scope=@mittwald/api-client",
+    "build": "nx run-many -t build",
+    "format": "nx run-many -t format",
+    "lint": "nx run-many -t lint",
+    "test": "nx run-many -t test && run test:licenses",
+    "test:licenses": "run test:licenses:base --unknown --failOn 'UNLICENSED;UNKNOWN' --excludePrivatePackages",
+    "test:licenses:base": "run pnpify license-checker-rseidelsohn --excludePackages 'root'",
     "postinstall": "yarn dlx simple-git-hooks"
   },
   "simple-git-hooks": {

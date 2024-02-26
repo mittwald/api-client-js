@@ -1,6 +1,6 @@
 {
   "name": "@mittwald/api-client",
-  "version": "3.1.59",
+  "version": "4.7.0",
   "author": "Mittwald CM Service GmbH & Co. KG <opensource@mittwald.de>",
   "type": "module",
   "description": "Auto-generated client for the mittwald API",
@@ -32,24 +32,24 @@
   ],
   "scripts": {
     "build": "run build:clean && run tsc",
-    "build:clean": "rimraf dist",
-    "build-dev": "yarn build",
-    "format": "prettier --write '**/*.{ts,tsx,yaml,yml,json,md,mdx,js}'",
-    "generate:client": "yarn acg generate --name MittwaldAPIV2 spec/openapi.json src/generated/v2 --optionalHeader x-access-token",
-    "generate:client-dev": "yarn acg generate --name MittwaldAPIV2 spec/openapi-dev.json src/generated/v2 --optionalHeader x-access-token",
-    "lint": "eslint .",
-    "spec:refresh": "concurrently yarn:spec:refresh:v2 yarn:spec:refresh-dev:v2",
-    "spec:refresh:v2": "curl --silent https://api.mittwald.de/openapi | spec/transform-openapi.sh > spec/openapi.json",
-    "spec:refresh-dev:v2": "curl --silent https://api-public.dev.mittwald.systems/openapi | spec/transform-openapi.sh  > spec/openapi-dev.json"
+    "build:clean": "run rimraf dist",
+    "build:client": "run acg generate --name MittwaldAPIV2 spec/openapi.json src/generated/v2 --optionalHeader x-access-token",
+    "build:fetch-openapi": "curl --silent https://api.mittwald.de/v2/openapi.json | spec/transform-openapi.sh > spec/openapi.json",
+    "build:write-version-file": "run tsx dev/writeVersion.ts",
+    "format": "run prettier --write '**/*.{ts,tsx,yaml,yml,json,md,mdx,js}'",
+    "lint": "run eslint .",
+    "test": "",
+    "test:client-generation-clean": "git diff --exit-code"
   },
   "dependencies": {
     "@mittwald/api-client-commons": "workspace:^",
     "browser-or-node": "^3.0.0-pre.0"
   },
   "devDependencies": {
-    "@mittwald/api-code-generator": "workspace:*",
+    "@mittwald/api-code-generator": "workspace:^",
     "@mittwald/react-use-promise": "^2.3.12",
-    "@types/react": "^18.2.57",
+    "@types/node": "^20.11.20",
+    "@types/react": "^18.2.58",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
     "concurrently": "^8.2.2",
@@ -63,7 +63,9 @@
     "prettier-plugin-pkgsort": "^0.2.1",
     "prettier-plugin-sort-json": "^3.1.0",
     "react": "^18.2.0",
+    "read-pkg": "^9.0.1",
     "rimraf": "^5.0.5",
+    "tsx": "^4.7.1",
     "typescript": "5.3.3"
   },
   "peerDependencies": {
@@ -72,50 +74,6 @@
   "peerDependenciesMeta": {
     "@mittwald/react-use-promise": {
       "optional": true
-    }
-  },
-  "nx": {
-    "targets": {
-      "build": {
-        "cache": true,
-        "dependsOn": [
-          "^build",
-          "generate:client"
-        ]
-      },
-      "build-dev": {
-        "cache": true,
-        "dependsOn": [
-          "^build",
-          "generate:client-dev"
-        ]
-      },
-      "generate:client": {
-        "cache": true,
-        "dependsOn": [
-          "^build"
-        ],
-        "inputs": [
-          "default",
-          "^default",
-          "{projectRoot}/spec/*"
-        ],
-        "outputs": [
-          "{projectRoot}/src/generated/**/*"
-        ]
-      },
-      "generate:client-dev": {
-        "cache": true,
-        "dependsOn": [
-          "^build"
-        ],
-        "inputs": [
-          "{projectRoot}/spec/*"
-        ],
-        "outputs": [
-          "{projectRoot}/src/generated/**/*"
-        ]
-      }
     }
   }
 }

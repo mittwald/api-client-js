@@ -1,6 +1,6 @@
 {
   "name": "@mittwald/api-client-commons",
-  "version": "4.2.0",
+  "version": "4.7.0",
   "author": "Mittwald CM Service GmbH & Co. KG <opensource@mittwald.de>",
   "type": "module",
   "description": "Common types and utilities for mittwald API clients",
@@ -30,7 +30,7 @@
   ],
   "scripts": {
     "build": "run build:clean && run tsc",
-    "build:clean": "rimraf dist",
+    "build:clean": "run rimraf dist",
     "format": "run prettier --write '**/*.{ts,tsx,yaml,yml,json,md,mdx,js}'",
     "lint": "run eslint .",
     "test": "node --experimental-vm-modules $(yarn bin jest)"
@@ -60,7 +60,7 @@
     "react": "^18.2.0",
     "rimraf": "^5.0.5",
     "ts-jest": "^29.1.2",
-    "tsd": "^0.30.5",
+    "tsd": "^0.30.6",
     "typescript": "^5.3.3"
   },
   "peerDependencies": {

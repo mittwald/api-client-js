@@ -1,0 +1,48 @@
+name: Update API client
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      PUBLISH_PAT: ${{ secrets.PUBLISH_PAT }}
+      GH_TOKEN: ${{ secrets.PUBLISH_PAT }}
+
+    steps:
+      - name: Checkout ⬇️
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PUBLISH_PAT }}
+
+      - name: Git Identity 🪪
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Yarn Install 📦️
+        run: yarn install --immutable
+
+      - name: Setup NX 1/2 🎛️
+        uses: nrwl/nx-set-shas@v4
+
+      - name: Setup NX 2/2 🎛
+        if: github.ref != 'refs/heads/master'
+        run: git branch --track master origin/master
+
+      - name: Update OpenAPI ⬇️
+        run: |
+          yarn nx run @mittwald/api-client:build:fetch-openapi
+          if [ $(git status --porcelain . | wc -l) -gt 0 ] ; then
+            git add .
+            yarn test
+            git commit -m "feat: update generated client";            
+            git push origin
+          fi

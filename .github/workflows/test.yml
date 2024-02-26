@@ -1,0 +1,40 @@
+name: Run tests
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  master:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout ⬇️
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node 🎛️
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "yarn"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Yarn Install 📦️
+        run: yarn install --immutable
+
+      - name: Setup NX 1/2 🎛️
+        uses: nrwl/nx-set-shas@v4
+
+      # This step is needed for nx affected to work when CI is running on a PR
+      # See also https://nx.dev/ci/recipes/set-up/monorepo-ci-github-actions#configuring-ci-using-github-actions-and-nx
+      - name: Setup NX 2/2 🎛
+        if: github.ref != 'refs/heads/master'
+        run: git branch --track master origin/master
+
+      - name: Run tests 👨‍🔬
+        run: yarn nx affected -t test,lint --parallel=3
+
+      # Check if working dir is clean after (implicit) build
+      - run: git diff --exit-code

@@ -2,10 +2,10 @@ import { Args, Command, Flags, ux } from "@oclif/core";
 import { UniversalContentLoader } from "../../loading/UniversalContentLoader.js";
 import { OpenApiSpec } from "../../openapi/OpenApiSpec.js";
 import { CodeGenerationModel } from "../../generation/model/CodeGenerationModel.js";
-import jetpack from "fs-jetpack";
 import * as path from "path";
 import { prepareTypeScriptOutput } from "../../generation/prepareTypeScriptOutput.js";
 import { UniversalFileLoader } from "../../loading/UniversalFileLoader.js";
+import { writeIfChangedAsync } from "../../lib/writeIfChangedAsync.js";
 
 export default class Generate extends Command {
   static description = "Generate code from the provided OpenAPI spec.";
@@ -60,7 +60,7 @@ export default class Generate extends Command {
 
     ux.action.start("Generating descriptors");
     const descriptorsFileContent = model.paths.compileDescriptors();
-    await jetpack.writeAsync(
+    await writeIfChangedAsync(
       path.join(args.output, "descriptors.ts"),
       await prepareTypeScriptOutput(descriptorsFileContent),
     );
@@ -71,7 +71,7 @@ export default class Generate extends Command {
       rootNamespace: flags.name,
       optionalHeaders: flags.optionalHeader,
     });
-    await jetpack.writeAsync(
+    await writeIfChangedAsync(
       path.join(args.output, "types.ts"),
       await prepareTypeScriptOutput(typesFileContent),
     );
@@ -79,7 +79,7 @@ export default class Generate extends Command {
 
     ux.action.start("Generating client");
     const clientFileContent = model.paths.compileClient();
-    await jetpack.writeAsync(
+    await writeIfChangedAsync(
       path.join(args.output, "client.ts"),
       await prepareTypeScriptOutput(clientFileContent),
     );
@@ -87,7 +87,7 @@ export default class Generate extends Command {
 
     ux.action.start("Generating React client");
     const reactClientFileContent = model.paths.compileReactClient();
-    await jetpack.writeAsync(
+    await writeIfChangedAsync(
       path.join(args.output, "client-react.ts"),
       await prepareTypeScriptOutput(reactClientFileContent),
     );

@@ -1,5 +1,6 @@
 {
   "name": "@mittwald/api-code-generator",
+  "private": true,
   "version": "1.0.0",
   "type": "module",
   "repository": "https://github.com/mittwald/api-client-js.git",
@@ -15,13 +16,13 @@
   ],
   "scripts": {
     "build": "run build:clean && yarn tsc",
-    "build:clean": "rimraf dist",
-    "format": "prettier --write '**/*.{ts,tsx,yaml,yml,json,md,mdx,js}'",
-    "lint": "eslint .",
+    "build:clean": "run rimraf dist",
+    "format": "run prettier --write '**/*.{ts,tsx,yaml,yml,json,md,mdx,js}'",
+    "lint": "run eslint .",
     "test": "node --experimental-vm-modules $(yarn bin jest)"
   },
   "dependencies": {
-    "@oclif/core": "^3.19.4",
+    "@oclif/core": "^3.19.5",
     "@oclif/plugin-help": "^6.0.14",
     "@oclif/plugin-plugins": "^4.2.5",
     "@sindresorhus/is": "^6.1.0",
