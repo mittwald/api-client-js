@@ -34,8 +34,8 @@ jobs:
         uses: nrwl/nx-set-shas@v4
 
       - name: Setup NX 2/2 🎛
-        if: github.ref != 'refs/heads/main'
-        run: git branch --track main origin/main
+        if: github.ref != 'refs/heads/master'
+        run: git branch --track master origin/master
 
       - name: Update OpenAPI ⬇️
         run: |

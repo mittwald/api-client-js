@@ -6,7 +6,7 @@ on:
     types:
       - closed
     branches:
-      - main
+      - master
   workflow_run:
     workflows: [Update API client]
     types:
@@ -48,8 +48,8 @@ jobs:
         uses: nrwl/nx-set-shas@v4
 
       - name: Setup NX 2/2 🎛
-        if: github.ref != 'refs/heads/main'
-        run: git branch --track main origin/main
+        if: github.ref != 'refs/heads/master'
+        run: git branch --track master origin/master
 
       - name: Build 🔨
         run: yarn nx affected -t build --parallel=3

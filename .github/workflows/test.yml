@@ -2,11 +2,11 @@ name: Run tests
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
 
 jobs:
-  main:
+  master:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,8 +18,8 @@ jobs:
           cache: "yarn"
       - run: yarn install --immutable
       - uses: nrwl/nx-set-shas@v4
-      - if: github.ref != 'refs/heads/main'
-        run: git branch --track main origin/main
+      - if: github.ref != 'refs/heads/master'
+        run: git branch --track master origin/master
       - run: yarn lint
       - run: yarn nx affected -t test,lint --parallel=3
       # Check if working dir is clean after build
