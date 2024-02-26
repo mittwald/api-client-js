@@ -1,7 +1,5 @@
 name: Publish packages to NPM
 
-# trigger publish test line
-
 on:
   workflow_dispatch:
   pull_request:
