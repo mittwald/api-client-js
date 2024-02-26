@@ -1,4 +1,5 @@
 {
+  "defaultBase": "master",
   "affected": {
     "defaultBase": "master"
   },
