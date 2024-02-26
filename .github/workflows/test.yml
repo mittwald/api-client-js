@@ -26,6 +26,8 @@ jobs:
 
       - name: Setup NX 1/2 🎛️
         uses: nrwl/nx-set-shas@v4
+        with:
+          main-branch-name: master
 
       # This step is needed for nx affected to work when CI is running on a PR
       # See also https://nx.dev/ci/recipes/set-up/monorepo-ci-github-actions#configuring-ci-using-github-actions-and-nx
