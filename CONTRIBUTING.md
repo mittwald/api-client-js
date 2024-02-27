@@ -9,6 +9,14 @@
   corresponding template files in the `packages/generator/resources/templates`
   directory.
 
+## Use Conventional Commits
+
+Please use the
+[Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#summary)
+syntax for your commit messages. It is required because the CI automatically
+determines the version bump and generates CHANGELOG.md files based on the
+included commits when a PR is merged.
+
 ## Building locally
 
 Requirements for building the project locally:
