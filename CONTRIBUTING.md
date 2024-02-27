@@ -7,7 +7,8 @@
 - Nearly all files in the `@mittwald/api-client` package are generated from the
   OpenAPI spec. Please do not edit these files manually. Instead, edit the
   corresponding template files in the `packages/generator/resources/templates`
-  directory.
+  directory!
+
 
 ## Use Conventional Commits
 
