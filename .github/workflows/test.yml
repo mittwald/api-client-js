@@ -3,7 +3,7 @@ on:
   pull_request:
 
 jobs:
-  master:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout ⬇️
