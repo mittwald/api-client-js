@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.10.0](https://github.com/mittwald/api-client-js/compare/4.9.0...4.10.0) (2024-02-28)
+
+### Features
+
+- add assertOneOfStatus helper function
+  ([6ff9f7f](https://github.com/mittwald/api-client-js/commit/6ff9f7f94087d6acba8f2ad2e994001a1eff106a))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [4.9.0](https://github.com/mittwald/api-client-js/compare/4.8.2...4.9.0) (2024-02-27)
 
 ### Features
