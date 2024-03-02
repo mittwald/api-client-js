@@ -3966,14 +3966,31 @@
       },
       "file.FileUploadRules": {
         "properties": {
+          "extensions": {
+            "items": {
+              "example": [
+                ".png",
+                ".jpeg",
+                ".jpg"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          },
           "fileTypes": {
             "items": {
               "$ref": "#/components/schemas/file.FileType"
             },
             "type": "array"
           },
+          "maxSizeInBytes": {
+            "example": 1000000,
+            "type": "integer"
+          },
           "maxSizeInKB": {
-            "example": 3000,
+            "deprecated": true,
+            "description": "deprecated, see maxSizeInBytes",
+            "example": 1000,
             "type": "integer"
           },
           "mimeTypes": {
@@ -4020,9 +4037,11 @@
           }
         },
         "required": [
+          "maxSizeInBytes",
           "maxSizeInKB",
           "mimeTypes",
-          "fileTypes"
+          "fileTypes",
+          "extensions"
         ],
         "type": "object"
       },
@@ -4637,7 +4656,8 @@
           },
           "type": {
             "enum": [
-              "returnDebitNote"
+              "returnDebitNote",
+              "returnDebitNoteWaitingForPayment"
             ],
             "type": "string"
           }
@@ -5240,6 +5260,400 @@
           "imapClusterId",
           "mailDirectory",
           "rateLimitId"
+        ],
+        "type": "object"
+      },
+      "mailmigration.CheckMigrationIsPossibleResponse": {
+        "properties": {
+          "checkMigrationIsPossibleErrors": {
+            "$ref": "#/components/schemas/mailmigration.PossibleCheckErrors"
+          },
+          "migrationFinalizeJobs": {
+            "$ref": "#/components/schemas/mailmigration.MigrationFinalizeJob"
+          },
+          "migrationMailAddress": {
+            "items": {
+              "$ref": "#/components/schemas/mailmigration.MigrationMailAddress"
+            },
+            "type": "array"
+          },
+          "migrationMailbox": {
+            "items": {
+              "$ref": "#/components/schemas/mailmigration.MigrationMailbox"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "migrationMailAddress",
+          "migrationMailbox",
+          "migrationFinalizeJobs"
+        ],
+        "type": "object"
+      },
+      "mailmigration.AutoResponder": {
+        "properties": {
+          "active": {
+            "type": "boolean"
+          },
+          "expiresAt": {
+            "format": "date-time"
+          },
+          "message": {
+            "type": "string"
+          },
+          "startsAt": {
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "active",
+          "message"
+        ],
+        "type": "object"
+      },
+      "mailmigration.CoabAuthInfo": {
+        "properties": {
+          "accessToken": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "accessToken"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MailSystemSettings": {
+        "properties": {
+          "imapClusterId": {
+            "type": "string"
+          },
+          "mailDirectory": {
+            "type": "string"
+          },
+          "rateLimitId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "imapClusterId",
+          "mailDirectory",
+          "rateLimitId"
+        ],
+        "type": "object"
+      },
+      "mailmigration.Mailbox": {
+        "properties": {
+          "mailsystem": {
+            "$ref": "#/components/schemas/mailmigration.MailSystemSettings"
+          },
+          "name": {
+            "type": "string"
+          },
+          "passwordHash": {
+            "type": "string"
+          },
+          "quotaInBytes": {
+            "type": "integer"
+          },
+          "spamProtection": {
+            "$ref": "#/components/schemas/mailmigration.SpamProtection"
+          }
+        },
+        "required": [
+          "name",
+          "passwordHash",
+          "quotaInBytes",
+          "mailsystem"
+        ],
+        "type": "object"
+      },
+      "mailmigration.Migration": {
+        "properties": {
+          "addresses": {
+            "items": {
+              "$ref": "#/components/schemas/mailmigration.MigrationMailAddress"
+            },
+            "type": "array"
+          },
+          "finalizers": {
+            "$ref": "#/components/schemas/mailmigration.MigrationFinalizeJob"
+          },
+          "id": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "mailboxes": {
+            "items": {
+              "$ref": "#/components/schemas/mailmigration.MigrationMailbox"
+            },
+            "type": "array"
+          },
+          "sourceCoabProjectId": {
+            "type": "string"
+          },
+          "targetNexusProjectId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "targetNexusProjectId",
+          "sourceCoabProjectId",
+          "addresses",
+          "mailboxes"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrationFinalizeJob": {
+        "properties": {
+          "projectSettingMigrations": {
+            "$ref": "#/components/schemas/mailmigration.MigrationFinalizeJobProjectSetting"
+          }
+        },
+        "type": "object"
+      },
+      "mailmigration.MigrationFinalizeJobProjectSetting": {
+        "properties": {
+          "blacklistEntries": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "whitelistEntries": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "blacklistEntries",
+          "whitelistEntries"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrationMailAddress": {
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "finished": {
+            "type": "boolean"
+          },
+          "id": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "migrationJobs": {
+            "$ref": "#/components/schemas/mailmigration.MigrationMailAddressMigrationJob"
+          },
+          "preMigrationJobs": {
+            "$ref": "#/components/schemas/mailmigration.MigrationMailAddressPreMigrationJob"
+          }
+        },
+        "required": [
+          "id",
+          "address",
+          "preMigrationJobs",
+          "migrationJobs",
+          "finished"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrateMailAddressCommandRequirements": {
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "autoResponder": {
+            "$ref": "#/components/schemas/mailmigration.AutoResponder"
+          },
+          "forwardedAddresses": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "isCatchAll": {
+            "type": "boolean"
+          },
+          "mailbox": {
+            "$ref": "#/components/schemas/mailmigration.Mailbox"
+          },
+          "projectId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "projectId"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrationMailAddressMigrationJob": {
+        "properties": {
+          "migrate": {
+            "$ref": "#/components/schemas/mailmigration.MigrationMailAddressMigrationJobMigrate"
+          }
+        },
+        "required": [
+          "migrate"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrationMailAddressMigrationJobMigrate": {
+        "properties": {
+          "requirements": {
+            "$ref": "#/components/schemas/mailmigration.MigrateMailAddressCommandRequirements"
+          }
+        },
+        "required": [
+          "requirements"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrationMailAddressPreMigrationJob": {
+        "properties": {
+          "aliasSet": {
+            "items": {
+              "$ref": "#/components/schemas/mailmigration.MigrationMailAddressPreMigrationJobAliasSet"
+            },
+            "type": "array"
+          },
+          "deliveryMigrations": {
+            "items": {
+              "$ref": "#/components/schemas/mailmigration.MigrationMailAddressPreMigrationJobDeliveryMigration"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "deliveryMigrations",
+          "aliasSet"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrationMailAddressPreMigrationJobAliasSet": {
+        "properties": {
+          "sourceCoabMailboxName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "sourceCoabMailboxName"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrationMailAddressPreMigrationJobDeliveryMigration": {
+        "properties": {
+          "sourceCoabDeliveryMailbox": {
+            "type": "string"
+          },
+          "sourceCoabDeliveryUid": {
+            "type": "integer"
+          },
+          "targetNexusDeliveryAddress": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "sourceCoabDeliveryUid",
+          "sourceCoabDeliveryMailbox",
+          "targetNexusDeliveryAddress"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrationMailbox": {
+        "properties": {
+          "finished": {
+            "type": "boolean"
+          },
+          "id": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "migrationJobs": {
+            "items": {
+              "$ref": "#/components/schemas/mailmigration.MigrationMailboxJob"
+            },
+            "type": "array"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "migrationJobs",
+          "finished"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrationMailboxJob": {
+        "properties": {
+          "migrate": {
+            "$ref": "#/components/schemas/mailmigration.MigrationMailboxJobMigrate"
+          }
+        },
+        "required": [
+          "migrate"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrationMailboxJobMigrate": {
+        "properties": {
+          "requirements": {
+            "$ref": "#/components/schemas/mailmigration.MigrateMailAddressCommandRequirements"
+          }
+        },
+        "required": [
+          "requirements"
+        ],
+        "type": "object"
+      },
+      "mailmigration.PossibleCheckErrors": {
+        "properties": {
+          "jwt": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "jwt"
+        ],
+        "type": "object"
+      },
+      "mailmigration.SpamProtection": {
+        "properties": {
+          "active": {
+            "type": "boolean"
+          },
+          "deleteSensitivity": {
+            "type": "integer"
+          },
+          "folder": {
+            "default": 0,
+            "description": "SPAM_FOLDER_INBOX_UNSPECIFIED = 0 SPAM_FOLDER_SPAM = 1",
+            "enum": [
+              0,
+              1
+            ],
+            "type": "integer"
+          },
+          "keepDays": {
+            "type": "integer"
+          },
+          "relocateSensitivity": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "active",
+          "folder",
+          "keepDays",
+          "relocateSensitivity",
+          "deleteSensitivity"
         ],
         "type": "object"
       },
