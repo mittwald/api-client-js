@@ -1874,7 +1874,7 @@ const RAW_RUNTIME_STATE =
           ["@mittwald/api-code-generator", "workspace:packages/generator"],\
           ["@jest/globals", "npm:29.7.0"],\
           ["@oclif/core", "npm:3.19.6"],\
-          ["@oclif/plugin-help", "npm:6.0.14"],\
+          ["@oclif/plugin-help", "npm:6.0.15"],\
           ["@oclif/plugin-plugins", "npm:4.2.5"],\
           ["@sindresorhus/is", "npm:6.1.0"],\
           ["@types/clone-deep", "npm:4.0.4"],\
@@ -2479,14 +2479,48 @@ const RAW_RUNTIME_STATE =
           ["wrap-ansi", "npm:7.0.0"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:3.20.0", {\
+        "packageLocation": "./.yarn/cache/@oclif-core-npm-3.20.0-77591b1017-7733d0ca09.zip/node_modules/@oclif/core/",\
+        "packageDependencies": [\
+          ["@oclif/core", "npm:3.20.0"],\
+          ["@types/cli-progress", "npm:3.11.5"],\
+          ["ansi-escapes", "npm:4.3.2"],\
+          ["ansi-styles", "npm:4.3.0"],\
+          ["cardinal", "npm:2.1.1"],\
+          ["chalk", "npm:4.1.2"],\
+          ["clean-stack", "npm:3.0.1"],\
+          ["cli-progress", "npm:3.12.0"],\
+          ["color", "npm:4.2.3"],\
+          ["debug", "virtual:0d3ec6bf5030833f2c15650c50c2dcbcebb974c4d9cb993f635736b303862b26507e0ff965b3b1ea2b346b4b08bf3a8288299aa9563d2e16f7de1c753756bc37#npm:4.3.4"],\
+          ["ejs", "npm:3.1.9"],\
+          ["get-package-type", "npm:0.1.0"],\
+          ["globby", "npm:11.1.0"],\
+          ["hyperlinker", "npm:1.0.0"],\
+          ["indent-string", "npm:4.0.0"],\
+          ["is-wsl", "npm:2.2.0"],\
+          ["js-yaml", "npm:3.14.1"],\
+          ["natural-orderby", "npm:2.0.3"],\
+          ["object-treeify", "npm:1.1.33"],\
+          ["password-prompt", "npm:1.1.3"],\
+          ["slice-ansi", "npm:4.0.0"],\
+          ["string-width", "npm:4.2.3"],\
+          ["strip-ansi", "npm:6.0.1"],\
+          ["supports-color", "npm:8.1.1"],\
+          ["supports-hyperlinks", "npm:2.3.0"],\
+          ["widest-line", "npm:3.1.0"],\
+          ["wordwrap", "npm:1.0.0"],\
+          ["wrap-ansi", "npm:7.0.0"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["@oclif/plugin-help", [\
-      ["npm:6.0.14", {\
-        "packageLocation": "./.yarn/cache/@oclif-plugin-help-npm-6.0.14-c34a64992d-472800ed1e.zip/node_modules/@oclif/plugin-help/",\
+      ["npm:6.0.15", {\
+        "packageLocation": "./.yarn/cache/@oclif-plugin-help-npm-6.0.15-fabdbdef15-73016a4e38.zip/node_modules/@oclif/plugin-help/",\
         "packageDependencies": [\
-          ["@oclif/plugin-help", "npm:6.0.14"],\
-          ["@oclif/core", "npm:3.19.6"]\
+          ["@oclif/plugin-help", "npm:6.0.15"],\
+          ["@oclif/core", "npm:3.20.0"]\
         ],\
         "linkType": "HARD"\
       }]\

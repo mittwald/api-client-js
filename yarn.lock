@@ -1652,7 +1652,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oclif/core@npm:^3.10.2, @oclif/core@npm:^3.19.2, @oclif/core@npm:^3.19.5":
+"@oclif/core@npm:^3.10.2, @oclif/core@npm:^3.19.5":
   version: 3.19.6
   resolution: "@oclif/core@npm:3.19.6"
   dependencies:
@@ -1687,12 +1687,47 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oclif/plugin-help@npm:^6.0.14":
-  version: 6.0.14
-  resolution: "@oclif/plugin-help@npm:6.0.14"
+"@oclif/core@npm:^3.20.0":
+  version: 3.20.0
+  resolution: "@oclif/core@npm:3.20.0"
   dependencies:
-    "@oclif/core": "npm:^3.19.2"
-  checksum: 10/472800ed1eba4ed33b13ec00058a8b8388f0ba5770ef11897f5a58e5ef433da82012e73dc0eef17b7f9fbfc19dc04582a02de4788f090c575455a6944b6a368d
+    "@types/cli-progress": "npm:^3.11.5"
+    ansi-escapes: "npm:^4.3.2"
+    ansi-styles: "npm:^4.3.0"
+    cardinal: "npm:^2.1.1"
+    chalk: "npm:^4.1.2"
+    clean-stack: "npm:^3.0.1"
+    cli-progress: "npm:^3.12.0"
+    color: "npm:^4.2.3"
+    debug: "npm:^4.3.4"
+    ejs: "npm:^3.1.9"
+    get-package-type: "npm:^0.1.0"
+    globby: "npm:^11.1.0"
+    hyperlinker: "npm:^1.0.0"
+    indent-string: "npm:^4.0.0"
+    is-wsl: "npm:^2.2.0"
+    js-yaml: "npm:^3.14.1"
+    natural-orderby: "npm:^2.0.3"
+    object-treeify: "npm:^1.1.33"
+    password-prompt: "npm:^1.1.3"
+    slice-ansi: "npm:^4.0.0"
+    string-width: "npm:^4.2.3"
+    strip-ansi: "npm:^6.0.1"
+    supports-color: "npm:^8.1.1"
+    supports-hyperlinks: "npm:^2.2.0"
+    widest-line: "npm:^3.1.0"
+    wordwrap: "npm:^1.0.0"
+    wrap-ansi: "npm:^7.0.0"
+  checksum: 10/7733d0ca096882cda37c905f168aecb8d3e97aae1b220421b86598554a4e644aba71a87bf9d3aa2f8e6b4a1cdb38a2e7b83547c5851a7b2d12f6d9c8a1ccd25d
+  languageName: node
+  linkType: hard
+
+"@oclif/plugin-help@npm:^6.0.14":
+  version: 6.0.15
+  resolution: "@oclif/plugin-help@npm:6.0.15"
+  dependencies:
+    "@oclif/core": "npm:^3.20.0"
+  checksum: 10/73016a4e3873149aa52b77b0b3c2fd39ed056532f9d834f51322b5a97991a5e4427ed287b0ed4d02fc627ffbb03fe649a94a0092f88d64c7036e7753aa5e4415
   languageName: node
   linkType: hard
 
