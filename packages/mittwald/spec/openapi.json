@@ -13432,7 +13432,7 @@
                 }
               }
             },
-            "description": "The list of customers the user is a member for"
+            "description": "The list of customers the authenticated user is a member for"
           },
           "default": {
             "$ref": "#/components/responses/commons.DefaultError"
@@ -13843,6 +13843,7 @@
         "operationId": "customer-delete-customer",
         "parameters": [
           {
+            "description": "The uuid of the customer to be deleted. Only customer without active contracts or unpaid invoices can be deleted.",
             "in": "path",
             "name": "customerId",
             "required": true,
@@ -13853,7 +13854,19 @@
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/customer.GenericResponse"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "customerId": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Returns the uuid of the deleted customer"
           },
           "404": {
             "$ref": "#/components/responses/commons.NotFoundError"
@@ -13876,6 +13889,7 @@
         "operationId": "customer-get-customer",
         "parameters": [
           {
+            "description": "The uuid of the customer to be returned",
             "in": "path",
             "name": "customerId",
             "required": true,
@@ -14052,6 +14066,7 @@
         "operationId": "customer-is-customer-legally-competent",
         "parameters": [
           {
+            "description": "The uuid of the customer to be checked",
             "in": "path",
             "name": "customerId",
             "required": true,
@@ -14447,6 +14462,7 @@
         "operationId": "customer-remove-avatar",
         "parameters": [
           {
+            "description": "The uuid of the customer whose avatar is to be deleted",
             "in": "path",
             "name": "customerId",
             "required": true,
@@ -14490,6 +14506,7 @@
         "operationId": "customer-request-avatar-upload",
         "parameters": [
           {
+            "description": "The uuid of the customer for whom an avatar upload is to be requested",
             "in": "path",
             "name": "customerId",
             "required": true,
