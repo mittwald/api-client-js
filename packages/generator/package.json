@@ -6,7 +6,11 @@
   "repository": "https://github.com/mittwald/api-client-js.git",
   "license": "MIT",
   "exports": {
-    ".": "./bin/cli.js"
+    ".": "./bin/cli.js",
+    "./js": {
+      "types": "./dist/types/index.d.ts",
+      "default": "./dist/esm/index.js"
+    }
   },
   "bin": {
     "acg": "./bin/cli.js"
