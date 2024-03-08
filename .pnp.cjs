@@ -1905,7 +1905,7 @@ const RAW_RUNTIME_STATE =
           ["jest", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:29.7.0"],\
           ["js-yaml", "npm:4.1.0"],\
           ["json-schema-to-typescript", "npm:13.1.2"],\
-          ["jsonata", "npm:2.0.3"],\
+          ["jsonata", "npm:2.0.4"],\
           ["openapi-schema-validator", "npm:12.1.3"],\
           ["openapi-types", "npm:12.1.3"],\
           ["prettier", "npm:3.2.5"],\
@@ -8778,10 +8778,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["jsonata", [\
-      ["npm:2.0.3", {\
-        "packageLocation": "./.yarn/cache/jsonata-npm-2.0.3-fd47a194cc-d1f070d82a.zip/node_modules/jsonata/",\
+      ["npm:2.0.4", {\
+        "packageLocation": "./.yarn/cache/jsonata-npm-2.0.4-d3a3b8f067-eb613eee1c.zip/node_modules/jsonata/",\
         "packageDependencies": [\
-          ["jsonata", "npm:2.0.3"]\
+          ["jsonata", "npm:2.0.4"]\
         ],\
         "linkType": "HARD"\
       }]\
