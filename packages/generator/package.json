@@ -1,6 +1,5 @@
 {
   "name": "@mittwald/api-code-generator",
-  "private": true,
   "version": "1.0.0",
   "type": "module",
   "repository": "https://github.com/mittwald/api-client-js.git",
