@@ -1770,6 +1770,7 @@ const RAW_RUNTIME_STATE =
           ["@jest/globals", "npm:29.7.0"],\
           ["@mittwald/react-use-promise", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#npm:2.3.12"],\
           ["@types/jest", "npm:29.5.12"],\
+          ["@types/jest__globals", null],\
           ["@types/mittwald__react-use-promise", null],\
           ["@types/parse-path", "npm:7.0.3"],\
           ["@typescript-eslint/eslint-plugin", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:7.0.2"],\
@@ -1795,6 +1796,7 @@ const RAW_RUNTIME_STATE =
         ],\
         "packagePeers": [\
           "@mittwald/react-use-promise",\
+          "@types/jest__globals",\
           "@types/mittwald__react-use-promise"\
         ],\
         "linkType": "SOFT"\
@@ -1806,6 +1808,7 @@ const RAW_RUNTIME_STATE =
           ["@jest/globals", "npm:29.7.0"],\
           ["@mittwald/react-use-promise", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#npm:2.3.12"],\
           ["@types/jest", "npm:29.5.12"],\
+          ["@types/jest__globals", null],\
           ["@types/mittwald__react-use-promise", null],\
           ["@types/parse-path", "npm:7.0.3"],\
           ["@typescript-eslint/eslint-plugin", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:7.0.2"],\
@@ -1831,6 +1834,7 @@ const RAW_RUNTIME_STATE =
         ],\
         "packagePeers": [\
           "@mittwald/react-use-promise",\
+          "@types/jest__globals",\
           "@types/mittwald__react-use-promise"\
         ],\
         "linkType": "SOFT"\
