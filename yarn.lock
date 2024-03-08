@@ -11713,11 +11713,11 @@ __metadata:
   linkType: hard
 
 "zod-validation-error@npm:^3.0.2":
-  version: 3.0.2
-  resolution: "zod-validation-error@npm:3.0.2"
+  version: 3.0.3
+  resolution: "zod-validation-error@npm:3.0.3"
   peerDependencies:
     zod: ^3.18.0
-  checksum: 10/0ab8c634ed58296f3fee8a5fc3f8bd06c4615569e625d9ab6b9b8020c75c90ed7a0b98b683ad6ef08ec93c252be4c3469000fbf2f51f4cf666afdf9539a76e56
+  checksum: 10/25b409884e16de45a95a047bd571e84bd1fb3f3bbec08f947b99e161ae3030ae24f88720d7d0c2bfcf18433df7b808e2310d38620fb2994c3c685122dc5aea6c
   languageName: node
   linkType: hard
 
