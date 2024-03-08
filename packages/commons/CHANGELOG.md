@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.13.0](https://github.com/mittwald/api-client-js/compare/4.12.0...4.13.0) (2024-03-08)
+
+### Features
+
+- **commons:** Add expectStatus jest testing helper
+  ([f6a3e63](https://github.com/mittwald/api-client-js/commit/f6a3e63127dd271eb3974a992ba7e57c387b7113))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [4.10.0](https://github.com/mittwald/api-client-js/compare/4.9.0...4.10.0) (2024-02-28)
 
 ### Features
