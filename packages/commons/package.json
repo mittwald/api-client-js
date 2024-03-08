@@ -21,8 +21,8 @@
       "default": "./dist/esm/index.js"
     },
     "./testing": {
-      "types": "./dist/testing/index.d.ts",
-      "default": "./dist/testing/index.js"
+      "types": "./dist/types/testing/index.d.ts",
+      "default": "./dist/esm/testing/index.js"
     },
     "./react": {
       "types": "./dist/types/react/index.d.ts",
