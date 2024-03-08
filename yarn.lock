@@ -1154,6 +1154,8 @@ __metadata:
   peerDependencies:
     "@mittwald/react-use-promise": ^2.1.0
   peerDependenciesMeta:
+    "@jest/globals":
+      optional: true
     "@mittwald/react-use-promise":
       optional: true
   languageName: unknown

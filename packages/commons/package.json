@@ -20,6 +20,10 @@
       "types": "./dist/types/index.d.ts",
       "default": "./dist/esm/index.js"
     },
+    "./testing": {
+      "types": "./dist/testing/index.d.ts",
+      "default": "./dist/testing/index.js"
+    },
     "./react": {
       "types": "./dist/types/react/index.d.ts",
       "default": "./dist/esm/react/index.js"
@@ -67,6 +71,9 @@
     "@mittwald/react-use-promise": "^2.1.0"
   },
   "peerDependenciesMeta": {
+    "@jest/globals": {
+      "optional": true
+    },
     "@mittwald/react-use-promise": {
       "optional": true
     }
