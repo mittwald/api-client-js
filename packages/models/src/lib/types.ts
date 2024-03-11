@@ -1,13 +1,9 @@
-export type ParamsExceptFirst<T extends (...args: any) => any> = T extends (
-  ignoredFirst: any,
-  ...args: infer P
-) => any
-  ? P
-  : never;
+export type ParamsExceptFirst<T extends (...args: any[]) => unknown> =
+  T extends (ignoredFirst: never, ...args: infer P) => unknown ? P : never;
 
-export type FirstParameter<T extends (...args: any) => any> = T extends (
+export type FirstParameter<T extends (...args: any[]) => unknown> = T extends (
   first: infer P,
   ...args: any[]
-) => any
+) => unknown
   ? P
   : never;

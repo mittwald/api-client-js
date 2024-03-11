@@ -33,6 +33,7 @@
   "scripts": {
     "build": "run build:clean && run tsc",
     "build:clean": "rimraf dist",
+    "lint": "run eslint .",
     "test": "node --experimental-vm-modules $(yarn bin jest)"
   },
   "dependencies": {
