@@ -4,6 +4,7 @@ export type { ReadonlyDeep } from "type-fest";
 
 type DeepFreeze = <T>(subject: T) => ReadonlyDeep<T>;
 
-const deepFreeze = deepFreezeLib.default as DeepFreeze;
+// eslint-disable-next-line
+const deepFreeze = (deepFreezeLib as any).default as DeepFreeze;
 
 export default deepFreeze;
