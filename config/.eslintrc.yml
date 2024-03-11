@@ -29,3 +29,6 @@ rules:
     - varsIgnorePattern: "[iI]gnored"
       argsIgnorePattern: "[iI]gnored"
       caughtErrorsIgnorePattern: "[iI]gnored"
+  "@typescript-eslint/no-explicit-any":
+    - error
+    - ignoreRestArgs: true
