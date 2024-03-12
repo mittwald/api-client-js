@@ -5675,13 +5675,20 @@
               "$ref": "#/components/schemas/mailmigration.CheckMigrationIsPossibleErrorCatchAllTargetWithoutAlias"
             },
             "type": "array"
+          },
+          "missingVerifiedIngress": {
+            "items": {
+              "$ref": "#/components/schemas/mailmigration.CheckMigrationIsPossibleErrorMissingVerifiedIngress"
+            },
+            "type": "array"
           }
         },
         "required": [
           "ambiguousMailAddressDelivery",
           "ambiguousMailboxDelivery",
           "catchAllMissingAddress",
-          "catchAllTargetWithoutAlias"
+          "catchAllTargetWithoutAlias",
+          "missingVerifiedIngress"
         ],
         "type": "object"
       },
@@ -7740,62 +7747,6 @@
         ],
         "type": "object"
       },
-      "marketplace.Contributor": {
-        "properties": {
-          "customerId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "email": {
-            "type": "string"
-          },
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "logoRefId": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "phone": {
-            "type": "string"
-          },
-          "state": {
-            "$ref": "#/components/schemas/marketplace.ContributorState"
-          },
-          "url": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "id",
-          "customerId",
-          "state",
-          "name"
-        ],
-        "type": "object"
-      },
-      "marketplace.SupportMeta": {
-        "properties": {
-          "email": {
-            "example": "a.lovelace@example.com",
-            "type": "string"
-          },
-          "phone": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "marketplace.Context": {
-        "enum": [
-          "project",
-          "customer"
-        ],
-        "type": "string"
-      },
       "marketplace.ContributorState": {
         "enum": [
           "enabled",
@@ -7803,88 +7754,12 @@
         ],
         "type": "string"
       },
-      "marketplace.ExtensionState": {
+      "marketplace.Context": {
         "enum": [
-          "enabled",
-          "blocked",
-          "disabled"
+          "project",
+          "customer"
         ],
         "type": "string"
-      },
-      "marketplace.Extension": {
-        "properties": {
-          "context": {
-            "$ref": "#/components/schemas/marketplace.Context"
-          },
-          "contributorId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "scopes": {
-            "items": {
-              "$ref": "#/components/schemas/marketplace.Scope"
-            },
-            "type": "array"
-          },
-          "state": {
-            "$ref": "#/components/schemas/marketplace.ExtensionState"
-          },
-          "support": {
-            "$ref": "#/components/schemas/marketplace.SupportMeta"
-          },
-          "tags": {
-            "items": {
-              "type": "string"
-            },
-            "minItems": 0,
-            "type": "array"
-          }
-        },
-        "required": [
-          "id",
-          "contributorId",
-          "support",
-          "state",
-          "name",
-          "description",
-          "tags",
-          "context",
-          "scopes"
-        ],
-        "type": "object"
-      },
-      "marketplace.PublicKey": {
-        "properties": {
-          "algorithm": {
-            "example": "Ed25519",
-            "type": "string"
-          },
-          "key": {
-            "description": "base64 encoded public key",
-            "format": "byte",
-            "type": "string"
-          },
-          "serial": {
-            "format": "uuid",
-            "type": "string"
-          }
-        },
-        "required": [
-          "serial",
-          "algorithm",
-          "key"
-        ],
-        "type": "object"
       },
       "marketplace.ExtensionInstance": {
         "properties": {
@@ -7940,12 +7815,156 @@
         ],
         "type": "object"
       },
+      "marketplace.Extension": {
+        "properties": {
+          "context": {
+            "$ref": "#/components/schemas/marketplace.Context"
+          },
+          "contributorId": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "scopes": {
+            "items": {
+              "$ref": "#/components/schemas/marketplace.Scope"
+            },
+            "type": "array"
+          },
+          "state": {
+            "$ref": "#/components/schemas/marketplace.ExtensionState"
+          },
+          "support": {
+            "$ref": "#/components/schemas/marketplace.SupportMeta"
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 0,
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "contributorId",
+          "support",
+          "state",
+          "name",
+          "description",
+          "tags",
+          "context",
+          "scopes"
+        ],
+        "type": "object"
+      },
+      "marketplace.Contributor": {
+        "properties": {
+          "customerId": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "logoRefId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "state": {
+            "$ref": "#/components/schemas/marketplace.ContributorState"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "customerId",
+          "state",
+          "name"
+        ],
+        "type": "object"
+      },
+      "marketplace.SupportMeta": {
+        "properties": {
+          "email": {
+            "example": "a.lovelace@example.com",
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "marketplace.Scope": {
         "enum": [
           "mail:read",
           "mail:write"
         ],
         "type": "string"
+      },
+      "marketplace.ExtensionState": {
+        "enum": [
+          "enabled",
+          "blocked",
+          "disabled"
+        ],
+        "type": "string"
+      },
+      "marketplace.PublicKey": {
+        "properties": {
+          "algorithm": {
+            "example": "Ed25519",
+            "type": "string"
+          },
+          "key": {
+            "description": "base64 encoded public key",
+            "format": "byte",
+            "type": "string"
+          },
+          "serial": {
+            "format": "uuid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "serial",
+          "algorithm",
+          "key"
+        ],
+        "type": "object"
+      },
+      "mailmigration.CheckMigrationIsPossibleErrorMissingVerifiedIngress": {
+        "properties": {
+          "hostname": {
+            "format": "idn-hostname",
+            "type": "string"
+          }
+        },
+        "required": [
+          "hostname"
+        ],
+        "type": "object"
       },
       "commons.Address": {
         "type": "object",
