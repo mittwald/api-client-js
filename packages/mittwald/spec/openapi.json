@@ -7002,7 +7002,8 @@
       "project.ServerStatus": {
         "enum": [
           "pending",
-          "ready"
+          "ready",
+          "unready"
         ],
         "type": "string"
       },
@@ -7623,7 +7624,7 @@
             "$ref": "#/components/schemas/commons.Person"
           },
           "phoneNumber": {
-            "format": "phone",
+            "example": "+491701234567",
             "type": "string"
           },
           "registeredAt": {
@@ -7747,12 +7748,54 @@
         ],
         "type": "object"
       },
-      "marketplace.ContributorState": {
-        "enum": [
-          "enabled",
-          "disabled"
+      "marketplace.Contributor": {
+        "properties": {
+          "customerId": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "logoRefId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "state": {
+            "$ref": "#/components/schemas/marketplace.ContributorState"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "customerId",
+          "state",
+          "name"
         ],
-        "type": "string"
+        "type": "object"
+      },
+      "marketplace.SupportMeta": {
+        "properties": {
+          "email": {
+            "example": "a.lovelace@example.com",
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        },
+        "type": "object"
       },
       "marketplace.Context": {
         "enum": [
@@ -7760,6 +7803,96 @@
           "customer"
         ],
         "type": "string"
+      },
+      "marketplace.ContributorState": {
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "type": "string"
+      },
+      "marketplace.ExtensionState": {
+        "enum": [
+          "enabled",
+          "blocked",
+          "disabled"
+        ],
+        "type": "string"
+      },
+      "marketplace.Extension": {
+        "properties": {
+          "context": {
+            "$ref": "#/components/schemas/marketplace.Context"
+          },
+          "contributorId": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "scopes": {
+            "items": {
+              "$ref": "#/components/schemas/marketplace.Scope"
+            },
+            "type": "array"
+          },
+          "state": {
+            "$ref": "#/components/schemas/marketplace.ExtensionState"
+          },
+          "support": {
+            "$ref": "#/components/schemas/marketplace.SupportMeta"
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 0,
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "contributorId",
+          "support",
+          "state",
+          "name",
+          "description",
+          "tags",
+          "context",
+          "scopes"
+        ],
+        "type": "object"
+      },
+      "marketplace.PublicKey": {
+        "properties": {
+          "algorithm": {
+            "example": "Ed25519",
+            "type": "string"
+          },
+          "key": {
+            "description": "base64 encoded public key",
+            "format": "byte",
+            "type": "string"
+          },
+          "serial": {
+            "format": "uuid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "serial",
+          "algorithm",
+          "key"
+        ],
+        "type": "object"
       },
       "marketplace.ExtensionInstance": {
         "properties": {
@@ -7815,144 +7948,12 @@
         ],
         "type": "object"
       },
-      "marketplace.Extension": {
-        "properties": {
-          "context": {
-            "$ref": "#/components/schemas/marketplace.Context"
-          },
-          "contributorId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "scopes": {
-            "items": {
-              "$ref": "#/components/schemas/marketplace.Scope"
-            },
-            "type": "array"
-          },
-          "state": {
-            "$ref": "#/components/schemas/marketplace.ExtensionState"
-          },
-          "support": {
-            "$ref": "#/components/schemas/marketplace.SupportMeta"
-          },
-          "tags": {
-            "items": {
-              "type": "string"
-            },
-            "minItems": 0,
-            "type": "array"
-          }
-        },
-        "required": [
-          "id",
-          "contributorId",
-          "support",
-          "state",
-          "name",
-          "description",
-          "tags",
-          "context",
-          "scopes"
-        ],
-        "type": "object"
-      },
-      "marketplace.Contributor": {
-        "properties": {
-          "customerId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "email": {
-            "type": "string"
-          },
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "logoRefId": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "phone": {
-            "type": "string"
-          },
-          "state": {
-            "$ref": "#/components/schemas/marketplace.ContributorState"
-          },
-          "url": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "id",
-          "customerId",
-          "state",
-          "name"
-        ],
-        "type": "object"
-      },
-      "marketplace.SupportMeta": {
-        "properties": {
-          "email": {
-            "example": "a.lovelace@example.com",
-            "type": "string"
-          },
-          "phone": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
       "marketplace.Scope": {
         "enum": [
           "mail:read",
           "mail:write"
         ],
         "type": "string"
-      },
-      "marketplace.ExtensionState": {
-        "enum": [
-          "enabled",
-          "blocked",
-          "disabled"
-        ],
-        "type": "string"
-      },
-      "marketplace.PublicKey": {
-        "properties": {
-          "algorithm": {
-            "example": "Ed25519",
-            "type": "string"
-          },
-          "key": {
-            "description": "base64 encoded public key",
-            "format": "byte",
-            "type": "string"
-          },
-          "serial": {
-            "format": "uuid",
-            "type": "string"
-          }
-        },
-        "required": [
-          "serial",
-          "algorithm",
-          "key"
-        ],
-        "type": "object"
       },
       "mailmigration.CheckMigrationIsPossibleErrorMissingVerifiedIngress": {
         "properties": {
@@ -20983,7 +20984,7 @@
         ]
       }
     },
-    "/v2/files/{fileId}/{fileName}": {
+    "/v2/files/{fileId}": {
       "get": {
         "operationId": "file-get-file",
         "parameters": [
@@ -21031,16 +21032,6 @@
             "required": false,
             "schema": {
               "example": "jwt",
-              "type": "string"
-            }
-          },
-          {
-            "description": "Name of the File to be retrieved.",
-            "in": "path",
-            "name": "fileName",
-            "required": false,
-            "schema": {
-              "example": "me.jpeg",
               "type": "string"
             }
           }
@@ -34718,6 +34709,112 @@
         ],
         "summary": "Authenticate your external application using the extensionInstanceSecret.",
         "tags": []
+      }
+    },
+    "/v2/files/{fileId}/{fileName}": {
+      "get": {
+        "operationId": "file-get-file-with-name",
+        "parameters": [
+          {
+            "description": "ID of the File to be retrieved.",
+            "in": "path",
+            "name": "fileId",
+            "required": true,
+            "schema": {
+              "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Accept",
+            "schema": {
+              "default": "application/octet-stream",
+              "enum": [
+                "application/octet-stream",
+                "text/plain;base64"
+              ],
+              "example": "application/octet-stream",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Content-Disposition",
+            "schema": {
+              "default": "inline",
+              "enum": [
+                "inline",
+                "attachment"
+              ],
+              "example": "inline",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Only needed for protected Files.",
+            "in": "header",
+            "name": "Token",
+            "required": false,
+            "schema": {
+              "example": "jwt",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Name of the File to be retrieved.",
+            "in": "path",
+            "name": "fileName",
+            "required": true,
+            "schema": {
+              "example": "me.jpeg",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/plain;base64": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/commons.ValidationError"
+          },
+          "401": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          },
+          "403": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          },
+          "404": {
+            "$ref": "#/components/responses/commons.NotFoundError"
+          },
+          "422": {
+            "$ref": "#/components/responses/commons.ValidationError"
+          },
+          "500": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "summary": "Get a File.",
+        "tags": [
+          "File"
+        ]
       }
     }
   },
