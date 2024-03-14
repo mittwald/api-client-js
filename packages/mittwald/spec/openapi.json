@@ -1139,10 +1139,7 @@
           }
         },
         "required": [
-          "id",
-          "name",
-          "description",
-          "hexColor"
+          "id"
         ],
         "type": "object"
       },
@@ -4599,6 +4596,10 @@
               "type": "string"
             },
             "type": "array"
+          },
+          "debitPaymentStopUntil": {
+            "format": "date-time",
+            "type": "string"
           },
           "id": {
             "example": "5f9b9b9b-9b9b-9b9b-9b9b-9b9b9b9b9b9b",
@@ -21767,14 +21768,6 @@
                   },
                   "recipientSameAsOwner": {
                     "type": "boolean"
-                  },
-                  "resolveReturnDebitNote": {
-                    "description": "Choose how to resolve a return debit note if necessary.",
-                    "enum": [
-                      "invoicePayment",
-                      "retryDebit"
-                    ],
-                    "type": "string"
                   },
                   "targetDay": {
                     "example": 15,
