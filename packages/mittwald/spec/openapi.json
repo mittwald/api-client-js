@@ -7786,10 +7786,37 @@
         ],
         "type": "object"
       },
-      "marketplace.Scope": {
+      "marketplace.SupportMeta": {
+        "properties": {
+          "email": {
+            "example": "a.lovelace@example.com",
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "marketplace.Context": {
         "enum": [
-          "mail:read",
-          "mail:write"
+          "project",
+          "customer"
+        ],
+        "type": "string"
+      },
+      "marketplace.ContributorState": {
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "type": "string"
+      },
+      "marketplace.ExtensionState": {
+        "enum": [
+          "enabled",
+          "blocked",
+          "disabled"
         ],
         "type": "string"
       },
@@ -7842,6 +7869,29 @@
           "tags",
           "context",
           "scopes"
+        ],
+        "type": "object"
+      },
+      "marketplace.PublicKey": {
+        "properties": {
+          "algorithm": {
+            "example": "Ed25519",
+            "type": "string"
+          },
+          "key": {
+            "description": "base64 encoded public key",
+            "format": "byte",
+            "type": "string"
+          },
+          "serial": {
+            "format": "uuid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "serial",
+          "algorithm",
+          "key"
         ],
         "type": "object"
       },
@@ -7899,60 +7949,10 @@
         ],
         "type": "object"
       },
-      "marketplace.SupportMeta": {
-        "properties": {
-          "email": {
-            "example": "a.lovelace@example.com",
-            "type": "string"
-          },
-          "phone": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "marketplace.PublicKey": {
-        "properties": {
-          "algorithm": {
-            "example": "Ed25519",
-            "type": "string"
-          },
-          "key": {
-            "description": "base64 encoded public key",
-            "format": "byte",
-            "type": "string"
-          },
-          "serial": {
-            "format": "uuid",
-            "type": "string"
-          }
-        },
-        "required": [
-          "serial",
-          "algorithm",
-          "key"
-        ],
-        "type": "object"
-      },
-      "marketplace.ContributorState": {
+      "marketplace.Scope": {
         "enum": [
-          "enabled",
-          "disabled"
-        ],
-        "type": "string"
-      },
-      "marketplace.ExtensionState": {
-        "enum": [
-          "enabled",
-          "blocked",
-          "disabled"
-        ],
-        "type": "string"
-      },
-      "marketplace.Context": {
-        "enum": [
-          "project",
-          "customer"
+          "mail:read",
+          "mail:write"
         ],
         "type": "string"
       },
