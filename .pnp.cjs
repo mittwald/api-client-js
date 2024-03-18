@@ -2035,7 +2035,7 @@ const RAW_RUNTIME_STATE =
           ["@jest/globals", "npm:29.7.0"],\
           ["@oclif/core", "npm:3.23.0"],\
           ["@oclif/plugin-help", "npm:6.0.18"],\
-          ["@oclif/plugin-plugins", "npm:4.3.3"],\
+          ["@oclif/plugin-plugins", "npm:4.3.6"],\
           ["@sindresorhus/is", "npm:6.2.0"],\
           ["@types/clone-deep", "npm:4.0.4"],\
           ["@types/invariant", "npm:2.2.37"],\
@@ -2630,10 +2630,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@oclif/plugin-plugins", [\
-      ["npm:4.3.3", {\
-        "packageLocation": "./.yarn/cache/@oclif-plugin-plugins-npm-4.3.3-1a9b051216-c764ee1193.zip/node_modules/@oclif/plugin-plugins/",\
+      ["npm:4.3.6", {\
+        "packageLocation": "./.yarn/cache/@oclif-plugin-plugins-npm-4.3.6-5e4a3387a3-3460a144a5.zip/node_modules/@oclif/plugin-plugins/",\
         "packageDependencies": [\
-          ["@oclif/plugin-plugins", "npm:4.3.3"],\
+          ["@oclif/plugin-plugins", "npm:4.3.6"],\
           ["@oclif/core", "npm:3.23.0"],\
           ["chalk", "npm:5.3.0"],\
           ["debug", "virtual:1ff4b5f90832ba0a9c93ba1223af226e44ba70c1126a3740d93562b97bc36544e896a5e95908196f7458713e6a6089a34bfc67362fc6df7fa093bd06c878be47#npm:4.3.4"],\

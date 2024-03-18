@@ -1850,7 +1850,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oclif/core@npm:^3.21.0, @oclif/core@npm:^3.23.0":
+"@oclif/core@npm:^3.23.0":
   version: 3.23.0
   resolution: "@oclif/core@npm:3.23.0"
   dependencies:
@@ -1896,10 +1896,10 @@ __metadata:
   linkType: hard
 
 "@oclif/plugin-plugins@npm:^4.3.3":
-  version: 4.3.3
-  resolution: "@oclif/plugin-plugins@npm:4.3.3"
+  version: 4.3.6
+  resolution: "@oclif/plugin-plugins@npm:4.3.6"
   dependencies:
-    "@oclif/core": "npm:^3.21.0"
+    "@oclif/core": "npm:^3.23.0"
     chalk: "npm:^5.3.0"
     debug: "npm:^4.3.4"
     npm: "npm:10.5.0"
@@ -1908,7 +1908,7 @@ __metadata:
     shelljs: "npm:^0.8.5"
     validate-npm-package-name: "npm:^5.0.0"
     yarn: "npm:^1.22.21"
-  checksum: 10/c764ee1193900a54d9af6d8ac760d0c66d956126022792e8eabcbd56b4a8ee701dcb4f8c49044d758ab98b1b8ce65754c54ed3d535afff1668bf9b4f0cd3bffc
+  checksum: 10/3460a144a5f9fb4973d9dfb481659190062e3adb7a2cc22492520dee9827b2fa65bd90fb46a381b9ab61a9ca9ac84761323b9d388140f31008c0d37eb1888592
   languageName: node
   linkType: hard
 
