@@ -2,6 +2,7 @@ import {
   ApiClientError,
   AxiosHeaders,
   CreateAxiosDefaults,
+  withAccessToken,
 } from "@mittwald/api-client-commons";
 import MittwaldApiV2Client from "../generated/v2/client.js";
 import { MittwaldAPIClientVersion } from "../version.js";
@@ -35,13 +36,7 @@ export class MittwaldAPIClient extends MittwaldApiV2Client {
   }
 
   private setupInterceptors(): void {
-    this.axios.interceptors.request.use((conf) => {
-      const token = this.apiToken;
-      if (token) {
-        conf.headers.set("x-access-token", token);
-      }
-      return conf;
-    });
+    withAccessToken(this, this.apiToken);
   }
 
   public static newUnauthenticated(): MittwaldAPIClient {
