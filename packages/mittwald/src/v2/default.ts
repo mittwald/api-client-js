@@ -3,6 +3,7 @@ import {
   AxiosHeaders,
   CreateAxiosDefaults,
   withAccessToken,
+  withEventConsistencyHandling,
 } from "@mittwald/api-client-commons";
 import MittwaldApiV2Client from "../generated/v2/client.js";
 import { MittwaldAPIClientVersion } from "../version.js";
@@ -65,6 +66,11 @@ export class MittwaldAPIClient extends MittwaldApiV2Client {
     }
 
     throw ApiClientError.fromResponse("Login failed", authResult);
+  }
+
+  public withEventConsistencyHandling() {
+    withEventConsistencyHandling(this);
+    return this;
   }
 }
 

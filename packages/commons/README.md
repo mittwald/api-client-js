@@ -74,3 +74,16 @@ instance.
 const client = new APIClient({ baseURL });
 const authenticatedClient = withToken(client, token);
 ```
+
+#### withEventConsistencyHandling
+
+To opt in into the
+[event consistency handling](https://developer.mittwald.de/docs/v2/api/intro/#eventual-consistency)
+you might use `withEventConsistencyHandling`. This will set automatically handle
+the `etag` response header and set its value as `if-event-reached` request
+header for GET requests:
+
+```ts
+const client = new APIClient({ baseURL });
+const authenticatedClient = withEventConsistencyHandling(client);
+```
