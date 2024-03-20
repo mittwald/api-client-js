@@ -1697,7 +1697,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@npmcli/promise-spawn@npm:^7.0.0, @npmcli/promise-spawn@npm:^7.0.1":
+"@npmcli/promise-spawn@npm:^7.0.0":
   version: 7.0.1
   resolution: "@npmcli/promise-spawn@npm:7.0.1"
   dependencies:
@@ -1728,7 +1728,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@npmcli/run-script@npm:^7.0.0, @npmcli/run-script@npm:^7.0.2, @npmcli/run-script@npm:^7.0.4":
+"@npmcli/run-script@npm:^7.0.0, @npmcli/run-script@npm:^7.0.2":
   version: 7.0.4
   resolution: "@npmcli/run-script@npm:7.0.4"
   dependencies:
@@ -1850,7 +1850,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oclif/core@npm:^3.21.0, @oclif/core@npm:^3.23.0":
+"@oclif/core@npm:^3.23.0":
   version: 3.23.0
   resolution: "@oclif/core@npm:3.23.0"
   dependencies:
@@ -1886,6 +1886,42 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@oclif/core@npm:^3.25.2":
+  version: 3.25.3
+  resolution: "@oclif/core@npm:3.25.3"
+  dependencies:
+    "@types/cli-progress": "npm:^3.11.5"
+    ansi-escapes: "npm:^4.3.2"
+    ansi-styles: "npm:^4.3.0"
+    cardinal: "npm:^2.1.1"
+    chalk: "npm:^4.1.2"
+    clean-stack: "npm:^3.0.1"
+    cli-progress: "npm:^3.12.0"
+    color: "npm:^4.2.3"
+    debug: "npm:^4.3.4"
+    ejs: "npm:^3.1.9"
+    get-package-type: "npm:^0.1.0"
+    globby: "npm:^11.1.0"
+    hyperlinker: "npm:^1.0.0"
+    indent-string: "npm:^4.0.0"
+    is-wsl: "npm:^2.2.0"
+    js-yaml: "npm:^3.14.1"
+    minimatch: "npm:^9.0.3"
+    natural-orderby: "npm:^2.0.3"
+    object-treeify: "npm:^1.1.33"
+    password-prompt: "npm:^1.1.3"
+    slice-ansi: "npm:^4.0.0"
+    string-width: "npm:^4.2.3"
+    strip-ansi: "npm:^6.0.1"
+    supports-color: "npm:^8.1.1"
+    supports-hyperlinks: "npm:^2.2.0"
+    widest-line: "npm:^3.1.0"
+    wordwrap: "npm:^1.0.0"
+    wrap-ansi: "npm:^7.0.0"
+  checksum: 10/c064aff7189ee7f5a454c2a182a7c28f0a88f56bd01ae331fe26b7559c08128b0f5d76ca99eba621ddf829bbfd123cdb5ff54e7ec60edb05388554e4a56d923f
+  languageName: node
+  linkType: hard
+
 "@oclif/plugin-help@npm:^6.0.18":
   version: 6.0.18
   resolution: "@oclif/plugin-help@npm:6.0.18"
@@ -1896,19 +1932,19 @@ __metadata:
   linkType: hard
 
 "@oclif/plugin-plugins@npm:^4.3.3":
-  version: 4.3.3
-  resolution: "@oclif/plugin-plugins@npm:4.3.3"
+  version: 4.3.8
+  resolution: "@oclif/plugin-plugins@npm:4.3.8"
   dependencies:
-    "@oclif/core": "npm:^3.21.0"
+    "@oclif/core": "npm:^3.25.2"
     chalk: "npm:^5.3.0"
     debug: "npm:^4.3.4"
-    npm: "npm:10.5.0"
+    npm: "npm:10.2.4"
     npm-run-path: "npm:^4.0.1"
     semver: "npm:^7.6.0"
     shelljs: "npm:^0.8.5"
     validate-npm-package-name: "npm:^5.0.0"
     yarn: "npm:^1.22.21"
-  checksum: 10/c764ee1193900a54d9af6d8ac760d0c66d956126022792e8eabcbd56b4a8ee701dcb4f8c49044d758ab98b1b8ce65754c54ed3d535afff1668bf9b4f0cd3bffc
+  checksum: 10/e279ec3cabeacf205dc697f4b9f8268b949663c38b027e2f9468169db67aea22ae750e149ba08c9fccf23c875f7df0dedf74415ab16421c043409c0428595967
   languageName: node
   linkType: hard
 
@@ -2150,7 +2186,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sigstore/tuf@npm:^2.3.1":
+"@sigstore/tuf@npm:^2.2.0, @sigstore/tuf@npm:^2.3.1":
   version: 2.3.1
   resolution: "@sigstore/tuf@npm:2.3.1"
   dependencies:
@@ -3589,7 +3625,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cacache@npm:^18.0.0, cacache@npm:^18.0.2":
+"cacache@npm:^18.0.0":
   version: 18.0.2
   resolution: "cacache@npm:18.0.2"
   dependencies:
@@ -7021,7 +7057,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json-parse-even-better-errors@npm:^3.0.0, json-parse-even-better-errors@npm:^3.0.1":
+"json-parse-even-better-errors@npm:^3.0.0":
   version: 3.0.1
   resolution: "json-parse-even-better-errors@npm:3.0.1"
   checksum: 10/bf74fa3f715e56699ccd68b80a7d20908de432a3fae2d5aa2ed530a148e9d9ccdf8e6983b93d9966a553aa70dcf003ce3a7ffec2c0ce74d2a6173e3691a426f0
@@ -8716,9 +8752,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm@npm:10.5.0":
-  version: 10.5.0
-  resolution: "npm@npm:10.5.0"
+"npm@npm:10.2.4":
+  version: 10.2.4
+  resolution: "npm@npm:10.2.4"
   dependencies:
     "@isaacs/string-locale-compare": "npm:^1.1.0"
     "@npmcli/arborist": "npm:^7.2.1"
@@ -8726,12 +8762,12 @@ __metadata:
     "@npmcli/fs": "npm:^3.1.0"
     "@npmcli/map-workspaces": "npm:^3.0.4"
     "@npmcli/package-json": "npm:^5.0.0"
-    "@npmcli/promise-spawn": "npm:^7.0.1"
-    "@npmcli/run-script": "npm:^7.0.4"
-    "@sigstore/tuf": "npm:^2.3.1"
+    "@npmcli/promise-spawn": "npm:^7.0.0"
+    "@npmcli/run-script": "npm:^7.0.2"
+    "@sigstore/tuf": "npm:^2.2.0"
     abbrev: "npm:^2.0.0"
     archy: "npm:~1.0.0"
-    cacache: "npm:^18.0.2"
+    cacache: "npm:^18.0.0"
     chalk: "npm:^5.3.0"
     ci-info: "npm:^4.0.0"
     cli-columns: "npm:^4.0.0"
@@ -8745,7 +8781,7 @@ __metadata:
     ini: "npm:^4.1.1"
     init-package-json: "npm:^6.0.0"
     is-cidr: "npm:^5.0.3"
-    json-parse-even-better-errors: "npm:^3.0.1"
+    json-parse-even-better-errors: "npm:^3.0.0"
     libnpmaccess: "npm:^8.0.1"
     libnpmdiff: "npm:^6.0.3"
     libnpmexec: "npm:^7.0.4"
@@ -8774,14 +8810,15 @@ __metadata:
     npm-user-validate: "npm:^2.0.0"
     npmlog: "npm:^7.0.1"
     p-map: "npm:^4.0.0"
-    pacote: "npm:^17.0.6"
+    pacote: "npm:^17.0.4"
     parse-conflict-json: "npm:^3.0.1"
     proc-log: "npm:^3.0.0"
     qrcode-terminal: "npm:^0.12.0"
     read: "npm:^2.1.0"
-    semver: "npm:^7.6.0"
+    semver: "npm:^7.5.4"
     spdx-expression-parse: "npm:^3.0.1"
     ssri: "npm:^10.0.5"
+    strip-ansi: "npm:^7.1.0"
     supports-color: "npm:^9.4.0"
     tar: "npm:^6.2.0"
     text-table: "npm:~0.2.0"
@@ -8793,7 +8830,7 @@ __metadata:
   bin:
     npm: bin/npm-cli.js
     npx: bin/npx-cli.js
-  checksum: 10/dc963b4c71dcf043a9684573d75369c1dc79dd8d2b63decbe5a68dd6b58560991b47bee6d79858aec91cf62b2dfa4dfdbbe216163d972f2d41f74db0983bba9c
+  checksum: 10/4ef8c11e7b3bf90daa872bd7bdbae1c7612c790be2be5e29cb4dffb235b7cd73a3774a8bce20bfe0af2cb33714a89bd9e8b60bbf606ce808f94daed7d8844c4b
   languageName: node
   linkType: hard
 
@@ -9226,7 +9263,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pacote@npm:^17.0.0, pacote@npm:^17.0.4, pacote@npm:^17.0.5, pacote@npm:^17.0.6":
+"pacote@npm:^17.0.0, pacote@npm:^17.0.4, pacote@npm:^17.0.5":
   version: 17.0.6
   resolution: "pacote@npm:17.0.6"
   dependencies:
@@ -10649,7 +10686,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"strip-ansi@npm:^7.0.1":
+"strip-ansi@npm:^7.0.1, strip-ansi@npm:^7.1.0":
   version: 7.1.0
   resolution: "strip-ansi@npm:7.1.0"
   dependencies:
