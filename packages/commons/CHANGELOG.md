@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.15.0](https://github.com/mittwald/api-client-js/compare/4.14.2...4.15.0) (2024-03-20)
+
+### Features
+
+- **commons:** Add withAccessToken interceptor to configure token auth for a
+  client instance
+  ([5115f39](https://github.com/mittwald/api-client-js/commit/5115f39aa67161a76b97b1d2bf42e777420022cc))
+- **commons:** Add withEventConsistencyHandling interceptor to configure
+  automatic header handling for a client intstance
+  ([fc884e0](https://github.com/mittwald/api-client-js/commit/fc884e0da62aeb1e56cee90597e1e0d38c8313c3))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [4.14.1](https://github.com/mittwald/api-client-js/compare/4.14.0...4.14.1) (2024-03-11)
 
 **Note:** Version bump only for package @mittwald/api-client-commons

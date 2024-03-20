@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.15.0](https://github.com/mittwald/api-client-js/compare/4.14.2...4.15.0) (2024-03-20)
+
+### Features
+
+- **commons:** Add withAccessToken interceptor to configure token auth for a
+  client instance
+  ([5115f39](https://github.com/mittwald/api-client-js/commit/5115f39aa67161a76b97b1d2bf42e777420022cc))
+- **commons:** Add withEventConsistencyHandling interceptor to configure
+  automatic header handling for a client intstance
+  ([fc884e0](https://github.com/mittwald/api-client-js/commit/fc884e0da62aeb1e56cee90597e1e0d38c8313c3))
+- update generated client
+  ([e923919](https://github.com/mittwald/api-client-js/commit/e923919a43bdae27ba98059ed941a218e83eeb5c))
+- update generated client
+  ([5310dec](https://github.com/mittwald/api-client-js/commit/5310dec9de24a817175af4d5bb23f1f3ab646118))
+- update generated client
+  ([534f00b](https://github.com/mittwald/api-client-js/commit/534f00b2f45306c931f8b1d5c1db90683e5e400d))
+- update generated client
+  ([01e3ae9](https://github.com/mittwald/api-client-js/commit/01e3ae9163af6fa13e2c2baa08a61048e52d16ce))
+- update generated client
+  ([641d6f9](https://github.com/mittwald/api-client-js/commit/641d6f932a82baaad31dd1e986e99642c453f8f8))
+- update generated client
+  ([29b57c6](https://github.com/mittwald/api-client-js/commit/29b57c6894aa03b5e861955cc0f1806a449f26bd))
+- update generated client
+  ([8acb338](https://github.com/mittwald/api-client-js/commit/8acb33875a9d73ca65802cc0dcecf98f862b9e3f))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [4.14.1](https://github.com/mittwald/api-client-js/compare/4.14.0...4.14.1) (2024-03-11)
 
 **Note:** Version bump only for package @mittwald/api-client
