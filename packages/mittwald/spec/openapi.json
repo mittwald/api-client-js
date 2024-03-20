@@ -1016,8 +1016,7 @@
           }
         },
         "required": [
-          "key",
-          "value"
+          "key"
         ],
         "type": "object"
       },
@@ -3730,9 +3729,6 @@
               "ownerC"
             ],
             "type": "object"
-          },
-          "hasAuthCode": {
-            "type": "boolean"
           },
           "nameservers": {
             "items": {
