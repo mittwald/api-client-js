@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true,
-    "stripInternal": true,
-    "target": "ES2022",
     "declaration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["ES2022", "dom"],
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
     "strict": true,
-    "skipLibCheck": true
+    "stripInternal": true,
+    "target": "ES2022"
   }
 }

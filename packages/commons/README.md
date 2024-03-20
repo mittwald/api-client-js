@@ -56,3 +56,34 @@ if (!response.data) {
   console.log("Project not found");
 }
 ```
+
+### Common interceptors
+
+To make it easy to opt in to some API mechanisms, a few
+[interceptors](https://axios-http.com/docs/interceptors) can be easily
+configured.
+
+#### withAccessToken
+
+In most cases you want to add the users access token to every API-Request as a
+request header. This can be tedious if you need to do this on your own. To
+automatically set the request header use `withAccessToken` for your `APIClient`
+instance.
+
+```ts
+const client = new APIClient({ baseURL });
+const authenticatedClient = withToken(client, token);
+```
+
+#### withEventConsistencyHandling
+
+To opt in into the
+[event consistency handling](https://developer.mittwald.de/docs/v2/api/intro/#eventual-consistency)
+you might use `withEventConsistencyHandling`. This will set automatically handle
+the `etag` response header and set its value as `if-event-reached` request
+header for GET requests:
+
+```ts
+const client = new APIClient({ baseURL });
+const authenticatedClient = withEventConsistencyHandling(client);
+```
