@@ -5467,6 +5467,520 @@
         ],
         "type": "object"
       },
+      "mailmigration.AutoResponder": {
+        "properties": {
+          "active": {
+            "type": "boolean"
+          },
+          "expiresAt": {
+            "format": "date-time"
+          },
+          "message": {
+            "type": "string"
+          },
+          "startsAt": {
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "active",
+          "message"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MailSystemSettings": {
+        "properties": {
+          "imapClusterId": {
+            "type": "string"
+          },
+          "mailDirectory": {
+            "type": "string"
+          },
+          "rateLimitId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "imapClusterId",
+          "mailDirectory",
+          "rateLimitId"
+        ],
+        "type": "object"
+      },
+      "mailmigration.Mailbox": {
+        "properties": {
+          "mailsystem": {
+            "$ref": "#/components/schemas/mailmigration.MailSystemSettings"
+          },
+          "name": {
+            "type": "string"
+          },
+          "passwordHash": {
+            "type": "string"
+          },
+          "quotaInBytes": {
+            "type": "integer"
+          },
+          "spamProtection": {
+            "$ref": "#/components/schemas/mailmigration.SpamProtection"
+          }
+        },
+        "required": [
+          "name",
+          "passwordHash",
+          "quotaInBytes",
+          "mailsystem"
+        ],
+        "type": "object"
+      },
+      "mailmigration.Migration": {
+        "properties": {
+          "addresses": {
+            "items": {
+              "$ref": "#/components/schemas/mailmigration.MigrationMailAddress"
+            },
+            "type": "array"
+          },
+          "finalizers": {
+            "$ref": "#/components/schemas/mailmigration.MigrationFinalizeJob"
+          },
+          "finished": {
+            "type": "boolean"
+          },
+          "id": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "mailboxes": {
+            "items": {
+              "$ref": "#/components/schemas/mailmigration.MigrationMailbox"
+            },
+            "type": "array"
+          },
+          "sourceCoabProjectId": {
+            "type": "string"
+          },
+          "targetNexusProjectId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "targetNexusProjectId",
+          "sourceCoabProjectId",
+          "addresses",
+          "mailboxes",
+          "finalizers",
+          "finished"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrationFinalizeJob": {
+        "properties": {
+          "projectSettingMigrations": {
+            "$ref": "#/components/schemas/mailmigration.MigrationFinalizeJobProjectSetting"
+          }
+        },
+        "type": "object"
+      },
+      "mailmigration.MigrationFinalizeJobProjectSetting": {
+        "properties": {
+          "blacklistEntries": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "whitelistEntries": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "blacklistEntries",
+          "whitelistEntries"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrationMailAddress": {
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "finished": {
+            "type": "boolean"
+          },
+          "id": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "migrationJobs": {
+            "$ref": "#/components/schemas/mailmigration.MigrationMailAddressMigrationJob"
+          },
+          "preMigrationJobs": {
+            "$ref": "#/components/schemas/mailmigration.MigrationMailAddressPreMigrationJob"
+          }
+        },
+        "required": [
+          "id",
+          "address",
+          "preMigrationJobs",
+          "migrationJobs",
+          "finished"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrateMailAddressCommandRequirements": {
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "autoResponder": {
+            "$ref": "#/components/schemas/mailmigration.AutoResponder"
+          },
+          "forwardAddresses": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "isCatchAll": {
+            "type": "boolean"
+          },
+          "mailbox": {
+            "$ref": "#/components/schemas/mailmigration.Mailbox"
+          },
+          "projectId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "projectId"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrationMailAddressMigrationJob": {
+        "properties": {
+          "migrate": {
+            "$ref": "#/components/schemas/mailmigration.MigrationMailAddressMigrationJobMigrate"
+          }
+        },
+        "required": [
+          "migrate"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrationMailAddressMigrationJobMigrate": {
+        "properties": {
+          "finished": {
+            "type": "boolean"
+          },
+          "requirements": {
+            "$ref": "#/components/schemas/mailmigration.MigrateMailAddressCommandRequirements"
+          }
+        },
+        "required": [
+          "requirements",
+          "finished"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrationMailAddressPreMigrationJob": {
+        "properties": {
+          "aliasSet": {
+            "items": {
+              "$ref": "#/components/schemas/mailmigration.MigrationMailAddressPreMigrationJobAliasSet"
+            },
+            "type": "array"
+          },
+          "deliveryMigrations": {
+            "items": {
+              "$ref": "#/components/schemas/mailmigration.MigrationMailAddressPreMigrationJobDeliveryMigration"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "deliveryMigrations",
+          "aliasSet"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrationMailAddressPreMigrationJobAliasSet": {
+        "properties": {
+          "finished": {
+            "type": "boolean"
+          },
+          "sourceCoabMailboxName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "sourceCoabMailboxName",
+          "finished"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrationMailAddressPreMigrationJobDeliveryMigration": {
+        "properties": {
+          "finished": {
+            "type": "boolean"
+          },
+          "sourceCoabDeliveryMailbox": {
+            "type": "string"
+          },
+          "sourceCoabDeliveryUid": {
+            "type": "integer"
+          },
+          "targetDeliveryAddress": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "sourceCoabDeliveryUid",
+          "sourceCoabDeliveryMailbox",
+          "targetDeliveryAddress",
+          "finished"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrationMailbox": {
+        "properties": {
+          "finished": {
+            "type": "boolean"
+          },
+          "id": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "migrationJobs": {
+            "$ref": "#/components/schemas/mailmigration.MigrationMailboxJob"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "migrationJobs",
+          "finished"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrationMailboxJob": {
+        "properties": {
+          "migrate": {
+            "$ref": "#/components/schemas/mailmigration.MigrationMailboxJobMigrate"
+          }
+        },
+        "required": [
+          "migrate"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrationMailboxJobMigrate": {
+        "properties": {
+          "requirements": {
+            "$ref": "#/components/schemas/mailmigration.MigrateMailboxCommandRequirements"
+          }
+        },
+        "required": [
+          "requirements"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrateMailboxCommandRequirements": {
+        "properties": {
+          "mailbox": {
+            "$ref": "#/components/schemas/mailmigration.Mailbox"
+          },
+          "projectId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "projectId"
+        ],
+        "type": "object"
+      },
+      "mailmigration.CheckMigrationIsPossibleErrorAlreadyExistingMailAddress": {
+        "properties": {
+          "address": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "address"
+        ],
+        "type": "object"
+      },
+      "mailmigration.CheckMigrationIsPossibleErrorAmbiguousMailAddressDelivery": {
+        "properties": {
+          "addresses": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "mailboxName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "mailboxName",
+          "addresses"
+        ],
+        "type": "object"
+      },
+      "mailmigration.CheckMigrationIsPossibleErrorAmbiguousMailboxDelivery": {
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "mailboxes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "address",
+          "mailboxes"
+        ],
+        "type": "object"
+      },
+      "mailmigration.CheckMigrationIsPossibleErrorCatchAllMissingAddress": {
+        "properties": {
+          "address": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "address"
+        ],
+        "type": "object"
+      },
+      "mailmigration.CheckMigrationIsPossibleErrorCatchAllTargetWithoutAlias": {
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "mailboxName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "address",
+          "mailboxName"
+        ],
+        "type": "object"
+      },
+      "mailmigration.CheckMigrationIsPossibleErrorMissingVerifiedIngress": {
+        "properties": {
+          "hostname": {
+            "format": "idn-hostname",
+            "type": "string"
+          }
+        },
+        "required": [
+          "hostname"
+        ],
+        "type": "object"
+      },
+      "mailmigration.PossibleCheckErrors": {
+        "properties": {
+          "alreadyExistingMailAddress": {
+            "items": {
+              "$ref": "#/components/schemas/mailmigration.CheckMigrationIsPossibleErrorAlreadyExistingMailAddress"
+            },
+            "type": "array"
+          },
+          "ambiguousMailAddressDelivery": {
+            "items": {
+              "$ref": "#/components/schemas/mailmigration.CheckMigrationIsPossibleErrorAmbiguousMailAddressDelivery"
+            },
+            "type": "array"
+          },
+          "ambiguousMailboxDelivery": {
+            "items": {
+              "$ref": "#/components/schemas/mailmigration.CheckMigrationIsPossibleErrorAmbiguousMailboxDelivery"
+            },
+            "type": "array"
+          },
+          "catchAllMissingAddress": {
+            "items": {
+              "$ref": "#/components/schemas/mailmigration.CheckMigrationIsPossibleErrorCatchAllMissingAddress"
+            },
+            "type": "array"
+          },
+          "catchAllTargetWithoutAlias": {
+            "items": {
+              "$ref": "#/components/schemas/mailmigration.CheckMigrationIsPossibleErrorCatchAllTargetWithoutAlias"
+            },
+            "type": "array"
+          },
+          "missingVerifiedIngress": {
+            "items": {
+              "$ref": "#/components/schemas/mailmigration.CheckMigrationIsPossibleErrorMissingVerifiedIngress"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "ambiguousMailAddressDelivery",
+          "ambiguousMailboxDelivery",
+          "catchAllMissingAddress",
+          "catchAllTargetWithoutAlias",
+          "missingVerifiedIngress",
+          "alreadyExistingMailAddress"
+        ],
+        "type": "object"
+      },
+      "mailmigration.CheckMigrationIsPossibleErrorResponse": {
+        "properties": {
+          "errors": {
+            "$ref": "#/components/schemas/mailmigration.PossibleCheckErrors"
+          }
+        },
+        "type": "object"
+      },
+      "mailmigration.SpamProtection": {
+        "properties": {
+          "active": {
+            "type": "boolean"
+          },
+          "deleteSensitivity": {
+            "type": "integer"
+          },
+          "folder": {
+            "default": 0,
+            "description": "SPAM_FOLDER_INBOX_UNSPECIFIED = 0 SPAM_FOLDER_SPAM = 1",
+            "enum": [
+              0,
+              1
+            ],
+            "type": "integer"
+          },
+          "keepDays": {
+            "type": "integer"
+          },
+          "relocateSensitivity": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "active",
+          "folder",
+          "keepDays",
+          "relocateSensitivity",
+          "deleteSensitivity"
+        ],
+        "type": "object"
+      },
       "membership.CustomerInheritedRoles": {
         "enum": [
           "notset",
@@ -7479,524 +7993,6 @@
           "device",
           "created",
           "tokenId"
-        ],
-        "type": "object"
-      },
-      "mailmigration.Migration": {
-        "properties": {
-          "aborted": {
-            "type": "boolean"
-          },
-          "addresses": {
-            "items": {
-              "$ref": "#/components/schemas/mailmigration.MigrationMailAddress"
-            },
-            "type": "array"
-          },
-          "finalizers": {
-            "$ref": "#/components/schemas/mailmigration.MigrationFinalizeJob"
-          },
-          "finished": {
-            "type": "boolean"
-          },
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "mailboxes": {
-            "items": {
-              "$ref": "#/components/schemas/mailmigration.MigrationMailbox"
-            },
-            "type": "array"
-          },
-          "sourceCoabProjectId": {
-            "type": "string"
-          },
-          "targetNexusProjectId": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "id",
-          "targetNexusProjectId",
-          "sourceCoabProjectId",
-          "addresses",
-          "mailboxes",
-          "finalizers",
-          "finished",
-          "aborted"
-        ],
-        "type": "object"
-      },
-      "mailmigration.MigrationMailAddressPreMigrationJobAliasSet": {
-        "properties": {
-          "finished": {
-            "type": "boolean"
-          },
-          "sourceCoabMailboxName": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "sourceCoabMailboxName",
-          "finished"
-        ],
-        "type": "object"
-      },
-      "mailmigration.MigrationFinalizeJob": {
-        "properties": {
-          "projectSettingMigrations": {
-            "$ref": "#/components/schemas/mailmigration.MigrationFinalizeJobProjectSetting"
-          }
-        },
-        "type": "object"
-      },
-      "mailmigration.MigrationFinalizeJobProjectSetting": {
-        "properties": {
-          "blacklistEntries": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "whitelistEntries": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          }
-        },
-        "required": [
-          "blacklistEntries",
-          "whitelistEntries"
-        ],
-        "type": "object"
-      },
-      "mailmigration.MigrateMailAddressCommandRequirements": {
-        "properties": {
-          "address": {
-            "type": "string"
-          },
-          "autoResponder": {
-            "$ref": "#/components/schemas/mailmigration.AutoResponder"
-          },
-          "forwardAddresses": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "isCatchAll": {
-            "type": "boolean"
-          },
-          "mailbox": {
-            "$ref": "#/components/schemas/mailmigration.Mailbox"
-          },
-          "projectId": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "projectId"
-        ],
-        "type": "object"
-      },
-      "mailmigration.MigrationMailbox": {
-        "properties": {
-          "finished": {
-            "type": "boolean"
-          },
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "migrationJobs": {
-            "$ref": "#/components/schemas/mailmigration.MigrationMailboxJob"
-          },
-          "name": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "id",
-          "name",
-          "migrationJobs",
-          "finished"
-        ],
-        "type": "object"
-      },
-      "mailmigration.CheckMigrationIsPossibleErrorAlreadyExistingMailAddress": {
-        "properties": {
-          "address": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "address"
-        ],
-        "type": "object"
-      },
-      "mailmigration.AutoResponder": {
-        "properties": {
-          "active": {
-            "type": "boolean"
-          },
-          "expiresAt": {
-            "format": "date-time"
-          },
-          "message": {
-            "type": "string"
-          },
-          "startsAt": {
-            "format": "date-time"
-          }
-        },
-        "required": [
-          "active",
-          "message"
-        ],
-        "type": "object"
-      },
-      "mailmigration.MigrationMailAddress": {
-        "properties": {
-          "address": {
-            "type": "string"
-          },
-          "finished": {
-            "type": "boolean"
-          },
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "migrationJobs": {
-            "$ref": "#/components/schemas/mailmigration.MigrationMailAddressMigrationJob"
-          },
-          "preMigrationJobs": {
-            "$ref": "#/components/schemas/mailmigration.MigrationMailAddressPreMigrationJob"
-          }
-        },
-        "required": [
-          "id",
-          "address",
-          "preMigrationJobs",
-          "migrationJobs",
-          "finished"
-        ],
-        "type": "object"
-      },
-      "mailmigration.CheckMigrationIsPossibleErrorCatchAllTargetWithoutAlias": {
-        "properties": {
-          "address": {
-            "type": "string"
-          },
-          "mailboxName": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "address",
-          "mailboxName"
-        ],
-        "type": "object"
-      },
-      "mailmigration.MigrationMailAddressMigrationJob": {
-        "properties": {
-          "migrate": {
-            "$ref": "#/components/schemas/mailmigration.MigrationMailAddressMigrationJobMigrate"
-          }
-        },
-        "required": [
-          "migrate"
-        ],
-        "type": "object"
-      },
-      "mailmigration.PossibleCheckErrors": {
-        "properties": {
-          "alreadyExistingMailAddress": {
-            "items": {
-              "$ref": "#/components/schemas/mailmigration.CheckMigrationIsPossibleErrorAlreadyExistingMailAddress"
-            },
-            "type": "array"
-          },
-          "ambiguousMailAddressDelivery": {
-            "items": {
-              "$ref": "#/components/schemas/mailmigration.CheckMigrationIsPossibleErrorAmbiguousMailAddressDelivery"
-            },
-            "type": "array"
-          },
-          "ambiguousMailboxDelivery": {
-            "items": {
-              "$ref": "#/components/schemas/mailmigration.CheckMigrationIsPossibleErrorAmbiguousMailboxDelivery"
-            },
-            "type": "array"
-          },
-          "catchAllMissingAddress": {
-            "items": {
-              "$ref": "#/components/schemas/mailmigration.CheckMigrationIsPossibleErrorCatchAllMissingAddress"
-            },
-            "type": "array"
-          },
-          "catchAllTargetWithoutAlias": {
-            "items": {
-              "$ref": "#/components/schemas/mailmigration.CheckMigrationIsPossibleErrorCatchAllTargetWithoutAlias"
-            },
-            "type": "array"
-          },
-          "missingVerifiedIngress": {
-            "items": {
-              "$ref": "#/components/schemas/mailmigration.CheckMigrationIsPossibleErrorMissingVerifiedIngress"
-            },
-            "type": "array"
-          }
-        },
-        "required": [
-          "ambiguousMailAddressDelivery",
-          "ambiguousMailboxDelivery",
-          "catchAllMissingAddress",
-          "catchAllTargetWithoutAlias",
-          "missingVerifiedIngress",
-          "alreadyExistingMailAddress"
-        ],
-        "type": "object"
-      },
-      "mailmigration.CheckMigrationIsPossibleErrorAmbiguousMailboxDelivery": {
-        "properties": {
-          "address": {
-            "type": "string"
-          },
-          "mailboxes": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          }
-        },
-        "required": [
-          "address",
-          "mailboxes"
-        ],
-        "type": "object"
-      },
-      "mailmigration.CheckMigrationIsPossibleErrorMissingVerifiedIngress": {
-        "properties": {
-          "hostname": {
-            "format": "idn-hostname",
-            "type": "string"
-          }
-        },
-        "required": [
-          "hostname"
-        ],
-        "type": "object"
-      },
-      "mailmigration.MigrationMailAddressPreMigrationJobDeliveryMigration": {
-        "properties": {
-          "finished": {
-            "type": "boolean"
-          },
-          "sourceCoabDeliveryMailbox": {
-            "type": "string"
-          },
-          "sourceCoabDeliveryUid": {
-            "type": "integer"
-          },
-          "targetDeliveryAddress": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "sourceCoabDeliveryUid",
-          "sourceCoabDeliveryMailbox",
-          "targetDeliveryAddress",
-          "finished"
-        ],
-        "type": "object"
-      },
-      "mailmigration.MigrationMailAddressMigrationJobMigrate": {
-        "properties": {
-          "finished": {
-            "type": "boolean"
-          },
-          "requirements": {
-            "$ref": "#/components/schemas/mailmigration.MigrateMailAddressCommandRequirements"
-          }
-        },
-        "required": [
-          "requirements",
-          "finished"
-        ],
-        "type": "object"
-      },
-      "mailmigration.MigrateMailboxCommandRequirements": {
-        "properties": {
-          "mailbox": {
-            "$ref": "#/components/schemas/mailmigration.Mailbox"
-          },
-          "projectId": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "projectId"
-        ],
-        "type": "object"
-      },
-      "mailmigration.CheckMigrationIsPossibleErrorAmbiguousMailAddressDelivery": {
-        "properties": {
-          "addresses": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "mailboxName": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "mailboxName",
-          "addresses"
-        ],
-        "type": "object"
-      },
-      "mailmigration.MigrationMailboxJob": {
-        "properties": {
-          "migrate": {
-            "$ref": "#/components/schemas/mailmigration.MigrationMailboxJobMigrate"
-          }
-        },
-        "required": [
-          "migrate"
-        ],
-        "type": "object"
-      },
-      "mailmigration.SpamProtection": {
-        "properties": {
-          "active": {
-            "type": "boolean"
-          },
-          "deleteSensitivity": {
-            "type": "integer"
-          },
-          "folder": {
-            "default": 0,
-            "description": "SPAM_FOLDER_INBOX_UNSPECIFIED = 0 SPAM_FOLDER_SPAM = 1",
-            "enum": [
-              0,
-              1
-            ],
-            "type": "integer"
-          },
-          "keepDays": {
-            "type": "integer"
-          },
-          "relocateSensitivity": {
-            "type": "integer"
-          }
-        },
-        "required": [
-          "active",
-          "folder",
-          "keepDays",
-          "relocateSensitivity",
-          "deleteSensitivity"
-        ],
-        "type": "object"
-      },
-      "mailmigration.CheckMigrationIsPossibleErrorResponse": {
-        "properties": {
-          "errors": {
-            "$ref": "#/components/schemas/mailmigration.PossibleCheckErrors"
-          }
-        },
-        "type": "object"
-      },
-      "mailmigration.CheckMigrationIsPossibleErrorCatchAllMissingAddress": {
-        "properties": {
-          "address": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "address"
-        ],
-        "type": "object"
-      },
-      "mailmigration.MigrationMailAddressPreMigrationJob": {
-        "properties": {
-          "aliasSet": {
-            "items": {
-              "$ref": "#/components/schemas/mailmigration.MigrationMailAddressPreMigrationJobAliasSet"
-            },
-            "type": "array"
-          },
-          "deliveryMigrations": {
-            "items": {
-              "$ref": "#/components/schemas/mailmigration.MigrationMailAddressPreMigrationJobDeliveryMigration"
-            },
-            "type": "array"
-          }
-        },
-        "required": [
-          "deliveryMigrations",
-          "aliasSet"
-        ],
-        "type": "object"
-      },
-      "mailmigration.MigrationMailboxJobMigrate": {
-        "properties": {
-          "requirements": {
-            "$ref": "#/components/schemas/mailmigration.MigrateMailboxCommandRequirements"
-          }
-        },
-        "required": [
-          "requirements"
-        ],
-        "type": "object"
-      },
-      "mailmigration.Mailbox": {
-        "properties": {
-          "mailsystem": {
-            "$ref": "#/components/schemas/mailmigration.MailSystemSettings"
-          },
-          "name": {
-            "type": "string"
-          },
-          "passwordHash": {
-            "type": "string"
-          },
-          "quotaInBytes": {
-            "type": "integer"
-          },
-          "spamProtection": {
-            "$ref": "#/components/schemas/mailmigration.SpamProtection"
-          }
-        },
-        "required": [
-          "name",
-          "passwordHash",
-          "quotaInBytes",
-          "mailsystem"
-        ],
-        "type": "object"
-      },
-      "mailmigration.MailSystemSettings": {
-        "properties": {
-          "imapClusterId": {
-            "type": "string"
-          },
-          "mailDirectory": {
-            "type": "string"
-          },
-          "rateLimitId": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "imapClusterId",
-          "mailDirectory",
-          "rateLimitId"
         ],
         "type": "object"
       },
@@ -20820,617 +20816,6 @@
           }
         ],
         "summary": "Authenticate your external application using the extensionInstanceSecret.",
-        "tags": []
-      }
-    },
-    "/v2/extension-instances/{extensionInstanceId}/scopes": {
-      "patch": {
-        "operationId": "extension-consent-to-extension-scopes",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "extensionInstanceId",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "consentedScopes": {
-                    "items": {
-                      "$ref": "#/components/schemas/marketplace.Scope"
-                    },
-                    "type": "array"
-                  }
-                },
-                "required": [
-                  "consentedScopes"
-                ],
-                "type": "object"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "204": {
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            },
-            "description": "NoContent"
-          },
-          "400": {
-            "$ref": "#/components/responses/commons.ValidationError"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "Consent to extension scopes.",
-        "tags": []
-      }
-    },
-    "/v2/extension-instances": {
-      "post": {
-        "operationId": "extension-create-extension-instance",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "consentedScopes": {
-                    "items": {
-                      "$ref": "#/components/schemas/marketplace.Scope"
-                    },
-                    "type": "array"
-                  },
-                  "context": {
-                    "$ref": "#/components/schemas/marketplace.Context"
-                  },
-                  "contextId": {
-                    "format": "uuid",
-                    "type": "string"
-                  },
-                  "extensionId": {
-                    "format": "uuid",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "extensionId",
-                  "consentedScopes",
-                  "context",
-                  "contextId"
-                ],
-                "type": "object"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "201": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "id": {
-                      "format": "uuid",
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id"
-                  ]
-                }
-              }
-            },
-            "description": "The ExtensionInstance ID."
-          },
-          "400": {
-            "$ref": "#/components/responses/commons.ValidationError"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "Create an ExtensionInstance.",
-        "tags": []
-      },
-      "get": {
-        "operationId": "extension-list-extension-instances",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "limit",
-            "required": false,
-            "schema": {
-              "default": 1000,
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "skip",
-            "required": false,
-            "schema": {
-              "default": 0,
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "page",
-            "required": false,
-            "schema": {
-              "default": 1,
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "context",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/marketplace.Context"
-            }
-          },
-          {
-            "description": "The ID of your customer, project or user.",
-            "in": "query",
-            "name": "contextId",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/marketplace.ExtensionInstance"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "List ExtensionInstances.",
-        "tags": []
-      }
-    },
-    "/v2/extension-instances/{extensionInstanceId}": {
-      "delete": {
-        "operationId": "extension-delete-extension-instance",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "extensionInstanceId",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            },
-            "description": "NoContent"
-          },
-          "404": {
-            "$ref": "#/components/responses/commons.NotFoundError"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "Delete an ExtensionInstance.",
-        "tags": []
-      },
-      "get": {
-        "operationId": "extension-get-extension-instance",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "extensionInstanceId",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/marketplace.ExtensionInstance"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "404": {
-            "$ref": "#/components/responses/commons.NotFoundError"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "Get an ExtensionInstance.",
-        "tags": []
-      }
-    },
-    "/v2/extension-instances/{extensionInstanceId}/actions/disable": {
-      "post": {
-        "operationId": "extension-disable-extension-instance",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "extensionInstanceId",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            },
-            "description": "NoContent"
-          },
-          "400": {
-            "$ref": "#/components/responses/commons.ValidationError"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "Disable an ExtensionInstance.",
-        "tags": []
-      }
-    },
-    "/v2/extension-instances/{extensionInstanceId}/actions/enable": {
-      "post": {
-        "operationId": "extension-enable-extension-instance",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "extensionInstanceId",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            },
-            "description": "NoContent"
-          },
-          "400": {
-            "$ref": "#/components/responses/commons.ValidationError"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "Enable an ExtensionInstance.",
-        "tags": []
-      }
-    },
-    "/v2/contributors/{contributorId}": {
-      "get": {
-        "operationId": "extension-get-contributor",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "contributorId",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/marketplace.Contributor"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "404": {
-            "$ref": "#/components/responses/commons.NotFoundError"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "Get a Contributor.",
-        "tags": []
-      }
-    },
-    "/v2/extensions/{extensionId}": {
-      "get": {
-        "operationId": "extension-get-extension",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "extensionId",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/marketplace.Extension"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "Get an Extension.",
-        "tags": []
-      }
-    },
-    "/v2/webhook-public-keys/{serial}": {
-      "get": {
-        "operationId": "extension-get-public-key",
-        "parameters": [
-          {
-            "description": "The serial id of a specific public key. Use `latest` to get the latest public key.",
-            "in": "path",
-            "name": "serial",
-            "required": true,
-            "schema": {
-              "example": "latest",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/marketplace.PublicKey"
-                }
-              }
-            },
-            "description": "Use this public key to verify the webhook signature on your end."
-          },
-          "404": {
-            "$ref": "#/components/responses/commons.NotFoundError"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "Get the public key to verify the webhook signature.",
-        "tags": []
-      }
-    },
-    "/v2/contributors": {
-      "get": {
-        "operationId": "extension-list-contributors",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "limit",
-            "required": false,
-            "schema": {
-              "default": 1000,
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "skip",
-            "required": false,
-            "schema": {
-              "default": 0,
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "page",
-            "required": false,
-            "schema": {
-              "default": 1,
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/marketplace.Contributor"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "List Contributors.",
-        "tags": []
-      }
-    },
-    "/v2/extensions": {
-      "get": {
-        "operationId": "extension-list-extensions",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "context",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/marketplace.Context"
-            }
-          },
-          {
-            "in": "query",
-            "name": "limit",
-            "required": false,
-            "schema": {
-              "default": 1000,
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "skip",
-            "required": false,
-            "schema": {
-              "default": 0,
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "page",
-            "required": false,
-            "schema": {
-              "default": 1,
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/marketplace.Extension"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "List Extensions.",
         "tags": []
       }
     },
