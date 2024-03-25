@@ -2033,7 +2033,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@mittwald/api-code-generator", "workspace:packages/generator"],\
           ["@jest/globals", "npm:29.7.0"],\
-          ["@oclif/core", "npm:3.23.0"],\
+          ["@oclif/core", "npm:3.26.0"],\
           ["@oclif/plugin-help", "npm:6.0.18"],\
           ["@oclif/plugin-plugins", "npm:4.3.3"],\
           ["@sindresorhus/is", "npm:6.2.0"],\
@@ -2583,10 +2583,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@oclif/core", [\
-      ["npm:3.23.0", {\
-        "packageLocation": "./.yarn/cache/@oclif-core-npm-3.23.0-30ae1b5164-e59086dbc6.zip/node_modules/@oclif/core/",\
+      ["npm:3.26.0", {\
+        "packageLocation": "./.yarn/cache/@oclif-core-npm-3.26.0-3e803fa864-fea90f5037.zip/node_modules/@oclif/core/",\
         "packageDependencies": [\
-          ["@oclif/core", "npm:3.23.0"],\
+          ["@oclif/core", "npm:3.26.0"],\
           ["@types/cli-progress", "npm:3.11.5"],\
           ["ansi-escapes", "npm:4.3.2"],\
           ["ansi-styles", "npm:4.3.0"],\
@@ -2595,7 +2595,7 @@ const RAW_RUNTIME_STATE =
           ["clean-stack", "npm:3.0.1"],\
           ["cli-progress", "npm:3.12.0"],\
           ["color", "npm:4.2.3"],\
-          ["debug", "virtual:30ae1b516455a167eb3d9013918bf7815efd3c2d5e3029499f81b9758e267bfdf1c475733cf5c968b415160ac46414b6bc0ed61700c134ee705a399e0142e691#npm:4.3.4"],\
+          ["debug", "virtual:3e803fa8645e44ac380e0bb84db7f3978f4499c53ed50e8f10a149b46750c3b17d6c20a09d4a2998dfd94f45f42885f90ba20139df20befc614ab53f47e54bbb#npm:4.3.4"],\
           ["ejs", "npm:3.1.9"],\
           ["get-package-type", "npm:0.1.0"],\
           ["globby", "npm:11.1.0"],\
@@ -2624,7 +2624,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/@oclif-plugin-help-npm-6.0.18-402e4f6ef3-fbbcd78284.zip/node_modules/@oclif/plugin-help/",\
         "packageDependencies": [\
           ["@oclif/plugin-help", "npm:6.0.18"],\
-          ["@oclif/core", "npm:3.23.0"]\
+          ["@oclif/core", "npm:3.26.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2634,7 +2634,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/@oclif-plugin-plugins-npm-4.3.3-1a9b051216-c764ee1193.zip/node_modules/@oclif/plugin-plugins/",\
         "packageDependencies": [\
           ["@oclif/plugin-plugins", "npm:4.3.3"],\
-          ["@oclif/core", "npm:3.23.0"],\
+          ["@oclif/core", "npm:3.26.0"],\
           ["chalk", "npm:5.3.0"],\
           ["debug", "virtual:1ff4b5f90832ba0a9c93ba1223af226e44ba70c1126a3740d93562b97bc36544e896a5e95908196f7458713e6a6089a34bfc67362fc6df7fa093bd06c878be47#npm:4.3.4"],\
           ["npm", "npm:10.5.0"],\
@@ -5626,10 +5626,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["virtual:30ae1b516455a167eb3d9013918bf7815efd3c2d5e3029499f81b9758e267bfdf1c475733cf5c968b415160ac46414b6bc0ed61700c134ee705a399e0142e691#npm:4.3.4", {\
-        "packageLocation": "./.yarn/__virtual__/debug-virtual-ed5c6c4554/0/cache/debug-npm-4.3.4-4513954577-0073c3bcbd.zip/node_modules/debug/",\
+      ["virtual:3e803fa8645e44ac380e0bb84db7f3978f4499c53ed50e8f10a149b46750c3b17d6c20a09d4a2998dfd94f45f42885f90ba20139df20befc614ab53f47e54bbb#npm:4.3.4", {\
+        "packageLocation": "./.yarn/__virtual__/debug-virtual-5f6f13442c/0/cache/debug-npm-4.3.4-4513954577-0073c3bcbd.zip/node_modules/debug/",\
         "packageDependencies": [\
-          ["debug", "virtual:30ae1b516455a167eb3d9013918bf7815efd3c2d5e3029499f81b9758e267bfdf1c475733cf5c968b415160ac46414b6bc0ed61700c134ee705a399e0142e691#npm:4.3.4"],\
+          ["debug", "virtual:3e803fa8645e44ac380e0bb84db7f3978f4499c53ed50e8f10a149b46750c3b17d6c20a09d4a2998dfd94f45f42885f90ba20139df20befc614ab53f47e54bbb#npm:4.3.4"],\
           ["@types/supports-color", null],\
           ["ms", "npm:2.1.2"],\
           ["supports-color", "npm:8.1.1"]\
