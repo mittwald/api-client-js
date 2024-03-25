@@ -1851,8 +1851,8 @@ __metadata:
   linkType: hard
 
 "@oclif/core@npm:^3.21.0, @oclif/core@npm:^3.23.0":
-  version: 3.23.0
-  resolution: "@oclif/core@npm:3.23.0"
+  version: 3.26.0
+  resolution: "@oclif/core@npm:3.26.0"
   dependencies:
     "@types/cli-progress": "npm:^3.11.5"
     ansi-escapes: "npm:^4.3.2"
@@ -1882,7 +1882,7 @@ __metadata:
     widest-line: "npm:^3.1.0"
     wordwrap: "npm:^1.0.0"
     wrap-ansi: "npm:^7.0.0"
-  checksum: 10/e59086dbc6ce258375bbb24c72b4015e0eb397daf96b81ab8bc7ff2ff5176ce5bf48e53b1986243119daafd106cd3b9d5df0ff602b8f0cd5e6a1bb1be884cd38
+  checksum: 10/fea90f50374ce4cff17ed598e8797c402957e12281fb6503423f882c9414f8f340ab8fa782bd07874c0eb62dca7d7b335eed5788e92aff264a9641d4a98bd492
   languageName: node
   linkType: hard
 
