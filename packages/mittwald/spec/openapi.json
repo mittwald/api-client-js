@@ -559,6 +559,9 @@
       "app.AppVersion": {
         "description": "An AppVersion is an officially supported version of an App, containing the necessary and recommended configuration und dependencies.",
         "properties": {
+          "appId": {
+            "type": "string"
+          },
           "breakingNote": {
             "$ref": "#/components/schemas/app.BreakingNote"
           },
@@ -610,7 +613,8 @@
           "externalVersion",
           "internalVersion",
           "docRoot",
-          "docRootUserEditable"
+          "docRootUserEditable",
+          "appId"
         ],
         "type": "object"
       },
@@ -920,7 +924,8 @@
         "enum": [
           "email",
           "password",
-          "url"
+          "url",
+          "uri"
         ],
         "type": "string"
       },
@@ -3893,213 +3898,6 @@
         ],
         "type": "object"
       },
-      "marketplace.Contributor": {
-        "properties": {
-          "customerId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "email": {
-            "type": "string"
-          },
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "logoRefId": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "phone": {
-            "type": "string"
-          },
-          "state": {
-            "$ref": "#/components/schemas/marketplace.ContributorState"
-          },
-          "url": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "id",
-          "customerId",
-          "state",
-          "name"
-        ],
-        "type": "object"
-      },
-      "marketplace.ContributorState": {
-        "enum": [
-          "enabled",
-          "disabled"
-        ],
-        "type": "string"
-      },
-      "marketplace.Extension": {
-        "properties": {
-          "context": {
-            "$ref": "#/components/schemas/marketplace.Context"
-          },
-          "contributorId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "scopes": {
-            "items": {
-              "$ref": "#/components/schemas/marketplace.Scope"
-            },
-            "type": "array"
-          },
-          "state": {
-            "$ref": "#/components/schemas/marketplace.ExtensionState"
-          },
-          "support": {
-            "$ref": "#/components/schemas/marketplace.SupportMeta"
-          },
-          "tags": {
-            "items": {
-              "type": "string"
-            },
-            "minItems": 0,
-            "type": "array"
-          }
-        },
-        "required": [
-          "id",
-          "contributorId",
-          "support",
-          "state",
-          "name",
-          "description",
-          "tags",
-          "context",
-          "scopes"
-        ],
-        "type": "object"
-      },
-      "marketplace.Context": {
-        "enum": [
-          "project",
-          "customer"
-        ],
-        "type": "string"
-      },
-      "marketplace.ExtensionInstance": {
-        "properties": {
-          "aggregateReference": {
-            "properties": {
-              "aggregate": {
-                "type": "string"
-              },
-              "domain": {
-                "type": "string"
-              },
-              "id": {
-                "format": "uuid",
-                "type": "string"
-              }
-            },
-            "required": [
-              "id",
-              "domain",
-              "aggregate"
-            ],
-            "type": "object"
-          },
-          "consentedScopes": {
-            "items": {
-              "$ref": "#/components/schemas/marketplace.Scope"
-            },
-            "type": "array"
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "disabled": {
-            "default": false,
-            "type": "boolean"
-          },
-          "extensionId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          }
-        },
-        "required": [
-          "id",
-          "extensionId",
-          "disabled",
-          "consentedScopes",
-          "aggregateReference"
-        ],
-        "type": "object"
-      },
-      "marketplace.Scope": {
-        "enum": [
-          "mail:read",
-          "mail:write"
-        ],
-        "type": "string"
-      },
-      "marketplace.ExtensionState": {
-        "enum": [
-          "enabled",
-          "blocked",
-          "disabled"
-        ],
-        "type": "string"
-      },
-      "marketplace.PublicKey": {
-        "properties": {
-          "algorithm": {
-            "example": "Ed25519",
-            "type": "string"
-          },
-          "key": {
-            "description": "base64 encoded public key",
-            "format": "byte",
-            "type": "string"
-          },
-          "serial": {
-            "format": "uuid",
-            "type": "string"
-          }
-        },
-        "required": [
-          "serial",
-          "algorithm",
-          "key"
-        ],
-        "type": "object"
-      },
-      "marketplace.SupportMeta": {
-        "properties": {
-          "email": {
-            "example": "a.lovelace@example.com",
-            "type": "string"
-          },
-          "phone": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
       "file.FileMeta": {
         "properties": {
           "friendlyURL": {
@@ -4365,6 +4163,9 @@
               },
               {
                 "$ref": "#/components/schemas/ingress.TargetUseDefaultPage"
+              },
+              {
+                "$ref": "#/components/schemas/ingress.TargetContainer"
               }
             ]
           }
@@ -4372,6 +4173,31 @@
         "required": [
           "path",
           "target"
+        ],
+        "type": "object"
+      },
+      "ingress.TargetContainer": {
+        "properties": {
+          "container": {
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "portProtocol": {
+                "description": "docker-compose port specification in format port/protocol (e.g. 8080/TCP)",
+                "format": "docker-network-port",
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "portProtocol"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "container"
         ],
         "type": "object"
       },
@@ -4401,6 +4227,7 @@
       "ingress.TargetUrl": {
         "properties": {
           "url": {
+            "format": "uri",
             "type": "string"
           }
         },
@@ -5535,6 +5362,9 @@
       },
       "mailmigration.Migration": {
         "properties": {
+          "aborted": {
+            "type": "boolean"
+          },
           "addresses": {
             "items": {
               "$ref": "#/components/schemas/mailmigration.MigrationMailAddress"
@@ -5571,7 +5401,8 @@
           "addresses",
           "mailboxes",
           "finalizers",
-          "finished"
+          "finished",
+          "aborted"
         ],
         "type": "object"
       },
