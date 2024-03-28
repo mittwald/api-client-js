@@ -7827,6 +7827,25 @@
         ],
         "type": "object"
       },
+      "marketplace.SupportMeta": {
+        "properties": {
+          "email": {
+            "example": "a.lovelace@example.com",
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "marketplace.Context": {
+        "enum": [
+          "project",
+          "customer"
+        ],
+        "type": "string"
+      },
       "commons.Address": {
         "type": "object",
         "properties": {
@@ -34008,6 +34027,300 @@
         "tags": [
           "User"
         ]
+      }
+    },
+    "/v2/extensions/{extensionId}": {
+      "get": {
+        "operationId": "extension-get-extension",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extensionId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/marketplace.Extension"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "Get an Extension.",
+        "tags": []
+      }
+    },
+    "/v2/extension-instances/{extensionInstanceId}": {
+      "delete": {
+        "operationId": "extension-delete-extension-instance",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extensionInstanceId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "NoContent"
+          },
+          "404": {
+            "$ref": "#/components/responses/commons.NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "Delete an ExtensionInstance.",
+        "tags": []
+      }
+    },
+    "/v2/webhook-public-keys/{serial}": {
+      "get": {
+        "operationId": "extension-get-public-key",
+        "parameters": [
+          {
+            "description": "The serial id of a specific public key. Use `latest` to get the latest public key.",
+            "in": "path",
+            "name": "serial",
+            "required": true,
+            "schema": {
+              "example": "latest",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/marketplace.PublicKey"
+                }
+              }
+            },
+            "description": "Use this public key to verify the webhook signature on your end."
+          },
+          "404": {
+            "$ref": "#/components/responses/commons.NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "Get the public key to verify the webhook signature.",
+        "tags": []
+      }
+    },
+    "/v2/extension-instances/{extensionInstanceId}/actions/enable": {
+      "post": {
+        "operationId": "extension-enable-extension-instance",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extensionInstanceId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "NoContent"
+          },
+          "400": {
+            "$ref": "#/components/responses/commons.ValidationError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "Enable an ExtensionInstance.",
+        "tags": []
+      }
+    },
+    "/v2/contributors": {
+      "get": {
+        "operationId": "extension-list-contributors",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 1000,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "skip",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/marketplace.Contributor"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "List Contributors.",
+        "tags": []
+      }
+    },
+    "/v2/extension-instances": {
+      "get": {
+        "operationId": "extension-list-extension-instances",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 1000,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "skip",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "context",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/marketplace.Context"
+            }
+          },
+          {
+            "description": "The ID of your customer, project or user.",
+            "in": "query",
+            "name": "contextId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/marketplace.ExtensionInstance"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "List ExtensionInstances.",
+        "tags": []
       }
     }
   },
