@@ -3562,7 +3562,7 @@
         "properties": {
           "entries": {
             "items": {
-              "maxLength": 100,
+              "maxLength": 2048,
               "type": "string"
             },
             "maxItems": 20,
@@ -3740,7 +3740,6 @@
               "format": "hostname",
               "type": "string"
             },
-            "minItems": 2,
             "type": "array",
             "uniqueItems": true
           },
@@ -3896,6 +3895,227 @@
           "tld",
           "rgpDays"
         ],
+        "type": "object"
+      },
+      "marketplace.Contributor": {
+        "properties": {
+          "customerId": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "logoRefId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "state": {
+            "$ref": "#/components/schemas/marketplace.ContributorState"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "customerId",
+          "state",
+          "name"
+        ],
+        "type": "object"
+      },
+      "marketplace.ContributorState": {
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "type": "string"
+      },
+      "marketplace.Extension": {
+        "properties": {
+          "context": {
+            "$ref": "#/components/schemas/marketplace.Context"
+          },
+          "contributorId": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "frontendComponents": {
+            "items": {
+              "$ref": "#/components/schemas/marketplace.ExternalComponent"
+            },
+            "type": "array"
+          },
+          "id": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "scopes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "state": {
+            "$ref": "#/components/schemas/marketplace.ExtensionState"
+          },
+          "support": {
+            "$ref": "#/components/schemas/marketplace.SupportMeta"
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 0,
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "contributorId",
+          "support",
+          "state",
+          "name",
+          "description",
+          "tags",
+          "context",
+          "scopes"
+        ],
+        "type": "object"
+      },
+      "marketplace.Context": {
+        "enum": [
+          "project",
+          "customer"
+        ],
+        "type": "string"
+      },
+      "marketplace.ExtensionInstance": {
+        "properties": {
+          "aggregateReference": {
+            "properties": {
+              "aggregate": {
+                "type": "string"
+              },
+              "domain": {
+                "type": "string"
+              },
+              "id": {
+                "format": "uuid",
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "domain",
+              "aggregate"
+            ],
+            "type": "object"
+          },
+          "consentedScopes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "disabled": {
+            "default": false,
+            "type": "boolean"
+          },
+          "extensionId": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "extensionId",
+          "disabled",
+          "consentedScopes",
+          "aggregateReference"
+        ],
+        "type": "object"
+      },
+      "marketplace.ExtensionState": {
+        "enum": [
+          "enabled",
+          "blocked",
+          "disabled"
+        ],
+        "type": "string"
+      },
+      "marketplace.ExternalComponent": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "url"
+        ],
+        "type": "object"
+      },
+      "marketplace.PublicKey": {
+        "properties": {
+          "algorithm": {
+            "example": "Ed25519",
+            "type": "string"
+          },
+          "key": {
+            "description": "base64 encoded public key",
+            "format": "byte",
+            "type": "string"
+          },
+          "serial": {
+            "format": "uuid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "serial",
+          "algorithm",
+          "key"
+        ],
+        "type": "object"
+      },
+      "marketplace.SupportMeta": {
+        "properties": {
+          "email": {
+            "example": "a.lovelace@example.com",
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "file.FileMeta": {
@@ -7826,25 +8046,6 @@
           "tokenId"
         ],
         "type": "object"
-      },
-      "marketplace.SupportMeta": {
-        "properties": {
-          "email": {
-            "example": "a.lovelace@example.com",
-            "type": "string"
-          },
-          "phone": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "marketplace.Context": {
-        "enum": [
-          "project",
-          "customer"
-        ],
-        "type": "string"
       },
       "commons.Address": {
         "type": "object",
@@ -17750,7 +17951,6 @@
               "schema": {
                 "properties": {
                   "phoneNumber": {
-                    "format": "phone",
                     "type": "string"
                   }
                 },
@@ -17848,7 +18048,7 @@
                     "type": "string"
                   },
                   "phoneNumber": {
-                    "format": "phone",
+                    "example": "+491701234567",
                     "type": "string"
                   }
                 },
@@ -20666,6 +20866,617 @@
           }
         ],
         "summary": "Authenticate your external application using the extensionInstanceSecret.",
+        "tags": []
+      }
+    },
+    "/v2/extension-instances/{extensionInstanceId}/scopes": {
+      "patch": {
+        "operationId": "extension-consent-to-extension-scopes",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extensionInstanceId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "consentedScopes": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "consentedScopes"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "NoContent"
+          },
+          "400": {
+            "$ref": "#/components/responses/commons.ValidationError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "Consent to extension scopes.",
+        "tags": []
+      }
+    },
+    "/v2/extension-instances": {
+      "post": {
+        "operationId": "extension-create-extension-instance",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "consentedScopes": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "context": {
+                    "$ref": "#/components/schemas/marketplace.Context"
+                  },
+                  "contextId": {
+                    "format": "uuid",
+                    "type": "string"
+                  },
+                  "extensionId": {
+                    "format": "uuid",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "extensionId",
+                  "consentedScopes",
+                  "context",
+                  "contextId"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "id": {
+                      "format": "uuid",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "description": "The ExtensionInstance ID."
+          },
+          "400": {
+            "$ref": "#/components/responses/commons.ValidationError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "Create an ExtensionInstance.",
+        "tags": []
+      },
+      "get": {
+        "operationId": "extension-list-extension-instances",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 1000,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "skip",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "context",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/marketplace.Context"
+            }
+          },
+          {
+            "description": "The ID of your customer, project or user.",
+            "in": "query",
+            "name": "contextId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/marketplace.ExtensionInstance"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "List ExtensionInstances.",
+        "tags": []
+      }
+    },
+    "/v2/extension-instances/{extensionInstanceId}": {
+      "delete": {
+        "operationId": "extension-delete-extension-instance",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extensionInstanceId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "NoContent"
+          },
+          "404": {
+            "$ref": "#/components/responses/commons.NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "Delete an ExtensionInstance.",
+        "tags": []
+      },
+      "get": {
+        "operationId": "extension-get-extension-instance",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extensionInstanceId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/marketplace.ExtensionInstance"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "404": {
+            "$ref": "#/components/responses/commons.NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "Get an ExtensionInstance.",
+        "tags": []
+      }
+    },
+    "/v2/extension-instances/{extensionInstanceId}/actions/disable": {
+      "post": {
+        "operationId": "extension-disable-extension-instance",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extensionInstanceId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "NoContent"
+          },
+          "400": {
+            "$ref": "#/components/responses/commons.ValidationError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "Disable an ExtensionInstance.",
+        "tags": []
+      }
+    },
+    "/v2/extension-instances/{extensionInstanceId}/actions/enable": {
+      "post": {
+        "operationId": "extension-enable-extension-instance",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extensionInstanceId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "NoContent"
+          },
+          "400": {
+            "$ref": "#/components/responses/commons.ValidationError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "Enable an ExtensionInstance.",
+        "tags": []
+      }
+    },
+    "/v2/contributors/{contributorId}": {
+      "get": {
+        "operationId": "extension-get-contributor",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "contributorId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/marketplace.Contributor"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "404": {
+            "$ref": "#/components/responses/commons.NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "Get a Contributor.",
+        "tags": []
+      }
+    },
+    "/v2/extensions/{extensionId}": {
+      "get": {
+        "operationId": "extension-get-extension",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extensionId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/marketplace.Extension"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "Get an Extension.",
+        "tags": []
+      }
+    },
+    "/v2/webhook-public-keys/{serial}": {
+      "get": {
+        "operationId": "extension-get-public-key",
+        "parameters": [
+          {
+            "description": "The serial id of a specific public key. Use `latest` to get the latest public key.",
+            "in": "path",
+            "name": "serial",
+            "required": true,
+            "schema": {
+              "example": "latest",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/marketplace.PublicKey"
+                }
+              }
+            },
+            "description": "Use this public key to verify the webhook signature on your end."
+          },
+          "404": {
+            "$ref": "#/components/responses/commons.NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "Get the public key to verify the webhook signature.",
+        "tags": []
+      }
+    },
+    "/v2/contributors": {
+      "get": {
+        "operationId": "extension-list-contributors",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 1000,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "skip",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/marketplace.Contributor"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "List Contributors.",
+        "tags": []
+      }
+    },
+    "/v2/extensions": {
+      "get": {
+        "operationId": "extension-list-extensions",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "context",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/marketplace.Context"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 1000,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "skip",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/marketplace.Extension"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "List Extensions.",
         "tags": []
       }
     },
@@ -29935,7 +30746,7 @@
               "schema": {
                 "properties": {
                   "phoneNumber": {
-                    "format": "phone",
+                    "example": "+491701234567",
                     "type": "string"
                   }
                 },
@@ -33774,7 +34585,7 @@
                     "type": "string"
                   },
                   "phoneNumber": {
-                    "format": "phone",
+                    "example": "+491701234567",
                     "type": "string"
                   }
                 },
@@ -33860,7 +34671,7 @@
                     "type": "string"
                   },
                   "phoneNumber": {
-                    "format": "phone",
+                    "example": "+491701234567",
                     "type": "string"
                   }
                 },
@@ -34027,300 +34838,6 @@
         "tags": [
           "User"
         ]
-      }
-    },
-    "/v2/extensions/{extensionId}": {
-      "get": {
-        "operationId": "extension-get-extension",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "extensionId",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/marketplace.Extension"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "Get an Extension.",
-        "tags": []
-      }
-    },
-    "/v2/extension-instances/{extensionInstanceId}": {
-      "delete": {
-        "operationId": "extension-delete-extension-instance",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "extensionInstanceId",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            },
-            "description": "NoContent"
-          },
-          "404": {
-            "$ref": "#/components/responses/commons.NotFoundError"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "Delete an ExtensionInstance.",
-        "tags": []
-      }
-    },
-    "/v2/webhook-public-keys/{serial}": {
-      "get": {
-        "operationId": "extension-get-public-key",
-        "parameters": [
-          {
-            "description": "The serial id of a specific public key. Use `latest` to get the latest public key.",
-            "in": "path",
-            "name": "serial",
-            "required": true,
-            "schema": {
-              "example": "latest",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/marketplace.PublicKey"
-                }
-              }
-            },
-            "description": "Use this public key to verify the webhook signature on your end."
-          },
-          "404": {
-            "$ref": "#/components/responses/commons.NotFoundError"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "Get the public key to verify the webhook signature.",
-        "tags": []
-      }
-    },
-    "/v2/extension-instances/{extensionInstanceId}/actions/enable": {
-      "post": {
-        "operationId": "extension-enable-extension-instance",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "extensionInstanceId",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            },
-            "description": "NoContent"
-          },
-          "400": {
-            "$ref": "#/components/responses/commons.ValidationError"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "Enable an ExtensionInstance.",
-        "tags": []
-      }
-    },
-    "/v2/contributors": {
-      "get": {
-        "operationId": "extension-list-contributors",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "limit",
-            "required": false,
-            "schema": {
-              "default": 1000,
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "skip",
-            "required": false,
-            "schema": {
-              "default": 0,
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "page",
-            "required": false,
-            "schema": {
-              "default": 1,
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/marketplace.Contributor"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "List Contributors.",
-        "tags": []
-      }
-    },
-    "/v2/extension-instances": {
-      "get": {
-        "operationId": "extension-list-extension-instances",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "limit",
-            "required": false,
-            "schema": {
-              "default": 1000,
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "skip",
-            "required": false,
-            "schema": {
-              "default": 0,
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "page",
-            "required": false,
-            "schema": {
-              "default": 1,
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "context",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/marketplace.Context"
-            }
-          },
-          {
-            "description": "The ID of your customer, project or user.",
-            "in": "query",
-            "name": "contextId",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/marketplace.ExtensionInstance"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "List ExtensionInstances.",
-        "tags": []
       }
     }
   },
