@@ -2035,7 +2035,7 @@ const RAW_RUNTIME_STATE =
           ["@jest/globals", "npm:29.7.0"],\
           ["@oclif/core", "npm:3.23.0"],\
           ["@oclif/plugin-help", "npm:6.0.18"],\
-          ["@oclif/plugin-plugins", "npm:4.3.3"],\
+          ["@oclif/plugin-plugins", "npm:5.0.4"],\
           ["@sindresorhus/is", "npm:6.2.0"],\
           ["@types/clone-deep", "npm:4.0.4"],\
           ["@types/invariant", "npm:2.2.37"],\
@@ -2617,6 +2617,41 @@ const RAW_RUNTIME_STATE =
           ["wrap-ansi", "npm:7.0.0"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:3.26.0", {\
+        "packageLocation": "./.yarn/cache/@oclif-core-npm-3.26.0-3e803fa864-fea90f5037.zip/node_modules/@oclif/core/",\
+        "packageDependencies": [\
+          ["@oclif/core", "npm:3.26.0"],\
+          ["@types/cli-progress", "npm:3.11.5"],\
+          ["ansi-escapes", "npm:4.3.2"],\
+          ["ansi-styles", "npm:4.3.0"],\
+          ["cardinal", "npm:2.1.1"],\
+          ["chalk", "npm:4.1.2"],\
+          ["clean-stack", "npm:3.0.1"],\
+          ["cli-progress", "npm:3.12.0"],\
+          ["color", "npm:4.2.3"],\
+          ["debug", "virtual:30ae1b516455a167eb3d9013918bf7815efd3c2d5e3029499f81b9758e267bfdf1c475733cf5c968b415160ac46414b6bc0ed61700c134ee705a399e0142e691#npm:4.3.4"],\
+          ["ejs", "npm:3.1.9"],\
+          ["get-package-type", "npm:0.1.0"],\
+          ["globby", "npm:11.1.0"],\
+          ["hyperlinker", "npm:1.0.0"],\
+          ["indent-string", "npm:4.0.0"],\
+          ["is-wsl", "npm:2.2.0"],\
+          ["js-yaml", "npm:3.14.1"],\
+          ["minimatch", "npm:9.0.3"],\
+          ["natural-orderby", "npm:2.0.3"],\
+          ["object-treeify", "npm:1.1.33"],\
+          ["password-prompt", "npm:1.1.3"],\
+          ["slice-ansi", "npm:4.0.0"],\
+          ["string-width", "npm:4.2.3"],\
+          ["strip-ansi", "npm:6.0.1"],\
+          ["supports-color", "npm:8.1.1"],\
+          ["supports-hyperlinks", "npm:2.3.0"],\
+          ["widest-line", "npm:3.1.0"],\
+          ["wordwrap", "npm:1.0.0"],\
+          ["wrap-ansi", "npm:7.0.0"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["@oclif/plugin-help", [\
@@ -2630,19 +2665,18 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@oclif/plugin-plugins", [\
-      ["npm:4.3.3", {\
-        "packageLocation": "./.yarn/cache/@oclif-plugin-plugins-npm-4.3.3-1a9b051216-c764ee1193.zip/node_modules/@oclif/plugin-plugins/",\
+      ["npm:5.0.4", {\
+        "packageLocation": "./.yarn/cache/@oclif-plugin-plugins-npm-5.0.4-4cd5c6c96a-6278a924ed.zip/node_modules/@oclif/plugin-plugins/",\
         "packageDependencies": [\
-          ["@oclif/plugin-plugins", "npm:4.3.3"],\
-          ["@oclif/core", "npm:3.23.0"],\
+          ["@oclif/plugin-plugins", "npm:5.0.4"],\
+          ["@oclif/core", "npm:3.26.0"],\
           ["chalk", "npm:5.3.0"],\
           ["debug", "virtual:1ff4b5f90832ba0a9c93ba1223af226e44ba70c1126a3740d93562b97bc36544e896a5e95908196f7458713e6a6089a34bfc67362fc6df7fa093bd06c878be47#npm:4.3.4"],\
           ["npm", "npm:10.5.0"],\
-          ["npm-run-path", "npm:4.0.1"],\
+          ["npm-package-arg", "npm:11.0.1"],\
+          ["npm-run-path", "npm:5.3.0"],\
           ["semver", "npm:7.6.0"],\
-          ["shelljs", "npm:0.8.5"],\
-          ["validate-npm-package-name", "npm:5.0.0"],\
-          ["yarn", "npm:1.22.22"]\
+          ["validate-npm-package-name", "npm:5.0.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -7610,15 +7644,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["interpret", [\
-      ["npm:1.4.0", {\
-        "packageLocation": "./.yarn/cache/interpret-npm-1.4.0-17b4b5b0a4-5beec568d3.zip/node_modules/interpret/",\
-        "packageDependencies": [\
-          ["interpret", "npm:1.4.0"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["invariant", [\
       ["npm:2.2.4", {\
         "packageLocation": "./.yarn/cache/invariant-npm-2.2.4-717fbdb119-cc3182d793.zip/node_modules/invariant/",\
@@ -10522,6 +10547,14 @@ const RAW_RUNTIME_STATE =
           ["path-key", "npm:3.1.1"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:5.3.0", {\
+        "packageLocation": "./.yarn/cache/npm-run-path-npm-5.3.0-193efca236-ae8e7a89da.zip/node_modules/npm-run-path/",\
+        "packageDependencies": [\
+          ["npm-run-path", "npm:5.3.0"],\
+          ["path-key", "npm:4.0.0"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["npm-user-validate", [\
@@ -11133,6 +11166,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/path-key-npm-3.1.1-0e66ea8321-55cd7a9dd4.zip/node_modules/path-key/",\
         "packageDependencies": [\
           ["path-key", "npm:3.1.1"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:4.0.0", {\
+        "packageLocation": "./.yarn/cache/path-key-npm-4.0.0-2bce99f089-8e6c314ae6.zip/node_modules/path-key/",\
+        "packageDependencies": [\
+          ["path-key", "npm:4.0.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -11807,16 +11847,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["rechoir", [\
-      ["npm:0.6.2", {\
-        "packageLocation": "./.yarn/cache/rechoir-npm-0.6.2-0df5f171ec-fe76bf9c21.zip/node_modules/rechoir/",\
-        "packageDependencies": [\
-          ["rechoir", "npm:0.6.2"],\
-          ["resolve", "patch:resolve@npm%3A1.22.8#optional!builtin<compat/resolve>::version=1.22.8&hash=c3c19d"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["redent", [\
       ["npm:3.0.0", {\
         "packageLocation": "./.yarn/cache/redent-npm-3.0.0-31892f4906-fa1ef20404.zip/node_modules/redent/",\
@@ -12150,18 +12180,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/shell-quote-npm-1.8.1-fcccf06093-af19ab5a1e.zip/node_modules/shell-quote/",\
         "packageDependencies": [\
           ["shell-quote", "npm:1.8.1"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["shelljs", [\
-      ["npm:0.8.5", {\
-        "packageLocation": "./.yarn/cache/shelljs-npm-0.8.5-44be43f84a-f2178274b9.zip/node_modules/shelljs/",\
-        "packageDependencies": [\
-          ["shelljs", "npm:0.8.5"],\
-          ["glob", "npm:7.2.3"],\
-          ["interpret", "npm:1.4.0"],\
-          ["rechoir", "npm:0.6.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -13803,15 +13821,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/yargs-parser-npm-21.1.1-8fdc003314-9dc2c217ea.zip/node_modules/yargs-parser/",\
         "packageDependencies": [\
           ["yargs-parser", "npm:21.1.1"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["yarn", [\
-      ["npm:1.22.22", {\
-        "packageLocation": "./.yarn/unplugged/yarn-npm-1.22.22-cb63c707fe/node_modules/yarn/",\
-        "packageDependencies": [\
-          ["yarn", "npm:1.22.22"]\
         ],\
         "linkType": "HARD"\
       }]\
