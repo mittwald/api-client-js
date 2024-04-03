@@ -3714,7 +3714,7 @@
             "type": "boolean"
           },
           "domain": {
-            "format": "hostname",
+            "format": "naked-domain",
             "type": "string"
           },
           "domainId": {
@@ -3737,7 +3737,7 @@
           },
           "nameservers": {
             "items": {
-              "format": "hostname",
+              "format": "idn-hostname",
               "type": "string"
             },
             "type": "array",
@@ -19540,7 +19540,7 @@
               "schema": {
                 "properties": {
                   "domain": {
-                    "format": "hostname",
+                    "format": "naked-domain",
                     "type": "string"
                   }
                 },
@@ -19599,7 +19599,7 @@
               "schema": {
                 "properties": {
                   "domain": {
-                    "format": "hostname",
+                    "format": "naked-domain",
                     "type": "string"
                   }
                 },
@@ -19726,7 +19726,7 @@
                     "type": "string"
                   },
                   "domain": {
-                    "format": "idn-hostname",
+                    "format": "naked-domain",
                     "type": "string"
                   }
                 },
@@ -19912,7 +19912,7 @@
                 "properties": {
                   "nameservers": {
                     "items": {
-                      "format": "hostname",
+                      "format": "idn-hostname",
                       "type": "string"
                     },
                     "minItems": 2,
@@ -19968,7 +19968,7 @@
                 "properties": {
                   "nameservers": {
                     "items": {
-                      "format": "hostname",
+                      "format": "idn-hostname",
                       "type": "string"
                     },
                     "minItems": 2,
@@ -20230,7 +20230,7 @@
             "name": "domainName",
             "required": true,
             "schema": {
-              "format": "hostname",
+              "format": "naked-domain",
               "type": "string"
             }
           }
