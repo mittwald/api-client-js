@@ -152,6 +152,48 @@
         },
         "description": "OK"
       },
+      "domain.TransferabilityResponse": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "reasons": {
+                  "properties": {
+                    "domainAgeTooSmall": {
+                      "type": "boolean"
+                    },
+                    "domainDoesNotExist": {
+                      "type": "boolean"
+                    },
+                    "transferLock": {
+                      "type": "boolean"
+                    },
+                    "wrongAuthCode": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "domainDoesNotExist",
+                    "wrongAuthCode",
+                    "transferLock",
+                    "domainAgeTooSmall"
+                  ],
+                  "type": "object"
+                },
+                "transferable": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "transferable",
+                "reasons"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "description": "OK"
+      },
       "invoice.EmptyResponse": {
         "content": {
           "application/json": {
@@ -1242,7 +1284,7 @@
             "type": "number"
           },
           "description": {
-            "example": "proSpace without dedicated ressources",
+            "example": "proSpace without dedicated resources",
             "type": "string"
           },
           "forcedInvoicingPeriodInMonth": {
@@ -1322,7 +1364,6 @@
         "required": [
           "articleId",
           "name",
-          "description",
           "contractDurationInMonth",
           "orderable",
           "template"
@@ -3319,7 +3360,7 @@
       "dns.RecordCNAMEComponent": {
         "properties": {
           "fqdn": {
-            "format": "hostname",
+            "format": "idn-dnsname",
             "type": "string"
           },
           "settings": {
@@ -3452,7 +3493,7 @@
       "dns.RecordMXRecord": {
         "properties": {
           "fqdn": {
-            "format": "hostname",
+            "format": "idn-dnsname",
             "maxLength": 50,
             "minLength": 1,
             "type": "string"
@@ -3518,7 +3559,7 @@
         "additionalProperties": false,
         "properties": {
           "fqdn": {
-            "format": "hostname",
+            "format": "idn-dnsname",
             "maxLength": 50,
             "minLength": 1,
             "type": "string"
@@ -3540,8 +3581,6 @@
           }
         },
         "required": [
-          "priority",
-          "weight",
           "port",
           "fqdn"
         ],
@@ -5040,7 +5079,7 @@
       "mail.CreateMailAddress": {
         "properties": {
           "address": {
-            "format": "email",
+            "format": "idn-email",
             "type": "string"
           },
           "isCatchAll": {
@@ -5180,12 +5219,12 @@
       "mail.CreateForwardAddress": {
         "properties": {
           "address": {
-            "format": "email",
+            "format": "idn-email",
             "type": "string"
           },
           "forwardAddresses": {
             "items": {
-              "format": "email",
+              "format": "idn-email",
               "type": "string"
             },
             "type": "array"
@@ -5200,7 +5239,7 @@
       "mail.MailAddress": {
         "properties": {
           "address": {
-            "format": "email",
+            "format": "idn-email",
             "type": "string"
           },
           "autoResponder": {
@@ -5227,7 +5266,7 @@
           },
           "forwardAddresses": {
             "items": {
-              "format": "email",
+              "format": "idn-email",
               "type": "string"
             },
             "type": "array"
@@ -5347,7 +5386,7 @@
       "mail.MailAddressInternal": {
         "properties": {
           "address": {
-            "format": "email",
+            "format": "idn-email",
             "type": "string"
           },
           "autoResponder": {
@@ -5374,7 +5413,7 @@
           },
           "forwardAddresses": {
             "items": {
-              "format": "email",
+              "format": "idn-email",
               "type": "string"
             },
             "type": "array"
@@ -17325,6 +17364,9 @@
             },
             "description": "Some of the specified values do not meet our requirements.\n"
           },
+          "403": {
+            "$ref": "#/components/responses/commons.RateLimitError"
+          },
           "default": {
             "$ref": "#/components/responses/commons.DefaultError"
           }
@@ -18449,7 +18491,7 @@
               "schema": {
                 "properties": {
                   "name": {
-                    "format": "hostname",
+                    "format": "idn-dnsname",
                     "type": "string"
                   },
                   "parentZoneId": {
@@ -18501,7 +18543,7 @@
               "schema": {
                 "properties": {
                   "name": {
-                    "format": "hostname",
+                    "format": "idn-dnsname",
                     "type": "string"
                   },
                   "parentZoneId": {
@@ -19740,46 +19782,7 @@
         },
         "responses": {
           "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "reasons": {
-                      "properties": {
-                        "domainAgeTooSmall": {
-                          "type": "boolean"
-                        },
-                        "domainDoesNotExist": {
-                          "type": "boolean"
-                        },
-                        "transferLock": {
-                          "type": "boolean"
-                        },
-                        "wrongAuthCode": {
-                          "type": "boolean"
-                        }
-                      },
-                      "required": [
-                        "domainDoesNotExist",
-                        "wrongAuthCode",
-                        "transferLock",
-                        "domainAgeTooSmall"
-                      ],
-                      "type": "object"
-                    },
-                    "transferable": {
-                      "type": "boolean"
-                    }
-                  },
-                  "required": [
-                    "transferable",
-                    "reasons"
-                  ],
-                  "type": "object"
-                }
-              }
-            },
-            "description": "OK"
+            "$ref": "#/components/responses/domain.TransferabilityResponse"
           },
           "400": {
             "$ref": "#/components/responses/commons.ValidationError"
@@ -23808,7 +23811,7 @@
                   "properties": {
                     "blacklist": {
                       "items": {
-                        "format": "email",
+                        "format": "idn-email",
                         "type": "string"
                       },
                       "type": "array"
@@ -23818,7 +23821,7 @@
                     },
                     "whitelist": {
                       "items": {
-                        "format": "email",
+                        "format": "idn-email",
                         "type": "string"
                       },
                       "type": "array"
@@ -23887,7 +23890,7 @@
               "schema": {
                 "properties": {
                   "address": {
-                    "format": "email",
+                    "format": "idn-email",
                     "type": "string"
                   }
                 },
@@ -23949,7 +23952,7 @@
                 "properties": {
                   "blacklist": {
                     "items": {
-                      "format": "email",
+                      "format": "idn-email",
                       "type": "string"
                     },
                     "type": "array"
@@ -24013,7 +24016,7 @@
                 "properties": {
                   "whitelist": {
                     "items": {
-                      "format": "email",
+                      "format": "idn-email",
                       "type": "string"
                     },
                     "type": "array"
@@ -24207,7 +24210,7 @@
               "schema": {
                 "properties": {
                   "address": {
-                    "format": "email",
+                    "format": "idn-email",
                     "type": "string"
                   }
                 },
@@ -24713,7 +24716,7 @@
                 "properties": {
                   "forwardAddresses": {
                     "items": {
-                      "format": "email",
+                      "format": "idn-email",
                       "type": "string"
                     },
                     "type": "array"
@@ -24781,7 +24784,7 @@
                 "properties": {
                   "forwardAddresses": {
                     "items": {
-                      "format": "email",
+                      "format": "idn-email",
                       "type": "string"
                     },
                     "type": "array"
@@ -24850,7 +24853,7 @@
                 "properties": {
                   "forwardAddresses": {
                     "items": {
-                      "format": "email",
+                      "format": "idn-email",
                       "type": "string"
                     },
                     "type": "array"
@@ -25553,7 +25556,7 @@
                     "properties": {
                       "blacklist": {
                         "items": {
-                          "format": "email",
+                          "format": "idn-email",
                           "type": "string"
                         },
                         "type": "array"
@@ -25568,7 +25571,7 @@
                     "properties": {
                       "whitelist": {
                         "items": {
-                          "format": "email",
+                          "format": "idn-email",
                           "type": "string"
                         },
                         "type": "array"
@@ -25655,7 +25658,7 @@
                     "properties": {
                       "blacklist": {
                         "items": {
-                          "format": "email",
+                          "format": "idn-email",
                           "type": "string"
                         },
                         "type": "array"
@@ -25670,7 +25673,7 @@
                     "properties": {
                       "whitelist": {
                         "items": {
-                          "format": "email",
+                          "format": "idn-email",
                           "type": "string"
                         },
                         "type": "array"
@@ -33475,6 +33478,9 @@
               }
             },
             "description": "Some of the specified values do not meet our requirements.\n"
+          },
+          "403": {
+            "$ref": "#/components/responses/commons.RateLimitError"
           },
           "default": {
             "$ref": "#/components/responses/commons.DefaultError"
