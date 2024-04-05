@@ -1990,7 +1990,8 @@
             "enum": [
               "open",
               "closed",
-              "answered"
+              "answered",
+              "inProgress"
             ],
             "type": "string"
           },
@@ -3095,6 +3096,13 @@
             "format": "uuid",
             "type": "string"
           },
+          "storageUsageInBytes": {
+            "type": "integer"
+          },
+          "storageUsageInBytesSetAt": {
+            "format": "date-time",
+            "type": "string"
+          },
           "updatedAt": {
             "format": "date-time",
             "type": "string"
@@ -3114,7 +3122,9 @@
           "characterSettings",
           "hostname",
           "isShared",
-          "isReady"
+          "isReady",
+          "storageUsageInBytes",
+          "storageUsageInBytesSetAt"
         ],
         "type": "object"
       },
@@ -3264,6 +3274,8 @@
           "name": "redis_xxxxxx",
           "port": 6379,
           "projectId": "9f2bddf1-dea6-4441-b4fe-a22ff39caff8",
+          "storageUsageInBytes": 10485760,
+          "storageUsageInBytesSetAt": "2024-03-05T9:26:32.000Z",
           "updatedAt": "2023-03-29T15:50:10.000Z",
           "version": "7.0"
         },
@@ -3303,6 +3315,13 @@
             "format": "uuid",
             "type": "string"
           },
+          "storageUsageInBytes": {
+            "type": "integer"
+          },
+          "storageUsageInBytesSetAt": {
+            "format": "date-time",
+            "type": "string"
+          },
           "updatedAt": {
             "format": "date-time",
             "type": "string"
@@ -3320,7 +3339,9 @@
           "description",
           "createdAt",
           "updatedAt",
-          "name"
+          "name",
+          "storageUsageInBytes",
+          "storageUsageInBytesSetAt"
         ],
         "type": "object"
       },
@@ -4439,7 +4460,8 @@
         "properties": {
           "container": {
             "properties": {
-              "name": {
+              "id": {
+                "format": "uuid",
                 "type": "string"
               },
               "portProtocol": {
@@ -4449,7 +4471,7 @@
               }
             },
             "required": [
-              "name",
+              "id",
               "portProtocol"
             ],
             "type": "object"
@@ -34044,6 +34066,9 @@
               }
             },
             "description": "Some of the specified values does not meet our requirements.\nPossible domain specific `type` values are:\n    * EmailInUse\n    * PasswordIsLeaked\n    * ValidationError\n    * PasswordEqualsEmail\n"
+          },
+          "403": {
+            "$ref": "#/components/responses/commons.RateLimitError"
           },
           "default": {
             "$ref": "#/components/responses/commons.DefaultError"
