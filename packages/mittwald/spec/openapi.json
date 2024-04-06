@@ -84,6 +84,10 @@
     {
       "name": "Relocation",
       "description": "The relocation API allows you to manage your relocations."
+    },
+    {
+      "name": "Marketplace",
+      "description": "The marketplace API allows you to manage extensions and more information regaring the marketplace."
     }
   ],
   "components": {
@@ -20891,7 +20895,9 @@
           }
         ],
         "summary": "Authenticate your external application using the extensionInstanceSecret.",
-        "tags": []
+        "tags": [
+          "Marketplace"
+        ]
       }
     },
     "/v2/extension-instances/{extensionInstanceId}/scopes": {
@@ -20951,7 +20957,9 @@
           }
         ],
         "summary": "Consent to extension scopes.",
-        "tags": []
+        "tags": [
+          "Marketplace"
+        ]
       }
     },
     "/v2/extension-instances": {
@@ -21024,7 +21032,9 @@
           }
         ],
         "summary": "Create an ExtensionInstance.",
-        "tags": []
+        "tags": [
+          "Marketplace"
+        ]
       },
       "get": {
         "operationId": "extension-list-extension-instances",
@@ -21099,7 +21109,9 @@
           }
         ],
         "summary": "List ExtensionInstances.",
-        "tags": []
+        "tags": [
+          "Marketplace"
+        ]
       }
     },
     "/v2/extension-instances/{extensionInstanceId}": {
@@ -21138,7 +21150,9 @@
           }
         ],
         "summary": "Delete an ExtensionInstance.",
-        "tags": []
+        "tags": [
+          "Marketplace"
+        ]
       },
       "get": {
         "operationId": "extension-get-extension-instance",
@@ -21177,7 +21191,9 @@
           }
         ],
         "summary": "Get an ExtensionInstance.",
-        "tags": []
+        "tags": [
+          "Marketplace"
+        ]
       }
     },
     "/v2/extension-instances/{extensionInstanceId}/actions/disable": {
@@ -21216,7 +21232,9 @@
           }
         ],
         "summary": "Disable an ExtensionInstance.",
-        "tags": []
+        "tags": [
+          "Marketplace"
+        ]
       }
     },
     "/v2/extension-instances/{extensionInstanceId}/actions/enable": {
@@ -21255,7 +21273,9 @@
           }
         ],
         "summary": "Enable an ExtensionInstance.",
-        "tags": []
+        "tags": [
+          "Marketplace"
+        ]
       }
     },
     "/v2/contributors/{contributorId}": {
@@ -21296,7 +21316,9 @@
           }
         ],
         "summary": "Get a Contributor.",
-        "tags": []
+        "tags": [
+          "Marketplace"
+        ]
       }
     },
     "/v2/extensions/{extensionId}": {
@@ -21334,7 +21356,9 @@
           }
         ],
         "summary": "Get an Extension.",
-        "tags": []
+        "tags": [
+          "Marketplace"
+        ]
       }
     },
     "/v2/webhook-public-keys/{serial}": {
@@ -21376,7 +21400,9 @@
           }
         ],
         "summary": "Get the public key to verify the webhook signature.",
-        "tags": []
+        "tags": [
+          "Marketplace"
+        ]
       }
     },
     "/v2/contributors": {
@@ -21435,7 +21461,9 @@
           }
         ],
         "summary": "List Contributors.",
-        "tags": []
+        "tags": [
+          "Marketplace"
+        ]
       }
     },
     "/v2/extensions": {
@@ -21502,7 +21530,9 @@
           }
         ],
         "summary": "List Extensions.",
-        "tags": []
+        "tags": [
+          "Marketplace"
+        ]
       }
     },
     "/v2/files": {
@@ -26598,6 +26628,20 @@
           "400": {
             "$ref": "#/components/responses/commons.ValidationError"
           },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
           "default": {
             "$ref": "#/components/responses/commons.DefaultError"
           }
@@ -26674,6 +26718,20 @@
           },
           "400": {
             "$ref": "#/components/responses/commons.ValidationError"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Unprocessable Content"
           },
           "default": {
             "$ref": "#/components/responses/commons.DefaultError"
