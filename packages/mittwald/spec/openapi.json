@@ -3947,6 +3947,9 @@
       },
       "domain.TopLevel": {
         "properties": {
+          "irtp": {
+            "type": "boolean"
+          },
           "rgpDays": {
             "minimum": 0,
             "type": "integer"
@@ -3957,7 +3960,8 @@
         },
         "required": [
           "tld",
-          "rgpDays"
+          "rgpDays",
+          "irtp"
         ],
         "type": "object"
       },
