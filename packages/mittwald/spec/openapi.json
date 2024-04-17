@@ -880,6 +880,10 @@
       "app.SystemSoftwareVersion": {
         "description": "A SystemSoftwareVersion is an officially  supported version of a SystemSoftware, containing the necessary and recommended configuration und dependencies.",
         "properties": {
+          "expiryDate": {
+            "format": "date-time",
+            "type": "string"
+          },
           "externalVersion": {
             "type": "string"
           },
@@ -2041,16 +2045,11 @@
         "enum": [
           "development",
           "mail",
-          "infra",
-          "marketing",
-          "network",
-          "dataCenter",
           "accounting",
           "customerService",
           "cloudHosting",
           "software",
-          "generic",
-          "security"
+          "generic"
         ],
         "type": "string"
       },
@@ -5631,9 +5630,6 @@
           "name": {
             "type": "string"
           },
-          "passwordHash": {
-            "type": "string"
-          },
           "quotaInBytes": {
             "type": "integer"
           },
@@ -5643,7 +5639,6 @@
         },
         "required": [
           "name",
-          "passwordHash",
           "quotaInBytes",
           "mailsystem"
         ],
@@ -5697,6 +5692,9 @@
       },
       "mailmigration.MigrationFinalizeJob": {
         "properties": {
+          "disableLegacyEntities": {
+            "$ref": "#/components/schemas/mailmigration.MigrationFinalizeJobDisableLegacyEntities"
+          },
           "projectSettingMigrations": {
             "$ref": "#/components/schemas/mailmigration.MigrationFinalizeJobProjectSetting"
           }
@@ -5868,6 +5866,9 @@
       },
       "mailmigration.MigrationMailbox": {
         "properties": {
+          "description": {
+            "type": "string"
+          },
           "finished": {
             "type": "boolean"
           },
@@ -6095,9 +6096,7 @@
         "required": [
           "active",
           "folder",
-          "keepDays",
-          "relocateSensitivity",
-          "deleteSensitivity"
+          "keepDays"
         ],
         "type": "object"
       },
@@ -8113,6 +8112,27 @@
           "device",
           "created",
           "tokenId"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrationFinalizeJobDisableLegacyEntities": {
+        "properties": {
+          "addresses": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "mailboxNames": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "mailboxNames",
+          "addresses"
         ],
         "type": "object"
       },
