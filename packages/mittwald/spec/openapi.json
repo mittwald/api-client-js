@@ -3099,6 +3099,13 @@
             "format": "uuid",
             "type": "string"
           },
+          "status": {
+            "$ref": "#/components/schemas/database.DatabaseStatus"
+          },
+          "statusSetAt": {
+            "format": "date-time",
+            "type": "string"
+          },
           "storageUsageInBytes": {
             "type": "integer"
           },
@@ -3127,7 +3134,9 @@
           "isShared",
           "isReady",
           "storageUsageInBytes",
-          "storageUsageInBytesSetAt"
+          "storageUsageInBytesSetAt",
+          "status",
+          "statusSetAt"
         ],
         "type": "object"
       },
@@ -3277,6 +3286,8 @@
           "name": "redis_xxxxxx",
           "port": 6379,
           "projectId": "9f2bddf1-dea6-4441-b4fe-a22ff39caff8",
+          "status": "error",
+          "statusSetAt": "2024-03-05T9:26:32.000Z",
           "storageUsageInBytes": 10485760,
           "storageUsageInBytesSetAt": "2024-03-05T9:26:32.000Z",
           "updatedAt": "2023-03-29T15:50:10.000Z",
@@ -3318,6 +3329,13 @@
             "format": "uuid",
             "type": "string"
           },
+          "status": {
+            "$ref": "#/components/schemas/database.DatabaseStatus"
+          },
+          "statusSetAt": {
+            "format": "date-time",
+            "type": "string"
+          },
           "storageUsageInBytes": {
             "type": "integer"
           },
@@ -3344,7 +3362,9 @@
           "updatedAt",
           "name",
           "storageUsageInBytes",
-          "storageUsageInBytesSetAt"
+          "storageUsageInBytesSetAt",
+          "status",
+          "statusSetAt"
         ],
         "type": "object"
       },
@@ -8135,6 +8155,16 @@
           "addresses"
         ],
         "type": "object"
+      },
+      "database.DatabaseStatus": {
+        "enum": [
+          "pending",
+          "ready",
+          "migrating",
+          "importing",
+          "error"
+        ],
+        "type": "string"
       },
       "commons.Address": {
         "type": "object",
