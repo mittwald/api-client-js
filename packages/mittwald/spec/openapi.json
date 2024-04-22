@@ -880,6 +880,10 @@
       "app.SystemSoftwareVersion": {
         "description": "A SystemSoftwareVersion is an officially  supported version of a SystemSoftware, containing the necessary and recommended configuration und dependencies.",
         "properties": {
+          "expiryDate": {
+            "format": "date-time",
+            "type": "string"
+          },
           "externalVersion": {
             "type": "string"
           },
@@ -2041,16 +2045,11 @@
         "enum": [
           "development",
           "mail",
-          "infra",
-          "marketing",
-          "network",
-          "dataCenter",
           "accounting",
           "customerService",
           "cloudHosting",
           "software",
-          "generic",
-          "security"
+          "generic"
         ],
         "type": "string"
       },
@@ -3100,6 +3099,13 @@
             "format": "uuid",
             "type": "string"
           },
+          "status": {
+            "$ref": "#/components/schemas/database.DatabaseStatus"
+          },
+          "statusSetAt": {
+            "format": "date-time",
+            "type": "string"
+          },
           "storageUsageInBytes": {
             "type": "integer"
           },
@@ -3128,7 +3134,9 @@
           "isShared",
           "isReady",
           "storageUsageInBytes",
-          "storageUsageInBytesSetAt"
+          "storageUsageInBytesSetAt",
+          "status",
+          "statusSetAt"
         ],
         "type": "object"
       },
@@ -3278,6 +3286,8 @@
           "name": "redis_xxxxxx",
           "port": 6379,
           "projectId": "9f2bddf1-dea6-4441-b4fe-a22ff39caff8",
+          "status": "error",
+          "statusSetAt": "2024-03-05T9:26:32.000Z",
           "storageUsageInBytes": 10485760,
           "storageUsageInBytesSetAt": "2024-03-05T9:26:32.000Z",
           "updatedAt": "2023-03-29T15:50:10.000Z",
@@ -3319,6 +3329,13 @@
             "format": "uuid",
             "type": "string"
           },
+          "status": {
+            "$ref": "#/components/schemas/database.DatabaseStatus"
+          },
+          "statusSetAt": {
+            "format": "date-time",
+            "type": "string"
+          },
           "storageUsageInBytes": {
             "type": "integer"
           },
@@ -3345,7 +3362,9 @@
           "updatedAt",
           "name",
           "storageUsageInBytes",
-          "storageUsageInBytesSetAt"
+          "storageUsageInBytesSetAt",
+          "status",
+          "statusSetAt"
         ],
         "type": "object"
       },
@@ -5631,9 +5650,6 @@
           "name": {
             "type": "string"
           },
-          "passwordHash": {
-            "type": "string"
-          },
           "quotaInBytes": {
             "type": "integer"
           },
@@ -5643,7 +5659,6 @@
         },
         "required": [
           "name",
-          "passwordHash",
           "quotaInBytes",
           "mailsystem"
         ],
@@ -5697,6 +5712,9 @@
       },
       "mailmigration.MigrationFinalizeJob": {
         "properties": {
+          "disableLegacyEntities": {
+            "$ref": "#/components/schemas/mailmigration.MigrationFinalizeJobDisableLegacyEntities"
+          },
           "projectSettingMigrations": {
             "$ref": "#/components/schemas/mailmigration.MigrationFinalizeJobProjectSetting"
           }
@@ -5868,6 +5886,9 @@
       },
       "mailmigration.MigrationMailbox": {
         "properties": {
+          "description": {
+            "type": "string"
+          },
           "finished": {
             "type": "boolean"
           },
@@ -6095,9 +6116,7 @@
         "required": [
           "active",
           "folder",
-          "keepDays",
-          "relocateSensitivity",
-          "deleteSensitivity"
+          "keepDays"
         ],
         "type": "object"
       },
@@ -8115,6 +8134,37 @@
           "tokenId"
         ],
         "type": "object"
+      },
+      "mailmigration.MigrationFinalizeJobDisableLegacyEntities": {
+        "properties": {
+          "addresses": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "mailboxNames": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "mailboxNames",
+          "addresses"
+        ],
+        "type": "object"
+      },
+      "database.DatabaseStatus": {
+        "enum": [
+          "pending",
+          "ready",
+          "migrating",
+          "importing",
+          "error"
+        ],
+        "type": "string"
       },
       "commons.Address": {
         "type": "object",
