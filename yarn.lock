@@ -1455,6 +1455,7 @@ __metadata:
     "@mittwald/react-use-promise": "npm:^2.3.12"
     "@types/jest": "npm:^29.5.12"
     "@types/react": "npm:^18.2.64"
+    "@types/semver-compare": "npm:^1"
     "@typescript-eslint/eslint-plugin": "npm:^7.1.1"
     "@typescript-eslint/parser": "npm:^7.1.1"
     another-deep-freeze: "npm:^1.0.0"
@@ -1467,6 +1468,7 @@ __metadata:
     prettier: "npm:^3.2.5"
     react: "npm:^18.2.0"
     rimraf: "npm:^5.0.5"
+    semver-compare: "npm:^1.0.0"
     ts-jest: "npm:^29.1.2"
     type-fest: "npm:^4.12.0"
     typescript: "npm:^5.4.2"
@@ -2625,6 +2627,13 @@ __metadata:
   version: 0.16.8
   resolution: "@types/scheduler@npm:0.16.8"
   checksum: 10/6c091b096daa490093bf30dd7947cd28e5b2cd612ec93448432b33f724b162587fed9309a0acc104d97b69b1d49a0f3fc755a62282054d62975d53d7fd13472d
+  languageName: node
+  linkType: hard
+
+"@types/semver-compare@npm:^1":
+  version: 1.0.3
+  resolution: "@types/semver-compare@npm:1.0.3"
+  checksum: 10/be6d31ee0de2132ae53d9c675c9774e11037240656e227f6551e7e404293c157a6cd6181c42cec7e85a8a00b3512f0c43e13dac7aaee4a94cbebf73e11e2b68c
   languageName: node
   linkType: hard
 
@@ -10158,6 +10167,13 @@ __metadata:
   version: 2.1.2
   resolution: "safer-buffer@npm:2.1.2"
   checksum: 10/7eaf7a0cf37cc27b42fb3ef6a9b1df6e93a1c6d98c6c6702b02fe262d5fcbd89db63320793b99b21cb5348097d0a53de81bd5f4e8b86e20cc9412e3f1cfb4e83
+  languageName: node
+  linkType: hard
+
+"semver-compare@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "semver-compare@npm:1.0.0"
+  checksum: 10/75f9c7a7786d1756f64b1429017746721e07bd7691bdad6368f7643885d3a98a27586777e9699456564f4844b407e9f186cc1d588a3f9c0be71310e517e942c3
   languageName: node
   linkType: hard
 
