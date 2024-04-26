@@ -1689,6 +1689,11 @@
             "format": "uuid",
             "type": "string"
           },
+          "invoiceStop": {
+            "description": "If this attribute is set, the contract item will currently only be invoiced until this date.",
+            "format": "date-time",
+            "type": "string"
+          },
           "invoicingPeriod": {
             "example": 1,
             "type": "number"
@@ -1748,7 +1753,6 @@
         },
         "required": [
           "itemId",
-          "orderDate",
           "isActivated",
           "contractPeriod",
           "articles",
