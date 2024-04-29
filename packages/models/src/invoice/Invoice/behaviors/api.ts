@@ -16,8 +16,9 @@ export const apiInvoiceBehaviors = (
     assertOneOfStatus(response, [403]);
   },
 
-  list: async (query) => {
+  list: async (customerId: string, query) => {
     const response = await client.invoice.invoiceListCustomerInvoices({
+      customerId,
       queryParameters: query,
     });
     assertStatus(response, 200);

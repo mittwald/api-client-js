@@ -1,4 +1,9 @@
-import { InvoiceListItemData, InvoiceData, InvoiceListQuery } from "./types.js";
+import {
+  InvoiceListItemData,
+  InvoiceData,
+  InvoiceListQuery,
+  InvoiceFileAccessTokenData,
+} from "./types.js";
 import { config } from "../../config/config.js";
 import { classes } from "polytype";
 import { DataModel } from "../../base/DataModel.js";
@@ -39,23 +44,25 @@ export class Invoice extends ReferenceModel {
 
   public static list = provideReact(
     async (
+      customerId: string,
       query: InvoiceListQuery = {},
     ): Promise<Readonly<Array<InvoiceListItemData>>> => {
-      const data = await config.behaviors.project.list(query);
+      const data = await config.behaviors.invoice.list(customerId, query);
       return Object.freeze(data.map((d) => new InvoiceListItem(d)));
     },
   );
 
-  public static async requestFileAccessToken(
-    invoiceId: string,
-    customerId: string,
-  ): Promise<string> {
-    const { token } = await config.behaviors.invoice.requestFileAccessToken(
-      invoiceId,
-      customerId,
-    );
-    return token;
-  }
+  public static requestFileAccessToken = provideReact(
+    async (
+      invoiceId: string,
+      customerId: string,
+    ): Promise<InvoiceFileAccessTokenData> => {
+      return await config.behaviors.invoice.requestFileAccessToken(
+        invoiceId,
+        customerId,
+      );
+    },
+  );
 }
 
 class InvoiceCommon extends classes(

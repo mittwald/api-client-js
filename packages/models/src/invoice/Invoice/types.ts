@@ -3,7 +3,7 @@ import { MittwaldAPIV2 } from "@mittwald/api-client";
 export type InvoiceListQuery =
   MittwaldAPIV2.Paths.InvoiceListCustomerInvoices.Get.Parameters.Query;
 
-export type InvoiceData = MittwaldAPIV2.Operations.invoiceDetail.ResponseData;
+export type InvoiceData = MittwaldAPIV2.Operations.InvoiceDetail.ResponseData;
 
 export type InvoiceListItemData =
   MittwaldAPIV2.Operations.InvoiceListCustomerInvoices.ResponseData[number];

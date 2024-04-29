@@ -7,7 +7,10 @@ import {
 
 export interface InvoiceBehaviors {
   find: (invoiceId: string) => Promise<InvoiceData | undefined>;
-  list: (query?: InvoiceListQuery) => Promise<InvoiceListItemData[]>;
+  list: (
+    customerId: string,
+    query?: InvoiceListQuery,
+  ) => Promise<InvoiceListItemData[]>;
 
   requestFileAccessToken: (
     invoiceId: string,
