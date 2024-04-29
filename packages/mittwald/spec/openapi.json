@@ -3019,16 +3019,6 @@
         ],
         "type": "object"
       },
-      "database.DatabaseStatus": {
-        "enum": [
-          "pending",
-          "ready",
-          "migrating",
-          "importing",
-          "error"
-        ],
-        "type": "string"
-      },
       "database.MySqlCharacterSettings": {
         "properties": {
           "collations": {
@@ -5735,27 +5725,6 @@
         },
         "type": "object"
       },
-      "mailmigration.MigrationFinalizeJobDisableLegacyEntities": {
-        "properties": {
-          "addresses": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "mailboxNames": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          }
-        },
-        "required": [
-          "mailboxNames",
-          "addresses"
-        ],
-        "type": "object"
-      },
       "mailmigration.MigrationFinalizeJobProjectSetting": {
         "properties": {
           "blacklistEntries": {
@@ -8169,6 +8138,37 @@
           "tokenId"
         ],
         "type": "object"
+      },
+      "mailmigration.MigrationFinalizeJobDisableLegacyEntities": {
+        "properties": {
+          "addresses": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "mailboxNames": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "mailboxNames",
+          "addresses"
+        ],
+        "type": "object"
+      },
+      "database.DatabaseStatus": {
+        "enum": [
+          "pending",
+          "ready",
+          "migrating",
+          "importing",
+          "error"
+        ],
+        "type": "string"
       },
       "commons.Address": {
         "type": "object",
