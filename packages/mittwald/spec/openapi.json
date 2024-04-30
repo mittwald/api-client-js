@@ -8170,6 +8170,19 @@
         ],
         "type": "string"
       },
+      "fee.OneTimePaymentFeeStrategy": {
+        "description": "A strategy for fees that occur once.",
+        "properties": {
+          "price": {
+            "description": "The one-time price in Euro Cents.",
+            "type": "number"
+          }
+        },
+        "required": [
+          "price"
+        ],
+        "type": "object"
+      },
       "commons.Address": {
         "type": "object",
         "properties": {
@@ -26289,6 +26302,107 @@
           }
         ],
         "summary": "Create an Order.",
+        "tags": [
+          "Contract"
+        ]
+      },
+      "get": {
+        "operationId": "order-list-orders",
+        "description": "The list of Orders the User has access to.",
+        "parameters": [
+          {
+            "example": 1000,
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "example": 0,
+            "in": "query",
+            "name": "skip",
+            "required": false,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "example": 1,
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "example": [],
+            "in": "query",
+            "name": "includesStatus",
+            "required": false,
+            "schema": {
+              "items": {
+                "$ref": "#/components/schemas/order.OrderStatus"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "example": [],
+            "in": "query",
+            "name": "excludesStatus",
+            "required": false,
+            "schema": {
+              "items": {
+                "$ref": "#/components/schemas/order.OrderStatus"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "example": [
+              "PS23-BASIC-0001"
+            ],
+            "in": "query",
+            "name": "templateNames",
+            "required": false,
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/order.CustomerOrder"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": ""
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "Get list of Orders.",
         "tags": [
           "Contract"
         ]
