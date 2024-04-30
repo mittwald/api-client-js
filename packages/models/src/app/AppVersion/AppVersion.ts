@@ -15,8 +15,15 @@ import assertObjectFound from "../../base/assertObjectFound.js";
 import semverCompare from "semver-compare";
 
 export class AppVersion extends ReferenceModel {
-  public static ofId(id: string): AppVersion {
-    return new AppVersion(id);
+  public readonly appId: string;
+
+  public constructor(id: string, appid: string) {
+    super(id);
+    this.appId = appid;
+  }
+
+  public static ofId(id: string, appId: string): AppVersion {
+    return new AppVersion(id, appId);
   }
 
   public static find = provideReact(
@@ -26,7 +33,7 @@ export class AppVersion extends ReferenceModel {
     ): Promise<AppVersionDetailed | undefined> => {
       const data = await config.behaviors.appVersion.find(id, appId);
       if (data !== undefined) {
-        return new AppVersionDetailed(data);
+        return new AppVersionDetailed(data, appId);
       }
     },
   );
@@ -40,7 +47,7 @@ export class AppVersion extends ReferenceModel {
   );
 
   public getDetailed = provideReact(() =>
-    AppVersion.get(this.id),
+    AppVersion.get(this.id, this.appId),
   ) as AsyncResourceVariant<AppVersionDetailed, []>;
 
   public static list = provideReact(
@@ -51,7 +58,7 @@ export class AppVersion extends ReferenceModel {
       const data = await config.behaviors.appVersion.list(appId, query);
       return Object.freeze(
         data
-          .map((d) => new AppVersionListItem(d))
+          .map((d) => new AppVersionListItem(d, appId))
           .sort((a, b) =>
             semverCompare(b.data.internalVersion, a.data.internalVersion),
           ),
@@ -60,12 +67,17 @@ export class AppVersion extends ReferenceModel {
   );
 }
 
+// ToDo use appId from data when new app specs are in prod
+
 class AppVersionCommon extends classes(
   DataModel<AppVersionData | AppVersionListItemData>,
   AppVersion,
 ) {
-  public constructor(data: AppVersionData | AppVersionListItemData) {
-    super([data], [data.id]);
+  public constructor(
+    data: AppVersionData | AppVersionListItemData,
+    appId: string,
+  ) {
+    super([data], [data.id, appId]);
   }
 }
 
@@ -73,8 +85,8 @@ export class AppVersionDetailed extends classes(
   AppVersionCommon,
   DataModel<AppVersionData>,
 ) {
-  public constructor(data: AppVersionData) {
-    super([data], [data]);
+  public constructor(data: AppVersionData, appId: string) {
+    super([data, appId], [data]);
   }
 }
 
@@ -82,7 +94,7 @@ export class AppVersionListItem extends classes(
   AppVersionCommon,
   DataModel<AppVersionListItemData>,
 ) {
-  public constructor(data: AppVersionListItemData) {
-    super([data], [data]);
+  public constructor(data: AppVersionListItemData, appId: string) {
+    super([data, appId], [data]);
   }
 }
