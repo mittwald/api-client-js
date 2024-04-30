@@ -1454,6 +1454,7 @@ __metadata:
     "@mittwald/api-client": "workspace:^"
     "@mittwald/react-use-promise": "npm:^2.3.12"
     "@types/jest": "npm:^29.5.12"
+    "@types/luxon": "npm:^3"
     "@types/react": "npm:^18.2.64"
     "@typescript-eslint/eslint-plugin": "npm:^7.1.1"
     "@typescript-eslint/parser": "npm:^7.1.1"
@@ -1463,6 +1464,7 @@ __metadata:
     eslint-plugin-json: "npm:^3.1.0"
     eslint-plugin-prettier: "npm:^5.1.3"
     jest: "npm:^29.7.0"
+    luxon: "npm:^3.4.4"
     polytype: "npm:^0.17.0"
     prettier: "npm:^3.2.5"
     react: "npm:^18.2.0"
@@ -2474,7 +2476,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/luxon@npm:3.4.2":
+"@types/luxon@npm:3.4.2, @types/luxon@npm:^3":
   version: 3.4.2
   resolution: "@types/luxon@npm:3.4.2"
   checksum: 10/fd89566e3026559f2bc4ddcc1e70a2c16161905ed50be9473ec0cfbbbe919165041408c4f6e06c4bcf095445535052e2c099087c76b1b38e368127e618fc968d
@@ -7620,7 +7622,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"luxon@npm:~3.4.4":
+"luxon@npm:^3.4.4, luxon@npm:~3.4.4":
   version: 3.4.4
   resolution: "luxon@npm:3.4.4"
   checksum: 10/c14164bc338987349075a08e63ea3ff902866735f7f5553a355b27be22667919765ff96fde4d3413d0e9a0edc4ff9e2e74ebcb8f86eae0ce8b14b27330d87d6e
