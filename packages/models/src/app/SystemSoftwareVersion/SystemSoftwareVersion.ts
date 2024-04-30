@@ -3,7 +3,6 @@ import { AsyncResourceVariant, provideReact } from "../../lib/provideReact.js";
 import { config } from "../../config/config.js";
 import {
   SystemSoftwareVersionData,
-  SystemSoftwareVersionFeePeriod,
   SystemSoftwareVersionListItemData,
   SystemSoftwareVersionListQuery,
 } from "./types.js";
@@ -11,11 +10,20 @@ import { DataModel } from "../../base/DataModel.js";
 import { classes } from "polytype";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import semverCompare from "semver-compare";
-import { DateTime } from "luxon";
 
 export class SystemSoftwareVersion extends ReferenceModel {
-  public static ofId(id: string): SystemSoftwareVersion {
-    return new SystemSoftwareVersion(id);
+  public readonly systemSoftwareId: string;
+
+  public constructor(id: string, systemSoftwareId: string) {
+    super(id);
+    this.systemSoftwareId = systemSoftwareId;
+  }
+
+  public static ofId(
+    id: string,
+    systemSoftwareId: string,
+  ): SystemSoftwareVersion {
+    return new SystemSoftwareVersion(id, systemSoftwareId);
   }
 
   public static find = provideReact(
@@ -29,7 +37,7 @@ export class SystemSoftwareVersion extends ReferenceModel {
       );
 
       if (data !== undefined) {
-        return new SystemSoftwareVersionDetailed(data);
+        return new SystemSoftwareVersionDetailed(data, systemSoftwareId);
       }
     },
   );
@@ -48,7 +56,7 @@ export class SystemSoftwareVersion extends ReferenceModel {
   );
 
   public getDetailed = provideReact(() =>
-    SystemSoftwareVersion.get(this.id),
+    SystemSoftwareVersion.get(this.id, this.systemSoftwareId),
   ) as AsyncResourceVariant<SystemSoftwareVersionDetailed, []>;
 
   public static list = provideReact(
@@ -63,7 +71,7 @@ export class SystemSoftwareVersion extends ReferenceModel {
 
       return Object.freeze(
         data
-          .map((d) => new SystemSoftwareVersionListItem(d))
+          .map((d) => new SystemSoftwareVersionListItem(d, systemSoftwareId))
           .sort((a, b) =>
             semverCompare(b.data.internalVersion, a.data.internalVersion),
           ),
@@ -78,10 +86,14 @@ class SystemSoftwareVersionCommon extends classes(
 ) {
   public constructor(
     data: SystemSoftwareVersionData | SystemSoftwareVersionListItemData,
+    systemSoftwareId: string,
   ) {
-    super([data], [data.id]);
+    super([data], [data.id, systemSoftwareId]);
   }
 
+  // ToDo: activate when new App specs are available in prod
+
+  /*
   public currentFee(): SystemSoftwareVersionFeePeriod | undefined {
     const fee = this.data.fee;
     const now = DateTime.now().toString();
@@ -120,14 +132,18 @@ class SystemSoftwareVersionCommon extends classes(
       return expiryDate;
     }
   }
+  */
 }
 
 export class SystemSoftwareVersionDetailed extends classes(
   SystemSoftwareVersionCommon,
   DataModel<SystemSoftwareVersionData>,
 ) {
-  public constructor(data: SystemSoftwareVersionData) {
-    super([data], [data]);
+  public constructor(
+    data: SystemSoftwareVersionData,
+    systemSoftwareId: string,
+  ) {
+    super([data, systemSoftwareId], [data]);
   }
 }
 
@@ -135,7 +151,10 @@ export class SystemSoftwareVersionListItem extends classes(
   SystemSoftwareVersionCommon,
   DataModel<SystemSoftwareVersionListItemData>,
 ) {
-  public constructor(data: SystemSoftwareVersionListItemData) {
-    super([data], [data]);
+  public constructor(
+    data: SystemSoftwareVersionListItemData,
+    systemSoftwareId: string,
+  ) {
+    super([data, systemSoftwareId], [data]);
   }
 }
