@@ -96,37 +96,40 @@ class SystemSoftwareVersionCommon extends classes(
   /*
   public currentFee(): SystemSoftwareVersionFeePeriod | undefined {
     const fee = this.data.fee;
-    const now = DateTime.now().toString();
+    const now = DateTime.now();
 
     if (!fee || !("periods" in fee)) {
       return undefined;
     }
 
-    return fee.periods.find(
-      (period) =>
-        period.feeValidFrom <= now &&
-        (!period.feeValidUntil || period.feeValidUntil > now),
-    );
+    return fee.periods.find((period) => {
+      const validFrom = DateTime.fromISO(period.feeValidFrom);
+      const validUntil =
+        period.feeValidUntil && DateTime.fromISO(period.feeValidUntil);
+
+      return validFrom <= now && (!validUntil || validUntil > now);
+    });
   }
 
   public imminentFee(): SystemSoftwareVersionFeePeriod | undefined {
     const fee = this.data.fee;
-    const now = DateTime.now().toString();
-    const sixMonthsFromNow = DateTime.now().plus({ month: 6 }).toString();
+    const now = DateTime.now();
+    const sixMonthsFromNow = DateTime.now().plus({ month: 6 });
 
     if (!fee || !("periods" in fee) || this.currentFee()) {
       return undefined;
     }
 
-    return fee.periods.find(
-      (period) =>
-        period.feeValidFrom > now && period.feeValidFrom < sixMonthsFromNow,
-    );
+    return fee.periods.find((period) => {
+      const validFrom = DateTime.fromISO(period.feeValidFrom);
+      return validFrom > now && validFrom < sixMonthsFromNow;
+    });
   }
 
   public imminentExpiryDate(): string | undefined {
-    const expiryDate = this.data.expiryDate;
-    const sixMonthsFromNow = DateTime.now().plus({ month: 6 }).toString();
+    const expiryDate =
+      this.data.expiryDate && DateTime.fromISO(this.data.expiryDate);
+    const sixMonthsFromNow = DateTime.now().plus({ month: 6 });
 
     if (expiryDate && expiryDate < sixMonthsFromNow) {
       return expiryDate;
