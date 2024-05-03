@@ -1,5 +1,8 @@
 import { ReferenceModel } from "../../base/ReferenceModel.js";
-import { provideReact } from "../../lib/provideReact.js";
+import {
+  type AsyncResourceVariant,
+  provideReact,
+} from "../../lib/provideReact.js";
 import { config } from "../../config/config.js";
 import { DataModel } from "../../base/DataModel.js";
 import { classes } from "polytype";
@@ -36,6 +39,10 @@ export class SshKey extends ReferenceModel {
       return sshKey;
     },
   );
+
+  public getDetailed = provideReact(() =>
+    SshKey.get(this.id),
+  ) as AsyncResourceVariant<SshKeyDetailed, []>;
 
   public static list = provideReact(
     async (): Promise<Readonly<Array<SshKeyListItem>>> => {
