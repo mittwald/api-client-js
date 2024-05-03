@@ -1,5 +1,8 @@
 import { ReferenceModel } from "../../base/ReferenceModel.js";
-import { provideReact } from "../../lib/provideReact.js";
+import {
+  type AsyncResourceVariant,
+  provideReact,
+} from "../../lib/provideReact.js";
 import { config } from "../../config/config.js";
 import { classes } from "polytype";
 import { DataModel } from "../../base/DataModel.js";
@@ -36,6 +39,10 @@ export class ApiToken extends ReferenceModel {
       return apiToken;
     },
   );
+
+  public getDetailed = provideReact(() =>
+    ApiToken.get(this.id),
+  ) as AsyncResourceVariant<ApiTokenDetailed, []>;
 
   public static list = provideReact(
     async (): Promise<Readonly<Array<ApiTokenListItem>>> => {
