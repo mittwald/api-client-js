@@ -215,6 +215,8 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     invoiceListCustomerInvoices: this.requestFunctionFactory(
       descriptors.invoiceListCustomerInvoices,
     ),
+    /** Get list of Orders. */
+    orderListOrders: this.requestFunctionFactory(descriptors.orderListOrders),
     /** Create an Order. */
     orderCreateOrder: this.requestFunctionFactory(descriptors.orderCreateOrder),
     /** Create TariffChange Order. */
@@ -605,6 +607,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** List Domains */
     listDomains: this.requestFunctionFactory(descriptors.domainListDomains),
+    /** Check if a Domain is available to transfer. */
+    checkDomainTransferability: this.requestFunctionFactory(
+      descriptors.domainCheckDomainTransferability,
+    ),
     /** Create an auth code for a Domains transfer-out process. */
     createDomainAuthCode: this.requestFunctionFactory(
       descriptors.domainCreateDomainAuthCode,
@@ -675,9 +681,61 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ingressUpdateIngressTls: this.requestFunctionFactory(
       descriptors.ingressUpdateIngressTls,
     ),
-    /** Check if a Domain is available to transfer. */
-    checkDomainTransferability: this.requestFunctionFactory(
-      descriptors.domainCheckDomainTransferability,
+  };
+
+  /** The marketplace API allows you to manage extensions and more information regaring the marketplace. */
+  public readonly marketplace = {
+    /** Authenticate your external application using the extensionInstanceSecret. */
+    extensionAuthenticateInstance: this.requestFunctionFactory(
+      descriptors.extensionAuthenticateInstance,
+    ),
+    /** Consent to extension scopes. */
+    extensionConsentToExtensionScopes: this.requestFunctionFactory(
+      descriptors.extensionConsentToExtensionScopes,
+    ),
+    /** List ExtensionInstances. */
+    extensionListExtensionInstances: this.requestFunctionFactory(
+      descriptors.extensionListExtensionInstances,
+    ),
+    /** Create an ExtensionInstance. */
+    extensionCreateExtensionInstance: this.requestFunctionFactory(
+      descriptors.extensionCreateExtensionInstance,
+    ),
+    /** Get an ExtensionInstance. */
+    extensionGetExtensionInstance: this.requestFunctionFactory(
+      descriptors.extensionGetExtensionInstance,
+    ),
+    /** Delete an ExtensionInstance. */
+    extensionDeleteExtensionInstance: this.requestFunctionFactory(
+      descriptors.extensionDeleteExtensionInstance,
+    ),
+    /** Disable an ExtensionInstance. */
+    extensionDisableExtensionInstance: this.requestFunctionFactory(
+      descriptors.extensionDisableExtensionInstance,
+    ),
+    /** Enable an ExtensionInstance. */
+    extensionEnableExtensionInstance: this.requestFunctionFactory(
+      descriptors.extensionEnableExtensionInstance,
+    ),
+    /** Get a Contributor. */
+    extensionGetContributor: this.requestFunctionFactory(
+      descriptors.extensionGetContributor,
+    ),
+    /** Get an Extension. */
+    extensionGetExtension: this.requestFunctionFactory(
+      descriptors.extensionGetExtension,
+    ),
+    /** Get the public key to verify the webhook signature. */
+    extensionGetPublicKey: this.requestFunctionFactory(
+      descriptors.extensionGetPublicKey,
+    ),
+    /** List Contributors. */
+    extensionListContributors: this.requestFunctionFactory(
+      descriptors.extensionListContributors,
+    ),
+    /** List Extensions. */
+    extensionListExtensions: this.requestFunctionFactory(
+      descriptors.extensionListExtensions,
     ),
   };
 
@@ -697,6 +755,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get a File. */
     getFile: this.requestFunctionFactory(descriptors.fileGetFile),
+    /** Get a File. */
+    getFileWithName: this.requestFunctionFactory(
+      descriptors.fileGetFileWithName,
+    ),
   };
 
   /** The mail API allows you to manage your mail accounts. */
