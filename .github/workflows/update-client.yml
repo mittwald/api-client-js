@@ -41,6 +41,7 @@ jobs:
         run: |
           yarn nx run @mittwald/api-client:build:fetch-openapi
           if [ $(git status --porcelain . | wc -l) -gt 0 ] ; then
+            yarn nx run @mittwald/api-client:build:client
             git add .
             yarn test
             git commit -m "feat: update generated client";            
