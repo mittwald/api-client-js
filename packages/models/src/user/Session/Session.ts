@@ -1,5 +1,8 @@
 import { ReferenceModel } from "../../base/ReferenceModel.js";
-import { provideReact } from "../../lib/provideReact.js";
+import {
+  type AsyncResourceVariant,
+  provideReact,
+} from "../../lib/provideReact.js";
 import { config } from "../../config/config.js";
 import { classes } from "polytype";
 import { DataModel } from "../../base/DataModel.js";
@@ -30,6 +33,10 @@ export class Session extends ReferenceModel {
       return session;
     },
   );
+
+  public getDetailed = provideReact(() =>
+    Session.get(this.id),
+  ) as AsyncResourceVariant<SessionDetailed, []>;
 
   public static list = provideReact(
     async (): Promise<Readonly<Array<SessionListItem>>> => {
