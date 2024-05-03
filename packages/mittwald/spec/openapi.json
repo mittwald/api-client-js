@@ -3019,16 +3019,6 @@
         ],
         "type": "object"
       },
-      "database.DatabaseStatus": {
-        "enum": [
-          "pending",
-          "ready",
-          "migrating",
-          "importing",
-          "error"
-        ],
-        "type": "string"
-      },
       "database.MySqlCharacterSettings": {
         "properties": {
           "collations": {
@@ -5735,27 +5725,6 @@
         },
         "type": "object"
       },
-      "mailmigration.MigrationFinalizeJobDisableLegacyEntities": {
-        "properties": {
-          "addresses": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "mailboxNames": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          }
-        },
-        "required": [
-          "mailboxNames",
-          "addresses"
-        ],
-        "type": "object"
-      },
       "mailmigration.MigrationFinalizeJobProjectSetting": {
         "properties": {
           "blacklistEntries": {
@@ -8167,6 +8136,50 @@
           "device",
           "created",
           "tokenId"
+        ],
+        "type": "object"
+      },
+      "mailmigration.MigrationFinalizeJobDisableLegacyEntities": {
+        "properties": {
+          "addresses": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "mailboxNames": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "mailboxNames",
+          "addresses"
+        ],
+        "type": "object"
+      },
+      "database.DatabaseStatus": {
+        "enum": [
+          "pending",
+          "ready",
+          "migrating",
+          "importing",
+          "error"
+        ],
+        "type": "string"
+      },
+      "fee.OneTimePaymentFeeStrategy": {
+        "description": "A strategy for fees that occur once.",
+        "properties": {
+          "price": {
+            "description": "The one-time price in Euro Cents.",
+            "type": "number"
+          }
+        },
+        "required": [
+          "price"
         ],
         "type": "object"
       },

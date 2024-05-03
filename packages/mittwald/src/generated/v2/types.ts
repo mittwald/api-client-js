@@ -3986,13 +3986,6 @@ export declare module MittwaldAPIV2 {
         password: string;
       }
 
-      export type DatabaseDatabaseStatus =
-        | "pending"
-        | "ready"
-        | "migrating"
-        | "importing"
-        | "error";
-
       export interface DatabaseMySqlCharacterSettings {
         collations: string[];
         name: string;
@@ -4807,11 +4800,6 @@ export declare module MittwaldAPIV2 {
       export interface MailmigrationMigrationFinalizeJob {
         disableLegacyEntities?: MittwaldAPIV2.Components.Schemas.MailmigrationMigrationFinalizeJobDisableLegacyEntities;
         projectSettingMigrations?: MittwaldAPIV2.Components.Schemas.MailmigrationMigrationFinalizeJobProjectSetting;
-      }
-
-      export interface MailmigrationMigrationFinalizeJobDisableLegacyEntities {
-        addresses: string[];
-        mailboxNames: string[];
       }
 
       export interface MailmigrationMigrationFinalizeJobProjectSetting {
@@ -5673,6 +5661,28 @@ export declare module MittwaldAPIV2 {
         lastAccess?: string;
         location?: MittwaldAPIV2.Components.Schemas.SignupLocation;
         tokenId: string;
+      }
+
+      export interface MailmigrationMigrationFinalizeJobDisableLegacyEntities {
+        addresses: string[];
+        mailboxNames: string[];
+      }
+
+      export type DatabaseDatabaseStatus =
+        | "pending"
+        | "ready"
+        | "migrating"
+        | "importing"
+        | "error";
+
+      /**
+       * A strategy for fees that occur once.
+       */
+      export interface FeeOneTimePaymentFeeStrategy {
+        /**
+         * The one-time price in Euro Cents.
+         */
+        price: number;
       }
 
       export interface CommonsAddress {
