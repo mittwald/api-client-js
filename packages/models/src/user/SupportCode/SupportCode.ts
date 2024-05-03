@@ -1,5 +1,8 @@
 import { ReferenceModel } from "../../base/ReferenceModel.js";
-import { provideReact } from "../../lib/provideReact.js";
+import {
+  type AsyncResourceVariant,
+  provideReact,
+} from "../../lib/provideReact.js";
 import { config } from "../../config/config.js";
 import { DataModel } from "../../base/DataModel.js";
 import { classes } from "polytype";
@@ -15,6 +18,10 @@ export class SupportCode extends ReferenceModel {
 
     return new SupportCodeDetailed(data);
   });
+
+  public getDetailed = provideReact(() =>
+    SupportCode.get(),
+  ) as AsyncResourceVariant<SupportCodeDetailed, []>;
 }
 
 class SupportCodeCommon extends classes(
