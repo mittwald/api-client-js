@@ -22302,7 +22302,7 @@
               "application/json": {
                 "schema": {
                   "items": {
-                    "$ref": "#/components/schemas/ingress.Ingress"
+                    "$ref": "#/components/schemas/ingress.IngressDeprecated"
                   },
                   "type": "array"
                 }

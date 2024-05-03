@@ -3,6 +3,70 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.16.0](https://github.com/mittwald/api-client-js/compare/4.15.0...4.16.0) (2024-05-02)
+
+### Features
+
+- update generated client
+  ([5a257df](https://github.com/mittwald/api-client-js/commit/5a257dfcabf0244e4e41bc62cc3869030d54f563))
+- update generated client
+  ([d8c523f](https://github.com/mittwald/api-client-js/commit/d8c523f5c32fd6a1d0ef45c9d24bf3bbd0b2901f))
+- update generated client
+  ([dea726e](https://github.com/mittwald/api-client-js/commit/dea726ed874a976dbcd981b7213eeeb831276664))
+- update generated client
+  ([ca808a6](https://github.com/mittwald/api-client-js/commit/ca808a6deb6b6524a26d306788a25b0e8458afc2))
+- update generated client
+  ([af74219](https://github.com/mittwald/api-client-js/commit/af74219dbe0a0e11ce86ab43ef9734d2154aafba))
+- update generated client
+  ([62adabc](https://github.com/mittwald/api-client-js/commit/62adabc2d3bf1a8380a9e109eaea8713c0beb4d4))
+- update generated client
+  ([31b8a62](https://github.com/mittwald/api-client-js/commit/31b8a627346cd8dcd29e334100a06ae2d7e82c51))
+- update generated client
+  ([fea6d04](https://github.com/mittwald/api-client-js/commit/fea6d04a9da7c1178d993ffd79c56d19255e0cdf))
+- update generated client
+  ([4b7978a](https://github.com/mittwald/api-client-js/commit/4b7978ae7ccfc34c4bd7105cde262f555b830185))
+- update generated client
+  ([2baab25](https://github.com/mittwald/api-client-js/commit/2baab256bca8c98435204f3b01b38e91caa44da6))
+- update generated client
+  ([dc3a3a8](https://github.com/mittwald/api-client-js/commit/dc3a3a87d5af8e3846874dca4d17a86eb3e907ac))
+- update generated client
+  ([a10361a](https://github.com/mittwald/api-client-js/commit/a10361adb3322339ddcfad351bdf0712db409f49))
+- update generated client
+  ([2501966](https://github.com/mittwald/api-client-js/commit/2501966b7fc1823931ad31077658b8805f24a9ab))
+- update generated client
+  ([a9ce270](https://github.com/mittwald/api-client-js/commit/a9ce2709c0b7c7f929768faf6e8cf728bdf10524))
+- update generated client
+  ([0d3a088](https://github.com/mittwald/api-client-js/commit/0d3a088c0c3f9f09a813082a6a03b96133b98610))
+- update generated client
+  ([6015737](https://github.com/mittwald/api-client-js/commit/601573708c8acd1c50a6db196d0c145f907cafc6))
+- update generated client
+  ([1a539cb](https://github.com/mittwald/api-client-js/commit/1a539cb3e18f46c96b1420c94154b9914e6b5173))
+- update generated client
+  ([91ad460](https://github.com/mittwald/api-client-js/commit/91ad460c779606fcfa41d141f9fbccba9771275e))
+- update generated client
+  ([de83cfc](https://github.com/mittwald/api-client-js/commit/de83cfcfe9ae9924098e8c073a530807dbd9e15b))
+- update generated client
+  ([63e00ce](https://github.com/mittwald/api-client-js/commit/63e00ce9dc0938108237ce10a80799759651b3a3))
+- update generated client
+  ([3b21b4a](https://github.com/mittwald/api-client-js/commit/3b21b4a656f99fb766c7d7d25ee7ed115df82c3b))
+- update generated client
+  ([53c929b](https://github.com/mittwald/api-client-js/commit/53c929b2640530f5b5dbf8513fb3dc72b14d943f))
+- update generated client
+  ([8040552](https://github.com/mittwald/api-client-js/commit/80405524d53335bc50ad4b8aa64d9442716e1409))
+- update generated client
+  ([9bdaa72](https://github.com/mittwald/api-client-js/commit/9bdaa720270d57aaf19d5aadc37ec52df9ae5bda))
+- update generated client
+  ([32d83eb](https://github.com/mittwald/api-client-js/commit/32d83eb3c1b5dd68d8688783cdd264d39ee84982))
+- update generated client
+  ([cf6d382](https://github.com/mittwald/api-client-js/commit/cf6d38224a5a2022b366c594ae724181bf69c647))
+- update generated client
+  ([afed2c3](https://github.com/mittwald/api-client-js/commit/afed2c3eb322016b5d80c2e7518b228e49a34418))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [4.15.0](https://github.com/mittwald/api-client-js/compare/4.14.2...4.15.0) (2024-03-20)
 
 ### Features
