@@ -1,10 +1,18 @@
 import {
-  assertStatus,
   assertOneOfStatus,
+  assertStatus,
   MittwaldAPIV2Client,
 } from "@mittwald/api-client";
 import { UserBehaviors } from "./types.js";
-import { UserAuthenticateRequestData } from "../types.js";
+import {
+  UserAuthenticateMfaRequestData,
+  UserAuthenticateRequestData,
+  UserConfirmPasswordResetRequestData,
+  UserDeleteRequestData,
+  UserRegisterRequestData,
+  UserResendVerificationEmailRequestData,
+  UserVerifyRegistrationRequestData,
+} from "../types.js";
 
 export const apiUserBehaviors = (
   client: MittwaldAPIV2Client,
@@ -18,6 +26,22 @@ export const apiUserBehaviors = (
     assertOneOfStatus(response, [403, 404]);
   },
 
+  getPasswordUpdatedAt: async () => {
+    const response = await client.user.getPasswordUpdatedAt({});
+
+    assertStatus(response, 200);
+
+    return response.data;
+  },
+
+  getMfaStatus: async () => {
+    const response = await client.user.getMfaStatus({});
+
+    assertStatus(response, 200);
+
+    return response.data;
+  },
+
   updatePersonalInformation: async (id, data) => {
     const response = await client.user.updatePersonalInformation({
       userId: id,
@@ -27,8 +51,17 @@ export const apiUserBehaviors = (
     assertStatus(response, 204);
   },
 
-  addPhoneNumber: async (id, data) => {
-    const response = await client.user.addPhoneNumber({ userId: id, data });
+  addPhoneNumber: async (id, phoneNumber) => {
+    const response = await client.user.addPhoneNumber({
+      userId: id,
+      data: { phoneNumber },
+    });
+
+    assertStatus(response, 204);
+  },
+
+  verifyPhoneNumber: async (id, data) => {
+    const response = await client.user.verifyPhoneNumber({ userId: id, data });
 
     assertStatus(response, 204);
   },
@@ -39,10 +72,14 @@ export const apiUserBehaviors = (
     assertStatus(response, 204);
   },
 
-  verifyPhoneNumber: async (id, data) => {
-    const response = await client.user.verifyPhoneNumber({ userId: id, data });
+  updateEmail: async (email) => {
+    const response = await client.user.changeEmail({ data: { email } });
 
-    // ToDo: 400 abfangen?
+    assertStatus(response, 204);
+  },
+
+  verifyEmail: async (data) => {
+    const response = await client.user.verifyEmail({ data });
 
     assertStatus(response, 204);
   },
@@ -52,11 +89,31 @@ export const apiUserBehaviors = (
 
     assertStatus(response, 200);
 
-    return { id: response.data.refId };
+    return response.data;
   },
 
   removeAvatar: async (id) => {
     const response = await client.user.removeAvatar({ userId: id });
+
+    assertStatus(response, 204);
+  },
+
+  updatePassword: async (data) => {
+    const response = await client.user.changePassword({ data });
+
+    assertStatus(response, 200);
+
+    return response.data;
+  },
+
+  resetPassword: async (email) => {
+    const response = await client.user.initPasswordReset({ data: { email } });
+
+    assertStatus(response, 201);
+  },
+
+  confirmPasswordReset: async (data: UserConfirmPasswordResetRequestData) => {
+    const response = await client.user.confirmPasswordReset({ data });
 
     assertStatus(response, 204);
   },
@@ -66,7 +123,83 @@ export const apiUserBehaviors = (
 
     assertOneOfStatus(response, [200, 202]);
 
-    // ToDo: 400/401 abfangen?
+    return response.data;
+  },
+
+  logout: async () => {
+    const response = await client.user.logout();
+
+    assertStatus(response, 204);
+  },
+
+  register: async (data: UserRegisterRequestData) => {
+    const response = await client.user.register({ data });
+
+    assertStatus(response, 201);
+
+    return { id: response.data.userId };
+  },
+
+  verifyRegistration: async (data: UserVerifyRegistrationRequestData) => {
+    const response = await client.user.verifyRegistration({ data });
+
+    assertStatus(response, 200);
+  },
+
+  resendVerificationEmail: async (
+    data: UserResendVerificationEmailRequestData,
+  ) => {
+    const response = await client.user.resendVerificationEmail({ data });
+
+    assertStatus(response, 204);
+  },
+
+  delete: async (data: UserDeleteRequestData) => {
+    const response = await client.user.deleteUser({ data });
+
+    assertOneOfStatus(response, [200, 202]);
+  },
+
+  authenticateMfa: async (data: UserAuthenticateMfaRequestData) => {
+    const response = await client.user.authenticateMfa({ data });
+
+    assertStatus(response, 200);
+
+    return response.data;
+  },
+
+  confirmMfa: async (multiFactorCode: string) => {
+    const response = await client.user.confirmMfa({
+      data: { multiFactorCode },
+    });
+
+    assertStatus(response, 200);
+
+    return response.data;
+  },
+
+  disableMfa: async (multiFactorCode: string) => {
+    const response = await client.user.disableMfa({
+      data: { multiFactorCode },
+    });
+
+    assertStatus(response, 204);
+  },
+
+  resetRecoveryCodes: async (multiFactorCode: string) => {
+    const response = await client.user.resetRecoverycodes({
+      data: { multiFactorCode },
+    });
+
+    assertStatus(response, 200);
+
+    return response.data;
+  },
+
+  createAccessTokenRetrievalKey: async () => {
+    const response = await client.user.createAccessTokenRetrievalKey();
+
+    assertStatus(response, 201);
 
     return response.data;
   },
