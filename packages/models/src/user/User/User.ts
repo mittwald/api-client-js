@@ -7,12 +7,24 @@ import { config } from "../../config/config.js";
 import { DataModel } from "../../base/DataModel.js";
 import { classes } from "polytype";
 import {
-  UserAddPhoneNumberRequestData,
+  UserAuthenticateMfaRequestData,
+  UserAuthenticateMfaResponseData,
   UserAuthenticateRequestData,
   UserAuthenticateResponseData,
+  UserConfirmPasswordResetRequestData,
+  UserCreateAccessTokenRetrievalKeyResponseData,
   UserData,
-  UserUpdatePersonalInformationData,
+  UserDeleteRequestData,
+  UserMfaStatusData,
+  UserRegisterRequestData,
+  UserRequestAvatarUploadResponseData,
+  UserResendVerificationEmailRequestData,
+  UserUpdatePasswordRequestData,
+  UserUpdatePasswordResponseData,
+  UserUpdatePersonalInformationRequestData,
+  UserVerifyEmailRequestData,
   UserVerifyPhoneNumberRequestData,
+  UserVerifyRegistrationRequestData,
 } from "./types.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 
@@ -49,20 +61,24 @@ export class User extends ReferenceModel {
     User.get(this.id),
   ) as AsyncResourceVariant<UserDetailed, []>;
 
+  public getPasswordUpdatedAt = provideReact(
+    async (): Promise<{ passwordUpdatedAt: string }> => {
+      return await config.behaviors.user.getPasswordUpdatedAt();
+    },
+  );
+
+  public getMfaStatus = provideReact(async (): Promise<UserMfaStatusData> => {
+    return await config.behaviors.user.getMfaStatus();
+  });
+
   public async updatePersonalInformation(
-    data: UserUpdatePersonalInformationData,
+    data: UserUpdatePersonalInformationRequestData,
   ): Promise<void> {
     await config.behaviors.user.updatePersonalInformation(this.id, data);
   }
 
-  public async addPhoneNumber(
-    data: UserAddPhoneNumberRequestData,
-  ): Promise<void> {
-    await config.behaviors.user.addPhoneNumber(this.id, data);
-  }
-
-  public async removePhoneNumber(): Promise<void> {
-    await config.behaviors.user.removePhoneNumber(this.id);
+  public async addPhoneNumber(phoneNumber: string): Promise<void> {
+    await config.behaviors.user.addPhoneNumber(this.id, phoneNumber);
   }
 
   public async verifyPhoneNumber(
@@ -71,7 +87,19 @@ export class User extends ReferenceModel {
     await config.behaviors.user.verifyPhoneNumber(this.id, data);
   }
 
-  public async requestAvatarUpload(): Promise<{ id: string }> {
+  public async removePhoneNumber(): Promise<void> {
+    await config.behaviors.user.removePhoneNumber(this.id);
+  }
+
+  public async updateEmail(email: string): Promise<void> {
+    await config.behaviors.user.updateEmail(email);
+  }
+
+  public async verifyEmail(data: UserVerifyEmailRequestData): Promise<void> {
+    await config.behaviors.user.verifyEmail(data);
+  }
+
+  public async requestAvatarUpload(): Promise<UserRequestAvatarUploadResponseData> {
     return await config.behaviors.user.requestAvatarUpload(this.id);
   }
 
@@ -79,10 +107,74 @@ export class User extends ReferenceModel {
     await config.behaviors.user.removeAvatar(this.id);
   }
 
+  public async updatePassword(
+    data: UserUpdatePasswordRequestData,
+  ): Promise<UserUpdatePasswordResponseData> {
+    return await config.behaviors.user.updatePassword(data);
+  }
+
+  public async resetPassword(email: string): Promise<void> {
+    await config.behaviors.user.resetPassword(email);
+  }
+
+  public async confirmPasswordReset(
+    data: UserConfirmPasswordResetRequestData,
+  ): Promise<void> {
+    await config.behaviors.user.confirmPasswordReset(data);
+  }
+
   public static async authenticate(
     data: UserAuthenticateRequestData,
   ): Promise<UserAuthenticateResponseData> {
     return await config.behaviors.user.authenticate(data);
+  }
+
+  public static async register(
+    data: UserRegisterRequestData,
+  ): Promise<{ id: string }> {
+    return await config.behaviors.user.register(data);
+  }
+
+  public static async verifyRegistration(
+    data: UserVerifyRegistrationRequestData,
+  ): Promise<void> {
+    return await config.behaviors.user.verifyRegistration(data);
+  }
+
+  public static async resendVerificationEmail(
+    data: UserResendVerificationEmailRequestData,
+  ): Promise<void> {
+    return await config.behaviors.user.resendVerificationEmail(data);
+  }
+
+  public static async delete(data: UserDeleteRequestData): Promise<void> {
+    await config.behaviors.user.delete(data);
+  }
+
+  public async authenticateMfa(
+    data: UserAuthenticateMfaRequestData,
+  ): Promise<UserAuthenticateMfaResponseData> {
+    return await config.behaviors.user.authenticateMfa(data);
+  }
+
+  public async confirmMfa(
+    multiFactorCode: string,
+  ): Promise<{ recoveryCodesList: string[] }> {
+    return await config.behaviors.user.confirmMfa(multiFactorCode);
+  }
+
+  public async disableMfa(multiFactorCode: string): Promise<void> {
+    await config.behaviors.user.disableMfa(multiFactorCode);
+  }
+
+  public async resetRecoveryCodes(
+    multiFactorCode: string,
+  ): Promise<{ recoveryCodesList: string[] }> {
+    return await config.behaviors.user.resetRecoveryCodes(multiFactorCode);
+  }
+
+  public async createAccessTokenRetrievalKey(): Promise<UserCreateAccessTokenRetrievalKeyResponseData> {
+    return await config.behaviors.user.createAccessTokenRetrievalKey();
   }
 }
 
