@@ -4291,6 +4291,11 @@ export const domainCreateDomainAuthCode: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
