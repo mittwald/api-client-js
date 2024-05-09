@@ -3999,14 +3999,19 @@
             "type": "string"
           },
           "transferAuthCodeRequired": {
+            "deprecated": true,
             "type": "boolean"
+          },
+          "transferAuthentication": {
+            "$ref": "#/components/schemas/domain.TransferAuthentication"
           }
         },
         "required": [
           "tld",
           "rgpDays",
           "irtp",
-          "transferAuthCodeRequired"
+          "transferAuthCodeRequired",
+          "transferAuthentication"
         ],
         "type": "object"
       },
@@ -8161,6 +8166,14 @@
           "tokenId"
         ],
         "type": "object"
+      },
+      "domain.TransferAuthentication": {
+        "enum": [
+          "unspecified",
+          "code",
+          "email"
+        ],
+        "type": "string"
       },
       "commons.Address": {
         "type": "object",
@@ -19955,9 +19968,6 @@
           },
           "404": {
             "$ref": "#/components/responses/commons.NotFoundError"
-          },
-          "412": {
-            "$ref": "#/components/responses/commons.DefaultError"
           },
           "default": {
             "$ref": "#/components/responses/commons.DefaultError"

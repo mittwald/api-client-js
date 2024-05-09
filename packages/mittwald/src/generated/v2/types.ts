@@ -4306,7 +4306,11 @@ export declare module MittwaldAPIV2 {
         irtp: boolean;
         rgpDays: number;
         tld: string;
+        /**
+         * @deprecated
+         */
         transferAuthCodeRequired: boolean;
+        transferAuthentication: MittwaldAPIV2.Components.Schemas.DomainTransferAuthentication;
       }
 
       export interface MarketplaceContributor {
@@ -5712,6 +5716,11 @@ export declare module MittwaldAPIV2 {
         location?: MittwaldAPIV2.Components.Schemas.SignupLocation;
         tokenId: string;
       }
+
+      export type DomainTransferAuthentication =
+        | "unspecified"
+        | "code"
+        | "email";
 
       export interface CommonsAddress {
         street: string;
@@ -12219,14 +12228,6 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
