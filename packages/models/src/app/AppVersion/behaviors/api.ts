@@ -31,4 +31,15 @@ export const apiAppVersionBehaviors = (
 
     return response.data;
   },
+
+  listUpdateCandidates: async (appId, baseAppVersionId) => {
+    const response = await client.app.listUpdateCandidatesForAppversion({
+      appId,
+      baseAppVersionId,
+    });
+
+    assertStatus(response, 200);
+
+    return response.data;
+  },
 });

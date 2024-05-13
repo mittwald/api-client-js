@@ -65,6 +65,22 @@ export class AppVersion extends ReferenceModel {
       );
     },
   );
+
+  public listUpdateCandidates = provideReact(
+    async (appId: string): Promise<Readonly<Array<AppVersionListItem>>> => {
+      const data = await config.behaviors.appVersion.listUpdateCandidates(
+        appId,
+        this.id,
+      );
+      return Object.freeze(
+        data
+          .map((d) => new AppVersionListItem(d, appId))
+          .sort((a, b) =>
+            semverCompare(b.data.internalVersion, a.data.internalVersion),
+          ),
+      );
+    },
+  );
 }
 
 // ToDo use appId from data when new app specs are in prod
