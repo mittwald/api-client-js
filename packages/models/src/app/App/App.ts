@@ -64,13 +64,11 @@ class AppCommon extends classes(DataModel<AppData | AppListItemData>, App) {
   public constructor(data: AppData | AppListItemData) {
     super([data], [data.id]);
 
-    this.canStart =
-      data.actionCapabilities?.includes(AppActions.start) ?? false;
+    this.canStart = !!data.actionCapabilities?.includes(AppActions.start);
 
-    this.canStop = data.actionCapabilities?.includes(AppActions.stop) ?? false;
+    this.canStop = !!data.actionCapabilities?.includes(AppActions.stop);
 
-    this.canRestart =
-      data.actionCapabilities?.includes(AppActions.restart) ?? false;
+    this.canRestart = !!data.actionCapabilities?.includes(AppActions.restart);
 
     this.isCustomApp =
       data.name === AppNames.node ||
