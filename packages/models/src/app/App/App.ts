@@ -52,10 +52,6 @@ export class App extends ReferenceModel {
   public listVersions = provideReact((query) =>
     AppVersion.list({ appId: this.id, query }),
   ) as AsyncResourceVariant<AppVersionListItem[], []>;
-
-    public listUpdateCandidateVersions = provideReact((currentVersionId: string) =>
-    AppVersion.listUpdateCandidates({ appId: this.id, currentVersionId }),
-  ) as AsyncResourceVariant<AppVersionListItem[], []>;
   */
 }
 
