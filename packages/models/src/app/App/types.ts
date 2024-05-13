@@ -27,9 +27,3 @@ export enum AppNames {
   typo3 = "TYPO3",
   wordpress = "WordPress",
 }
-
-export enum AppActions {
-  start = "start",
-  stop = "stop",
-  restart = "restart",
-}

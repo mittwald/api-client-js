@@ -6,7 +6,7 @@ import {
 import { config } from "../../config/config.js";
 import { DataModel } from "../../base/DataModel.js";
 import { classes } from "polytype";
-import { AppActions, AppData, AppListItemData, AppNames } from "./types.js";
+import { AppData, AppListItemData, AppNames } from "./types.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 
 export class App extends ReferenceModel {
@@ -64,11 +64,11 @@ class AppCommon extends classes(DataModel<AppData | AppListItemData>, App) {
   public constructor(data: AppData | AppListItemData) {
     super([data], [data.id]);
 
-    this.canStart = !!data.actionCapabilities?.includes(AppActions.start);
+    this.canStart = !!data.actionCapabilities?.includes("start");
 
-    this.canStop = !!data.actionCapabilities?.includes(AppActions.stop);
+    this.canStop = !!data.actionCapabilities?.includes("stop");
 
-    this.canRestart = !!data.actionCapabilities?.includes(AppActions.restart);
+    this.canRestart = !!data.actionCapabilities?.includes("restart");
 
     this.isCustomApp =
       data.name === AppNames.node ||
