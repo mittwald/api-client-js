@@ -4015,6 +4015,14 @@
         ],
         "type": "object"
       },
+      "domain.TransferAuthentication": {
+        "enum": [
+          "unspecified",
+          "code",
+          "email"
+        ],
+        "type": "string"
+      },
       "marketplace.Contributor": {
         "properties": {
           "customerId": {
@@ -7061,6 +7069,10 @@
             "example": "shared.xlarge",
             "type": "string"
           },
+          "promotionCode": {
+            "example": "123456",
+            "type": "string"
+          },
           "useFreeTrial": {
             "type": "boolean"
           }
@@ -7662,6 +7674,7 @@
           {
             "properties": {
               "password": {
+                "maxLength": 72,
                 "type": "string"
               }
             },
@@ -8166,14 +8179,6 @@
           "tokenId"
         ],
         "type": "object"
-      },
-      "domain.TransferAuthentication": {
-        "enum": [
-          "unspecified",
-          "code",
-          "email"
-        ],
-        "type": "string"
       },
       "commons.Address": {
         "type": "object",
@@ -30053,59 +30058,6 @@
         "deprecated": true
       }
     },
-    "/internal-v2/services/{accessKeyId}/actions/authenticate": {
-      "post": {
-        "parameters": [
-          {
-            "in": "path",
-            "name": "accessKeyId",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "secretAccessKey": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "secretAccessKey"
-                ],
-                "type": "object"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "308": {
-            "description": "This route is deprecated, and will redirect you to another URL.",
-            "headers": {
-              "location": {
-                "description": "The new URL to use; clients should redirect their request to this URL, using the same request method and body as the original request.",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "Obtain a service token.",
-        "tags": [],
-        "deprecated": true
-      }
-    },
     "/v2/services/{accessKeyId}/actions/authenticate": {
       "post": {
         "operationId": "servicetoken-authenticate-service",
@@ -30494,6 +30446,7 @@
                     "type": "string"
                   },
                   "password": {
+                    "maxLength": 72,
                     "type": "string"
                   },
                   "publicKeys": {
@@ -30847,6 +30800,7 @@
                     "type": "string"
                   },
                   "password": {
+                    "maxLength": 72,
                     "type": "string"
                   },
                   "publicKeys": {
@@ -30915,6 +30869,7 @@
                     "type": "string"
                   },
                   "password": {
+                    "maxLength": 72,
                     "type": "string"
                   },
                   "publicKeys": {

@@ -4313,6 +4313,11 @@ export declare module MittwaldAPIV2 {
         transferAuthentication: MittwaldAPIV2.Components.Schemas.DomainTransferAuthentication;
       }
 
+      export type DomainTransferAuthentication =
+        | "unspecified"
+        | "code"
+        | "email";
+
       export interface MarketplaceContributor {
         customerId: string;
         email?: string;
@@ -5342,6 +5347,7 @@ export declare module MittwaldAPIV2 {
         description: string;
         diskspaceInGiB: number;
         machineType: string;
+        promotionCode?: string;
         useFreeTrial?: boolean;
       }
 
@@ -5716,11 +5722,6 @@ export declare module MittwaldAPIV2 {
         location?: MittwaldAPIV2.Components.Schemas.SignupLocation;
         tokenId: string;
       }
-
-      export type DomainTransferAuthentication =
-        | "unspecified"
-        | "code"
-        | "email";
 
       export interface CommonsAddress {
         street: string;
@@ -18228,8 +18229,6 @@ export declare module MittwaldAPIV2 {
     }
 
     namespace V2ServiceAccessKeyIdActionsAuthenticate {}
-
-    namespace InternalV2ServicesAccessKeyIdActionsAuthenticate {}
 
     namespace V2ServicesAccessKeyIdActionsAuthenticate {
       namespace Post {
