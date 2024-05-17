@@ -3108,6 +3108,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace AppListAppinstallationsForUser {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appListAppinstallationsForUser
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appListAppinstallationsForUser,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -21222,6 +21233,39 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppInstallations {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            limit?: number;
+            page?: number;
+            skip?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AppAppInstallation[];
             }
           }
 

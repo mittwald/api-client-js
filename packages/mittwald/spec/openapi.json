@@ -35049,6 +35049,67 @@
           "User"
         ]
       }
+    },
+    "/v2/app-installations": {
+      "get": {
+        "operationId": "app-list-appinstallations-for-user",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "skip",
+            "required": false,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/app.AppInstallation"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Object containing the list of AppInstallations."
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "List AppInstallations that a user has access to.",
+        "tags": [
+          "App"
+        ]
+      }
     }
   },
   "security": [

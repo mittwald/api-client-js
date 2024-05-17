@@ -77,6 +77,11 @@ const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.appRetrieveStatus,
     baseClient.app.retrieveStatus,
   ).getApiResource,
+  /** List AppInstallations that a user has access to. */
+  listAppinstallationsForUser: new ApiCallAsyncResourceFactory(
+    descriptors.appListAppinstallationsForUser,
+    baseClient.app.listAppinstallationsForUser,
+  ).getApiResource,
 });
 
 const buildArticleApi = (baseClient: MittwaldAPIV2Client) => ({
