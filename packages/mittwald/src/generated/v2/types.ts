@@ -5427,7 +5427,12 @@ export declare module MittwaldAPIV2 {
 
       export interface ProjectHardwareSpec {
         cpu?: string;
+        /**
+         * @deprecated
+         * deprecated by memory
+         */
         mem?: string;
+        memory?: string;
         storage: string;
       }
 

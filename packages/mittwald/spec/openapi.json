@@ -7258,6 +7258,12 @@
             "type": "string"
           },
           "mem": {
+            "deprecated": true,
+            "description": "deprecated by memory",
+            "example": "4Gi",
+            "type": "string"
+          },
+          "memory": {
             "example": "4Gi",
             "type": "string"
           },
