@@ -81,6 +81,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     setDatabaseUsers: this.requestFunctionFactory(
       descriptors.appSetDatabaseUsers,
     ),
+    /** List AppInstallations that a user has access to. */
+    listAppinstallationsForUser: this.requestFunctionFactory(
+      descriptors.appListAppinstallationsForUser,
+    ),
   };
 
   /** The article API allows you to read article information. */
