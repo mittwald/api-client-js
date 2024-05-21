@@ -10,6 +10,7 @@ import { DataModel } from "../../base/DataModel.js";
 import { classes } from "polytype";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import semverCompare from "semver-compare";
+import { DateTime } from "luxon";
 
 export class SystemSoftwareVersion extends ReferenceModel {
   public readonly systemSoftwareId: string;
@@ -126,16 +127,17 @@ class SystemSoftwareVersionCommon extends classes(
     });
   }
 
+  */
+
   public imminentExpiryDate(): string | undefined {
     const expiryDate =
       this.data.expiryDate && DateTime.fromISO(this.data.expiryDate);
     const sixMonthsFromNow = DateTime.now().plus({ month: 6 });
 
     if (expiryDate && expiryDate < sixMonthsFromNow) {
-      return expiryDate;
+      return this.data.expiryDate;
     }
   }
-  */
 }
 
 export class SystemSoftwareVersionDetailed extends classes(
