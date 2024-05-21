@@ -887,6 +887,9 @@
           "externalVersion": {
             "type": "string"
           },
+          "fee": {
+            "$ref": "#/components/schemas/fee.FeeStrategy"
+          },
           "id": {
             "format": "uuid",
             "type": "string"
@@ -2049,11 +2052,16 @@
         "enum": [
           "development",
           "mail",
+          "infra",
+          "marketing",
+          "network",
+          "dataCenter",
           "accounting",
           "customerService",
           "cloudHosting",
           "software",
-          "generic"
+          "generic",
+          "security"
         ],
         "type": "string"
       },
@@ -3019,6 +3027,16 @@
         ],
         "type": "object"
       },
+      "database.DatabaseStatus": {
+        "enum": [
+          "pending",
+          "ready",
+          "migrating",
+          "importing",
+          "error"
+        ],
+        "type": "string"
+      },
       "database.MySqlCharacterSettings": {
         "properties": {
           "collations": {
@@ -3979,14 +3997,31 @@
           },
           "tld": {
             "type": "string"
+          },
+          "transferAuthCodeRequired": {
+            "deprecated": true,
+            "type": "boolean"
+          },
+          "transferAuthentication": {
+            "$ref": "#/components/schemas/domain.TransferAuthentication"
           }
         },
         "required": [
           "tld",
           "rgpDays",
-          "irtp"
+          "irtp",
+          "transferAuthCodeRequired",
+          "transferAuthentication"
         ],
         "type": "object"
+      },
+      "domain.TransferAuthentication": {
+        "enum": [
+          "unspecified",
+          "code",
+          "email"
+        ],
+        "type": "string"
       },
       "marketplace.Contributor": {
         "properties": {
@@ -4207,6 +4242,79 @@
             "type": "string"
           }
         },
+        "type": "object"
+      },
+      "fee.FeeStrategy": {
+        "description": "A strategy for fees of resources.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/fee.OneTimePaymentFeeStrategy"
+          },
+          {
+            "$ref": "#/components/schemas/fee.PeriodBasedFeeStrategy"
+          }
+        ]
+      },
+      "fee.OneTimePaymentFeeStrategy": {
+        "description": "A strategy for fees that occur once.",
+        "properties": {
+          "price": {
+            "description": "The one-time price in Euro Cents.",
+            "type": "number"
+          }
+        },
+        "required": [
+          "price"
+        ],
+        "type": "object"
+      },
+      "fee.PeriodBasedFeeStrategy": {
+        "description": "A strategy for fees that occur periodically",
+        "properties": {
+          "periods": {
+            "items": {
+              "properties": {
+                "feeValidFrom": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "feeValidUntil": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "monthlyPrice": {
+                  "description": "The monthly price in Euro Cents.",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "monthlyPrice"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "periods"
+        ],
+        "type": "object"
+      },
+      "fee.ResourceFee": {
+        "description": "A Fee of a Resource",
+        "properties": {
+          "feeStrategy": {
+            "$ref": "#/components/schemas/fee.FeeStrategy"
+          },
+          "id": {
+            "description": "The id of the given Resource",
+            "example": "1241a1de-b633-4e6e-9aa5-7e878ccd6864",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
         "type": "object"
       },
       "file.FileMeta": {
@@ -4441,6 +4549,93 @@
         ],
         "type": "object"
       },
+      "ingress.IngressDeprecated": {
+        "properties": {
+          "dnsValidationErrors": {
+            "description": "A list of errors that occurred while validating the ingress's dns before requesting a certificate.",
+            "items": {
+              "enum": [
+                "ERROR_UNSPECIFIED",
+                "ERROR_QUAD_A",
+                "ERROR_NO_A_RECORD",
+                "ERROR_ACME_CERTIFICATE_REQUEST_DEADLINE_EXCEEDED"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "hostname": {
+            "format": "idn-hostname",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "ips": {
+            "properties": {
+              "v4": {
+                "items": {
+                  "format": "ipv4",
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "v4"
+            ],
+            "type": "object"
+          },
+          "isDefault": {
+            "description": "Whether this ingress is the default ingress or not. A default ingress is automatically created, it cannot be deleted. There can be only one default ingress per project.",
+            "type": "boolean"
+          },
+          "isDomain": {
+            "type": "boolean"
+          },
+          "isEnabled": {
+            "type": "boolean"
+          },
+          "ownership": {
+            "$ref": "#/components/schemas/ingress.Ownership"
+          },
+          "paths": {
+            "description": "A list of paths. The default path `/` is always present and cannot be removed.",
+            "items": {
+              "$ref": "#/components/schemas/ingress.Path"
+            },
+            "type": "array"
+          },
+          "projectId": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "tls": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ingress.TlsAcmeDeprecated"
+              },
+              {
+                "$ref": "#/components/schemas/ingress.TlsCertificate"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "hostname",
+          "projectId",
+          "isDefault",
+          "tls",
+          "paths",
+          "isEnabled",
+          "ips",
+          "dnsValidationErrors",
+          "ownership"
+        ],
+        "type": "object"
+      },
       "ingress.Ownership": {
         "properties": {
           "txtRecord": {
@@ -4560,9 +4755,13 @@
         "type": "object"
       },
       "ingress.TlsAcme": {
+        "additionalProperties": false,
         "properties": {
           "acme": {
             "description": "Has to be `true`, as ssl cannot be deactivated.",
+            "type": "boolean"
+          },
+          "isCreated": {
             "type": "boolean"
           },
           "requestDeadline": {
@@ -4571,11 +4770,25 @@
           }
         },
         "required": [
+          "acme",
+          "isCreated"
+        ],
+        "type": "object"
+      },
+      "ingress.TlsAcmeDeprecated": {
+        "additionalProperties": false,
+        "properties": {
+          "acme": {
+            "type": "boolean"
+          }
+        },
+        "required": [
           "acme"
         ],
         "type": "object"
       },
       "ingress.TlsCertificate": {
+        "additionalProperties": false,
         "properties": {
           "certificateId": {
             "format": "uuid",
@@ -5208,52 +5421,6 @@
         ],
         "type": "object"
       },
-      "mail.DeliveryboxInternal": {
-        "properties": {
-          "authenticationEnabled": {
-            "type": "boolean"
-          },
-          "description": {
-            "type": "string"
-          },
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "mailsystemSettings": {
-            "$ref": "#/components/schemas/mail.MailsystemSettings"
-          },
-          "name": {
-            "type": "string"
-          },
-          "passwordUpdatedAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "projectId": {
-            "type": "string"
-          },
-          "sendingEnabled": {
-            "type": "boolean"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          }
-        },
-        "required": [
-          "id",
-          "name",
-          "projectId",
-          "description",
-          "authenticationEnabled",
-          "sendingEnabled",
-          "passwordUpdatedAt",
-          "updatedAt",
-          "mailsystemSettings"
-        ],
-        "type": "object"
-      },
       "mail.Error": {
         "properties": {
           "message": {
@@ -5436,157 +5603,6 @@
         ],
         "type": "object"
       },
-      "mail.MailAddressInternal": {
-        "properties": {
-          "address": {
-            "format": "idn-email",
-            "type": "string"
-          },
-          "autoResponder": {
-            "properties": {
-              "active": {
-                "type": "boolean"
-              },
-              "expiresAt": {
-                "format": "date-time",
-                "type": "string"
-              },
-              "message": {
-                "type": "string"
-              },
-              "startsAt": {
-                "format": "date-time",
-                "type": "string"
-              }
-            },
-            "required": [
-              "active"
-            ],
-            "type": "object"
-          },
-          "forwardAddresses": {
-            "items": {
-              "format": "idn-email",
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "isArchived": {
-            "type": "boolean"
-          },
-          "isCatchAll": {
-            "type": "boolean"
-          },
-          "mailbox": {
-            "properties": {
-              "mailsystemSettings": {
-                "$ref": "#/components/schemas/mail.MailsystemSettings"
-              },
-              "name": {
-                "type": "string"
-              },
-              "passwordUpdatedAt": {
-                "format": "date-time",
-                "type": "string"
-              },
-              "sendingEnabled": {
-                "type": "boolean"
-              },
-              "spamProtection": {
-                "properties": {
-                  "active": {
-                    "type": "boolean"
-                  },
-                  "autoDeleteSpam": {
-                    "type": "boolean"
-                  },
-                  "folder": {
-                    "enum": [
-                      "spam",
-                      "inbox"
-                    ],
-                    "type": "string"
-                  },
-                  "relocationMinSpamScore": {
-                    "maximum": 10,
-                    "type": "integer"
-                  }
-                },
-                "required": [
-                  "active",
-                  "folder",
-                  "relocationMinSpamScore",
-                  "autoDeleteSpam"
-                ],
-                "type": "object"
-              },
-              "storageInBytes": {
-                "properties": {
-                  "current": {
-                    "properties": {
-                      "updatedAt": {
-                        "format": "date-time",
-                        "type": "string"
-                      },
-                      "value": {
-                        "type": "number"
-                      }
-                    },
-                    "required": [
-                      "value",
-                      "updatedAt"
-                    ],
-                    "type": "object"
-                  },
-                  "limit": {
-                    "type": "number"
-                  }
-                },
-                "required": [
-                  "limit",
-                  "current"
-                ],
-                "type": "object"
-              }
-            },
-            "required": [
-              "name",
-              "sendingEnabled",
-              "spamProtection",
-              "storageInBytes",
-              "passwordUpdatedAt",
-              "mailsystemSettings"
-            ],
-            "type": "object"
-          },
-          "projectId": {
-            "type": "string"
-          },
-          "receivingDisabled": {
-            "type": "boolean"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          }
-        },
-        "required": [
-          "id",
-          "receivingDisabled",
-          "address",
-          "isCatchAll",
-          "projectId",
-          "forwardAddresses",
-          "updatedAt",
-          "autoResponder",
-          "isArchived"
-        ],
-        "type": "object"
-      },
       "mail.MailsystemSettings": {
         "properties": {
           "imapClusterId": {
@@ -5723,6 +5739,27 @@
             "$ref": "#/components/schemas/mailmigration.MigrationFinalizeJobProjectSetting"
           }
         },
+        "type": "object"
+      },
+      "mailmigration.MigrationFinalizeJobDisableLegacyEntities": {
+        "properties": {
+          "addresses": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "mailboxNames": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "mailboxNames",
+          "addresses"
+        ],
         "type": "object"
       },
       "mailmigration.MigrationFinalizeJobProjectSetting": {
@@ -6593,7 +6630,6 @@
         "required": [
           "orderId",
           "orderNumber",
-          "orderDate",
           "summary",
           "customerId",
           "invoicingPeriod",
@@ -7033,6 +7069,10 @@
             "example": "shared.xlarge",
             "type": "string"
           },
+          "promotionCode": {
+            "example": "123456",
+            "type": "string"
+          },
           "useFreeTrial": {
             "type": "boolean"
           }
@@ -7218,6 +7258,12 @@
             "type": "string"
           },
           "mem": {
+            "deprecated": true,
+            "description": "deprecated by memory",
+            "example": "4Gi",
+            "type": "string"
+          },
+          "memory": {
             "example": "4Gi",
             "type": "string"
           },
@@ -7634,6 +7680,7 @@
           {
             "properties": {
               "password": {
+                "maxLength": 72,
                 "type": "string"
               }
             },
@@ -8136,50 +8183,6 @@
           "device",
           "created",
           "tokenId"
-        ],
-        "type": "object"
-      },
-      "mailmigration.MigrationFinalizeJobDisableLegacyEntities": {
-        "properties": {
-          "addresses": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "mailboxNames": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          }
-        },
-        "required": [
-          "mailboxNames",
-          "addresses"
-        ],
-        "type": "object"
-      },
-      "database.DatabaseStatus": {
-        "enum": [
-          "pending",
-          "ready",
-          "migrating",
-          "importing",
-          "error"
-        ],
-        "type": "string"
-      },
-      "fee.OneTimePaymentFeeStrategy": {
-        "description": "A strategy for fees that occur once.",
-        "properties": {
-          "price": {
-            "description": "The one-time price in Euro Cents.",
-            "type": "number"
-          }
-        },
-        "required": [
-          "price"
         ],
         "type": "object"
       },
@@ -19873,8 +19876,7 @@
                   }
                 },
                 "required": [
-                  "domain",
-                  "authCode"
+                  "domain"
                 ]
               }
             }
@@ -30062,59 +30064,6 @@
         "deprecated": true
       }
     },
-    "/internal-v2/services/{accessKeyId}/actions/authenticate": {
-      "post": {
-        "parameters": [
-          {
-            "in": "path",
-            "name": "accessKeyId",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "secretAccessKey": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "secretAccessKey"
-                ],
-                "type": "object"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "308": {
-            "description": "This route is deprecated, and will redirect you to another URL.",
-            "headers": {
-              "location": {
-                "description": "The new URL to use; clients should redirect their request to this URL, using the same request method and body as the original request.",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "commons.AccessToken": []
-          }
-        ],
-        "summary": "Obtain a service token.",
-        "tags": [],
-        "deprecated": true
-      }
-    },
     "/v2/services/{accessKeyId}/actions/authenticate": {
       "post": {
         "operationId": "servicetoken-authenticate-service",
@@ -30503,6 +30452,7 @@
                     "type": "string"
                   },
                   "password": {
+                    "maxLength": 72,
                     "type": "string"
                   },
                   "publicKeys": {
@@ -30856,6 +30806,7 @@
                     "type": "string"
                   },
                   "password": {
+                    "maxLength": 72,
                     "type": "string"
                   },
                   "publicKeys": {
@@ -30924,6 +30875,7 @@
                     "type": "string"
                   },
                   "password": {
+                    "maxLength": 72,
                     "type": "string"
                   },
                   "publicKeys": {
@@ -35101,6 +35053,67 @@
         "summary": "Verify your registration.",
         "tags": [
           "User"
+        ]
+      }
+    },
+    "/v2/app-installations": {
+      "get": {
+        "operationId": "app-list-appinstallations-for-user",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "skip",
+            "required": false,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/app.AppInstallation"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Object containing the list of AppInstallations."
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "security": [
+          {
+            "commons.AccessToken": []
+          }
+        ],
+        "summary": "List AppInstallations that a user has access to.",
+        "tags": [
+          "App"
         ]
       }
     }

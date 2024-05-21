@@ -10245,3 +10245,27 @@ export const userVerifyRegistration: OpenAPIOperation<
   method: "POST",
   operationId: "user-verify-registration",
 };
+
+/** List AppInstallations that a user has access to. */
+export const appListAppinstallationsForUser: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallations.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallations.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallations.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallations.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallations.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/app-installations",
+  method: "GET",
+  operationId: "app-list-appinstallations-for-user",
+};
