@@ -33,7 +33,7 @@ export class AppVersion extends ReferenceModel {
     ): Promise<AppVersionDetailed | undefined> => {
       const data = await config.behaviors.appVersion.find(id, appId);
       if (data !== undefined) {
-        return new AppVersionDetailed(data, appId);
+        return new AppVersionDetailed(data);
       }
     },
   );
@@ -58,7 +58,7 @@ export class AppVersion extends ReferenceModel {
       const data = await config.behaviors.appVersion.list(appId, query);
       return Object.freeze(
         data
-          .map((d) => new AppVersionListItem(d, appId))
+          .map((d) => new AppVersionListItem(d))
           .sort((a, b) =>
             semverCompare(b.data.internalVersion, a.data.internalVersion),
           ),
@@ -74,7 +74,7 @@ export class AppVersion extends ReferenceModel {
       );
       return Object.freeze(
         data
-          .map((d) => new AppVersionListItem(d, appId))
+          .map((d) => new AppVersionListItem(d))
           .sort((a, b) =>
             semverCompare(b.data.internalVersion, a.data.internalVersion),
           ),
@@ -83,17 +83,12 @@ export class AppVersion extends ReferenceModel {
   );
 }
 
-// ToDo use appId from data when new app specs are in prod
-
 class AppVersionCommon extends classes(
   DataModel<AppVersionData | AppVersionListItemData>,
   AppVersion,
 ) {
-  public constructor(
-    data: AppVersionData | AppVersionListItemData,
-    appId: string,
-  ) {
-    super([data], [data.id, appId]);
+  public constructor(data: AppVersionData | AppVersionListItemData) {
+    super([data], [data.id, data.appId]);
   }
 }
 
@@ -101,8 +96,8 @@ export class AppVersionDetailed extends classes(
   AppVersionCommon,
   DataModel<AppVersionData>,
 ) {
-  public constructor(data: AppVersionData, appId: string) {
-    super([data, appId], [data]);
+  public constructor(data: AppVersionData) {
+    super([data], [data]);
   }
 }
 
@@ -110,7 +105,7 @@ export class AppVersionListItem extends classes(
   AppVersionCommon,
   DataModel<AppVersionListItemData>,
 ) {
-  public constructor(data: AppVersionListItemData, appId: string) {
-    super([data, appId], [data]);
+  public constructor(data: AppVersionListItemData) {
+    super([data], [data]);
   }
 }
