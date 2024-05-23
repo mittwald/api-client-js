@@ -207,18 +207,7 @@ class AppInstallationCommon extends classes(
   );
   */
 
-  /* ToDo: Activate when App model is merged (https://github.com/mittwald/api-client-js/pull/96)
-  public getApp = provideReact(async (): Promise<AppDetailed> => {
-    return await App.get(this.data.appId);
-  });
-  */
-
   /* ToDo: Activate when AppVersion model is merged (https://github.com/mittwald/api-client-js/pull/72)
-  public getAppVersion = provideReact(
-    async (): Promise<AppVersionDetailed> => {
-      return appVersion.get(this.data.appId, this.data.appVersion.desired);
-    },
-  );
 
   public listUpdateCandidateVersions = provideReact(
     (): Promise<Readonly<Array<AppVersionListItem>>> => {
@@ -310,8 +299,15 @@ export class AppInstallationDetailed extends classes(
   AppInstallationCommon,
   DataModel<AppInstallationData>,
 ) {
+  // ToDo: Activate when AppVersion model is merged (https://github.com/mittwald/api-client-js/pull/72)
+  // public readonly appVersion: AppVersion;
+  // ToDo: Activate when App model is merged (https://github.com/mittwald/api-client-js/pull/96)
+  // public readonly app: App;
+
   public constructor(data: AppInstallationData) {
     super([data], [data]);
+    // this.appVersion = AppVersion.ofId(data.appId, data.appVersion.desired);
+    // this.app = App.ofId(data.appId);
   }
 }
 

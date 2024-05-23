@@ -22,25 +22,20 @@ class InstalledSystemSoftwareCommon extends classes(
 
     this.isInstalling = !this.data.systemSoftwareVersion.current;
   }
-
-  /* ToDo: Activate when SystemSoftware model is merged (https://github.com/mittwald/api-client-js/pull/91)
- public getSystemSoftware = provideReact(async (): Promise<SystemSoftwareDetailed> => {
-   return await SystemSoftware.get(this.data.systemSoftwareId);
- });
- */
-
-  /* ToDo: Activate when SystemSoftwareVersion model is merged (https://github.com/mittwald/api-client-js/pull/73)
-  public getVersion = provideReact(async (): Promise<SystemSoftwareVersionDetailed> => {
-  return SystemSoftwareVersion.get(this.data.systemSoftwareId, this.data.systemSoftwareVersion.desired);
-  });
-  */
 }
 
 export class InstalledSystemSoftwareListItem extends classes(
   InstalledSystemSoftwareCommon,
   DataModel<InstalledSystemSoftwareData>,
 ) {
+  // ToDo: Activate when SystemSoftware model is merged (https://github.com/mittwald/api-client-js/pull/91)
+  // public readonly systemSoftware: SystemSoftware;
+  // ToDo: Activate when SystemSoftwareVersion model is merged (https://github.com/mittwald/api-client-js/pull/73)
+  // public readonly systemSoftwareVersion: SystemSoftwareVersion;
+
   public constructor(data: InstalledSystemSoftwareData) {
     super([data], [data]);
+    //this.systemSoftware = SystemSoftware.ofId(data.systemSoftwareId);
+    //this.systemSoftwareVersion = SystemSoftwareVersion.ofId(data.systemSoftwareId, data.systemSoftwareVersion.desired);
   }
 }
