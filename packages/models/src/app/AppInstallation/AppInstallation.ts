@@ -18,6 +18,7 @@ import {
   AppUpdatePolicy,
 } from "./types.js";
 import { InstalledSystemSoftwareListItem } from "../InstalledSystemSoftware/index.js";
+import { Project } from "../../project/index.js";
 
 export class AppInstallation extends ReferenceModel {
   public static ofId(id: string): AppInstallation {
@@ -303,11 +304,13 @@ export class AppInstallationDetailed extends classes(
   // public readonly appVersion: AppVersion;
   // ToDo: Activate when App model is merged (https://github.com/mittwald/api-client-js/pull/96)
   // public readonly app: App;
+  public readonly project?: Project;
 
   public constructor(data: AppInstallationData) {
     super([data], [data]);
     // this.appVersion = AppVersion.ofId(data.appId, data.appVersion.desired);
     // this.app = App.ofId(data.appId);
+    this.project = data.projectId ? Project.ofId(data.projectId) : undefined;
   }
 }
 
