@@ -42,6 +42,11 @@ const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.appGetSystemsoftwareversion,
     baseClient.app.getSystemsoftwareversion,
   ).getApiResource,
+  /** List AppInstallations that a user has access to. */
+  listAppinstallationsForUser: new ApiCallAsyncResourceFactory(
+    descriptors.appListAppinstallationsForUser,
+    baseClient.app.listAppinstallationsForUser,
+  ).getApiResource,
   /** List AppInstallations belonging to a Project. */
   listAppinstallations: new ApiCallAsyncResourceFactory(
     descriptors.appListAppinstallations,
@@ -76,11 +81,6 @@ const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
   retrieveStatus: new ApiCallAsyncResourceFactory(
     descriptors.appRetrieveStatus,
     baseClient.app.retrieveStatus,
-  ).getApiResource,
-  /** List AppInstallations that a user has access to. */
-  listAppinstallationsForUser: new ApiCallAsyncResourceFactory(
-    descriptors.appListAppinstallationsForUser,
-    baseClient.app.listAppinstallationsForUser,
   ).getApiResource,
 });
 
