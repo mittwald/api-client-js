@@ -96,8 +96,12 @@ export class AppVersionDetailed extends classes(
   AppVersionCommon,
   DataModel<AppVersionData>,
 ) {
+  // ToDo: activate when App model is merged
+  // public readonly app: App;
+
   public constructor(data: AppVersionData) {
     super([data], [data]);
+    // this.app = App.ofId(data.appId);
   }
 }
 
