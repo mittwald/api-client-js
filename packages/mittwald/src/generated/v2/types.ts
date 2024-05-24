@@ -111,6 +111,17 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.appLinkDatabase, TStatus>;
     }
 
+    namespace AppListAppinstallationsForUser {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appListAppinstallationsForUser
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appListAppinstallationsForUser,
+          TStatus
+        >;
+    }
+
     namespace AppListAppinstallations {
       type RequestData = InferredRequestData<
         typeof descriptors.appListAppinstallations
@@ -3302,6 +3313,7 @@ export declare module MittwaldAPIV2 {
       export interface AppSystemSoftwareVersion {
         expiryDate?: string;
         externalVersion: string;
+        fee?: MittwaldAPIV2.Components.Schemas.FeeFeeStrategy;
         id: string;
         internalVersion: string;
         recommended?: boolean;
@@ -3682,11 +3694,16 @@ export declare module MittwaldAPIV2 {
       export type ConversationDepartment =
         | "development"
         | "mail"
+        | "infra"
+        | "marketing"
+        | "network"
+        | "dataCenter"
         | "accounting"
         | "customerService"
         | "cloudHosting"
         | "software"
-        | "generic";
+        | "generic"
+        | "security";
 
       export interface ConversationError {
         message: string;
@@ -3985,6 +4002,13 @@ export declare module MittwaldAPIV2 {
         externalAccess?: boolean;
         password: string;
       }
+
+      export type DatabaseDatabaseStatus =
+        | "pending"
+        | "ready"
+        | "migrating"
+        | "importing"
+        | "error";
 
       export interface DatabaseMySqlCharacterSettings {
         collations: string[];
@@ -4293,7 +4317,17 @@ export declare module MittwaldAPIV2 {
         irtp: boolean;
         rgpDays: number;
         tld: string;
+        /**
+         * @deprecated
+         */
+        transferAuthCodeRequired: boolean;
+        transferAuthentication: MittwaldAPIV2.Components.Schemas.DomainTransferAuthentication;
       }
+
+      export type DomainTransferAuthentication =
+        | "unspecified"
+        | "code"
+        | "email";
 
       export interface MarketplaceContributor {
         customerId: string;
@@ -4361,6 +4395,48 @@ export declare module MittwaldAPIV2 {
       export interface MarketplaceSupportMeta {
         email?: string;
         phone?: string;
+      }
+
+      /**
+       * A strategy for fees of resources.
+       */
+      export type FeeFeeStrategy =
+        | MittwaldAPIV2.Components.Schemas.FeeOneTimePaymentFeeStrategy
+        | MittwaldAPIV2.Components.Schemas.FeePeriodBasedFeeStrategy;
+
+      /**
+       * A strategy for fees that occur once.
+       */
+      export interface FeeOneTimePaymentFeeStrategy {
+        /**
+         * The one-time price in Euro Cents.
+         */
+        price: number;
+      }
+
+      /**
+       * A strategy for fees that occur periodically
+       */
+      export interface FeePeriodBasedFeeStrategy {
+        periods: {
+          feeValidFrom?: string;
+          feeValidUntil?: string;
+          /**
+           * The monthly price in Euro Cents.
+           */
+          monthlyPrice: number;
+        }[];
+      }
+
+      /**
+       * A Fee of a Resource
+       */
+      export interface FeeResourceFee {
+        feeStrategy?: MittwaldAPIV2.Components.Schemas.FeeFeeStrategy;
+        /**
+         * The id of the given Resource
+         */
+        id: string;
       }
 
       export interface FileFileMeta {
@@ -4437,6 +4513,38 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.IngressTlsCertificate;
       }
 
+      export interface IngressIngressDeprecated {
+        /**
+         * A list of errors that occurred while validating the ingress's dns before requesting a certificate.
+         */
+        dnsValidationErrors: (
+          | "ERROR_UNSPECIFIED"
+          | "ERROR_QUAD_A"
+          | "ERROR_NO_A_RECORD"
+          | "ERROR_ACME_CERTIFICATE_REQUEST_DEADLINE_EXCEEDED"
+        )[];
+        hostname: string;
+        id: string;
+        ips: {
+          v4: string[];
+        };
+        /**
+         * Whether this ingress is the default ingress or not. A default ingress is automatically created, it cannot be deleted. There can be only one default ingress per project.
+         */
+        isDefault: boolean;
+        isDomain?: boolean;
+        isEnabled: boolean;
+        ownership: MittwaldAPIV2.Components.Schemas.IngressOwnership;
+        /**
+         * A list of paths. The default path `/` is always present and cannot be removed.
+         */
+        paths: MittwaldAPIV2.Components.Schemas.IngressPath[];
+        projectId: string;
+        tls:
+          | MittwaldAPIV2.Components.Schemas.IngressTlsAcmeDeprecated
+          | MittwaldAPIV2.Components.Schemas.IngressTlsCertificate;
+      }
+
       export interface IngressOwnership {
         txtRecord?: string;
         /**
@@ -4486,7 +4594,12 @@ export declare module MittwaldAPIV2 {
          * Has to be `true`, as ssl cannot be deactivated.
          */
         acme: boolean;
+        isCreated: boolean;
         requestDeadline?: string;
+      }
+
+      export interface IngressTlsAcmeDeprecated {
+        acme: boolean;
       }
 
       export interface IngressTlsCertificate {
@@ -4663,18 +4776,6 @@ export declare module MittwaldAPIV2 {
         updatedAt: string;
       }
 
-      export interface MailDeliveryboxInternal {
-        authenticationEnabled: boolean;
-        description: string;
-        id: string;
-        mailsystemSettings: MittwaldAPIV2.Components.Schemas.MailMailsystemSettings;
-        name: string;
-        passwordUpdatedAt: string;
-        projectId: string;
-        sendingEnabled: boolean;
-        updatedAt: string;
-      }
-
       export interface MailError {
         message: string;
         type: string;
@@ -4698,42 +4799,6 @@ export declare module MittwaldAPIV2 {
         isArchived: boolean;
         isCatchAll: boolean;
         mailbox?: {
-          name: string;
-          passwordUpdatedAt: string;
-          sendingEnabled: boolean;
-          spamProtection: {
-            active: boolean;
-            autoDeleteSpam: boolean;
-            folder: "spam" | "inbox";
-            relocationMinSpamScore: number;
-          };
-          storageInBytes: {
-            current: {
-              updatedAt: string;
-              value: number;
-            };
-            limit: number;
-          };
-        };
-        projectId: string;
-        receivingDisabled: boolean;
-        updatedAt: string;
-      }
-
-      export interface MailMailAddressInternal {
-        address: string;
-        autoResponder: {
-          active: boolean;
-          expiresAt?: string;
-          message?: string;
-          startsAt?: string;
-        };
-        forwardAddresses: string[];
-        id: string;
-        isArchived: boolean;
-        isCatchAll: boolean;
-        mailbox?: {
-          mailsystemSettings: MittwaldAPIV2.Components.Schemas.MailMailsystemSettings;
           name: string;
           passwordUpdatedAt: string;
           sendingEnabled: boolean;
@@ -4800,6 +4865,11 @@ export declare module MittwaldAPIV2 {
       export interface MailmigrationMigrationFinalizeJob {
         disableLegacyEntities?: MittwaldAPIV2.Components.Schemas.MailmigrationMigrationFinalizeJobDisableLegacyEntities;
         projectSettingMigrations?: MittwaldAPIV2.Components.Schemas.MailmigrationMigrationFinalizeJobProjectSetting;
+      }
+
+      export interface MailmigrationMigrationFinalizeJobDisableLegacyEntities {
+        addresses: string[];
+        mailboxNames: string[];
       }
 
       export interface MailmigrationMigrationFinalizeJobProjectSetting {
@@ -5143,7 +5213,7 @@ export declare module MittwaldAPIV2 {
          */
         invoicingPeriod: number;
         items: MittwaldAPIV2.Components.Schemas.OrderOrderItem[];
-        orderDate: string;
+        orderDate?: string;
         orderId: string;
         orderNumber: string;
         profile?: MittwaldAPIV2.Components.Schemas.OrderProfile;
@@ -5288,6 +5358,7 @@ export declare module MittwaldAPIV2 {
         description: string;
         diskspaceInGiB: number;
         machineType: string;
+        promotionCode?: string;
         useFreeTrial?: boolean;
       }
 
@@ -5356,7 +5427,12 @@ export declare module MittwaldAPIV2 {
 
       export interface ProjectHardwareSpec {
         cpu?: string;
+        /**
+         * @deprecated
+         * deprecated by memory
+         */
         mem?: string;
+        memory?: string;
         storage: string;
       }
 
@@ -5661,28 +5737,6 @@ export declare module MittwaldAPIV2 {
         lastAccess?: string;
         location?: MittwaldAPIV2.Components.Schemas.SignupLocation;
         tokenId: string;
-      }
-
-      export interface MailmigrationMigrationFinalizeJobDisableLegacyEntities {
-        addresses: string[];
-        mailboxNames: string[];
-      }
-
-      export type DatabaseDatabaseStatus =
-        | "pending"
-        | "ready"
-        | "migrating"
-        | "importing"
-        | "error";
-
-      /**
-       * A strategy for fees that occur once.
-       */
-      export interface FeeOneTimePaymentFeeStrategy {
-        /**
-         * The one-time price in Euro Cents.
-         */
-        price: number;
       }
 
       export interface CommonsAddress {
@@ -6338,6 +6392,39 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppInstallations {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            limit?: number;
+            page?: number;
+            skip?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AppAppInstallation[];
             }
           }
 
@@ -12115,7 +12202,7 @@ export declare module MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            authCode: string;
+            authCode?: string;
             domain: string;
           }
 
@@ -18191,8 +18278,6 @@ export declare module MittwaldAPIV2 {
     }
 
     namespace V2ServiceAccessKeyIdActionsAuthenticate {}
-
-    namespace InternalV2ServicesAccessKeyIdActionsAuthenticate {}
 
     namespace V2ServicesAccessKeyIdActionsAuthenticate {
       namespace Post {

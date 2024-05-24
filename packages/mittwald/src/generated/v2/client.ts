@@ -43,6 +43,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Create linkage between an AppInstallation and a MySQLDatabase. */
     linkDatabase: this.requestFunctionFactory(descriptors.appLinkDatabase),
+    /** List AppInstallations that a user has access to. */
+    listAppinstallationsForUser: this.requestFunctionFactory(
+      descriptors.appListAppinstallationsForUser,
+    ),
     /** List AppInstallations belonging to a Project. */
     listAppinstallations: this.requestFunctionFactory(
       descriptors.appListAppinstallations,
