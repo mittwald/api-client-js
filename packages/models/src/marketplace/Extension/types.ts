@@ -6,5 +6,5 @@ export type ExtensionData =
 export type ExtensionListItemData =
   MittwaldAPIV2.Operations.ExtensionListExtensions.ResponseData[number];
 
-export type MarketplaceContext =
-  MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+export type ExtensionListQuery =
+  MittwaldAPIV2.Paths.V2Extensions.Get.Parameters.Query;

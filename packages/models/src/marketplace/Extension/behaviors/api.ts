@@ -1,6 +1,6 @@
 import { assertStatus, MittwaldAPIV2Client } from "@mittwald/api-client";
 import { ExtensionBehaviors } from "./types.js";
-import { MarketplaceContext } from "../types.js";
+import { ExtensionListQuery } from "../types.js";
 
 export const apiExtensionBehaviors = (
   client: MittwaldAPIV2Client,
@@ -18,9 +18,9 @@ export const apiExtensionBehaviors = (
     // assertStatus(response, 404);
   },
 
-  list: async (context: MarketplaceContext) => {
+  list: async (query: ExtensionListQuery) => {
     const response = await client.marketplace.extensionListExtensions({
-      queryParameters: { context },
+      queryParameters: query,
     });
 
     assertStatus(response, 200);

@@ -4,7 +4,7 @@ import { classes } from "polytype";
 import {
   ExtensionData,
   ExtensionListItemData,
-  MarketplaceContext,
+  ExtensionListQuery,
 } from "./types.js";
 import {
   type AsyncResourceVariant,
@@ -42,18 +42,18 @@ export class Extension extends ReferenceModel {
 
   public static list = provideReact(
     async (
-      context: MarketplaceContext,
+      query: ExtensionListQuery,
     ): Promise<Readonly<Array<ExtensionListItem>>> => {
-      const data = await config.behaviors.extension.list(context);
+      const data = await config.behaviors.extension.list(query);
       return Object.freeze(data.map((d) => new ExtensionListItem(d)));
     },
   );
 
   public static listAvailable = provideReact(
     async (
-      context: MarketplaceContext,
+      query: ExtensionListQuery,
     ): Promise<Readonly<Array<ExtensionListItem>>> => {
-      const extensions = await this.list(context);
+      const extensions = await this.list(query);
       return extensions.filter((e) => !e.isBlocked && !e.isDisabled);
     },
   );

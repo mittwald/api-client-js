@@ -1,11 +1,11 @@
 import {
   ExtensionData,
   ExtensionListItemData,
-  MarketplaceContext,
+  ExtensionListQuery,
 } from "../types.js";
 
 export interface ExtensionBehaviors {
   find: (id: string) => Promise<ExtensionData | undefined>;
 
-  list: (context: MarketplaceContext) => Promise<ExtensionListItemData[]>;
+  list: (query: ExtensionListQuery) => Promise<ExtensionListItemData[]>;
 }
