@@ -6,8 +6,8 @@ export type ApiTokenData =
 export type ApiTokenListItemData =
   MittwaldAPIV2.Operations.UserListApiTokens.ResponseData[number];
 
-export type ApiTokenCreateRequestBody =
+export type ApiTokenCreateRequestData =
   MittwaldAPIV2.Paths.V2UsersSelfApiTokens.Post.Parameters.RequestBody;
 
-export type ApiTokenUpdateRequestBody =
+export type ApiTokenUpdateRequestData =
   MittwaldAPIV2.Paths.V2UsersSelfApiTokensApiTokenId.Put.Parameters.RequestBody;
