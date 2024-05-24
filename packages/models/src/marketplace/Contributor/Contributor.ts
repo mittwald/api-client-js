@@ -8,6 +8,7 @@ import {
 } from "../../lib/provideReact.js";
 import { ReferenceModel } from "../../base/ReferenceModel.js";
 import { ContributorData, ContributorListItemData } from "./types.js";
+import { Customer } from "../../customer/index.js";
 
 export class Contributor extends ReferenceModel {
   public static ofId(id: string): Contributor {
@@ -48,8 +49,11 @@ class ContributorCommon extends classes(
   DataModel<ContributorData | ContributorListItemData>,
   Contributor,
 ) {
+  public readonly customer: Customer;
+
   public constructor(data: ContributorData | ContributorListItemData) {
     super([data], [data.id]);
+    this.customer = Customer.ofId(data.customerId);
   }
 }
 
