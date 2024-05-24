@@ -1,7 +1,11 @@
-import { ContributorListItemData, ContributorData } from "../types.js";
+import {
+  ContributorListItemData,
+  ContributorData,
+  ContributorListQuery,
+} from "../types.js";
 
 export interface ContributorBehaviors {
   find: (id: string) => Promise<ContributorData | undefined>;
 
-  list: () => Promise<ContributorListItemData[]>;
+  list: (query?: ContributorListQuery) => Promise<ContributorListItemData[]>;
 }

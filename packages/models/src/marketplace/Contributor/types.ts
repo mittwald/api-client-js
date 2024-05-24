@@ -5,3 +5,6 @@ export type ContributorData =
 
 export type ContributorListItemData =
   MittwaldAPIV2.Operations.ExtensionListContributors.ResponseData[number];
+
+export type ContributorListQuery =
+  MittwaldAPIV2.Paths.V2Contributors.Get.Parameters.Query;

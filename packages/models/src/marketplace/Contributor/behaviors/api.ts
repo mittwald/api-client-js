@@ -15,8 +15,10 @@ export const apiContributorBehaviors = (
     assertStatus(response, 404);
   },
 
-  list: async () => {
-    const response = await client.marketplace.extensionListContributors({});
+  list: async (query) => {
+    const response = await client.marketplace.extensionListContributors({
+      queryParameters: query,
+    });
     assertStatus(response, 200);
     return response.data;
   },
