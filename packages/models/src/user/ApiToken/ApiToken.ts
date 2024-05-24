@@ -7,10 +7,10 @@ import { config } from "../../config/config.js";
 import { classes } from "polytype";
 import { DataModel } from "../../base/DataModel.js";
 import {
-  ApiTokenCreateData,
+  ApiTokenCreateRequestBody,
   ApiTokenData,
   ApiTokenListItemData,
-  ApiTokenUpdateData,
+  ApiTokenUpdateRequestBody,
 } from "./types.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import { DateTime } from "luxon";
@@ -52,13 +52,15 @@ export class ApiToken extends ReferenceModel {
     },
   );
 
-  public static async create(data: ApiTokenCreateData): Promise<ApiToken> {
+  public static async create(
+    data: ApiTokenCreateRequestBody,
+  ): Promise<ApiToken> {
     const { id } = await config.behaviors.apiToken.create(data);
 
     return new ApiToken(id);
   }
 
-  public async update(data: ApiTokenUpdateData): Promise<void> {
+  public async update(data: ApiTokenUpdateRequestBody): Promise<void> {
     await config.behaviors.apiToken.update(this.id, data);
   }
 

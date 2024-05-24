@@ -1,8 +1,8 @@
 import {
-  ApiTokenCreateData,
+  ApiTokenCreateRequestBody,
   ApiTokenData,
   ApiTokenListItemData,
-  ApiTokenUpdateData,
+  ApiTokenUpdateRequestBody,
 } from "../types.js";
 
 export interface ApiTokenBehaviors {
@@ -10,9 +10,9 @@ export interface ApiTokenBehaviors {
 
   list: () => Promise<ApiTokenListItemData[]>;
 
-  create: (data: ApiTokenCreateData) => Promise<{ id: string }>;
+  create: (data: ApiTokenCreateRequestBody) => Promise<{ id: string }>;
 
-  update: (id: string, data: ApiTokenUpdateData) => Promise<void>;
+  update: (id: string, data: ApiTokenUpdateRequestBody) => Promise<void>;
 
   delete: (id: string) => Promise<void>;
 }
