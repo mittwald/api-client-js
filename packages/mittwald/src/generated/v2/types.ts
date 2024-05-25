@@ -5296,6 +5296,10 @@ export declare module MittwaldAPIV2 {
       export type OrderOrderType = "NEW_ORDER" | "CONTRACT_CHANGE";
 
       export interface OrderDomainOrderPreviewResponse {
+        /**
+         * Contract duration in months.
+         */
+        domainContractDuration: number;
         domainPrice: number;
         feePrice: number;
         totalPrice: number;

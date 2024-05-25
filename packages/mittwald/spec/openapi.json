@@ -6853,6 +6853,11 @@
       },
       "order.DomainOrderPreviewResponse": {
         "properties": {
+          "domainContractDuration": {
+            "description": "Contract duration in months.",
+            "example": 12,
+            "type": "number"
+          },
           "domainPrice": {
             "example": 800,
             "type": "number"
@@ -6869,7 +6874,8 @@
         "required": [
           "totalPrice",
           "domainPrice",
-          "feePrice"
+          "feePrice",
+          "domainContractDuration"
         ],
         "type": "object"
       },
