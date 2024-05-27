@@ -1,5 +1,9 @@
 import { assertStatus, MittwaldAPIV2Client } from "@mittwald/api-client";
 import { ExtensionInstanceBehaviors } from "./types.js";
+import {
+  ExtensionInstanceConsentToScopesRequestData,
+  ExtensionInstanceCreateRequestData,
+} from "../types.js";
 
 export const apiExtensionInstanceBehaviors = (
   client: MittwaldAPIV2Client,
@@ -14,5 +18,60 @@ export const apiExtensionInstanceBehaviors = (
     }
 
     assertStatus(response, 404);
+  },
+
+  list: async (query) => {
+    const response = await client.marketplace.extensionListExtensionInstances({
+      queryParameters: query,
+    });
+
+    assertStatus(response, 200);
+
+    return response.data;
+  },
+
+  create: async (data: ExtensionInstanceCreateRequestData) => {
+    const response = await client.marketplace.extensionCreateExtensionInstance({
+      data,
+    });
+
+    assertStatus(response, 201);
+
+    return response.data;
+  },
+
+  consentToScopes: async (
+    extensionInstanceId: string,
+    data: ExtensionInstanceConsentToScopesRequestData,
+  ) => {
+    const response = await client.marketplace.extensionConsentToExtensionScopes(
+      { extensionInstanceId, data },
+    );
+
+    assertStatus(response, 204);
+  },
+
+  enable: async (extensionInstanceId: string) => {
+    const response = await client.marketplace.extensionEnableExtensionInstance({
+      extensionInstanceId,
+    });
+
+    assertStatus(response, 204);
+  },
+
+  disable: async (extensionInstanceId: string) => {
+    const response = await client.marketplace.extensionDisableExtensionInstance(
+      { extensionInstanceId },
+    );
+
+    assertStatus(response, 204);
+  },
+
+  delete: async (extensionInstanceId: string) => {
+    const response = await client.marketplace.extensionDeleteExtensionInstance({
+      extensionInstanceId,
+    });
+
+    assertStatus(response, 204);
   },
 });
