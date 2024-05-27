@@ -11,28 +11,17 @@ import {
   provideReact,
 } from "../../lib/provideReact.js";
 import { config } from "../../config/config.js";
-import assertObjectFound from "../../base/assertObjectFound.js";
 
 export class Extension extends ReferenceModel {
   public static ofId(id: string): Extension {
     return new Extension(id);
   }
 
-  public static find = provideReact(
-    async (id: string): Promise<ExtensionDetailed | undefined> => {
-      const data = await config.behaviors.extension.find(id);
-
-      if (data !== undefined) {
-        return new ExtensionDetailed(data);
-      }
-    },
-  );
-
   public static get = provideReact(
     async (id: string): Promise<ExtensionDetailed> => {
-      const extension = await this.find(id);
-      assertObjectFound(extension, this, id);
-      return extension;
+      const data = await config.behaviors.extension.get(id);
+
+      return new ExtensionDetailed(data);
     },
   );
 

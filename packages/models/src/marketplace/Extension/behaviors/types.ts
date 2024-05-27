@@ -5,7 +5,7 @@ import {
 } from "../types.js";
 
 export interface ExtensionBehaviors {
-  find: (id: string) => Promise<ExtensionData | undefined>;
+  get: (id: string) => Promise<ExtensionData>;
 
   list: (query: ExtensionListQuery) => Promise<ExtensionListItemData[]>;
 }

@@ -5,17 +5,14 @@ import { ExtensionListQuery } from "../types.js";
 export const apiExtensionBehaviors = (
   client: MittwaldAPIV2Client,
 ): ExtensionBehaviors => ({
-  find: async (id) => {
+  get: async (id) => {
     const response = await client.marketplace.extensionGetExtension({
       extensionId: id,
     });
 
-    if (response.status === 200) {
-      return response.data;
-    }
+    assertStatus(response, 200);
 
-    // Todo: aktivieren wenn 404 Route in Specs verfügbar ist
-    // assertStatus(response, 404);
+    return response.data;
   },
 
   list: async (query: ExtensionListQuery) => {
