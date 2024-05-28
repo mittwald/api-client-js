@@ -4327,7 +4327,8 @@ export declare module MittwaldAPIV2 {
       export type DomainTransferAuthentication =
         | "unspecified"
         | "code"
-        | "email";
+        | "email"
+        | "push";
 
       export interface MarketplaceContributor {
         customerId: string;

@@ -4019,7 +4019,8 @@
         "enum": [
           "unspecified",
           "code",
-          "email"
+          "email",
+          "push"
         ],
         "type": "string"
       },
