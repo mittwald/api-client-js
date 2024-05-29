@@ -4762,6 +4762,9 @@ export declare module MittwaldAPIV2 {
         mailbox: {
           enableSpamProtection: boolean;
           password: string;
+          /**
+           * 2 GB
+           */
           quotaInBytes: number;
         };
       }
@@ -15516,6 +15519,9 @@ export declare module MittwaldAPIV2 {
           };
 
           export interface RequestBody {
+            /**
+             * 2 GB
+             */
             quotaInBytes: number;
           }
 
