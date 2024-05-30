@@ -14423,6 +14423,9 @@
           "404": {
             "$ref": "#/components/responses/commons.NotFoundError"
           },
+          "412": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          },
           "default": {
             "$ref": "#/components/responses/commons.DefaultError"
           }
@@ -14460,6 +14463,12 @@
               }
             },
             "description": "The customer object"
+          },
+          "401": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          },
+          "403": {
+            "$ref": "#/components/responses/commons.DefaultError"
           },
           "404": {
             "$ref": "#/components/responses/commons.NotFoundError"

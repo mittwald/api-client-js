@@ -2728,6 +2728,16 @@ export const customerGetCustomer: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerId.Get.Responses.$401.Content.ApplicationJson>,
+      401,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
@@ -2793,6 +2803,11 @@ export const customerDeleteCustomer: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerId.Delete.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerId.Delete.Responses.$412.Content.ApplicationJson>,
+      412,
       "application/json"
     >
   | Response<
