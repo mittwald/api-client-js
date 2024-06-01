@@ -21254,6 +21254,9 @@
             },
             "description": "OK"
           },
+          "400": {
+            "$ref": "#/components/responses/commons.ValidationError"
+          },
           "default": {
             "$ref": "#/components/responses/commons.DefaultError"
           }

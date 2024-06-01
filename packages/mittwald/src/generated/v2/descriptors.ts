@@ -4727,6 +4727,11 @@ export const extensionListExtensionInstances: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstances.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ExtensionInstances.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
