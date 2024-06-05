@@ -7422,6 +7422,13 @@
           "statusSetAt": {
             "format": "date-time",
             "type": "string"
+          },
+          "webStorageUsageInBytes": {
+            "type": "integer"
+          },
+          "webStorageUsageInBytesSetAt": {
+            "format": "date-time",
+            "type": "string"
           }
         },
         "required": [
@@ -7435,7 +7442,9 @@
           "isReady",
           "readiness",
           "status",
-          "statusSetAt"
+          "statusSetAt",
+          "webStorageUsageInBytes",
+          "webStorageUsageInBytesSetAt"
         ],
         "type": "object"
       },
@@ -29578,6 +29587,13 @@
                       "statusSetAt": {
                         "format": "date-time",
                         "type": "string"
+                      },
+                      "webStorageUsageInBytes": {
+                        "type": "integer"
+                      },
+                      "webStorageUsageInBytesSetAt": {
+                        "format": "date-time",
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -29591,7 +29607,9 @@
                       "isReady",
                       "readiness",
                       "status",
-                      "statusSetAt"
+                      "statusSetAt",
+                      "webStorageUsageInBytes",
+                      "webStorageUsageInBytesSetAt"
                     ],
                     "type": "object"
                   },

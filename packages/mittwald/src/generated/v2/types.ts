@@ -5494,6 +5494,8 @@ export declare module MittwaldAPIV2 {
         statisticsBaseDomain?: string;
         status: MittwaldAPIV2.Components.Schemas.ProjectProjectStatus;
         statusSetAt: string;
+        webStorageUsageInBytes: number;
+        webStorageUsageInBytesSetAt: string;
       }
 
       export type ProjectServerDisableReason = "suspended";
@@ -17956,6 +17958,8 @@ export declare module MittwaldAPIV2 {
                 shortId: string;
                 status: MittwaldAPIV2.Components.Schemas.ProjectProjectStatus;
                 statusSetAt: string;
+                webStorageUsageInBytes: number;
+                webStorageUsageInBytesSetAt: string;
               }[];
             }
           }
