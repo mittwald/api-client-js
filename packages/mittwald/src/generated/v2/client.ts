@@ -301,6 +301,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateMessage: this.requestFunctionFactory(
       descriptors.conversationUpdateMessage,
     ),
+    /** Get preferences for customer conversations. */
+    getConversationPreferencesOfCustomer: this.requestFunctionFactory(
+      descriptors.conversationGetConversationPreferencesOfCustomer,
+    ),
   };
 
   /** The cronjob API allows you to manage cronjobs within a project. */

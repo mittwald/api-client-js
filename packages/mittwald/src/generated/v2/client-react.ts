@@ -239,6 +239,11 @@ const buildConversationApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.conversationListCategories,
     baseClient.conversation.listCategories,
   ).getApiResource,
+  /** Get preferences for customer conversations. */
+  getConversationPreferencesOfCustomer: new ApiCallAsyncResourceFactory(
+    descriptors.conversationGetConversationPreferencesOfCustomer,
+    baseClient.conversation.getConversationPreferencesOfCustomer,
+  ).getApiResource,
 });
 
 const buildCronjobApi = (baseClient: MittwaldAPIV2Client) => ({

@@ -3119,6 +3119,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace ConversationGetConversationPreferencesOfCustomer {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationGetConversationPreferencesOfCustomer
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationGetConversationPreferencesOfCustomer,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -5747,6 +5758,15 @@ export declare module MittwaldAPIV2 {
         lastAccess?: string;
         location?: MittwaldAPIV2.Components.Schemas.SignupLocation;
         tokenId: string;
+      }
+
+      export interface ConversationConversationPreferences {
+        preferredUsers?: {
+          categoryUserPairs?: {
+            [k: string]: string;
+          };
+          fallback?: string;
+        };
       }
 
       export interface CommonsAddress {
@@ -21310,6 +21330,60 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CustomersCustomerIdConversationPreferences {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ConversationConversationPreferences;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
