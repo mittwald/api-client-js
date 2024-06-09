@@ -224,11 +224,6 @@ const buildConversationApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.conversationGetConversationMembers,
     baseClient.conversation.getConversationMembers,
   ).getApiResource,
-  /** Get preferences for customer conversations. */
-  getConversationPreferencesOfCustomer: new ApiCallAsyncResourceFactory(
-    descriptors.conversationGetConversationPreferencesOfCustomer,
-    baseClient.conversation.getConversationPreferencesOfCustomer,
-  ).getApiResource,
   /** Get a support conversation. */
   getConversation: new ApiCallAsyncResourceFactory(
     descriptors.conversationGetConversation,
@@ -243,6 +238,11 @@ const buildConversationApi = (baseClient: MittwaldAPIV2Client) => ({
   listCategories: new ApiCallAsyncResourceFactory(
     descriptors.conversationListCategories,
     baseClient.conversation.listCategories,
+  ).getApiResource,
+  /** Get preferences for customer conversations. */
+  getConversationPreferencesOfCustomer: new ApiCallAsyncResourceFactory(
+    descriptors.conversationGetConversationPreferencesOfCustomer,
+    baseClient.conversation.getConversationPreferencesOfCustomer,
   ).getApiResource,
 });
 

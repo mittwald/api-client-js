@@ -273,10 +273,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getConversationMembers: this.requestFunctionFactory(
       descriptors.conversationGetConversationMembers,
     ),
-    /** Get preferences for customer conversations. */
-    getConversationPreferencesOfCustomer: this.requestFunctionFactory(
-      descriptors.conversationGetConversationPreferencesOfCustomer,
-    ),
     /** Get a support conversation. */
     getConversation: this.requestFunctionFactory(
       descriptors.conversationGetConversation,
@@ -304,6 +300,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update the content of the message */
     updateMessage: this.requestFunctionFactory(
       descriptors.conversationUpdateMessage,
+    ),
+    /** Get preferences for customer conversations. */
+    getConversationPreferencesOfCustomer: this.requestFunctionFactory(
+      descriptors.conversationGetConversationPreferencesOfCustomer,
     ),
   };
 
