@@ -1960,6 +1960,35 @@
         },
         "type": "array"
       },
+      "conversation.ConversationPreferences": {
+        "properties": {
+          "customerId": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "preferredUsers": {
+            "properties": {
+              "categoryUserPairs": {
+                "additionalProperties": {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              "fallback": {
+                "format": "uuid",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "required": [
+          "customerId",
+          "preferredUsers"
+        ],
+        "type": "object"
+      },
       "conversation.Conversation": {
         "properties": {
           "category": {
@@ -8204,35 +8233,6 @@
         ],
         "type": "object"
       },
-      "conversation.ConversationPreferences": {
-        "properties": {
-          "customerId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "preferredUsers": {
-            "properties": {
-              "categoryUserPairs": {
-                "additionalProperties": {
-                  "format": "uuid",
-                  "type": "string"
-                },
-                "type": "object"
-              },
-              "fallback": {
-                "format": "uuid",
-                "type": "string"
-              }
-            },
-            "type": "object"
-          }
-        },
-        "required": [
-          "customerId",
-          "preferredUsers"
-        ],
-        "type": "object"
-      },
       "commons.Address": {
         "type": "object",
         "properties": {
@@ -12555,6 +12555,50 @@
           }
         },
         "summary": "Get members of a support conversation.",
+        "tags": [
+          "Conversation"
+        ]
+      }
+    },
+    "/v2/customers/{customerId}/conversation-preferences": {
+      "get": {
+        "operationId": "conversation-get-conversation-preferences-of-customer",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customerId",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/conversation.ConversationPreferences"
+                }
+              }
+            },
+            "description": ""
+          },
+          "400": {
+            "$ref": "#/components/responses/commons.ValidationError"
+          },
+          "403": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          },
+          "404": {
+            "$ref": "#/components/responses/commons.NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/commons.DefaultError"
+          }
+        },
+        "summary": "Get preferences for customer conversations.",
         "tags": [
           "Conversation"
         ]
@@ -35188,50 +35232,6 @@
         "summary": "Verify your registration.",
         "tags": [
           "User"
-        ]
-      }
-    },
-    "/v2/customers/{customerId}/conversation-preferences": {
-      "get": {
-        "operationId": "conversation-get-conversation-preferences-of-customer",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "customerId",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/conversation.ConversationPreferences"
-                }
-              }
-            },
-            "description": ""
-          },
-          "400": {
-            "$ref": "#/components/responses/commons.ValidationError"
-          },
-          "403": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          },
-          "404": {
-            "$ref": "#/components/responses/commons.NotFoundError"
-          },
-          "default": {
-            "$ref": "#/components/responses/commons.DefaultError"
-          }
-        },
-        "summary": "Get preferences for customer conversations.",
-        "tags": [
-          "Conversation"
         ]
       }
     }
