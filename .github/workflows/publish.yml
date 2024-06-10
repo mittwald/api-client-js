@@ -57,8 +57,8 @@ jobs:
       # See also https://nx.dev/ci/recipes/set-up/monorepo-ci-github-actions#configuring-ci-using-github-actions-and-nx
       - name: Setup NX 2/2 🎛
         if: |
-          !endsWith(github.event.workflow_run.head_branch || github.ref, '/master') &&
-          !endsWith(github.event.workflow_run.head_branch || github.ref, '/dev')
+          !((!github.event.workflow_run.head_branch || endsWith(github.event.workflow_run.head_branch, '/master')) && github.ref == 'refs/heads/master') &&
+          !(endsWith(github.event.workflow_run.head_branch, '/dev') || endsWith(github.ref, '/dev'))
         run: git branch --track master origin/master
 
       - name: Build 🔨
@@ -71,9 +71,8 @@ jobs:
       #    git add .
 
       - name: Version and publish (prod) 🚀
-        if:
-          endsWith(github.event.workflow_run.head_branch || github.ref,
-          '/master')
+        if: |
+          (!github.event.workflow_run.head_branch || endsWith(github.event.workflow_run.head_branch, '/master')) && github.ref == 'refs/heads/master'
         run: |
           yarn lerna publish \
             --conventional-commits \
@@ -84,7 +83,8 @@ jobs:
 
       - name: Version and publish (dev) 🚀
         if:
-          endsWith(github.event.workflow_run.head_branch || github.ref, '/dev')
+          endsWith(github.event.workflow_run.head_branch, '/dev') ||
+          endsWith(github.ref, '/dev')
         run: |
           yarn lerna publish 0.0.0-development-${GITHUB_SHA:0:7}-$(date +%Y%m%d) \
             --message "chore(release): bump version to %v" \
