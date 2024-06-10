@@ -31,6 +31,7 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.PUBLISH_PAT }}
+          ref: ${{ github.event.workflow_run.head_branch }}
 
       - name: Setup Node 🎛️
         uses: actions/setup-node@v4
