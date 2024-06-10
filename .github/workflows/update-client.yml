@@ -4,6 +4,11 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 0 * * *"
+  push:
+    branches:
+      - dev
+    paths:
+      - packages/mittwald/spec/openapi-dev.json
 
 jobs:
   update-client:
@@ -34,10 +39,11 @@ jobs:
         uses: nrwl/nx-set-shas@v4
 
       - name: Setup NX 2/2 🎛
-        if: github.ref != 'refs/heads/master'
+        if: github.ref != 'refs/heads/master' && github.ref != 'refs/heads/dev'
         run: git branch --track master origin/master
 
-      - name: Update OpenAPI ⬇️
+      - name: Update OpenAPI (prod) ⬇️
+        if: github.ref == 'refs/heads/master'
         run: |
           yarn nx run @mittwald/api-client:build:fetch-openapi
           if [ $(git status --porcelain . | wc -l) -gt 0 ] ; then
@@ -45,5 +51,16 @@ jobs:
             git add .
             yarn test
             git commit -m "feat: update generated client";            
+            git push origin
+          fi
+
+      - name: Update OpenAPI (dev) ⬇️
+        if: github.ref == 'refs/heads/dev'
+        run: |
+          yarn nx run @mittwald/api-client:build:client-dev
+          if [ $(git status --porcelain . | wc -l) -gt 0 ] ; then
+            git add .
+            yarn test
+            git commit -m "chore: update generated development client";            
             git push origin
           fi

@@ -14,7 +14,9 @@ on:
 
 jobs:
   publish:
-    if: github.event.pull_request.merged == true
+    if:
+      github.event.pull_request.merged == true ||
+      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
 
     env:
@@ -53,18 +55,20 @@ jobs:
       # This step is needed for nx affected to work when CI is running on a PR
       # See also https://nx.dev/ci/recipes/set-up/monorepo-ci-github-actions#configuring-ci-using-github-actions-and-nx
       - name: Setup NX 2/2 🎛
-        if: github.ref != 'refs/heads/master'
+        if: github.ref != 'refs/heads/master' && github.ref != 'refs/heads/dev'
         run: git branch --track master origin/master
 
       - name: Build 🔨
         run: yarn nx affected -t build --parallel=3
 
-      - name: Create version file 🔢
-        run: |
-          yarn nx run @mittwald/api-client:build:write-version-file
-          git add .
+      # TODO: This is broken, anyway
+      #- name: Create version file 🔢
+      #  run: |
+      #    yarn nx run @mittwald/api-client:build:write-version-file
+      #    git add .
 
-      - name: Version and publish 🚀
+      - name: Version and publish (prod) 🚀
+        if: github.ref == 'refs/heads/master'
         run: |
           yarn lerna publish \
             --conventional-commits \
@@ -72,3 +76,12 @@ jobs:
             --message "chore(release): bump version to %v" \
             --yes --no-private \
             --tag-version-prefix ""
+
+      - name: Version and publish (dev) 🚀
+        if: github.ref == 'refs/heads/dev'
+        run: |
+          yarn lerna publish 0.0.0-development-${GITHUB_SHA:0:7}-$(date +%Y%m%d) \
+            --message "chore(release): bump version to %v" \
+            --yes --no-private \
+            --tag-version-prefix "" \
+            --dist-tag development

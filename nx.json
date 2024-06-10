@@ -1,14 +1,18 @@
 {
-  "defaultBase": "master",
   "affected": {
     "defaultBase": "master"
   },
+  "defaultBase": "master",
   "targetDefaults": {
     "build": {
       "dependsOn": ["^build"],
       "cache": true
     },
-    "build:client": {
+    "build:client-prod": {
+      "cache": true,
+      "dependsOn": ["^build"]
+    },
+    "build:client-dev": {
       "cache": true,
       "dependsOn": ["^build"]
     },

@@ -33,8 +33,11 @@
   "scripts": {
     "build": "run build:clean && run tsc",
     "build:clean": "run rimraf dist",
-    "build:client": "run acg generate --name MittwaldAPIV2 spec/openapi.json src/generated/v2 --optionalHeader x-access-token",
-    "build:fetch-openapi": "bash -e -o pipefail -c 'curl --location --fail --silent https://api.mittwald.de/openapi | spec/transform-openapi.sh > spec/openapi.json'",
+    "build:client-base": "run acg generate --name MittwaldAPIV2 /dev/stdin src/generated/v2 --optionalHeader x-access-token",
+    "build:client-dev": "bash -e -o pipefail -c 'spec/transform-openapi.sh < spec/openapi-dev.json | run build:client-base'",
+    "build:client-prod": "bash -e -o pipefail -c 'spec/transform-openapi.sh < spec/openapi.json | run build:client-base'",
+    "build:fetch-openapi": "curl --location --fail --silent https://api.mittwald.de/v2/openapi.json > spec/openapi.json",
+    "build:fetch-openapi-dev": "curl --location --fail --silent https://api-public.dev.mittwald.systems/v2/openapi.json > spec/openapi-dev.json",
     "build:write-version-file": "run tsx dev/writeVersion.ts",
     "format": "run prettier --write '**/*.{ts,tsx,yaml,yml,json,md,mdx,js}'",
     "lint": "run eslint .",
