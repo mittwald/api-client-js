@@ -57,7 +57,7 @@ jobs:
       - name: Setup NX 2/2 🎛
         if:
           (github.ref != 'refs/heads/master' &&
-          github.event.workflow_run.head_branch == 'master')
+          github.event.workflow_run.head_branch != 'master')
         run: git branch --track master origin/master
 
       - name: Build 🔨
