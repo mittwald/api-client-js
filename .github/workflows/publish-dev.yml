@@ -1,4 +1,4 @@
-name: Publish packages to NPM
+name: Publish development packages to NPM
 
 on:
   workflow_dispatch:
@@ -6,9 +6,9 @@ on:
     types:
       - closed
     branches:
-      - master
+      - dev
   workflow_run:
-    workflows: [Update API client]
+    workflows: [Update API client (dev)]
     types:
       - completed
 
@@ -31,6 +31,7 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.PUBLISH_PAT }}
+          ref: ${{ github.event.workflow_run.head_branch }}
 
       - name: Setup Node 🎛️
         uses: actions/setup-node@v4
@@ -56,9 +57,9 @@ jobs:
       # See also https://nx.dev/ci/recipes/set-up/monorepo-ci-github-actions#configuring-ci-using-github-actions-and-nx
       - name: Setup NX 2/2 🎛
         if:
-          (github.ref != 'refs/heads/master' &&
-          github.event.workflow_run.head_branch == 'master')
-        run: git branch --track master origin/master
+          (github.ref != 'refs/heads/dev' &&
+          github.event.workflow_run.head_branch == 'dev')
+        run: git branch --track dev origin/dev
 
       - name: Build 🔨
         run: yarn nx affected -t build --parallel=3
@@ -71,13 +72,12 @@ jobs:
 
       - name: Version and publish 🚀
         if:
-          github.event.workflow_run.head_branch == 'master' || github.ref ==
-          'refs/heads/master'
+          github.event.workflow_run.head_branch == 'dev' || github.ref ==
+          'refs/heads/dev'
         run: |
-          yarn lerna publish \
-            --conventional-commits \
-            --create-release github \
+          yarn lerna publish 0.0.0-development-${GITHUB_SHA:0:7}-$(date +%Y%m%d) \
             --message "chore(release): bump version to %v" \
             --yes --no-private \
             --tag-version-prefix "" \
+            --dist-tag development \
             --force-publish
