@@ -42,7 +42,7 @@ jobs:
 
       - name: Merge in master ⛙
         run: |
-          git merge refs/heads/master --strategy-option theirs
+          git merge refs/remotes/origin/master --strategy-option theirs
 
       - name: Update OpenAPI ⬇️
         if: github.ref == 'refs/heads/dev'
