@@ -75,10 +75,8 @@ jobs:
           github.event.workflow_run.head_branch == 'dev' || github.ref ==
           'refs/heads/dev'
         run: |
-
           yarn lerna publish 0.0.0-development-$(git rev-parse --short=7 HEAD)-$(date +%Y%m%d) \
             --message "chore(release): bump version to %v" \
             --yes --no-private \
             --tag-version-prefix "" \
-            --dist-tag development \
-            --force-publish
+            --dist-tag development

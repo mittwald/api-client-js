@@ -79,5 +79,4 @@ jobs:
             --create-release github \
             --message "chore(release): bump version to %v" \
             --yes --no-private \
-            --tag-version-prefix "" \
-            --force-publish
+            --tag-version-prefix ""
