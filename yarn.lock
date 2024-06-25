@@ -1398,7 +1398,7 @@ __metadata:
   resolution: "@mittwald/api-code-generator@workspace:packages/generator"
   dependencies:
     "@jest/globals": "npm:^29.7.0"
-    "@oclif/core": "npm:^3.23.0"
+    "@oclif/core": "npm:^4.0.6"
     "@oclif/plugin-help": "npm:^6.0.18"
     "@oclif/plugin-plugins": "npm:^4.3.3"
     "@sindresorhus/is": "npm:^6.2.0"
@@ -1883,6 +1883,31 @@ __metadata:
     wordwrap: "npm:^1.0.0"
     wrap-ansi: "npm:^7.0.0"
   checksum: 10/e59086dbc6ce258375bbb24c72b4015e0eb397daf96b81ab8bc7ff2ff5176ce5bf48e53b1986243119daafd106cd3b9d5df0ff602b8f0cd5e6a1bb1be884cd38
+  languageName: node
+  linkType: hard
+
+"@oclif/core@npm:^4.0.6":
+  version: 4.0.6
+  resolution: "@oclif/core@npm:4.0.6"
+  dependencies:
+    ansi-escapes: "npm:^4.3.2"
+    ansis: "npm:^3.1.1"
+    clean-stack: "npm:^3.0.1"
+    cli-spinners: "npm:^2.9.2"
+    debug: "npm:^4.3.5"
+    ejs: "npm:^3.1.10"
+    get-package-type: "npm:^0.1.0"
+    globby: "npm:^11.1.0"
+    indent-string: "npm:^4.0.0"
+    is-wsl: "npm:^2.2.0"
+    lilconfig: "npm:^3.1.2"
+    minimatch: "npm:^9.0.4"
+    string-width: "npm:^4.2.3"
+    supports-color: "npm:^8"
+    widest-line: "npm:^3.1.0"
+    wordwrap: "npm:^1.0.0"
+    wrap-ansi: "npm:^7.0.0"
+  checksum: 10/e48017be34c0bc074065ef10adca3dd0f81850df4b78b26cb272bb0b2f821eb3c6bab0dabfba189a1500ba53a23694796dfc0866d65c7fa2b06fc08ca3c77880
   languageName: node
   linkType: hard
 
@@ -3176,6 +3201,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ansis@npm:^3.1.1":
+  version: 3.2.0
+  resolution: "ansis@npm:3.2.0"
+  checksum: 10/1edfb98008d173e18cea1f8c539a62bd013905d51b65c1404f7b34cb92733858296abda48800a3522e08e2151c08306c809ce7c2ec83e37f178a53ea0f6843f3
+  languageName: node
+  linkType: hard
+
 "any-promise@npm:^1.0.0":
   version: 1.3.0
   resolution: "any-promise@npm:1.3.0"
@@ -3866,7 +3898,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cli-spinners@npm:^2.5.0":
+"cli-spinners@npm:^2.5.0, cli-spinners@npm:^2.9.2":
   version: 2.9.2
   resolution: "cli-spinners@npm:2.9.2"
   checksum: 10/a0a863f442df35ed7294424f5491fa1756bd8d2e4ff0c8736531d886cec0ece4d85e8663b77a5afaf1d296e3cbbebff92e2e99f52bbea89b667cbe789b994794
@@ -4378,6 +4410,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"debug@npm:^4.3.5":
+  version: 4.3.5
+  resolution: "debug@npm:4.3.5"
+  dependencies:
+    ms: "npm:2.1.2"
+  peerDependenciesMeta:
+    supports-color:
+      optional: true
+  checksum: 10/cb6eab424c410e07813ca1392888589972ce9a32b8829c6508f5e1f25f3c3e70a76731610ae55b4bbe58d1a2fffa1424b30e97fa8d394e49cd2656a9643aedd2
+  languageName: node
+  linkType: hard
+
 "decamelize-keys@npm:^1.1.0":
   version: 1.1.1
   resolution: "decamelize-keys@npm:1.1.1"
@@ -4602,6 +4646,17 @@ __metadata:
   version: 0.2.0
   resolution: "eastasianwidth@npm:0.2.0"
   checksum: 10/9b1d3e1baefeaf7d70799db8774149cef33b97183a6addceeba0cf6b85ba23ee2686f302f14482006df32df75d32b17c509c143a3689627929e4a8efaf483952
+  languageName: node
+  linkType: hard
+
+"ejs@npm:^3.1.10":
+  version: 3.1.10
+  resolution: "ejs@npm:3.1.10"
+  dependencies:
+    jake: "npm:^10.8.5"
+  bin:
+    ejs: bin/cli.js
+  checksum: 10/a9cb7d7cd13b7b1cd0be5c4788e44dd10d92f7285d2f65b942f33e127230c054f99a42db4d99f766d8dbc6c57e94799593ee66a14efd7c8dd70c4812bf6aa384
   languageName: node
   linkType: hard
 
@@ -7450,6 +7505,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lilconfig@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "lilconfig@npm:3.1.2"
+  checksum: 10/8058403850cfad76d6041b23db23f730e52b6c17a8c28d87b90766639ca0ee40c748a3e85c2d7bd133d572efabff166c4b015e5d25e01fd666cb4b13cfada7f0
+  languageName: node
+  linkType: hard
+
 "lines-and-columns@npm:^1.1.6":
   version: 1.2.4
   resolution: "lines-and-columns@npm:1.2.4"
@@ -8148,6 +8210,15 @@ __metadata:
   dependencies:
     brace-expansion: "npm:^2.0.1"
   checksum: 10/aef05598ee565e1013bc8a10f53410ac681561f901c1a084b8ecfd016c9ed919f58f4bbd5b63e05643189dfb26e8106a84f0e1ff12e4a263aa37e1cae7ce9828
+  languageName: node
+  linkType: hard
+
+"minimatch@npm:^9.0.4":
+  version: 9.0.4
+  resolution: "minimatch@npm:9.0.4"
+  dependencies:
+    brace-expansion: "npm:^2.0.1"
+  checksum: 10/4cdc18d112b164084513e890d6323370db14c22249d536ad1854539577a895e690a27513dc346392f61a4a50afbbd8abc88f3f25558bfbbbb862cd56508b20f5
   languageName: node
   linkType: hard
 
@@ -10726,7 +10797,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"supports-color@npm:^8.0.0, supports-color@npm:^8.1.1":
+"supports-color@npm:^8, supports-color@npm:^8.0.0, supports-color@npm:^8.1.1":
   version: 8.1.1
   resolution: "supports-color@npm:8.1.1"
   dependencies:

@@ -2033,7 +2033,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@mittwald/api-code-generator", "workspace:packages/generator"],\
           ["@jest/globals", "npm:29.7.0"],\
-          ["@oclif/core", "npm:3.23.0"],\
+          ["@oclif/core", "npm:4.0.6"],\
           ["@oclif/plugin-help", "npm:6.0.18"],\
           ["@oclif/plugin-plugins", "npm:4.3.3"],\
           ["@sindresorhus/is", "npm:6.2.0"],\
@@ -2612,6 +2612,30 @@ const RAW_RUNTIME_STATE =
           ["strip-ansi", "npm:6.0.1"],\
           ["supports-color", "npm:8.1.1"],\
           ["supports-hyperlinks", "npm:2.3.0"],\
+          ["widest-line", "npm:3.1.0"],\
+          ["wordwrap", "npm:1.0.0"],\
+          ["wrap-ansi", "npm:7.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:4.0.6", {\
+        "packageLocation": "./.yarn/cache/@oclif-core-npm-4.0.6-4013f6be0c-e48017be34.zip/node_modules/@oclif/core/",\
+        "packageDependencies": [\
+          ["@oclif/core", "npm:4.0.6"],\
+          ["ansi-escapes", "npm:4.3.2"],\
+          ["ansis", "npm:3.2.0"],\
+          ["clean-stack", "npm:3.0.1"],\
+          ["cli-spinners", "npm:2.9.2"],\
+          ["debug", "virtual:4013f6be0c1fc693981c3dba97b6aa7f3ac49fcc6dc4d94f4a563cb3f90d5f055cd2bf80dba45c5c39c204209b563bfa33d2e11604b77084d2ff871f244ab7a3#npm:4.3.5"],\
+          ["ejs", "npm:3.1.10"],\
+          ["get-package-type", "npm:0.1.0"],\
+          ["globby", "npm:11.1.0"],\
+          ["indent-string", "npm:4.0.0"],\
+          ["is-wsl", "npm:2.2.0"],\
+          ["lilconfig", "npm:3.1.2"],\
+          ["minimatch", "npm:9.0.4"],\
+          ["string-width", "npm:4.2.3"],\
+          ["supports-color", "npm:8.1.1"],\
           ["widest-line", "npm:3.1.0"],\
           ["wordwrap", "npm:1.0.0"],\
           ["wrap-ansi", "npm:7.0.0"]\
@@ -4197,6 +4221,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["ansis", [\
+      ["npm:3.2.0", {\
+        "packageLocation": "./.yarn/cache/ansis-npm-3.2.0-6e033bcd42-1edfb98008.zip/node_modules/ansis/",\
+        "packageDependencies": [\
+          ["ansis", "npm:3.2.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["any-promise", [\
       ["npm:1.3.0", {\
         "packageLocation": "./.yarn/cache/any-promise-npm-1.3.0-f34eeaa7e7-6737469ba3.zip/node_modules/any-promise/",\
@@ -5612,6 +5645,13 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
+      ["npm:4.3.5", {\
+        "packageLocation": "./.yarn/cache/debug-npm-4.3.5-b5001f59b7-cb6eab424c.zip/node_modules/debug/",\
+        "packageDependencies": [\
+          ["debug", "npm:4.3.5"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
       ["virtual:1ff4b5f90832ba0a9c93ba1223af226e44ba70c1126a3740d93562b97bc36544e896a5e95908196f7458713e6a6089a34bfc67362fc6df7fa093bd06c878be47#npm:4.3.4", {\
         "packageLocation": "./.yarn/__virtual__/debug-virtual-1040418e3c/0/cache/debug-npm-4.3.4-4513954577-0073c3bcbd.zip/node_modules/debug/",\
         "packageDependencies": [\
@@ -5630,6 +5670,20 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/debug-virtual-ed5c6c4554/0/cache/debug-npm-4.3.4-4513954577-0073c3bcbd.zip/node_modules/debug/",\
         "packageDependencies": [\
           ["debug", "virtual:30ae1b516455a167eb3d9013918bf7815efd3c2d5e3029499f81b9758e267bfdf1c475733cf5c968b415160ac46414b6bc0ed61700c134ee705a399e0142e691#npm:4.3.4"],\
+          ["@types/supports-color", null],\
+          ["ms", "npm:2.1.2"],\
+          ["supports-color", "npm:8.1.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/supports-color",\
+          "supports-color"\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["virtual:4013f6be0c1fc693981c3dba97b6aa7f3ac49fcc6dc4d94f4a563cb3f90d5f055cd2bf80dba45c5c39c204209b563bfa33d2e11604b77084d2ff871f244ab7a3#npm:4.3.5", {\
+        "packageLocation": "./.yarn/__virtual__/debug-virtual-c2cce3429b/0/cache/debug-npm-4.3.5-b5001f59b7-cb6eab424c.zip/node_modules/debug/",\
+        "packageDependencies": [\
+          ["debug", "virtual:4013f6be0c1fc693981c3dba97b6aa7f3ac49fcc6dc4d94f4a563cb3f90d5f055cd2bf80dba45c5c39c204209b563bfa33d2e11604b77084d2ff871f244ab7a3#npm:4.3.5"],\
           ["@types/supports-color", null],\
           ["ms", "npm:2.1.2"],\
           ["supports-color", "npm:8.1.1"]\
@@ -5920,6 +5974,14 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["ejs", [\
+      ["npm:3.1.10", {\
+        "packageLocation": "./.yarn/cache/ejs-npm-3.1.10-4e8cf4bdc1-a9cb7d7cd1.zip/node_modules/ejs/",\
+        "packageDependencies": [\
+          ["ejs", "npm:3.1.10"],\
+          ["jake", "npm:10.8.7"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:3.1.9", {\
         "packageLocation": "./.yarn/cache/ejs-npm-3.1.9-e201b2088c-71f56d3754.zip/node_modules/ejs/",\
         "packageDependencies": [\
@@ -9072,6 +9134,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["lilconfig", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "./.yarn/cache/lilconfig-npm-3.1.2-e5b7292949-8058403850.zip/node_modules/lilconfig/",\
+        "packageDependencies": [\
+          ["lilconfig", "npm:3.1.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["lines-and-columns", [\
       ["npm:1.2.4", {\
         "packageLocation": "./.yarn/cache/lines-and-columns-npm-1.2.4-d6c7cc5799-0c37f9f7fa.zip/node_modules/lines-and-columns/",\
@@ -9828,6 +9899,14 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/minimatch-npm-9.0.3-69d7d6fad5-c81b47d281.zip/node_modules/minimatch/",\
         "packageDependencies": [\
           ["minimatch", "npm:9.0.3"],\
+          ["brace-expansion", "npm:2.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:9.0.4", {\
+        "packageLocation": "./.yarn/cache/minimatch-npm-9.0.4-7be5a33efc-4cdc18d112.zip/node_modules/minimatch/",\
+        "packageDependencies": [\
+          ["minimatch", "npm:9.0.4"],\
           ["brace-expansion", "npm:2.0.1"]\
         ],\
         "linkType": "HARD"\
