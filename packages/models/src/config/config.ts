@@ -3,6 +3,7 @@ import { ServerBehaviors } from "../server/Server/behaviors/index.js";
 import { CustomerBehaviors } from "../customer/Customer/behaviors/index.js";
 import { IngressBehaviors } from "../domain/Ingress/behaviors/index.js";
 import { AppInstallationBehaviors } from "../app/AppInstallation/behaviors/index.js";
+import { InvoiceBehaviors } from "../invoice/Invoice/behaviors/index.js";
 
 interface Config {
   behaviors: {
@@ -10,6 +11,7 @@ interface Config {
     server: ServerBehaviors;
     customer: CustomerBehaviors;
     ingress: IngressBehaviors;
+    invoice: InvoiceBehaviors;
     appInstallation: AppInstallationBehaviors;
   };
 }
@@ -20,6 +22,7 @@ export const config: Config = {
     server: undefined as unknown as ServerBehaviors,
     customer: undefined as unknown as CustomerBehaviors,
     ingress: undefined as unknown as IngressBehaviors,
+    invoice: undefined as unknown as InvoiceBehaviors,
     appInstallation: undefined as unknown as AppInstallationBehaviors,
   },
 };
