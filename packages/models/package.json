@@ -40,6 +40,7 @@
     "@mittwald/api-client": "workspace:^",
     "another-deep-freeze": "^1.0.0",
     "polytype": "^0.17.0",
+    "semver-compare": "^1.0.0",
     "type-fest": "^4.12.0"
   },
   "devDependencies": {
@@ -47,6 +48,7 @@
     "@mittwald/react-use-promise": "^2.3.12",
     "@types/jest": "^29.5.12",
     "@types/react": "^18.2.64",
+    "@types/semver-compare": "^1",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
     "eslint": "^8.57.0",
