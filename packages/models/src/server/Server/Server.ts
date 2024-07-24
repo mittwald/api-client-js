@@ -9,7 +9,6 @@ import { FirstParameter, ParamsExceptFirst } from "../../lib/types.js";
 import { AsyncResourceVariant, provideReact } from "../../lib/provideReact.js";
 
 export class Server extends ReferenceModel {
-
   public static ofId(id: string): Server {
     return new Server(id);
   }
@@ -24,11 +23,13 @@ export class Server extends ReferenceModel {
     },
   );
 
-  public static get = provideReact(async (id: string): Promise<ServerDetailed> => {
-    const server = await this.find(id);
-    assertObjectFound(server, this, id);
-    return server;
-  });
+  public static get = provideReact(
+    async (id: string): Promise<ServerDetailed> => {
+      const server = await this.find(id);
+      assertObjectFound(server, this, id);
+      return server;
+    },
+  );
 
   public static list = provideReact(
     async (query: ServerListQuery = {}): Promise<ServerListItem[]> => {
