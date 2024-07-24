@@ -1,5 +1,5 @@
 import { ReferenceModel } from "../../base/ReferenceModel.js";
-import { ServerListItemData, ServerData, ServerListQuery } from "./types.js";
+import { ServerData, ServerListItemData, ServerListQuery } from "./types.js";
 import { config } from "../../config/config.js";
 import { classes } from "polytype";
 import { DataModel } from "../../base/DataModel.js";
@@ -9,18 +9,23 @@ import { FirstParameter, ParamsExceptFirst } from "../../lib/types.js";
 import { AsyncResourceVariant, provideReact } from "../../lib/provideReact.js";
 
 export class Server extends ReferenceModel {
-  public static find = provideReact(
-    async (id: string): Promise<Server | undefined> => {
-      const serverData = await config.behaviors.server.find(id);
 
-      if (serverData !== undefined) {
-        return new ServerDetailed([serverData]);
+  public static ofId(id: string): Server {
+    return new Server(id);
+  }
+
+  public static find = provideReact(
+    async (id: string): Promise<ServerDetailed | undefined> => {
+      const data = await config.behaviors.server.find(id);
+
+      if (data !== undefined) {
+        return new ServerDetailed(data);
       }
     },
   );
 
-  public static get = provideReact(async (id: string): Promise<Server> => {
-    const server = await ServerDetailed.find(id);
+  public static get = provideReact(async (id: string): Promise<ServerDetailed> => {
+    const server = await this.find(id);
     assertObjectFound(server, this, id);
     return server;
   });
@@ -31,10 +36,6 @@ export class Server extends ReferenceModel {
       return projectListData.map((d) => new ServerListItem([d]));
     },
   );
-
-  public static ofId(id: string): Server {
-    return new Server(id);
-  }
 
   public async createProject(
     ...parameters: ParamsExceptFirst<typeof Project.create>
@@ -54,7 +55,7 @@ export class Server extends ReferenceModel {
   );
 
   public getDetailed = provideReact(() =>
-    ServerDetailed.get(this.id),
+    Server.get(this.id),
   ) as AsyncResourceVariant<ServerDetailed, []>;
 }
 
@@ -68,10 +69,20 @@ class ServerCommon extends classes(
   }
 }
 
-export class ServerListItem extends classes<
-  [typeof ServerCommon, typeof DataModel<ServerListItemData>]
->(ServerCommon, DataModel<ServerListItemData>) {}
+export class ServerDetailed extends classes(
+  ServerCommon,
+  DataModel<ServerData>,
+) {
+  public constructor(data: ServerData) {
+    super([data], [data]);
+  }
+}
 
-export class ServerDetailed extends classes<
-  [typeof ServerCommon, typeof DataModel<ServerData>]
->(ServerCommon, DataModel<ServerData>) {}
+export class ServerListItem extends classes(
+  ServerCommon,
+  DataModel<ServerListItemData>,
+) {
+  public constructor(data: ServerListItemData) {
+    super([data], [data]);
+  }
+}
