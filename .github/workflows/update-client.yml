@@ -3,7 +3,7 @@ name: Update API client
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 19 * * *"
 
 jobs:
   update-client:
