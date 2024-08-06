@@ -34,7 +34,7 @@ export class Server extends ReferenceModel {
   public static list = provideReact(
     async (query: ServerListQuery = {}): Promise<ServerListItem[]> => {
       const projectListData = await config.behaviors.server.list(query);
-      return projectListData.map((d) => new ServerListItem([d]));
+      return projectListData.map((d) => new ServerListItem(d));
     },
   );
 
