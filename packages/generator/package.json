@@ -22,7 +22,9 @@
     "build:clean": "run rimraf dist",
     "format": "run prettier --write '**/*.{ts,tsx,yaml,yml,json,md,mdx,js}'",
     "lint": "run eslint .",
-    "test": "node --experimental-vm-modules $(yarn bin jest)"
+    "test": "",
+    "test:compile": "run tsc --noEmit",
+    "test:unit": "node --experimental-vm-modules $(yarn bin jest)"
   },
   "dependencies": {
     "@oclif/core": "^3.23.0",

@@ -42,7 +42,8 @@
     "format": "run prettier --write '**/*.{ts,tsx,yaml,yml,json,md,mdx,js}'",
     "lint": "run eslint .",
     "test": "",
-    "test:client-generation-clean": "git diff --exit-code"
+    "test:client-generation-clean": "git diff --exit-code",
+    "test:compile": "run tsc --noEmit"
   },
   "dependencies": {
     "@mittwald/api-client-commons": "workspace:^",
