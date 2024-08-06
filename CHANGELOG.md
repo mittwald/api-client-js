@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.44.1](https://github.com/mittwald/api-client-js/compare/4.44.0...4.44.1) (2024-08-06)
+
+### Bug Fixes
+
+- **Models:** fix Server model types
+  ([4a4a239](https://github.com/mittwald/api-client-js/commit/4a4a23987e7f56c6bacc57521f69028dffc2c4bd))
+- **Models:** fix TS error in Server model
+  ([bb71051](https://github.com/mittwald/api-client-js/commit/bb71051cd3e5c8641eadde2aca5a40908cd8c67e))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [4.44.0](https://github.com/mittwald/api-client-js/compare/4.43.0...4.44.0) (2024-08-02)
 
 ### Features
