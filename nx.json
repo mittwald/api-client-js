@@ -23,8 +23,21 @@
     "lint": {
       "cache": true
     },
+    "test:compile": {
+      "dependsOn": ["^build"],
+      "cache": true
+    },
+    "test:unit": {
+      "dependsOn": ["^build"],
+      "cache": true
+    },
     "test": {
-      "dependsOn": ["^build", "test:client-generation-clean"],
+      "dependsOn": [
+        "^build",
+        "test:client-generation-clean",
+        "test:compile",
+        "test:unit"
+      ],
       "cache": true
     }
   }
