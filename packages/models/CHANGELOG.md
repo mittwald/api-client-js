@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.44.3](https://github.com/mittwald/api-client-js/compare/4.44.2...4.44.3) (2024-08-07)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [4.44.2](https://github.com/mittwald/api-client-js/compare/4.44.1...4.44.2) (2024-08-07)
+
+### Bug Fixes
+
+- **Models:** fix not updating detailed data in React hooks
+  ([79fdcf0](https://github.com/mittwald/api-client-js/commit/79fdcf0a46117f355fe18c29068e30861be4b655))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [4.44.1](https://github.com/mittwald/api-client-js/compare/4.44.0...4.44.1) (2024-08-06)
 
 ### Bug Fixes
