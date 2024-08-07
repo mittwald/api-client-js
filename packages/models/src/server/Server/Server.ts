@@ -55,8 +55,9 @@ export class Server extends ReferenceModel {
     },
   );
 
-  public getDetailed = provideReact(() =>
-    Server.get(this.id),
+  public getDetailed = provideReact(
+    () => Server.get(this.id),
+    [this.id],
   ) as AsyncResourceVariant<ServerDetailed, []>;
 }
 
