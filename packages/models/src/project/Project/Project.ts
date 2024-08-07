@@ -52,8 +52,9 @@ export class Project extends ReferenceModel {
     return new Project(id);
   }
 
-  public getDetailed = provideReact(() =>
-    Project.get(this.id),
+  public getDetailed = provideReact(
+    () => Project.get(this.id),
+    [this.id],
   ) as AsyncResourceVariant<ProjectDetailed, []>;
 
   public listIngresses = provideReact(() =>

@@ -42,8 +42,9 @@ export class Customer extends ReferenceModel {
     },
   );
 
-  public getDetailed = provideReact(() =>
-    Customer.get(this.id),
+  public getDetailed = provideReact(
+    () => Customer.get(this.id),
+    [this.id],
   ) as AsyncResourceVariant<CustomerDetailed, []>;
 }
 
