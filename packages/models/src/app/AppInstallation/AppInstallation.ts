@@ -46,8 +46,9 @@ export class AppInstallation extends ReferenceModel {
     },
   );
 
-  public getDetailed = provideReact(() =>
-    AppInstallation.get(this.id),
+  public getDetailed = provideReact(
+    () => AppInstallation.get(this.id),
+    [this.id],
   ) as AsyncResourceVariant<AppInstallationDetailed, []>;
 }
 
