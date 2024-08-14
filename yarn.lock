@@ -1365,7 +1365,7 @@ __metadata:
     "@types/parse-path": "npm:^7.0.3"
     "@typescript-eslint/eslint-plugin": "npm:^7.18.0"
     "@typescript-eslint/parser": "npm:^7.18.0"
-    axios: "npm:^1.7.3"
+    axios: "npm:^1.7.4"
     eslint: "npm:^8.57.0"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-json: "npm:^3.1.0"
@@ -3524,7 +3524,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.6.0, axios@npm:^1.7.2, axios@npm:^1.7.3":
+"axios@npm:^1.6.0, axios@npm:^1.7.2":
   version: 1.7.3
   resolution: "axios@npm:1.7.3"
   dependencies:
