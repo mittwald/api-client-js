@@ -2084,7 +2084,7 @@ const RAW_RUNTIME_STATE =
           ["@types/yieldable-json", "npm:2.0.2"],\
           ["@typescript-eslint/eslint-plugin", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:7.18.0"],\
           ["@typescript-eslint/parser", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:7.18.0"],\
-          ["axios", "npm:1.7.3"],\
+          ["axios", "npm:1.7.4"],\
           ["camelcase", "npm:8.0.0"],\
           ["clone-deep", "npm:4.0.1"],\
           ["dot-prop", "npm:8.0.2"],\
@@ -4570,6 +4570,16 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/axios-npm-1.7.3-a63743a582-7f92af2057.zip/node_modules/axios/",\
         "packageDependencies": [\
           ["axios", "npm:1.7.3"],\
+          ["follow-redirects", "virtual:a63743a5822c3f4f0080debf0a45615212b5bd005b763a14221b5559794a4eab59edf521118fa1c78a2444ffb22b1d205323e984eccd051abda1334fb302f130#npm:1.15.6"],\
+          ["form-data", "npm:4.0.0"],\
+          ["proxy-from-env", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:1.7.4", {\
+        "packageLocation": "./.yarn/cache/axios-npm-1.7.4-cc1c89ddba-7a1429be1e.zip/node_modules/axios/",\
+        "packageDependencies": [\
+          ["axios", "npm:1.7.4"],\
           ["follow-redirects", "virtual:a63743a5822c3f4f0080debf0a45615212b5bd005b763a14221b5559794a4eab59edf521118fa1c78a2444ffb22b1d205323e984eccd051abda1334fb302f130#npm:1.15.6"],\
           ["form-data", "npm:4.0.0"],\
           ["proxy-from-env", "npm:1.1.0"]\
