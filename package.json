@@ -7,11 +7,11 @@
   "scripts": {
     "build": "nx run-many -t build",
     "format": "nx run-many -t format",
+    "postinstall": "yarn dlx simple-git-hooks",
     "lint": "nx run-many -t lint",
     "test": "nx run-many -t test && run test:licenses",
     "test:licenses": "run test:licenses:base --unknown --failOn 'UNLICENSED;UNKNOWN' --excludePrivatePackages",
-    "test:licenses:base": "run pnpify license-checker-rseidelsohn --excludePackages 'root'",
-    "postinstall": "yarn dlx simple-git-hooks"
+    "test:licenses:base": "run pnpify license-checker-rseidelsohn --excludePackages 'root'"
   },
   "simple-git-hooks": {
     "post-checkout": "yarn install",
@@ -35,6 +35,9 @@
     "prettier-plugin-pkgsort": "^0.2.1",
     "prettier-plugin-sort-json": "^3.1.0",
     "typescript": "^5.5.4"
+  },
+  "resolutions": {
+    "axios": "^1.7.4"
   },
   "workspaces": [
     "packages/*"
