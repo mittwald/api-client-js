@@ -2135,6 +2135,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-json", "npm:3.1.0"],\
           ["eslint-plugin-prettier", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:5.2.1"],\
           ["jest", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:29.7.0"],\
+          ["object-code", "npm:1.3.3"],\
           ["polytype", "npm:0.17.0"],\
           ["prettier", "npm:3.3.3"],\
           ["react", "npm:18.3.1"],\

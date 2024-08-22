@@ -7,12 +7,17 @@ export const inMemProjectBehaviors = (
   find: async (id) => store.get(id),
 
   list: async () => {
-    return Array.from(store.values()).map((detailedProject) => ({
+    const items = Array.from(store.values()).map((detailedProject) => ({
       ...detailedProject,
       customerMeta: {
         id: detailedProject.customerId,
       },
     }));
+
+    return {
+      items,
+      totalCount: items.length,
+    };
   },
 
   create: async () => {

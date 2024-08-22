@@ -1,10 +1,13 @@
 import {
   CustomerListItemData,
   CustomerData,
-  CustomerListQuery,
+  CustomerListQueryData,
 } from "../types.js";
+import { QueryResponseData } from "../../../base/index.js";
 
 export interface CustomerBehaviors {
   find: (id: string) => Promise<CustomerData | undefined>;
-  list: (query?: CustomerListQuery) => Promise<CustomerListItemData[]>;
+  list: (
+    query?: CustomerListQueryData,
+  ) => Promise<QueryResponseData<CustomerListItemData>>;
 }

@@ -2,6 +2,7 @@ import {
   assertStatus,
   assertOneOfStatus,
   MittwaldAPIV2Client,
+  extractTotalCountHeader,
 } from "@mittwald/api-client";
 import { ServerBehaviors } from "./types.js";
 
@@ -24,6 +25,9 @@ export const apiServerBehaviors = (
       queryParameters: query,
     });
     assertStatus(response, 200);
-    return response.data;
+    return {
+      items: response.data,
+      totalCount: extractTotalCountHeader(response),
+    };
   },
 });

@@ -5,6 +5,7 @@ import { IngressBehaviors } from "../domain/Ingress/behaviors/index.js";
 import { AppInstallationBehaviors } from "../app/AppInstallation/behaviors/index.js";
 
 interface Config {
+  defaultPaginationLimit: number;
   behaviors: {
     project: ProjectBehaviors;
     server: ServerBehaviors;
@@ -15,6 +16,7 @@ interface Config {
 }
 
 export const config: Config = {
+  defaultPaginationLimit: 50,
   behaviors: {
     project: undefined as unknown as ProjectBehaviors,
     server: undefined as unknown as ServerBehaviors,

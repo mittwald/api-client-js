@@ -1,6 +1,6 @@
 import { MittwaldAPIV2 } from "@mittwald/api-client";
 
-export type CustomerListQuery =
+export type CustomerListQueryData =
   MittwaldAPIV2.Paths.V2Customers.Get.Parameters.Query;
 
 export type CustomerData =
