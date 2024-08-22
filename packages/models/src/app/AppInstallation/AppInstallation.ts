@@ -50,6 +50,11 @@ export class AppInstallation extends ReferenceModel {
     () => AppInstallation.get(this.id),
     [this.id],
   ) as AsyncResourceVariant<AppInstallationDetailed, []>;
+
+  public findDetailed = provideReact(
+    () => AppInstallation.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<AppInstallationDetailed | undefined, []>;
 }
 
 // Common class for future extension

@@ -46,6 +46,11 @@ export class Customer extends ReferenceModel {
     () => Customer.get(this.id),
     [this.id],
   ) as AsyncResourceVariant<CustomerDetailed, []>;
+
+  public findDetailed = provideReact(
+    () => Customer.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<CustomerDetailed | undefined, []>;
 }
 
 // Common class for future extension
