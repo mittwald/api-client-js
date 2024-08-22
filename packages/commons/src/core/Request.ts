@@ -94,6 +94,10 @@ export class Request<TOp extends OpenAPIOperation> {
       const searchParams = new URLSearchParams();
 
       for (const [key, value] of Object.entries(query)) {
+        if (value === undefined) {
+          continue;
+        }
+
         if (Array.isArray(value)) {
           for (const arrayItem of value) {
             searchParams.append(key, arrayItem);
