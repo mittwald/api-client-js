@@ -120,6 +120,59 @@ const buildBackupApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
+const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** List Registries belonging to a Project. */
+  listRegistries: new ApiCallAsyncResourceFactory(
+    descriptors.containerListRegistries,
+    baseClient.container.listRegistries,
+  ).getApiResource,
+  /** Get a Stack. */
+  getStack: new ApiCallAsyncResourceFactory(
+    descriptors.containerGetStack,
+    baseClient.container.getStack,
+  ).getApiResource,
+  /** Get a Registry. */
+  getRegistry: new ApiCallAsyncResourceFactory(
+    descriptors.containerGetRegistry,
+    baseClient.container.getRegistry,
+  ).getApiResource,
+  /** Get a Volume belonging to a Stack. */
+  getVolume: new ApiCallAsyncResourceFactory(
+    descriptors.containerGetVolume,
+    baseClient.container.getVolume,
+  ).getApiResource,
+  /** Get a ContainerImageConfig. */
+  getContainerImageConfig: new ApiCallAsyncResourceFactory(
+    descriptors.containerGetContainerImageConfig,
+    baseClient.container.getContainerImageConfig,
+  ).getApiResource,
+  /** Get logs belonging to a Service. */
+  getServiceLogs: new ApiCallAsyncResourceFactory(
+    descriptors.containerGetServiceLogs,
+    baseClient.container.getServiceLogs,
+  ).getApiResource,
+  /** Get a Service belonging to a Stack. */
+  getService: new ApiCallAsyncResourceFactory(
+    descriptors.containerGetService,
+    baseClient.container.getService,
+  ).getApiResource,
+  /** List Services belonging to a Project. */
+  listServices: new ApiCallAsyncResourceFactory(
+    descriptors.containerListServices,
+    baseClient.container.listServices,
+  ).getApiResource,
+  /** List Stacks belonging to a Project. */
+  listStacks: new ApiCallAsyncResourceFactory(
+    descriptors.containerListStacks,
+    baseClient.container.listStacks,
+  ).getApiResource,
+  /** List Volumes belonging to a Project. */
+  listVolumes: new ApiCallAsyncResourceFactory(
+    descriptors.containerListVolumes,
+    baseClient.container.listVolumes,
+  ).getApiResource,
+});
+
 const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
   /** Return the BaseItem of the Contract with the given ID. */
   getBaseItemOfContract: new ApiCallAsyncResourceFactory(
@@ -270,10 +323,20 @@ const buildCronjobApi = (baseClient: MittwaldAPIV2Client) => ({
 });
 
 const buildCustomerApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get all customer categories. */
+  listOfCustomerCategories: new ApiCallAsyncResourceFactory(
+    descriptors.customerListOfCustomerCategories,
+    baseClient.customer.listOfCustomerCategories,
+  ).getApiResource,
   /** Get all customer profiles the authenticated user has access to. */
   listCustomers: new ApiCallAsyncResourceFactory(
     descriptors.customerListCustomers,
     baseClient.customer.listCustomers,
+  ).getApiResource,
+  /** Get a customer category. */
+  getCustomerCategory: new ApiCallAsyncResourceFactory(
+    descriptors.customerGetCustomerCategory,
+    baseClient.customer.getCustomerCategory,
   ).getApiResource,
   /** Get a CustomerInvite. */
   getCustomerInvite: new ApiCallAsyncResourceFactory(
@@ -411,11 +474,6 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.domainListTlds,
     baseClient.domain.listTlds,
   ).getApiResource,
-  /** Suggest a list of domains based on a prompt using AI. */
-  suggest: new ApiCallAsyncResourceFactory(
-    descriptors.domainSuggest,
-    baseClient.domain.suggest,
-  ).getApiResource,
   /** List Ingresses. */
   ingressListIngresses: new ApiCallAsyncResourceFactory(
     descriptors.ingressListIngresses,
@@ -520,6 +578,16 @@ const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.mailListProjectMailSettings,
     baseClient.mail.listProjectMailSettings,
   ).getApiResource,
+  /** Get a Migration. */
+  migrationGetMigration: new ApiCallAsyncResourceFactory(
+    descriptors.mailMigrationGetMigration,
+    baseClient.mail.migrationGetMigration,
+  ).getApiResource,
+  /** List Migrations belonging to a Project in customer center or mStudio. */
+  migrationListMigrations: new ApiCallAsyncResourceFactory(
+    descriptors.mailMigrationListMigrations,
+    baseClient.mail.migrationListMigrations,
+  ).getApiResource,
 });
 
 const buildNotificationApi = (baseClient: MittwaldAPIV2Client) => ({
@@ -555,94 +623,6 @@ const buildPageInsightsApi = (baseClient: MittwaldAPIV2Client) => ({
   pageinsightsListPerformanceDataForProject: new ApiCallAsyncResourceFactory(
     descriptors.pageinsightsListPerformanceDataForProject,
     baseClient.pageInsights.pageinsightsListPerformanceDataForProject,
-  ).getApiResource,
-});
-
-const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** Get a PasswordPolicy. */
-  passwordValidationGetPasswordPolicy: new ApiCallAsyncResourceFactory(
-    descriptors.passwordValidationGetPasswordPolicy,
-    baseClient.user.passwordValidationGetPasswordPolicy,
-  ).getApiResource,
-  /** Get your verified Email-Address. */
-  getOwnEmail: new ApiCallAsyncResourceFactory(
-    descriptors.userGetOwnEmail,
-    baseClient.user.getOwnEmail,
-  ).getApiResource,
-  /** Get your current multi factor auth status. */
-  getMfaStatus: new ApiCallAsyncResourceFactory(
-    descriptors.userGetMfaStatus,
-    baseClient.user.getMfaStatus,
-  ).getApiResource,
-  /** List all of your ApiTokens. */
-  listApiTokens: new ApiCallAsyncResourceFactory(
-    descriptors.userListApiTokens,
-    baseClient.user.listApiTokens,
-  ).getApiResource,
-  /** Get your stored ssh-keys. */
-  listSshKeys: new ApiCallAsyncResourceFactory(
-    descriptors.userListSshKeys,
-    baseClient.user.listSshKeys,
-  ).getApiResource,
-  /** Get a specific ApiToken. */
-  getApiToken: new ApiCallAsyncResourceFactory(
-    descriptors.userGetApiToken,
-    baseClient.user.getApiToken,
-  ).getApiResource,
-  /** Get a specific stored ssh-key. */
-  getSshKey: new ApiCallAsyncResourceFactory(
-    descriptors.userGetSshKey,
-    baseClient.user.getSshKey,
-  ).getApiResource,
-  /** Get your account information. */
-  getOwnAccount: new ApiCallAsyncResourceFactory(
-    descriptors.userGetOwnAccount,
-    baseClient.user.getOwnAccount,
-  ).getApiResource,
-  /** The timestamp of your latest password change. */
-  getPasswordUpdatedAt: new ApiCallAsyncResourceFactory(
-    descriptors.userGetPasswordUpdatedAt,
-    baseClient.user.getPasswordUpdatedAt,
-  ).getApiResource,
-  /** Get personalized settings. */
-  getPersonalizedSettings: new ApiCallAsyncResourceFactory(
-    descriptors.userGetPersonalizedSettings,
-    baseClient.user.getPersonalizedSettings,
-  ).getApiResource,
-  /** Get poll settings for the specified user. */
-  getPollStatus: new ApiCallAsyncResourceFactory(
-    descriptors.userGetPollStatus,
-    baseClient.user.getPollStatus,
-  ).getApiResource,
-  /** Get a specific session. */
-  getSession: new ApiCallAsyncResourceFactory(
-    descriptors.userGetSession,
-    baseClient.user.getSession,
-  ).getApiResource,
-  /** Get profile information for a user. */
-  getUser: new ApiCallAsyncResourceFactory(
-    descriptors.userGetUser,
-    baseClient.user.getUser,
-  ).getApiResource,
-  /** Submitted feedback of the given user. */
-  listFeedback: new ApiCallAsyncResourceFactory(
-    descriptors.userListFeedback,
-    baseClient.user.listFeedback,
-  ).getApiResource,
-  /** List all sessions. */
-  listSessions: new ApiCallAsyncResourceFactory(
-    descriptors.userListSessions,
-    baseClient.user.listSessions,
-  ).getApiResource,
-  /** Obtain authorization from the resource owner. */
-  oauthGetAuthorization: new ApiCallAsyncResourceFactory(
-    descriptors.userOauthGetAuthorization,
-    baseClient.user.oauthGetAuthorization,
-  ).getApiResource,
-  /** Request a support code. */
-  supportCodeRequest: new ApiCallAsyncResourceFactory(
-    descriptors.userSupportCodeRequest,
-    baseClient.user.supportCodeRequest,
   ).getApiResource,
 });
 
@@ -760,6 +740,89 @@ const buildSshsftpUserApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
+const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get your verified Email-Address. */
+  getOwnEmail: new ApiCallAsyncResourceFactory(
+    descriptors.userGetOwnEmail,
+    baseClient.user.getOwnEmail,
+  ).getApiResource,
+  /** Get your current multi factor auth status. */
+  getMfaStatus: new ApiCallAsyncResourceFactory(
+    descriptors.userGetMfaStatus,
+    baseClient.user.getMfaStatus,
+  ).getApiResource,
+  /** List all of your ApiTokens. */
+  listApiTokens: new ApiCallAsyncResourceFactory(
+    descriptors.userListApiTokens,
+    baseClient.user.listApiTokens,
+  ).getApiResource,
+  /** Get your stored ssh-keys. */
+  listSshKeys: new ApiCallAsyncResourceFactory(
+    descriptors.userListSshKeys,
+    baseClient.user.listSshKeys,
+  ).getApiResource,
+  /** Get a specific ApiToken. */
+  getApiToken: new ApiCallAsyncResourceFactory(
+    descriptors.userGetApiToken,
+    baseClient.user.getApiToken,
+  ).getApiResource,
+  /** Get a specific stored ssh-key. */
+  getSshKey: new ApiCallAsyncResourceFactory(
+    descriptors.userGetSshKey,
+    baseClient.user.getSshKey,
+  ).getApiResource,
+  /** Get your account information. */
+  getOwnAccount: new ApiCallAsyncResourceFactory(
+    descriptors.userGetOwnAccount,
+    baseClient.user.getOwnAccount,
+  ).getApiResource,
+  /** The timestamp of your latest password change. */
+  getPasswordUpdatedAt: new ApiCallAsyncResourceFactory(
+    descriptors.userGetPasswordUpdatedAt,
+    baseClient.user.getPasswordUpdatedAt,
+  ).getApiResource,
+  /** Get personalized settings. */
+  getPersonalizedSettings: new ApiCallAsyncResourceFactory(
+    descriptors.userGetPersonalizedSettings,
+    baseClient.user.getPersonalizedSettings,
+  ).getApiResource,
+  /** Get poll settings for the specified user. */
+  getPollStatus: new ApiCallAsyncResourceFactory(
+    descriptors.userGetPollStatus,
+    baseClient.user.getPollStatus,
+  ).getApiResource,
+  /** Get a specific session. */
+  getSession: new ApiCallAsyncResourceFactory(
+    descriptors.userGetSession,
+    baseClient.user.getSession,
+  ).getApiResource,
+  /** Get profile information for a user. */
+  getUser: new ApiCallAsyncResourceFactory(
+    descriptors.userGetUser,
+    baseClient.user.getUser,
+  ).getApiResource,
+  /** Submitted feedback of the given user. */
+  listFeedback: new ApiCallAsyncResourceFactory(
+    descriptors.userListFeedback,
+    baseClient.user.listFeedback,
+  ).getApiResource,
+  /** List all sessions. */
+  listSessions: new ApiCallAsyncResourceFactory(
+    descriptors.userListSessions,
+    baseClient.user.listSessions,
+  ).getApiResource,
+  /** Obtain authorization from the resource owner. */
+  oauthGetAuthorization: new ApiCallAsyncResourceFactory(
+    descriptors.userOauthGetAuthorization,
+    baseClient.user.oauthGetAuthorization,
+  ).getApiResource,
+  /** Request a support code. */
+  supportCodeRequest: new ApiCallAsyncResourceFactory(
+    descriptors.userSupportCodeRequest,
+    baseClient.user.supportCodeRequest,
+  ).getApiResource,
+});
+
 export class MittwaldAPIV2ClientReact {
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app: ReturnType<typeof buildAppApi>;
@@ -769,6 +832,9 @@ export class MittwaldAPIV2ClientReact {
 
   /** The backup API allows you to manage your project backups. */
   public readonly backup: ReturnType<typeof buildBackupApi>;
+
+  /** The container API allows you to manage your stacks, containers, volumes and registries. */
+  public readonly container: ReturnType<typeof buildContainerApi>;
 
   /** The contract API allows you to manage your contracts and orders */
   public readonly contract: ReturnType<typeof buildContractApi>;
@@ -785,7 +851,7 @@ export class MittwaldAPIV2ClientReact {
   /** The database API allows you to manage your databases, like MySQL and Redis databases. */
   public readonly database: ReturnType<typeof buildDatabaseApi>;
 
-  /** The domain API allows you to manage your domains, DNS records, SSL certificates and ingress resources. */
+  /** The domain API allows you to manage your domains, DNS records and ingress resources. */
   public readonly domain: ReturnType<typeof buildDomainApi>;
 
   /** The marketplace API allows you to manage extensions and more information regaring the marketplace. */
@@ -803,9 +869,6 @@ export class MittwaldAPIV2ClientReact {
   /** The page insights API allows you to get page insights information. */
   public readonly pageInsights: ReturnType<typeof buildPageInsightsApi>;
 
-  /** The user API allows you to manage your own user and access information of other users that might be visible to you. */
-  public readonly user: ReturnType<typeof buildUserApi>;
-
   /** The project API allows you to manage your projects, and also any kinds of user memberships concerning these projects. */
   public readonly project: ReturnType<typeof buildProjectApi>;
 
@@ -817,12 +880,17 @@ export class MittwaldAPIV2ClientReact {
   /** The SSH/SFTP User API allows you to manage your SSH/SFTP users within a project. */
   public readonly sshsftpUser: ReturnType<typeof buildSshsftpUserApi>;
 
+  /** The user API allows you to manage your own user and access information of other users that might be visible to you. */
+  public readonly user: ReturnType<typeof buildUserApi>;
+
   private constructor(baseClient: MittwaldAPIV2Client) {
     this.app = buildAppApi(baseClient);
 
     this.article = buildArticleApi(baseClient);
 
     this.backup = buildBackupApi(baseClient);
+
+    this.container = buildContainerApi(baseClient);
 
     this.contract = buildContractApi(baseClient);
 
@@ -846,13 +914,13 @@ export class MittwaldAPIV2ClientReact {
 
     this.pageInsights = buildPageInsightsApi(baseClient);
 
-    this.user = buildUserApi(baseClient);
-
     this.project = buildProjectApi(baseClient);
 
     this.projectFileSystem = buildProjectFileSystemApi(baseClient);
 
     this.sshsftpUser = buildSshsftpUserApi(baseClient);
+
+    this.user = buildUserApi(baseClient);
   }
 
   public static fromBaseClient(
