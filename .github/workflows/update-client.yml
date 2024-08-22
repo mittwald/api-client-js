@@ -40,9 +40,9 @@ jobs:
       - name: Update OpenAPI ⬇️
         if: github.ref == 'refs/heads/master'
         run: |
-          yarn nx run @mittwald/api-client:build:fetch-openapi
+          yarn nx run @mittwald/api-client:build:fetch-openapi-prod
           if [ $(git status --porcelain . | wc -l) -gt 0 ] ; then
-            yarn nx run @mittwald/api-client:build:client
+            yarn nx run @mittwald/api-client:build:client-prod
             git add .
             yarn test
             git commit -m "feat: update generated client";            
