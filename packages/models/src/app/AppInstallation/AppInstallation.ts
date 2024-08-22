@@ -6,10 +6,13 @@ import { ReferenceModel } from "../../base/ReferenceModel.js";
 import type { AsyncResourceVariant } from "../../lib/provideReact.js";
 import { provideReact } from "../../lib/provideReact.js";
 import {
-  AppInstallationListItemData,
   AppInstallationData,
-  AppInstallationListQuery,
+  AppInstallationListItemData,
+  AppInstallationListQueryData,
 } from "./types.js";
+import { ListQueryModel } from "../../base/ListQueryModel.js";
+import { ListDataModel } from "../../base/ListDataModel.js";
+import { Project } from "../../project/index.js";
 
 export class AppInstallation extends ReferenceModel {
   public static find = provideReact(
@@ -33,16 +36,19 @@ export class AppInstallation extends ReferenceModel {
     return new AppInstallation(id);
   }
 
+  public query(project: Project, query: AppInstallationListQueryData = {}) {
+    return new AppInstallationListQuery(project, query);
+  }
+
+  /** @deprecated: use query() or project.appInstallations */
   public static list = provideReact(
     async (
       projectId: string,
-      query: AppInstallationListQuery = {},
-    ): Promise<Array<AppInstallationListItem>> => {
-      const data = await config.behaviors.appInstallation.list(
-        projectId,
-        query,
-      );
-      return data.map((d) => new AppInstallationListItem(d));
+      query: AppInstallationListQueryData = {},
+    ): Promise<Readonly<Array<AppInstallationListItem>>> => {
+      return new AppInstallationListQuery(Project.ofId(projectId), query)
+        .execute()
+        .then((r) => r.items);
     },
   );
 
@@ -82,5 +88,67 @@ export class AppInstallationListItem extends classes(
 ) {
   public constructor(data: AppInstallationListItemData) {
     super([data], [data]);
+  }
+}
+
+export class AppInstallationListQuery extends ListQueryModel<AppInstallationListQueryData> {
+  public readonly project: Project;
+
+  public constructor(
+    project: Project,
+    query: AppInstallationListQueryData = {},
+  ) {
+    super(query);
+    this.project = project;
+  }
+
+  public refine(query: AppInstallationListQueryData) {
+    return new AppInstallationListQuery(this.project, {
+      ...this.query,
+      ...query,
+    });
+  }
+
+  public execute = provideReact(async () => {
+    const { items, totalCount } = await config.behaviors.appInstallation.list(
+      this.project.id,
+      {
+        limit: config.defaultPaginationLimit,
+        ...this.query,
+      },
+    );
+
+    return new AppInstallationList(
+      this.project,
+      this.query,
+      items.map((d) => new AppInstallationListItem(d)),
+      totalCount,
+    );
+  }, [this.queryId]);
+
+  public getTotalCount = provideReact(async () => {
+    const { totalCount } = await this.refine({ limit: 1 }).execute();
+    return totalCount;
+  }, [this.queryId]);
+
+  public findOneAndOnly = provideReact(async () => {
+    const { items, totalCount } = await this.refine({ limit: 2 }).execute();
+    if (totalCount === 1) {
+      return items[0];
+    }
+  }, [this.queryId]);
+}
+
+export class AppInstallationList extends classes(
+  AppInstallationListQuery,
+  ListDataModel<AppInstallationListItem>,
+) {
+  public constructor(
+    project: Project,
+    query: AppInstallationListQueryData,
+    appInstallations: AppInstallationListItem[],
+    totalCount: number,
+  ) {
+    super([project, query], [appInstallations, totalCount]);
   }
 }
