@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.54.0](https://github.com/mittwald/api-client-js/compare/4.53.0...4.54.0) (2024-08-22)
+
+### Features
+
+- **Models:** add findDetailed methods
+  ([2cb1843](https://github.com/mittwald/api-client-js/commit/2cb1843f7f843b9a66cfc500d20292cd0efcdf52))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [4.53.0](https://github.com/mittwald/api-client-js/compare/4.52.0...4.53.0) (2024-08-22)
 
 ### Features
