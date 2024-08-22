@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.56.0](https://github.com/mittwald/api-client-js/compare/4.55.0...4.56.0) (2024-08-22)
+
+### Features
+
+- **Models:** export Query base models
+  ([5c986db](https://github.com/mittwald/api-client-js/commit/5c986db17693373ea341d3c2f33d6d7323619ace))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [4.55.0](https://github.com/mittwald/api-client-js/compare/4.54.0...4.55.0) (2024-08-22)
 
 ### Features
