@@ -57,6 +57,11 @@ export class Project extends ReferenceModel {
     [this.id],
   ) as AsyncResourceVariant<ProjectDetailed, []>;
 
+  public findDetailed = provideReact(
+    () => Project.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<ProjectDetailed | undefined, []>;
+
   public listIngresses = provideReact(() =>
     Ingress.list({ projectId: this.id }),
   ) as AsyncResourceVariant<IngressListItem[], []>;

@@ -59,6 +59,11 @@ export class Server extends ReferenceModel {
     () => Server.get(this.id),
     [this.id],
   ) as AsyncResourceVariant<ServerDetailed, []>;
+
+  public findDetailed = provideReact(
+    () => Server.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<ServerDetailed | undefined, []>;
 }
 
 // Common class for future extension

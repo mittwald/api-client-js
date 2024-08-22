@@ -45,6 +45,11 @@ export class Ingress extends ReferenceModel {
     () => Ingress.get(this.id),
     [this.id],
   ) as AsyncResourceVariant<IngressDetailed, []>;
+
+  public findDetailed = provideReact(
+    () => Ingress.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<IngressDetailed | undefined, []>;
 }
 
 export class IngressCommon extends classes(
