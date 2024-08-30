@@ -32,7 +32,7 @@ export const apiCustomerBehaviors = (
   },
 
   update: async (id, data) => {
-    const response = await client.customer.update({
+    const response = await client.customer.updateCustomer({
       customerId: id,
       data,
     });
