@@ -8,3 +8,6 @@ export type CustomerData =
 
 export type CustomerListItemData =
   MittwaldAPIV2.Operations.CustomerListCustomers.ResponseData[number];
+
+export type CustomerUpdateRequestData =
+  MittwaldAPIV2.Paths.V2CustomersCustomerId.Put.Parameters.RequestBody;

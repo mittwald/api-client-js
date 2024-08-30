@@ -30,4 +30,12 @@ export const apiCustomerBehaviors = (
       totalCount: extractTotalCountHeader(response),
     };
   },
+
+  update: async (id, data) => {
+    const response = await client.customer.updateCustomer({
+      customerId: id,
+      data,
+    });
+    assertStatus(response, 200);
+  },
 });
