@@ -8,6 +8,7 @@ import {
   CustomerListItemData,
   CustomerData,
   CustomerListQueryData,
+  CustomerUpdateRequestData,
 } from "./types.js";
 import { ListQueryModel } from "../../base/ListQueryModel.js";
 import { ListDataModel } from "../../base/ListDataModel.js";
@@ -70,6 +71,10 @@ export class Customer extends ReferenceModel {
     () => Customer.find(this.id),
     [this.id],
   ) as AsyncResourceVariant<CustomerDetailed | undefined, []>;
+
+  public async update(data: CustomerUpdateRequestData): Promise<void> {
+    await config.behaviors.customer.update(this.id, data);
+  }
 }
 
 // Common class for future extension
