@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.58.0](https://github.com/mittwald/api-client-js/compare/4.57.0...4.58.0) (2024-09-04)
+
+### Features
+
+- **Client:** re-export \* from commons
+  ([9bd6a8b](https://github.com/mittwald/api-client-js/commit/9bd6a8bd07154763043d2ac235c4f6445cc4f7b3))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [4.55.0](https://github.com/mittwald/api-client-js/compare/4.54.0...4.55.0) (2024-08-22)
 
 ### Features
