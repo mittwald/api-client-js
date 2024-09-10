@@ -2013,7 +2013,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-prettier", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:5.2.1"],\
           ["jest", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:29.7.0"],\
           ["parse-path", "npm:7.0.0"],\
-          ["path-to-regexp", "npm:6.2.2"],\
+          ["path-to-regexp", "npm:8.1.0"],\
           ["prettier", "npm:3.3.3"],\
           ["prettier-plugin-jsdoc", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:1.3.0"],\
           ["prettier-plugin-pkgsort", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:0.2.1"],\
@@ -2049,7 +2049,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-prettier", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:5.2.1"],\
           ["jest", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:29.7.0"],\
           ["parse-path", "npm:7.0.0"],\
-          ["path-to-regexp", "npm:6.2.2"],\
+          ["path-to-regexp", "npm:8.1.0"],\
           ["prettier", "npm:3.3.3"],\
           ["prettier-plugin-jsdoc", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:1.3.0"],\
           ["prettier-plugin-pkgsort", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:0.2.1"],\
@@ -11275,10 +11275,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["path-to-regexp", [\
-      ["npm:6.2.2", {\
-        "packageLocation": "./.yarn/cache/path-to-regexp-npm-6.2.2-0bf7f6805c-f7d11c1a9e.zip/node_modules/path-to-regexp/",\
+      ["npm:8.1.0", {\
+        "packageLocation": "./.yarn/cache/path-to-regexp-npm-8.1.0-a82a7a7724-5016a27153.zip/node_modules/path-to-regexp/",\
         "packageDependencies": [\
-          ["path-to-regexp", "npm:6.2.2"]\
+          ["path-to-regexp", "npm:8.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
