@@ -10,9 +10,9 @@ import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import { Server } from "../../server/index.js";
 import {
-  type AsyncResourceVariant,
+  AsyncResourceVariant,
   provideReact,
-} from "../../lib/provideReact.js";
+} from "../../react/provideReact.js";
 import { Customer } from "../../customer/Customer/Customer.js";
 import { ReferenceModel } from "../../base/ReferenceModel.js";
 import {
@@ -82,24 +82,24 @@ export class Project extends ReferenceModel {
   public getDetailed = provideReact(
     () => Project.get(this.id),
     [this.id],
-  ) as AsyncResourceVariant<ProjectDetailed, []>;
+  ) as AsyncResourceVariant<() => Promise<ProjectDetailed>>;
 
   public findDetailed = provideReact(
     () => Project.find(this.id),
     [this.id],
-  ) as AsyncResourceVariant<ProjectDetailed | undefined, []>;
+  ) as AsyncResourceVariant<() => Promise<ProjectDetailed | undefined>>;
 
   /** @deprecated: use ingresses property */
   public listIngresses = provideReact(() =>
     Ingress.list({ projectId: this.id }),
-  ) as AsyncResourceVariant<IngressListItem[], []>;
+  );
 
   public getDefaultIngress = provideReact(async () => {
     const ingresses = await Project.ofId(this.id).listIngresses();
     const defaultIngress = ingresses.find((i) => i.data.isDefault);
     assertObjectFound(defaultIngress, IngressListItem, this);
     return defaultIngress;
-  }) as AsyncResourceVariant<IngressListItem, []>;
+  });
 
   public async updateDescription(description: string): Promise<void> {
     await config.behaviors.project.updateDescription(this.id, description);
