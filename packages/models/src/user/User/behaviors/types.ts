@@ -4,7 +4,6 @@ import {
   UserAuthenticateRequestData,
   UserAuthenticateResponseData,
   UserConfirmPasswordResetRequestData,
-  UserCreateAccessTokenRetrievalKeyResponseData,
   UserData,
   UserDeleteRequestData,
   UserMfaStatusData,
@@ -80,6 +79,4 @@ export interface UserBehaviors {
   resetRecoveryCodes: (
     multiFactorCode: string,
   ) => Promise<{ recoveryCodesList: string[] }>;
-
-  createAccessTokenRetrievalKey: () => Promise<UserCreateAccessTokenRetrievalKeyResponseData>;
 }

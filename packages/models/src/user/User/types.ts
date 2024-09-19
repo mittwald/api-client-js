@@ -50,6 +50,3 @@ export type UserAuthenticateMfaRequestData =
 
 export type UserAuthenticateMfaResponseData =
   MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Responses.$200.Content.ApplicationJson;
-
-export type UserCreateAccessTokenRetrievalKeyResponseData =
-  MittwaldAPIV2.Paths.V2UsersSelfTokenRetrievalKey.Post.Responses.$201.Content.ApplicationJson;

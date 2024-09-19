@@ -195,12 +195,4 @@ export const apiUserBehaviors = (
 
     return response.data;
   },
-
-  createAccessTokenRetrievalKey: async () => {
-    const response = await client.user.createAccessTokenRetrievalKey();
-
-    assertStatus(response, 201);
-
-    return response.data;
-  },
 });

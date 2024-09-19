@@ -10,7 +10,6 @@ import {
   UserAuthenticateRequestData,
   UserAuthenticateResponseData,
   UserConfirmPasswordResetRequestData,
-  UserCreateAccessTokenRetrievalKeyResponseData,
   UserData,
   UserDeleteRequestData,
   UserMfaStatusData,
@@ -173,10 +172,6 @@ export class User extends ReferenceModel {
     multiFactorCode: string,
   ): Promise<{ recoveryCodesList: string[] }> {
     return await config.behaviors.user.resetRecoveryCodes(multiFactorCode);
-  }
-
-  public async createAccessTokenRetrievalKey(): Promise<UserCreateAccessTokenRetrievalKeyResponseData> {
-    return await config.behaviors.user.createAccessTokenRetrievalKey();
   }
 }
 
