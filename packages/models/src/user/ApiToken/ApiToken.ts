@@ -51,6 +51,10 @@ export class ApiToken extends ReferenceModel {
     [this.id],
   ) as AsyncResourceVariant<ApiTokenDetailed | undefined, []>;
 
+  public query() {
+    return new ApiTokenListQuery({});
+  }
+
   public static async create(
     data: ApiTokenCreateRequestData,
   ): Promise<ApiToken> {
