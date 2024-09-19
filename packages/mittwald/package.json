@@ -1,6 +1,6 @@
 {
   "name": "@mittwald/api-client",
-  "version": "4.16.0",
+  "version": "4.58.1",
   "author": "Mittwald CM Service GmbH & Co. KG <opensource@mittwald.de>",
   "type": "module",
   "description": "Auto-generated client for the mittwald API",
@@ -33,40 +33,44 @@
   "scripts": {
     "build": "run build:clean && run tsc",
     "build:clean": "run rimraf dist",
-    "build:client": "run acg generate --name MittwaldAPIV2 spec/openapi.json src/generated/v2 --optionalHeader x-access-token",
-    "build:fetch-openapi": "bash -e -o pipefail -c 'curl --location --fail --silent https://api.mittwald.de/openapi | spec/transform-openapi.sh > spec/openapi.json'",
+    "build:client-base": "run acg generate --name MittwaldAPIV2 /dev/stdin src/generated/v2 --optionalHeader x-access-token",
+    "build:client-dev": "bash -e -o pipefail -c 'spec/transform-openapi.sh < spec/openapi-dev.json | run build:client-base'",
+    "build:client-prod": "bash -e -o pipefail -c 'spec/transform-openapi.sh < spec/openapi.json | run build:client-base'",
+    "build:fetch-openapi": "curl --location --fail --silent https://api.mittwald.de/v2/openapi.json > spec/openapi.json",
+    "build:fetch-openapi-dev": "curl --location --fail --silent https://api-public.dev.mittwald.systems/v2/openapi.json > spec/openapi-dev.json",
     "build:write-version-file": "run tsx dev/writeVersion.ts",
     "format": "run prettier --write '**/*.{ts,tsx,yaml,yml,json,md,mdx,js}'",
     "lint": "run eslint .",
     "test": "",
-    "test:client-generation-clean": "git diff --exit-code"
+    "test:client-generation-clean": "git diff --exit-code",
+    "test:compile": "run tsc --noEmit"
   },
   "dependencies": {
     "@mittwald/api-client-commons": "workspace:^",
-    "browser-or-node": "^3.0.0-pre.0"
+    "browser-or-node": "^3.0.0"
   },
   "devDependencies": {
     "@mittwald/api-code-generator": "workspace:^",
-    "@mittwald/react-use-promise": "^2.3.12",
-    "@types/node": "^20.11.25",
-    "@types/react": "^18.2.64",
-    "@typescript-eslint/eslint-plugin": "^7.1.1",
-    "@typescript-eslint/parser": "^7.1.1",
+    "@mittwald/react-use-promise": "^2.3.13",
+    "@types/node": "^20.14.14",
+    "@types/react": "^18.3.3",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
     "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-json": "^3.1.0",
-    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-prettier": "^5.2.1",
     "has-flag": "^5.0.1",
-    "prettier": "^3.2.5",
+    "prettier": "^3.3.3",
     "prettier-plugin-jsdoc": "^1.3.0",
     "prettier-plugin-pkgsort": "^0.2.1",
     "prettier-plugin-sort-json": "^3.1.0",
-    "react": "^18.2.0",
+    "react": "^18.3.1",
     "read-pkg": "^9.0.1",
-    "rimraf": "^5.0.5",
-    "tsx": "^4.7.1",
-    "typescript": "5.4.2"
+    "rimraf": "^5.0.10",
+    "tsx": "^4.16.5",
+    "typescript": "5.5.4"
   },
   "peerDependencies": {
     "@mittwald/react-use-promise": "^2.3.12"

@@ -17,13 +17,15 @@ export const apiIngressBehaviors = (
   },
 
   list: async (query = {}) => {
-    const { projectId } = query;
     const response = await client.domain.ingressListIngresses({
-      queryParameters: {
-        projectId,
-      },
+      queryParameters: query,
     });
     assertStatus(response, 200);
-    return response.data;
+    return {
+      items: response.data,
+      totalCount: response.data.length,
+      /** @todo: use this code when pagination is supported by API */
+      // totalCount: extractTotalCountHeader(response),
+    };
   },
 });
