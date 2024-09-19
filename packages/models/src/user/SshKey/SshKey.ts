@@ -51,6 +51,10 @@ export class SshKey extends ReferenceModel {
     [this.id],
   ) as AsyncResourceVariant<SshKeyDetailed | undefined, []>;
 
+  public query() {
+    return new SshKeyListQuery({});
+  }
+
   public static async create(data: SshKeyCreateData): Promise<void> {
     await config.behaviors.sshKey.create(data);
   }
