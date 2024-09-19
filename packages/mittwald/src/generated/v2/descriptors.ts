@@ -26,6 +26,11 @@ export const appExecuteAction: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -52,6 +57,11 @@ export const appGetApp: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2AppsAppId.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppsAppId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -84,6 +94,11 @@ export const appGetAppinstallation: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -110,6 +125,11 @@ export const appUninstallAppinstallation: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Delete.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -142,6 +162,11 @@ export const appPatchAppinstallation: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -168,6 +193,11 @@ export const appGetAppversion: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2AppsAppIdVersionsAppVersionId.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppsAppIdVersionsAppVersionId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -200,6 +230,11 @@ export const appGetInstalledSystemsoftwareForAppinstallation: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdSystemSoftware.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdSystemSoftware.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -226,6 +261,11 @@ export const appGetMissingDependenciesForAppinstallation: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdMissingDependencies.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdMissingDependencies.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -258,6 +298,11 @@ export const appGetSystemsoftware: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -287,6 +332,11 @@ export const appGetSystemsoftwareversion: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -311,8 +361,18 @@ export const appLinkDatabase: OpenAPIOperation<
       "empty"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabase.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabase.Patch.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabase.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -326,6 +386,35 @@ export const appLinkDatabase: OpenAPIOperation<
   operationId: "app-link-database",
 };
 
+/** List AppInstallations that a user has access to. */
+export const appListAppinstallationsForUser: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallations.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallations.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallations.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallations.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallations.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallations.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/app-installations",
+  method: "GET",
+  operationId: "app-list-appinstallations-for-user",
+};
+
 /** List AppInstallations belonging to a Project. */
 export const appListAppinstallations: OpenAPIOperation<
   RequestType<
@@ -337,6 +426,11 @@ export const appListAppinstallations: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppInstallations.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppInstallations.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -374,6 +468,11 @@ export const appRequestAppinstallation: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppInstallations.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppInstallations.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -395,6 +494,11 @@ export const appListApps: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2Apps.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Apps.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -422,6 +526,11 @@ export const appListAppversions: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppsAppIdVersions.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2AppsAppIdVersions.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -443,6 +552,11 @@ export const appListSystemsoftwares: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2SystemSoftwares.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwares.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -470,6 +584,11 @@ export const appListSystemsoftwareversions: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersions.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersions.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -494,6 +613,11 @@ export const appListUpdateCandidatesForAppversion: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppsAppIdVersionsBaseAppVersionIdUpdateCandidates.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2AppsAppIdVersionsBaseAppVersionIdUpdateCandidates.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -502,6 +626,45 @@ export const appListUpdateCandidatesForAppversion: OpenAPIOperation<
   path: "/v2/apps/{appId}/versions/{baseAppVersionId}/update-candidates",
   method: "GET",
   operationId: "app-list-update-candidates-for-appversion",
+};
+
+/** Replace a MySQL Database with another MySQL Database. */
+export const appReplaceDatabase: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabaseReplace.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabaseReplace.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabaseReplace.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabaseReplace.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabaseReplace.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabaseReplace.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabaseReplace.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabaseReplace.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabaseReplace.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/app-installations/{appInstallationId}/database/replace",
+  method: "PATCH",
+  operationId: "app-replace-database",
 };
 
 /** Request a copy of an AppInstallation. */
@@ -520,6 +683,11 @@ export const appRequestAppinstallationCopy: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsCopy.Post.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsCopy.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -552,6 +720,11 @@ export const appRetrieveStatus: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdStatus.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdStatus.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -578,6 +751,11 @@ export const appUnlinkDatabase: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Delete.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -610,6 +788,11 @@ export const appSetDatabaseUsers: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -639,6 +822,11 @@ export const articleGetArticle: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ArticlesArticleId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ArticlesArticleId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -660,6 +848,11 @@ export const articleListArticles: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2Articles.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Articles.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -702,6 +895,11 @@ export const backupCreateProjectBackupExport: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExport.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExport.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -736,6 +934,11 @@ export const backupDeleteProjectBackupExport: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExport.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExport.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -757,6 +960,11 @@ export const backupListProjectBackupSchedules: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdBackupSchedules.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdBackupSchedules.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -794,6 +1002,11 @@ export const backupCreateProjectBackupSchedule: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdBackupSchedules.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdBackupSchedules.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -815,6 +1028,11 @@ export const backupListProjectBackups: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdBackups.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdBackups.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -852,6 +1070,11 @@ export const backupCreateProjectBackup: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdBackups.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdBackups.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -886,6 +1109,11 @@ export const backupGetProjectBackupSchedule: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupSchedulesProjectBackupScheduleId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectBackupSchedulesProjectBackupScheduleId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -917,6 +1145,11 @@ export const backupDeleteProjectBackupSchedule: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectBackupSchedulesProjectBackupScheduleId.Delete.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupSchedulesProjectBackupScheduleId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -959,6 +1192,11 @@ export const backupUpdateProjectBackupSchedule: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupSchedulesProjectBackupScheduleId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectBackupSchedulesProjectBackupScheduleId.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -993,6 +1231,11 @@ export const backupGetProjectBackup: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -1024,6 +1267,11 @@ export const backupDeleteProjectBackup: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupId.Delete.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -1066,6 +1314,11 @@ export const backupUpdateProjectBackupDescription: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDescription.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -1097,6 +1350,11 @@ export const contractTerminateContractItem: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTermination.Post.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTermination.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -1134,6 +1392,11 @@ export const contractCancelContractItemTermination: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTermination.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTermination.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -1165,6 +1428,11 @@ export const contractCancelContractTariffChange: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTariffChange.Delete.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdTariffChange.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -1202,6 +1470,11 @@ export const contractTerminateContract: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdTermination.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdTermination.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -1233,6 +1506,11 @@ export const contractCancelContractTermination: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdTermination.Delete.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdTermination.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -1270,6 +1548,11 @@ export const contractGetBaseItemOfContract: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdBaseItems.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdBaseItems.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -1301,6 +1584,11 @@ export const contractGetDetailOfContractByDomain: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContract.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContract.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -1338,6 +1626,11 @@ export const contractGetDetailOfContractByProject: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdContract.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdContract.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -1369,6 +1662,11 @@ export const contractGetDetailOfContractByServer: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ServersServerIdContract.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServersServerIdContract.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -1406,6 +1704,11 @@ export const contractGetDetailOfContractItem: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -1437,6 +1740,11 @@ export const contractGetDetailOfContract: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ContractsContractId.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContractsContractId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -1474,6 +1782,11 @@ export const contractGetNextTerminationDateForItem: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDates.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDates.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -1508,6 +1821,11 @@ export const contractListContracts: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdContracts.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdContracts.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -1516,6 +1834,45 @@ export const contractListContracts: OpenAPIOperation<
   path: "/v2/customers/{customerId}/contracts",
   method: "GET",
   operationId: "contract-list-contracts",
+};
+
+/** Rotate the secret for an extension instance. */
+export const contributorRotateSecretForExtensionInstance: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdSecret.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdSecret.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdSecret.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdSecret.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdSecret.Put.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdSecret.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdSecret.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdSecret.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdSecret.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/contributors/{contributorId}/extensions/{extensionId}/extension-instances/{extensionInstanceId}/secret",
+  method: "PUT",
+  operationId: "contributor-rotate-secret-for-extension-instance",
 };
 
 /** Get all conversation the authenticated user has created or has access to. */
@@ -1529,6 +1886,11 @@ export const conversationListConversations: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2Conversations.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Conversations.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -1558,6 +1920,11 @@ export const conversationCreateConversation: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2Conversations.Post.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Conversations.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -1592,6 +1959,11 @@ export const conversationListMessagesByConversation: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdMessages.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdMessages.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -1634,6 +2006,11 @@ export const conversationCreateMessage: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdMessages.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdMessages.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -1665,6 +2042,11 @@ export const conversationGetCategory: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ConversationCategoriesCategoryId.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationCategoriesCategoryId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -1707,6 +2089,11 @@ export const conversationGetConversationMembers: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdMembers.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdMembers.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -1715,6 +2102,50 @@ export const conversationGetConversationMembers: OpenAPIOperation<
   path: "/v2/conversations/{conversationId}/members",
   method: "GET",
   operationId: "conversation-get-conversation-members",
+};
+
+/** Get preferences for customer conversations. */
+export const conversationGetConversationPreferencesOfCustomer: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdConversationPreferences.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdConversationPreferences.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdConversationPreferences.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdConversationPreferences.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdConversationPreferences.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdConversationPreferences.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdConversationPreferences.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdConversationPreferences.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdConversationPreferences.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/conversation-preferences",
+  method: "GET",
+  operationId: "conversation-get-conversation-preferences-of-customer",
 };
 
 /** Get a support conversation. */
@@ -1743,6 +2174,11 @@ export const conversationGetConversation: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationId.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -1785,6 +2221,11 @@ export const conversationUpdateConversation: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationId.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationId.Put.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -1819,6 +2260,11 @@ export const conversationGetFileAccessToken: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFilesFileIdAccessToken.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -1840,6 +2286,11 @@ export const conversationListCategories: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ConversationCategories.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationCategories.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -1869,6 +2320,11 @@ export const conversationRequestFileUpload: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFiles.Post.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdFiles.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -1911,6 +2367,11 @@ export const conversationSetConversationStatus: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdStatus.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdStatus.Put.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -1950,6 +2411,11 @@ export const conversationUpdateMessage: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdMessagesMessageId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ConversationsConversationIdMessagesMessageId.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -1979,6 +2445,11 @@ export const cronjobAbortExecution: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -2000,6 +2471,11 @@ export const cronjobListCronjobs: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdCronjobs.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdCronjobs.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -2037,6 +2513,11 @@ export const cronjobCreateCronjob: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdCronjobs.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdCronjobs.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -2058,6 +2539,11 @@ export const cronjobListExecutions: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutions.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutions.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -2095,6 +2581,11 @@ export const cronjobCreateExecution: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutions.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutions.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -2121,6 +2612,11 @@ export const cronjobGetCronjob: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobId.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -2155,6 +2651,11 @@ export const cronjobDeleteCronjob: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobId.Delete.Responses.$412.Content.ApplicationJson>,
       412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -2197,6 +2698,11 @@ export const cronjobUpdateCronjob: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobId.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -2223,6 +2729,11 @@ export const cronjobGetExecution: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionId.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -2257,6 +2768,11 @@ export const cronjobUpdateCronjobAppId: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Responses.$412.Content.ApplicationJson>,
       412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -2299,6 +2815,11 @@ export const customerAcceptCustomerInvite: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsAccept.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsAccept.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -2307,59 +2828,6 @@ export const customerAcceptCustomerInvite: OpenAPIOperation<
   path: "/v2/customer-invites/{customerInviteId}/actions/accept",
   method: "POST",
   operationId: "customer-accept-customer-invite",
-};
-
-/** Get all customer categories. */
-export const customerListOfCustomerCategories: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerCategories.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerCategories.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerCategories.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerCategories.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerCategories.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customer-categories",
-  method: "GET",
-  operationId: "customer-list-of-customer-categories",
-};
-
-/** Create a new customer category. */
-export const customerCreateCategory: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CustomerCategories.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerCategories.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerCategories.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerCategories.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerCategories.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerCategories.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerCategories.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customer-categories",
-  method: "POST",
-  operationId: "customer-create-category",
 };
 
 /** Create a CustomerInvite. */
@@ -2391,6 +2859,11 @@ export const customerCreateCustomerInvite: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdInvites.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdInvites.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -2412,6 +2885,16 @@ export const customerListCustomers: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2Customers.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Customers.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Customers.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -2444,6 +2927,11 @@ export const customerCreateCustomer: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Customers.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2Customers.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -2468,6 +2956,11 @@ export const customerDeclineCustomerInvite: OpenAPIOperation<
       "empty"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsDecline.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsDecline.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -2476,88 +2969,6 @@ export const customerDeclineCustomerInvite: OpenAPIOperation<
   path: "/v2/customer-invites/{customerInviteId}/actions/decline",
   method: "POST",
   operationId: "customer-decline-customer-invite",
-};
-
-/** Get a customer category. */
-export const customerGetCustomerCategory: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customer-categories/{categoryId}",
-  method: "GET",
-  operationId: "customer-get-customer-category",
-};
-
-/** Update a customer category. */
-export const customerUpdateCategory: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Put.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Put.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Put.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customer-categories/{categoryId}",
-  method: "PUT",
-  operationId: "customer-update-category",
-};
-
-/** Delete a customer category. */
-export const customerDeleteCategory: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Delete.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Delete.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Delete.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerCategoriesCategoryId.Delete.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customer-categories/{categoryId}",
-  method: "DELETE",
-  operationId: "customer-delete-category",
 };
 
 /** Get a CustomerInvite. */
@@ -2576,6 +2987,11 @@ export const customerGetCustomerInvite: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -2601,6 +3017,11 @@ export const customerDeleteCustomerInvite: OpenAPIOperation<
       Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Delete.Responses.$204.Content.Empty>,
       204,
       "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Delete.Responses.Default.Content.ApplicationJson>,
@@ -2632,6 +3053,11 @@ export const customerGetCustomerMembership: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -2654,6 +3080,11 @@ export const customerDeleteCustomerMembership: OpenAPIOperation<
       Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Delete.Responses.$204.Content.Empty>,
       204,
       "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Delete.Responses.Default.Content.ApplicationJson>,
@@ -2680,6 +3111,11 @@ export const customerUpdateCustomerMembership: OpenAPIOperation<
       "empty"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -2704,8 +3140,23 @@ export const customerGetCustomer: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerId.Get.Responses.$401.Content.ApplicationJson>,
+      401,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerId.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -2743,6 +3194,11 @@ export const customerUpdateCustomer: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerId.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerId.Put.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -2772,6 +3228,16 @@ export const customerDeleteCustomer: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerId.Delete.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerId.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -2798,6 +3264,11 @@ export const customerGetCustomerTokenInvite: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomerTokenInvite.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerTokenInvite.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -2835,6 +3306,11 @@ export const customerIsCustomerLegallyCompetent: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLegallyCompetent.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLegallyCompetent.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -2857,6 +3333,11 @@ export const customerLeaveCustomer: OpenAPIOperation<
       Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdActionsLeave.Post.Responses.$204.Content.Empty>,
       204,
       "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdActionsLeave.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdActionsLeave.Post.Responses.Default.Content.ApplicationJson>,
@@ -2890,6 +3371,11 @@ export const customerListCustomerInvites: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomerInvites.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvites.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -2927,6 +3413,11 @@ export const customerListCustomerMemberships: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerMemberships.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomerMemberships.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -2956,6 +3447,11 @@ export const customerListInvitesForCustomer: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -2982,6 +3478,11 @@ export const customerListMembershipsForCustomer: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdMemberships.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdMemberships.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -3019,6 +3520,11 @@ export const customerRequestAvatarUpload: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAvatar.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAvatar.Post.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
@@ -3053,6 +3559,11 @@ export const customerRemoveAvatar: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAvatar.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAvatar.Delete.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
@@ -3079,6 +3590,11 @@ export const customerResendCustomerInviteMail: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsResend.Post.Responses.$403.Content.ApplicationJson>,
       403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsResend.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -3116,6 +3632,11 @@ export const databaseListMysqlDatabases: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMysqlDatabases.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMysqlDatabases.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -3147,6 +3668,11 @@ export const databaseCreateMysqlDatabase: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMysqlDatabases.Post.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMysqlDatabases.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -3184,6 +3710,11 @@ export const databaseListMysqlUsers: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdUsers.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdUsers.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -3215,6 +3746,11 @@ export const databaseCreateMysqlUser: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdUsers.Post.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdUsers.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -3252,6 +3788,11 @@ export const databaseListRedisDatabases: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdRedisDatabases.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdRedisDatabases.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -3286,6 +3827,11 @@ export const databaseCreateRedisDatabase: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdRedisDatabases.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdRedisDatabases.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -3317,6 +3863,11 @@ export const databaseGetMysqlDatabase: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -3356,6 +3907,11 @@ export const databaseDeleteMysqlDatabase: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Delete.Responses.$412.Content.ApplicationJson>,
       412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -3403,6 +3959,11 @@ export const databaseGetMysqlUser: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -3434,6 +3995,11 @@ export const databaseUpdateMysqlUser: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Put.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Put.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -3471,6 +4037,11 @@ export const databaseDeleteMysqlUser: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -3502,6 +4073,11 @@ export const databaseGetRedisDatabase: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -3541,6 +4117,11 @@ export const databaseDeleteRedisDatabase: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Delete.Responses.$412.Content.ApplicationJson>,
       412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -3588,6 +4169,11 @@ export const databaseDisableMysqlUser: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsDisable.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsDisable.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -3619,6 +4205,11 @@ export const databaseEnableMysqlUser: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsEnable.Post.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsEnable.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -3656,6 +4247,11 @@ export const databaseGetMysqlUserPhpMyAdminUrl: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPhpMyAdminUrl.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPhpMyAdminUrl.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -3687,6 +4283,11 @@ export const databaseListMysqlCharsets: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2MysqlCharsets.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlCharsets.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -3724,6 +4325,11 @@ export const databaseListMysqlVersions: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlVersions.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2MysqlVersions.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -3755,6 +4361,11 @@ export const databaseListRedisVersions: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2RedisVersions.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisVersions.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -3792,6 +4403,11 @@ export const databaseUpdateMysqlDatabaseDefaultCharset: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -3823,6 +4439,11 @@ export const databaseUpdateMysqlDatabaseDescription: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -3860,6 +4481,11 @@ export const databaseUpdateMysqlUserPassword: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPassword.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPassword.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -3891,6 +4517,11 @@ export const databaseUpdateRedisDatabaseConfiguration: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -3928,6 +4559,11 @@ export const databaseUpdateRedisDatabaseDescription: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -3954,6 +4590,11 @@ export const newsletterSubscribeUser: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptions.Post.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptions.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -3986,6 +4627,11 @@ export const dnsCreateDnsZone: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -4012,6 +4658,11 @@ export const dnsGetDnsZone: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -4044,6 +4695,11 @@ export const dnsDeleteDnsZone: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -4070,6 +4726,11 @@ export const dnsListDnsZones: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -4102,6 +4763,11 @@ export const dnsSetRecordSetManaged: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -4128,6 +4794,11 @@ export const dnsUpdateRecordSet: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSet.Put.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSet.Put.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -4165,6 +4836,11 @@ export const domainAbortDomainDeclaration: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclaration.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -4191,6 +4867,11 @@ export const domainCheckDomainRegistrability: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainRegistrable.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -4223,6 +4904,11 @@ export const domainListDomains: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Domains.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2Domains.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -4252,8 +4938,8 @@ export const domainCheckDomainTransferability: OpenAPIOperation<
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainTransferable.Post.Responses.$403.Content.ApplicationJson>,
-      403,
+      Simplify<MittwaldAPIV2.Paths.V2DomainTransferable.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -4291,6 +4977,11 @@ export const domainCreateDomainAuthCode: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsAuthCode.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -4322,6 +5013,11 @@ export const domainUpdateDomainNameservers: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -4359,6 +5055,11 @@ export const domainGetDomain: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2DomainsDomainId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -4393,6 +5094,11 @@ export const domainDeleteDomain: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2DomainsDomainId.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -4422,6 +5128,11 @@ export const domainGetLatestScreenshot: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdLatestScreenshot.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdLatestScreenshot.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -4446,6 +5157,11 @@ export const domainListTldContactSchemas: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainTldsTldContactSchemas.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2DomainTldsTldContactSchemas.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -4467,6 +5183,11 @@ export const domainListTlds: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2DomainTlds.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainTlds.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -4504,6 +5225,11 @@ export const domainResendDomainEmail: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsResendEmail.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsResendEmail.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -4512,6 +5238,45 @@ export const domainResendDomainEmail: OpenAPIOperation<
   path: "/v2/domains/{domainId}/actions/resend-email",
   method: "POST",
   operationId: "domain-resend-domain-email",
+};
+
+/** Suggest a list of domains based on a prompt using AI. */
+export const domainSuggest: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainSuggestions.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainSuggestions.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainSuggestions.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainSuggestions.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainSuggestions.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainSuggestions.Get.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainSuggestions.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainSuggestions.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domain-suggestions",
+  method: "GET",
+  operationId: "domain-suggest",
 };
 
 /** Update the auth code of a Domain. */
@@ -4535,6 +5300,11 @@ export const domainUpdateDomainAuthCode: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthCode.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -4572,6 +5342,11 @@ export const domainUpdateDomainContact: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdContactsContact.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -4603,6 +5378,11 @@ export const domainUpdateDomainProjectId: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -4664,6 +5444,11 @@ export const extensionConsentToExtensionScopes: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdScopes.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdScopes.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -4685,6 +5470,16 @@ export const extensionListExtensionInstances: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ExtensionInstances.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstances.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstances.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -4717,6 +5512,11 @@ export const extensionCreateExtensionInstance: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstances.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ExtensionInstances.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -4725,6 +5525,40 @@ export const extensionCreateExtensionInstance: OpenAPIOperation<
   path: "/v2/extension-instances",
   method: "POST",
   operationId: "extension-create-extension-instance",
+};
+
+/** Create an access token retrieval key for an extension instance. */
+export const extensionCreateRetrievalKey: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdActionsCreateAccessTokenRetrievalKey.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdActionsCreateAccessTokenRetrievalKey.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdActionsCreateAccessTokenRetrievalKey.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdActionsCreateAccessTokenRetrievalKey.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdActionsCreateAccessTokenRetrievalKey.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdActionsCreateAccessTokenRetrievalKey.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdActionsCreateAccessTokenRetrievalKey.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/extension-instances/{extensionInstanceId}/actions/create-access-token-retrieval-key",
+  method: "POST",
+  operationId: "extension-create-retrieval-key",
 };
 
 /** Get an ExtensionInstance. */
@@ -4743,6 +5577,11 @@ export const extensionGetExtensionInstance: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceId.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -4775,6 +5614,11 @@ export const extensionDeleteExtensionInstance: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceId.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -4804,6 +5648,11 @@ export const extensionDisableExtensionInstance: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdActionsDisable.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdActionsDisable.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -4812,6 +5661,40 @@ export const extensionDisableExtensionInstance: OpenAPIOperation<
   path: "/v2/extension-instances/{extensionInstanceId}/actions/disable",
   method: "POST",
   operationId: "extension-disable-extension-instance",
+};
+
+/** Dry run a webhook with random or given values. */
+export const extensionDryRunWebhook: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsDryRunWebhookKind.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsDryRunWebhookKind.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsDryRunWebhookKind.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsDryRunWebhookKind.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsDryRunWebhookKind.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsDryRunWebhookKind.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsDryRunWebhookKind.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/contributors/{contributorId}/extensions/{extensionId}/extension-instances/{extensionInstanceId}/actions/dry-run/{webhookKind}",
+  method: "POST",
+  operationId: "extension-dry-run-webhook",
 };
 
 /** Enable an ExtensionInstance. */
@@ -4830,6 +5713,11 @@ export const extensionEnableExtensionInstance: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdActionsEnable.Post.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdActionsEnable.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -4862,6 +5750,11 @@ export const extensionGetContributor: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -4883,6 +5776,11 @@ export const extensionGetExtension: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionId.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -4915,6 +5813,11 @@ export const extensionGetPublicKey: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2WebhookPublicKeysSerial.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2WebhookPublicKeysSerial.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -4939,6 +5842,11 @@ export const extensionListContributors: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Contributors.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2Contributors.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -4960,6 +5868,11 @@ export const extensionListExtensions: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2Extensions.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Extensions.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -5004,6 +5917,11 @@ export const fileCreateFile: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2Files.Post.Responses.$422.Content.ApplicationJson>,
       422,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Files.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -5061,6 +5979,11 @@ export const fileGetFileMeta: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2FilesFileIdMeta.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2FilesFileIdMeta.Get.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
@@ -5097,6 +6020,11 @@ export const fileGetFileUploadTokenRules: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2FileUploadTokensFileUploadTokenRules.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2FileUploadTokensFileUploadTokenRules.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -5198,6 +6126,11 @@ export const fileGetFile: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2FilesFileId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2FilesFileId.Get.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
@@ -5257,6 +6190,11 @@ export const fileGetFileWithName: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2FilesFileIdFileName.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2FilesFileIdFileName.Get.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
@@ -5291,6 +6229,11 @@ export const ingressListIngresses: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Ingresses.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2Ingresses.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -5317,6 +6260,11 @@ export const ingressCreateIngress: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2Ingresses.Post.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Ingresses.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -5349,6 +6297,11 @@ export const ingressGetIngress: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -5375,6 +6328,11 @@ export const ingressDeleteIngress: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Delete.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -5417,6 +6375,11 @@ export const ingressIngressVerifyOwnership: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdActionsVerifyOwnership.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdActionsVerifyOwnership.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -5443,6 +6406,11 @@ export const ingressUpdateIngressPaths: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Patch.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -5480,6 +6448,11 @@ export const ingressRequestIngressAcmeCertificateIssuance: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdActionsRequestAcmeCertificateIssuance.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdActionsRequestAcmeCertificateIssuance.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -5506,6 +6479,11 @@ export const ingressUpdateIngressTls: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Patch.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -5543,6 +6521,11 @@ export const invoiceDetail: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2InvoicesInvoiceId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2InvoicesInvoiceId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -5574,6 +6557,11 @@ export const invoiceGetDetailOfInvoiceSettings: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoiceSettings.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoiceSettings.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -5611,6 +6599,11 @@ export const invoiceUpdateInvoiceSettings: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoiceSettings.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoiceSettings.Put.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -5645,6 +6638,11 @@ export const invoiceGetFileAccessToken: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceIdFileAccessToken.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceIdFileAccessToken.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -5676,6 +6674,11 @@ export const invoiceListCustomerInvoices: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoices.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoices.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -5715,6 +6718,11 @@ export const mailListDeliveryBoxes: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDeliveryBoxes.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDeliveryBoxes.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -5767,6 +6775,11 @@ export const mailCreateDeliverybox: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDeliveryBoxes.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDeliveryBoxes.Post.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
@@ -5813,6 +6826,11 @@ export const mailListMailAddresses: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailAddresses.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailAddresses.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -5865,6 +6883,11 @@ export const mailCreateMailAddress: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailAddresses.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailAddresses.Post.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
@@ -5911,6 +6934,11 @@ export const mailGetDeliveryBox: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2DeliveryBoxesDeliveryBoxId.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DeliveryBoxesDeliveryBoxId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -5963,6 +6991,11 @@ export const mailDeleteDeliveryBox: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DeliveryBoxesDeliveryBoxId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2DeliveryBoxesDeliveryBoxId.Delete.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
@@ -6009,6 +7042,11 @@ export const mailGetMailAddress: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressId.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -6061,6 +7099,11 @@ export const mailDeleteMailAddress: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressId.Delete.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
@@ -6107,6 +7150,11 @@ export const mailListProjectMailSettings: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettings.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettings.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -6159,6 +7207,11 @@ export const mailUpdateDeliveryBoxDescription: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DeliveryBoxesDeliveryBoxIdDescription.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2DeliveryBoxesDeliveryBoxIdDescription.Patch.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
@@ -6205,6 +7258,11 @@ export const mailUpdateDeliveryBoxPassword: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2DeliveryBoxesDeliveryBoxIdPassword.Patch.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DeliveryBoxesDeliveryBoxIdPassword.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -6257,6 +7315,11 @@ export const mailUpdateMailAddressAddress: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAddress.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAddress.Patch.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
@@ -6303,6 +7366,11 @@ export const mailUpdateMailAddressAutoresponder: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Patch.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -6355,6 +7423,11 @@ export const mailUpdateMailAddressCatchAll: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchAll.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchAll.Patch.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
@@ -6401,6 +7474,11 @@ export const mailUpdateMailAddressForwardAddresses: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Patch.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -6453,6 +7531,11 @@ export const mailUpdateMailAddressPassword: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Patch.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
@@ -6499,6 +7582,11 @@ export const mailUpdateMailAddressQuota: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Patch.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -6551,6 +7639,11 @@ export const mailUpdateMailAddressSpamProtection: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Patch.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
@@ -6600,6 +7693,11 @@ export const mailUpdateProjectMailSetting: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Patch.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
@@ -6634,6 +7732,11 @@ export const newsletterGetInfo: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptionsSelf.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptionsSelf.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -6656,6 +7759,11 @@ export const newsletterUnsubscribeUser: OpenAPIOperation<
       Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptionsSelf.Delete.Responses.$204.Content.Empty>,
       204,
       "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptionsSelf.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2NewsletterSubscriptionsSelf.Delete.Responses.Default.Content.ApplicationJson>,
@@ -6682,6 +7790,11 @@ export const notificationsCountUnreadNotifications: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationUnreadCounts.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2NotificationUnreadCounts.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -6703,6 +7816,11 @@ export const notificationsListNotifications: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2Notifications.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Notifications.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -6735,6 +7853,11 @@ export const notificationsReadAllNotifications: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationsActionsReadAll.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2NotificationsActionsReadAll.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -6764,6 +7887,11 @@ export const notificationsReadNotification: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationsNotificationIdStatus.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2NotificationsNotificationIdStatus.Put.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -6785,6 +7913,11 @@ export const orderListOrders: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2Orders.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Orders.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -6817,8 +7950,8 @@ export const orderCreateOrder: OpenAPIOperation<
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Orders.Post.Responses.$403.Content.ApplicationJson>,
-      403,
+      Simplify<MittwaldAPIV2.Paths.V2Orders.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -6851,6 +7984,11 @@ export const orderCreateTariffChange: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2TariffChanges.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2TariffChanges.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -6872,6 +8010,11 @@ export const orderGetOrder: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2OrdersOrderId.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2OrdersOrderId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -6899,6 +8042,11 @@ export const orderListCustomerOrders: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdOrders.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdOrders.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -6920,6 +8068,11 @@ export const orderListProjectOrders: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdOrders.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdOrders.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -6957,6 +8110,11 @@ export const orderPreviewOrder: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2OrderPreviews.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2OrderPreviews.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -6988,6 +8146,11 @@ export const orderPreviewTariffChange: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2TariffChangePreviews.Post.Responses.$422.Content.ApplicationJson>,
       422,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2TariffChangePreviews.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -7025,6 +8188,11 @@ export const pageinsightsGetPerformanceData: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PageInsights.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2PageInsights.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -7056,6 +8224,11 @@ export const pageinsightsGetStraceData: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStracesStraceId.Get.Responses.$403.Content.ApplicationJson>,
       403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStracesStraceId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -7093,6 +8266,11 @@ export const pageinsightsListPerformanceDataForProject: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdPageInsights.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdPageInsights.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -7127,6 +8305,11 @@ export const pageinsightsScheduleStrace: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStraces.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStraces.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -7148,6 +8331,11 @@ export const passwordValidationGetPasswordPolicy: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPasswordPolicy.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPasswordPolicy.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -7190,6 +8378,11 @@ export const projectAcceptProjectInvite: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsAccept.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsAccept.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -7216,6 +8409,11 @@ export const projectListInvitesForProject: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -7250,6 +8448,11 @@ export const projectCreateProjectInvite: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Post.Responses.$409.Content.ApplicationJson>,
       409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -7292,6 +8495,11 @@ export const projectCreateProject: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServersServerIdProjects.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ServersServerIdProjects.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -7314,6 +8522,11 @@ export const projectDeclineProjectInvite: OpenAPIOperation<
       Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsDecline.Post.Responses.$204.Content.Empty>,
       204,
       "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsDecline.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsDecline.Post.Responses.Default.Content.ApplicationJson>,
@@ -7347,6 +8560,11 @@ export const projectRequestProjectAvatarUpload: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAvatar.Post.Responses.$403.Content.ApplicationJson>,
       403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAvatar.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -7384,6 +8602,11 @@ export const projectDeleteProjectAvatar: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAvatar.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAvatar.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -7413,6 +8636,11 @@ export const projectGetProjectInvite: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -7435,6 +8663,11 @@ export const projectDeleteProjectInvite: OpenAPIOperation<
       Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Delete.Responses.$204.Content.Empty>,
       204,
       "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Delete.Responses.Default.Content.ApplicationJson>,
@@ -7466,6 +8699,11 @@ export const projectGetProjectMembership: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -7490,6 +8728,11 @@ export const projectDeleteProjectMembership: OpenAPIOperation<
       "empty"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -7512,6 +8755,11 @@ export const projectUpdateProjectMembership: OpenAPIOperation<
       Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Patch.Responses.$204.Content.Empty>,
       204,
       "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Patch.Responses.Default.Content.ApplicationJson>,
@@ -7540,6 +8788,11 @@ export const projectGetProject: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectId.Get.Responses.$403.Content.ApplicationJson>,
       403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -7582,6 +8835,11 @@ export const projectDeleteProject: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectId.Delete.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
@@ -7621,6 +8879,11 @@ export const projectRequestServerAvatarUpload: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServersServerIdAvatar.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ServersServerIdAvatar.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -7655,6 +8918,11 @@ export const projectDeleteServerAvatar: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServersServerIdAvatar.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ServersServerIdAvatar.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -7686,6 +8954,11 @@ export const projectFileSystemGetDirectories: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDirectories.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDirectories.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -7728,6 +9001,11 @@ export const projectFileSystemGetDiskUsage: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDiskUsage.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDiskUsage.Get.Responses.$503.Content.ApplicationJson>,
       503,
       "application/json"
@@ -7764,6 +9042,11 @@ export const projectFileSystemGetFileContent: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFileContent.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFileContent.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -7806,6 +9089,11 @@ export const projectFileSystemGetJwt: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdJwt.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdJwt.Get.Responses.$503.Content.ApplicationJson>,
       503,
       "application/json"
@@ -7837,6 +9125,11 @@ export const projectFileSystemListFiles: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFiles.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFiles.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -7874,6 +9167,11 @@ export const projectGetProjectTokenInvite: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectTokenInvite.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectTokenInvite.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -7905,6 +9203,11 @@ export const projectGetSelfMembershipForProject: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMembershipsSelf.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMembershipsSelf.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -7942,6 +9245,11 @@ export const projectGetServer: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServersServerId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ServersServerId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -7964,6 +9272,11 @@ export const projectLeaveProject: OpenAPIOperation<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLeave.Post.Responses.$204.Content.Empty>,
       204,
       "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLeave.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLeave.Post.Responses.Default.Content.ApplicationJson>,
@@ -7992,6 +9305,11 @@ export const projectListMembershipsForProject: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMemberships.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMemberships.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -8029,6 +9347,11 @@ export const projectListProjectInvites: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvites.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectInvites.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -8060,6 +9383,11 @@ export const projectListProjectMemberships: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectMemberships.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectMemberships.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -8097,6 +9425,11 @@ export const projectListProjects: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Projects.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2Projects.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -8126,6 +9459,11 @@ export const projectListServers: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Servers.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2Servers.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -8152,6 +9490,11 @@ export const projectResendProjectInviteMail: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsResend.Post.Responses.$403.Content.ApplicationJson>,
       403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsResend.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -8189,6 +9532,11 @@ export const projectUpdateProjectDescription: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDescription.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -8223,6 +9571,11 @@ export const projectUpdateServerDescription: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServersServerIdDescription.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ServersServerIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -8247,8 +9600,8 @@ export const relocationCreateLegacyTariffChange: OpenAPIOperation<
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Responses.$403.Content.ApplicationJson>,
-      403,
+      Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -8281,6 +9634,11 @@ export const relocationCreateRelocation: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Relocation.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2Relocation.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -8302,6 +9660,11 @@ export const servicetokenAuthenticateService: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ServicesAccessKeyIdActionsAuthenticate.Post.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServicesAccessKeyIdActionsAuthenticate.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -8339,6 +9702,11 @@ export const sftpUserListSftpUsers: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdSftpUsers.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdSftpUsers.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -8370,6 +9738,11 @@ export const sftpUserCreateSftpUser: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdSftpUsers.Post.Responses.$403.Content.ApplicationJson>,
       403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdSftpUsers.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -8407,6 +9780,11 @@ export const sftpUserGetSftpUser: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SftpUsersSftpUserId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2SftpUsersSftpUserId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -8433,6 +9811,11 @@ export const sftpUserDeleteSftpUser: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2SftpUsersSftpUserId.Delete.Responses.$403.Content.ApplicationJson>,
       403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SftpUsersSftpUserId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -8470,6 +9853,11 @@ export const sftpUserUpdateSftpUser: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SftpUsersSftpUserId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2SftpUsersSftpUserId.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -8501,6 +9889,11 @@ export const sshUserListSshUsers: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdSshUsers.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdSshUsers.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -8538,6 +9931,11 @@ export const sshUserCreateSshUser: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdSshUsers.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdSshUsers.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -8572,6 +9970,11 @@ export const sshUserGetSshUser: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SshUsersSshUserId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2SshUsersSshUserId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -8598,6 +10001,11 @@ export const sshUserDeleteSshUser: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2SshUsersSshUserId.Delete.Responses.$403.Content.ApplicationJson>,
       403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SshUsersSshUserId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -8635,6 +10043,11 @@ export const sshUserUpdateSshUser: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SshUsersSshUserId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2SshUsersSshUserId.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -8664,13 +10077,13 @@ export const userAddPhoneNumber: OpenAPIOperation<
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhone.Post.Responses.$403.Content.ApplicationJson>,
-      403,
+      Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhone.Post.Responses.$409.Content.ApplicationJson>,
+      409,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhone.Post.Responses.$409.Content.ApplicationJson>,
-      409,
+      Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhone.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -8700,6 +10113,11 @@ export const userRemovePhoneNumber: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhone.Delete.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhone.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -8734,6 +10152,11 @@ export const userAuthenticateMfa: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Responses.$408.Content.ApplicationJson>,
       408,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -8776,6 +10199,11 @@ export const userAuthenticate: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Authenticate.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2Authenticate.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -8802,6 +10230,11 @@ export const userAuthenticateWithAccessTokenRetrievalKey: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2AuthenticateTokenRetrievalKey.Post.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticateTokenRetrievalKey.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -8834,6 +10267,11 @@ export const userGetOwnEmail: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmail.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmail.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -8860,6 +10298,11 @@ export const userChangeEmail: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmail.Put.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmail.Put.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -8897,6 +10340,11 @@ export const userChangePassword: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsPassword.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsPassword.Put.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -8921,6 +10369,11 @@ export const userCheckToken: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsToken.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsToken.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -8942,6 +10395,11 @@ export const userGetMfaStatus: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -8974,6 +10432,11 @@ export const userResetRecoverycodes: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Put.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -9000,6 +10463,11 @@ export const userConfirmMfa: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Post.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -9032,6 +10500,11 @@ export const userDisableMfa: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsMfa.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -9061,6 +10534,11 @@ export const userConfirmPasswordReset: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsPasswordConfirmReset.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsPasswordConfirmReset.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -9069,30 +10547,6 @@ export const userConfirmPasswordReset: OpenAPIOperation<
   path: "/v2/users/self/credentials/password/confirm-reset",
   method: "POST",
   operationId: "user-confirm-password-reset",
-};
-
-/** Create an access token retrieval key to acquire an access token for your user. */
-export const userCreateAccessTokenRetrievalKey: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfTokenRetrievalKey.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfTokenRetrievalKey.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfTokenRetrievalKey.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfTokenRetrievalKey.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfTokenRetrievalKey.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfTokenRetrievalKey.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/users/self/token-retrieval-key",
-  method: "POST",
-  operationId: "user-create-access-token-retrieval-key",
 };
 
 /** List all of your ApiTokens. */
@@ -9106,6 +10560,11 @@ export const userListApiTokens: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokens.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokens.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -9135,6 +10594,11 @@ export const userCreateApiToken: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokens.Post.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokens.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -9172,6 +10636,11 @@ export const userCreateFeedback: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfFeedback.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfFeedback.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -9193,6 +10662,11 @@ export const userListSshKeys: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeys.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeys.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -9225,6 +10699,11 @@ export const userCreateSshKey: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeys.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeys.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -9251,6 +10730,11 @@ export const userGetApiToken: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokensApiTokenId.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokensApiTokenId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -9283,6 +10767,11 @@ export const userEditApiToken: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokensApiTokenId.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokensApiTokenId.Put.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -9309,6 +10798,11 @@ export const userDeleteApiToken: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokensApiTokenId.Delete.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokensApiTokenId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -9341,6 +10835,11 @@ export const userGetSshKey: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeysSshKeyId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeysSshKeyId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -9370,6 +10869,11 @@ export const userEditSshKey: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeysSshKeyId.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeysSshKeyId.Put.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -9392,6 +10896,11 @@ export const userDeleteSshKey: OpenAPIOperation<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeysSshKeyId.Delete.Responses.$204.Content.Empty>,
       204,
       "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeysSshKeyId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfSshKeysSshKeyId.Delete.Responses.Default.Content.ApplicationJson>,
@@ -9433,6 +10942,11 @@ export const userDeleteUser: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelf.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelf.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -9454,6 +10968,11 @@ export const userGetOwnAccount: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -9486,6 +11005,11 @@ export const userUpdateAccount: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -9510,6 +11034,11 @@ export const userGetPasswordUpdatedAt: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsPasswordUpdatedAt.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsPasswordUpdatedAt.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -9531,6 +11060,11 @@ export const userGetPersonalizedSettings: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersUserIdSettings.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersUserIdSettings.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -9560,6 +11094,11 @@ export const userUpdatePersonalizedSettings: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersUserIdSettings.Put.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersUserIdSettings.Put.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -9597,6 +11136,11 @@ export const userGetPollStatus: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -9631,6 +11175,11 @@ export const userPostPollStatus: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -9660,6 +11209,11 @@ export const userGetSession: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsTokenId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsTokenId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -9686,6 +11240,11 @@ export const userTerminateSession: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsTokenId.Delete.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsTokenId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -9757,6 +11316,11 @@ export const userUpdatePersonalInformation: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersUserId.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersUserId.Put.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -9783,6 +11347,11 @@ export const userInitMfa: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsInitMfa.Post.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsInitMfa.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -9815,8 +11384,8 @@ export const userInitPasswordReset: OpenAPIOperation<
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsActionsInitPasswordReset.Post.Responses.$403.Content.ApplicationJson>,
-      403,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsActionsInitPasswordReset.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -9844,6 +11413,11 @@ export const userListFeedback: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersUserIdFeedback.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersUserIdFeedback.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -9868,6 +11442,11 @@ export const userListSessions: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessions.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessions.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -9876,6 +11455,40 @@ export const userListSessions: OpenAPIOperation<
   path: "/v2/users/self/sessions",
   method: "GET",
   operationId: "user-list-sessions",
+};
+
+/** Refresh a session. */
+export const userRefreshSession: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessions.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessions.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessions.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessions.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessions.Put.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessions.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessions.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessions.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/sessions",
+  method: "PUT",
+  operationId: "user-refresh-session",
 };
 
 /** Terminate all sessions, except the current session. */
@@ -9890,6 +11503,11 @@ export const userTerminateAllSessions: OpenAPIOperation<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessions.Delete.Responses.$204.Content.Empty>,
       204,
       "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessions.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessions.Delete.Responses.Default.Content.ApplicationJson>,
@@ -9918,6 +11536,11 @@ export const userLogout: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2Logout.Put.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Logout.Put.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -9950,6 +11573,11 @@ export const userOauthGetAuthorization: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Oauth2Authorize.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2Oauth2Authorize.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -9976,6 +11604,11 @@ export const userOauthRetrieveAccessToken: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2Oauth2Token.Post.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Oauth2Token.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -10008,8 +11641,8 @@ export const userRegister: OpenAPIOperation<
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Register.Post.Responses.$403.Content.ApplicationJson>,
-      403,
+      Simplify<MittwaldAPIV2.Paths.V2Register.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -10042,6 +11675,11 @@ export const userRequestAvatarUpload: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersUserIdAvatar.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersUserIdAvatar.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -10068,6 +11706,11 @@ export const userRemoveAvatar: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersUserIdAvatar.Delete.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersUserIdAvatar.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -10100,8 +11743,8 @@ export const userResendVerificationEmail: OpenAPIOperation<
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmailActionsResendEmail.Post.Responses.$403.Content.ApplicationJson>,
-      403,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmailActionsResendEmail.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -10126,6 +11769,11 @@ export const userSupportCodeRequest: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsSupportCode.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsSupportCode.Get.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -10160,6 +11808,11 @@ export const userVerifyEmail: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmailActionsVerifyEmail.Post.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsEmailActionsVerifyEmail.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<
@@ -10202,6 +11855,11 @@ export const userVerifyPhoneNumber: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersUserIdActionsVerifyPhone.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersUserIdActionsVerifyPhone.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -10233,6 +11891,11 @@ export const userVerifyRegistration: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2VerifyRegistration.Post.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2VerifyRegistration.Post.Responses.$429.Content.ApplicationJson>,
+      429,
       "application/json"
     >
   | Response<

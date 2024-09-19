@@ -42,6 +42,11 @@ const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.appGetSystemsoftwareversion,
     baseClient.app.getSystemsoftwareversion,
   ).getApiResource,
+  /** List AppInstallations that a user has access to. */
+  listAppinstallationsForUser: new ApiCallAsyncResourceFactory(
+    descriptors.appListAppinstallationsForUser,
+    baseClient.app.listAppinstallationsForUser,
+  ).getApiResource,
   /** List AppInstallations belonging to a Project. */
   listAppinstallations: new ApiCallAsyncResourceFactory(
     descriptors.appListAppinstallations,
@@ -219,6 +224,11 @@ const buildConversationApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.conversationGetConversationMembers,
     baseClient.conversation.getConversationMembers,
   ).getApiResource,
+  /** Get preferences for customer conversations. */
+  getConversationPreferencesOfCustomer: new ApiCallAsyncResourceFactory(
+    descriptors.conversationGetConversationPreferencesOfCustomer,
+    baseClient.conversation.getConversationPreferencesOfCustomer,
+  ).getApiResource,
   /** Get a support conversation. */
   getConversation: new ApiCallAsyncResourceFactory(
     descriptors.conversationGetConversation,
@@ -260,20 +270,10 @@ const buildCronjobApi = (baseClient: MittwaldAPIV2Client) => ({
 });
 
 const buildCustomerApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** Get all customer categories. */
-  listOfCustomerCategories: new ApiCallAsyncResourceFactory(
-    descriptors.customerListOfCustomerCategories,
-    baseClient.customer.listOfCustomerCategories,
-  ).getApiResource,
   /** Get all customer profiles the authenticated user has access to. */
   listCustomers: new ApiCallAsyncResourceFactory(
     descriptors.customerListCustomers,
     baseClient.customer.listCustomers,
-  ).getApiResource,
-  /** Get a customer category. */
-  getCustomerCategory: new ApiCallAsyncResourceFactory(
-    descriptors.customerGetCustomerCategory,
-    baseClient.customer.getCustomerCategory,
   ).getApiResource,
   /** Get a CustomerInvite. */
   getCustomerInvite: new ApiCallAsyncResourceFactory(
@@ -410,6 +410,11 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   listTlds: new ApiCallAsyncResourceFactory(
     descriptors.domainListTlds,
     baseClient.domain.listTlds,
+  ).getApiResource,
+  /** Suggest a list of domains based on a prompt using AI. */
+  suggest: new ApiCallAsyncResourceFactory(
+    descriptors.domainSuggest,
+    baseClient.domain.suggest,
   ).getApiResource,
   /** List Ingresses. */
   ingressListIngresses: new ApiCallAsyncResourceFactory(
@@ -780,7 +785,7 @@ export class MittwaldAPIV2ClientReact {
   /** The database API allows you to manage your databases, like MySQL and Redis databases. */
   public readonly database: ReturnType<typeof buildDatabaseApi>;
 
-  /** The domain API allows you to manage your domains, DNS records and ingress resources. */
+  /** The domain API allows you to manage your domains, DNS records, SSL certificates and ingress resources. */
   public readonly domain: ReturnType<typeof buildDomainApi>;
 
   /** The marketplace API allows you to manage extensions and more information regaring the marketplace. */

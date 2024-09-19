@@ -6,6 +6,7 @@ import { AppInstallationBehaviors } from "../app/AppInstallation/behaviors/index
 import { AppBehaviors } from "../app/App/behaviors/index.js";
 
 interface Config {
+  defaultPaginationLimit: number;
   behaviors: {
     project: ProjectBehaviors;
     server: ServerBehaviors;
@@ -17,6 +18,7 @@ interface Config {
 }
 
 export const config: Config = {
+  defaultPaginationLimit: 50,
   behaviors: {
     project: undefined as unknown as ProjectBehaviors,
     server: undefined as unknown as ServerBehaviors,

@@ -1,4 +1,8 @@
-import { assertStatus, MittwaldAPIV2Client } from "@mittwald/api-client";
+import {
+  assertStatus,
+  MittwaldAPIV2Client,
+  extractTotalCountHeader,
+} from "@mittwald/api-client";
 import { assertOneOfStatus } from "@mittwald/api-client";
 import { CustomerBehaviors } from "./types.js";
 
@@ -21,6 +25,17 @@ export const apiCustomerBehaviors = (
       queryParameters: query,
     });
     assertStatus(response, 200);
-    return response.data;
+    return {
+      items: response.data,
+      totalCount: extractTotalCountHeader(response),
+    };
+  },
+
+  update: async (id, data) => {
+    const response = await client.customer.updateCustomer({
+      customerId: id,
+      data,
+    });
+    assertStatus(response, 200);
   },
 });
