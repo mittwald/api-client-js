@@ -1,11 +1,15 @@
-import { ReferenceModel } from "../../base/ReferenceModel.js";
+import {
+  DataModel,
+  ReferenceModel,
+  ListDataModel,
+  ListQueryModel,
+} from "../../base/index.js";
 import {
   type AsyncResourceVariant,
   provideReact,
 } from "../../lib/provideReact.js";
 import { config } from "../../config/config.js";
 import { classes } from "polytype";
-import { DataModel } from "../../base/DataModel.js";
 import {
   ApiTokenCreateRequestData,
   ApiTokenData,
@@ -23,7 +27,6 @@ export class ApiToken extends ReferenceModel {
   public static find = provideReact(
     async (id: string): Promise<ApiTokenDetailed | undefined> => {
       const data = await config.behaviors.apiToken.find(id);
-
       if (data !== undefined) {
         return new ApiTokenDetailed(data);
       }
@@ -33,30 +36,25 @@ export class ApiToken extends ReferenceModel {
   public static get = provideReact(
     async (id: string): Promise<ApiTokenDetailed> => {
       const apiToken = await this.find(id);
-
       assertObjectFound(apiToken, this, id);
-
       return apiToken;
     },
   );
 
-  public getDetailed = provideReact(() =>
-    ApiToken.get(this.id),
+  public getDetailed = provideReact(
+    () => ApiToken.get(this.id),
+    [this.id],
   ) as AsyncResourceVariant<ApiTokenDetailed, []>;
 
-  public static list = provideReact(
-    async (): Promise<Readonly<Array<ApiTokenListItem>>> => {
-      const data = await config.behaviors.apiToken.list();
-
-      return Object.freeze(data.map((d) => new ApiTokenListItem(d)));
-    },
-  );
+  public findDetailed = provideReact(
+    () => ApiToken.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<ApiTokenDetailed | undefined, []>;
 
   public static async create(
     data: ApiTokenCreateRequestData,
   ): Promise<ApiToken> {
     const { id } = await config.behaviors.apiToken.create(data);
-
     return new ApiToken(id);
   }
 
@@ -99,5 +97,38 @@ export class ApiTokenListItem extends classes(
 ) {
   public constructor(data: ApiTokenListItemData) {
     super([data], [data]);
+  }
+}
+
+export class ApiTokenListQuery extends ListQueryModel<Record<string, never>> {
+  public execute = provideReact(async () => {
+    const { items, totalCount } = await config.behaviors.apiToken.list();
+
+    return new ApiTokenList(
+      items.map((d) => new ApiTokenListItem(d)),
+      totalCount,
+    );
+  }, [this.queryId]);
+
+  public refine() {
+    return new ApiTokenListQuery({});
+  }
+
+  public getTotalCount = provideReact(async () => {
+    const { totalCount } = await this.refine().execute();
+    return totalCount;
+  }, [this.queryId]);
+
+  public findOneAndOnly = provideReact(async () => {
+    const { items, totalCount } = await this.refine().execute();
+    if (totalCount === 1) {
+      return items[0];
+    }
+  }, [this.queryId]);
+}
+
+export class ApiTokenList extends ListDataModel<ApiTokenListItem> {
+  public constructor(apiTokens: ApiTokenListItem[], totalCount: number) {
+    super(apiTokens, totalCount);
   }
 }

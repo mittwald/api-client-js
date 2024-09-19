@@ -4,11 +4,12 @@ import {
   ApiTokenListItemData,
   ApiTokenUpdateRequestData,
 } from "../types.js";
+import { QueryResponseData } from "../../../base/index.js";
 
 export interface ApiTokenBehaviors {
   find: (id: string) => Promise<ApiTokenData | undefined>;
 
-  list: () => Promise<ApiTokenListItemData[]>;
+  list: () => Promise<QueryResponseData<ApiTokenListItemData>>;
 
   create: (data: ApiTokenCreateRequestData) => Promise<{ id: string }>;
 
