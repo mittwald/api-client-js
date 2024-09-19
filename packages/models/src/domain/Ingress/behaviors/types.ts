@@ -1,10 +1,13 @@
 import {
   IngressListItemData,
   IngressData,
-  IngressListQuery,
+  IngressListQueryData,
 } from "../types.js";
+import { QueryResponseData } from "../../../base/index.js";
 
 export interface IngressBehaviors {
   find: (id: string) => Promise<IngressData | undefined>;
-  list: (query?: IngressListQuery) => Promise<IngressListItemData[]>;
+  list: (
+    query?: IngressListQueryData,
+  ) => Promise<QueryResponseData<IngressListItemData>>;
 }
