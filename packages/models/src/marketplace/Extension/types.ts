@@ -6,5 +6,5 @@ export type ExtensionData =
 export type ExtensionListItemData =
   MittwaldAPIV2.Operations.ExtensionListExtensions.ResponseData[number];
 
-export type ExtensionListQuery =
+export type ExtensionListQueryData =
   MittwaldAPIV2.Paths.V2Extensions.Get.Parameters.Query;

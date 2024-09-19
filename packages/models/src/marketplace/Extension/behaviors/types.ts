@@ -1,11 +1,14 @@
 import {
   ExtensionData,
   ExtensionListItemData,
-  ExtensionListQuery,
+  ExtensionListQueryData,
 } from "../types.js";
+import { QueryResponseData } from "../../../base/index.js";
 
 export interface ExtensionBehaviors {
-  get: (id: string) => Promise<ExtensionData>;
+  find: (id: string) => Promise<ExtensionData | undefined>;
 
-  list: (query: ExtensionListQuery) => Promise<ExtensionListItemData[]>;
+  list: (
+    query: ExtensionListQueryData,
+  ) => Promise<QueryResponseData<ExtensionListItemData>>;
 }
