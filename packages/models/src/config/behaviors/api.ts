@@ -6,6 +6,7 @@ import { apiCustomerBehaviors } from "../../customer/Customer/behaviors/index.js
 import { apiIngressBehaviors } from "../../domain/Ingress/behaviors/index.js";
 import { apiAppInstallationBehaviors } from "../../app/AppInstallation/behaviors/index.js";
 import { apiExtensionBehaviors } from "../../marketplace/Extension/behaviors/index.js";
+import { apiExtensionInstanceBehaviors } from "../../marketplace/ExtensionInstance/behaviors/index.js";
 
 class ApiSetupState {
   private _client: MittwaldAPIV2Client | undefined;
@@ -24,6 +25,7 @@ class ApiSetupState {
     config.behaviors.ingress = apiIngressBehaviors(client);
     config.behaviors.appInstallation = apiAppInstallationBehaviors(client);
     config.behaviors.extension = apiExtensionBehaviors(client);
+    config.behaviors.extensionInstance = apiExtensionInstanceBehaviors(client);
   }
 
   public setupWithApiToken(apiToken: string) {
