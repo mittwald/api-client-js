@@ -45,6 +45,10 @@ export class Session extends ReferenceModel {
     [this.id],
   ) as AsyncResourceVariant<SessionDetailed | undefined, []>;
 
+  public query() {
+    return new SessionListQuery({});
+  }
+
   public static getToken = provideReact(async (): Promise<SessionTokenData> => {
     return await config.behaviors.session.getToken();
   });
