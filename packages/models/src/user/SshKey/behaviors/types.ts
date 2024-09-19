@@ -4,11 +4,12 @@ import {
   SshKeyListItemData,
   SshKeyUpdateData,
 } from "../types.js";
+import { QueryResponseData } from "../../../base/index.js";
 
 export interface SshKeyBehaviors {
   find: (id: string) => Promise<SshKeyData | undefined>;
 
-  list: () => Promise<SshKeyListItemData[]>;
+  list: () => Promise<QueryResponseData<SshKeyListItemData>>;
 
   create: (data: SshKeyCreateData) => Promise<void>;
 
