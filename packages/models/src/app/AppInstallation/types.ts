@@ -1,6 +1,6 @@
 import { MittwaldAPIV2 } from "@mittwald/api-client";
 
-export type AppInstallationListQuery =
+export type AppInstallationListQueryData =
   MittwaldAPIV2.Paths.V2ProjectsProjectIdAppInstallations.Get.Parameters.Query;
 
 export type AppInstallationData =
