@@ -3,15 +3,16 @@ import {
   ExtensionInstanceCreateRequestData,
   ExtensionInstanceData,
   ExtensionInstanceListItemData,
-  ExtensionInstanceListQuery,
+  ExtensionInstanceListQueryData,
 } from "../types.js";
+import { QueryResponseData } from "../../../base/index.js";
 
 export interface ExtensionInstanceBehaviors {
   find: (id: string) => Promise<ExtensionInstanceData | undefined>;
 
   list: (
-    query: ExtensionInstanceListQuery,
-  ) => Promise<ExtensionInstanceListItemData[]>;
+    query: ExtensionInstanceListQueryData,
+  ) => Promise<QueryResponseData<ExtensionInstanceListItemData>>;
 
   create: (data: ExtensionInstanceCreateRequestData) => Promise<{ id: string }>;
 

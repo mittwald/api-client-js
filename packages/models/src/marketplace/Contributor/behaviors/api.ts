@@ -1,5 +1,9 @@
 import { ContributorBehaviors } from "./types.js";
-import { assertStatus, MittwaldAPIV2Client } from "@mittwald/api-client";
+import {
+  assertStatus,
+  MittwaldAPIV2Client,
+  extractTotalCountHeader,
+} from "@mittwald/api-client";
 
 export const apiContributorBehaviors = (
   client: MittwaldAPIV2Client,
@@ -20,6 +24,9 @@ export const apiContributorBehaviors = (
       queryParameters: query,
     });
     assertStatus(response, 200);
-    return response.data;
+    return {
+      items: response.data,
+      totalCount: extractTotalCountHeader(response),
+    };
   },
 });

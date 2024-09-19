@@ -1,4 +1,8 @@
-import { assertStatus, MittwaldAPIV2Client } from "@mittwald/api-client";
+import {
+  assertStatus,
+  MittwaldAPIV2Client,
+  extractTotalCountHeader,
+} from "@mittwald/api-client";
 import { ExtensionInstanceBehaviors } from "./types.js";
 import {
   ExtensionInstanceConsentToScopesRequestData,
@@ -27,7 +31,10 @@ export const apiExtensionInstanceBehaviors = (
 
     assertStatus(response, 200);
 
-    return response.data;
+    return {
+      items: response.data,
+      totalCount: extractTotalCountHeader(response),
+    };
   },
 
   create: async (data: ExtensionInstanceCreateRequestData) => {
