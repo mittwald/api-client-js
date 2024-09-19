@@ -1,11 +1,15 @@
-import { ReferenceModel } from "../../base/ReferenceModel.js";
+import {
+  DataModel,
+  ReferenceModel,
+  ListDataModel,
+  ListQueryModel,
+} from "../../base/index.js";
 import {
   type AsyncResourceVariant,
   provideReact,
 } from "../../lib/provideReact.js";
 import { config } from "../../config/config.js";
 import { classes } from "polytype";
-import { DataModel } from "../../base/DataModel.js";
 import { SessionData, SessionListItemData, SessionTokenData } from "./types.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 
@@ -17,7 +21,6 @@ export class Session extends ReferenceModel {
   public static find = provideReact(
     async (id: string): Promise<SessionDetailed | undefined> => {
       const data = await config.behaviors.session.find(id);
-
       if (data !== undefined) {
         return new SessionDetailed(data);
       }
@@ -27,24 +30,20 @@ export class Session extends ReferenceModel {
   public static get = provideReact(
     async (id: string): Promise<SessionDetailed> => {
       const session = await this.find(id);
-
       assertObjectFound(session, this, id);
-
       return session;
     },
   );
 
-  public getDetailed = provideReact(() =>
-    Session.get(this.id),
+  public getDetailed = provideReact(
+    () => Session.get(this.id),
+    [this.id],
   ) as AsyncResourceVariant<SessionDetailed, []>;
 
-  public static list = provideReact(
-    async (): Promise<Readonly<Array<SessionListItem>>> => {
-      const data = await config.behaviors.session.list();
-
-      return Object.freeze(data.map((d) => new SessionListItem(d)));
-    },
-  );
+  public findDetailed = provideReact(
+    () => Session.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<SessionDetailed | undefined, []>;
 
   public static getToken = provideReact(async (): Promise<SessionTokenData> => {
     return await config.behaviors.session.getToken();
@@ -52,9 +51,8 @@ export class Session extends ReferenceModel {
 
   public isCurrentSession = provideReact(async (): Promise<boolean> => {
     const currentToken = await config.behaviors.session.getToken();
-
     return currentToken.id === this.id;
-  });
+  }, [this.id]);
 
   public async close(): Promise<void> {
     await config.behaviors.session.close(this.id);
@@ -89,5 +87,38 @@ export class SessionListItem extends classes(
 ) {
   public constructor(data: SessionListItemData) {
     super([data], [data]);
+  }
+}
+
+export class SessionListQuery extends ListQueryModel<Record<string, never>> {
+  public execute = provideReact(async () => {
+    const { items, totalCount } = await config.behaviors.session.list();
+
+    return new SessionList(
+      items.map((d) => new SessionListItem(d)),
+      totalCount,
+    );
+  }, [this.queryId]);
+
+  public refine() {
+    return new SessionListQuery({});
+  }
+
+  public getTotalCount = provideReact(async () => {
+    const { totalCount } = await this.refine().execute();
+    return totalCount;
+  }, [this.queryId]);
+
+  public findOneAndOnly = provideReact(async () => {
+    const { items, totalCount } = await this.refine().execute();
+    if (totalCount === 1) {
+      return items[0];
+    }
+  }, [this.queryId]);
+}
+
+export class SessionList extends ListDataModel<SessionListItem> {
+  public constructor(sessions: SessionListItem[], totalCount: number) {
+    super(sessions, totalCount);
   }
 }

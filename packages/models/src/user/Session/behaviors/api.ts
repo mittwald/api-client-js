@@ -1,4 +1,8 @@
-import { assertStatus, MittwaldAPIV2Client } from "@mittwald/api-client";
+import {
+  assertStatus,
+  MittwaldAPIV2Client,
+  extractTotalCountHeader,
+} from "@mittwald/api-client";
 import { SessionBehaviors } from "./types.js";
 
 export const apiSessionBehaviors = (
@@ -8,27 +12,24 @@ export const apiSessionBehaviors = (
     const response = await client.user.getSession({
       tokenId: id,
     });
-
     if (response.status === 200) {
       return response.data;
     }
-
     assertStatus(response, 404);
   },
 
   list: async () => {
     const response = await client.user.listSessions();
-
     assertStatus(response, 200);
-
-    return response.data;
+    return {
+      items: response.data,
+      totalCount: extractTotalCountHeader(response),
+    };
   },
 
   getToken: async () => {
     const response = await client.user.checkToken();
-
     assertStatus(response, 200);
-
     return response.data;
   },
 
@@ -36,13 +37,11 @@ export const apiSessionBehaviors = (
     const response = await client.user.terminateSession({
       tokenId: id,
     });
-
     assertStatus(response, 204);
   },
 
   closeAll: async () => {
     const response = await client.user.terminateAllSessions();
-
     assertStatus(response, 204);
   },
 });
