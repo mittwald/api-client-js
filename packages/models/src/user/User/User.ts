@@ -1,10 +1,8 @@
-import { ReferenceModel } from "../../base/ReferenceModel.js";
 import {
   type AsyncResourceVariant,
   provideReact,
 } from "../../lib/provideReact.js";
 import { config } from "../../config/config.js";
-import { DataModel } from "../../base/DataModel.js";
 import { classes } from "polytype";
 import {
   UserAuthenticateMfaRequestData,
@@ -27,6 +25,7 @@ import {
   UserVerifyRegistrationRequestData,
 } from "./types.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
+import { DataModel, ReferenceModel } from "../../base/index.js";
 
 export class User extends ReferenceModel {
   public static ofId(id: string): User {
@@ -36,7 +35,6 @@ export class User extends ReferenceModel {
   public static find = provideReact(
     async (id: string): Promise<UserDetailed | undefined> => {
       const data = await config.behaviors.user.find(id);
-
       if (data !== undefined) {
         return new UserDetailed(data);
       }
@@ -46,9 +44,7 @@ export class User extends ReferenceModel {
   public static get = provideReact(
     async (id: string): Promise<UserDetailed> => {
       const user = await this.find(id);
-
       assertObjectFound(user, this, id);
-
       return user;
     },
   );
@@ -57,9 +53,15 @@ export class User extends ReferenceModel {
     return await this.get("self");
   });
 
-  public getDetailed = provideReact(() =>
-    User.get(this.id),
+  public getDetailed = provideReact(
+    () => User.get(this.id),
+    [this.id],
   ) as AsyncResourceVariant<UserDetailed, []>;
+
+  public findDetailed = provideReact(
+    () => User.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<UserDetailed | undefined, []>;
 
   public getPasswordUpdatedAt = provideReact(
     async (): Promise<{ passwordUpdatedAt: string }> => {
