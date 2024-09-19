@@ -5,6 +5,7 @@ import { IngressBehaviors } from "../domain/Ingress/behaviors/index.js";
 import { AppInstallationBehaviors } from "../app/AppInstallation/behaviors/index.js";
 import { ExtensionBehaviors } from "../marketplace/Extension/behaviors/index.js";
 import { ExtensionInstanceBehaviors } from "../marketplace/ExtensionInstance/behaviors/index.js";
+import { ContributorBehaviors } from "../marketplace/Contributor/behaviors/index.js";
 
 interface Config {
   defaultPaginationLimit: number;
@@ -16,6 +17,7 @@ interface Config {
     appInstallation: AppInstallationBehaviors;
     extension: ExtensionBehaviors;
     extensionInstance: ExtensionInstanceBehaviors;
+    contributor: ContributorBehaviors;
   };
 }
 
@@ -29,5 +31,6 @@ export const config: Config = {
     appInstallation: undefined as unknown as AppInstallationBehaviors,
     extension: undefined as unknown as ExtensionBehaviors,
     extensionInstance: undefined as unknown as ExtensionInstanceBehaviors,
+    contributor: undefined as unknown as ContributorBehaviors,
   },
 };
