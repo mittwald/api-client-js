@@ -1,4 +1,5 @@
-type ReactUsePromiseModule = typeof import("@mittwald/react-use-promise");
+export type ReactUsePromiseModule =
+  typeof import("@mittwald/react-use-promise");
 
 export type {
   AsyncResource,
