@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.59.0](https://github.com/mittwald/api-client-js/compare/4.58.2...4.59.0) (2024-09-20)
+
+### Features
+
+- **Commons:** introduce options for request functions
+  ([0af347a](https://github.com/mittwald/api-client-js/commit/0af347a9928136395c4e6db2c2238753b50d4fdc))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [4.58.1](https://github.com/mittwald/api-client-js/compare/4.58.0...4.58.1) (2024-09-10)
 
 **Note:** Version bump only for package @mittwald/api-client-commons
