@@ -5,7 +5,7 @@ import { IngressBehaviors } from "../domain/Ingress/behaviors/index.js";
 import { ContractBehaviors } from "../contract/Contract/behaviors/index.js";
 import { AppInstallationBehaviors } from "../app/AppInstallation/behaviors/index.js";
 import { ContractItemBehaviors } from "../contract/ContractItem/behaviors/index.js";
-import { ArticleBehaviors } from "../article/Article/behaviors/types.js";
+import { ArticleBehaviors } from "../article/Article/behaviors/index.js";
 
 interface Config {
   defaultPaginationLimit: number;
