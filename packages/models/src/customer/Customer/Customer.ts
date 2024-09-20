@@ -3,10 +3,13 @@ import { classes } from "polytype";
 import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import { ReferenceModel } from "../../base/ReferenceModel.js";
-import { AsyncResourceVariant, provideReact } from "../../lib/provideReact.js";
 import {
-  CustomerListItemData,
+  AsyncResourceVariant,
+  provideReact,
+} from "../../react/provideReact.js";
+import {
   CustomerData,
+  CustomerListItemData,
   CustomerListQueryData,
   CustomerUpdateRequestData,
 } from "./types.js";
@@ -65,12 +68,12 @@ export class Customer extends ReferenceModel {
   public getDetailed = provideReact(
     () => Customer.get(this.id),
     [this.id],
-  ) as AsyncResourceVariant<CustomerDetailed, []>;
+  ) as AsyncResourceVariant<() => Promise<CustomerDetailed>>;
 
   public findDetailed = provideReact(
     () => Customer.find(this.id),
     [this.id],
-  ) as AsyncResourceVariant<CustomerDetailed | undefined, []>;
+  ) as AsyncResourceVariant<() => Promise<CustomerDetailed | undefined>>;
 
   public async update(data: CustomerUpdateRequestData): Promise<void> {
     await config.behaviors.customer.update(this.id, data);
