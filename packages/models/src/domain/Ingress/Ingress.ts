@@ -3,8 +3,10 @@ import { classes } from "polytype";
 import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import { ReferenceModel } from "../../base/ReferenceModel.js";
-import type { AsyncResourceVariant } from "../../lib/provideReact.js";
-import { provideReact } from "../../lib/provideReact.js";
+import {
+  AsyncResourceVariant,
+  provideReact,
+} from "../../react/provideReact.js";
 import {
   IngressData,
   IngressListItemData,
@@ -52,12 +54,12 @@ export class Ingress extends ReferenceModel {
   public getDetailed = provideReact(
     () => Ingress.get(this.id),
     [this.id],
-  ) as AsyncResourceVariant<IngressDetailed, []>;
+  ) as AsyncResourceVariant<() => Promise<IngressDetailed>>;
 
   public findDetailed = provideReact(
     () => Ingress.find(this.id),
     [this.id],
-  ) as AsyncResourceVariant<IngressDetailed | undefined, []>;
+  ) as AsyncResourceVariant<() => Promise<IngressDetailed | undefined>>;
 }
 
 export class IngressCommon extends classes(

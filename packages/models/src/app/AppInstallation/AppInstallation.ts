@@ -3,8 +3,10 @@ import { classes } from "polytype";
 import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import { ReferenceModel } from "../../base/ReferenceModel.js";
-import type { AsyncResourceVariant } from "../../lib/provideReact.js";
-import { provideReact } from "../../lib/provideReact.js";
+import {
+  AsyncResourceVariant,
+  provideReact,
+} from "../../react/provideReact.js";
 import {
   AppInstallationData,
   AppInstallationListItemData,
@@ -55,12 +57,12 @@ export class AppInstallation extends ReferenceModel {
   public getDetailed = provideReact(
     () => AppInstallation.get(this.id),
     [this.id],
-  ) as AsyncResourceVariant<AppInstallationDetailed, []>;
+  ) as AsyncResourceVariant<() => Promise<AppInstallationDetailed>>;
 
   public findDetailed = provideReact(
     () => AppInstallation.find(this.id),
     [this.id],
-  ) as AsyncResourceVariant<AppInstallationDetailed | undefined, []>;
+  ) as AsyncResourceVariant<() => Promise<AppInstallationDetailed | undefined>>;
 }
 
 // Common class for future extension

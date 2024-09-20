@@ -11,7 +11,10 @@ import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import { Project, ProjectListQuery } from "../../project/index.js";
 import { FirstParameter, ParamsExceptFirst } from "../../lib/types.js";
-import { AsyncResourceVariant, provideReact } from "../../lib/provideReact.js";
+import {
+  AsyncResourceVariant,
+  provideReact,
+} from "../../react/provideReact.js";
 import { ListQueryModel } from "../../base/ListQueryModel.js";
 import { ListDataModel } from "../../base/ListDataModel.js";
 
@@ -81,12 +84,12 @@ export class Server extends ReferenceModel {
   public getDetailed = provideReact(
     () => Server.get(this.id),
     [this.id],
-  ) as AsyncResourceVariant<ServerDetailed, []>;
+  ) as AsyncResourceVariant<() => Promise<ServerDetailed>>;
 
   public findDetailed = provideReact(
     () => Server.find(this.id),
     [this.id],
-  ) as AsyncResourceVariant<ServerDetailed | undefined, []>;
+  ) as AsyncResourceVariant<() => Promise<ServerDetailed | undefined>>;
 }
 
 // Common class for future extension
