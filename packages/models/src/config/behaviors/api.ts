@@ -5,6 +5,10 @@ import { apiServerBehaviors } from "../../server/Server/behaviors/index.js";
 import { apiCustomerBehaviors } from "../../customer/Customer/behaviors/index.js";
 import { apiIngressBehaviors } from "../../domain/Ingress/behaviors/index.js";
 import { apiAppInstallationBehaviors } from "../../app/AppInstallation/behaviors/index.js";
+import { apiAppBehaviors } from "../../app/App/behaviors/index.js";
+import { apiAppVersionBehaviors } from "../../app/AppVersion/behaviors/index.js";
+import { apiSystemSoftwareBehaviors } from "../../app/SystemSoftware/behaviors/index.js";
+import { apiSystemSoftwareVersionBehaviors } from "../../app/SystemSoftwareVersion/behaviors/index.js";
 
 class ApiSetupState {
   private _client: MittwaldAPIV2Client | undefined;
@@ -21,7 +25,12 @@ class ApiSetupState {
     config.behaviors.server = apiServerBehaviors(client);
     config.behaviors.customer = apiCustomerBehaviors(client);
     config.behaviors.ingress = apiIngressBehaviors(client);
+    config.behaviors.app = apiAppBehaviors(client);
+    config.behaviors.appVersion = apiAppVersionBehaviors(client);
     config.behaviors.appInstallation = apiAppInstallationBehaviors(client);
+    config.behaviors.systemSoftware = apiSystemSoftwareBehaviors(client);
+    config.behaviors.systemSoftwareVersion =
+      apiSystemSoftwareVersionBehaviors(client);
   }
 
   public setupWithApiToken(apiToken: string) {

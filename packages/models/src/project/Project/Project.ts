@@ -22,18 +22,18 @@ import {
 } from "../../domain/index.js";
 import { ListQueryModel } from "../../base/ListQueryModel.js";
 import { ListDataModel } from "../../base/ListDataModel.js";
-import { AppInstallationListQuery } from "../../app/index.js";
+//import { AppInstallationListQuery } from "../../app/index.js";
 
 export class Project extends ReferenceModel {
   public readonly ingresses: IngressListQuery;
-  public readonly appInstallations: AppInstallationListQuery;
+  //public readonly appInstallations: AppInstallationListQuery;
 
   public constructor(id: string) {
     super(id);
     this.ingresses = new IngressListQuery({
       project: this,
     });
-    this.appInstallations = new AppInstallationListQuery(this);
+    //this.appInstallations = new AppInstallationListQuery(this);
   }
 
   public static ofId(id: string): Project {
