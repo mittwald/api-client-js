@@ -58,7 +58,7 @@ export class Project extends ReferenceModel {
     },
   );
 
-  public query(query: ProjectListQueryModelData = {}) {
+  public static query(query: ProjectListQueryModelData = {}) {
     return new ProjectListQuery(query);
   }
 
