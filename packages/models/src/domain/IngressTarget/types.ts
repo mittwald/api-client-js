@@ -9,6 +9,9 @@ export type IngressDirectoryTargetData =
 export type IngressAppInstallationTargetData =
   MittwaldAPIV2.Components.Schemas.IngressTargetInstallation;
 
+export type IngressContainerTargetData =
+  MittwaldAPIV2.Components.Schemas.IngressTargetContainer;
+
 export type IngressUndefinedTargetData =
   MittwaldAPIV2.Components.Schemas.IngressTargetUseDefaultPage;
 
@@ -16,4 +19,5 @@ export type IngressTargetData =
   | IngressRedirectTargetData
   | IngressDirectoryTargetData
   | IngressAppInstallationTargetData
-  | IngressUndefinedTargetData;
+  | IngressUndefinedTargetData
+  | IngressContainerTargetData;

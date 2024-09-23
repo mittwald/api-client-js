@@ -17,6 +17,8 @@ class ApiSetupState {
       );
     }
     this._client = client;
+    this._client.defaultRequestOptions.onBeforeRequest =
+      updateCacheTagsBeforeRequest;
 
     config.behaviors.project = apiProjectBehaviors(client);
     config.behaviors.server = apiServerBehaviors(client);

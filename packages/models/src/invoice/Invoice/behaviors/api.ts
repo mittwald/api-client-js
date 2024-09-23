@@ -1,5 +1,4 @@
 import { assertStatus, MittwaldAPIV2Client } from "@mittwald/api-client";
-import { assertOneOfStatus } from "@mittwald/api-client";
 import { InvoiceBehaviors } from "./types.js";
 
 export const apiInvoiceBehaviors = (
@@ -13,7 +12,7 @@ export const apiInvoiceBehaviors = (
     if (response.status === 200) {
       return response.data;
     }
-    assertOneOfStatus(response, [403]);
+    assertStatus(response, 403);
   },
 
   list: async (customerId: string, query) => {

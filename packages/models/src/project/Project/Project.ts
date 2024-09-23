@@ -1,18 +1,41 @@
-import { ProjectListItemData, ProjectData, ProjectListQuery } from "./types.js";
+import {
+  ProjectData,
+  ProjectListItemData,
+  ProjectListQueryData,
+  ProjectListQueryModelData,
+} from "./types.js";
 import { config } from "../../config/config.js";
 import { classes } from "polytype";
 import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import { Server } from "../../server/index.js";
 import {
-  type AsyncResourceVariant,
+  AsyncResourceVariant,
   provideReact,
-} from "../../lib/provideReact.js";
+} from "../../react/provideReact.js";
 import { Customer } from "../../customer/Customer/Customer.js";
 import { ReferenceModel } from "../../base/ReferenceModel.js";
-import { Ingress, IngressListItem } from "../../domain/index.js";
+import {
+  Ingress,
+  IngressListItem,
+  IngressListQuery,
+} from "../../domain/index.js";
+import { ListQueryModel } from "../../base/ListQueryModel.js";
+import { ListDataModel } from "../../base/ListDataModel.js";
+import { AppInstallationListQuery } from "../../app/index.js";
 
 export class Project extends ReferenceModel {
+  public readonly ingresses: IngressListQuery;
+  public readonly appInstallations: AppInstallationListQuery;
+
+  public constructor(id: string) {
+    super(id);
+    this.ingresses = new IngressListQuery({
+      project: this,
+    });
+    this.appInstallations = new AppInstallationListQuery(this);
+  }
+
   public static ofId(id: string): Project {
     return new Project(id);
   }
@@ -35,12 +58,16 @@ export class Project extends ReferenceModel {
     },
   );
 
+  public static query(query: ProjectListQueryModelData = {}) {
+    return new ProjectListQuery(query);
+  }
+
+  /** @deprecated: use query(), Customer.projects or Server.projects */
   public static list = provideReact(
     async (
-      query: ProjectListQuery = {},
+      query: ProjectListQueryData = {},
     ): Promise<Readonly<Array<ProjectListItem>>> => {
-      const data = await config.behaviors.project.list(query);
-      return Object.freeze(data.map((d) => new ProjectListItem(d)));
+      return new ProjectListQuery(query).execute().then((r) => r.items);
     },
   );
 
@@ -52,20 +79,27 @@ export class Project extends ReferenceModel {
     return new Project(id);
   }
 
-  public getDetailed = provideReact(() =>
-    Project.get(this.id),
-  ) as AsyncResourceVariant<ProjectDetailed, []>;
+  public getDetailed = provideReact(
+    () => Project.get(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<ProjectDetailed>>;
 
+  public findDetailed = provideReact(
+    () => Project.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<ProjectDetailed | undefined>>;
+
+  /** @deprecated: use ingresses property */
   public listIngresses = provideReact(() =>
     Ingress.list({ projectId: this.id }),
-  ) as AsyncResourceVariant<IngressListItem[], []>;
+  );
 
   public getDefaultIngress = provideReact(async () => {
     const ingresses = await Project.ofId(this.id).listIngresses();
     const defaultIngress = ingresses.find((i) => i.data.isDefault);
     assertObjectFound(defaultIngress, IngressListItem, this);
     return defaultIngress;
-  }) as AsyncResourceVariant<IngressListItem, []>;
+  });
 
   public async updateDescription(description: string): Promise<void> {
     await config.behaviors.project.updateDescription(this.id, description);
@@ -109,5 +143,58 @@ export class ProjectListItem extends classes(
 ) {
   public constructor(data: ProjectListItemData) {
     super([data], [data]);
+  }
+}
+
+export class ProjectListQuery extends ListQueryModel<ProjectListQueryModelData> {
+  public constructor(query: ProjectListQueryModelData = {}) {
+    super(query);
+  }
+
+  public refine(query: ProjectListQueryModelData) {
+    return new ProjectListQuery({
+      ...this.query,
+      ...query,
+    });
+  }
+
+  public execute = provideReact(async () => {
+    const { server, customer, ...query } = this.query;
+    const { items, totalCount } = await config.behaviors.project.list({
+      ...query,
+      serverId: server?.id,
+      customerId: customer?.id,
+    });
+
+    return new ProjectList(
+      this.query,
+      items.map((d) => new ProjectListItem(d)),
+      totalCount,
+    );
+  }, [this.queryId]);
+
+  public getTotalCount = provideReact(async () => {
+    const { totalCount } = await this.refine({ limit: 1 }).execute();
+    return totalCount;
+  }, [this.queryId]);
+
+  public findOneAndOnly = provideReact(async () => {
+    const { items, totalCount } = await this.refine({ limit: 2 }).execute();
+    if (totalCount === 1) {
+      return items[0];
+    }
+  }, [this.queryId]);
+}
+
+export class ProjectList extends classes(
+  ProjectListQuery,
+  ListDataModel<ProjectListItem>,
+) {
+  public constructor(
+    query: ProjectListQueryModelData,
+    projects: ProjectListItem[],
+    totalCount: number,
+  ) {
+    super([query], [projects, totalCount]);
   }
 }

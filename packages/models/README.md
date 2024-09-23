@@ -60,10 +60,10 @@ await projectRef.updateDescription("My new description!");
 const server = project.server;
 
 // List all projects of this server
-const serversProjects = await server.listProjects();
+const serversProjects = await server.projects.execute();
 
 // List all projects
-const allProjects = await Project.list();
+const allProjects = await Project.query().execute();
 
 // Iterate over project List Models
 for (const project of serversProjects) {
@@ -105,10 +105,10 @@ const anotherDetailedProject = projectRef.getDetailed.use();
 const server = project.server;
 
 // List all projects of this server
-const serversProjects = server.listProjects.use();
+const serversProjects = server.projects.execute.use();
 
 // List all projects
-const allProjects = Project.list.use();
+const allProjects = Project.query().execute.use();
 ```
 
 ## Immutability and state updates
@@ -190,9 +190,54 @@ model operations often just need the ID and some input data (deleting, renaming,
 should be used as a return type for newly created models or for linked models.
 
 To get the actual Detailed Model, Reference Models _must_ have a
-`function getDetailed(): Promise<ModelDetailed>` method.
+`function getDetailed(): Promise<ModelDetailed>` and
+`function findDetailed(): Promise<ModelDetailed|undefined>` method.
 
 Consider extending the Reference Model when implementing the Entry-Point Model.
+
+#### Query Models
+
+Querying models usually requires a query object – or short query. The query
+mostly includes pagination settings like `limit`, `skip` or `page`. It may also
+include filters like `fromDate` or `toDate`, and filters to other models like
+`customerId`.
+
+A Query Model represents a specific query to a specific model and should include
+the following methods:
+
+- `execute()`: executes the query and returns the respective List Model
+- `refine(overrideQuery)`: creates a new Query Model with a refined query object
+- `getTotalCount()`: gets the total count of the query (executes the query with
+  `limit: 0`)
+
+When a model supports queries, it should provide a static `query()` method to
+create the respective Query Model.
+
+When a model is used as a query parameters in a Query Model, the model should
+have a property in its Reference Model for this Query Model. See the following
+example:
+
+```typescript
+class Server {
+  public readonly projects: ProjectsListQuery;
+
+  public constructor(id: string) {
+    this.projects = new ProjectListQuery({
+      server: this,
+    });
+  }
+}
+```
+
+#### List Models
+
+List Models are the result of a Query Model execution. A List Model includes
+
+- a list of the respective List Models, limited by the pagination configuration
+- the available total count (useful to implement pagination or count data)
+
+List Models should extend their respective Query Model, because it might be
+helpful to also call `refine()` on an already executed query.
 
 #### Implementation details
 
@@ -204,7 +249,7 @@ implementation examples.
 #### Entry-Point Model
 
 Provide a single model (name it `[Model]`) as an entry point for all different
-model types (detailed, list, ...). As a convention provide a default export for
+model types (detailed, query, ...). As a convention provide a default export for
 this model.
 
 ### Use the correct verbs
@@ -221,9 +266,9 @@ method. The get method should return the desired object or throw an
 `ObjectNotFoundError`. You can use the `find` method and assert the existence
 with the `assertObjectFound` function.
 
-#### `list`
+#### `query`
 
-When a list of objects should be loaded use a `list` method. It may support a
+When a list of objects should be queried use a `query` method. It may support a
 `query` parameter to filter the result by given criteria.
 
 #### `create`
@@ -234,9 +279,8 @@ return a reference of the created resource.
 ### Accessing "linked" models
 
 Most of the models are part of a larger model tree. Models should provide
-methods to get the parent and child models, like `project.getServer()`,
-`server.listProjects()` or `server.getCustomer()`. Use `get`, `list` or `find`
-prefixes as described above.
+properties to get the parent and child models, like `project.server`,
+`server.projects` or `server.customer`.
 
 #### Use Reference Models resp. Entry-Point Models when possible!
 

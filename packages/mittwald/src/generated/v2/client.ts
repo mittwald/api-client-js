@@ -43,6 +43,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Create linkage between an AppInstallation and a MySQLDatabase. */
     linkDatabase: this.requestFunctionFactory(descriptors.appLinkDatabase),
+    /** List AppInstallations that a user has access to. */
+    listAppinstallationsForUser: this.requestFunctionFactory(
+      descriptors.appListAppinstallationsForUser,
+    ),
     /** List AppInstallations belonging to a Project. */
     listAppinstallations: this.requestFunctionFactory(
       descriptors.appListAppinstallations,
@@ -68,6 +72,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** List update candidates belonging to an AppVersion. */
     listUpdateCandidatesForAppversion: this.requestFunctionFactory(
       descriptors.appListUpdateCandidatesForAppversion,
+    ),
+    /** Replace a MySQL Database with another MySQL Database. */
+    replaceDatabase: this.requestFunctionFactory(
+      descriptors.appReplaceDatabase,
     ),
     /** Request a copy of an AppInstallation. */
     requestAppinstallationCopy: this.requestFunctionFactory(
@@ -215,6 +223,8 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     invoiceListCustomerInvoices: this.requestFunctionFactory(
       descriptors.invoiceListCustomerInvoices,
     ),
+    /** Get list of Orders. */
+    orderListOrders: this.requestFunctionFactory(descriptors.orderListOrders),
     /** Create an Order. */
     orderCreateOrder: this.requestFunctionFactory(descriptors.orderCreateOrder),
     /** Create TariffChange Order. */
@@ -238,6 +248,74 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Preview TariffChange. */
     orderPreviewTariffChange: this.requestFunctionFactory(
       descriptors.orderPreviewTariffChange,
+    ),
+  };
+
+  /** The marketplace API allows you to manage extensions and more information regaring the marketplace. */
+  public readonly marketplace = {
+    /** Rotate the secret for an extension instance. */
+    contributorRotateSecretForExtensionInstance: this.requestFunctionFactory(
+      descriptors.contributorRotateSecretForExtensionInstance,
+    ),
+    /** Authenticate your external application using the extensionInstanceSecret. */
+    extensionAuthenticateInstance: this.requestFunctionFactory(
+      descriptors.extensionAuthenticateInstance,
+    ),
+    /** Consent to extension scopes. */
+    extensionConsentToExtensionScopes: this.requestFunctionFactory(
+      descriptors.extensionConsentToExtensionScopes,
+    ),
+    /** List ExtensionInstances. */
+    extensionListExtensionInstances: this.requestFunctionFactory(
+      descriptors.extensionListExtensionInstances,
+    ),
+    /** Create an ExtensionInstance. */
+    extensionCreateExtensionInstance: this.requestFunctionFactory(
+      descriptors.extensionCreateExtensionInstance,
+    ),
+    /** Create an access token retrieval key for an extension instance. */
+    extensionCreateRetrievalKey: this.requestFunctionFactory(
+      descriptors.extensionCreateRetrievalKey,
+    ),
+    /** Get an ExtensionInstance. */
+    extensionGetExtensionInstance: this.requestFunctionFactory(
+      descriptors.extensionGetExtensionInstance,
+    ),
+    /** Delete an ExtensionInstance. */
+    extensionDeleteExtensionInstance: this.requestFunctionFactory(
+      descriptors.extensionDeleteExtensionInstance,
+    ),
+    /** Disable an ExtensionInstance. */
+    extensionDisableExtensionInstance: this.requestFunctionFactory(
+      descriptors.extensionDisableExtensionInstance,
+    ),
+    /** Dry run a webhook with random or given values. */
+    extensionDryRunWebhook: this.requestFunctionFactory(
+      descriptors.extensionDryRunWebhook,
+    ),
+    /** Enable an ExtensionInstance. */
+    extensionEnableExtensionInstance: this.requestFunctionFactory(
+      descriptors.extensionEnableExtensionInstance,
+    ),
+    /** Get a Contributor. */
+    extensionGetContributor: this.requestFunctionFactory(
+      descriptors.extensionGetContributor,
+    ),
+    /** Get an Extension. */
+    extensionGetExtension: this.requestFunctionFactory(
+      descriptors.extensionGetExtension,
+    ),
+    /** Get the public key to verify the webhook signature. */
+    extensionGetPublicKey: this.requestFunctionFactory(
+      descriptors.extensionGetPublicKey,
+    ),
+    /** List Contributors. */
+    extensionListContributors: this.requestFunctionFactory(
+      descriptors.extensionListContributors,
+    ),
+    /** List Extensions. */
+    extensionListExtensions: this.requestFunctionFactory(
+      descriptors.extensionListExtensions,
     ),
   };
 
@@ -266,6 +344,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Get members of a support conversation. */
     getConversationMembers: this.requestFunctionFactory(
       descriptors.conversationGetConversationMembers,
+    ),
+    /** Get preferences for customer conversations. */
+    getConversationPreferencesOfCustomer: this.requestFunctionFactory(
+      descriptors.conversationGetConversationPreferencesOfCustomer,
     ),
     /** Get a support conversation. */
     getConversation: this.requestFunctionFactory(
@@ -341,14 +423,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     acceptCustomerInvite: this.requestFunctionFactory(
       descriptors.customerAcceptCustomerInvite,
     ),
-    /** Get all customer categories. */
-    listOfCustomerCategories: this.requestFunctionFactory(
-      descriptors.customerListOfCustomerCategories,
-    ),
-    /** Create a new customer category. */
-    createCategory: this.requestFunctionFactory(
-      descriptors.customerCreateCategory,
-    ),
     /** Create a CustomerInvite. */
     createCustomerInvite: this.requestFunctionFactory(
       descriptors.customerCreateCustomerInvite,
@@ -364,18 +438,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Decline a CustomerInvite. */
     declineCustomerInvite: this.requestFunctionFactory(
       descriptors.customerDeclineCustomerInvite,
-    ),
-    /** Get a customer category. */
-    getCustomerCategory: this.requestFunctionFactory(
-      descriptors.customerGetCustomerCategory,
-    ),
-    /** Update a customer category. */
-    updateCategory: this.requestFunctionFactory(
-      descriptors.customerUpdateCategory,
-    ),
-    /** Delete a customer category. */
-    deleteCategory: this.requestFunctionFactory(
-      descriptors.customerDeleteCategory,
     ),
     /** Get a CustomerInvite. */
     getCustomerInvite: this.requestFunctionFactory(
@@ -577,7 +639,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
-  /** The domain API allows you to manage your domains, DNS records and ingress resources. */
+  /** The domain API allows you to manage your domains, DNS records, SSL certificates and ingress resources. */
   public readonly domain = {
     /** Create a DNSZone. */
     dnsCreateDnsZone: this.requestFunctionFactory(descriptors.dnsCreateDnsZone),
@@ -605,6 +667,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** List Domains */
     listDomains: this.requestFunctionFactory(descriptors.domainListDomains),
+    /** Check if a Domain is available to transfer. */
+    checkDomainTransferability: this.requestFunctionFactory(
+      descriptors.domainCheckDomainTransferability,
+    ),
     /** Create an auth code for a Domains transfer-out process. */
     createDomainAuthCode: this.requestFunctionFactory(
       descriptors.domainCreateDomainAuthCode,
@@ -631,6 +697,8 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     resendDomainEmail: this.requestFunctionFactory(
       descriptors.domainResendDomainEmail,
     ),
+    /** Suggest a list of domains based on a prompt using AI. */
+    suggest: this.requestFunctionFactory(descriptors.domainSuggest),
     /** Update the auth code of a Domain. */
     updateDomainAuthCode: this.requestFunctionFactory(
       descriptors.domainUpdateDomainAuthCode,
@@ -675,10 +743,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ingressUpdateIngressTls: this.requestFunctionFactory(
       descriptors.ingressUpdateIngressTls,
     ),
-    /** Check if a Domain is available to transfer. */
-    checkDomainTransferability: this.requestFunctionFactory(
-      descriptors.domainCheckDomainTransferability,
-    ),
   };
 
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
@@ -697,6 +761,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get a File. */
     getFile: this.requestFunctionFactory(descriptors.fileGetFile),
+    /** Get a File. */
+    getFileWithName: this.requestFunctionFactory(
+      descriptors.fileGetFileWithName,
+    ),
   };
 
   /** The mail API allows you to manage your mail accounts. */
@@ -839,10 +907,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     confirmPasswordReset: this.requestFunctionFactory(
       descriptors.userConfirmPasswordReset,
     ),
-    /** Create an access token retrieval key to acquire an access token for your user. */
-    createAccessTokenRetrievalKey: this.requestFunctionFactory(
-      descriptors.userCreateAccessTokenRetrievalKey,
-    ),
     /** List all of your ApiTokens. */
     listApiTokens: this.requestFunctionFactory(descriptors.userListApiTokens),
     /** Store a new ApiToken. */
@@ -909,6 +973,8 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listFeedback: this.requestFunctionFactory(descriptors.userListFeedback),
     /** List all sessions. */
     listSessions: this.requestFunctionFactory(descriptors.userListSessions),
+    /** Refresh a session. */
+    refreshSession: this.requestFunctionFactory(descriptors.userRefreshSession),
     /** Terminate all sessions, except the current session. */
     terminateAllSessions: this.requestFunctionFactory(
       descriptors.userTerminateAllSessions,

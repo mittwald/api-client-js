@@ -111,6 +111,17 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.appLinkDatabase, TStatus>;
     }
 
+    namespace AppListAppinstallationsForUser {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appListAppinstallationsForUser
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appListAppinstallationsForUser,
+          TStatus
+        >;
+    }
+
     namespace AppListAppinstallations {
       type RequestData = InferredRequestData<
         typeof descriptors.appListAppinstallations
@@ -178,6 +189,14 @@ export declare module MittwaldAPIV2 {
           typeof descriptors.appListUpdateCandidatesForAppversion,
           TStatus
         >;
+    }
+
+    namespace AppReplaceDatabase {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appReplaceDatabase
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appReplaceDatabase, TStatus>;
     }
 
     namespace AppRequestAppinstallationCopy {
@@ -503,6 +522,17 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.contractListContracts, TStatus>;
     }
 
+    namespace ContributorRotateSecretForExtensionInstance {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorRotateSecretForExtensionInstance
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorRotateSecretForExtensionInstance,
+          TStatus
+        >;
+    }
+
     namespace ConversationListConversations {
       type RequestData = InferredRequestData<
         typeof descriptors.conversationListConversations
@@ -565,6 +595,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.conversationGetConversationMembers,
+          TStatus
+        >;
+    }
+
+    namespace ConversationGetConversationPreferencesOfCustomer {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationGetConversationPreferencesOfCustomer
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationGetConversationPreferencesOfCustomer,
           TStatus
         >;
     }
@@ -743,28 +784,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace CustomerListOfCustomerCategories {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerListOfCustomerCategories
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.customerListOfCustomerCategories,
-          TStatus
-        >;
-    }
-
-    namespace CustomerCreateCategory {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerCreateCategory
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.customerCreateCategory,
-          TStatus
-        >;
-    }
-
     namespace CustomerCreateCustomerInvite {
       type RequestData = InferredRequestData<
         typeof descriptors.customerCreateCustomerInvite
@@ -802,39 +821,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.customerDeclineCustomerInvite,
-          TStatus
-        >;
-    }
-
-    namespace CustomerGetCustomerCategory {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerGetCustomerCategory
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.customerGetCustomerCategory,
-          TStatus
-        >;
-    }
-
-    namespace CustomerUpdateCategory {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerUpdateCategory
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.customerUpdateCategory,
-          TStatus
-        >;
-    }
-
-    namespace CustomerDeleteCategory {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerDeleteCategory
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.customerDeleteCategory,
           TStatus
         >;
     }
@@ -1379,6 +1365,17 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.domainListDomains, TStatus>;
     }
 
+    namespace DomainCheckDomainTransferability {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainCheckDomainTransferability
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainCheckDomainTransferability,
+          TStatus
+        >;
+    }
+
     namespace DomainCreateDomainAuthCode {
       type RequestData = InferredRequestData<
         typeof descriptors.domainCreateDomainAuthCode
@@ -1456,6 +1453,12 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace DomainSuggest {
+      type RequestData = InferredRequestData<typeof descriptors.domainSuggest>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.domainSuggest, TStatus>;
+    }
+
     namespace DomainUpdateDomainAuthCode {
       type RequestData = InferredRequestData<
         typeof descriptors.domainUpdateDomainAuthCode
@@ -1485,6 +1488,165 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.domainUpdateDomainProjectId,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionAuthenticateInstance {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionAuthenticateInstance
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionAuthenticateInstance,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionConsentToExtensionScopes {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionConsentToExtensionScopes
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionConsentToExtensionScopes,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionListExtensionInstances {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionListExtensionInstances
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionListExtensionInstances,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionCreateExtensionInstance {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionCreateExtensionInstance
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionCreateExtensionInstance,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionCreateRetrievalKey {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionCreateRetrievalKey
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionCreateRetrievalKey,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionGetExtensionInstance {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionGetExtensionInstance
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionGetExtensionInstance,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionDeleteExtensionInstance {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionDeleteExtensionInstance
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionDeleteExtensionInstance,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionDisableExtensionInstance {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionDisableExtensionInstance
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionDisableExtensionInstance,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionDryRunWebhook {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionDryRunWebhook
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionDryRunWebhook,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionEnableExtensionInstance {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionEnableExtensionInstance
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionEnableExtensionInstance,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionGetContributor {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionGetContributor
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionGetContributor,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionGetExtension {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionGetExtension
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.extensionGetExtension, TStatus>;
+    }
+
+    namespace ExtensionGetPublicKey {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionGetPublicKey
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.extensionGetPublicKey, TStatus>;
+    }
+
+    namespace ExtensionListContributors {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionListContributors
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionListContributors,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionListExtensions {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionListExtensions
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionListExtensions,
           TStatus
         >;
     }
@@ -1529,6 +1691,14 @@ export declare module MittwaldAPIV2 {
       type RequestData = InferredRequestData<typeof descriptors.fileGetFile>;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<typeof descriptors.fileGetFile, TStatus>;
+    }
+
+    namespace FileGetFileWithName {
+      type RequestData = InferredRequestData<
+        typeof descriptors.fileGetFileWithName
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.fileGetFileWithName, TStatus>;
     }
 
     namespace IngressListIngresses {
@@ -1903,6 +2073,14 @@ export declare module MittwaldAPIV2 {
           typeof descriptors.notificationsReadNotification,
           TStatus
         >;
+    }
+
+    namespace OrderListOrders {
+      type RequestData = InferredRequestData<
+        typeof descriptors.orderListOrders
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.orderListOrders, TStatus>;
     }
 
     namespace OrderCreateOrder {
@@ -2605,17 +2783,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace UserCreateAccessTokenRetrievalKey {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userCreateAccessTokenRetrievalKey
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userCreateAccessTokenRetrievalKey,
-          TStatus
-        >;
-    }
-
     namespace UserListApiTokens {
       type RequestData = InferredRequestData<
         typeof descriptors.userListApiTokens
@@ -2832,6 +2999,14 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.userListSessions, TStatus>;
     }
 
+    namespace UserRefreshSession {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userRefreshSession
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userRefreshSession, TStatus>;
+    }
+
     namespace UserTerminateAllSessions {
       type RequestData = InferredRequestData<
         typeof descriptors.userTerminateAllSessions
@@ -2944,17 +3119,6 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
-
-    namespace DomainCheckDomainTransferability {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainCheckDomainTransferability
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainCheckDomainTransferability,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -3026,6 +3190,29 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
+       * An AppInstallation is a concrete manifestation of an App in a specific AppVersion.
+       */
+      export interface AppAppInstallationInternal {
+        appId: string;
+        appVersion: MittwaldAPIV2.Components.Schemas.AppVersionStatus;
+        customDocumentRoot?: string;
+        description: string;
+        disabled: boolean;
+        id: string;
+        installationPath: string;
+        linkedDatabases?: MittwaldAPIV2.Components.Schemas.AppLinkedDatabase[];
+        processRunningSince?: string;
+        processes?: string[];
+        projectId?: string;
+        screenshotId?: string;
+        screenshotRef?: string;
+        shortId: string;
+        systemSoftware?: MittwaldAPIV2.Components.Schemas.AppInstalledSystemSoftware[];
+        updatePolicy?: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
+        userInputs?: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
+      }
+
+      /**
        * The AppInstallationLifecycle can be used to express a specific point in the AppInstallation Lifecycle, e.g. while installing a new AppInstallation.
        */
       export type AppAppInstallationLifecycle =
@@ -3037,6 +3224,7 @@ export declare module MittwaldAPIV2 {
        * An AppVersion is an officially supported version of an App, containing the necessary and recommended configuration und dependencies.
        */
       export interface AppAppVersion {
+        appId: string;
         breakingNote?: MittwaldAPIV2.Components.Schemas.AppBreakingNote;
         databases?: MittwaldAPIV2.Components.Schemas.AppDatabaseDependency[];
         docRoot: string;
@@ -3146,7 +3334,9 @@ export declare module MittwaldAPIV2 {
        * A SystemSoftwareVersion is an officially  supported version of a SystemSoftware, containing the necessary and recommended configuration und dependencies.
        */
       export interface AppSystemSoftwareVersion {
+        expiryDate?: string;
         externalVersion: string;
+        fee?: MittwaldAPIV2.Components.Schemas.FeeFeeStrategy;
         id: string;
         internalVersion: string;
         recommended?: boolean;
@@ -3187,7 +3377,7 @@ export declare module MittwaldAPIV2 {
       /**
        * UserInputFormat is an enum, describing the possible data formats of a UserInput, the given values can be validated against.
        */
-      export type AppUserInputFormat = "email" | "password" | "url";
+      export type AppUserInputFormat = "email" | "password" | "url" | "uri";
 
       /**
        * UserInputPositionMeta is a utility information, helping to position the UserInput properly on the frontend.
@@ -3204,107 +3394,6 @@ export declare module MittwaldAPIV2 {
       export interface AppVersionStatus {
         current?: string;
         desired: string;
-      }
-
-      export interface ArticleArticleAddons {
-        hidden?: boolean;
-        key: string;
-        type?: string;
-        value: string;
-        valueMergeType?: "add" | "set";
-      }
-
-      export interface ArticleArticleAttributes {
-        customerEditable?: boolean;
-        key: string;
-        mergeType?: "add" | "set";
-        readonly?: boolean;
-        required?: boolean;
-        unit?: string;
-        value: string;
-      }
-
-      export interface ArticleReadableBookableArticleOptions {
-        articleId: string;
-        info?: {
-          articleName?: string;
-          articleTemplateName?: string;
-          fromArticleTemplate?: boolean;
-        };
-        maxArticleCount?: number;
-      }
-
-      export interface ArticleReadableChangeArticleOptions {
-        articleId: string;
-        info?: {
-          articleName?: string;
-          articleTemplateName?: string;
-          fromArticleTemplate?: boolean;
-        };
-      }
-
-      export interface ArticleReadableModifierArticleOptions {
-        articleId: string;
-        info?: {
-          articleName?: string;
-          articleTemplateName?: string;
-          fromArticleTemplate?: boolean;
-        };
-        maxArticleCount: number;
-      }
-
-      export interface ArticleArticleTag {
-        description: string;
-        hexColor: string;
-        id: string;
-        name: string;
-      }
-
-      export interface ArticleArticleTemplate {
-        additionalArticles?: MittwaldAPIV2.Components.Schemas.ArticleReadableBookableArticleOptions[];
-        addons?: MittwaldAPIV2.Components.Schemas.ArticleArticleAddons[];
-        attributes?: MittwaldAPIV2.Components.Schemas.ArticleArticleAttributes[];
-        description?: string;
-        id?: string;
-        isManagedByDomain: boolean;
-        isRecurring: boolean;
-        modifierArticles?: MittwaldAPIV2.Components.Schemas.ArticleReadableModifierArticleOptions[];
-        name: string;
-        type:
-          | "miscellaneous"
-          | "base"
-          | "additional"
-          | "modifier"
-          | "setup_fee";
-      }
-
-      export interface ArticleReadableArticle {
-        addons?: MittwaldAPIV2.Components.Schemas.ArticleArticleAddons[];
-        articleId: string;
-        attributes?: MittwaldAPIV2.Components.Schemas.ArticleArticleAttributes[];
-        balanceAddonKey?: string;
-        contractDurationInMonth: number;
-        description: string;
-        forcedInvoicingPeriodInMonth?: number;
-        hasIndependentContractPeriod?: boolean;
-        hideOnInvoice?: boolean;
-        machineType?: {
-          cpu: string;
-          memory: string;
-          name: string;
-        };
-        modifierArticles?: MittwaldAPIV2.Components.Schemas.ArticleReadableModifierArticleOptions[];
-        name: string;
-        orderable:
-          | "forbidden"
-          | "internal"
-          | "beta_testing"
-          | "full"
-          | "deprecated";
-        possibleArticleChanges?: MittwaldAPIV2.Components.Schemas.ArticleReadableChangeArticleOptions[];
-        price?: number;
-        tags?: MittwaldAPIV2.Components.Schemas.ArticleArticleTag[];
-        template: MittwaldAPIV2.Components.Schemas.ArticleArticleTemplate;
       }
 
       export interface BackupBackupTemplate {
@@ -3412,6 +3501,10 @@ export declare module MittwaldAPIV2 {
         description: string;
         freeTrialDays?: number;
         groupByProjectId?: string;
+        /**
+         * If this attribute is set, the contract item will currently only be invoiced until this date.
+         */
+        invoiceStop?: string;
         invoicingPeriod?: number;
         isActivated: boolean;
         isBaseItem: boolean;
@@ -3430,7 +3523,7 @@ export declare module MittwaldAPIV2 {
          * If this attribute is not set, a tariff change is not allowed.
          */
         nextPossibleUpgradeDate?: string;
-        orderDate: string;
+        orderDate?: string;
         orderId?: string;
         replacedByItem?: string;
         tariffChange?: MittwaldAPIV2.Components.Schemas.ContractTariffChange;
@@ -3498,11 +3591,25 @@ export declare module MittwaldAPIV2 {
           active: boolean;
         })[];
 
+      export interface ConversationConversationPreferences {
+        customerId: string;
+        preferredUsers: {
+          categoryUserPairs?: {
+            [k: string]: string;
+          };
+          fallback?: string;
+        };
+      }
+
       export interface ConversationConversation {
         category?: MittwaldAPIV2.Components.Schemas.ConversationCategory;
         conversationId: string;
         createdAt: string;
         createdBy?: MittwaldAPIV2.Components.Schemas.ConversationUser;
+        lastMessage?: {
+          createdAt: string;
+          createdBy?: MittwaldAPIV2.Components.Schemas.ConversationUser;
+        };
         lastMessageAt?: string;
         lastMessageBy?: MittwaldAPIV2.Components.Schemas.ConversationUser;
         mainUser: MittwaldAPIV2.Components.Schemas.ConversationUser;
@@ -3510,7 +3617,7 @@ export declare module MittwaldAPIV2 {
         relations?: MittwaldAPIV2.Components.Schemas.ConversationAggregateReference[];
         sharedWith?: MittwaldAPIV2.Components.Schemas.ConversationAggregateReference;
         shortId: string;
-        status: "open" | "closed" | "answered";
+        status: MittwaldAPIV2.Components.Schemas.ConversationStatus;
         title: string;
         visibility: "shared" | "private";
       }
@@ -3523,16 +3630,15 @@ export declare module MittwaldAPIV2 {
       export type ConversationDepartment =
         | "development"
         | "mail"
-        | "infra"
-        | "marketing"
-        | "network"
-        | "dataCenter"
         | "accounting"
-        | "customerService"
         | "cloudHosting"
-        | "software"
-        | "generic"
-        | "security";
+        | "customerService"
+        | "generic";
+
+      export interface ConversationDepartmentWithStatus {
+        department: MittwaldAPIV2.Components.Schemas.ConversationDepartment;
+        status: MittwaldAPIV2.Components.Schemas.ConversationStatus;
+      }
 
       export interface ConversationError {
         message: string;
@@ -3583,10 +3689,22 @@ export declare module MittwaldAPIV2 {
             id: string;
           }
         | {
+            aggregate: "appinstallation";
+            domain: "app";
+            id: string;
+          }
+        | {
             aggregate: "placementgroup";
             domain: "project";
             id: string;
           };
+
+      export type ConversationStatus =
+        | "open"
+        | "closed"
+        | "answered"
+        | "inProgress"
+        | "waiting";
 
       export interface ConversationStatusUpdate {
         conversationId: string;
@@ -3758,14 +3876,6 @@ export declare module MittwaldAPIV2 {
         url: string;
       }
 
-      export interface CustomerCategory {
-        id: string;
-        isPublic: boolean;
-        name: string;
-        useAgencyDomainPrices: boolean;
-        useAgencySslPrices: boolean;
-      }
-
       export interface CustomerContact {
         address: MittwaldAPIV2.Components.Schemas.CommonsAddress;
         company?: string;
@@ -3832,6 +3942,13 @@ export declare module MittwaldAPIV2 {
         password: string;
       }
 
+      export type DatabaseDatabaseStatus =
+        | "pending"
+        | "ready"
+        | "migrating"
+        | "importing"
+        | "error";
+
       export interface DatabaseMySqlCharacterSettings {
         collations: string[];
         name: string;
@@ -3854,6 +3971,10 @@ export declare module MittwaldAPIV2 {
         isShared: boolean;
         name: string;
         projectId: string;
+        status: MittwaldAPIV2.Components.Schemas.DatabaseDatabaseStatus;
+        statusSetAt: string;
+        storageUsageInBytes: number;
+        storageUsageInBytesSetAt: string;
         updatedAt: string;
         version: string;
       }
@@ -3916,6 +4037,10 @@ export declare module MittwaldAPIV2 {
         name: string;
         port: number;
         projectId: string;
+        status: MittwaldAPIV2.Components.Schemas.DatabaseDatabaseStatus;
+        statusSetAt: string;
+        storageUsageInBytes: number;
+        storageUsageInBytesSetAt: string;
         updatedAt: string;
         version: string;
       }
@@ -4013,8 +4138,8 @@ export declare module MittwaldAPIV2 {
       export interface DnsRecordSRVRecord {
         fqdn: string;
         port: number;
-        priority: number;
-        weight: number;
+        priority?: number;
+        weight?: number;
       }
 
       export type DnsRecordTXT =
@@ -4079,11 +4204,7 @@ export declare module MittwaldAPIV2 {
           adminC?: MittwaldAPIV2.Components.Schemas.DomainHandleReadable;
           ownerC: MittwaldAPIV2.Components.Schemas.DomainHandleReadable;
         };
-        hasAuthCode: boolean;
-        /**
-         * @minItems 2
-         */
-        nameservers: [string, string, ...string[]];
+        nameservers: string[];
         processes?: MittwaldAPIV2.Components.Schemas.DomainProcess[];
         projectId: string;
         transferInAuthCode?: string;
@@ -4131,9 +4252,183 @@ export declare module MittwaldAPIV2 {
 
       export type DomainRegistrar = "INTERNETX" | "DENIC" | "HEXONET";
 
+      export interface DomainSuggestedDomains {
+        domains: string[];
+      }
+
       export interface DomainTopLevel {
+        irtp: boolean;
         rgpDays: number;
         tld: string;
+        /**
+         * @deprecated
+         */
+        transferAuthCodeRequired: boolean;
+        transferAuthentication: MittwaldAPIV2.Components.Schemas.DomainTransferAuthentication;
+      }
+
+      export type DomainTransferAuthentication =
+        | "unspecified"
+        | "code"
+        | "email"
+        | "push";
+
+      export interface MarketplaceAggregateReference {
+        aggregate: "project" | "customer";
+        domain: "project" | "customer";
+        id: string;
+      }
+
+      export interface MarketplaceAggregateReferenceFilter {
+        aggregate?: "project" | "customer";
+        domain?: "project" | "customer";
+        id?: string;
+      }
+
+      export interface MarketplaceContributor {
+        customerId: string;
+        email?: string;
+        id: string;
+        logoRefId?: string;
+        name: string;
+        phone?: string;
+        state: MittwaldAPIV2.Components.Schemas.MarketplaceContributorState;
+        url?: string;
+      }
+
+      export type MarketplaceContributorState = "enabled" | "disabled";
+
+      export interface MarketplaceExtension {
+        blocked: boolean;
+        context: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+        contributorId: string;
+        description: string;
+        detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
+        disabled: boolean;
+        frontendComponents?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
+        frontendFragments?: {
+          [
+            k: string
+          ]: MittwaldAPIV2.Components.Schemas.MarketplaceFrontendFragment;
+        };
+        id: string;
+        name: string;
+        scopes: string[];
+        /**
+         * @deprecated
+         * deprecated
+         */
+        state: "enabled" | "blocked" | "disabled";
+        support: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
+        /**
+         * @minItems 0
+         */
+        tags: string[];
+      }
+
+      export type MarketplaceContext = "project" | "customer";
+
+      /**
+       * Language specific descriptions in various formats.
+       */
+      export interface MarketplaceDescriptionFormats {
+        markdown: string;
+        plain?: string;
+      }
+
+      /**
+       * Supported languages. Format ISO-639-1.
+       */
+      export interface MarketplaceDetailedDescriptions {
+        de: MittwaldAPIV2.Components.Schemas.MarketplaceDescriptionFormats;
+        en?: MittwaldAPIV2.Components.Schemas.MarketplaceDescriptionFormats;
+      }
+
+      export interface MarketplaceExtensionInstance {
+        aggregateReference: {
+          aggregate: string;
+          domain: string;
+          id: string;
+        };
+        consentedScopes: string[];
+        createdAt?: string;
+        disabled: boolean;
+        extensionId: string;
+        id: string;
+      }
+
+      export interface MarketplaceExternalComponent {
+        name: string;
+        url: string;
+      }
+
+      export type MarketplaceFrontendFragment =
+        MittwaldAPIV2.Components.Schemas.MarketplaceUrlFrontendFragment;
+
+      export interface MarketplacePublicKey {
+        algorithm: string;
+        /**
+         * base64 encoded public key
+         */
+        key: string;
+        serial: string;
+      }
+
+      export interface MarketplaceSupportMeta {
+        email?: string;
+        phone?: string;
+      }
+
+      export interface MarketplaceUrlFrontendFragment {
+        url: string;
+      }
+
+      export type MarketplaceWebhookKind =
+        | "extension-added-to-context"
+        | "extension-instance-updated"
+        | "extension-instance-secret-rotated"
+        | "extension-instance-removed-from-context";
+
+      /**
+       * A strategy for fees of resources.
+       */
+      export type FeeFeeStrategy =
+        | MittwaldAPIV2.Components.Schemas.FeeOneTimePaymentFeeStrategy
+        | MittwaldAPIV2.Components.Schemas.FeePeriodBasedFeeStrategy;
+
+      /**
+       * A strategy for fees that occur once.
+       */
+      export interface FeeOneTimePaymentFeeStrategy {
+        /**
+         * The one-time price in Euro Cents.
+         */
+        price: number;
+      }
+
+      /**
+       * A strategy for fees that occur periodically
+       */
+      export interface FeePeriodBasedFeeStrategy {
+        periods: {
+          feeValidFrom?: string;
+          feeValidUntil?: string;
+          /**
+           * The monthly price in Euro Cents.
+           */
+          monthlyPrice: number;
+        }[];
+      }
+
+      /**
+       * A Fee of a Resource
+       */
+      export interface FeeResourceFee {
+        feeStrategy?: MittwaldAPIV2.Components.Schemas.FeeFeeStrategy;
+        /**
+         * The id of the given Resource
+         */
+        id: string;
       }
 
       export interface FileFileMeta {
@@ -4155,7 +4450,13 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface FileFileUploadRules {
+        extensions: string[];
         fileTypes: MittwaldAPIV2.Components.Schemas.FileFileType[];
+        maxSizeInBytes: number;
+        /**
+         * @deprecated
+         * deprecated, see maxSizeInBytes
+         */
         maxSizeInKB: number;
         mimeTypes: string[];
         properties?: {
@@ -4204,6 +4505,38 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.IngressTlsCertificate;
       }
 
+      export interface IngressIngressDeprecated {
+        /**
+         * A list of errors that occurred while validating the ingress's dns before requesting a certificate.
+         */
+        dnsValidationErrors: (
+          | "ERROR_UNSPECIFIED"
+          | "ERROR_QUAD_A"
+          | "ERROR_NO_A_RECORD"
+          | "ERROR_ACME_CERTIFICATE_REQUEST_DEADLINE_EXCEEDED"
+        )[];
+        hostname: string;
+        id: string;
+        ips: {
+          v4: string[];
+        };
+        /**
+         * Whether this ingress is the default ingress or not. A default ingress is automatically created, it cannot be deleted. There can be only one default ingress per project.
+         */
+        isDefault: boolean;
+        isDomain?: boolean;
+        isEnabled: boolean;
+        ownership: MittwaldAPIV2.Components.Schemas.IngressOwnership;
+        /**
+         * A list of paths. The default path `/` is always present and cannot be removed.
+         */
+        paths: MittwaldAPIV2.Components.Schemas.IngressPath[];
+        projectId: string;
+        tls:
+          | MittwaldAPIV2.Components.Schemas.IngressTlsAcmeDeprecated
+          | MittwaldAPIV2.Components.Schemas.IngressTlsCertificate;
+      }
+
       export interface IngressOwnership {
         txtRecord?: string;
         /**
@@ -4218,7 +4551,18 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.IngressTargetDirectory
           | MittwaldAPIV2.Components.Schemas.IngressTargetUrl
           | MittwaldAPIV2.Components.Schemas.IngressTargetInstallation
-          | MittwaldAPIV2.Components.Schemas.IngressTargetUseDefaultPage;
+          | MittwaldAPIV2.Components.Schemas.IngressTargetUseDefaultPage
+          | MittwaldAPIV2.Components.Schemas.IngressTargetContainer;
+      }
+
+      export interface IngressTargetContainer {
+        container: {
+          id: string;
+          /**
+           * docker-compose port specification in format port/protocol (e.g. 8080/TCP)
+           */
+          portProtocol: string;
+        };
       }
 
       export interface IngressTargetDirectory {
@@ -4242,7 +4586,12 @@ export declare module MittwaldAPIV2 {
          * Has to be `true`, as ssl cannot be deactivated.
          */
         acme: boolean;
+        isCreated: boolean;
         requestDeadline?: string;
+      }
+
+      export interface IngressTlsAcmeDeprecated {
+        acme: boolean;
       }
 
       export interface IngressTlsCertificate {
@@ -4345,6 +4694,7 @@ export declare module MittwaldAPIV2 {
 
       export interface InvoiceInvoiceSettings {
         additionalEmailRecipients?: string[];
+        debitPaymentStopUntil?: string;
         id: string;
         invoicePeriod?: number;
         lastBankingInformation?: MittwaldAPIV2.Components.Schemas.InvoiceBankingInformation;
@@ -4359,7 +4709,10 @@ export declare module MittwaldAPIV2 {
       export interface InvoiceInvoiceSettingsStatus {
         message: string;
         severity: "success" | "info" | "warning" | "error";
-        type: "returnDebitNote";
+        type:
+          | "returnDebitNote"
+          | "returnDebitNoteWaitingForPayment"
+          | "debtWrittenOff";
       }
 
       export interface InvoicePaymentSettingsDebit {
@@ -4403,6 +4756,9 @@ export declare module MittwaldAPIV2 {
         mailbox: {
           enableSpamProtection: boolean;
           password: string;
+          /**
+           * 2 GB
+           */
           quotaInBytes: number;
         };
       }
@@ -4411,18 +4767,6 @@ export declare module MittwaldAPIV2 {
         authenticationEnabled: boolean;
         description: string;
         id: string;
-        name: string;
-        passwordUpdatedAt: string;
-        projectId: string;
-        sendingEnabled: boolean;
-        updatedAt: string;
-      }
-
-      export interface MailDeliveryboxInternal {
-        authenticationEnabled: boolean;
-        description: string;
-        id: string;
-        mailsystemSettings: MittwaldAPIV2.Components.Schemas.MailMailsystemSettings;
         name: string;
         passwordUpdatedAt: string;
         projectId: string;
@@ -4475,46 +4819,175 @@ export declare module MittwaldAPIV2 {
         updatedAt: string;
       }
 
-      export interface MailMailAddressInternal {
-        address: string;
-        autoResponder: {
-          active: boolean;
-          expiresAt?: string;
-          message?: string;
-          startsAt?: string;
-        };
-        forwardAddresses: string[];
-        id: string;
-        isArchived: boolean;
-        isCatchAll: boolean;
-        mailbox?: {
-          mailsystemSettings: MittwaldAPIV2.Components.Schemas.MailMailsystemSettings;
-          name: string;
-          passwordUpdatedAt: string;
-          sendingEnabled: boolean;
-          spamProtection: {
-            active: boolean;
-            autoDeleteSpam: boolean;
-            folder: "spam" | "inbox";
-            relocationMinSpamScore: number;
-          };
-          storageInBytes: {
-            current: {
-              updatedAt: string;
-              value: number;
-            };
-            limit: number;
-          };
-        };
-        projectId: string;
-        receivingDisabled: boolean;
-        updatedAt: string;
-      }
-
       export interface MailMailsystemSettings {
         imapClusterId: string;
         mailDirectory: string;
         rateLimitId: string;
+      }
+
+      export interface MailmigrationAutoResponder {
+        active: boolean;
+        expiresAt?: {
+          [k: string]: unknown;
+        };
+        message: string;
+        startsAt?: {
+          [k: string]: unknown;
+        };
+      }
+
+      export interface MailmigrationMailSystemSettings {
+        imapClusterId: string;
+        mailDirectory: string;
+        rateLimitId: string;
+      }
+
+      export interface MailmigrationMailbox {
+        mailsystem: MittwaldAPIV2.Components.Schemas.MailmigrationMailSystemSettings;
+        name: string;
+        quotaInBytes: number;
+        spamProtection?: MittwaldAPIV2.Components.Schemas.MailmigrationSpamProtection;
+      }
+
+      export interface MailmigrationMigration {
+        aborted: boolean;
+        addresses: MittwaldAPIV2.Components.Schemas.MailmigrationMigrationMailAddress[];
+        finalizers: MittwaldAPIV2.Components.Schemas.MailmigrationMigrationFinalizeJob;
+        finished: boolean;
+        id: string;
+        mailboxes: MittwaldAPIV2.Components.Schemas.MailmigrationMigrationMailbox[];
+        sourceCoabProjectId: string;
+        targetNexusProjectId: string;
+      }
+
+      export interface MailmigrationMigrationFinalizeJob {
+        disableLegacyEntities?: MittwaldAPIV2.Components.Schemas.MailmigrationMigrationFinalizeJobDisableLegacyEntities;
+        projectSettingMigrations?: MittwaldAPIV2.Components.Schemas.MailmigrationMigrationFinalizeJobProjectSetting;
+      }
+
+      export interface MailmigrationMigrationFinalizeJobDisableLegacyEntities {
+        addresses: string[];
+        mailboxNames: string[];
+      }
+
+      export interface MailmigrationMigrationFinalizeJobProjectSetting {
+        blacklistEntries: string[];
+        whitelistEntries: string[];
+      }
+
+      export interface MailmigrationMigrationMailAddress {
+        address: string;
+        finished: boolean;
+        id: string;
+        migrationJobs: MittwaldAPIV2.Components.Schemas.MailmigrationMigrationMailAddressMigrationJob;
+        preMigrationJobs: MittwaldAPIV2.Components.Schemas.MailmigrationMigrationMailAddressPreMigrationJob;
+      }
+
+      export interface MailmigrationMigrateMailAddressCommandRequirements {
+        address?: string;
+        autoResponder?: MittwaldAPIV2.Components.Schemas.MailmigrationAutoResponder;
+        forwardAddresses?: string[];
+        isCatchAll?: boolean;
+        mailbox?: MittwaldAPIV2.Components.Schemas.MailmigrationMailbox;
+        projectId: string;
+      }
+
+      export interface MailmigrationMigrationMailAddressMigrationJob {
+        migrate: MittwaldAPIV2.Components.Schemas.MailmigrationMigrationMailAddressMigrationJobMigrate;
+      }
+
+      export interface MailmigrationMigrationMailAddressMigrationJobMigrate {
+        finished: boolean;
+        requirements: MittwaldAPIV2.Components.Schemas.MailmigrationMigrateMailAddressCommandRequirements;
+      }
+
+      export interface MailmigrationMigrationMailAddressPreMigrationJob {
+        aliasSet: MittwaldAPIV2.Components.Schemas.MailmigrationMigrationMailAddressPreMigrationJobAliasSet[];
+        deliveryMigrations: MittwaldAPIV2.Components.Schemas.MailmigrationMigrationMailAddressPreMigrationJobDeliveryMigration[];
+      }
+
+      export interface MailmigrationMigrationMailAddressPreMigrationJobAliasSet {
+        finished: boolean;
+        sourceCoabMailboxName: string;
+      }
+
+      export interface MailmigrationMigrationMailAddressPreMigrationJobDeliveryMigration {
+        finished: boolean;
+        sourceCoabDeliveryMailbox: string;
+        sourceCoabDeliveryUid: number;
+        targetDeliveryAddress: string;
+      }
+
+      export interface MailmigrationMigrationMailbox {
+        description?: string;
+        finished: boolean;
+        id: string;
+        migrationJobs: MittwaldAPIV2.Components.Schemas.MailmigrationMigrationMailboxJob;
+        name: string;
+      }
+
+      export interface MailmigrationMigrationMailboxJob {
+        migrate: MittwaldAPIV2.Components.Schemas.MailmigrationMigrationMailboxJobMigrate;
+      }
+
+      export interface MailmigrationMigrationMailboxJobMigrate {
+        requirements: MittwaldAPIV2.Components.Schemas.MailmigrationMigrateMailboxCommandRequirements;
+      }
+
+      export interface MailmigrationMigrateMailboxCommandRequirements {
+        mailbox?: MittwaldAPIV2.Components.Schemas.MailmigrationMailbox;
+        projectId: string;
+      }
+
+      export interface MailmigrationCheckMigrationIsPossibleErrorAlreadyExistingMailAddress {
+        address: string;
+      }
+
+      export interface MailmigrationCheckMigrationIsPossibleErrorAmbiguousMailAddressDelivery {
+        addresses: string[];
+        mailboxName: string;
+      }
+
+      export interface MailmigrationCheckMigrationIsPossibleErrorAmbiguousMailboxDelivery {
+        address: string;
+        mailboxes: string[];
+      }
+
+      export interface MailmigrationCheckMigrationIsPossibleErrorCatchAllMissingAddress {
+        address: string;
+      }
+
+      export interface MailmigrationCheckMigrationIsPossibleErrorCatchAllTargetWithoutAlias {
+        address: string;
+        mailboxName: string;
+      }
+
+      export interface MailmigrationCheckMigrationIsPossibleErrorMissingVerifiedIngress {
+        hostname: string;
+      }
+
+      export interface MailmigrationPossibleCheckErrors {
+        alreadyExistingMailAddress: MittwaldAPIV2.Components.Schemas.MailmigrationCheckMigrationIsPossibleErrorAlreadyExistingMailAddress[];
+        ambiguousMailAddressDelivery: MittwaldAPIV2.Components.Schemas.MailmigrationCheckMigrationIsPossibleErrorAmbiguousMailAddressDelivery[];
+        ambiguousMailboxDelivery: MittwaldAPIV2.Components.Schemas.MailmigrationCheckMigrationIsPossibleErrorAmbiguousMailboxDelivery[];
+        catchAllMissingAddress: MittwaldAPIV2.Components.Schemas.MailmigrationCheckMigrationIsPossibleErrorCatchAllMissingAddress[];
+        catchAllTargetWithoutAlias: MittwaldAPIV2.Components.Schemas.MailmigrationCheckMigrationIsPossibleErrorCatchAllTargetWithoutAlias[];
+        missingVerifiedIngress: MittwaldAPIV2.Components.Schemas.MailmigrationCheckMigrationIsPossibleErrorMissingVerifiedIngress[];
+      }
+
+      export interface MailmigrationCheckMigrationIsPossibleErrorResponse {
+        errors?: MittwaldAPIV2.Components.Schemas.MailmigrationPossibleCheckErrors;
+      }
+
+      export interface MailmigrationSpamProtection {
+        active: boolean;
+        deleteSensitivity?: number;
+        /**
+         * SPAM_FOLDER_INBOX_UNSPECIFIED = 0 SPAM_FOLDER_SPAM = 1
+         */
+        folder: 0 | 1;
+        keepDays: number;
+        relocateSensitivity?: number;
       }
 
       export type MembershipCustomerInheritedRoles =
@@ -4525,7 +4998,7 @@ export declare module MittwaldAPIV2 {
 
       export interface MembershipCustomerInvite {
         /**
-         * Reference to the Customer's avatar.
+         * Reference to the Project's avatar.
          */
         avatarRefId?: string;
         /**
@@ -4614,6 +5087,10 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface MembershipProjectInvite {
+        /**
+         * Reference to the Project's avatar.
+         */
+        avatarRefId?: string;
         /**
          * ID of the ProjectInvite.
          */
@@ -4726,7 +5203,7 @@ export declare module MittwaldAPIV2 {
 
       export interface OrderAttributeConfiguration {
         key: string;
-        value: string;
+        value?: string;
       }
 
       export interface OrderCustomerOrder {
@@ -4738,7 +5215,7 @@ export declare module MittwaldAPIV2 {
          */
         invoicingPeriod: number;
         items: MittwaldAPIV2.Components.Schemas.OrderOrderItem[];
-        orderDate: string;
+        orderDate?: string;
         orderId: string;
         orderNumber: string;
         profile?: MittwaldAPIV2.Components.Schemas.OrderProfile;
@@ -4755,7 +5232,7 @@ export declare module MittwaldAPIV2 {
       export interface OrderDomainOrderPreview {
         authCode?: string;
         domain: string;
-        projectId?: string;
+        projectId: string;
       }
 
       export interface OrderDomainOrder {
@@ -4771,6 +5248,19 @@ export declare module MittwaldAPIV2 {
             ...MittwaldAPIV2.Components.Schemas.OrderDomainHandleField[],
           ];
         };
+        projectId: string;
+      }
+
+      export interface OrderExternalCertificateOrderPreview {
+        certificateRequestId: string;
+        projectId: string;
+      }
+
+      /**
+       * You are able to order an External Certificate if you already created a Certificate Request.
+       */
+      export interface OrderExternalCertificateOrder {
+        certificateRequestId: string;
         projectId: string;
       }
 
@@ -4821,8 +5311,18 @@ export declare module MittwaldAPIV2 {
       export type OrderOrderType = "NEW_ORDER" | "CONTRACT_CHANGE";
 
       export interface OrderDomainOrderPreviewResponse {
+        /**
+         * Contract duration in months.
+         */
+        domainContractDuration: number;
         domainPrice: number;
         feePrice: number;
+        totalPrice: number;
+      }
+
+      export interface OrderExternalCertificateOrderPreviewResponse {
+        feePrice: number;
+        recurringPrice: number;
         totalPrice: number;
       }
 
@@ -4883,6 +5383,7 @@ export declare module MittwaldAPIV2 {
         description: string;
         diskspaceInGiB: number;
         machineType: string;
+        promotionCode?: string;
         useFreeTrial?: boolean;
       }
 
@@ -4890,6 +5391,107 @@ export declare module MittwaldAPIV2 {
         contractId: string;
         diskspaceInGiB: number;
         machineType: string;
+      }
+
+      export interface ArticleArticleAddons {
+        hidden?: boolean;
+        key: string;
+        type?: string;
+        value: string;
+        valueMergeType?: "add" | "set";
+      }
+
+      export interface ArticleArticleAttributes {
+        customerEditable?: boolean;
+        key: string;
+        mergeType?: "add" | "set";
+        readonly?: boolean;
+        required?: boolean;
+        unit?: string;
+        value?: string;
+      }
+
+      export interface ArticleReadableBookableArticleOptions {
+        articleId: string;
+        info?: {
+          articleName?: string;
+          articleTemplateName?: string;
+          fromArticleTemplate?: boolean;
+        };
+        maxArticleCount?: number;
+      }
+
+      export interface ArticleReadableChangeArticleOptions {
+        articleId: string;
+        info?: {
+          articleName?: string;
+          articleTemplateName?: string;
+          fromArticleTemplate?: boolean;
+        };
+      }
+
+      export interface ArticleReadableModifierArticleOptions {
+        articleId: string;
+        info?: {
+          articleName?: string;
+          articleTemplateName?: string;
+          fromArticleTemplate?: boolean;
+        };
+        maxArticleCount: number;
+      }
+
+      export interface ArticleArticleTag {
+        description?: string;
+        hexColor?: string;
+        id: string;
+        name?: string;
+      }
+
+      export interface ArticleArticleTemplate {
+        additionalArticles?: MittwaldAPIV2.Components.Schemas.ArticleReadableBookableArticleOptions[];
+        addons?: MittwaldAPIV2.Components.Schemas.ArticleArticleAddons[];
+        attributes?: MittwaldAPIV2.Components.Schemas.ArticleArticleAttributes[];
+        description?: string;
+        id: string;
+        isManagedByDomain: boolean;
+        isRecurring: boolean;
+        modifierArticles?: MittwaldAPIV2.Components.Schemas.ArticleReadableModifierArticleOptions[];
+        name: string;
+        type:
+          | "miscellaneous"
+          | "base"
+          | "additional"
+          | "modifier"
+          | "setup_fee";
+      }
+
+      export interface ArticleReadableArticle {
+        addons?: MittwaldAPIV2.Components.Schemas.ArticleArticleAddons[];
+        articleId: string;
+        attributes?: MittwaldAPIV2.Components.Schemas.ArticleArticleAttributes[];
+        balanceAddonKey?: string;
+        contractDurationInMonth: number;
+        description?: string;
+        forcedInvoicingPeriodInMonth?: number;
+        hasIndependentContractPeriod?: boolean;
+        hideOnInvoice?: boolean;
+        machineType?: {
+          cpu: string;
+          memory: string;
+          name: string;
+        };
+        modifierArticles?: MittwaldAPIV2.Components.Schemas.ArticleReadableModifierArticleOptions[];
+        name: string;
+        orderable:
+          | "forbidden"
+          | "internal"
+          | "beta_testing"
+          | "full"
+          | "deprecated";
+        possibleArticleChanges?: MittwaldAPIV2.Components.Schemas.ArticleReadableChangeArticleOptions[];
+        price?: number;
+        tags?: MittwaldAPIV2.Components.Schemas.ArticleArticleTag[];
+        template: MittwaldAPIV2.Components.Schemas.ArticleArticleTemplate;
       }
 
       export type PolicyPolicy = string;
@@ -4912,7 +5514,7 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * deprecated
+       * deprecated by property status
        */
       export type ProjectDeprecatedProjectReadinessStatus =
         | "creating"
@@ -4920,7 +5522,7 @@ export declare module MittwaldAPIV2 {
         | "unready";
 
       /**
-       * deprecated
+       * deprecated by property status
        */
       export type ProjectDeprecatedServerReadinessStatus =
         | "creating"
@@ -4951,7 +5553,12 @@ export declare module MittwaldAPIV2 {
 
       export interface ProjectHardwareSpec {
         cpu?: string;
+        /**
+         * @deprecated
+         * deprecated by memory
+         */
         mem?: string;
+        memory?: string;
         storage: string;
       }
 
@@ -4977,7 +5584,12 @@ export declare module MittwaldAPIV2 {
 
       export interface ProjectProject {
         clusterDomain?: string;
+        /**
+         * @deprecated
+         * deprecated by property clusterId
+         */
         clusterID?: string;
+        clusterId?: string;
         createdAt: string;
         customerId: string;
         description: string;
@@ -4991,7 +5603,7 @@ export declare module MittwaldAPIV2 {
         imageRefId?: string;
         /**
          * @deprecated
-         * deprecated
+         * deprecated by property status
          */
         isReady: boolean;
         projectHostingId?: string;
@@ -5005,11 +5617,13 @@ export declare module MittwaldAPIV2 {
         statisticsBaseDomain?: string;
         status: MittwaldAPIV2.Components.Schemas.ProjectProjectStatus;
         statusSetAt: string;
+        webStorageUsageInBytes: number;
+        webStorageUsageInBytesSetAt: string;
       }
 
       export type ProjectServerDisableReason = "suspended";
 
-      export type ProjectServerStatus = "pending" | "ready";
+      export type ProjectServerStatus = "pending" | "ready" | "unready";
 
       export interface ProjectServer {
         clusterName: string;
@@ -5021,7 +5635,7 @@ export declare module MittwaldAPIV2 {
         imageRefId?: string;
         /**
          * @deprecated
-         * deprecated
+         * deprecated by property status
          */
         isReady: boolean;
         machineType: MittwaldAPIV2.Components.Schemas.ProjectMachineType;
@@ -5220,11 +5834,40 @@ export declare module MittwaldAPIV2 {
         avatarRef?: string;
         email?: string;
         /**
-         * additional information about mittwald employees
+         * Additional information about mittwald employees.
          */
         employeeInformation?: {
           department: string;
         };
+        mfa?: {
+          active: boolean;
+          setup: boolean;
+        };
+        passwordUpdatedAt?: string;
+        person: MittwaldAPIV2.Components.Schemas.CommonsPerson;
+        phoneNumber?: string;
+        registeredAt?: string;
+        userId: string;
+      }
+
+      export interface UserUserInternal {
+        avatarRef?: string;
+        /**
+         * Truth value, whether the user has been disabled.
+         */
+        disabled?: boolean;
+        email?: string;
+        /**
+         * Additional information about mittwald employees.
+         */
+        employeeInformation?: {
+          department: string;
+        };
+        mfa?: {
+          active: boolean;
+          setup: boolean;
+        };
+        passwordUpdatedAt?: string;
         person: MittwaldAPIV2.Components.Schemas.CommonsPerson;
         phoneNumber?: string;
         registeredAt?: string;
@@ -5352,6 +5995,18 @@ export declare module MittwaldAPIV2 {
         }
       }
 
+      namespace DomainTransferabilityResponse {
+        export interface ApplicationJson {
+          reasons: {
+            domainAgeTooSmall: boolean;
+            domainDoesNotExist: boolean;
+            transferLock: boolean;
+            wrongAuthCode: boolean;
+          };
+          transferable: boolean;
+        }
+      }
+
       namespace InvoiceEmptyResponse {
         export interface ApplicationJson {}
       }
@@ -5440,6 +6095,13 @@ export declare module MittwaldAPIV2 {
       export interface CommonsAccessToken {
         "x-access-token"?: string;
       }
+
+      /**
+       * 'Authorization: Bearer xyz' is required
+       */
+      export interface CommonsLegacyBearerAuthentication {
+        Authorization: string;
+      }
     }
   }
 
@@ -5468,6 +6130,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -5507,6 +6177,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -5555,6 +6233,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -5584,6 +6270,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -5640,6 +6334,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -5673,6 +6375,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -5714,6 +6424,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -5766,6 +6484,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -5800,6 +6526,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -5849,6 +6583,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -5887,7 +6629,64 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppInstallations {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            limit?: number;
+            page?: number;
+            skip?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AppAppInstallation[];
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -5932,6 +6731,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -5968,7 +6775,23 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -6009,6 +6832,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -6039,6 +6870,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.AppAppVersion[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -6074,6 +6913,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.AppSystemSoftware[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -6113,6 +6960,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -6142,6 +6997,85 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.AppAppVersion[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppInstallationsAppInstallationIdDatabaseReplace {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * The IDs of the users of the database you want the old database to be replaced with.
+             */
+            databaseUserIds?: {
+              [k: string]: string;
+            };
+            /**
+             * The ID of the database you want the old database to be replaced with.
+             */
+            newDatabaseId: string;
+            /**
+             * The ID of the database you want to be replaced.
+             */
+            oldDatabaseId: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -6191,6 +7125,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -6231,6 +7173,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -6263,6 +7213,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -6317,6 +7275,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -6350,6 +7316,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -6398,6 +7372,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.ArticleReadableArticle[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -6466,6 +7448,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -6510,6 +7500,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -6538,6 +7536,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.BackupProjectBackupSchedule[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -6601,6 +7607,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -6629,6 +7643,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.BackupProjectBackup[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -6688,6 +7710,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -6735,6 +7765,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -6772,6 +7810,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -6846,6 +7892,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -6893,6 +7947,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -6930,6 +7992,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -6991,6 +8061,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -7061,6 +8139,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -7077,8 +8163,6 @@ export declare module MittwaldAPIV2 {
             contractId: string;
             contractItemId: string;
           };
-
-          export interface RequestBody {}
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -7105,6 +8189,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -7131,8 +8223,6 @@ export declare module MittwaldAPIV2 {
             contractItemId: string;
           };
 
-          export interface RequestBody {}
-
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
@@ -7158,6 +8248,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -7227,6 +8325,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -7242,8 +8348,6 @@ export declare module MittwaldAPIV2 {
           export type Path = {
             contractId: string;
           };
-
-          export interface RequestBody {}
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -7269,6 +8373,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -7323,6 +8435,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -7363,6 +8483,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -7417,6 +8545,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -7457,6 +8593,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -7512,6 +8656,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -7552,6 +8704,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -7602,6 +8762,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -7660,6 +8828,83 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdSecret {
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+            extensionInstanceId: string;
+          };
+
+          export interface RequestBody {
+            allowWebhookFailure?: boolean;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                secret: string;
+                webhookResult: {
+                  failure: boolean;
+                  /**
+                   * The status code returned by the external application.
+                   */
+                  statusCode?: string;
+                };
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -7685,6 +8930,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.ConversationConversation[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -7724,6 +8977,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -7772,6 +9033,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -7838,6 +9107,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -7877,6 +9154,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -7938,6 +9223,76 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CustomersCustomerIdConversationPreferences {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ConversationConversationPreferences;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -7985,6 +9340,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -8051,6 +9414,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -8069,8 +9440,6 @@ export declare module MittwaldAPIV2 {
             conversationId: string;
             fileId: string;
           };
-
-          export interface RequestBody {}
 
           export type Header = {};
 
@@ -8095,6 +9464,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -8127,6 +9504,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.ConversationCategory[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -8188,6 +9573,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -8240,6 +9633,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -8307,6 +9708,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -8350,6 +9759,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -8382,6 +9799,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.CronjobCronjob[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -8434,6 +9859,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -8469,6 +9902,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.CronjobCronjobExecution[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -8525,6 +9966,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -8557,6 +10006,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -8601,6 +10058,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -8671,6 +10136,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -8704,6 +10177,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -8754,6 +10235,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -8822,72 +10311,7 @@ export declare module MittwaldAPIV2 {
             }
           }
 
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomerCategories {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                categories?: MittwaldAPIV2.Components.Schemas.CustomerCategory[];
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export type RequestBody =
-            MittwaldAPIV2.Components.Schemas.CustomerCategory;
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                customerId?: string;
-                isPublic?: boolean;
-                name?: string;
-                useAgencyDomainPrices?: boolean;
-                useAgencySslPrices?: boolean;
-              }
-            }
-          }
-
-          namespace $400 {
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -8966,6 +10390,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -8987,6 +10419,7 @@ export declare module MittwaldAPIV2 {
 
           export type Query = {
             role?: string;
+            search?: string;
             limit?: number;
             skip?: number;
             page?: number;
@@ -8997,6 +10430,22 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.CustomerCustomer[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -9015,7 +10464,6 @@ export declare module MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            categoryId?: string;
             name: string;
             owner?: MittwaldAPIV2.Components.Schemas.CustomerContact;
             vatId?: string;
@@ -9038,6 +10486,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -9079,113 +10535,7 @@ export declare module MittwaldAPIV2 {
             }
           }
 
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomerCategoriesCategoryId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            categoryId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CustomerCategory;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            categoryId: string;
-          };
-
-          export type RequestBody =
-            MittwaldAPIV2.Components.Schemas.CustomerCategory;
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                customerId?: string;
-                isPublic?: boolean;
-                name?: string;
-                useAgencyDomainPrices?: boolean;
-                useAgencySslPrices?: boolean;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Delete {
-        namespace Parameters {
-          export type Path = {
-            categoryId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -9232,6 +10582,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -9257,6 +10615,14 @@ export declare module MittwaldAPIV2 {
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -9299,6 +10665,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -9324,6 +10698,14 @@ export declare module MittwaldAPIV2 {
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -9363,6 +10745,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -9394,7 +10784,31 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $401 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -9419,7 +10833,6 @@ export declare module MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            categoryId?: string;
             customerId: string;
             name: string;
             owner?: MittwaldAPIV2.Components.Schemas.CustomerContact;
@@ -9458,6 +10871,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -9483,12 +10904,28 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export interface ApplicationJson {
-                [k: string]: unknown;
+                customerId?: string;
               }
             }
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -9527,6 +10964,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -9582,6 +11027,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -9613,6 +11066,14 @@ export declare module MittwaldAPIV2 {
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -9648,7 +11109,23 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -9688,7 +11165,23 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -9738,6 +11231,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -9773,6 +11274,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -9844,6 +11353,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $500 {
             namespace Content {
               export interface ApplicationJson {}
@@ -9884,6 +11401,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $500 {
             namespace Content {
               export interface ApplicationJson {
@@ -9919,6 +11444,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -9966,6 +11499,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -10025,6 +11566,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -10065,6 +11614,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -10121,6 +11678,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -10161,6 +11726,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -10226,6 +11799,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -10266,6 +11847,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -10318,6 +11907,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -10388,6 +11985,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -10439,6 +12044,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -10476,6 +12089,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -10530,6 +12151,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $500 {
             namespace Content {
               export interface ApplicationJson {
@@ -10575,6 +12204,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -10648,6 +12285,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -10691,6 +12336,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -10745,6 +12398,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -10785,6 +12446,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -10839,6 +12508,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -10879,6 +12556,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -10936,6 +12621,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -10979,6 +12672,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -11036,6 +12737,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -11079,6 +12788,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -11136,6 +12853,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -11184,6 +12909,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -11278,6 +13011,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -11312,6 +13053,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -11355,6 +13104,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -11389,6 +13146,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -11453,6 +13218,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -11493,6 +13266,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -11548,6 +13329,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -11594,6 +13383,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -11629,6 +13426,64 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DomainTransferable {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            authCode?: string;
+            domain: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -11679,6 +13534,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -11739,6 +13602,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -11790,6 +13661,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -11806,17 +13685,15 @@ export declare module MittwaldAPIV2 {
             domainId: string;
           };
 
-          export interface RequestBody {
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
             /**
              * Only for .de Domains.
              */
             transit?: boolean;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -11836,6 +13713,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -11890,6 +13775,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -11924,6 +13817,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -11951,6 +13852,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.DomainTopLevel[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -11993,6 +13902,71 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DomainSuggestions {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            prompt: string;
+            domainCount?: number;
+            tlds?: string[];
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DomainSuggestedDomains;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -12047,6 +14021,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -12113,6 +14095,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -12156,6 +14146,746 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ExtensionInstancesExtensionInstanceIdTokens {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            extensionInstanceId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * The latest secret an external application received via lifecycle webhooks.
+             * Namely ExtensionAddedToContext and ExtensionInstanceSecretRotated.
+             *
+             */
+            extensionInstanceSecret: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                expiry: string;
+                /**
+                 * Set this in the 'x-access-token' header when performing domain actions.
+                 */
+                publicToken: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ExtensionInstancesExtensionInstanceIdScopes {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            extensionInstanceId: string;
+          };
+
+          export interface RequestBody {
+            consentedScopes: string[];
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ExtensionInstances {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+            page?: number;
+            context: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+            contextId: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstance[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            consentedScopes: string[];
+            context: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+            contextId: string;
+            extensionId: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                id: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ExtensionInstancesExtensionInstanceIdActionsCreateAccessTokenRetrievalKey {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            extensionInstanceId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                accessTokenRetrievalKey: string;
+                userId: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ExtensionInstancesExtensionInstanceId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            extensionInstanceId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstance;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            extensionInstanceId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ExtensionInstancesExtensionInstanceIdActionsDisable {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            extensionInstanceId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsDryRunWebhookKind {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+            extensionInstanceId: string;
+            webhookKind: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookKind;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            contextId?: string;
+            scopes?: string[];
+            instanceDisabled?: boolean;
+            createdAt?: string;
+            secret?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * The error message of an internal error.
+                 */
+                errorMessage?: string;
+                responseBody?: string;
+                /**
+                 * The http status code that the external application responded with.
+                 */
+                responseCode?: number;
+                responseHeaders?: string;
+                routeCalled: string;
+                /**
+                 * This shows if the response of the external application has been accepted as successful.
+                 */
+                successful: boolean;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ExtensionInstancesExtensionInstanceIdActionsEnable {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            extensionInstanceId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplaceContributor;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ExtensionsExtensionId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            extensionId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplaceExtension;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2WebhookPublicKeysSerial {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            serial: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplacePublicKey;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2Contributors {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplaceContributor[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2Extensions {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplaceExtension[];
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -12222,6 +14952,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $422 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -12307,6 +15045,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $500 {
             namespace Content {
               export interface ApplicationJson {
@@ -12354,6 +15100,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -12434,12 +15188,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2FilesFileIdFileName {
+    namespace V2FilesFileId {
       namespace Get {
         namespace Parameters {
           export type Path = {
             fileId: string;
-            fileName?: string;
           };
 
           export type Header = {
@@ -12499,6 +15252,106 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2FilesFileIdFileName {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            fileId: string;
+            fileName: string;
+          };
+
+          export type Header = {
+            Accept?: "application/octet-stream" | "text/plain;base64";
+            "Content-Disposition"?: "inline" | "attachment";
+            Token?: string;
+          };
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationOctetStream = string;
+
+              export type TextPlainBase64 = string;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $422 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $500 {
             namespace Content {
               export interface ApplicationJson {
@@ -12539,6 +15392,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -12592,6 +15453,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -12631,6 +15500,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -12660,6 +15537,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -12721,6 +15606,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -12757,6 +15650,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -12810,6 +15711,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -12829,8 +15738,25 @@ export declare module MittwaldAPIV2 {
           };
 
           export type RequestBody =
-            | MittwaldAPIV2.Components.Schemas.IngressTlsAcme
-            | MittwaldAPIV2.Components.Schemas.IngressTlsCertificate;
+            | {
+                /**
+                 * Has to be `true`, as ssl cannot be deactivated.
+                 */
+                acme: boolean;
+                /**
+                 * @deprecated
+                 * Was added by mistake. Never did anything.
+                 */
+                isCreated?: boolean;
+                /**
+                 * @deprecated
+                 * Was added by mistake. Never did anything.
+                 */
+                requestDeadline?: string;
+              }
+            | {
+                certificateId: string;
+              };
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -12845,6 +15771,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -12899,6 +15833,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -12939,6 +15881,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -13001,6 +15951,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -13044,6 +16002,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -13108,6 +16074,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -13158,6 +16132,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -13240,6 +16222,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $500 {
             namespace Content {
               export interface ApplicationJson {
@@ -13306,6 +16296,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -13387,6 +16385,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $500 {
             namespace Content {
               export interface ApplicationJson {
@@ -13460,6 +16466,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $500 {
             namespace Content {
               export interface ApplicationJson {
@@ -13521,6 +16535,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -13601,6 +16623,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $500 {
             namespace Content {
               export interface ApplicationJson {
@@ -13662,6 +16692,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -13749,6 +16787,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $500 {
             namespace Content {
               export interface ApplicationJson {
@@ -13822,6 +16868,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -13903,6 +16957,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $500 {
             namespace Content {
               export interface ApplicationJson {
@@ -13970,6 +17032,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -14056,6 +17126,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $500 {
             namespace Content {
               export interface ApplicationJson {
@@ -14125,6 +17203,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -14210,6 +17296,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $500 {
             namespace Content {
               export interface ApplicationJson {
@@ -14286,6 +17380,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $500 {
             namespace Content {
               export interface ApplicationJson {
@@ -14323,6 +17425,9 @@ export declare module MittwaldAPIV2 {
           };
 
           export interface RequestBody {
+            /**
+             * 2 GB
+             */
             quotaInBytes: number;
           }
 
@@ -14355,6 +17460,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -14443,6 +17556,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $500 {
             namespace Content {
               export interface ApplicationJson {
@@ -14524,6 +17645,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $500 {
             namespace Content {
               export interface ApplicationJson {
@@ -14574,6 +17703,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -14597,6 +17734,14 @@ export declare module MittwaldAPIV2 {
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -14636,6 +17781,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -14657,6 +17810,9 @@ export declare module MittwaldAPIV2 {
 
           export type Query = {
             status?: "unread" | "read";
+            limit?: number;
+            skip?: number;
+            page?: number;
           };
         }
         namespace Responses {
@@ -14664,6 +17820,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.MessagingNotification[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -14702,6 +17866,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -14753,6 +17925,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -14765,6 +17945,48 @@ export declare module MittwaldAPIV2 {
     }
 
     namespace V2Orders {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+            page?: number;
+            includesStatus?: MittwaldAPIV2.Components.Schemas.OrderOrderStatus[];
+            excludesStatus?: MittwaldAPIV2.Components.Schemas.OrderOrderStatus[];
+            templateNames?: string[];
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.OrderCustomerOrder[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
       namespace Post {
         namespace Parameters {
           export type Path = {};
@@ -14773,8 +17995,13 @@ export declare module MittwaldAPIV2 {
             orderData?:
               | MittwaldAPIV2.Components.Schemas.OrderProjectHostingOrder
               | MittwaldAPIV2.Components.Schemas.OrderServerOrder
-              | MittwaldAPIV2.Components.Schemas.OrderDomainOrder;
-            orderType?: "domain" | "projectHosting" | "server";
+              | MittwaldAPIV2.Components.Schemas.OrderDomainOrder
+              | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrder;
+            orderType?:
+              | "domain"
+              | "projectHosting"
+              | "server"
+              | "externalCertificate";
           }
 
           export type Header =
@@ -14792,6 +18019,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -14844,6 +18079,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -14872,6 +18115,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.OrderCustomerOrder;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -14913,6 +18164,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -14951,6 +18210,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -14971,8 +18238,13 @@ export declare module MittwaldAPIV2 {
             orderData?:
               | MittwaldAPIV2.Components.Schemas.OrderProjectHostingOrderPreview
               | MittwaldAPIV2.Components.Schemas.OrderServerOrderPreview
-              | MittwaldAPIV2.Components.Schemas.OrderDomainOrderPreview;
-            orderType?: "domain" | "projectHosting" | "server";
+              | MittwaldAPIV2.Components.Schemas.OrderDomainOrderPreview
+              | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrderPreview;
+            orderType?:
+              | "domain"
+              | "projectHosting"
+              | "server"
+              | "externalCertificate";
           }
 
           export type Header = {};
@@ -14984,11 +18256,28 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 | MittwaldAPIV2.Components.Schemas.OrderHostingOrderPreviewResponse
-                | MittwaldAPIV2.Components.Schemas.OrderDomainOrderPreviewResponse;
+                | MittwaldAPIV2.Components.Schemas.OrderDomainOrderPreviewResponse
+                | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrderPreviewResponse;
             }
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $422 {
+            namespace Content {
+              export interface ApplicationJson {
+                error?: {};
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -15036,6 +18325,22 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $422 {
+            namespace Content {
+              export interface ApplicationJson {
+                error?: {};
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -15109,6 +18414,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -15155,6 +18468,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -15220,6 +18541,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -15275,6 +18604,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -15302,6 +18639,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.PolicyPolicy;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -15368,6 +18713,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -15405,6 +18758,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -15466,6 +18827,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $409 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -15536,6 +18905,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -15567,6 +18944,14 @@ export declare module MittwaldAPIV2 {
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -15619,6 +19004,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -15656,6 +19049,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -15702,6 +19103,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -15727,6 +19136,14 @@ export declare module MittwaldAPIV2 {
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -15769,6 +19186,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -15794,6 +19219,14 @@ export declare module MittwaldAPIV2 {
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -15833,6 +19266,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -15865,6 +19306,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -15917,6 +19366,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -15981,6 +19438,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -16018,6 +19483,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -16074,6 +19547,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -16140,6 +19621,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $503 {
             namespace Content {
               export interface ApplicationJson {
@@ -16192,6 +19681,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -16254,6 +19751,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $503 {
             namespace Content {
               export interface ApplicationJson {
@@ -16298,6 +19803,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -16351,6 +19864,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -16382,7 +19903,23 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -16437,6 +19974,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -16468,6 +20013,14 @@ export declare module MittwaldAPIV2 {
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -16513,6 +20066,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -16545,7 +20106,23 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -16585,7 +20162,23 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -16615,6 +20208,9 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             customerId?: string;
             serverId?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
           };
         }
         namespace Responses {
@@ -16643,6 +20239,8 @@ export declare module MittwaldAPIV2 {
                 shortId: string;
                 status: MittwaldAPIV2.Components.Schemas.ProjectProjectStatus;
                 statusSetAt: string;
+                webStorageUsageInBytes: number;
+                webStorageUsageInBytesSetAt: string;
               }[];
             }
           }
@@ -16656,6 +20254,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -16705,6 +20311,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -16740,6 +20354,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -16797,6 +20419,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -16847,6 +20477,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -16881,7 +20519,7 @@ export declare module MittwaldAPIV2 {
             }
           }
 
-          namespace $403 {
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -16996,6 +20634,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -17008,8 +20654,6 @@ export declare module MittwaldAPIV2 {
     }
 
     namespace V2ServiceAccessKeyIdActionsAuthenticate {}
-
-    namespace InternalV2ServicesAccessKeyIdActionsAuthenticate {}
 
     namespace V2ServicesAccessKeyIdActionsAuthenticate {
       namespace Post {
@@ -17041,6 +20685,14 @@ export declare module MittwaldAPIV2 {
                   };
                   publicToken: string;
                 };
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
               }
             }
           }
@@ -17079,7 +20731,23 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -17135,6 +20803,22 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -17166,7 +20850,23 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -17199,6 +20899,22 @@ export declare module MittwaldAPIV2 {
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -17251,6 +20967,22 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -17287,7 +21019,23 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -17338,6 +21086,22 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -17369,7 +21133,23 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -17402,6 +21182,22 @@ export declare module MittwaldAPIV2 {
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -17449,6 +21245,22 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -17466,7 +21278,7 @@ export declare module MittwaldAPIV2 {
       namespace Post {
         namespace Parameters {
           export type Path = {
-            userId: "self" | string;
+            userId: string;
           };
 
           export interface RequestBody {
@@ -17493,7 +21305,7 @@ export declare module MittwaldAPIV2 {
             }
           }
 
-          namespace $403 {
+          namespace $409 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -17501,7 +21313,7 @@ export declare module MittwaldAPIV2 {
             }
           }
 
-          namespace $409 {
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -17522,7 +21334,7 @@ export declare module MittwaldAPIV2 {
       namespace Delete {
         namespace Parameters {
           export type Path = {
-            userId: "self" | string;
+            userId: string;
           };
 
           export type Header =
@@ -17538,6 +21350,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -17587,9 +21407,13 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export interface ApplicationJson {
                 /**
-                 * Expiration unix timestamp
+                 * The expiration date of the token.
                  */
-                expires?: string;
+                expires: string;
+                /**
+                 * Refresh token to refresh your access token even after it has expired.
+                 */
+                refreshToken: string;
                 /**
                  * Public token to identify yourself against the api gateway.
                  */
@@ -17611,6 +21435,14 @@ export declare module MittwaldAPIV2 {
                 MittwaldAPIV2.Components.Schemas.SignupDomainError & {
                   name?: "FirstAuthenticationFactorExpired";
                 };
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -17652,9 +21484,13 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export interface ApplicationJson {
                 /**
-                 * Expiration unix timestamp
+                 * The expiration date of the token.
                  */
-                expires?: string;
+                expires: string;
+                /**
+                 * Refresh token to refresh your access token even after it has expired.
+                 */
+                refreshToken: string;
                 /**
                  * Public token to identify yourself against the api gateway.
                  */
@@ -17683,6 +21519,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -17715,7 +21559,14 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export interface ApplicationJson {
-                expiresAt?: string;
+                /**
+                 * The expiration date of the token.
+                 */
+                expiresAt: string;
+                /**
+                 * Refresh token to refresh your access token even after it has expired.
+                 */
+                refreshToken: string;
                 /**
                  * Public token to identify yourself against the public api.
                  */
@@ -17725,6 +21576,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -17770,6 +21629,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -17807,6 +21674,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -17855,9 +21730,9 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export interface ApplicationJson {
                 /**
-                 * Expiration unix timestamp.
+                 * The expiration date of the token.
                  */
-                expires?: string;
+                expires: string;
                 /**
                  * Public token to identify yourself against the api gateway.
                  */
@@ -17878,6 +21753,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -17916,6 +21799,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -17945,6 +21836,14 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 confirmed: boolean;
                 initialized: boolean;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
               }
             }
           }
@@ -18016,6 +21915,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -18083,6 +21990,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -18120,6 +22035,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -18172,40 +22095,10 @@ export declare module MittwaldAPIV2 {
             }
           }
 
-          namespace Default {
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2UsersSelfTokenRetrievalKey {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                /**
-                 * This retrieval can be used as a one time password. It is only valid once and for a short time.
-                 */
-                accessTokenRetrievalKey: string;
-                userId: string;
               }
             }
           }
@@ -18238,6 +22131,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.SignupApiToken[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -18284,6 +22185,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -18358,6 +22267,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -18386,6 +22303,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export interface ApplicationJson {
                 sshKeys?: MittwaldAPIV2.Components.Schemas.SignupSshKey[];
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
               }
             }
           }
@@ -18429,6 +22354,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -18461,6 +22394,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -18509,6 +22450,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -18538,6 +22487,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -18578,6 +22535,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -18626,6 +22591,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -18651,6 +22624,14 @@ export declare module MittwaldAPIV2 {
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -18713,6 +22694,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -18741,6 +22730,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.SignupAccount;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -18781,6 +22778,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -18813,6 +22818,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -18828,7 +22841,7 @@ export declare module MittwaldAPIV2 {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            userId: "self" | string;
+            userId: string;
           };
 
           export type Header =
@@ -18841,6 +22854,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export interface ApplicationJson {
                 settingsString?: string;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
               }
             }
           }
@@ -18858,7 +22879,7 @@ export declare module MittwaldAPIV2 {
       namespace Put {
         namespace Parameters {
           export type Path = {
-            userId: "self" | string;
+            userId: string;
           };
 
           export interface RequestBody {
@@ -18878,6 +22899,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -18924,6 +22953,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -18980,6 +23017,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -19012,6 +23057,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -19055,6 +23108,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -19070,7 +23131,7 @@ export declare module MittwaldAPIV2 {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            userId: "self" | string;
+            userId: string;
           };
 
           export type Header =
@@ -19123,7 +23184,7 @@ export declare module MittwaldAPIV2 {
       namespace Put {
         namespace Parameters {
           export type Path = {
-            userId: "self" | string;
+            userId: string;
           };
 
           export interface RequestBody {
@@ -19143,6 +23204,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -19199,6 +23268,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -19240,6 +23317,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -19255,7 +23340,7 @@ export declare module MittwaldAPIV2 {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            userId: "self" | string;
+            userId: string;
           };
 
           export type Header =
@@ -19270,6 +23355,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.UserUserFeedback[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -19302,6 +23395,73 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Put {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            refreshToken: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * The expiration date of the token.
+                 */
+                expiresAt: string;
+                /**
+                 * Refresh token to refresh your access token even after it has expired.
+                 */
+                refreshToken: string;
+                /**
+                 * Public token to identify yourself against the public api.
+                 */
+                token: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -19325,6 +23485,14 @@ export declare module MittwaldAPIV2 {
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -19362,6 +23530,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -19411,6 +23587,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -19455,6 +23639,11 @@ export declare module MittwaldAPIV2 {
                  */
                 expires_in: number;
                 /**
+                 * The refresh token issued by the authorization server.
+                 *
+                 */
+                refresh_token: string;
+                /**
                  * The scope of the access token as described by
                  * [RFC6749](https://datatracker.ietf.org/doc/html/rfc6749#section-3.3).
                  *
@@ -19481,6 +23670,14 @@ export declare module MittwaldAPIV2 {
                   | "unsupported_grant_type"
                   | "invalid_scope";
                 error_description?: string;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
               }
             }
           }
@@ -19535,6 +23732,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -19550,7 +23755,7 @@ export declare module MittwaldAPIV2 {
       namespace Post {
         namespace Parameters {
           export type Path = {
-            userId: "self" | string;
+            userId: string;
           };
 
           export interface RequestBody {}
@@ -19608,6 +23813,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -19621,7 +23834,7 @@ export declare module MittwaldAPIV2 {
       namespace Delete {
         namespace Parameters {
           export type Path = {
-            userId: "self" | string;
+            userId: string;
           };
 
           export type Header =
@@ -19637,6 +23850,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -19683,7 +23904,7 @@ export declare module MittwaldAPIV2 {
             }
           }
 
-          namespace $403 {
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -19732,6 +23953,14 @@ export declare module MittwaldAPIV2 {
                  * support code to authenticate yourself against the mittwald support via telephone
                  */
                 supportCode: string;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
               }
             }
           }
@@ -19790,6 +24019,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -19807,7 +24044,7 @@ export declare module MittwaldAPIV2 {
       namespace Post {
         namespace Parameters {
           export type Path = {
-            userId: "self" | string;
+            userId: string;
           };
 
           export interface RequestBody {
@@ -19844,6 +24081,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $409 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -19910,55 +24155,7 @@ export declare module MittwaldAPIV2 {
             }
           }
 
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DomainTransferable {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            authCode: string;
-            domain: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                reasons: {
-                  domainAgeTooSmall: boolean;
-                  domainDoesNotExist: boolean;
-                  transferLock: boolean;
-                  wrongAuthCode: boolean;
-                };
-                transferable: boolean;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;

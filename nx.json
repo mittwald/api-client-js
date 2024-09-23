@@ -1,14 +1,18 @@
 {
-  "defaultBase": "master",
   "affected": {
     "defaultBase": "master"
   },
+  "defaultBase": "master",
   "targetDefaults": {
     "build": {
       "dependsOn": ["^build"],
       "cache": true
     },
-    "build:client": {
+    "build:client-prod": {
+      "cache": true,
+      "dependsOn": ["^build"]
+    },
+    "build:client-dev": {
       "cache": true,
       "dependsOn": ["^build"]
     },
@@ -19,8 +23,21 @@
     "lint": {
       "cache": true
     },
+    "test:compile": {
+      "dependsOn": ["^build"],
+      "cache": true
+    },
+    "test:unit": {
+      "dependsOn": ["^build"],
+      "cache": true
+    },
     "test": {
-      "dependsOn": ["^build", "test:client-generation-clean"],
+      "dependsOn": [
+        "^build",
+        "test:client-generation-clean",
+        "test:compile",
+        "test:unit"
+      ],
       "cache": true
     }
   }

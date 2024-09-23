@@ -1,4 +1,8 @@
-import { assertStatus, MittwaldAPIV2Client } from "@mittwald/api-client";
+import {
+  assertStatus,
+  extractTotalCountHeader,
+  MittwaldAPIV2Client,
+} from "@mittwald/api-client";
 import { assertOneOfStatus } from "@mittwald/api-client";
 import { AppInstallationBehaviors } from "./types.js";
 
@@ -22,6 +26,9 @@ export const apiAppInstallationBehaviors = (
       projectId,
     });
     assertStatus(response, 200);
-    return response.data;
+    return {
+      items: response.data,
+      totalCount: extractTotalCountHeader(response),
+    };
   },
 });

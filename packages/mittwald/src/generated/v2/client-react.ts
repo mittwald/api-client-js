@@ -42,6 +42,11 @@ const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.appGetSystemsoftwareversion,
     baseClient.app.getSystemsoftwareversion,
   ).getApiResource,
+  /** List AppInstallations that a user has access to. */
+  listAppinstallationsForUser: new ApiCallAsyncResourceFactory(
+    descriptors.appListAppinstallationsForUser,
+    baseClient.app.listAppinstallationsForUser,
+  ).getApiResource,
   /** List AppInstallations belonging to a Project. */
   listAppinstallations: new ApiCallAsyncResourceFactory(
     descriptors.appListAppinstallations,
@@ -176,6 +181,11 @@ const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.invoiceListCustomerInvoices,
     baseClient.contract.invoiceListCustomerInvoices,
   ).getApiResource,
+  /** Get list of Orders. */
+  orderListOrders: new ApiCallAsyncResourceFactory(
+    descriptors.orderListOrders,
+    baseClient.contract.orderListOrders,
+  ).getApiResource,
   /** Get Order for Customer. */
   orderGetOrder: new ApiCallAsyncResourceFactory(
     descriptors.orderGetOrder,
@@ -213,6 +223,11 @@ const buildConversationApi = (baseClient: MittwaldAPIV2Client) => ({
   getConversationMembers: new ApiCallAsyncResourceFactory(
     descriptors.conversationGetConversationMembers,
     baseClient.conversation.getConversationMembers,
+  ).getApiResource,
+  /** Get preferences for customer conversations. */
+  getConversationPreferencesOfCustomer: new ApiCallAsyncResourceFactory(
+    descriptors.conversationGetConversationPreferencesOfCustomer,
+    baseClient.conversation.getConversationPreferencesOfCustomer,
   ).getApiResource,
   /** Get a support conversation. */
   getConversation: new ApiCallAsyncResourceFactory(
@@ -255,20 +270,10 @@ const buildCronjobApi = (baseClient: MittwaldAPIV2Client) => ({
 });
 
 const buildCustomerApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** Get all customer categories. */
-  listOfCustomerCategories: new ApiCallAsyncResourceFactory(
-    descriptors.customerListOfCustomerCategories,
-    baseClient.customer.listOfCustomerCategories,
-  ).getApiResource,
   /** Get all customer profiles the authenticated user has access to. */
   listCustomers: new ApiCallAsyncResourceFactory(
     descriptors.customerListCustomers,
     baseClient.customer.listCustomers,
-  ).getApiResource,
-  /** Get a customer category. */
-  getCustomerCategory: new ApiCallAsyncResourceFactory(
-    descriptors.customerGetCustomerCategory,
-    baseClient.customer.getCustomerCategory,
   ).getApiResource,
   /** Get a CustomerInvite. */
   getCustomerInvite: new ApiCallAsyncResourceFactory(
@@ -406,6 +411,11 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.domainListTlds,
     baseClient.domain.listTlds,
   ).getApiResource,
+  /** Suggest a list of domains based on a prompt using AI. */
+  suggest: new ApiCallAsyncResourceFactory(
+    descriptors.domainSuggest,
+    baseClient.domain.suggest,
+  ).getApiResource,
   /** List Ingresses. */
   ingressListIngresses: new ApiCallAsyncResourceFactory(
     descriptors.ingressListIngresses,
@@ -415,6 +425,44 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   ingressGetIngress: new ApiCallAsyncResourceFactory(
     descriptors.ingressGetIngress,
     baseClient.domain.ingressGetIngress,
+  ).getApiResource,
+});
+
+const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** List ExtensionInstances. */
+  extensionListExtensionInstances: new ApiCallAsyncResourceFactory(
+    descriptors.extensionListExtensionInstances,
+    baseClient.marketplace.extensionListExtensionInstances,
+  ).getApiResource,
+  /** Get an ExtensionInstance. */
+  extensionGetExtensionInstance: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetExtensionInstance,
+    baseClient.marketplace.extensionGetExtensionInstance,
+  ).getApiResource,
+  /** Get a Contributor. */
+  extensionGetContributor: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetContributor,
+    baseClient.marketplace.extensionGetContributor,
+  ).getApiResource,
+  /** Get an Extension. */
+  extensionGetExtension: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetExtension,
+    baseClient.marketplace.extensionGetExtension,
+  ).getApiResource,
+  /** Get the public key to verify the webhook signature. */
+  extensionGetPublicKey: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetPublicKey,
+    baseClient.marketplace.extensionGetPublicKey,
+  ).getApiResource,
+  /** List Contributors. */
+  extensionListContributors: new ApiCallAsyncResourceFactory(
+    descriptors.extensionListContributors,
+    baseClient.marketplace.extensionListContributors,
+  ).getApiResource,
+  /** List Extensions. */
+  extensionListExtensions: new ApiCallAsyncResourceFactory(
+    descriptors.extensionListExtensions,
+    baseClient.marketplace.extensionListExtensions,
   ).getApiResource,
 });
 
@@ -438,6 +486,11 @@ const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({
   getFile: new ApiCallAsyncResourceFactory(
     descriptors.fileGetFile,
     baseClient.file.getFile,
+  ).getApiResource,
+  /** Get a File. */
+  getFileWithName: new ApiCallAsyncResourceFactory(
+    descriptors.fileGetFileWithName,
+    baseClient.file.getFileWithName,
   ).getApiResource,
 });
 
@@ -732,8 +785,11 @@ export class MittwaldAPIV2ClientReact {
   /** The database API allows you to manage your databases, like MySQL and Redis databases. */
   public readonly database: ReturnType<typeof buildDatabaseApi>;
 
-  /** The domain API allows you to manage your domains, DNS records and ingress resources. */
+  /** The domain API allows you to manage your domains, DNS records, SSL certificates and ingress resources. */
   public readonly domain: ReturnType<typeof buildDomainApi>;
+
+  /** The marketplace API allows you to manage extensions and more information regaring the marketplace. */
+  public readonly marketplace: ReturnType<typeof buildMarketplaceApi>;
 
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
   public readonly file: ReturnType<typeof buildFileApi>;
@@ -779,6 +835,8 @@ export class MittwaldAPIV2ClientReact {
     this.database = buildDatabaseApi(baseClient);
 
     this.domain = buildDomainApi(baseClient);
+
+    this.marketplace = buildMarketplaceApi(baseClient);
 
     this.file = buildFileApi(baseClient);
 
