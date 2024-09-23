@@ -6,6 +6,7 @@ import { apiCustomerBehaviors } from "../../customer/Customer/behaviors/index.js
 import { apiIngressBehaviors } from "../../domain/Ingress/behaviors/index.js";
 import { apiAppInstallationBehaviors } from "../../app/AppInstallation/behaviors/index.js";
 import { apiInvoiceBehaviors } from "../../invoice/Invoice/behaviors/index.js";
+import { updateCacheTagsBeforeRequest } from "../../react/asyncResourceInvalidation.js";
 
 class ApiSetupState {
   private _client: MittwaldAPIV2Client | undefined;
