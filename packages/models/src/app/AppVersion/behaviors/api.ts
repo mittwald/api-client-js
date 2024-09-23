@@ -2,6 +2,7 @@ import {
   assertStatus,
   assertOneOfStatus,
   MittwaldAPIV2Client,
+  extractTotalCountHeader,
 } from "@mittwald/api-client";
 import { AppVersionBehaviors } from "./types.js";
 
@@ -13,11 +14,9 @@ export const apiAppVersionBehaviors = (
       appVersionId: id,
       appId,
     });
-
     if (response.status === 200) {
       return response.data;
     }
-
     assertOneOfStatus(response, [404]);
   },
 
@@ -26,10 +25,11 @@ export const apiAppVersionBehaviors = (
       appId,
       queryParameters: query,
     });
-
     assertStatus(response, 200);
-
-    return response.data;
+    return {
+      items: response.data,
+      totalCount: extractTotalCountHeader(response),
+    };
   },
 
   listUpdateCandidates: async (appId, baseAppVersionId) => {
@@ -37,9 +37,10 @@ export const apiAppVersionBehaviors = (
       appId,
       baseAppVersionId,
     });
-
     assertStatus(response, 200);
-
-    return response.data;
+    return {
+      items: response.data,
+      totalCount: extractTotalCountHeader(response),
+    };
   },
 });

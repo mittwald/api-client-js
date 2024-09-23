@@ -6,13 +6,15 @@ import { classes } from "polytype";
 import {
   AppVersionData,
   AppVersionListItemData,
-  AppVersionListQuery,
+  AppVersionListQueryModelData,
 } from "./types.js";
 import { config } from "../../config/config.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import semverCompare from "semver-compare";
 import { DataModel } from "../../base/DataModel.js";
 import { ReferenceModel } from "../../base/ReferenceModel.js";
+import { App } from "../App/index.js";
+import { ListDataModel, ListQueryModel } from "../../base/index.js";
 
 export class AppVersion extends ReferenceModel {
   public readonly appId: string;
@@ -46,34 +48,27 @@ export class AppVersion extends ReferenceModel {
     },
   );
 
+  public static query(query: AppVersionListQueryModelData) {
+    return new AppVersionListQuery(query);
+  }
+
   public getDetailed = provideReact(() =>
     AppVersion.get(this.id, this.appId),
   ) as AsyncResourceVariant<AppVersionDetailed, []>;
 
-  public static list = provideReact(
-    async (
-      appId: string,
-      query: AppVersionListQuery = {},
-    ): Promise<Readonly<Array<AppVersionListItem>>> => {
-      const data = await config.behaviors.appVersion.list(appId, query);
-      return Object.freeze(
-        data
-          .map((d) => new AppVersionListItem(d))
-          .sort((a, b) =>
-            semverCompare(b.data.internalVersion, a.data.internalVersion),
-          ),
-      );
-    },
-  );
+  public findDetailed = provideReact(
+    () => AppVersion.find(this.id, this.appId),
+    [this.id],
+  ) as AsyncResourceVariant<AppVersionDetailed | undefined, []>;
 
   public listUpdateCandidates = provideReact(
     async (appId: string): Promise<Readonly<Array<AppVersionListItem>>> => {
-      const data = await config.behaviors.appVersion.listUpdateCandidates(
+      const { items } = await config.behaviors.appVersion.listUpdateCandidates(
         appId,
         this.id,
       );
       return Object.freeze(
-        data
+        items
           .map((d) => new AppVersionListItem(d))
           .sort((a, b) =>
             semverCompare(b.data.internalVersion, a.data.internalVersion),
@@ -96,12 +91,11 @@ export class AppVersionDetailed extends classes(
   AppVersionCommon,
   DataModel<AppVersionData>,
 ) {
-  // ToDo: activate when App model is merged
-  // public readonly app: App;
+  public readonly app: App;
 
   public constructor(data: AppVersionData) {
     super([data], [data]);
-    // this.app = App.ofId(data.appId);
+    this.app = App.ofId(data.appId);
   }
 }
 
@@ -111,5 +105,51 @@ export class AppVersionListItem extends classes(
 ) {
   public constructor(data: AppVersionListItemData) {
     super([data], [data]);
+  }
+}
+
+export class AppVersionListQuery extends ListQueryModel<AppVersionListQueryModelData> {
+  public constructor(query: AppVersionListQueryModelData) {
+    super(query);
+  }
+
+  public refine(query: AppVersionListQueryModelData) {
+    return new AppVersionListQuery({
+      ...this.query,
+      ...query,
+    });
+  }
+
+  public execute = provideReact(async () => {
+    const { app, ...query } = this.query;
+    const { items, totalCount } = await config.behaviors.appVersion.list(
+      app.id,
+      {
+        ...query,
+      },
+    );
+
+    return new AppVersionList(
+      this.query,
+      items
+        .map((d) => new AppVersionListItem(d))
+        .sort((a, b) =>
+          semverCompare(b.data.internalVersion, a.data.internalVersion),
+        ),
+      totalCount,
+    );
+  }, [this.queryId]);
+}
+
+export class AppVersionList extends classes(
+  AppVersionListQuery,
+  ListDataModel<AppVersionListItem>,
+) {
+  public constructor(
+    query: AppVersionListQueryModelData,
+    appVersions: AppVersionListItem[],
+    totalCount: number,
+  ) {
+    super([query], [appVersions, totalCount]);
   }
 }

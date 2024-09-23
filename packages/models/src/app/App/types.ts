@@ -5,6 +5,8 @@ export type AppData = MittwaldAPIV2.Operations.AppGetApp.ResponseData;
 export type AppListItemData =
   MittwaldAPIV2.Operations.AppListApps.ResponseData[number];
 
+export type AppListQueryData = MittwaldAPIV2.Paths.V2Apps.Get.Parameters.Query;
+
 export enum AppNames {
   bookstack = "BookStack",
   contao = "Contao",

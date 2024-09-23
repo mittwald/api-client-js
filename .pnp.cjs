@@ -2127,6 +2127,7 @@ const RAW_RUNTIME_STATE =
           ["@mittwald/react-use-promise", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#npm:2.3.13"],\
           ["@types/jest", "npm:29.5.12"],\
           ["@types/react", "npm:18.3.3"],\
+          ["@types/semver-compare", "npm:1.0.3"],\
           ["@typescript-eslint/eslint-plugin", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:7.18.0"],\
           ["@typescript-eslint/parser", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:7.18.0"],\
           ["another-deep-freeze", "npm:1.0.0"],\
@@ -2140,6 +2141,7 @@ const RAW_RUNTIME_STATE =
           ["prettier", "npm:3.3.3"],\
           ["react", "npm:18.3.1"],\
           ["rimraf", "npm:5.0.10"],\
+          ["semver-compare", "npm:1.0.0"],\
           ["ts-jest", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:29.2.4"],\
           ["type-fest", "npm:4.23.0"],\
           ["typescript", "patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"]\
@@ -3718,6 +3720,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/@types-semver-npm-7.3.13-56212b60da-0064efd7a0.zip/node_modules/@types/semver/",\
         "packageDependencies": [\
           ["@types/semver", "npm:7.3.13"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/semver-compare", [\
+      ["npm:1.0.3", {\
+        "packageLocation": "./.yarn/cache/@types-semver-compare-npm-1.0.3-10056c88f6-be6d31ee0d.zip/node_modules/@types/semver-compare/",\
+        "packageDependencies": [\
+          ["@types/semver-compare", "npm:1.0.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -12235,6 +12246,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/semver-npm-7.6.3-57e82c14d5-36b1fbe1a2.zip/node_modules/semver/",\
         "packageDependencies": [\
           ["semver", "npm:7.6.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["semver-compare", [\
+      ["npm:1.0.0", {\
+        "packageLocation": "./.yarn/cache/semver-compare-npm-1.0.0-33f7033df0-75f9c7a778.zip/node_modules/semver-compare/",\
+        "packageDependencies": [\
+          ["semver-compare", "npm:1.0.0"]\
         ],\
         "linkType": "HARD"\
       }]\

@@ -43,6 +43,7 @@
     "another-deep-freeze": "^1.0.0",
     "object-code": "^1.3.3",
     "polytype": "^0.17.0",
+    "semver-compare": "^1.0.0",
     "type-fest": "^4.23.0"
   },
   "devDependencies": {
@@ -50,6 +51,7 @@
     "@mittwald/react-use-promise": "^2.3.13",
     "@types/jest": "^29.5.12",
     "@types/react": "^18.3.3",
+    "@types/semver-compare": "^1",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
     "eslint": "^8.57.0",

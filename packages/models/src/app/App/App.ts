@@ -4,12 +4,27 @@ import {
 } from "../../lib/provideReact.js";
 import { config } from "../../config/config.js";
 import { classes } from "polytype";
-import { AppData, AppListItemData, AppNames } from "./types.js";
+import {
+  AppData,
+  AppListItemData,
+  AppListQueryData,
+  AppNames,
+} from "./types.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import { DataModel } from "../../base/DataModel.js";
 import { ReferenceModel } from "../../base/ReferenceModel.js";
+import { ListDataModel, ListQueryModel } from "../../base/index.js";
+import { AppVersionListQuery } from "../AppVersion/index.js";
 
 export class App extends ReferenceModel {
+  public readonly appVersions: AppVersionListQuery;
+
+  public constructor(id: string) {
+    super(id);
+    this.appVersions = new AppVersionListQuery({
+      app: this,
+    });
+  }
   public static ofId(id: string): App {
     return new App(id);
   }
@@ -34,25 +49,14 @@ export class App extends ReferenceModel {
     App.get(this.id),
   ) as AsyncResourceVariant<AppDetailed, []>;
 
-  public static list = provideReact(
-    async (): Promise<Readonly<Array<AppListItem>>> => {
-      const data = await config.behaviors.app.list();
+  public findDetailed = provideReact(
+    () => App.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<AppDetailed | undefined, []>;
 
-      return Object.freeze(data.map((d) => new AppListItem(d)));
-    },
-  );
-
-  public static async findByName(name: AppNames): Promise<App | undefined> {
-    const appList = await App.list();
-
-    return appList.find((a) => a.data.name === name);
+  public static query(query: AppListQueryData = {}) {
+    return new AppListQuery(query);
   }
-
-  /* ToDo: Activate when AppVersion model is merged (https://github.com/mittwald/api-client-js/pull/72)
-  public listVersions = provideReact((query) =>
-    AppVersion.list({ appId: this.id, query }),
-  ) as AsyncResourceVariant<AppVersionListItem[], []>;
-  */
 }
 
 class AppCommon extends classes(DataModel<AppData | AppListItemData>, App) {
@@ -90,5 +94,50 @@ export class AppListItem extends classes(
 ) {
   public constructor(data: AppListItemData) {
     super([data], [data]);
+  }
+}
+
+export class AppListQuery extends ListQueryModel<AppListQueryData> {
+  public constructor(query: AppListQueryData = {}) {
+    super(query);
+  }
+
+  public refine(query: AppListQueryData) {
+    return new AppListQuery({
+      ...this.query,
+      ...query,
+    });
+  }
+
+  public execute = provideReact(async () => {
+    const { items, totalCount } = await config.behaviors.app.list(this.query);
+
+    return new AppList(
+      this.query,
+      items.map((d) => new AppListItem(d)),
+      totalCount,
+    );
+  }, [this.queryId]);
+
+  public getTotalCount = provideReact(async () => {
+    const { totalCount } = await this.refine({ limit: 1 }).execute();
+    return totalCount;
+  }, [this.queryId]);
+
+  public findOneAndOnly = provideReact(async () => {
+    const { items, totalCount } = await this.refine({ limit: 2 }).execute();
+    if (totalCount === 1) {
+      return items[0];
+    }
+  }, [this.queryId]);
+}
+
+export class AppList extends classes(AppListQuery, ListDataModel<AppListItem>) {
+  public constructor(
+    query: AppListQueryData,
+    apps: AppListItem[],
+    totalCount: number,
+  ) {
+    super([query], [apps, totalCount]);
   }
 }

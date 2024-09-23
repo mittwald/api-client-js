@@ -1,19 +1,20 @@
 import {
   AppVersionData,
   AppVersionListItemData,
-  AppVersionListQuery,
+  AppVersionListQueryData,
 } from "../types.js";
+import { QueryResponseData } from "../../../base/index.js";
 
 export interface AppVersionBehaviors {
   find: (id: string, appId: string) => Promise<AppVersionData | undefined>;
 
   list: (
     appId: string,
-    query?: AppVersionListQuery,
-  ) => Promise<AppVersionListItemData[]>;
+    query?: AppVersionListQueryData,
+  ) => Promise<QueryResponseData<AppVersionListItemData>>;
 
   listUpdateCandidates: (
     appId: string,
     baseAppVersionId: string,
-  ) => Promise<AppVersionListItemData[]>;
+  ) => Promise<QueryResponseData<AppVersionListItemData>>;
 }
