@@ -33,9 +33,18 @@ export class InvoiceSettings extends ReferenceModel {
   );
 }
 
-export class InvoiceSettingsDetailed extends classes(
+export class InvoiceSettingsCommon extends classes(
   DataModel<InvoiceSettingsData>,
   InvoiceSettings,
+) {
+  public constructor(data: InvoiceSettingsData) {
+    super([data]);
+  }
+}
+
+export class InvoiceSettingsDetailed extends classes(
+  DataModel<InvoiceSettingsData>,
+  InvoiceSettingsCommon,
 ) {
   public constructor(data: InvoiceSettingsData) {
     super([data]);
