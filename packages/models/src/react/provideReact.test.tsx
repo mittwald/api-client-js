@@ -7,7 +7,10 @@ import { provideReact } from "./provideReact.js";
 import React, { act, FC, PropsWithChildren, Suspense } from "react";
 import { beforeEach, jest } from "@jest/globals";
 import { MittwaldApiModelProvider } from "./MittwaldApiModelProvider.js";
-import { addCacheTag, refreshModels } from "./asyncResourceInvalidation.js";
+import {
+  addTagToProvideReactCache,
+  refreshProvideReactCache,
+} from "./asyncResourceInvalidation.js";
 import { asyncResourceStore } from "@mittwald/react-use-promise";
 
 const simulatedDataLoad = jest.fn();
@@ -30,7 +33,7 @@ class TestModel extends ReferenceModel {
   }
 
   public getDetailed = provideReact(async () => {
-    addCacheTag(`test/get/${this.id}`);
+    addTagToProvideReactCache(`test/get/${this.id}`);
     await simulatedDataLoad();
     return {
       id: this.id,
@@ -79,12 +82,12 @@ test("Model caches data", async () => {
 test("Model cache can be refreshed", async () => {
   await runTest(42, 1);
   // Tag does not exist
-  act(() => refreshModels("foo"));
+  act(() => refreshProvideReactCache("foo"));
   await runTest(42, 1);
   // Tag exist
-  act(() => refreshModels("test/get/42"));
+  act(() => refreshProvideReactCache("test/get/42"));
   await runTest(42, 2);
   // Tag exist
-  act(() => refreshModels("test/**/*"));
+  act(() => refreshProvideReactCache("test/**/*"));
   await runTest(42, 3);
 });

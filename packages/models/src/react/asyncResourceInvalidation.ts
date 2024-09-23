@@ -5,7 +5,7 @@ import { Store } from "@mittwald/react-use-promise/store";
 
 const cacheTagStore = new Store<Set<string>>();
 
-export const refreshModels = (tag: string) => {
+export const refreshProvideReactCache = (tag: string) => {
   cacheTagStore.getAll(tag).forEach((ids) => {
     ids.forEach((id) => {
       refresh({
@@ -15,7 +15,7 @@ export const refreshModels = (tag: string) => {
   });
 };
 
-export const addCacheTag = (tag: string) => {
+export const addTagToProvideReactCache = (tag: string) => {
   const context = reactProvisionContext.use();
 
   if (context) {
@@ -28,11 +28,11 @@ export const addCacheTag = (tag: string) => {
   }
 };
 
-export const updateCacheTagsBeforeRequest: Commons.RequestOptions["onBeforeRequest"] =
+export const addUrlTagToProvideReactCache: Commons.RequestOptions["onBeforeRequest"] =
   (request) => {
     const url = request.requestConfig.url;
 
     if (request.requestConfig.method === "GET" && url) {
-      addCacheTag(url);
+      addTagToProvideReactCache(url);
     }
   };
