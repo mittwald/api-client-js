@@ -38,7 +38,7 @@ export class InvoiceSettingsDetailed extends classes(
   InvoiceSettings,
 ) {
   public constructor(data: InvoiceSettingsData) {
-    super([data], [data.id]);
+    super([data]);
     Object.assign(this, data);
   }
 }
