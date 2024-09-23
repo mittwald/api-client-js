@@ -31,16 +31,6 @@ export class InvoiceSettings extends ReferenceModel {
       return invoiceSettings;
     },
   );
-
-  public async update(
-    data: Partial<InvoiceSettingsData>,
-  ): Promise<InvoiceSettingsDetailed> {
-    const updatedData = await config.behaviors.invoiceSettings.update(
-      this.id,
-      data,
-    );
-    return new InvoiceSettingsDetailed(updatedData);
-  }
 }
 
 export class InvoiceSettingsDetailed extends classes(
