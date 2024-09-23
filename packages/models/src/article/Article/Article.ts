@@ -12,6 +12,7 @@ import assertObjectFound from "../../base/assertObjectFound.js";
 import { provideReact } from "../../react/provideReact.js";
 import { ListQueryModel } from "../../base/ListQueryModel.js";
 import { ListDataModel } from "../../base/ListDataModel.js";
+import { Money } from "../../base/Money.js";
 
 export class Article extends ReferenceModel {
   public static ofId(id: string): Article {
@@ -45,8 +46,10 @@ class ArticleCommon extends classes(
   DataModel<ArticleListItemData | ArticleData>,
   Article,
 ) {
+  public readonly price: Money;
   public constructor(data: ArticleListItemData | ArticleData) {
     super([data]);
+    this.price = Money({ amount: data.price, currency: "EUR" });
   }
 }
 
