@@ -41,6 +41,6 @@ export const provideReact = <T extends AsyncFn>(
 };
 
 export type AsyncResourceVariant<T extends AsyncFn> = T & {
-  asResource: (...params: Parameters<T>) => AsyncResource<ReturnType<T>>;
+  asResource: (...params: Parameters<T>) => AsyncResource<AsyncReturnType<T>>;
   use: (...params: Parameters<T>) => AsyncReturnType<T>;
 };

@@ -2192,6 +2192,7 @@ const RAW_RUNTIME_STATE =
           ["react-dom", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#npm:18.3.1"],\
           ["rimraf", "npm:5.0.10"],\
           ["ts-jest", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:29.2.4"],\
+          ["tsd", "npm:0.31.2"],\
           ["type-fest", "npm:4.23.0"],\
           ["typescript", "patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"]\
         ],\
@@ -13822,6 +13823,20 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/tsd-npm-0.31.1-98eff5fb87-d07c14df39.zip/node_modules/tsd/",\
         "packageDependencies": [\
           ["tsd", "npm:0.31.1"],\
+          ["@tsd/typescript", "npm:5.4.5"],\
+          ["eslint-formatter-pretty", "npm:4.1.0"],\
+          ["globby", "npm:11.1.0"],\
+          ["jest-diff", "npm:29.7.0"],\
+          ["meow", "npm:9.0.0"],\
+          ["path-exists", "npm:4.0.0"],\
+          ["read-pkg-up", "npm:7.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:0.31.2", {\
+        "packageLocation": "./.yarn/cache/tsd-npm-0.31.2-07f84c93d0-544995fc4c.zip/node_modules/tsd/",\
+        "packageDependencies": [\
+          ["tsd", "npm:0.31.2"],\
           ["@tsd/typescript", "npm:5.4.5"],\
           ["eslint-formatter-pretty", "npm:4.1.0"],\
           ["globby", "npm:11.1.0"],\
