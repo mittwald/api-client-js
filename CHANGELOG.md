@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.60.1](https://github.com/mittwald/api-client-js/compare/4.60.0...4.60.1) (2024-09-23)
+
+### Bug Fixes
+
+- **Models:** fix type in provideReact
+  ([7f29da5](https://github.com/mittwald/api-client-js/commit/7f29da5894a9605870fdf17ea1122c7230be2b65))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [4.60.0](https://github.com/mittwald/api-client-js/compare/4.59.0...4.60.0) (2024-09-23)
 
 ### Features
