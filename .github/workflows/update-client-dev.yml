@@ -47,8 +47,9 @@ jobs:
       - name: Update OpenAPI ⬇️
         if: github.ref == 'refs/heads/dev'
         run: |
-          yarn nx run @mittwald/api-client:build:client-dev
+          yarn nx run @mittwald/api-client:build:fetch-openapi-dev
           if [ $(git status --porcelain . | wc -l) -gt 0 ] ; then
+            yarn nx run @mittwald/api-client:build:client-dev
             git add .
             yarn test
             git commit -m "chore: update generated development client";            
