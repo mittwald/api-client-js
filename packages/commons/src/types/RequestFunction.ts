@@ -4,6 +4,13 @@ import {
   OpenAPIOperation,
 } from "./OpenAPIOperation.js";
 import { NullableOnNoRequiredKeysDeep } from "./NullableOnNoRequiredKeysDeep.js";
+import Request from "../core/Request.js";
+
+export interface RequestOptions<
+  TOp extends OpenAPIOperation = OpenAPIOperation,
+> {
+  onBeforeRequest?: (req: Request<TOp>) => void;
+}
 
 type UnboxPathParameters<T> = T extends { pathParameters: infer TPath }
   ? Omit<T, "pathParameters"> & TPath
@@ -18,10 +25,12 @@ export type ResponsePromise<TOp extends OpenAPIOperation> = Promise<
 
 type RequestFunctionWithOptionalRequest<TOp extends OpenAPIOperation> = (
   request?: RequestObject<TOp>,
+  opts?: RequestOptions<TOp>,
 ) => ResponsePromise<TOp>;
 
 type RequestFunctionWithRequiredRequest<TOp extends OpenAPIOperation> = (
   request: RequestObject<TOp>,
+  opts?: RequestOptions<TOp>,
 ) => ResponsePromise<TOp>;
 
 export type RequestFunction<TOp extends OpenAPIOperation> =

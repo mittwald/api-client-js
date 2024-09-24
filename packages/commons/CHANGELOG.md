@@ -3,6 +3,81 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.60.0](https://github.com/mittwald/api-client-js/compare/4.59.0...4.60.0) (2024-09-23)
+
+### Features
+
+- **Models:** refresh Models by tags (URLs per default)
+  ([fe69d79](https://github.com/mittwald/api-client-js/commit/fe69d79ca3eee0a1eb9c33abaf070ba64d4a6493))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [4.59.0](https://github.com/mittwald/api-client-js/compare/4.58.2...4.59.0) (2024-09-20)
+
+### Features
+
+- **Commons:** introduce options for request functions
+  ([0af347a](https://github.com/mittwald/api-client-js/commit/0af347a9928136395c4e6db2c2238753b50d4fdc))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [4.58.1](https://github.com/mittwald/api-client-js/compare/4.58.0...4.58.1) (2024-09-10)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [4.55.0](https://github.com/mittwald/api-client-js/compare/4.54.0...4.55.0) (2024-08-22)
+
+### Features
+
+- **Models:** introduce Query Models and List Models
+  ([effb4ba](https://github.com/mittwald/api-client-js/commit/effb4ba91fc1a22393ab32093242650ad1d12a1d))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [4.47.2](https://github.com/mittwald/api-client-js/compare/4.47.1...4.47.2) (2024-08-14)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [4.44.5](https://github.com/mittwald/api-client-js/compare/4.44.4...4.44.5) (2024-08-07)
+
+### Bug Fixes
+
+- **Commons:** omit undefined query parameters
+  ([01f092b](https://github.com/mittwald/api-client-js/commit/01f092b7dac2b85dde1ca1a8d8626c253151064a))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [4.44.3](https://github.com/mittwald/api-client-js/compare/4.44.2...4.44.3) (2024-08-07)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [4.15.0](https://github.com/mittwald/api-client-js/compare/4.14.2...4.15.0) (2024-03-20)
 
 ### Features

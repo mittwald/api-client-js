@@ -1,12 +1,15 @@
 import {
   ProjectListItemData,
   ProjectData,
-  ProjectListQuery,
+  ProjectListQueryData,
 } from "../types.js";
+import { QueryResponseData } from "../../../base/index.js";
 
 export interface ProjectBehaviors {
   find: (id: string) => Promise<ProjectData | undefined>;
-  list: (query?: ProjectListQuery) => Promise<ProjectListItemData[]>;
+  list: (
+    query?: ProjectListQueryData,
+  ) => Promise<QueryResponseData<ProjectListItemData>>;
 
   create: (serverId: string, description: string) => Promise<{ id: string }>;
 
