@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.61.0](https://github.com/mittwald/api-client-js/compare/4.60.1...4.61.0) (2024-09-24)
+
+### Features
+
+- **Models:** export Model invalidation request option
+  ([8418480](https://github.com/mittwald/api-client-js/commit/8418480baed246963353de45aa076e5a6e300188))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [4.60.1](https://github.com/mittwald/api-client-js/compare/4.60.0...4.60.1) (2024-09-23)
 
 ### Bug Fixes
