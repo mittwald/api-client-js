@@ -179,6 +179,11 @@ const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.contractGetBaseItemOfContract,
     baseClient.contract.getBaseItemOfContract,
   ).getApiResource,
+  /** Return the Contract for the given Certificate. */
+  getDetailOfContractByCertificate: new ApiCallAsyncResourceFactory(
+    descriptors.contractGetDetailOfContractByCertificate,
+    baseClient.contract.getDetailOfContractByCertificate,
+  ).getApiResource,
   /** Return the Contract for the given Domain. */
   getDetailOfContractByDomain: new ApiCallAsyncResourceFactory(
     descriptors.contractGetDetailOfContractByDomain,
@@ -323,20 +328,10 @@ const buildCronjobApi = (baseClient: MittwaldAPIV2Client) => ({
 });
 
 const buildCustomerApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** Get all customer categories. */
-  listOfCustomerCategories: new ApiCallAsyncResourceFactory(
-    descriptors.customerListOfCustomerCategories,
-    baseClient.customer.listOfCustomerCategories,
-  ).getApiResource,
   /** Get all customer profiles the authenticated user has access to. */
   listCustomers: new ApiCallAsyncResourceFactory(
     descriptors.customerListCustomers,
     baseClient.customer.listCustomers,
-  ).getApiResource,
-  /** Get a customer category. */
-  getCustomerCategory: new ApiCallAsyncResourceFactory(
-    descriptors.customerGetCustomerCategory,
-    baseClient.customer.getCustomerCategory,
   ).getApiResource,
   /** Get a CustomerInvite. */
   getCustomerInvite: new ApiCallAsyncResourceFactory(
@@ -474,6 +469,11 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.domainListTlds,
     baseClient.domain.listTlds,
   ).getApiResource,
+  /** Suggest a list of domains based on a prompt using AI. */
+  suggest: new ApiCallAsyncResourceFactory(
+    descriptors.domainSuggest,
+    baseClient.domain.suggest,
+  ).getApiResource,
   /** List Ingresses. */
   ingressListIngresses: new ApiCallAsyncResourceFactory(
     descriptors.ingressListIngresses,
@@ -483,6 +483,26 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   ingressGetIngress: new ApiCallAsyncResourceFactory(
     descriptors.ingressGetIngress,
     baseClient.domain.ingressGetIngress,
+  ).getApiResource,
+  /** List CertificateRequests belonging to a Project or an Ingress. */
+  sslListCertificateRequests: new ApiCallAsyncResourceFactory(
+    descriptors.sslListCertificateRequests,
+    baseClient.domain.sslListCertificateRequests,
+  ).getApiResource,
+  /** Get a CertificateRequest. */
+  sslGetCertificateRequest: new ApiCallAsyncResourceFactory(
+    descriptors.sslGetCertificateRequest,
+    baseClient.domain.sslGetCertificateRequest,
+  ).getApiResource,
+  /** Get a Certificate. */
+  sslGetCertificate: new ApiCallAsyncResourceFactory(
+    descriptors.sslGetCertificate,
+    baseClient.domain.sslGetCertificate,
+  ).getApiResource,
+  /** List Certificates belonging to a Project or an Ingress. */
+  sslListCertificates: new ApiCallAsyncResourceFactory(
+    descriptors.sslListCertificates,
+    baseClient.domain.sslListCertificates,
   ).getApiResource,
 });
 
@@ -545,7 +565,7 @@ const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.fileGetFile,
     baseClient.file.getFile,
   ).getApiResource,
-  /** Get a File. */
+  /** Get a File with user-friendly url. */
   getFileWithName: new ApiCallAsyncResourceFactory(
     descriptors.fileGetFileWithName,
     baseClient.file.getFileWithName,
@@ -851,7 +871,7 @@ export class MittwaldAPIV2ClientReact {
   /** The database API allows you to manage your databases, like MySQL and Redis databases. */
   public readonly database: ReturnType<typeof buildDatabaseApi>;
 
-  /** The domain API allows you to manage your domains, DNS records and ingress resources. */
+  /** The domain API allows you to manage your domains, DNS records, SSL certificates and ingress resources. */
   public readonly domain: ReturnType<typeof buildDomainApi>;
 
   /** The marketplace API allows you to manage extensions and more information regaring the marketplace. */
