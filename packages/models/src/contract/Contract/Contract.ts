@@ -29,7 +29,7 @@ export class Contract extends ReferenceModel {
     },
   );
 
-  public static query(query: ContractListQueryModelData = {}) {
+  public static query(query: ContractListQueryModelData) {
     return new ContractListQuery(query);
   }
 
@@ -70,7 +70,7 @@ export class ContractListItem extends classes(
 }
 
 export class ContractListQuery extends ListQueryModel<ContractListQueryModelData> {
-  public constructor(query: ContractListQueryModelData = {}) {
+  public constructor(query: ContractListQueryModelData) {
     super(query);
   }
 
@@ -84,9 +84,6 @@ export class ContractListQuery extends ListQueryModel<ContractListQueryModelData
   public execute = provideReact(async () => {
     const { customer, ...query } = this.query;
 
-    if (!customer || !customer.id) {
-      throw new Error("customerId is required to execute this query");
-    }
     const customerId = customer.id;
     const request = {
       customerId: customerId,
@@ -122,7 +119,7 @@ export class ContractList extends classes(
   ListDataModel<ContractListItem>,
 ) {
   public constructor(
-    query: ContractListQueryData,
+    query: ContractListQueryModelData,
     contracts: ContractListItem[],
     totalCount: number,
   ) {

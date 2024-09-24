@@ -8,7 +8,7 @@ export type ContractListQueryModelData = Omit<
   ContractListQueryData,
   "customerId"
 > & {
-  customer?: Customer;
+  customer: Customer;
 };
 
 export type ContractData =
