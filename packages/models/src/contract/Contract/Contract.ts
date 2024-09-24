@@ -123,9 +123,9 @@ export class ContractList extends classes(
 ) {
   public constructor(
     query: ContractListQueryData,
-    customers: ContractListItem[],
+    contracts: ContractListItem[],
     totalCount: number,
   ) {
-    super([query], [customers, totalCount]);
+    super([query], [contracts, totalCount]);
   }
 }
