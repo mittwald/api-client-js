@@ -1,14 +1,33 @@
 import { ReferenceModel } from "../../base/ReferenceModel.js";
-import { ServerData, ServerListItemData, ServerListQuery } from "./types.js";
+import {
+  ServerData,
+  ServerListItemData,
+  ServerListQueryData,
+  ServerListQueryModelData,
+} from "./types.js";
 import { config } from "../../config/config.js";
 import { classes } from "polytype";
 import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
-import { Project } from "../../project/index.js";
+import { Project, ProjectListQuery } from "../../project/index.js";
 import { FirstParameter, ParamsExceptFirst } from "../../lib/types.js";
-import { AsyncResourceVariant, provideReact } from "../../lib/provideReact.js";
+import {
+  AsyncResourceVariant,
+  provideReact,
+} from "../../react/provideReact.js";
+import { ListQueryModel } from "../../base/ListQueryModel.js";
+import { ListDataModel } from "../../base/ListDataModel.js";
 
 export class Server extends ReferenceModel {
+  public readonly projects: ProjectListQuery;
+
+  public constructor(id: string) {
+    super(id);
+    this.projects = new ProjectListQuery({
+      server: this,
+    });
+  }
+
   public static ofId(id: string): Server {
     return new Server(id);
   }
@@ -31,10 +50,16 @@ export class Server extends ReferenceModel {
     },
   );
 
+  public static query(query: ServerListQueryModelData = {}) {
+    return new ServerListQuery(query);
+  }
+
+  /** @deprecated: use query() or customer.servers */
   public static list = provideReact(
-    async (query: ServerListQuery = {}): Promise<ServerListItem[]> => {
-      const projectListData = await config.behaviors.server.list(query);
-      return projectListData.map((d) => new ServerListItem(d));
+    async (
+      query: ServerListQueryData = {},
+    ): Promise<Readonly<ServerListItem[]>> => {
+      return new ServerListQuery(query).execute().then((r) => r.items);
     },
   );
 
@@ -44,6 +69,7 @@ export class Server extends ReferenceModel {
     return Project.create(this.id, ...parameters);
   }
 
+  /** @deprecated Use Server.projects property */
   public listProjects = provideReact(
     async (
       query: Omit<FirstParameter<typeof Project.list>, "serverId"> = {},
@@ -58,7 +84,12 @@ export class Server extends ReferenceModel {
   public getDetailed = provideReact(
     () => Server.get(this.id),
     [this.id],
-  ) as AsyncResourceVariant<ServerDetailed, []>;
+  ) as AsyncResourceVariant<() => Promise<ServerDetailed>>;
+
+  public findDetailed = provideReact(
+    () => Server.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<ServerDetailed | undefined>>;
 }
 
 // Common class for future extension
@@ -86,5 +117,58 @@ export class ServerListItem extends classes(
 ) {
   public constructor(data: ServerListItemData) {
     super([data], [data]);
+  }
+}
+
+export class ServerListQuery extends ListQueryModel<ServerListQueryModelData> {
+  public constructor(query: ServerListQueryModelData = {}) {
+    super(query);
+  }
+
+  public refine(query: ServerListQueryModelData) {
+    return new ServerListQuery({
+      ...this.query,
+      ...query,
+    });
+  }
+
+  public execute = provideReact(async () => {
+    const { customer, ...query } = this.query;
+    const { items, totalCount } = await config.behaviors.server.list({
+      limit: config.defaultPaginationLimit,
+      customerId: customer?.id,
+      ...query,
+    });
+
+    return new ServerList(
+      this.query,
+      items.map((d) => new ServerListItem(d)),
+      totalCount,
+    );
+  }, [this.queryId]);
+
+  public getTotalCount = provideReact(async () => {
+    const { totalCount } = await this.refine({ limit: 1 }).execute();
+    return totalCount;
+  }, [this.queryId]);
+
+  public findOneAndOnly = provideReact(async () => {
+    const { items, totalCount } = await this.refine({ limit: 2 }).execute();
+    if (totalCount === 1) {
+      return items[0];
+    }
+  }, [this.queryId]);
+}
+
+export class ServerList extends classes(
+  ServerListQuery,
+  ListDataModel<ServerListItem>,
+) {
+  public constructor(
+    query: ServerListQueryData,
+    servers: ServerListItem[],
+    totalCount: number,
+  ) {
+    super([query], [servers, totalCount]);
   }
 }

@@ -1,6 +1,13 @@
-import { ServerListItemData, ServerData, ServerListQuery } from "../types.js";
+import {
+  ServerListItemData,
+  ServerData,
+  ServerListQueryData,
+} from "../types.js";
+import { QueryResponseData } from "../../../base/index.js";
 
 export interface ServerBehaviors {
   find: (id: string) => Promise<ServerData | undefined>;
-  list: (query?: ServerListQuery) => Promise<ServerListItemData[]>;
+  list: (
+    query?: ServerListQueryData,
+  ) => Promise<QueryResponseData<ServerListItemData>>;
 }

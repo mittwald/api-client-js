@@ -1,6 +1,6 @@
 {
   "name": "@mittwald/api-client",
-  "version": "0.0.0-development-f311f07-20240822",
+  "version": "4.61.1",
   "author": "Mittwald CM Service GmbH & Co. KG <opensource@mittwald.de>",
   "type": "module",
   "description": "Auto-generated client for the mittwald API",
@@ -37,7 +37,7 @@
     "build:client-dev": "bash -e -o pipefail -c 'spec/transform-openapi.sh < spec/openapi-dev.json | run build:client-base'",
     "build:client-prod": "bash -e -o pipefail -c 'spec/transform-openapi.sh < spec/openapi.json | run build:client-base'",
     "build:fetch-openapi": "curl --location --fail --silent https://api.mittwald.de/v2/openapi.json > spec/openapi.json",
-    "build:fetch-openapi-dev": "curl --location --fail --silent https://api-public.dev.mittwald.systems/v2/openapi.json > spec/openapi-dev.json",
+    "build:fetch-openapi-dev": "curl --location --fail --silent https://developer.mittwald.de/specs/openapi-v2-dev.json > spec/openapi-dev.json",
     "build:write-version-file": "run tsx dev/writeVersion.ts",
     "format": "run prettier --write '**/*.{ts,tsx,yaml,yml,json,md,mdx,js}'",
     "lint": "run eslint .",
@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@mittwald/api-code-generator": "workspace:^",
-    "@mittwald/react-use-promise": "^2.3.13",
+    "@mittwald/react-use-promise": "^2.5.0",
     "@types/node": "^20.14.14",
     "@types/react": "^18.3.3",
     "@typescript-eslint/eslint-plugin": "^7.18.0",

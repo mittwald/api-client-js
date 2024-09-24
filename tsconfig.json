@@ -9,6 +9,7 @@
     "skipLibCheck": true,
     "strict": true,
     "stripInternal": true,
-    "target": "ES2022"
+    "target": "ES2022",
+    "jsx": "react"
   }
 }
