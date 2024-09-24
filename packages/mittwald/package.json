@@ -37,7 +37,7 @@
     "build:client-dev": "bash -e -o pipefail -c 'spec/transform-openapi.sh < spec/openapi-dev.json | run build:client-base'",
     "build:client-prod": "bash -e -o pipefail -c 'spec/transform-openapi.sh < spec/openapi.json | run build:client-base'",
     "build:fetch-openapi": "curl --location --fail --silent https://api.mittwald.de/v2/openapi.json > spec/openapi.json",
-    "build:fetch-openapi-dev": "curl --location --fail --silent https://api-public.dev.mittwald.systems/v2/openapi.json > spec/openapi-dev.json",
+    "build:fetch-openapi-dev": "curl --location --fail --silent https://developer.mittwald.de/specs/openapi-v2-dev.json > spec/openapi-dev.json",
     "build:write-version-file": "run tsx dev/writeVersion.ts",
     "format": "run prettier --write '**/*.{ts,tsx,yaml,yml,json,md,mdx,js}'",
     "lint": "run eslint .",
