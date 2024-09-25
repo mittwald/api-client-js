@@ -103,7 +103,7 @@ export class ArticleListQuery extends ListQueryModel<ArticleListQueryModelData> 
   }, [this.queryId]);
 
   public findOneAndOnly = provideReact(async () => {
-    const { items, totalCount } = await this.refine({ limit: 2 }).execute();
+    const { items, totalCount } = await this.refine({ limit: 1 }).execute();
     if (totalCount === 1) {
       return items[0];
     }

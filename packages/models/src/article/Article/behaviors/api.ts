@@ -16,7 +16,7 @@ export const apiArticleBehaviors = (
     if (response.status === 200) {
       return response.data;
     }
-    assertStatus(response, 429);
+    assertStatus(response, 404);
   },
 
   list: async (query) => {
