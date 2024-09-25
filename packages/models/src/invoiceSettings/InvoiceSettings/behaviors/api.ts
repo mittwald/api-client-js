@@ -13,7 +13,7 @@ export const apiInvoiceSettingsBehaviors = (
     if (response.status === 200) {
       return response.data;
     }
-    assertStatus(response, 429);
+    assertStatus(response, 404);
   },
 
   update: async (id, data) => {
@@ -21,6 +21,6 @@ export const apiInvoiceSettingsBehaviors = (
       customerId: id,
       data,
     });
-    assertStatus(response, 429);
+    assertStatus(response, 200);
   },
 });
