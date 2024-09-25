@@ -6,6 +6,7 @@ import { apiCustomerBehaviors } from "../../customer/Customer/behaviors/index.js
 import { apiIngressBehaviors } from "../../domain/Ingress/behaviors/index.js";
 import { apiAppInstallationBehaviors } from "../../app/AppInstallation/behaviors/index.js";
 import { addUrlTagToProvideReactCache } from "../../react/asyncResourceInvalidation.js";
+import { apiArticleBehaviors } from "../../article/Article/behaviors/index.js";
 import { apiContractBehaviors } from "../../contract/Contract/behaviors/index.js";
 import { apiContractItemBehaviors } from "../../contract/ContractItem/behaviors/index.js";
 
@@ -22,6 +23,7 @@ class ApiSetupState {
     this._client.defaultRequestOptions.onBeforeRequest =
       addUrlTagToProvideReactCache;
 
+    config.behaviors.article = apiArticleBehaviors(client);
     config.behaviors.project = apiProjectBehaviors(client);
     config.behaviors.server = apiServerBehaviors(client);
     config.behaviors.customer = apiCustomerBehaviors(client);

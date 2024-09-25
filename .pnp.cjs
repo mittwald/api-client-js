@@ -2172,6 +2172,7 @@ const RAW_RUNTIME_STATE =
           ["@testing-library/dom", "npm:10.4.0"],\
           ["@testing-library/jest-dom", "npm:6.5.0"],\
           ["@testing-library/react", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#npm:16.0.1"],\
+          ["@types/dinero.js", "npm:1.9.4"],\
           ["@types/jest", "npm:29.5.12"],\
           ["@types/react", "npm:18.3.3"],\
           ["@types/react-dom", "npm:18.3.0"],\
@@ -2179,6 +2180,7 @@ const RAW_RUNTIME_STATE =
           ["@typescript-eslint/parser", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:7.18.0"],\
           ["another-deep-freeze", "npm:1.0.0"],\
           ["context", "npm:3.0.31"],\
+          ["dinero.js", "npm:1.9.1"],\
           ["eslint", "npm:8.57.0"],\
           ["eslint-config-prettier", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:9.1.0"],\
           ["eslint-plugin-json", "npm:3.1.0"],\
@@ -3523,6 +3525,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@types/debug", "npm:4.1.12"],\
           ["@types/ms", "npm:0.7.34"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/dinero.js", [\
+      ["npm:1.9.4", {\
+        "packageLocation": "./.yarn/cache/@types-dinero.js-npm-1.9.4-e8641f6748-c5d5dc5b07.zip/node_modules/@types/dinero.js/",\
+        "packageDependencies": [\
+          ["@types/dinero.js", "npm:1.9.4"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6269,6 +6280,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/diff-sequences-npm-29.6.3-18ab2c9949-179daf9d2f.zip/node_modules/diff-sequences/",\
         "packageDependencies": [\
           ["diff-sequences", "npm:29.6.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["dinero.js", [\
+      ["npm:1.9.1", {\
+        "packageLocation": "./.yarn/cache/dinero.js-npm-1.9.1-1129c07918-e39d2eca25.zip/node_modules/dinero.js/",\
+        "packageDependencies": [\
+          ["dinero.js", "npm:1.9.1"]\
         ],\
         "linkType": "HARD"\
       }]\

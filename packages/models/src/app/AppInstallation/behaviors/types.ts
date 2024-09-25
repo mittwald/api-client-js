@@ -1,6 +1,6 @@
 import {
-  AppInstallationListItemData,
   AppInstallationData,
+  AppInstallationListItemData,
   AppInstallationListQueryData,
 } from "../types.js";
 import { QueryResponseData } from "../../../base/index.js";
