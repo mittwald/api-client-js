@@ -3,7 +3,10 @@ import { provideReact } from "../../react/index.js";
 import { classes } from "polytype";
 import { config } from "../../config/config.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
-import { InvoiceSettingsData } from "./types.js";
+import {
+  InvoiceSettingsData,
+  InvoiceSettingsUpdateRequestData,
+} from "./types.js";
 
 export class InvoiceSettings extends ReferenceModel {
   public constructor(id: string) {
@@ -31,6 +34,10 @@ export class InvoiceSettings extends ReferenceModel {
       return invoiceSettings;
     },
   );
+
+  public async update(data: InvoiceSettingsUpdateRequestData): Promise<void> {
+    await config.behaviors.invoiceSettings.update(this.id, data);
+  }
 }
 
 export class InvoiceSettingsCommon extends classes(
