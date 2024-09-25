@@ -6,6 +6,8 @@ import { apiCustomerBehaviors } from "../../customer/Customer/behaviors/index.js
 import { apiIngressBehaviors } from "../../domain/Ingress/behaviors/index.js";
 import { apiAppInstallationBehaviors } from "../../app/AppInstallation/behaviors/index.js";
 import { addUrlTagToProvideReactCache } from "../../react/asyncResourceInvalidation.js";
+import { apiContractBehaviors } from "../../contract/Contract/behaviors/index.js";
+import { apiContractItemBehaviors } from "../../contract/ContractItem/behaviors/index.js";
 
 class ApiSetupState {
   private _client: MittwaldAPIV2Client | undefined;
@@ -25,6 +27,8 @@ class ApiSetupState {
     config.behaviors.customer = apiCustomerBehaviors(client);
     config.behaviors.ingress = apiIngressBehaviors(client);
     config.behaviors.appInstallation = apiAppInstallationBehaviors(client);
+    config.behaviors.contract = apiContractBehaviors(client);
+    config.behaviors.contractItem = apiContractItemBehaviors(client);
   }
 
   public setupWithApiToken(apiToken: string) {
