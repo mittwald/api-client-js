@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.63.0](https://github.com/mittwald/api-client-js/compare/4.62.0...4.63.0) (2024-09-25)
+
+### Features
+
+- **Article:** add Article model
+  ([692e2aa](https://github.com/mittwald/api-client-js/commit/692e2aa753f70e72df7e41a1efe805b4552d8433))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [4.62.0](https://github.com/mittwald/api-client-js/compare/4.61.1...4.62.0) (2024-09-25)
 
 ### Features
