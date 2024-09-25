@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.62.0](https://github.com/mittwald/api-client-js/compare/4.61.1...4.62.0) (2024-09-25)
+
+### Features
+
+- **Contract:** add Contract/ContractItem model
+  ([bb1a329](https://github.com/mittwald/api-client-js/commit/bb1a329533ae2f86bcb3a62f9f81e4ee77be956b))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [4.61.1](https://github.com/mittwald/api-client-js/compare/4.61.0...4.61.1) (2024-09-24)
 
 **Note:** Version bump only for package @mittwald/api-models
