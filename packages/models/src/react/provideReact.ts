@@ -2,24 +2,19 @@ import { AsyncResource, reactUsePromise } from "./reactUsePromise.js";
 import { AsyncReturnType } from "type-fest";
 import { hash } from "object-code";
 import { reactProvisionContext } from "./reactProvisionContext.js";
+import { joinedId } from "../lib/joinedId.js";
 
 type AsyncFn = (...args: any[]) => Promise<unknown>;
 
 export const provideReact = <T extends AsyncFn>(
   loader: T,
-  dependencies?: string[],
+  dependencies: string[] = [],
 ) => {
   type P = Parameters<T>;
-  const provisionId = String(
-    hash({
-      loader,
-      dependencies,
-    }),
-  );
+  const provisionId = joinedId(hash(loader), ...dependencies);
 
   const getAsyncResource = (params: P) => {
-    const paramsHash = params && params.length > 0 ? String(hash(params)) : "";
-    const contextId = provisionId + paramsHash;
+    const contextId = joinedId(provisionId, hash(params));
 
     const loaderWithContext = reactProvisionContext.bind(
       {
