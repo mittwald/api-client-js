@@ -56,6 +56,10 @@ export class ContractItemCommon extends classes(
   public readonly totalYearlyPrice: Money;
   public readonly freeTrialDays?: number;
   public readonly orderDate?: Date;
+  public readonly isDomain: boolean;
+  public readonly isSSLCertificate: boolean;
+  public readonly isSpaceServer: boolean;
+  public readonly isProSpace: boolean;
   public readonly activationDate?: Date;
   public readonly nextPossibleDowngradeDate?: Date;
   public readonly nextPossibleTerminationDate?: Date;
@@ -66,6 +70,12 @@ export class ContractItemCommon extends classes(
     this.id = data.itemId;
     this.data = Object.freeze(data);
     this.description = data.description;
+    this.isDomain = data.aggregateReference?.aggregate === "domain";
+    this.isSSLCertificate =
+      data.aggregateReference?.aggregate === "certificate";
+    this.isSpaceServer =
+      data.aggregateReference?.aggregate === "placementgroup";
+    this.isProSpace = data.aggregateReference?.aggregate === "project";
     this.totalPrice = Money({
       amount: data.totalPrice.value,
       currency: "EUR",
