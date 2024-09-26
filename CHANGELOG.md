@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.64.1](https://github.com/mittwald/api-client-js/compare/4.64.0...4.64.1) (2024-09-26)
+
+### Bug Fixes
+
+- **Models:** fix AppInstallations not updating in React
+  ([4bc63d9](https://github.com/mittwald/api-client-js/commit/4bc63d9dc5e544f0145e1c1a264a52d7c6e70a3d))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [4.64.0](https://github.com/mittwald/api-client-js/compare/4.63.0...4.64.0) (2024-09-26)
 
 ### Features
