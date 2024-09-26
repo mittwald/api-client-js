@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.64.0](https://github.com/mittwald/api-client-js/compare/4.63.0...4.64.0) (2024-09-26)
+
+### Features
+
+- **Models:** support dependencies for ListQueryModels
+  ([d29d162](https://github.com/mittwald/api-client-js/commit/d29d162920d6a5297304a5aa2cb945a691bd9f40))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [4.63.0](https://github.com/mittwald/api-client-js/compare/4.62.0...4.63.0) (2024-09-25)
 
 ### Features
