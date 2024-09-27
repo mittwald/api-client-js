@@ -2,9 +2,6 @@ import { MittwaldAPIV2 } from "@mittwald/api-client";
 
 export type UserData = MittwaldAPIV2.Operations.UserGetUser.ResponseData;
 
-export type UserMfaStatusData =
-  MittwaldAPIV2.Operations.UserGetMfaStatus.ResponseData;
-
 export type UserUpdatePersonalInformationRequestData =
   MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Parameters.RequestBody;
 
@@ -27,7 +24,9 @@ export type UserConfirmPasswordResetRequestData =
   MittwaldAPIV2.Paths.V2UsersSelfCredentialsPasswordConfirmReset.Post.Parameters.RequestBody;
 
 export type UserAuthenticateRequestData =
-  MittwaldAPIV2.Paths.V2Authenticate.Post.Parameters.RequestBody;
+  MittwaldAPIV2.Paths.V2Authenticate.Post.Parameters.RequestBody & {
+    multiFactorCode?: string;
+  };
 
 export type UserAuthenticateResponseData =
   | MittwaldAPIV2.Paths.V2Authenticate.Post.Responses.$200.Content.ApplicationJson
@@ -44,9 +43,3 @@ export type UserResendVerificationEmailRequestData =
 
 export type UserDeleteRequestData =
   MittwaldAPIV2.Paths.V2UsersSelf.Delete.Parameters.RequestBody;
-
-export type UserAuthenticateMfaRequestData =
-  MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Parameters.RequestBody;
-
-export type UserAuthenticateMfaResponseData =
-  MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Responses.$200.Content.ApplicationJson;

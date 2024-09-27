@@ -1,12 +1,9 @@
 import {
-  UserAuthenticateMfaRequestData,
-  UserAuthenticateMfaResponseData,
   UserAuthenticateRequestData,
   UserAuthenticateResponseData,
   UserConfirmPasswordResetRequestData,
   UserData,
   UserDeleteRequestData,
-  UserMfaStatusData,
   UserRegisterRequestData,
   UserRequestAvatarUploadResponseData,
   UserResendVerificationEmailRequestData,
@@ -22,8 +19,6 @@ export interface UserBehaviors {
   find: (id: string) => Promise<UserData | undefined>;
 
   getPasswordUpdatedAt: () => Promise<{ passwordUpdatedAt: string }>;
-
-  getMfaStatus: () => Promise<UserMfaStatusData>;
 
   updatePersonalInformation: (
     id: string,
@@ -57,6 +52,7 @@ export interface UserBehaviors {
   authenticate: (
     data: UserAuthenticateRequestData,
   ) => Promise<UserAuthenticateResponseData>;
+
   logout: () => Promise<void>;
 
   register: (data: UserRegisterRequestData) => Promise<{ id: string }>;
@@ -68,15 +64,4 @@ export interface UserBehaviors {
   ) => Promise<void>;
 
   delete: (data: UserDeleteRequestData) => Promise<void>;
-
-  authenticateMfa: (
-    data: UserAuthenticateMfaRequestData,
-  ) => Promise<UserAuthenticateMfaResponseData>;
-  confirmMfa: (
-    multiFactorCode: string,
-  ) => Promise<{ recoveryCodesList: string[] }>;
-  disableMfa: (multiFactorCode: string) => Promise<void>;
-  resetRecoveryCodes: (
-    multiFactorCode: string,
-  ) => Promise<{ recoveryCodesList: string[] }>;
 }

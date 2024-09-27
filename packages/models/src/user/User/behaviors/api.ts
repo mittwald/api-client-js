@@ -5,7 +5,6 @@ import {
 } from "@mittwald/api-client";
 import { UserBehaviors } from "./types.js";
 import {
-  UserAuthenticateMfaRequestData,
   UserAuthenticateRequestData,
   UserConfirmPasswordResetRequestData,
   UserDeleteRequestData,
@@ -28,14 +27,6 @@ export const apiUserBehaviors = (
 
   getPasswordUpdatedAt: async () => {
     const response = await client.user.getPasswordUpdatedAt({});
-
-    assertStatus(response, 200);
-
-    return response.data;
-  },
-
-  getMfaStatus: async () => {
-    const response = await client.user.getMfaStatus({});
 
     assertStatus(response, 200);
 
@@ -158,41 +149,5 @@ export const apiUserBehaviors = (
     const response = await client.user.deleteUser({ data });
 
     assertOneOfStatus(response, [200, 202]);
-  },
-
-  authenticateMfa: async (data: UserAuthenticateMfaRequestData) => {
-    const response = await client.user.authenticateMfa({ data });
-
-    assertStatus(response, 200);
-
-    return response.data;
-  },
-
-  confirmMfa: async (multiFactorCode: string) => {
-    const response = await client.user.confirmMfa({
-      data: { multiFactorCode },
-    });
-
-    assertStatus(response, 200);
-
-    return response.data;
-  },
-
-  disableMfa: async (multiFactorCode: string) => {
-    const response = await client.user.disableMfa({
-      data: { multiFactorCode },
-    });
-
-    assertStatus(response, 204);
-  },
-
-  resetRecoveryCodes: async (multiFactorCode: string) => {
-    const response = await client.user.resetRecoverycodes({
-      data: { multiFactorCode },
-    });
-
-    assertStatus(response, 200);
-
-    return response.data;
   },
 });

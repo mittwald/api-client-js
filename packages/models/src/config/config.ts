@@ -7,6 +7,7 @@ import { AppInstallationBehaviors } from "../app/AppInstallation/behaviors/index
 import { UserBehaviors } from "../user/User/behaviors/index.js";
 import { ContractItemBehaviors } from "../contract/ContractItem/behaviors/index.js";
 import { ArticleBehaviors } from "../article/Article/behaviors/index.js";
+import { MfaBehaviors } from "../auth/Mfa/behaviors/index.js";
 
 interface Config {
   defaultPaginationLimit: number;
@@ -20,6 +21,7 @@ interface Config {
     ingress: IngressBehaviors;
     appInstallation: AppInstallationBehaviors;
     user: UserBehaviors;
+    mfa: MfaBehaviors;
   };
 }
 
@@ -35,5 +37,6 @@ export const config: Config = {
     ingress: undefined as unknown as IngressBehaviors,
     appInstallation: undefined as unknown as AppInstallationBehaviors,
     user: undefined as unknown as UserBehaviors,
+    mfa: undefined as unknown as MfaBehaviors,
   },
 };

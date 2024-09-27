@@ -1,18 +1,10 @@
-import {
-  type AsyncResourceVariant,
-  provideReact,
-} from "../../lib/provideReact.js";
 import { config } from "../../config/config.js";
 import { classes } from "polytype";
 import {
-  UserAuthenticateMfaRequestData,
-  UserAuthenticateMfaResponseData,
   UserAuthenticateRequestData,
-  UserAuthenticateResponseData,
   UserConfirmPasswordResetRequestData,
   UserData,
   UserDeleteRequestData,
-  UserMfaStatusData,
   UserRegisterRequestData,
   UserRequestAvatarUploadResponseData,
   UserResendVerificationEmailRequestData,
@@ -25,6 +17,9 @@ import {
 } from "./types.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import { DataModel, ReferenceModel } from "../../base/index.js";
+import { AsyncResourceVariant, provideReact } from "../../react.js";
+import { Session } from "../../auth/Session/index.js";
+import { PendingMfaAuthentication } from "../../auth/Mfa/PendingMfaAuthentication.js";
 
 export class User extends ReferenceModel {
   public static ofId(id: string): User {
@@ -55,22 +50,18 @@ export class User extends ReferenceModel {
   public getDetailed = provideReact(
     () => User.get(this.id),
     [this.id],
-  ) as AsyncResourceVariant<UserDetailed, []>;
+  ) as AsyncResourceVariant<() => Promise<UserDetailed>>;
 
   public findDetailed = provideReact(
     () => User.find(this.id),
     [this.id],
-  ) as AsyncResourceVariant<UserDetailed | undefined, []>;
+  ) as AsyncResourceVariant<() => Promise<UserDetailed | undefined>>;
 
   public getPasswordUpdatedAt = provideReact(
     async (): Promise<{ passwordUpdatedAt: string }> => {
       return await config.behaviors.user.getPasswordUpdatedAt();
     },
   );
-
-  public getMfaStatus = provideReact(async (): Promise<UserMfaStatusData> => {
-    return await config.behaviors.user.getMfaStatus();
-  });
 
   public async updatePersonalInformation(
     data: UserUpdatePersonalInformationRequestData,
@@ -126,8 +117,12 @@ export class User extends ReferenceModel {
 
   public static async authenticate(
     data: UserAuthenticateRequestData,
-  ): Promise<UserAuthenticateResponseData> {
-    return await config.behaviors.user.authenticate(data);
+  ): Promise<Session | PendingMfaAuthentication> {
+    const result = await config.behaviors.user.authenticate(data);
+    if ("token" in result) {
+      return new Session(result);
+    }
+    return new PendingMfaAuthentication(data);
   }
 
   public static async register(
@@ -150,28 +145,6 @@ export class User extends ReferenceModel {
 
   public static async delete(data: UserDeleteRequestData): Promise<void> {
     await config.behaviors.user.delete(data);
-  }
-
-  public async authenticateMfa(
-    data: UserAuthenticateMfaRequestData,
-  ): Promise<UserAuthenticateMfaResponseData> {
-    return await config.behaviors.user.authenticateMfa(data);
-  }
-
-  public async confirmMfa(
-    multiFactorCode: string,
-  ): Promise<{ recoveryCodesList: string[] }> {
-    return await config.behaviors.user.confirmMfa(multiFactorCode);
-  }
-
-  public async disableMfa(multiFactorCode: string): Promise<void> {
-    await config.behaviors.user.disableMfa(multiFactorCode);
-  }
-
-  public async resetRecoveryCodes(
-    multiFactorCode: string,
-  ): Promise<{ recoveryCodesList: string[] }> {
-    return await config.behaviors.user.resetRecoveryCodes(multiFactorCode);
   }
 }
 

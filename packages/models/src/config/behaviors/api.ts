@@ -10,6 +10,7 @@ import { apiArticleBehaviors } from "../../article/Article/behaviors/index.js";
 import { apiContractBehaviors } from "../../contract/Contract/behaviors/index.js";
 import { apiContractItemBehaviors } from "../../contract/ContractItem/behaviors/index.js";
 import { apiUserBehaviors } from "../../user/User/behaviors/index.js";
+import { apiMfaBehaviors } from "../../auth/Mfa/behaviors/index.js";
 
 class ApiSetupState {
   private _client: MittwaldAPIV2Client | undefined;
@@ -31,6 +32,7 @@ class ApiSetupState {
     config.behaviors.ingress = apiIngressBehaviors(client);
     config.behaviors.appInstallation = apiAppInstallationBehaviors(client);
     config.behaviors.user = apiUserBehaviors(client);
+    config.behaviors.mfa = apiMfaBehaviors(client);
     config.behaviors.contract = apiContractBehaviors(client);
     config.behaviors.contractItem = apiContractItemBehaviors(client);
   }
