@@ -5,6 +5,7 @@ import { apiServerBehaviors } from "../../server/Server/behaviors/index.js";
 import { apiCustomerBehaviors } from "../../customer/Customer/behaviors/index.js";
 import { apiIngressBehaviors } from "../../domain/Ingress/behaviors/index.js";
 import { apiAppInstallationBehaviors } from "../../app/AppInstallation/behaviors/index.js";
+import { apiInvoiceSettingsBehaviors } from "../../invoiceSettings/InvoiceSettings/behaviors/index.js";
 import { addUrlTagToProvideReactCache } from "../../react/asyncResourceInvalidation.js";
 import { apiArticleBehaviors } from "../../article/Article/behaviors/index.js";
 import { apiContractBehaviors } from "../../contract/Contract/behaviors/index.js";
@@ -31,6 +32,7 @@ class ApiSetupState {
     config.behaviors.appInstallation = apiAppInstallationBehaviors(client);
     config.behaviors.contract = apiContractBehaviors(client);
     config.behaviors.contractItem = apiContractItemBehaviors(client);
+    config.behaviors.invoiceSettings = apiInvoiceSettingsBehaviors(client);
   }
 
   public setupWithApiToken(apiToken: string) {
