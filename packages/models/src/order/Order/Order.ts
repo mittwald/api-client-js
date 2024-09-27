@@ -45,8 +45,24 @@ export class Order extends ReferenceModel {
 }
 
 export class OrderCommon extends classes(DataModel<OrderData>, Order) {
+  public readonly data: OrderData;
+  public readonly dueDate: Date | undefined;
+  public readonly orderDate: Date | undefined;
+  public readonly customerId: string;
+  public readonly orderId: string;
+  public readonly orderNumber: string;
+  public readonly invoicingPeriod: number;
+  public readonly contractChangeContractId: string | undefined;
   public constructor(data: OrderData) {
     super([data], [data.orderId]);
+    this.data = Object.freeze(data);
+    this.customerId = data.customerId;
+    this.orderId = data.orderId;
+    this.orderNumber = data.orderNumber;
+    this.invoicingPeriod = data.invoicingPeriod;
+    this.contractChangeContractId = data.contractChangeContractId;
+    this.orderDate = data.orderDate ? new Date(data.orderDate) : undefined;
+    this.dueDate = data.dueDate ? new Date(data.dueDate) : undefined;
   }
 }
 
