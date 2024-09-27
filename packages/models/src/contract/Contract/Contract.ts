@@ -14,6 +14,7 @@ import {
   ContractListQueryData,
   ContractListQueryModelData,
 } from "./types.js";
+import { ContractItem } from "../ContractItem/index.js";
 
 export class Contract extends ReferenceModel {
   public static ofId(id: string): Contract {
@@ -46,8 +47,25 @@ class ContractCommon extends classes(
   DataModel<ContractListItemData | ContractData>,
   Contract,
 ) {
+  public readonly id: string;
+  public readonly data: ContractData;
+  public readonly baseItem: ContractItem;
+  public readonly additionalItems: ContractItem[];
+  public readonly allItems: ContractItem[];
+  public readonly hasTermination: boolean;
+  public readonly customerId: string;
   public constructor(data: ContractListItemData | ContractData) {
     super([data], [data.customerId]);
+    this.id = data.contractId;
+    this.customerId = data.customerId;
+    this.baseItem = ContractItem.ofId(data.contractId, data.baseItem.itemId);
+    this.additionalItems =
+      data.additionalItems?.map((item) => {
+        return ContractItem.ofId(data.contractId, item.itemId);
+      }) ?? [];
+    this.allItems = [this.baseItem, ...this.additionalItems];
+    this.data = Object.freeze(data);
+    this.hasTermination = !!data.termination;
   }
 }
 
