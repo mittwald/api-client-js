@@ -5,10 +5,24 @@ import {
   extractTotalCountHeader,
 } from "@mittwald/api-client";
 import { ServerBehaviors } from "./types.js";
+import { OrderCreateRequestData, OrderCreateResponseData } from "../types.js";
 
 export const apiServerBehaviors = (
   client: MittwaldAPIV2Client,
 ): ServerBehaviors => ({
+  createOrder: async (
+    serverProperties: OrderCreateRequestData,
+  ): Promise<OrderCreateResponseData> => {
+    const response = await client.contract.orderCreateOrder({
+      data: {
+        orderData: serverProperties,
+        orderType: "server",
+      },
+    });
+    assertStatus(response, 201);
+    return response.data;
+  },
+
   find: async (id) => {
     const response = await client.project.getServer({
       serverId: id,

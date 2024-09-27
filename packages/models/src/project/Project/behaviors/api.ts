@@ -5,10 +5,27 @@ import {
   MittwaldAPIV2Client,
 } from "@mittwald/api-client";
 import { assertOneOfStatus } from "@mittwald/api-client";
+import {
+  OrderCreateRequestData,
+  OrderCreateResponseData,
+} from "../../../server/Server/types.js";
 
 export const apiProjectBehaviors = (
   client: MittwaldAPIV2Client,
 ): ProjectBehaviors => ({
+  createOrder: async (
+    projectProperties: OrderCreateRequestData,
+  ): Promise<OrderCreateResponseData> => {
+    const response = await client.contract.orderCreateOrder({
+      data: {
+        orderData: projectProperties,
+        orderType: "projectHosting",
+      },
+    });
+    assertStatus(response, 201);
+    return response.data;
+  },
+
   find: async (id) => {
     const response = await client.project.getProject({
       projectId: id,

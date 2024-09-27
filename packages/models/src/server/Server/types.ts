@@ -15,3 +15,9 @@ export type ServerData = MittwaldAPIV2.Operations.ProjectGetServer.ResponseData;
 
 export type ServerListItemData =
   MittwaldAPIV2.Operations.ProjectListServers.ResponseData[number];
+
+export type OrderCreateRequestData =
+  MittwaldAPIV2.Components.Schemas.OrderServerOrder;
+
+export type OrderCreateResponseData =
+  MittwaldAPIV2.Operations.OrderCreateOrder.ResponseData<201>;
