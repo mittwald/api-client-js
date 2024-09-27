@@ -2,10 +2,15 @@ import {
   ProjectListItemData,
   ProjectData,
   ProjectListQueryData,
+  OrderCreateRequestData,
+  OrderCreateResponseData,
 } from "../types.js";
 import { QueryResponseData } from "../../../base/index.js";
 
 export interface ProjectBehaviors {
+  createOrder: (
+    orderRequest: OrderCreateRequestData,
+  ) => Promise<OrderCreateResponseData>;
   find: (id: string) => Promise<ProjectData | undefined>;
   list: (
     query?: ProjectListQueryData,
