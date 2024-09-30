@@ -18,3 +18,9 @@ export type ProjectData =
 
 export type ProjectListItemData =
   MittwaldAPIV2.Operations.ProjectListProjects.ResponseData[number];
+
+export type OrderCreateRequestData =
+  MittwaldAPIV2.Components.Schemas.OrderServerOrder;
+
+export type OrderCreateResponseData =
+  MittwaldAPIV2.Operations.OrderCreateOrder.ResponseData<201>;
