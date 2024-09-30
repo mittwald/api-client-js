@@ -4,6 +4,10 @@ import { ProjectData } from "../types.js";
 export const inMemProjectBehaviors = (
   store: Map<string, ProjectData>,
 ): ProjectBehaviors => ({
+  createOrder: async () => {
+    throw new Error("Not implemented");
+  },
+
   find: async (id) => store.get(id),
 
   list: async () => {
