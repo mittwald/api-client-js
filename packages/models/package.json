@@ -1,6 +1,6 @@
 {
   "name": "@mittwald/api-models",
-  "version": "4.60.1",
+  "version": "4.64.1",
   "author": "Mittwald CM Service GmbH & Co. KG <opensource@mittwald.de>",
   "type": "module",
   "description": "Collection of domain models for coherent interaction with the API",
@@ -42,6 +42,7 @@
     "@mittwald/api-client": "workspace:^",
     "another-deep-freeze": "^1.0.0",
     "context": "^3.0.31",
+    "dinero.js": "^1.9.1",
     "object-code": "^1.3.3",
     "polytype": "^0.17.0",
     "tsd": "^0.31.2",
@@ -53,6 +54,7 @@
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
+    "@types/dinero.js": "^1",
     "@types/jest": "^29.5.12",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18",

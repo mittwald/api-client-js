@@ -3,6 +3,75 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.64.1](https://github.com/mittwald/api-client-js/compare/4.64.0...4.64.1) (2024-09-26)
+
+### Bug Fixes
+
+- **Models:** fix AppInstallations not updating in React
+  ([4bc63d9](https://github.com/mittwald/api-client-js/commit/4bc63d9dc5e544f0145e1c1a264a52d7c6e70a3d))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [4.64.0](https://github.com/mittwald/api-client-js/compare/4.63.0...4.64.0) (2024-09-26)
+
+### Features
+
+- **Models:** support dependencies for ListQueryModels
+  ([d29d162](https://github.com/mittwald/api-client-js/commit/d29d162920d6a5297304a5aa2cb945a691bd9f40))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [4.63.0](https://github.com/mittwald/api-client-js/compare/4.62.0...4.63.0) (2024-09-25)
+
+### Features
+
+- **Article:** add Article model
+  ([692e2aa](https://github.com/mittwald/api-client-js/commit/692e2aa753f70e72df7e41a1efe805b4552d8433))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [4.62.0](https://github.com/mittwald/api-client-js/compare/4.61.1...4.62.0) (2024-09-25)
+
+### Features
+
+- **Contract:** add Contract/ContractItem model
+  ([bb1a329](https://github.com/mittwald/api-client-js/commit/bb1a329533ae2f86bcb3a62f9f81e4ee77be956b))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [4.61.1](https://github.com/mittwald/api-client-js/compare/4.61.0...4.61.1) (2024-09-24)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [4.61.0](https://github.com/mittwald/api-client-js/compare/4.60.1...4.61.0) (2024-09-24)
+
+### Features
+
+- **Models:** export Model invalidation request option
+  ([8418480](https://github.com/mittwald/api-client-js/commit/8418480baed246963353de45aa076e5a6e300188))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [4.60.1](https://github.com/mittwald/api-client-js/compare/4.60.0...4.60.1) (2024-09-23)
 
 ### Bug Fixes

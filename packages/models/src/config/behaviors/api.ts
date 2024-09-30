@@ -5,8 +5,11 @@ import { apiServerBehaviors } from "../../server/Server/behaviors/index.js";
 import { apiCustomerBehaviors } from "../../customer/Customer/behaviors/index.js";
 import { apiIngressBehaviors } from "../../domain/Ingress/behaviors/index.js";
 import { apiAppInstallationBehaviors } from "../../app/AppInstallation/behaviors/index.js";
+import { addUrlTagToProvideReactCache } from "../../react/asyncResourceInvalidation.js";
+import { apiArticleBehaviors } from "../../article/Article/behaviors/index.js";
+import { apiContractBehaviors } from "../../contract/Contract/behaviors/index.js";
+import { apiContractItemBehaviors } from "../../contract/ContractItem/behaviors/index.js";
 import { apiInvoiceBehaviors } from "../../invoice/Invoice/behaviors/index.js";
-import { updateCacheTagsBeforeRequest } from "../../react/asyncResourceInvalidation.js";
 
 class ApiSetupState {
   private _client: MittwaldAPIV2Client | undefined;
@@ -19,14 +22,17 @@ class ApiSetupState {
     }
     this._client = client;
     this._client.defaultRequestOptions.onBeforeRequest =
-      updateCacheTagsBeforeRequest;
+      addUrlTagToProvideReactCache;
 
+    config.behaviors.article = apiArticleBehaviors(client);
     config.behaviors.project = apiProjectBehaviors(client);
     config.behaviors.server = apiServerBehaviors(client);
     config.behaviors.customer = apiCustomerBehaviors(client);
     config.behaviors.ingress = apiIngressBehaviors(client);
     config.behaviors.invoice = apiInvoiceBehaviors(client);
     config.behaviors.appInstallation = apiAppInstallationBehaviors(client);
+    config.behaviors.contract = apiContractBehaviors(client);
+    config.behaviors.contractItem = apiContractItemBehaviors(client);
   }
 
   public setupWithApiToken(apiToken: string) {
