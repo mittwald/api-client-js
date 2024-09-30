@@ -1,19 +1,17 @@
 import {
   InvoiceListItemData,
   InvoiceData,
-  InvoiceListQuery,
   InvoiceFileAccessTokenData,
+  InvoiceListQueryModelData,
+  InvoiceListQueryData,
 } from "./types.js";
 import { config } from "../../config/config.js";
 import { classes } from "polytype";
 import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
-import {
-  type AsyncResourceVariant,
-  provideReact,
-} from "../../lib/provideReact.js";
-import { Customer } from "../../customer/index.js";
+import { provideReact } from "../../react/provideReact.js";
 import { ReferenceModel } from "../../base/ReferenceModel.js";
+import { ListDataModel, ListQueryModel } from "../../base/index.js";
 
 export class Invoice extends ReferenceModel {
   public static ofId(id: string): Invoice {
@@ -38,19 +36,9 @@ export class Invoice extends ReferenceModel {
     },
   );
 
-  public getDetailed = provideReact(() =>
-    Invoice.get(this.id),
-  ) as AsyncResourceVariant<InvoiceDetailed, []>;
-
-  public static list = provideReact(
-    async (
-      customerId: string,
-      query: InvoiceListQuery = {},
-    ): Promise<Readonly<Array<InvoiceListItemData>>> => {
-      const data = await config.behaviors.invoice.list(customerId, query);
-      return Object.freeze(data.map((d) => new InvoiceListItem(d)));
-    },
-  );
+  public static query(query: InvoiceListQueryModelData) {
+    return new InvoiceListQuery(query);
+  }
 
   public static requestFileAccessToken = provideReact(
     async (
@@ -69,11 +57,8 @@ class InvoiceCommon extends classes(
   DataModel<InvoiceListItemData | InvoiceData>,
   Invoice,
 ) {
-  public readonly customer: Customer;
-
   public constructor(data: InvoiceListItemData | InvoiceData) {
-    super([data.id]);
-    this.customer = Customer.ofId(data.customerId);
+    super([data], [data.customerId]);
   }
 }
 
@@ -92,5 +77,63 @@ export class InvoiceListItem extends classes(
 ) {
   public constructor(data: InvoiceListItemData) {
     super([data]);
+  }
+}
+
+export class InvoiceListQuery extends ListQueryModel<InvoiceListQueryModelData> {
+  public constructor(query: InvoiceListQueryModelData) {
+    super(query);
+  }
+
+  public refine(query: InvoiceListQueryData) {
+    return new InvoiceListQuery({
+      ...this.query,
+      ...query,
+    });
+  }
+
+  public execute = provideReact(async () => {
+    const { customer, ...query } = this.query;
+
+    const customerId = customer.id;
+    const request = {
+      customerId: customerId,
+      queryParameters: {
+        limit: config.defaultPaginationLimit,
+        ...query,
+      },
+    };
+    const { items, totalCount } = await config.behaviors.invoice.list(request);
+
+    return new InvoiceList(
+      this.query,
+      items.map((d) => new InvoiceListItem(d)),
+      totalCount,
+    );
+  }, [this.queryId]);
+
+  public getTotalCount = provideReact(async () => {
+    const { totalCount } = await this.refine({ limit: 1 }).execute();
+    return totalCount;
+  }, [this.queryId]);
+
+  public findOneAndOnly = provideReact(async () => {
+    const { items, totalCount } = await this.refine({ limit: 1 }).execute();
+    if (totalCount === 1) {
+      return items[0];
+    }
+  }, [this.queryId]);
+}
+
+export class InvoiceList extends classes(
+  InvoiceListQuery,
+  ListDataModel<InvoiceListItem>,
+) {
+  public constructor(
+    query: InvoiceListQueryModelData,
+    invoices: InvoiceListItem[],
+    totalCount: number,
+  ) {
+    super([query], [invoices, totalCount]);
   }
 }

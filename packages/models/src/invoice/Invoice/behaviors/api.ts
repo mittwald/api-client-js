@@ -1,31 +1,36 @@
-import { assertStatus, MittwaldAPIV2Client } from "@mittwald/api-client";
+import {
+  assertStatus,
+  MittwaldAPIV2Client,
+  extractTotalCountHeader,
+} from "@mittwald/api-client";
 import { InvoiceBehaviors } from "./types.js";
+import { assertOneOfStatus } from "../../../../../../.nx/cache/4583642927684206384/outputs/packages/commons/dist/types/index.js";
 
 export const apiInvoiceBehaviors = (
   client: MittwaldAPIV2Client,
 ): InvoiceBehaviors => ({
   find: async (invoiceId) => {
-    const response = await client.invoice.invoiceDetail({
+    const response = await client.contract.invoiceDetail({
       invoiceId,
     });
 
     if (response.status === 200) {
       return response.data;
     }
-    assertStatus(response, 403);
+    assertOneOfStatus(response, [404, 429]);
   },
 
-  list: async (customerId: string, query) => {
-    const response = await client.invoice.invoiceListCustomerInvoices({
-      customerId,
-      queryParameters: query,
-    });
+  list: async (request) => {
+    const response = await client.contract.invoiceListCustomerInvoices(request);
     assertStatus(response, 200);
-    return response.data;
+    return {
+      items: response.data,
+      totalCount: extractTotalCountHeader(response),
+    };
   },
 
   requestFileAccessToken: async (invoiceId, customerId) => {
-    const response = await client.invoice.requestFileAccessToken({
+    const response = await client.contract.invoiceGetFileAccessToken({
       invoiceId,
       customerId,
     });
