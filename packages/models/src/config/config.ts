@@ -7,6 +7,7 @@ import { AppInstallationBehaviors } from "../app/AppInstallation/behaviors/index
 import { ContractItemBehaviors } from "../contract/ContractItem/behaviors/index.js";
 import { ArticleBehaviors } from "../article/Article/behaviors/index.js";
 import { OrderBehaviors } from "../order/Order/behaviors/index.js";
+import { OrderPreviewBehaviors } from "../order/OrderPreview/behaviors/index.js";
 
 interface Config {
   defaultPaginationLimit: number;
@@ -14,6 +15,7 @@ interface Config {
     contract: ContractBehaviors;
     contractItem: ContractItemBehaviors;
     order: OrderBehaviors;
+    orderPreview: OrderPreviewBehaviors;
     article: ArticleBehaviors;
     project: ProjectBehaviors;
     server: ServerBehaviors;
@@ -29,6 +31,7 @@ export const config: Config = {
     contract: undefined as unknown as ContractBehaviors,
     contractItem: undefined as unknown as ContractItemBehaviors,
     order: undefined as unknown as OrderBehaviors,
+    orderPreview: undefined as unknown as OrderPreviewBehaviors,
     article: undefined as unknown as ArticleBehaviors,
     project: undefined as unknown as ProjectBehaviors,
     server: undefined as unknown as ServerBehaviors,

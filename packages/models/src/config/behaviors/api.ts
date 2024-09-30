@@ -10,6 +10,7 @@ import { apiArticleBehaviors } from "../../article/Article/behaviors/index.js";
 import { apiContractBehaviors } from "../../contract/Contract/behaviors/index.js";
 import { apiContractItemBehaviors } from "../../contract/ContractItem/behaviors/index.js";
 import { apiOrderBehaviors } from "../../order/Order/behaviors/index.js";
+import { apiOrderPreviewBehaviors } from "../../order/OrderPreview/behaviors/index.js";
 
 class ApiSetupState {
   private _client: MittwaldAPIV2Client | undefined;
@@ -28,6 +29,7 @@ class ApiSetupState {
     config.behaviors.project = apiProjectBehaviors(client);
     config.behaviors.server = apiServerBehaviors(client);
     config.behaviors.order = apiOrderBehaviors(client);
+    config.behaviors.orderPreview = apiOrderPreviewBehaviors(client);
     config.behaviors.customer = apiCustomerBehaviors(client);
     config.behaviors.ingress = apiIngressBehaviors(client);
     config.behaviors.appInstallation = apiAppInstallationBehaviors(client);
