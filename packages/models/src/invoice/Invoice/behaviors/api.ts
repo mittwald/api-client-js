@@ -2,9 +2,9 @@ import {
   assertStatus,
   MittwaldAPIV2Client,
   extractTotalCountHeader,
+  assertOneOfStatus,
 } from "@mittwald/api-client";
 import { InvoiceBehaviors } from "./types.js";
-import { assertOneOfStatus } from "../../../../../../.nx/cache/4583642927684206384/outputs/packages/commons/dist/types/index.js";
 
 export const apiInvoiceBehaviors = (
   client: MittwaldAPIV2Client,
