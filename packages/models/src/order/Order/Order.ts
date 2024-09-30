@@ -9,6 +9,7 @@ import {
 import { provideReact } from "../../react/index.js";
 import { config } from "../../config/config.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
+import { OrderItemDetailed } from "../OrderItem/index.js";
 
 export class Order extends ReferenceModel {
   public readonly orderId: string;
@@ -26,7 +27,7 @@ export class Order extends ReferenceModel {
     async (orderId: string): Promise<OrderDetailed | undefined> => {
       const data = await config.behaviors.order.find(orderId);
       if (data !== undefined) {
-        return new OrderDetailed(data);
+        return new OrderDetailed(data, orderId);
       }
     },
   );
@@ -66,9 +67,14 @@ export class OrderCommon extends classes(DataModel<OrderData>, Order) {
   }
 }
 
-export class OrderDetailed extends classes(DataModel<OrderData>, OrderCommon) {
-  public constructor(data: OrderData) {
-    super([data]);
+export class OrderDetailed extends OrderCommon {
+  public readonly items: OrderItemDetailed[];
+  public constructor(data: OrderData, orderId: string) {
+    super(data);
+
+    this.items = data.items.map(
+      (orderItems) => new OrderItemDetailed(orderId, orderItems),
+    );
   }
 }
 
