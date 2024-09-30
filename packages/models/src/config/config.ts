@@ -6,6 +6,7 @@ import { ContractBehaviors } from "../contract/Contract/behaviors/index.js";
 import { AppInstallationBehaviors } from "../app/AppInstallation/behaviors/index.js";
 import { ContractItemBehaviors } from "../contract/ContractItem/behaviors/index.js";
 import { ArticleBehaviors } from "../article/Article/behaviors/index.js";
+import { TariffChangeBehaviors } from "../contract/TariffChange/behaviors/index.js";
 
 interface Config {
   defaultPaginationLimit: number;
@@ -15,6 +16,7 @@ interface Config {
     article: ArticleBehaviors;
     project: ProjectBehaviors;
     server: ServerBehaviors;
+    tariffChange: TariffChangeBehaviors;
     customer: CustomerBehaviors;
     ingress: IngressBehaviors;
     appInstallation: AppInstallationBehaviors;
@@ -30,6 +32,7 @@ export const config: Config = {
     project: undefined as unknown as ProjectBehaviors,
     server: undefined as unknown as ServerBehaviors,
     customer: undefined as unknown as CustomerBehaviors,
+    tariffChange: undefined as unknown as TariffChangeBehaviors,
     ingress: undefined as unknown as IngressBehaviors,
     appInstallation: undefined as unknown as AppInstallationBehaviors,
   },
