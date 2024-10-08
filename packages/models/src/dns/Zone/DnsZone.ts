@@ -23,7 +23,7 @@ export class DnsZone extends ReferenceModel {
 
   public static find = provideReact(
     async (id: string): Promise<DnsZoneDetailed | undefined> => {
-      const data = await config.behaviors.zones.find(id);
+      const data = await config.behaviors.dnsZones.find(id);
       if (data !== undefined) {
         return new DnsZoneDetailed(data);
       }
@@ -83,11 +83,8 @@ export class DnsZoneListQuery extends ListQueryModel<DnsZoneListQueryModelData> 
   }
 
   public execute = provideReact(async () => {
-    const { items, totalCount } = await config.behaviors.zones.query(
+    const { items, totalCount } = await config.behaviors.dnsZones.query(
       this.project.id,
-      {
-        ...this.query,
-      },
     );
     return new DnsZoneList(
       this.project,

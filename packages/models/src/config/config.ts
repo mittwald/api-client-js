@@ -6,7 +6,7 @@ import { ContractBehaviors } from "../contract/Contract/behaviors/index.js";
 import { AppInstallationBehaviors } from "../app/AppInstallation/behaviors/index.js";
 import { ContractItemBehaviors } from "../contract/ContractItem/behaviors/index.js";
 import { ArticleBehaviors } from "../article/Article/behaviors/index.js";
-import { ZoneBehaviors } from "../dns/Zone/behaviors/types.js";
+import { DnsZoneBehaviors } from "../dns/Zone/behaviors/types.js";
 
 interface Config {
   defaultPaginationLimit: number;
@@ -18,7 +18,7 @@ interface Config {
     server: ServerBehaviors;
     customer: CustomerBehaviors;
     ingress: IngressBehaviors;
-    zones: ZoneBehaviors;
+    dnsZones: DnsZoneBehaviors;
     appInstallation: AppInstallationBehaviors;
   };
 }
@@ -33,7 +33,7 @@ export const config: Config = {
     server: undefined as unknown as ServerBehaviors,
     customer: undefined as unknown as CustomerBehaviors,
     ingress: undefined as unknown as IngressBehaviors,
-    zones: undefined as unknown as ZoneBehaviors,
+    dnsZones: undefined as unknown as DnsZoneBehaviors,
     appInstallation: undefined as unknown as AppInstallationBehaviors,
   },
 };
