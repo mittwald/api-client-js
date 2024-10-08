@@ -11,7 +11,10 @@ import {
   DomainListQueryData,
   DomainListQueryModelData,
 } from "./types.js";
-import { provideReact } from "../../react/provideReact.js";
+import {
+  AsyncResourceVariant,
+  provideReact,
+} from "../../react/provideReact.js";
 import { config } from "../../config/config.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 
@@ -40,6 +43,16 @@ export class Domain extends ReferenceModel {
   public static query = (query: DomainListQueryModelData = {}) => {
     return new DomainListQuery(query);
   };
+
+  public findDetailed = provideReact(
+    () => Domain.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<DomainDetailed | undefined>>;
+
+  public getDetailed = provideReact(
+    () => Domain.get(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<DomainDetailed>>;
 }
 
 export class DomainCommon extends classes(DataModel<DomainData>, Domain) {
