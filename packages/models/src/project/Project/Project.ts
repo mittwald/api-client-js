@@ -23,10 +23,12 @@ import {
 import { ListQueryModel } from "../../base/ListQueryModel.js";
 import { ListDataModel } from "../../base/ListDataModel.js";
 import { AppInstallationListQuery } from "../../app/index.js";
+import { DnsZoneListQuery } from "../../dns/Zone/index.js";
 
 export class Project extends ReferenceModel {
   public readonly ingresses: IngressListQuery;
   public readonly appInstallations: AppInstallationListQuery;
+  public readonly dnsZones: DnsZoneListQuery;
 
   public constructor(id: string) {
     super(id);
@@ -34,6 +36,7 @@ export class Project extends ReferenceModel {
       project: this,
     });
     this.appInstallations = new AppInstallationListQuery(this);
+    this.dnsZones = new DnsZoneListQuery(this);
   }
 
   public static ofId(id: string): Project {
