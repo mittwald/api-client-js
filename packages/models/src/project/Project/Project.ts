@@ -23,14 +23,19 @@ import {
 import { ListQueryModel } from "../../base/ListQueryModel.js";
 import { ListDataModel } from "../../base/ListDataModel.js";
 import { AppInstallationListQuery } from "../../app/index.js";
+import { DomainListQuery } from "../../domain/Domain/index.js";
 
 export class Project extends ReferenceModel {
   public readonly ingresses: IngressListQuery;
+  public readonly domains: DomainListQuery;
   public readonly appInstallations: AppInstallationListQuery;
 
   public constructor(id: string) {
     super(id);
     this.ingresses = new IngressListQuery({
+      project: this,
+    });
+    this.domains = new DomainListQuery({
       project: this,
     });
     this.appInstallations = new AppInstallationListQuery(this);

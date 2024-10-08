@@ -43,13 +43,8 @@ export class Domain extends ReferenceModel {
 }
 
 export class DomainCommon extends classes(DataModel<DomainData>, Domain) {
-  public readonly id: string;
-  public readonly hostname: string;
-
   public constructor(data: DomainData) {
     super([data], [data.domainId]);
-    this.hostname = data.domain;
-    this.id = data.domainId;
   }
 }
 
