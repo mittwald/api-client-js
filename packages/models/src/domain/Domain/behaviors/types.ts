@@ -6,7 +6,7 @@ import {
 import { QueryResponseData } from "../../../base/index.js";
 
 export interface DomainBehaviors {
-  find: (id: string) => Promise<DomainData>;
+  find: (id: string) => Promise<DomainData | undefined>;
   query: (
     query?: DomainListQueryData,
   ) => Promise<QueryResponseData<DomainListItemData>>;
