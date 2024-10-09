@@ -28,4 +28,8 @@ export const apiDomainBehaviors = (
       totalCount: extractTotalCountHeader(response),
     };
   },
+  delete: async (id) => {
+    const response = await client.domain.deleteDomain({ domainId: id });
+    assertStatus(response, 200);
+  },
 });

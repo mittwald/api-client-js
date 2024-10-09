@@ -17,7 +17,6 @@ import {
 } from "../../react/provideReact.js";
 import { config } from "../../config/config.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
-
 export class Domain extends ReferenceModel {
   public static ofId(id: string): Domain {
     return new Domain(id);

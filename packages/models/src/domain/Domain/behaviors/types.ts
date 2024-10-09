@@ -10,4 +10,6 @@ export interface DomainBehaviors {
   query: (
     query?: DomainListQueryData,
   ) => Promise<QueryResponseData<DomainListItemData>>;
+
+  delete: (domainId: string) => Promise<void>;
 }
