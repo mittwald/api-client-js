@@ -25,4 +25,36 @@ export const apiDeliveryBoxBehaviors = (
       totalCount: response.data.length,
     };
   },
+  create: async (projectId: string, description: string, password: string) => {
+    const response = await client.mail.createDeliverybox({
+      projectId,
+      data: {
+        password,
+        description,
+      },
+    });
+    assertStatus(response, 201);
+  },
+  delete: async (deliveryBoxId: string) => {
+    const response = await client.mail.deleteDeliveryBox({ deliveryBoxId });
+    assertStatus(response, 204);
+  },
+  updateDescription: async (deliveryBoxId: string, description: string) => {
+    const response = await client.mail.updateDeliveryBoxDescription({
+      deliveryBoxId,
+      data: {
+        description,
+      },
+    });
+    assertStatus(response, 204);
+  },
+  updatePassword: async (deliveryBoxId: string, password: string) => {
+    const response = await client.mail.updateDeliveryBoxPassword({
+      deliveryBoxId,
+      data: {
+        password,
+      },
+    });
+    assertStatus(response, 204);
+  },
 });

@@ -4,12 +4,13 @@ import {
   ListQueryModel,
   ReferenceModel,
 } from "../../base/index.js";
-import { provideReact } from "../../react/index.js";
+import { AsyncResourceVariant, provideReact } from "../../react/index.js";
 import { config } from "../../config/config.js";
 import { classes } from "polytype";
 import {
   DeliveryBoxData,
   DeliveryBoxListItemData,
+  DeliveryBoxListQueryData,
   DeliveryBoxListQueryModelData,
 } from "./types.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
@@ -19,6 +20,16 @@ export class DeliveryBox extends ReferenceModel {
   public static ofId(id: string): DeliveryBox {
     return new DeliveryBox(id);
   }
+
+  public static query = provideReact(
+    async (
+      projectId: string,
+      query: DeliveryBoxListQueryData = {},
+    ): Promise<Readonly<Array<DeliveryBoxListItem>>> =>
+      new DeliveryBoxListQuery(Project.ofId(projectId), query)
+        .execute()
+        .then((r) => r.items),
+  );
 
   public static find = provideReact(
     async (id: string): Promise<DeliveryBox | undefined> => {
@@ -34,6 +45,16 @@ export class DeliveryBox extends ReferenceModel {
     assertObjectFound(deliveryBox, this, id);
     return deliveryBox;
   });
+
+  public getDetailed = provideReact(
+    () => DeliveryBox.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<DeliveryBoxDetailed>>;
+
+  public findDetailed = provideReact(
+    () => DeliveryBox.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<DeliveryBoxDetailed | undefined>>;
 }
 
 export class DeliveryBoxCommon extends classes(
