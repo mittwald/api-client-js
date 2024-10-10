@@ -28,6 +28,17 @@ export const apiMailAddressBehaviors = (
     const response = await client.mail.deleteMailAddress({ mailAddressId });
     assertStatus(response, 204);
   },
+  create: async (
+    projectId: string,
+    address: string,
+    forwardAddresses: string[],
+  ) => {
+    const response = await client.mail.createMailAddress({
+      projectId,
+      data: { address, forwardAddresses },
+    });
+    assertStatus(response, 201);
+  },
   updateAddress: async (mailAddressId: string, address: string) => {
     const response = await client.mail.updateMailAddressAddress({
       mailAddressId,
@@ -73,12 +84,13 @@ export const apiMailAddressBehaviors = (
     });
     assertStatus(response, 204);
   },
-  updateForwards: async (mailAddressId: string, forwards: string[]) => {
+  updateForwardAddresses: async (
+    mailAddressId: string,
+    forwardAddresses: string[],
+  ) => {
     const response = await client.mail.updateMailAddressForwardAddresses({
       mailAddressId,
-      data: {
-        forwardAddresses: forwards,
-      },
+      data: { forwardAddresses },
     });
     assertStatus(response, 204);
   },
@@ -87,6 +99,46 @@ export const apiMailAddressBehaviors = (
       mailAddressId,
       data: {
         active: enabled,
+      },
+    });
+    assertStatus(response, 204);
+  },
+  updateAutoResponder: async (
+    mailAddressId: string,
+    active: boolean,
+    expiresAt: Date,
+    message: string,
+    startsAt: Date,
+  ) => {
+    const response = await client.mail.updateMailAddressAutoresponder({
+      mailAddressId,
+      data: {
+        autoResponder: {
+          active,
+          expiresAt: expiresAt.toISOString(),
+          message,
+          startsAt: startsAt.toISOString(),
+        },
+      },
+    });
+    assertStatus(response, 204);
+  },
+  updateBlocklist: async (projectId: string, blocklist: string[]) => {
+    const response = await client.mail.updateProjectMailSetting({
+      projectId,
+      mailSetting: "blacklist",
+      data: {
+        blacklist: blocklist,
+      },
+    });
+    assertStatus(response, 204);
+  },
+  updateAllowlist: async (projectId: string, allowlist: string[]) => {
+    const response = await client.mail.updateProjectMailSetting({
+      projectId,
+      mailSetting: "whitelist",
+      data: {
+        whitelist: allowlist,
       },
     });
     assertStatus(response, 204);

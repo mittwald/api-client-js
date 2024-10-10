@@ -9,6 +9,12 @@ export interface MailAddressBehaviors {
 
   delete: (mailAddressId: string) => Promise<void>;
 
+  create: (
+    projectId: string,
+    address: string,
+    forwardAddresses: string[],
+  ) => Promise<void>;
+
   updateAddress: (mailAddressId: string, address: string) => Promise<void>;
   updatePassword: (mailAddressId: string, password: string) => Promise<void>;
   updateSpamProtection: (
@@ -19,6 +25,18 @@ export interface MailAddressBehaviors {
     relocationMinSpamScore: number,
   ) => Promise<void>;
   updateQuotaInBytes: (mailAddressId: string, bytes: number) => Promise<void>;
-  updateForwards: (mailAddressId: string, forwards: string[]) => Promise<void>;
-  updateCatchAll: (mailAddressId: string, enabled: boolean) => Promise<void>;
+  updateForwardAddresses: (
+    mailAddressId: string,
+    forwardAddresses: string[],
+  ) => Promise<void>;
+  updateCatchAll: (mailAddressId: string, active: boolean) => Promise<void>;
+  updateAutoResponder: (
+    mailAddressId: string,
+    active: boolean,
+    expiresAt: Date,
+    message: string,
+    startsAt: Date,
+  ) => Promise<void>;
+  updateBlocklist: (projectId: string, blocklist: string[]) => Promise<void>;
+  updateAllowlist: (projectId: string, allowlist: string[]) => Promise<void>;
 }
