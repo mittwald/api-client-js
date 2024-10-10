@@ -6,6 +6,9 @@ import { ContractBehaviors } from "../contract/Contract/behaviors/index.js";
 import { AppInstallationBehaviors } from "../app/AppInstallation/behaviors/index.js";
 import { ContractItemBehaviors } from "../contract/ContractItem/behaviors/index.js";
 import { ArticleBehaviors } from "../article/Article/behaviors/index.js";
+import { MailAddressBehaviors } from "../mail/MailAddress/behaviors/index.js";
+import { MailSettingsBehaviors } from "../mail/MailSettings/behaviors/types.js";
+import { MailSettings } from "../mail/MailSettings/MailSettings.js";
 
 interface Config {
   defaultPaginationLimit: number;
@@ -18,6 +21,8 @@ interface Config {
     customer: CustomerBehaviors;
     ingress: IngressBehaviors;
     appInstallation: AppInstallationBehaviors;
+    mailAddress: MailAddressBehaviors;
+    mailSettings: MailSettingsBehaviors;
   };
 }
 
@@ -32,5 +37,7 @@ export const config: Config = {
     customer: undefined as unknown as CustomerBehaviors,
     ingress: undefined as unknown as IngressBehaviors,
     appInstallation: undefined as unknown as AppInstallationBehaviors,
+    mailAddress: undefined as unknown as MailAddressBehaviors,
+    mailSettings: undefined as unknown as MailSettingsBehaviors,
   },
 };
