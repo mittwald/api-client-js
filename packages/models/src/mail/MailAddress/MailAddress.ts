@@ -5,21 +5,31 @@ import {
   ListQueryModel,
   ReferenceModel,
 } from "../../base/index.js";
-import { Ingress } from "../../domain/index.js";
 import {
   MailAddressData,
   MailAddressListItemData,
+  MailAddressListQueryData,
   MailAddressListQueryModelData,
 } from "./types.js";
-import { provideReact } from "../../react/index.js";
+import { AsyncResourceVariant, provideReact } from "../../react/index.js";
 import { config } from "../../config/config.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import { Project } from "../../project/index.js";
 
 export class MailAddress extends ReferenceModel {
   public static ofId(id: string): MailAddress {
-    return new Ingress(id);
+    return new MailAddress(id);
   }
+
+  public static query = provideReact(
+    async (
+      projectId: string,
+      query: MailAddressListQueryData = {},
+    ): Promise<Readonly<Array<MailAddressListItem>>> =>
+      new MailAddressListQuery(Project.ofId(projectId), query)
+        .execute()
+        .then((r) => r.items),
+  );
 
   public static find = provideReact(
     async (id: string): Promise<MailAddress | undefined> => {
@@ -35,6 +45,14 @@ export class MailAddress extends ReferenceModel {
     assertObjectFound(mailAddress, this, id);
     return mailAddress;
   });
+
+  public getDetailed = provideReact(() =>
+    MailAddress.get(this.id),
+  ) as AsyncResourceVariant<() => Promise<MailAddressDetailed>>;
+
+  public findDetailed = provideReact(() =>
+    MailAddress.find(this.id),
+  ) as AsyncResourceVariant<() => Promise<MailAddressDetailed | undefined>>;
 }
 
 export class MailAddressCommon extends classes(
