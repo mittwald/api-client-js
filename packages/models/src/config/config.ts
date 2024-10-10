@@ -6,6 +6,7 @@ import { ContractBehaviors } from "../contract/Contract/behaviors/index.js";
 import { AppInstallationBehaviors } from "../app/AppInstallation/behaviors/index.js";
 import { ContractItemBehaviors } from "../contract/ContractItem/behaviors/index.js";
 import { ArticleBehaviors } from "../article/Article/behaviors/index.js";
+import { DeliveryBoxBehaviors } from "../mail/DeliveryBox/behaviors/index.js";
 
 interface Config {
   defaultPaginationLimit: number;
@@ -18,6 +19,7 @@ interface Config {
     customer: CustomerBehaviors;
     ingress: IngressBehaviors;
     appInstallation: AppInstallationBehaviors;
+    deliveryBox: DeliveryBoxBehaviors;
   };
 }
 
@@ -32,5 +34,6 @@ export const config: Config = {
     customer: undefined as unknown as CustomerBehaviors,
     ingress: undefined as unknown as IngressBehaviors,
     appInstallation: undefined as unknown as AppInstallationBehaviors,
+    deliveryBox: undefined as unknown as DeliveryBoxBehaviors,
   },
 };
