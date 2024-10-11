@@ -32,4 +32,26 @@ export const apiDomainBehaviors = (
     const response = await client.domain.deleteDomain({ domainId: id });
     assertStatus(response, 200);
   },
+  createAuthCode: async (domainId: string) => {
+    const response = await client.domain.createDomainAuthCode({ domainId });
+    assertStatus(response, 201);
+    return response.data;
+  },
+  updateNameservers: async (
+    domainId: string,
+    nameservers: [string, string, ...string[]],
+  ) => {
+    const response = await client.domain.updateDomainNameservers({
+      domainId,
+      data: { nameservers },
+    });
+    assertStatus(response, 204);
+  },
+  checkDomainRegistrable: async (domain: string) => {
+    const response = await client.domain.checkDomainRegistrability({
+      data: { domain },
+    });
+    assertStatus(response, 200);
+    return response.data;
+  },
 });

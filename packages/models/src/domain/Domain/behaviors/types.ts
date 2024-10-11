@@ -12,4 +12,12 @@ export interface DomainBehaviors {
   ) => Promise<QueryResponseData<DomainListItemData>>;
 
   delete: (domainId: string) => Promise<void>;
+  createAuthCode: (domainId: string) => Promise<{ authCode: string }>;
+  updateNameservers: (
+    domainId: string,
+    nameservers: [string, string, ...string[]],
+  ) => Promise<void>;
+  checkDomainRegistrable: (
+    domain: string,
+  ) => Promise<{ isPremium: boolean; registrable: boolean }>;
 }
