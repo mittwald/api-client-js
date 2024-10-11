@@ -7,8 +7,7 @@ import { AppInstallationBehaviors } from "../app/AppInstallation/behaviors/index
 import { ContractItemBehaviors } from "../contract/ContractItem/behaviors/index.js";
 import { ArticleBehaviors } from "../article/Article/behaviors/index.js";
 import { MailAddressBehaviors } from "../mail/MailAddress/behaviors/index.js";
-import { MailSettingsBehaviors } from "../mail/MailSettings/behaviors/types.js";
-import { MailSettings } from "../mail/MailSettings/MailSettings.js";
+import { MailSettingsBehaviors } from "../mail/MailSettings/behaviors/index.js";
 
 interface Config {
   defaultPaginationLimit: number;
