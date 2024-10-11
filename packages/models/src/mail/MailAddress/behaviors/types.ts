@@ -37,6 +37,4 @@ export interface MailAddressBehaviors {
     message: string,
     startsAt: Date,
   ) => Promise<void>;
-  updateBlocklist: (projectId: string, blocklist: string[]) => Promise<void>;
-  updateAllowlist: (projectId: string, allowlist: string[]) => Promise<void>;
 }

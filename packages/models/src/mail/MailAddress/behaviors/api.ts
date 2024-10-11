@@ -123,24 +123,4 @@ export const apiMailAddressBehaviors = (
     });
     assertStatus(response, 204);
   },
-  updateBlocklist: async (projectId: string, blocklist: string[]) => {
-    const response = await client.mail.updateProjectMailSetting({
-      projectId,
-      mailSetting: "blacklist",
-      data: {
-        blacklist: blocklist,
-      },
-    });
-    assertStatus(response, 204);
-  },
-  updateAllowlist: async (projectId: string, allowlist: string[]) => {
-    const response = await client.mail.updateProjectMailSetting({
-      projectId,
-      mailSetting: "whitelist",
-      data: {
-        whitelist: allowlist,
-      },
-    });
-    assertStatus(response, 204);
-  },
 });

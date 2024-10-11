@@ -24,6 +24,7 @@ import { ListQueryModel } from "../../base/ListQueryModel.js";
 import { ListDataModel } from "../../base/ListDataModel.js";
 import { AppInstallationListQuery } from "../../app/index.js";
 import { MailAddressListQuery } from "../../mail/MailAddress/index.js";
+import { MailSettings } from "../../mail/MailSettings/index.js";
 
 export class Project extends ReferenceModel {
   public readonly ingresses: IngressListQuery;
@@ -123,11 +124,13 @@ class ProjectCommon extends classes(
 ) {
   public readonly server: Server | undefined;
   public readonly customer: Customer;
+  public readonly mailSettings: MailSettings;
 
   public constructor(data: ProjectListItemData | ProjectData) {
     super([data], [data.id]);
     this.server = data.serverId ? Server.ofId(data.serverId) : undefined;
     this.customer = Customer.ofId(data.customerId);
+    this.mailSettings = MailSettings.ofId(this.id);
   }
 }
 
