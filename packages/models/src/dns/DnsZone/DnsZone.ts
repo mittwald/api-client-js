@@ -15,6 +15,7 @@ import { AsyncResourceVariant, provideReact } from "../../react/index.js";
 import { config } from "../../config/config.js";
 import { Project } from "../../project/index.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
+import { DnsRecordSet } from "../DnsRecordSet/DnsRecordSet.js";
 
 export class DnsZone extends ReferenceModel {
   public static ofId(id: string): DnsZone {
@@ -54,8 +55,10 @@ export class DnsZone extends ReferenceModel {
 }
 
 export class DnsZoneCommon extends classes(DataModel<DnsZoneData>, DnsZone) {
+  public readonly recordSet: DnsRecordSet;
   public constructor(data: DnsZoneData) {
     super([data], [data.id]);
+    this.recordSet = new DnsRecordSet(this, data.recordSet);
   }
 }
 

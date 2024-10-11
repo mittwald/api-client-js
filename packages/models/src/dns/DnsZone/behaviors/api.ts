@@ -27,4 +27,26 @@ export const apiDnsZoneBehaviors = (
       totalCount: response.data.length,
     };
   },
+  delete: async (zoneId: string) => {
+    const response = await client.domain.dnsDeleteDnsZone({
+      dnsZoneId: zoneId,
+    });
+    assertStatus(response, 200);
+  },
+  create: async (name: string, parentZoneId: string) => {
+    const response = await client.domain.dnsCreateDnsZone({
+      data: { name, parentZoneId },
+    });
+    assertStatus(response, 201);
+    return {
+      id: response.data.id,
+    };
+  },
+  setRecordManaged: async (zoneId: string, recordSet: "a" | "mx") => {
+    const response = await client.domain.dnsSetRecordSetManaged({
+      recordSet,
+      dnsZoneId: zoneId,
+    });
+    assertStatus(response, 204);
+  },
 });

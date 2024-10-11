@@ -9,7 +9,7 @@ import { addUrlTagToProvideReactCache } from "../../react/asyncResourceInvalidat
 import { apiArticleBehaviors } from "../../article/Article/behaviors/index.js";
 import { apiContractBehaviors } from "../../contract/Contract/behaviors/index.js";
 import { apiContractItemBehaviors } from "../../contract/ContractItem/behaviors/index.js";
-import { apiDnsZoneBehaviors } from "../../dns/Zone/behaviors/api.js";
+import { apiDnsZoneBehaviors } from "../../dns/DnsZone/behaviors/api.js";
 
 class ApiSetupState {
   private _client: MittwaldAPIV2Client | undefined;
