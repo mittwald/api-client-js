@@ -9,10 +9,8 @@ import { DomainBehaviors } from "./types.js";
 export const apiDomainBehaviors = (
   client: MittwaldAPIV2Client,
 ): DomainBehaviors => ({
-  find: async (id) => {
-    const response = await client.domain.getDomain({
-      domainId: id,
-    });
+  find: async (domainId: string) => {
+    const response = await client.domain.getDomain({ domainId });
     if (response.status === 200) {
       return response.data;
     }
@@ -28,8 +26,8 @@ export const apiDomainBehaviors = (
       totalCount: extractTotalCountHeader(response),
     };
   },
-  delete: async (id) => {
-    const response = await client.domain.deleteDomain({ domainId: id });
+  delete: async (domainId: string) => {
+    const response = await client.domain.deleteDomain({ domainId });
     assertStatus(response, 200);
   },
   createAuthCode: async (domainId: string) => {

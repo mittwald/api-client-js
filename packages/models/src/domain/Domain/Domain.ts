@@ -52,6 +52,18 @@ export class Domain extends ReferenceModel {
     () => Domain.get(this.id),
     [this.id],
   ) as AsyncResourceVariant<() => Promise<DomainDetailed>>;
+
+  public async delete(): Promise<void> {
+    await config.behaviors.domain.delete(this.id);
+  }
+
+  public async createAuthCode(): Promise<void> {
+    await config.behaviors.domain.createAuthCode(this.id);
+  }
+
+  public async updateNameservers(nameservers: [string, string, ...string[]]) {
+    await config.behaviors.domain.updateNameservers(this.id, nameservers);
+  }
 }
 
 export class DomainCommon extends classes(DataModel<DomainData>, Domain) {
