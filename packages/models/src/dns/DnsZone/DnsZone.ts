@@ -52,6 +52,13 @@ export class DnsZone extends ReferenceModel {
     () => DnsZone.find(this.id),
     [this.id],
   ) as AsyncResourceVariant<() => Promise<DnsZoneDetailed | undefined>>;
+
+  public async delete(): Promise<void> {
+    await config.behaviors.dnsZones.delete(this.id);
+  }
+  public async setRecordManaged(record: "a" | "mx"): Promise<void> {
+    await config.behaviors.dnsZones.setRecordManaged(this.id, record);
+  }
 }
 
 export class DnsZoneCommon extends classes(DataModel<DnsZoneData>, DnsZone) {
