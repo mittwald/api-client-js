@@ -16,6 +16,7 @@ import {
 import { IngressPath } from "../IngressPath/IngressPath.js";
 import { ListQueryModel } from "../../base/ListQueryModel.js";
 import { ListDataModel } from "../../base/ListDataModel.js";
+import { CertificateSettings, PathSettings } from "./behaviors/index.js";
 
 export class Ingress extends ReferenceModel {
   public static ofId(id: string): Ingress {
@@ -60,6 +61,20 @@ export class Ingress extends ReferenceModel {
     () => Ingress.find(this.id),
     [this.id],
   ) as AsyncResourceVariant<() => Promise<IngressDetailed | undefined>>;
+
+  public async delete(): Promise<void> {
+    await config.behaviors.ingress.delete(this.id);
+  }
+
+  public async updatePaths(paths: PathSettings[]): Promise<void> {
+    await config.behaviors.ingress.updatePaths(this.id, paths);
+  }
+  public async updateTls(certificate: CertificateSettings): Promise<void> {
+    await config.behaviors.ingress.updateTls(this.id, certificate);
+  }
+  public async requestAcmeCertificate(): Promise<void> {
+    await config.behaviors.ingress.requestAcmeCertificate(this.id);
+  }
 }
 
 export class IngressCommon extends classes(
