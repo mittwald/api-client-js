@@ -55,6 +55,16 @@ export class DeliveryBox extends ReferenceModel {
     () => DeliveryBox.find(this.id),
     [this.id],
   ) as AsyncResourceVariant<() => Promise<DeliveryBoxDetailed | undefined>>;
+
+  public async updateDescription(description: string): Promise<void> {
+    await config.behaviors.deliveryBox.updateDescription(this.id, description);
+  }
+  public async updatePassword(password: string): Promise<void> {
+    await config.behaviors.deliveryBox.updatePassword(this.id, password);
+  }
+  public async delete(): Promise<void> {
+    await config.behaviors.deliveryBox.delete(this.id);
+  }
 }
 
 export class DeliveryBoxCommon extends classes(
