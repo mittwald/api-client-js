@@ -116,6 +116,13 @@ export class Project extends ReferenceModel {
   public async delete(): Promise<void> {
     await config.behaviors.project.delete(this.id);
   }
+
+  public async updateMailBlocklist(blocklist: string[]): Promise<void> {
+    await config.behaviors.mailSettings.updateBlocklist(this.id, blocklist);
+  }
+  public async updateMailAllowlist(allowlist: string[]): Promise<void> {
+    await config.behaviors.mailSettings.updateAllowlist(this.id, allowlist);
+  }
 }
 
 class ProjectCommon extends classes(

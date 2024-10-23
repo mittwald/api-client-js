@@ -77,7 +77,7 @@ export const apiMailAddressBehaviors = (
     });
     assertStatus(response, 204);
   },
-  updateQuotaInBytes: async (mailAddressId: string, bytes: number) => {
+  updateQuota: async (mailAddressId: string, bytes: number) => {
     const response = await client.mail.updateMailAddressQuota({
       mailAddressId,
       data: { quotaInBytes: bytes },

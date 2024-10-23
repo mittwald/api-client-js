@@ -24,7 +24,7 @@ export interface MailAddressBehaviors {
     folder: "inbox" | "spam",
     relocationMinSpamScore: number,
   ) => Promise<void>;
-  updateQuotaInBytes: (mailAddressId: string, bytes: number) => Promise<void>;
+  updateQuota: (mailAddressId: string, bytes: number) => Promise<void>;
   updateForwardAddresses: (
     mailAddressId: string,
     forwardAddresses: string[],
