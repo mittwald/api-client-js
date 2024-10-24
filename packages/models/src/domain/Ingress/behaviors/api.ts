@@ -71,4 +71,10 @@ export const apiIngressBehaviors = (
     });
     assertStatus(response, 204);
   },
+  verifyOwnership: async (ingressId: string) => {
+    const response = await client.domain.ingressIngressVerifyOwnership({
+      ingressId,
+    });
+    assertStatus(response, 200);
+  },
 });

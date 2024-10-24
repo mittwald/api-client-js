@@ -31,4 +31,5 @@ export interface IngressBehaviors {
     certificate: CertificateSettings,
   ) => Promise<void>;
   updatePaths: (ingressId: string, paths: PathSettings[]) => Promise<void>;
+  verifyOwnership: (ingressId: string) => Promise<void>;
 }

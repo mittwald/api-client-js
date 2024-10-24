@@ -75,6 +75,9 @@ export class Ingress extends ReferenceModel {
   public async requestAcmeCertificate(): Promise<void> {
     await config.behaviors.ingress.requestAcmeCertificate(this.id);
   }
+  public async verifyOwnership(): Promise<void> {
+    await config.behaviors.ingress.verifyOwnership(this.id);
+  }
 }
 
 export class IngressCommon extends classes(
