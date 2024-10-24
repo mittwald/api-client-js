@@ -20,4 +20,5 @@ export interface DomainBehaviors {
   checkDomainRegistrable: (
     domain: string,
   ) => Promise<{ isPremium: boolean; registrable: boolean }>;
+  resendEmail: (domainId: string) => Promise<void>;
 }

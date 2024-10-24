@@ -52,4 +52,8 @@ export const apiDomainBehaviors = (
     assertStatus(response, 200);
     return response.data;
   },
+  resendEmail: async (domainId: string) => {
+    const response = await client.domain.resendDomainEmail({ domainId });
+    assertStatus(response, 204);
+  },
 });

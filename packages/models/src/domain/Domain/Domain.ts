@@ -64,6 +64,10 @@ export class Domain extends ReferenceModel {
   public async updateNameservers(nameservers: [string, string, ...string[]]) {
     await config.behaviors.domain.updateNameservers(this.id, nameservers);
   }
+
+  public async resendEmail(): Promise<void> {
+    await config.behaviors.domain.resendEmail(this.id);
+  }
 }
 
 export class DomainCommon extends classes(DataModel<DomainData>, Domain) {
