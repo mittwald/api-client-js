@@ -11,9 +11,17 @@ export interface MailAddressBehaviors {
 
   create: (
     projectId: string,
+    mailAddress: string,
+    password: string,
+    isCatchAll: boolean,
+    enableSpamProtection: boolean,
+    quotaInBytes: number,
+  ) => Promise<{ id: string }>;
+  createForward: (
+    projectId: string,
     address: string,
     forwardAddresses: string[],
-  ) => Promise<void>;
+  ) => Promise<{ id: string }>;
 
   updateAddress: (mailAddressId: string, address: string) => Promise<void>;
   updatePassword: (mailAddressId: string, password: string) => Promise<void>;

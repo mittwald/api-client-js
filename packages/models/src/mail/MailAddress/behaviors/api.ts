@@ -30,6 +30,29 @@ export const apiMailAddressBehaviors = (
   },
   create: async (
     projectId: string,
+    mailAddress: string,
+    password: string,
+    isCatchAll: boolean,
+    enableSpamProtection: boolean,
+    quotaInBytes: number,
+  ) => {
+    const response = await client.mail.createMailAddress({
+      projectId,
+      data: {
+        isCatchAll,
+        address: mailAddress,
+        mailbox: {
+          enableSpamProtection,
+          password,
+          quotaInBytes,
+        },
+      },
+    });
+    assertStatus(response, 201);
+    return response.data;
+  },
+  createForward: async (
+    projectId: string,
     address: string,
     forwardAddresses: string[],
   ) => {
@@ -38,6 +61,7 @@ export const apiMailAddressBehaviors = (
       data: { address, forwardAddresses },
     });
     assertStatus(response, 201);
+    return response.data;
   },
   updateAddress: async (mailAddressId: string, address: string) => {
     const response = await client.mail.updateMailAddressAddress({

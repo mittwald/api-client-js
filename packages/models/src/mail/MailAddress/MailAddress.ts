@@ -54,6 +54,37 @@ export class MailAddress extends ReferenceModel {
     MailAddress.find(this.id),
   ) as AsyncResourceVariant<() => Promise<MailAddressDetailed | undefined>>;
 
+  public static async create(
+    projectId: string,
+    mailAddress: string,
+    password: string,
+    isCatchAll: boolean,
+    enableSpamProtection: boolean,
+    quotaInBytes: number,
+  ): Promise<MailAddress> {
+    const { id } = await config.behaviors.mailAddress.create(
+      projectId,
+      mailAddress,
+      password,
+      isCatchAll,
+      enableSpamProtection,
+      quotaInBytes,
+    );
+    return new MailAddress(id);
+  }
+
+  public static async createForward(
+    projectId: string,
+    address: string,
+    forwardAddresses: string[],
+  ): Promise<MailAddress> {
+    const { id } = await config.behaviors.mailAddress.createForward(
+      projectId,
+      address,
+      forwardAddresses,
+    );
+    return new MailAddress(id);
+  }
   public async updateAddress(address: string): Promise<void> {
     await config.behaviors.mailAddress.updateAddress(this.id, address);
   }
