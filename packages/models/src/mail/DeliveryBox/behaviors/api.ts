@@ -34,6 +34,7 @@ export const apiDeliveryBoxBehaviors = (
       },
     });
     assertStatus(response, 201);
+    return response.data;
   },
   delete: async (deliveryBoxId: string) => {
     const response = await client.mail.deleteDeliveryBox({ deliveryBoxId });

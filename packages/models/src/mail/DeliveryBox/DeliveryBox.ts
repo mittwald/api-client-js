@@ -65,6 +65,19 @@ export class DeliveryBox extends ReferenceModel {
   public async delete(): Promise<void> {
     await config.behaviors.deliveryBox.delete(this.id);
   }
+
+  public static async create(
+    projectId: string,
+    description: string,
+    password: string,
+  ): Promise<DeliveryBox> {
+    const { id } = await config.behaviors.deliveryBox.create(
+      projectId,
+      description,
+      password,
+    );
+    return new DeliveryBox(id);
+  }
 }
 
 export class DeliveryBoxCommon extends classes(

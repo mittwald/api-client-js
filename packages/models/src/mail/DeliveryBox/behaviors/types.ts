@@ -11,7 +11,7 @@ export interface DeliveryBoxBehaviors {
     projectId: string,
     description: string,
     password: string,
-  ) => Promise<void>;
+  ) => Promise<{ id: string }>;
 
   delete: (deliveryBoxId: string) => Promise<void>;
   updateDescription: (
