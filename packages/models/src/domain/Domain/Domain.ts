@@ -10,6 +10,7 @@ import {
   DomainListItemData,
   DomainListQueryData,
   DomainListQueryModelData,
+  HandleField,
 } from "./types.js";
 import {
   AsyncResourceVariant,
@@ -67,6 +68,12 @@ export class Domain extends ReferenceModel {
 
   public async resendEmail(): Promise<void> {
     await config.behaviors.domain.resendEmail(this.id);
+  }
+
+  public async updateOwnerContact(
+    contact: [HandleField, ...HandleField[]],
+  ): Promise<void> {
+    await config.behaviors.domain.updateOwnerContact(this.id, contact);
   }
 }
 

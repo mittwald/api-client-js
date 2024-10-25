@@ -2,6 +2,7 @@ import {
   DomainData,
   DomainListItemData,
   DomainListQueryData,
+  HandleField,
 } from "../types.js";
 import { QueryResponseData } from "../../../base/index.js";
 
@@ -21,4 +22,13 @@ export interface DomainBehaviors {
     domain: string,
   ) => Promise<{ isPremium: boolean; registrable: boolean }>;
   resendEmail: (domainId: string) => Promise<void>;
+  updateOwnerContact: (
+    domainId: string,
+    handleFields: [HandleField, ...HandleField[]],
+  ) => Promise<void>;
+  getSuggestions: (
+    prompt: string,
+    domainCount?: number,
+    tlds?: string[],
+  ) => Promise<string[]>;
 }

@@ -15,3 +15,5 @@ export type DomainData = MittwaldAPIV2.Operations.DomainGetDomain.ResponseData;
 
 export type DomainListItemData =
   MittwaldAPIV2.Operations.DomainListDomains.ResponseData[number];
+
+export type HandleField = MittwaldAPIV2.Components.Schemas.DomainHandleField;

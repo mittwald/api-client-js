@@ -5,6 +5,7 @@ import {
   assertOneOfStatus,
 } from "@mittwald/api-client";
 import { DomainBehaviors } from "./types.js";
+import { HandleField } from "../types.js";
 
 export const apiDomainBehaviors = (
   client: MittwaldAPIV2Client,
@@ -55,5 +56,33 @@ export const apiDomainBehaviors = (
   resendEmail: async (domainId: string) => {
     const response = await client.domain.resendDomainEmail({ domainId });
     assertStatus(response, 204);
+  },
+  updateOwnerContact: async (
+    domainId: string,
+    handleFields: [HandleField, ...HandleField[]],
+  ) => {
+    const response = await client.domain.updateDomainContact({
+      domainId,
+      contact: "owner",
+      data: {
+        contact: handleFields,
+      },
+    });
+    assertStatus(response, 200);
+  },
+  getSuggestions: async (
+    prompt: string,
+    domainCount?: number,
+    tlds?: string[],
+  ) => {
+    const response = await client.domain.suggest({
+      queryParameters: {
+        prompt,
+        domainCount: domainCount ?? 6,
+        tlds: tlds ?? [],
+      },
+    });
+    assertStatus(response, 200);
+    return response.data.domains;
   },
 });
