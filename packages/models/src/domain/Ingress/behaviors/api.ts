@@ -32,6 +32,17 @@ export const apiIngressBehaviors = (
       // totalCount: extractTotalCountHeader(response),
     };
   },
+  create: async (
+    projectId: string,
+    hostname: string,
+    paths: PathSettings[],
+  ) => {
+    const response = await client.domain.ingressCreateIngress({
+      data: { projectId, hostname, paths },
+    });
+    assertStatus(response, 201);
+    return response.data;
+  },
   delete: async (ingressId: string) => {
     const response = await client.domain.ingressDeleteIngress({
       ingressId,

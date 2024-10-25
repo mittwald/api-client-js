@@ -62,6 +62,19 @@ export class Ingress extends ReferenceModel {
     [this.id],
   ) as AsyncResourceVariant<() => Promise<IngressDetailed | undefined>>;
 
+  public static async create(
+    projectId: string,
+    hostname: string,
+    paths: PathSettings[],
+  ): Promise<Ingress> {
+    const { id } = await config.behaviors.ingress.create(
+      projectId,
+      hostname,
+      paths,
+    );
+    return new Ingress(id);
+  }
+
   public async delete(): Promise<void> {
     await config.behaviors.ingress.delete(this.id);
   }

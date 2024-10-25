@@ -24,6 +24,11 @@ export interface IngressBehaviors {
   list: (
     query?: IngressListQueryData,
   ) => Promise<QueryResponseData<IngressListItemData>>;
+  create: (
+    projectId: string,
+    hostname: string,
+    paths: PathSettings[],
+  ) => Promise<{ id: string }>;
   delete: (id: string) => Promise<void>;
   requestAcmeCertificate: (id: string) => Promise<void>;
   updateTls: (
