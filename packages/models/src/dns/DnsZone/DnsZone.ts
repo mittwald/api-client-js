@@ -6,6 +6,9 @@ import {
   ReferenceModel,
 } from "../../base/index.js";
 import {
+  DnsMxRecord,
+  DnsRecordSettings,
+  DnsSrvRecord,
   DnsZoneData,
   DnsZoneListItemData,
   DnsZoneListQueryData,
@@ -53,11 +56,55 @@ export class DnsZone extends ReferenceModel {
     [this.id],
   ) as AsyncResourceVariant<() => Promise<DnsZoneDetailed | undefined>>;
 
+  public static async create(
+    name: string,
+    parentZoneId: string,
+  ): Promise<DnsZone> {
+    const { id } = await config.behaviors.dnsZones.create(name, parentZoneId);
+    return new DnsZone(id);
+  }
+
   public async delete(): Promise<void> {
     await config.behaviors.dnsZones.delete(this.id);
   }
   public async setRecordManaged(record: "a" | "mx"): Promise<void> {
     await config.behaviors.dnsZones.setRecordManaged(this.id, record);
+  }
+
+  public async setCustomARecord(
+    a: string[],
+    aaaa: string[],
+    settings: DnsRecordSettings,
+  ): Promise<void> {
+    await config.behaviors.dnsZones.setARecord(this.id, a, aaaa, settings);
+  }
+
+  public async setCustomMxRecord(
+    records: [DnsMxRecord, ...DnsMxRecord[]],
+    settings: DnsRecordSettings,
+  ): Promise<void> {
+    await config.behaviors.dnsZones.setMxRecord(this.id, records, settings);
+  }
+
+  public async setTxtRecord(
+    entries: string[],
+    settings: DnsRecordSettings,
+  ): Promise<void> {
+    await config.behaviors.dnsZones.setTxtRecord(this.id, entries, settings);
+  }
+
+  public async setSrvRecord(
+    entries: [DnsSrvRecord, ...DnsSrvRecord[]],
+    settings: DnsRecordSettings,
+  ): Promise<void> {
+    await config.behaviors.dnsZones.setSrvRecord(this.id, entries, settings);
+  }
+
+  public async setCname(
+    fqdn: string,
+    settings: DnsRecordSettings,
+  ): Promise<void> {
+    await config.behaviors.dnsZones.setCname(this.id, fqdn, settings);
   }
 }
 
