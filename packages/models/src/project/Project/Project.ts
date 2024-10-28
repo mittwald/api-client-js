@@ -23,10 +23,12 @@ import {
 import { ListQueryModel } from "../../base/ListQueryModel.js";
 import { ListDataModel } from "../../base/ListDataModel.js";
 import { AppInstallationListQuery } from "../../app/index.js";
+import { CertificateListQuery } from "../../ssl/Certificate/index.js";
 
 export class Project extends ReferenceModel {
   public readonly ingresses: IngressListQuery;
   public readonly appInstallations: AppInstallationListQuery;
+  public readonly certificates: CertificateListQuery;
 
   public constructor(id: string) {
     super(id);
@@ -34,6 +36,7 @@ export class Project extends ReferenceModel {
       project: this,
     });
     this.appInstallations = new AppInstallationListQuery(this);
+    this.certificates = new CertificateListQuery(this);
   }
 
   public static ofId(id: string): Project {
