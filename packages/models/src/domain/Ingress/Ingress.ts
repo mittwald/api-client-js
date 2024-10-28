@@ -8,15 +8,16 @@ import {
   provideReact,
 } from "../../react/provideReact.js";
 import {
+  CertificateSettings,
   IngressData,
   IngressListItemData,
   IngressListQueryData,
   IngressListQueryModelData,
+  PathSettings,
 } from "./types.js";
 import { IngressPath } from "../IngressPath/IngressPath.js";
 import { ListQueryModel } from "../../base/ListQueryModel.js";
 import { ListDataModel } from "../../base/ListDataModel.js";
-import { CertificateSettings, PathSettings } from "./behaviors/index.js";
 
 export class Ingress extends ReferenceModel {
   public static ofId(id: string): Ingress {

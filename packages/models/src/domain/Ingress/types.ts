@@ -11,6 +11,20 @@ export type IngressListQueryModelData = Omit<
   project?: Project;
 };
 
+export type CertificateSettings =
+  | { type: "acme" }
+  | { type: "certificate"; certificateId: string };
+
+export type PathSettings = {
+  path: string;
+  target:
+    | { directory: string }
+    | { url: string }
+    | { installationId: string }
+    | { useDefaultPage: boolean }
+    | { container: { id: string; portProtocol: string } };
+};
+
 export type IngressData =
   MittwaldAPIV2.Operations.IngressGetIngress.ResponseData;
 

@@ -1,10 +1,7 @@
 import { assertStatus, MittwaldAPIV2Client } from "@mittwald/api-client";
-import {
-  CertificateSettings,
-  IngressBehaviors,
-  PathSettings,
-} from "./types.js";
 import { assertOneOfStatus } from "@mittwald/api-client";
+import { IngressBehaviors } from "./types.js";
+import { CertificateSettings, PathSettings } from "../types.js";
 
 export const apiIngressBehaviors = (
   client: MittwaldAPIV2Client,
