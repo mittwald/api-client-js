@@ -8,6 +8,7 @@ import {
 import {
   CertificateData,
   CertificateListItemData,
+  CertificateListQueryData,
   CertificateListQueryModelData,
 } from "./types.js";
 import { AsyncResourceVariant, provideReact } from "../../react/index.js";
@@ -35,6 +36,16 @@ export class Certificate extends ReferenceModel {
       assertObjectFound(certificate, this, certificateId);
       return certificate;
     },
+  );
+
+  public static query = provideReact(
+    async (
+      projectId: string,
+      query: CertificateListQueryData,
+    ): Promise<Readonly<Array<CertificateListItem>>> =>
+      new CertificateListQuery(Project.ofId(projectId), query)
+        .execute()
+        .then((r) => r.items),
   );
 
   public getDetailed = provideReact(() => Certificate.get(this.id));

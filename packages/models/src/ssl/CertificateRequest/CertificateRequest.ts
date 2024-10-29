@@ -8,6 +8,7 @@ import { classes } from "polytype";
 import {
   CertificateRequestData,
   CertificateRequestListItemData,
+  CertificateRequestListQueryData,
   CertificateRequestListQueryModelData,
 } from "./types.js";
 import { CertificateListQueryModelData } from "../Certificate/types.js";
@@ -38,6 +39,16 @@ export class CertificateRequest extends ReferenceModel {
       assertObjectFound(certificateRequest, this, id);
       return certificateRequest;
     },
+  );
+
+  public static query = provideReact(
+    async (
+      projectId: string,
+      query: CertificateRequestListQueryData,
+    ): Promise<Readonly<Array<CertificateRequestListItem>>> =>
+      new CertificateRequestListQuery(Project.ofId(projectId), query)
+        .execute()
+        .then((r) => r.items),
   );
 
   public getDetailed = provideReact(() => CertificateRequest.get(this.id));
