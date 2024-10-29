@@ -10,6 +10,7 @@ import { apiArticleBehaviors } from "../../article/Article/behaviors/index.js";
 import { apiContractBehaviors } from "../../contract/Contract/behaviors/index.js";
 import { apiContractItemBehaviors } from "../../contract/ContractItem/behaviors/index.js";
 import { apiCertificateBehaviors } from "../../ssl/Certificate/behaviors/index.js";
+import { apiCertificateRequestBehaviors } from "../../ssl/CertificateRequest/behaviors/api.js";
 
 class ApiSetupState {
   private _client: MittwaldAPIV2Client | undefined;
@@ -33,6 +34,8 @@ class ApiSetupState {
     config.behaviors.contract = apiContractBehaviors(client);
     config.behaviors.contractItem = apiContractItemBehaviors(client);
     config.behaviors.certificate = apiCertificateBehaviors(client);
+    config.behaviors.certificateRequest =
+      apiCertificateRequestBehaviors(client);
   }
 
   public setupWithApiToken(apiToken: string) {

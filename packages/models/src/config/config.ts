@@ -7,6 +7,7 @@ import { AppInstallationBehaviors } from "../app/AppInstallation/behaviors/index
 import { ContractItemBehaviors } from "../contract/ContractItem/behaviors/index.js";
 import { ArticleBehaviors } from "../article/Article/behaviors/index.js";
 import { CertificateBehaviors } from "../ssl/Certificate/behaviors/types.js";
+import { CertificateRequestBehaviors } from "../ssl/CertificateRequest/behaviors/types.js";
 
 interface Config {
   defaultPaginationLimit: number;
@@ -20,6 +21,7 @@ interface Config {
     ingress: IngressBehaviors;
     appInstallation: AppInstallationBehaviors;
     certificate: CertificateBehaviors;
+    certificateRequest: CertificateRequestBehaviors;
   };
 }
 
@@ -35,5 +37,6 @@ export const config: Config = {
     ingress: undefined as unknown as IngressBehaviors,
     appInstallation: undefined as unknown as AppInstallationBehaviors,
     certificate: undefined as unknown as CertificateBehaviors,
+    certificateRequest: undefined as unknown as CertificateRequestBehaviors,
   },
 };
