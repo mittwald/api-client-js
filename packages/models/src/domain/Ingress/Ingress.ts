@@ -18,6 +18,7 @@ import {
 import { IngressPath } from "../IngressPath/IngressPath.js";
 import { ListQueryModel } from "../../base/ListQueryModel.js";
 import { ListDataModel } from "../../base/ListDataModel.js";
+import { IngressPathData } from "../IngressPath/index.js";
 
 export class Ingress extends ReferenceModel {
   public static ofId(id: string): Ingress {
@@ -105,7 +106,9 @@ export class IngressCommon extends classes(
   public constructor(data: IngressListItemData | IngressData) {
     super([data], [data.id]);
     this.baseUrl = `https://${data.hostname}`;
-    this.paths = Object.freeze(data.paths.map((p) => new IngressPath(this, p)));
+    this.paths = Object.freeze(
+      data.paths.map((p: IngressPathData) => new IngressPath(this, p)),
+    );
 
     const defaultPath = this.paths.find((p) => p.path === "/");
     if (defaultPath === undefined) {
