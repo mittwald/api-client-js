@@ -126,6 +126,11 @@ const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.contractGetBaseItemOfContract,
     baseClient.contract.getBaseItemOfContract,
   ).getApiResource,
+  /** Return the Contract for the given Certificate. */
+  getDetailOfContractByCertificate: new ApiCallAsyncResourceFactory(
+    descriptors.contractGetDetailOfContractByCertificate,
+    baseClient.contract.getDetailOfContractByCertificate,
+  ).getApiResource,
   /** Return the Contract for the given Domain. */
   getDetailOfContractByDomain: new ApiCallAsyncResourceFactory(
     descriptors.contractGetDetailOfContractByDomain,
@@ -274,6 +279,11 @@ const buildCustomerApi = (baseClient: MittwaldAPIV2Client) => ({
   listCustomers: new ApiCallAsyncResourceFactory(
     descriptors.customerListCustomers,
     baseClient.customer.listCustomers,
+  ).getApiResource,
+  /** Gets the Wallet of the Customer. */
+  getWallet: new ApiCallAsyncResourceFactory(
+    descriptors.customerGetWallet,
+    baseClient.customer.getWallet,
   ).getApiResource,
   /** Get a CustomerInvite. */
   getCustomerInvite: new ApiCallAsyncResourceFactory(
@@ -426,6 +436,26 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.ingressGetIngress,
     baseClient.domain.ingressGetIngress,
   ).getApiResource,
+  /** List CertificateRequests belonging to a Project or an Ingress. */
+  sslListCertificateRequests: new ApiCallAsyncResourceFactory(
+    descriptors.sslListCertificateRequests,
+    baseClient.domain.sslListCertificateRequests,
+  ).getApiResource,
+  /** Get a CertificateRequest. */
+  sslGetCertificateRequest: new ApiCallAsyncResourceFactory(
+    descriptors.sslGetCertificateRequest,
+    baseClient.domain.sslGetCertificateRequest,
+  ).getApiResource,
+  /** Get a Certificate. */
+  sslGetCertificate: new ApiCallAsyncResourceFactory(
+    descriptors.sslGetCertificate,
+    baseClient.domain.sslGetCertificate,
+  ).getApiResource,
+  /** List Certificates belonging to a Project or an Ingress. */
+  sslListCertificates: new ApiCallAsyncResourceFactory(
+    descriptors.sslListCertificates,
+    baseClient.domain.sslListCertificates,
+  ).getApiResource,
 });
 
 const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
@@ -487,7 +517,7 @@ const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.fileGetFile,
     baseClient.file.getFile,
   ).getApiResource,
-  /** Get a File. */
+  /** Get a File with user-friendly url. */
   getFileWithName: new ApiCallAsyncResourceFactory(
     descriptors.fileGetFileWithName,
     baseClient.file.getFileWithName,
