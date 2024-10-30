@@ -12,7 +12,6 @@ import {
   CertificateRequestListQueryModelData,
 } from "./types.js";
 import { CertificateListQueryModelData } from "../Certificate/types.js";
-import { Project } from "../../project/index.js";
 import { AsyncResourceVariant, provideReact } from "../../react/index.js";
 import { config } from "../../config/config.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
@@ -44,14 +43,8 @@ export class CertificateRequest extends ReferenceModel {
   public static query = provideReact(
     async (
       query: CertificateRequestListQueryData,
-      projectId?: string,
     ): Promise<Readonly<Array<CertificateRequestListItem>>> =>
-      new CertificateRequestListQuery(
-        query,
-        projectId ? Project.ofId(projectId) : undefined,
-      )
-        .execute()
-        .then((r) => r.items),
+      new CertificateRequestListQuery(query).execute().then((r) => r.items),
   );
 
   public getDetailed = provideReact(() => CertificateRequest.get(this.id));
@@ -98,29 +91,22 @@ export class CertificateRequestDetailed extends classes(
 }
 
 export class CertificateRequestListQuery extends ListQueryModel<CertificateListQueryModelData> {
-  private readonly project?: Project;
-  public constructor(
-    query: CertificateRequestListQueryModelData = {},
-    project?: Project,
-  ) {
-    super(query, { dependencies: project ? [project.id] : [] });
-    this.project = project;
+  public constructor(query: CertificateRequestListQueryModelData = {}) {
+    super(query);
   }
 
   public refine(query: CertificateRequestListQueryModelData = {}) {
-    return new CertificateRequestListQuery(query, this.project);
+    return new CertificateRequestListQuery(query);
   }
 
   public execute = provideReact(async () => {
+    const { ...query } = this.query;
     const { items, totalCount } =
-      await config.behaviors.certificateRequest.query(
-        this.project ? this.project.id : undefined,
-      );
+      await config.behaviors.certificateRequest.query(query);
     return new CertificateRequestList(
       this.query,
       items.map((r) => new CertificateRequestListItem(r)),
       totalCount,
-      this.project,
     );
   }, [this.queryId]);
 }
@@ -142,8 +128,7 @@ export class CertificateRequestList extends classes(
     query: CertificateRequestListQueryModelData,
     certificateRequests: CertificateRequestListItem[],
     totalCount: number,
-    project?: Project,
   ) {
-    super([query, project], [certificateRequests, totalCount]);
+    super([query], [certificateRequests, totalCount]);
   }
 }

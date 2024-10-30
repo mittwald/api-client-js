@@ -17,9 +17,9 @@ export const apiCertificateRequestBehaviors = (
     }
     assertOneOfStatus(response, [404]);
   },
-  query: async (projectId?: string) => {
+  query: async (query = {}) => {
     const response = await client.domain.sslListCertificateRequests({
-      queryParameters: { projectId },
+      queryParameters: query,
     });
     assertStatus(response, 200);
     return {

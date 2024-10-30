@@ -1,10 +1,14 @@
-import { CertificateData, CertificateListItemData } from "../types.js";
+import {
+  CertificateData,
+  CertificateListItemData,
+  CertificateListQueryData,
+} from "../types.js";
 import { QueryResponseData } from "../../../base/index.js";
 
 export interface CertificateBehaviors {
   find: (certificateId: string) => Promise<CertificateData | undefined>;
   query: (
-    projectId?: string,
+    query?: CertificateListQueryData,
   ) => Promise<QueryResponseData<CertificateListItemData>>;
   replace: (
     certificateId: string,

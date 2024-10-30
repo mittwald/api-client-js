@@ -1,6 +1,7 @@
 import {
   CertificateRequestData,
   CertificateRequestListItemData,
+  CertificateRequestListQueryData,
 } from "../types.js";
 import { QueryResponseData } from "../../../base/index.js";
 
@@ -9,7 +10,7 @@ export interface CertificateRequestBehaviors {
     certificateRequestId: string,
   ) => Promise<CertificateRequestData | undefined>;
   query: (
-    projectId?: string,
+    query?: CertificateRequestListQueryData,
   ) => Promise<QueryResponseData<CertificateRequestListItemData>>;
   create: (
     projectId: string,
