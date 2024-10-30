@@ -15,9 +15,10 @@ export const apiDeliveryBoxBehaviors = (
     }
     assertOneOfStatus(response, [404]);
   },
-  query: async (projectId: string) => {
+  query: async (projectId: string, query = {}) => {
     const response = await client.mail.listDeliveryBoxes({
       projectId,
+      queryParameters: query,
     });
     assertStatus(response, 200);
     return {

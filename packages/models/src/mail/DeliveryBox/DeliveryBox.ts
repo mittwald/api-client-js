@@ -118,8 +118,13 @@ export class DeliveryBoxListQuery extends ListQueryModel<DeliveryBoxListQueryMod
   }
 
   public execute = provideReact(async () => {
+    const { ...query } = this.query;
     const { items, totalCount } = await config.behaviors.deliveryBox.query(
       this.project.id,
+      {
+        limit: config.defaultPaginationLimit,
+        ...query,
+      },
     );
     return new DeliveryBoxList(
       this.project,
