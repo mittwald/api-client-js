@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.64.2](https://github.com/mittwald/api-client-js/compare/4.64.1...4.64.2) (2024-10-30)
+
+### Bug Fixes
+
+- **Client:** fix client is not updating
+  ([0a6a2db](https://github.com/mittwald/api-client-js/commit/0a6a2db05b848a0f9d1dde7ed0b7379b33070647))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [4.61.1](https://github.com/mittwald/api-client-js/compare/4.61.0...4.61.1) (2024-09-24)
 
 **Note:** Version bump only for package @mittwald/api-client
