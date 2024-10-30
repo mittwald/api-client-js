@@ -4,7 +4,7 @@ import { QueryResponseData } from "../../../base/index.js";
 export interface CertificateBehaviors {
   find: (certificateId: string) => Promise<CertificateData | undefined>;
   query: (
-    projectId: string,
+    projectId?: string,
   ) => Promise<QueryResponseData<CertificateListItemData>>;
   replace: (
     certificateId: string,

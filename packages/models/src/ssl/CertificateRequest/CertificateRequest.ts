@@ -43,10 +43,13 @@ export class CertificateRequest extends ReferenceModel {
 
   public static query = provideReact(
     async (
-      projectId: string,
       query: CertificateRequestListQueryData,
+      projectId?: string,
     ): Promise<Readonly<Array<CertificateRequestListItem>>> =>
-      new CertificateRequestListQuery(Project.ofId(projectId), query)
+      new CertificateRequestListQuery(
+        query,
+        projectId ? Project.ofId(projectId) : undefined,
+      )
         .execute()
         .then((r) => r.items),
   );
@@ -95,27 +98,29 @@ export class CertificateRequestDetailed extends classes(
 }
 
 export class CertificateRequestListQuery extends ListQueryModel<CertificateListQueryModelData> {
-  private readonly project: Project;
+  private readonly project?: Project;
   public constructor(
-    project: Project,
     query: CertificateRequestListQueryModelData = {},
+    project?: Project,
   ) {
-    super(query, { dependencies: [project.id] });
+    super(query, { dependencies: project ? [project.id] : [] });
     this.project = project;
   }
 
   public refine(query: CertificateRequestListQueryModelData = {}) {
-    return new CertificateRequestListQuery(this.project, query);
+    return new CertificateRequestListQuery(query, this.project);
   }
 
   public execute = provideReact(async () => {
     const { items, totalCount } =
-      await config.behaviors.certificateRequest.query(this.project.id);
+      await config.behaviors.certificateRequest.query(
+        this.project ? this.project.id : undefined,
+      );
     return new CertificateRequestList(
-      this.project,
       this.query,
       items.map((r) => new CertificateRequestListItem(r)),
       totalCount,
+      this.project,
     );
   }, [this.queryId]);
 }
@@ -134,11 +139,11 @@ export class CertificateRequestList extends classes(
   ListDataModel<CertificateRequestListItem>,
 ) {
   public constructor(
-    project: Project,
     query: CertificateRequestListQueryModelData,
     certificateRequests: CertificateRequestListItem[],
     totalCount: number,
+    project?: Project,
   ) {
-    super([project, query], [certificateRequests, totalCount]);
+    super([query, project], [certificateRequests, totalCount]);
   }
 }

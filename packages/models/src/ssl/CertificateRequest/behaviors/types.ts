@@ -9,7 +9,7 @@ export interface CertificateRequestBehaviors {
     certificateRequestId: string,
   ) => Promise<CertificateRequestData | undefined>;
   query: (
-    projectId: string,
+    projectId?: string,
   ) => Promise<QueryResponseData<CertificateRequestListItemData>>;
   create: (
     projectId: string,
