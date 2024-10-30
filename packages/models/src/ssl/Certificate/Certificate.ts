@@ -14,6 +14,7 @@ import {
 import { AsyncResourceVariant, provideReact } from "../../react/index.js";
 import { config } from "../../config/config.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
+import { CheckReplaceResponse } from "../CertificateRequest/types.js";
 
 export class Certificate extends ReferenceModel {
   public static ofId(certificateId: string): Certificate {
@@ -48,6 +49,17 @@ export class Certificate extends ReferenceModel {
   public findDetailed = provideReact(() =>
     Certificate.find(this.id),
   ) as AsyncResourceVariant<() => Promise<CertificateDetailed | undefined>>;
+
+  public async checkReplace(
+    certificate: string,
+    privateKey: string,
+  ): Promise<CheckReplaceResponse> {
+    return await config.behaviors.certificate.checkReplace(
+      this.id,
+      certificate,
+      privateKey,
+    );
+  }
 
   public async replace(certificate: string, privateKey: string): Promise<void> {
     await config.behaviors.certificate.replace(

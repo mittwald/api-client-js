@@ -26,6 +26,18 @@ export const apiCertificateBehaviors = (
       totalCount: response.data.length,
     };
   },
+  checkReplace: async (
+    certificateId: string,
+    certificate: string,
+    privateKey: string,
+  ) => {
+    const response = await client.domain.sslCheckReplaceCertificate({
+      certificateId,
+      data: { certificate, privateKey },
+    });
+    assertStatus(response, 200);
+    return response.data;
+  },
   replace: async (certificateId, certificate, privateKey) => {
     const response = await client.domain.sslReplaceCertificate({
       certificateId,
