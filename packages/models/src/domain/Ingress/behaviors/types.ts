@@ -6,6 +6,7 @@ import {
   CertificateSettings,
 } from "../types.js";
 import { QueryResponseData } from "../../../base/index.js";
+import { Ingress } from "../Ingress.js";
 
 export interface IngressBehaviors {
   find: (id: string) => Promise<IngressData | undefined>;
@@ -25,4 +26,8 @@ export interface IngressBehaviors {
   ) => Promise<void>;
   updatePaths: (ingressId: string, paths: PathSettings[]) => Promise<void>;
   verifyOwnership: (ingressId: string) => Promise<void>;
+  listCompatibleWithCertificate: (
+    projectId: string,
+    certificate: string,
+  ) => Promise<Ingress[]>;
 }

@@ -93,6 +93,16 @@ export class Ingress extends ReferenceModel {
   public async verifyOwnership(): Promise<void> {
     await config.behaviors.ingress.verifyOwnership(this.id);
   }
+
+  public static async listCompatibleWithCertificate(
+    projectId: string,
+    certificate: string,
+  ): Promise<Ingress[]> {
+    return await config.behaviors.ingress.listCompatibleWithCertificate(
+      projectId,
+      certificate,
+    );
+  }
 }
 
 export class IngressCommon extends classes(
@@ -151,8 +161,7 @@ export class IngressListQuery extends ListQueryModel<IngressListQueryModelData> 
   public execute = provideReact(async () => {
     const { project, ...query } = this.query;
     const { items, totalCount } = await config.behaviors.ingress.list({
-      /** @todo: use this code when pagination is supported by API */
-      // limit: config.defaultPaginationLimit,
+      limit: config.defaultPaginationLimit,
       ...query,
       projectId: project?.id,
     });
@@ -165,20 +174,12 @@ export class IngressListQuery extends ListQueryModel<IngressListQueryModelData> 
   }, [this.queryId]);
 
   public getTotalCount = provideReact(async () => {
-    /** @todo: use this code when pagination is supported by API */
-    // const { totalCount } = await this.refine({ limit: 1 }).execute();
-    // return totalCount;
-    const { items } = await this.refine({}).execute();
-    return items.length;
+    const { totalCount } = await this.refine({ limit: 1 }).execute();
+    return totalCount;
   }, [this.queryId]);
 
   public findOneAndOnly = provideReact(async () => {
-    /** @todo: use this code when pagination is supported by API */
-    // const { items, totalCount } = await this.refine({ limit: 2 }).execute();
-    // if (totalCount === 1) {
-    //   return items[0];
-    // }
-    const { items, totalCount } = await this.refine({}).execute();
+    const { items, totalCount } = await this.refine({ limit: 2 }).execute();
     if (totalCount === 1) {
       return items[0];
     }

@@ -2,6 +2,8 @@ import { assertStatus, MittwaldAPIV2Client } from "@mittwald/api-client";
 import { assertOneOfStatus } from "@mittwald/api-client";
 import { IngressBehaviors } from "./types.js";
 import { CertificateSettings, PathSettings } from "../types.js";
+import { extractTotalCountHeader } from "../../../../../../.nx/cache/9747102588152130217/outputs/packages/commons/dist/types/index.js";
+import { Ingress } from "../Ingress.js";
 
 export const apiIngressBehaviors = (
   client: MittwaldAPIV2Client,
@@ -24,9 +26,7 @@ export const apiIngressBehaviors = (
     assertStatus(response, 200);
     return {
       items: response.data,
-      totalCount: response.data.length,
-      /** @todo: use this code when pagination is supported by API */
-      // totalCount: extractTotalCountHeader(response),
+      totalCount: extractTotalCountHeader(response),
     };
   },
   create: async (
@@ -84,5 +84,16 @@ export const apiIngressBehaviors = (
       ingressId,
     });
     assertStatus(response, 200);
+  },
+  listCompatibleWithCertificate: async (
+    projectId: string,
+    certificate: string,
+  ) => {
+    const response =
+      await client.domain.ingressListIngressesCompatibleWithCertificate({
+        data: { projectId, certificate },
+      });
+    assertStatus(response, 200);
+    return response.data.map((i) => Ingress.ofId(i.id));
   },
 });
