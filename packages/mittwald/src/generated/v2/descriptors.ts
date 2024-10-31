@@ -12474,3 +12474,76 @@ export const userVerifyRegistration: OpenAPIOperation<
   method: "POST",
   operationId: "user-verify-registration",
 };
+
+/** Check if an address exists. */
+export const verificationVerifyAddress: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyAddress.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyAddress.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyAddress.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyAddress.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyAddress.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyAddress.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyAddress.Post.Responses.$500.Content.Empty>,
+      500,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyAddress.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/actions/verify-address",
+  method: "POST",
+  operationId: "verification-verify-address",
+};
+
+/** Check if a company exists. */
+export const verificationVerifyCompany: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyCompany.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyCompany.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyCompany.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyCompany.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyCompany.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyCompany.Post.Responses.$412.Content.Empty>,
+      412,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyCompany.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyCompany.Post.Responses.$500.Content.Empty>,
+      500,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyCompany.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/actions/verify-company",
+  method: "POST",
+  operationId: "verification-verify-company",
+};

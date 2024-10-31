@@ -3255,6 +3255,28 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace VerificationVerifyAddress {
+      type RequestData = InferredRequestData<
+        typeof descriptors.verificationVerifyAddress
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.verificationVerifyAddress,
+          TStatus
+        >;
+    }
+
+    namespace VerificationVerifyCompany {
+      type RequestData = InferredRequestData<
+        typeof descriptors.verificationVerifyCompany
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.verificationVerifyCompany,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -25482,6 +25504,116 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ActionsVerifyAddress {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            city: string;
+            /**
+             * Accepts the whole english or german name as well as the ISO 3166-2 country codes.
+             */
+            country: string;
+            /**
+             * Includes the house number.
+             */
+            street: string;
+            zip: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                exists: boolean;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ActionsVerifyCompany {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            name: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                exists: boolean;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export type Empty = unknown;
             }
           }
 
