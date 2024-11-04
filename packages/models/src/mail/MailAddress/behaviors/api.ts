@@ -14,9 +14,10 @@ export const apiMailAddressBehaviors = (
     }
     assertOneOfStatus(response, [404]);
   },
-  query: async (projectId: string) => {
+  query: async (projectId: string, query = {}) => {
     const response = await client.mail.listMailAddresses({
       projectId,
+      queryParameters: query,
     });
     assertStatus(response, 200);
     return {

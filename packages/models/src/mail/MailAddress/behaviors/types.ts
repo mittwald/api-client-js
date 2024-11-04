@@ -1,10 +1,15 @@
-import { MailAddressData, MailAddressListItemData } from "../types.js";
+import {
+  MailAddressData,
+  MailAddressListItemData,
+  MailAddressListQueryData,
+} from "../types.js";
 import { QueryResponseData } from "../../../base/index.js";
 
 export interface MailAddressBehaviors {
   find: (mailAddressId: string) => Promise<MailAddressData | undefined>;
   query: (
     projectId: string,
+    query?: MailAddressListQueryData,
   ) => Promise<QueryResponseData<MailAddressListItemData>>;
 
   delete: (mailAddressId: string) => Promise<void>;

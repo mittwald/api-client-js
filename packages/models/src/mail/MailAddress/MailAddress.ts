@@ -187,6 +187,10 @@ export class MailAddressListQuery extends ListQueryModel<MailAddressListQueryMod
   public execute = provideReact(async () => {
     const { items, totalCount } = await config.behaviors.mailAddress.query(
       this.project.id,
+      {
+        limit: config.defaultPaginationLimit,
+        ...this.query,
+      },
     );
     return new MailAddressList(
       this.project,
