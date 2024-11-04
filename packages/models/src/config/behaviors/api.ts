@@ -9,6 +9,7 @@ import { addUrlTagToProvideReactCache } from "../../react/asyncResourceInvalidat
 import { apiArticleBehaviors } from "../../article/Article/behaviors/index.js";
 import { apiContractBehaviors } from "../../contract/Contract/behaviors/index.js";
 import { apiContractItemBehaviors } from "../../contract/ContractItem/behaviors/index.js";
+import { apiTldBehaviors } from "../../domain/Tld/behaviors/index.js";
 
 class ApiSetupState {
   private _client: MittwaldAPIV2Client | undefined;
@@ -31,6 +32,7 @@ class ApiSetupState {
     config.behaviors.appInstallation = apiAppInstallationBehaviors(client);
     config.behaviors.contract = apiContractBehaviors(client);
     config.behaviors.contractItem = apiContractItemBehaviors(client);
+    config.behaviors.tld = apiTldBehaviors(client);
   }
 
   public setupWithApiToken(apiToken: string) {

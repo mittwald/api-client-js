@@ -18,6 +18,11 @@ export class Tld extends ReferenceModel {
   public static ofTld(tld: string): Tld {
     return new Tld(tld);
   }
+
+  public static query = provideReact(
+    async (): Promise<Readonly<Array<TldListItem>>> =>
+      new TldListQuery().execute().then((t) => t.items),
+  );
 }
 
 export class TldCommon extends classes(Tld, DataModel<TldData>) {
