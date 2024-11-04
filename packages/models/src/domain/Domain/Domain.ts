@@ -10,6 +10,7 @@ import {
   DomainListItemData,
   DomainListQueryData,
   DomainListQueryModelData,
+  DomainTransferableReasons,
   HandleField,
 } from "./types.js";
 import {
@@ -18,6 +19,8 @@ import {
 } from "../../react/provideReact.js";
 import { config } from "../../config/config.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
+import { ContractDetailed } from "../../contract/index.js";
+
 export class Domain extends ReferenceModel {
   public static ofId(id: string): Domain {
     return new Domain(id);
@@ -39,6 +42,30 @@ export class Domain extends ReferenceModel {
       return domain;
     },
   );
+
+  public static async checkRegistrability(
+    domain: string,
+  ): Promise<{ registrable: boolean; isPremium: boolean }> {
+    return await config.behaviors.domain.checkDomainRegistrable(domain);
+  }
+
+  public static async checkTransferability(
+    domain: string,
+    authCode: string,
+  ): Promise<{ transferable: boolean; reasons: DomainTransferableReasons }> {
+    return await config.behaviors.domain.checkDomainTransferable(
+      domain,
+      authCode,
+    );
+  }
+
+  public static async suggestDomains(
+    prompt: string,
+    amount?: number,
+    tlds?: string[],
+  ): Promise<string[]> {
+    return await config.behaviors.domain.getSuggestions(prompt, amount, tlds);
+  }
 
   public static query = (query: DomainListQueryModelData = {}) => {
     return new DomainListQuery(query);
@@ -74,6 +101,21 @@ export class Domain extends ReferenceModel {
     contact: [HandleField, ...HandleField[]],
   ): Promise<void> {
     await config.behaviors.domain.updateOwnerContact(this.id, contact);
+  }
+
+  public async updateAuthCode(
+    authCode: string,
+  ): Promise<{ isAsync: boolean; transactionId: string }> {
+    return await config.behaviors.domain.updateAuthCode(this.id, authCode);
+  }
+
+  public async abortDomainDeclaration(): Promise<void> {
+    await config.behaviors.domain.abortDomainDeclaration(this.id);
+  }
+
+  public async getContract(): Promise<ContractDetailed> {
+    const response = await config.behaviors.domain.getDomainContract(this.id);
+    return new ContractDetailed(response);
   }
 }
 

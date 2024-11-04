@@ -5,7 +5,7 @@ import {
   assertOneOfStatus,
 } from "@mittwald/api-client";
 import { DomainBehaviors } from "./types.js";
-import { HandleField } from "../types.js";
+import { DomainTransferableReasons, HandleField } from "../types.js";
 
 export const apiDomainBehaviors = (
   client: MittwaldAPIV2Client,
@@ -36,6 +36,17 @@ export const apiDomainBehaviors = (
     assertStatus(response, 201);
     return response.data;
   },
+  updateAuthCode: async (domainId: string, authCode: string) => {
+    const response = await client.domain.updateDomainAuthCode({
+      domainId,
+      data: { authCode },
+    });
+    assertStatus(response, 200);
+    return {
+      isAsync: response.data.isAsync as boolean,
+      transactionId: response.data.transactionId as string,
+    };
+  },
   updateNameservers: async (
     domainId: string,
     nameservers: [string, string, ...string[]],
@@ -52,6 +63,16 @@ export const apiDomainBehaviors = (
     });
     assertStatus(response, 200);
     return response.data;
+  },
+  checkDomainTransferable: async (domain: string, authCode: string) => {
+    const response = await client.domain.checkDomainTransferability({
+      data: { domain, authCode },
+    });
+    assertStatus(response, 200);
+    return {
+      transferable: response.data.transferable as boolean,
+      reasons: response.data.reasons as DomainTransferableReasons,
+    };
   },
   resendEmail: async (domainId: string) => {
     const response = await client.domain.resendDomainEmail({ domainId });
@@ -84,5 +105,30 @@ export const apiDomainBehaviors = (
     });
     assertStatus(response, 200);
     return response.data.domains;
+  },
+  abortDomainDeclaration: async (domainId: string) => {
+    const response = await client.domain.abortDomainDeclaration({
+      domainId,
+    });
+    assertStatus(response, 204);
+  },
+  getDomainContract: async (domainId: string) => {
+    const response = await client.contract.getDetailOfContractByDomain({
+      domainId,
+    });
+    assertStatus(response, 200);
+    return response.data;
+  },
+  getLatestScreenshot: async (
+    domainId: string,
+    domainName: string,
+    path: string,
+  ) => {
+    const response = await client.domain.getLatestScreenshot({
+      domainId,
+      data: { domainName, path },
+    });
+    assertStatus(response, 200);
+    return response.data;
   },
 });

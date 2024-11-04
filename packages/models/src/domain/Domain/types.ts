@@ -17,3 +17,10 @@ export type DomainListItemData =
   MittwaldAPIV2.Operations.DomainListDomains.ResponseData[number];
 
 export type HandleField = MittwaldAPIV2.Components.Schemas.DomainHandleField;
+
+export type DomainTransferableReasons = {
+  domainAgeTooSmall: boolean;
+  domainDoesNotExist: boolean;
+  transferLock: boolean;
+  wrongAuthCode: boolean;
+};
