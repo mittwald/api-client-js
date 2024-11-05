@@ -275,6 +275,11 @@ const buildCronjobApi = (baseClient: MittwaldAPIV2Client) => ({
 });
 
 const buildCustomerApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** List Invites belonging to a Customer. */
+  listInvitesForCustomer: new ApiCallAsyncResourceFactory(
+    descriptors.customerListInvitesForCustomer,
+    baseClient.customer.listInvitesForCustomer,
+  ).getApiResource,
   /** Get all customer profiles the authenticated user has access to. */
   listCustomers: new ApiCallAsyncResourceFactory(
     descriptors.customerListCustomers,
@@ -319,11 +324,6 @@ const buildCustomerApi = (baseClient: MittwaldAPIV2Client) => ({
   listCustomerMemberships: new ApiCallAsyncResourceFactory(
     descriptors.customerListCustomerMemberships,
     baseClient.customer.listCustomerMemberships,
-  ).getApiResource,
-  /** List Invites belonging to a Customer. */
-  listInvitesForCustomer: new ApiCallAsyncResourceFactory(
-    descriptors.customerListInvitesForCustomer,
-    baseClient.customer.listInvitesForCustomer,
   ).getApiResource,
   /** List Memberships belonging to a Customer. */
   listMembershipsForCustomer: new ApiCallAsyncResourceFactory(

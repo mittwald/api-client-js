@@ -427,6 +427,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     acceptCustomerInvite: this.requestFunctionFactory(
       descriptors.customerAcceptCustomerInvite,
     ),
+    /** List Invites belonging to a Customer. */
+    listInvitesForCustomer: this.requestFunctionFactory(
+      descriptors.customerListInvitesForCustomer,
+    ),
     /** Create a CustomerInvite. */
     createCustomerInvite: this.requestFunctionFactory(
       descriptors.customerCreateCustomerInvite,
@@ -500,10 +504,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** List CustomerMemberships belonging to the executing user. */
     listCustomerMemberships: this.requestFunctionFactory(
       descriptors.customerListCustomerMemberships,
-    ),
-    /** List Invites belonging to a Customer. */
-    listInvitesForCustomer: this.requestFunctionFactory(
-      descriptors.customerListInvitesForCustomer,
     ),
     /** List Memberships belonging to a Customer. */
     listMembershipsForCustomer: this.requestFunctionFactory(
