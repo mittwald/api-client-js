@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@mittwald/api-client": "workspace:^",
+    "ajv": "^8.17.1",
     "another-deep-freeze": "^1.0.0",
     "context": "^3.0.31",
     "dinero.js": "^1.9.1",

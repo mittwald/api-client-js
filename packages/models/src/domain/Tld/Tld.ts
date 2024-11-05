@@ -13,6 +13,7 @@ import {
 } from "./types.js";
 import { provideReact } from "../../react/index.js";
 import { config } from "../../config/config.js";
+import { SchemaObject } from "ajv/dist/2019.js";
 
 export class Tld extends ReferenceModel {
   public static ofTld(tld: string): Tld {
@@ -23,11 +24,22 @@ export class Tld extends ReferenceModel {
     async (): Promise<Readonly<Array<TldListItem>>> =>
       new TldListQuery().execute().then((t) => t.items),
   );
+
+  public getContactSchema = provideReact(
+    async (): Promise<{
+      jsonSchemaOwnerC: SchemaObject;
+      jsonSchemaAdminC?: SchemaObject;
+    }> => {
+      return config.behaviors.tld.getContactSchemas(this.id);
+    },
+  );
 }
 
 export class TldCommon extends classes(Tld, DataModel<TldData>) {
+  tld: string;
   public constructor(data: TldData) {
     super([data.tld], [data]);
+    this.tld = data.tld;
   }
 }
 

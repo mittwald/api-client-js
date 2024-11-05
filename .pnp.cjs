@@ -2178,6 +2178,7 @@ const RAW_RUNTIME_STATE =
           ["@types/react-dom", "npm:18.3.0"],\
           ["@typescript-eslint/eslint-plugin", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:7.18.0"],\
           ["@typescript-eslint/parser", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:7.18.0"],\
+          ["ajv", "npm:8.17.1"],\
           ["another-deep-freeze", "npm:1.0.0"],\
           ["context", "npm:3.0.31"],\
           ["dinero.js", "npm:1.9.1"],\
