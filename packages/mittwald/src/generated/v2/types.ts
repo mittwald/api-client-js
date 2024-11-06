@@ -15973,6 +15973,8 @@ export declare module MittwaldAPIV2 {
           };
 
           export type Query = {
+            accept?: "application/octet-stream" | "text/plain;base64";
+            "content-disposition"?: "inline" | "attachment";
             token?: string;
           };
         }
@@ -16067,6 +16069,8 @@ export declare module MittwaldAPIV2 {
           };
 
           export type Query = {
+            accept?: "application/octet-stream" | "text/plain;base64";
+            "content-disposition"?: "inline" | "attachment";
             token?: string;
           };
         }
