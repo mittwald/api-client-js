@@ -610,17 +610,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace ConversationGetConversationPreferencesOfCustomer {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationGetConversationPreferencesOfCustomer
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.conversationGetConversationPreferencesOfCustomer,
-          TStatus
-        >;
-    }
-
     namespace ConversationGetConversation {
       type RequestData = InferredRequestData<
         typeof descriptors.conversationGetConversation
@@ -3277,6 +3266,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace ConversationGetConversationPreferencesOfCustomer {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationGetConversationPreferencesOfCustomer
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationGetConversationPreferencesOfCustomer,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -3773,9 +3773,10 @@ export declare module MittwaldAPIV2 {
         lastMessageAt?: string;
         lastMessageBy?: MittwaldAPIV2.Components.Schemas.ConversationUser;
         mainUser: MittwaldAPIV2.Components.Schemas.ConversationUser;
-        relatedTo?: MittwaldAPIV2.Components.Schemas.ConversationAggregateReference;
+        notificationRoles?: MittwaldAPIV2.Components.Schemas.ConversationNotificationRole[];
+        relatedTo?: MittwaldAPIV2.Components.Schemas.ConversationRelatedAggregateReference;
         relations?: MittwaldAPIV2.Components.Schemas.ConversationAggregateReference[];
-        sharedWith?: MittwaldAPIV2.Components.Schemas.ConversationAggregateReference;
+        sharedWith?: MittwaldAPIV2.Components.Schemas.ConversationShareableAggregateReference;
         shortId: string;
         status: MittwaldAPIV2.Components.Schemas.ConversationStatus;
         title: string;
@@ -3849,18 +3850,8 @@ export declare module MittwaldAPIV2 {
             id: string;
           }
         | {
-            aggregate: "appinstallation";
-            domain: "app";
-            id: string;
-          }
-        | {
             aggregate: "placementgroup";
             domain: "project";
-            id: string;
-          }
-        | {
-            aggregate: "extensionInstance";
-            domain: "extension";
             id: string;
           };
 
@@ -6370,6 +6361,46 @@ export declare module MittwaldAPIV2 {
         name: string;
         value: string;
       }
+
+      export type ConversationNotificationRole =
+        | "customer_owner"
+        | "customer_accountant"
+        | "customer_member"
+        | "project_owner"
+        | "project_email_admin"
+        | "project_external";
+
+      export type ConversationRelatedAggregateReference =
+        | {
+            aggregate: "user";
+            domain: "user";
+            id: string;
+          }
+        | {
+            aggregate: "customer";
+            domain: "customer";
+            id: string;
+          }
+        | {
+            aggregate: "project";
+            domain: "project";
+            id: string;
+          }
+        | {
+            aggregate: "appinstallation";
+            domain: "app";
+            id: string;
+          }
+        | {
+            aggregate: "placementgroup";
+            domain: "project";
+            id: string;
+          }
+        | {
+            aggregate: "extensionInstance";
+            domain: "extension";
+            id: string;
+          };
 
       export interface CommonsAddress {
         street: string;
@@ -9496,7 +9527,8 @@ export declare module MittwaldAPIV2 {
           export interface RequestBody {
             categoryId?: string;
             mainUserId?: string;
-            relatedTo?: MittwaldAPIV2.Components.Schemas.ConversationAggregateReference;
+            notificationRoles?: MittwaldAPIV2.Components.Schemas.ConversationNotificationRole[];
+            relatedTo?: MittwaldAPIV2.Components.Schemas.ConversationRelatedAggregateReference;
             sharedWith?: MittwaldAPIV2.Components.Schemas.ConversationShareableAggregateReference;
             title?: string;
           }
@@ -9780,68 +9812,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2CustomersCustomerIdConversationPreferences {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.ConversationConversationPreferences;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2ConversationsConversationId {
       namespace Get {
         namespace Parameters {
@@ -9911,7 +9881,7 @@ export declare module MittwaldAPIV2 {
 
           export interface RequestBody {
             categoryId?: string;
-            relatedTo?: MittwaldAPIV2.Components.Schemas.ConversationAggregateReference;
+            relatedTo?: MittwaldAPIV2.Components.Schemas.ConversationRelatedAggregateReference;
             title?: string;
           }
 
@@ -25624,6 +25594,68 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CustomersCustomerIdConversationPreferences {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ConversationConversationPreferences;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
