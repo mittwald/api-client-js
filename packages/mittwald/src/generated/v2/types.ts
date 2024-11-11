@@ -4120,6 +4120,7 @@ export declare module MittwaldAPIV2 {
         characterSettings: MittwaldAPIV2.Components.Schemas.DatabaseCharacterSettings;
         createdAt: string;
         description: string;
+        externalHostname: string;
         finalizers?: string[];
         hostname: string;
         id: string;
