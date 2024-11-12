@@ -610,6 +610,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ConversationGetConversationPreferencesOfCustomer {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationGetConversationPreferencesOfCustomer
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationGetConversationPreferencesOfCustomer,
+          TStatus
+        >;
+    }
+
     namespace ConversationGetConversation {
       type RequestData = InferredRequestData<
         typeof descriptors.conversationGetConversation
@@ -3267,13 +3278,13 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace ConversationGetConversationPreferencesOfCustomer {
+    namespace MarketplaceGetExtensionshealth {
       type RequestData = InferredRequestData<
-        typeof descriptors.conversationGetConversationPreferencesOfCustomer
+        typeof descriptors.marketplaceGetExtensionshealth
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.conversationGetConversationPreferencesOfCustomer,
+          typeof descriptors.marketplaceGetExtensionshealth,
           TStatus
         >;
     }
@@ -3832,6 +3843,46 @@ export declare module MittwaldAPIV2 {
         messageId: string;
         type: "MESSAGE";
       }
+
+      export type ConversationNotificationRole =
+        | "customer_owner"
+        | "customer_accountant"
+        | "customer_member"
+        | "project_owner"
+        | "project_email_admin"
+        | "project_external";
+
+      export type ConversationRelatedAggregateReference =
+        | {
+            aggregate: "user";
+            domain: "user";
+            id: string;
+          }
+        | {
+            aggregate: "customer";
+            domain: "customer";
+            id: string;
+          }
+        | {
+            aggregate: "project";
+            domain: "project";
+            id: string;
+          }
+        | {
+            aggregate: "appinstallation";
+            domain: "app";
+            id: string;
+          }
+        | {
+            aggregate: "placementgroup";
+            domain: "project";
+            id: string;
+          }
+        | {
+            aggregate: "extensionInstance";
+            domain: "extension";
+            id: string;
+          };
 
       export type ConversationShareableAggregateReference =
         | {
@@ -4445,6 +4496,7 @@ export declare module MittwaldAPIV2 {
 
       export interface MarketplaceContributor {
         customerId: string;
+        description: string;
         email?: string;
         id: string;
         logoRefId?: string;
@@ -4480,6 +4532,10 @@ export declare module MittwaldAPIV2 {
         };
         id: string;
         name: string;
+        /**
+         * Whether the extension has been published by the contributor.
+         */
+        published: boolean;
         scopes: string[];
         /**
          * @deprecated
@@ -6363,45 +6419,19 @@ export declare module MittwaldAPIV2 {
         value: string;
       }
 
-      export type ConversationNotificationRole =
-        | "customer_owner"
-        | "customer_accountant"
-        | "customer_member"
-        | "project_owner"
-        | "project_email_admin"
-        | "project_external";
+      export interface MarketplaceExtensionHealth {
+        extensionInstancesHealth?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstanceHealth[];
+        functional: boolean;
+        id: string;
+      }
 
-      export type ConversationRelatedAggregateReference =
-        | {
-            aggregate: "user";
-            domain: "user";
-            id: string;
-          }
-        | {
-            aggregate: "customer";
-            domain: "customer";
-            id: string;
-          }
-        | {
-            aggregate: "project";
-            domain: "project";
-            id: string;
-          }
-        | {
-            aggregate: "appinstallation";
-            domain: "app";
-            id: string;
-          }
-        | {
-            aggregate: "placementgroup";
-            domain: "project";
-            id: string;
-          }
-        | {
-            aggregate: "extensionInstance";
-            domain: "extension";
-            id: string;
-          };
+      export interface MarketplaceExtensionInstanceHealth {
+        id: string;
+        pendingInstallation?: boolean;
+        pendingRemval?: boolean;
+        pendingWebhooks?: number;
+        webhooksHalted?: boolean;
+      }
 
       export interface CommonsAddress {
         street: string;
@@ -9767,6 +9797,68 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.ConversationConversationMembers;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CustomersCustomerIdConversationPreferences {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ConversationConversationPreferences;
             }
           }
 
@@ -25609,37 +25701,23 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2CustomersCustomerIdConversationPreferences {
+    namespace V2MarketplaceContributorIdExtensionshealth {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            customerId: string;
+            contributorId: string;
           };
 
-          export type Header = {};
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {};
         }
         namespace Responses {
           namespace $200 {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.ConversationConversationPreferences;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
               export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
+                extensionsHealth: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionHealth[];
               }
             }
           }
