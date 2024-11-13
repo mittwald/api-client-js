@@ -2061,6 +2061,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace MarketplaceGetExtensionshealth {
+      type RequestData = InferredRequestData<
+        typeof descriptors.marketplaceGetExtensionshealth
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.marketplaceGetExtensionshealth,
+          TStatus
+        >;
+    }
+
     namespace NewsletterGetInfo {
       type RequestData = InferredRequestData<
         typeof descriptors.newsletterGetInfo
@@ -3274,17 +3285,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.verificationVerifyCompany,
-          TStatus
-        >;
-    }
-
-    namespace MarketplaceGetExtensionshealth {
-      type RequestData = InferredRequestData<
-        typeof descriptors.marketplaceGetExtensionshealth
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.marketplaceGetExtensionshealth,
           TStatus
         >;
     }
@@ -4578,6 +4578,12 @@ export declare module MittwaldAPIV2 {
         en?: MittwaldAPIV2.Components.Schemas.MarketplaceDescriptionFormats;
       }
 
+      export interface MarketplaceExtensionHealth {
+        extensionInstancesHealth?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstanceHealth[];
+        functional: boolean;
+        id: string;
+      }
+
       export interface MarketplaceExtensionInstance {
         aggregateReference: {
           aggregate: string;
@@ -4591,6 +4597,14 @@ export declare module MittwaldAPIV2 {
         id: string;
         pendingInstallation: boolean;
         pendingRemoval: boolean;
+      }
+
+      export interface MarketplaceExtensionInstanceHealth {
+        id: string;
+        pendingInstallation?: boolean;
+        pendingRemval?: boolean;
+        pendingWebhooks?: number;
+        webhooksHalted?: boolean;
       }
 
       export interface MarketplaceExternalComponent {
@@ -6417,20 +6431,6 @@ export declare module MittwaldAPIV2 {
       export interface VarnishSoftwareSetting {
         name: string;
         value: string;
-      }
-
-      export interface MarketplaceExtensionHealth {
-        extensionInstancesHealth?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstanceHealth[];
-        functional: boolean;
-        id: string;
-      }
-
-      export interface MarketplaceExtensionInstanceHealth {
-        id: string;
-        pendingInstallation?: boolean;
-        pendingRemval?: boolean;
-        pendingWebhooks?: number;
-        webhooksHalted?: boolean;
       }
 
       export interface CommonsAddress {
@@ -18616,6 +18616,54 @@ export declare module MittwaldAPIV2 {
 
     namespace V2ProjectsProjectIdMailSettingsSetting {}
 
+    namespace V2MarketplaceContributorIdExtensionshealth {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                extensionsHealth: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionHealth[];
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2NewsletterSubscriptionsSelf {
       namespace Get {
         namespace Parameters {
@@ -25687,54 +25735,6 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2MarketplaceContributorIdExtensionshealth {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                extensionsHealth: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionHealth[];
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 

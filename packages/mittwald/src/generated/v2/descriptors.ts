@@ -7963,6 +7963,40 @@ export const mailUpdateProjectMailSetting: OpenAPIOperation<
   operationId: "mail-update-project-mail-setting",
 };
 
+/** Get all extensions and instances health for the contributor. */
+export const marketplaceGetExtensionshealth: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2MarketplaceContributorIdExtensionshealth.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MarketplaceContributorIdExtensionshealth.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MarketplaceContributorIdExtensionshealth.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MarketplaceContributorIdExtensionshealth.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MarketplaceContributorIdExtensionshealth.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MarketplaceContributorIdExtensionshealth.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MarketplaceContributorIdExtensionshealth.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/marketplace/{contributorId}/extensionshealth",
+  method: "GET",
+  operationId: "marketplace-get-extensionshealth",
+};
+
 /** Getting the subscription status of the subscription. */
 export const newsletterGetInfo: OpenAPIOperation<
   RequestType<
@@ -12546,38 +12580,4 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
-};
-
-/** Get all extensions and instances health for the contributor. */
-export const marketplaceGetExtensionshealth: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2MarketplaceContributorIdExtensionshealth.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MarketplaceContributorIdExtensionshealth.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MarketplaceContributorIdExtensionshealth.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MarketplaceContributorIdExtensionshealth.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MarketplaceContributorIdExtensionshealth.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MarketplaceContributorIdExtensionshealth.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MarketplaceContributorIdExtensionshealth.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/marketplace/{contributorId}/extensionshealth",
-  method: "GET",
-  operationId: "marketplace-get-extensionshealth",
 };
