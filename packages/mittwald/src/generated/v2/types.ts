@@ -5003,7 +5003,8 @@ export declare module MittwaldAPIV2 {
         type:
           | "returnDebitNote"
           | "returnDebitNoteWaitingForPayment"
-          | "debtWrittenOff";
+          | "debtWrittenOff"
+          | "bankrupt";
       }
 
       export interface InvoicePaymentSettingsDebit {
