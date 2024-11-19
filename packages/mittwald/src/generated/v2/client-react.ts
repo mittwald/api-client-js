@@ -494,11 +494,6 @@ const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.extensionListExtensions,
     baseClient.marketplace.extensionListExtensions,
   ).getApiResource,
-  /** Get all extensions and instances health for the contributor. */
-  getExtensionshealth: new ApiCallAsyncResourceFactory(
-    descriptors.marketplaceGetExtensionshealth,
-    baseClient.marketplace.getExtensionshealth,
-  ).getApiResource,
 });
 
 const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({
@@ -741,6 +736,16 @@ const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
   listServers: new ApiCallAsyncResourceFactory(
     descriptors.projectListServers,
     baseClient.project.listServers,
+  ).getApiResource,
+  /** Get storage space Statistics belonging to a Server. */
+  storagespaceGetServerStatistics: new ApiCallAsyncResourceFactory(
+    descriptors.storagespaceGetServerStatistics,
+    baseClient.project.storagespaceGetServerStatistics,
+  ).getApiResource,
+  /** Get storage space Statistics belonging to a Project. */
+  storagespaceGetProjectStatistics: new ApiCallAsyncResourceFactory(
+    descriptors.storagespaceGetProjectStatistics,
+    baseClient.project.storagespaceGetProjectStatistics,
   ).getApiResource,
 });
 

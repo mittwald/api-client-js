@@ -321,10 +321,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionListExtensions: this.requestFunctionFactory(
       descriptors.extensionListExtensions,
     ),
-    /** Get all extensions and instances health for the contributor. */
-    getExtensionshealth: this.requestFunctionFactory(
-      descriptors.marketplaceGetExtensionshealth,
-    ),
   };
 
   /** The conversation API allows you to manage your support conversations. */
@@ -1176,6 +1172,23 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update a Servers's description. */
     updateServerDescription: this.requestFunctionFactory(
       descriptors.projectUpdateServerDescription,
+    ),
+    /** Update a Project's storage space notification threshold. */
+    storagespaceReplaceProjectNotificationThreshold:
+      this.requestFunctionFactory(
+        descriptors.storagespaceReplaceProjectNotificationThreshold,
+      ),
+    /** Get storage space Statistics belonging to a Server. */
+    storagespaceGetServerStatistics: this.requestFunctionFactory(
+      descriptors.storagespaceGetServerStatistics,
+    ),
+    /** Update a Server's storage space notification threshold. */
+    storagespaceReplaceServerNotificationThreshold: this.requestFunctionFactory(
+      descriptors.storagespaceReplaceServerNotificationThreshold,
+    ),
+    /** Get storage space Statistics belonging to a Project. */
+    storagespaceGetProjectStatistics: this.requestFunctionFactory(
+      descriptors.storagespaceGetProjectStatistics,
     ),
   };
 
