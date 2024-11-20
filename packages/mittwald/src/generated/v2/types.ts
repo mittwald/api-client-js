@@ -4564,6 +4564,10 @@ export declare module MittwaldAPIV2 {
           ]: MittwaldAPIV2.Components.Schemas.MarketplaceFrontendFragment;
         };
         id: string;
+        /**
+         * This is the FileId of the Logo. Retrieve the file with this id on `/v2/files/{logoRefId}`.
+         */
+        logoRefId?: string;
         name: string;
         /**
          * Whether the extension has been published by the contributor.
@@ -6470,17 +6474,6 @@ export declare module MittwaldAPIV2 {
         value: string;
       }
 
-      export interface StoragespaceStatistics {
-        childStatistics?: MittwaldAPIV2.Components.Schemas.StoragespaceStatistics[];
-        description?: string;
-        id: string;
-        kind: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsKind;
-        meta: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsMeta;
-        name: string;
-        notificationThresholdInBytes?: number;
-        statisticCategories?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategory[];
-      }
-
       export interface StoragespaceStatisticsMeta {
         isExceeding?: boolean;
         limitInBytes?: number;
@@ -6494,14 +6487,6 @@ export declare module MittwaldAPIV2 {
         totalFreeInPercentage?: number;
         totalUsageInBytes: number;
         totalUsageInPercentage?: number;
-      }
-
-      export interface StoragespaceStatisticsResource {
-        description?: string;
-        id: string;
-        name: string;
-        usageInBytes: number;
-        usageInBytesSetAt: string;
       }
 
       export type StoragespaceStatisticsCategoryKind =
@@ -6518,7 +6503,26 @@ export declare module MittwaldAPIV2 {
         totalUsageInBytes: number;
       }
 
+      export interface StoragespaceStatisticsResource {
+        description?: string;
+        id: string;
+        name: string;
+        usageInBytes: number;
+        usageInBytesSetAt: string;
+      }
+
       export type StoragespaceStatisticsKind = "server" | "project";
+
+      export interface StoragespaceStatistics {
+        childStatistics?: MittwaldAPIV2.Components.Schemas.StoragespaceStatistics[];
+        description?: string;
+        id: string;
+        kind: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsKind;
+        meta: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsMeta;
+        name: string;
+        notificationThresholdInBytes?: number;
+        statisticCategories?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategory[];
+      }
 
       export interface CommonsAddress {
         street: string;
