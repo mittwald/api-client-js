@@ -1173,22 +1173,22 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateServerDescription: this.requestFunctionFactory(
       descriptors.projectUpdateServerDescription,
     ),
+    /** Get storage space Statistics belonging to a Project. */
+    storagespaceGetProjectStatistics: this.requestFunctionFactory(
+      descriptors.storagespaceGetProjectStatistics,
+    ),
+    /** Get storage space Statistics belonging to a Server. */
+    storagespaceGetServerStatistics: this.requestFunctionFactory(
+      descriptors.storagespaceGetServerStatistics,
+    ),
     /** Update a Project's storage space notification threshold. */
     storagespaceReplaceProjectNotificationThreshold:
       this.requestFunctionFactory(
         descriptors.storagespaceReplaceProjectNotificationThreshold,
       ),
-    /** Get storage space Statistics belonging to a Server. */
-    storagespaceGetServerStatistics: this.requestFunctionFactory(
-      descriptors.storagespaceGetServerStatistics,
-    ),
     /** Update a Server's storage space notification threshold. */
     storagespaceReplaceServerNotificationThreshold: this.requestFunctionFactory(
       descriptors.storagespaceReplaceServerNotificationThreshold,
-    ),
-    /** Get storage space Statistics belonging to a Project. */
-    storagespaceGetProjectStatistics: this.requestFunctionFactory(
-      descriptors.storagespaceGetProjectStatistics,
     ),
   };
 
