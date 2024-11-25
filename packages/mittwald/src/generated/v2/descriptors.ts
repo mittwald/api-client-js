@@ -5285,6 +5285,11 @@ export const domainDeleteDomain: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainId.Delete.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2DomainsDomainId.Delete.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
@@ -5413,6 +5418,11 @@ export const domainResendDomainEmail: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsResendEmail.Post.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsResendEmail.Post.Responses.$412.Content.ApplicationJson>,
+      412,
       "application/json"
     >
   | Response<
