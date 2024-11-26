@@ -1,5 +1,6 @@
 import { MittwaldAPIV2 } from "@mittwald/api-client";
 import { App } from "../App/index.js";
+import { AppVersion } from "./AppVersion.js";
 
 export type AppVersionData =
   MittwaldAPIV2.Operations.AppGetAppversion.ResponseData;
@@ -12,4 +13,9 @@ export type AppVersionListQueryData =
 
 export type AppVersionListQueryModelData = AppVersionListQueryData & {
   app: App;
+};
+
+export type AppVersionUpdateCandidateListQueryModelData = {
+  app: App;
+  baseAppVersion: AppVersion;
 };

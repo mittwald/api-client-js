@@ -1,4 +1,5 @@
 import { MittwaldAPIV2 } from "@mittwald/api-client";
+import { Project } from "../../project/index.js";
 
 export type AppInstallationData =
   MittwaldAPIV2.Operations.AppGetAppinstallation.ResponseData;
@@ -6,8 +7,15 @@ export type AppInstallationData =
 export type AppInstallationListItemData =
   MittwaldAPIV2.Operations.AppListAppinstallations.ResponseData[number];
 
-export type AppInstallationListQuery =
+export type AppInstallationListQueryData =
   MittwaldAPIV2.Paths.V2ProjectsProjectIdAppInstallations.Get.Parameters.Query;
+
+export type AppInstallationListQueryModelData = Omit<
+  AppInstallationListQueryData,
+  "projectId"
+> & {
+  project?: Project;
+};
 
 export type AppInstallationCreateRequestData =
   MittwaldAPIV2.Paths.V2ProjectsProjectIdAppInstallations.Post.Parameters.RequestBody;
@@ -15,17 +23,7 @@ export type AppInstallationCreateRequestData =
 export type AppInstallationUpdateRequestData =
   MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Patch.Parameters.RequestBody;
 
-// ToDo: Move to App when App model is merged (https://github.com/mittwald/api-client-js/pull/96)
-export type AppUpdatePolicy =
-  MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
-
-// ToDo: Move to App when App model is merged (https://github.com/mittwald/api-client-js/pull/96)
-export type AppUserInput = MittwaldAPIV2.Components.Schemas.AppUserInput;
-
-// ToDo: Move to App when App model is merged (https://github.com/mittwald/api-client-js/pull/96)
-export type AppAction = MittwaldAPIV2.Components.Schemas.AppAction;
-
-export type AppLinkDatabaseRequestData =
+export type AppInstallationLinkDatabaseRequestData =
   MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabase.Patch.Parameters.RequestBody;
 
 export type AppInstallationStatus =
@@ -33,6 +31,3 @@ export type AppInstallationStatus =
 
 export type AppInstallationCopyRequestData =
   MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsCopy.Post.Parameters.RequestBody;
-
-export type AppInstallationMissingDependencies =
-  MittwaldAPIV2.Operations.AppGetMissingDependenciesForAppinstallation.ResponseData;

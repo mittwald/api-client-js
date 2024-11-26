@@ -7,17 +7,28 @@ import {
   AppInstallationCopyRequestData,
   AppInstallationCreateRequestData,
   AppInstallationData,
+  AppInstallationLinkDatabaseRequestData,
   AppInstallationListItemData,
-  AppInstallationMissingDependencies,
+  AppInstallationListQueryModelData,
   AppInstallationStatus,
   AppInstallationUpdateRequestData,
-  AppLinkDatabaseRequestData,
-  AppUpdatePolicy,
 } from "./types.js";
-import { InstalledSystemSoftwareListItem } from "../InstalledSystemSoftware/index.js";
-import { Project } from "../../project/index.js";
+import { Project, ProjectListQuery } from "../../project/index.js";
 import { DataModel } from "../../base/DataModel.js";
 import { ReferenceModel } from "../../base/ReferenceModel.js";
+import { InstalledSystemSoftware } from "../InstalledSystemSoftware/index.js";
+import { ListDataModel, ListQueryModel } from "../../base/index.js";
+import { App, AppUpdatePolicy } from "../App/index.js";
+import { AppInstallationMissingDependencies } from "../AppInstallationMissingDependencies/index.js";
+import {
+  SystemSoftware,
+  SystemSoftwareNames,
+} from "../SystemSoftware/index.js";
+import { AppVersion } from "../AppVersion/index.js";
+import {
+  SystemSoftwareVersion,
+  SystemSoftwareVersionListItem,
+} from "../SystemSoftwareVersion/index.js";
 
 export class AppInstallation extends ReferenceModel {
   public static ofId(id: string): AppInstallation {
@@ -41,9 +52,19 @@ export class AppInstallation extends ReferenceModel {
     },
   );
 
-  public getDetailed = provideReact(() =>
-    AppInstallation.get(this.id),
+  public static query(query: AppInstallationListQueryModelData = {}) {
+    return new AppInstallationListQuery(query);
+  }
+
+  public getDetailed = provideReact(
+    () => AppInstallation.get(this.id),
+    [this.id],
   ) as AsyncResourceVariant<AppInstallationDetailed, []>;
+
+  public findDetailed = provideReact(
+    () => AppInstallation.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<AppInstallationDetailed | undefined, []>;
 
   public static async create(
     projectId: string,
@@ -100,7 +121,9 @@ export class AppInstallation extends ReferenceModel {
     await config.behaviors.appInstallation.delete(this.id);
   }
 
-  public async linkDatabase(data: AppLinkDatabaseRequestData): Promise<void> {
+  public async linkDatabase(
+    data: AppInstallationLinkDatabaseRequestData,
+  ): Promise<void> {
     await config.behaviors.appInstallation.linkDatabase(this.id, data);
   }
 
@@ -128,15 +151,18 @@ export class AppInstallation extends ReferenceModel {
     await config.behaviors.appInstallation.copy(this.id, data);
   }
 
+  // @todo: auf query umbauen?
   public getMissingDependencies = provideReact(
     async (
       id: string,
       targetAppVersionId: string,
     ): Promise<AppInstallationMissingDependencies> => {
-      return await config.behaviors.appInstallation.getMissingDependencies(
-        id,
-        targetAppVersionId,
-      );
+      const data =
+        await config.behaviors.appInstallation.getMissingDependencies(
+          id,
+          targetAppVersionId,
+        );
+      return data.map((d) => new AppInstallationMissingDependencies(d));
     },
   );
 }
@@ -148,7 +174,10 @@ class AppInstallationCommon extends classes(
   public readonly isUpdating: boolean;
   public readonly isInstalling: boolean;
   public readonly host?: string;
-  public readonly installedSystemSoftwareList: InstalledSystemSoftwareListItem[];
+  public readonly installedSystemSoftwareList: InstalledSystemSoftware[];
+  public readonly appVersion: AppVersion;
+  public readonly app: App;
+  public readonly project?: Project;
 
   public constructor(data: AppInstallationData | AppInstallationListItemData) {
     super([data], [data.id]);
@@ -162,67 +191,51 @@ class AppInstallationCommon extends classes(
     this.host = data.userInputs?.find((u) => u.name === "host")?.value;
 
     this.installedSystemSoftwareList = data.systemSoftware
-      ? data.systemSoftware.map((s) => new InstalledSystemSoftwareListItem(s))
+      ? data.systemSoftware.map((s) => new InstalledSystemSoftware(s))
       : [];
+
+    this.appVersion = AppVersion.ofId(
+      data.appId,
+      App.ofId(data.appVersion.desired),
+    );
+    this.app = App.ofId(data.appId);
+    this.project = data.projectId ? Project.ofId(data.projectId) : undefined;
   }
 
-  /* ToDo: Activate when SystemSoftware model is merged (https://github.com/mittwald/api-client-js/pull/91)
   public listInstallableSystemSoftware = provideReact(
     async (): Promise<SystemSoftware[]> => {
       const systemSoftwareList = await SystemSoftware.list();
 
       return systemSoftwareList.filter(
-        (s) => !this.installedSystemSoftwareList.find((i) => i.id === s.id),
+        (s) =>
+          !this.installedSystemSoftwareList.find(
+            (i) => i.data.systemSoftwareId === s.id,
+          ),
       );
     },
   );
 
-   public findInstalledSystemSoftwareByName = provideReact(
+  public findInstalledSystemSoftwareByName = provideReact(
     async (
       name: SystemSoftwareNames,
-    ): Promise<InstalledSystemSoftwareListItem | undefined> => {
+    ): Promise<InstalledSystemSoftware | undefined> => {
       const systemSoftwareList = await SystemSoftware.list();
 
-      const systemSoftware = systemSoftwareList.find((s) => s.name === name);
+      const systemSoftware = systemSoftwareList.find(
+        (s) => s.data.name === name,
+      );
 
       return this.installedSystemSoftwareList.find(
         (i) => i.data.systemSoftwareId === systemSoftware?.id,
       );
     },
   );
-  */
 
-  /* ToDo: Activate when AppVersion model is merged (https://github.com/mittwald/api-client-js/pull/72)
-
-  public listUpdateCandidateVersions = provideReact(
-    (): Promise<Readonly<Array<AppVersionListItem>>> => {
-      const appVersion = this.getAppVersion();
-
-      return appVersion.listUpdateCandidates();
-    },
-  );
-
-  public listUpdateCandidatesAvailable = provideReact(
-    async (): Promise<boolean> => {
-      return this.listUpdateCandidateVersions().length > 0;
-    },
-  );
-
-  public listUserInputsForReconfigure = provideReact(
-   (): Promise<Readonly<Array<AppUserInput[]>>> => {
-     const appVersion = this.getAppVersion();
-
-     return appVersion.userInputs.filter({
-       lifeCycle: "reconfigure",
-     });
-    },
-  );
-
-    public getSystemSoftwareVersionsInRange = provideReact(
+  public getSystemSoftwareVersionsInRange = provideReact(
     async (
       systemSoftwareId: string,
     ): Promise<Readonly<Array<SystemSoftwareVersionListItem>>> => {
-      const appVersion = this.getAppVersion();
+      const appVersion = await this.getAppVersion();
       const versionRange = appVersion.data.systemSoftwareDependencies?.find(
         (d) => d.systemSoftwareId === systemSoftwareId,
       )?.versionRange;
@@ -234,7 +247,7 @@ class AppInstallationCommon extends classes(
   public isSystemSoftwareVersionUpdateAvailable = provideReact(
     async (systemSoftwareId: string): Promise<boolean> => {
       const systemSoftware = this.installedSystemSoftwareList.find(
-        (s) => s.id === systemSoftwareId,
+        (s) => s.data.systemSoftwareId === systemSoftwareId,
       );
 
       const currentVersion = systemSoftware?.getVersion().data.internalVersion;
@@ -249,7 +262,7 @@ class AppInstallationCommon extends classes(
     },
   );
 
-   public isSystemSoftwareRequired = provideReact(
+  public isSystemSoftwareRequired = provideReact(
     async (systemSoftwareId): Promise<boolean> => {
       const appVersion = this.getAppVersion();
       return appVersion.data.systemSoftwareDependencies?.find(
@@ -257,7 +270,6 @@ class AppInstallationCommon extends classes(
       );
     },
   );
-  */
 
   /* ToDo: Activate when Cronjob model is available
   public listConnectedCronjobs = provideReact(
@@ -284,17 +296,8 @@ export class AppInstallationDetailed extends classes(
   AppInstallationCommon,
   DataModel<AppInstallationData>,
 ) {
-  // ToDo: Activate when AppVersion model is merged (https://github.com/mittwald/api-client-js/pull/72)
-  // public readonly appVersion: AppVersion;
-  // ToDo: Activate when App model is merged (https://github.com/mittwald/api-client-js/pull/96)
-  // public readonly app: App;
-  public readonly project?: Project;
-
   public constructor(data: AppInstallationData) {
     super([data], [data]);
-    // this.appVersion = AppVersion.ofId(data.appId, data.appVersion.desired);
-    // this.app = App.ofId(data.appId);
-    this.project = data.projectId ? Project.ofId(data.projectId) : undefined;
   }
 }
 
@@ -304,5 +307,58 @@ export class AppInstallationListItem extends classes(
 ) {
   public constructor(data: AppInstallationListItemData) {
     super([data], [data]);
+  }
+}
+
+export class AppInstallationListQuery extends ListQueryModel<AppInstallationListQueryModelData> {
+  public constructor(query: AppInstallationListQueryModelData = {}) {
+    super(query);
+  }
+
+  public refine(query: AppInstallationListQueryModelData) {
+    return new ProjectListQuery({
+      ...this.query,
+      ...query,
+    });
+  }
+
+  public execute = provideReact(async () => {
+    const { server, customer, ...query } = this.query;
+    const { items, totalCount } = await config.behaviors.project.list({
+      ...query,
+      serverId: server?.id,
+      customerId: customer?.id,
+    });
+
+    return new AppInstallationList(
+      this.query,
+      items.map((d) => new AppInstallationListItem(d)),
+      totalCount,
+    );
+  }, [this.queryId]);
+
+  public getTotalCount = provideReact(async () => {
+    const { totalCount } = await this.refine({ limit: 1 }).execute();
+    return totalCount;
+  }, [this.queryId]);
+
+  public findOneAndOnly = provideReact(async () => {
+    const { items, totalCount } = await this.refine({ limit: 2 }).execute();
+    if (totalCount === 1) {
+      return items[0];
+    }
+  }, [this.queryId]);
+}
+
+export class AppInstallationList extends classes(
+  AppInstallationListQuery,
+  ListDataModel<AppInstallationListItem>,
+) {
+  public constructor(
+    query: AppInstallationListQueryModelData,
+    appInstallation: AppInstallationListItem[],
+    totalCount: number,
+  ) {
+    super([query], [appInstallation, totalCount]);
   }
 }
