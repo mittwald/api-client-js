@@ -22,6 +22,7 @@ import { ContractItemBehaviors } from "../contract/ContractItem/behaviors/index.
 import { ArticleBehaviors } from "../article/Article/behaviors/index.js";
 import { MfaBehaviors } from "../auth/Mfa/behaviors/index.js";
 import { ContributorBehaviors } from "../marketplace/Contributor/behaviors/index.js";
+import { NewsletterBehaviors } from "../newsletter/Newsletter/behaviors/index.js";
 
 interface Config {
   defaultPaginationLimit: number;
@@ -43,6 +44,7 @@ interface Config {
     invoice: InvoiceBehaviors;
     invoiceSettings: InvoiceSettingsBehaviors;
     mfa: MfaBehaviors;
+    newsletter: NewsletterBehaviors;
     notification: NotificationBehaviors;
     project: ProjectBehaviors;
     projectMembership: ProjectMembershipBehaviors;
@@ -73,6 +75,7 @@ export const config: Config = {
     invoice: undefined as unknown as InvoiceBehaviors,
     invoiceSettings: undefined as unknown as InvoiceSettingsBehaviors,
     mfa: undefined as unknown as MfaBehaviors,
+    newsletter: undefined as unknown as NewsletterBehaviors,
     notification: undefined as unknown as NotificationBehaviors,
     project: undefined as unknown as ProjectBehaviors,
     projectMembership: undefined as unknown as ProjectMembershipBehaviors,
