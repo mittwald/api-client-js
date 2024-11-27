@@ -14,4 +14,16 @@ export const apiAppVersionBehaviors = (
     }
     assertStatus(response, 404);
   },
+
+  list: async (appId, query) => {
+    const response = await client.app.listAppversions({
+      appId,
+      queryParameters: query,
+    });
+    assertStatus(response, 200);
+    return {
+      items: response.data,
+      totalCount: response.data.length,
+    };
+  },
 });

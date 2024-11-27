@@ -58,6 +58,13 @@ export class AppInstallation extends ReferenceModel {
     provideReact(async (): Promise<AppInstallationDetailed> => {
       return AppInstallation.get(this.id);
     }, [this.id]) as AsyncResourceVariant<AppInstallationDetailed, []>;
+
+  public static query(
+    project: Project,
+    query: AppInstallationListQueryData = {},
+  ): AppInstallationListQuery {
+    return new AppInstallationListQuery(project, query);
+  }
 }
 
 class AppInstallationCommon extends classes(
