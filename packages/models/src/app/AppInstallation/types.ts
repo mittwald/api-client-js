@@ -5,3 +5,6 @@ export type AppInstallationData =
 
 export type AppInstallationListItemData =
   MittwaldAPIV2.Operations.AppListAppinstallations.ResponseData[number];
+
+export type AppInstallationListQueryData =
+  MittwaldAPIV2.Paths.V2ProjectsProjectIdAppInstallations.Get.Parameters.Query;

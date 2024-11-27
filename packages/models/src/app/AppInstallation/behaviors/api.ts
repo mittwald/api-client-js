@@ -1,4 +1,8 @@
-import { MittwaldAPIV2Client, assertStatus } from "@mittwald/api-client";
+import {
+  MittwaldAPIV2Client,
+  assertStatus,
+  extractTotalCountHeader,
+} from "@mittwald/api-client";
 import { AppInstallationBehaviors } from "./types.js";
 
 export const apiAppInstallationBehaviors = (
@@ -12,5 +16,17 @@ export const apiAppInstallationBehaviors = (
       return response.data;
     }
     assertStatus(response, 404);
+  },
+
+  list: async (projectId, query) => {
+    const response = await client.app.listAppinstallations({
+      queryParameters: query,
+      projectId,
+    });
+    assertStatus(response, 200);
+    return {
+      items: response.data,
+      totalCount: extractTotalCountHeader(response),
+    };
   },
 });

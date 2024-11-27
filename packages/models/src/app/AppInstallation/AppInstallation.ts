@@ -2,15 +2,21 @@ import { classes } from "polytype";
 import type {
   AppInstallationData,
   AppInstallationListItemData,
+  AppInstallationListQueryData,
 } from "./types.js";
 import {
   DataModel,
   ReferenceModel,
   AggregateMetaData,
+  ListQueryModel,
+  ListDataModel,
 } from "../../base/index.js";
 import { AsyncResourceVariant, provideReact } from "../../lib/provideReact.js";
 import { config } from "../../config/config.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
+import { Project } from "../../project/index.js";
+import { AppVersion } from "../AppVersion/index.js";
+import { App } from "../App/index.js";
 
 export class AppInstallation extends ReferenceModel {
   public static aggregateMetaData = new AggregateMetaData(
@@ -58,8 +64,22 @@ class AppInstallationCommon extends classes(
   DataModel<AppInstallationData | AppInstallationListItemData>,
   AppInstallation,
 ) {
+  public readonly description: string;
+  public readonly execCommand: string;
+  public readonly app: App;
+  public readonly appVersion: AppVersion;
+  public readonly project?: Project;
+  public readonly mstudioPath: string | undefined;
   public constructor(data: AppInstallationData | AppInstallationListItemData) {
     super([data], [data.id]);
+    this.description = data.description;
+    this.execCommand = `app exec ${data.id}`;
+    this.app = App.ofId(data.appId);
+    this.project = data.projectId ? Project.ofId(data.projectId) : undefined;
+    this.appVersion = AppVersion.ofId(data.appVersion.desired, this.app);
+    this.mstudioPath = this.project
+      ? `/app/projects/${this.project.id}/apps/${this.id}`
+      : undefined;
   }
 }
 
@@ -78,5 +98,58 @@ export class AppInstallationListItem extends classes(
 ) {
   public constructor(data: AppInstallationListItemData) {
     super([data], [data]);
+  }
+}
+
+export class AppInstallationListQuery extends ListQueryModel<AppInstallationListQueryData> {
+  public readonly project: Project;
+
+  public constructor(
+    project: Project,
+    query: AppInstallationListQueryData = {},
+  ) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    super(query, { dependencies: [project.id] });
+    this.project = project;
+  }
+
+  public refine(query: AppInstallationListQueryData): AppInstallationListQuery {
+    return new AppInstallationListQuery(this.project, {
+      ...this.query,
+      ...query,
+    });
+  }
+
+  public execute = provideReact(async () => {
+    const { items, totalCount } = await config.behaviors.appInstallation.list(
+      this.project.id,
+      this.query,
+    );
+    return new AppInstallationList(
+      this.project,
+      this.query,
+      items.map((d) => new AppInstallationListItem(d)),
+      totalCount,
+    );
+  });
+
+  public getTotalCount = provideReact(async () => {
+    const { totalCount } = await this.refine({ limit: 1 }).execute();
+    return totalCount;
+  }, [this.queryId]);
+}
+
+export class AppInstallationList extends classes(
+  AppInstallationListQuery,
+  ListDataModel<AppInstallationListItem>,
+) {
+  public constructor(
+    project: Project,
+    query: AppInstallationListQueryData,
+    appInstallations: AppInstallationListItem[],
+    totalCount: number,
+  ) {
+    super([project, query], [appInstallations, totalCount]);
   }
 }
