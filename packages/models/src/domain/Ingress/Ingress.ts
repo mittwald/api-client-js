@@ -1,19 +1,23 @@
 import { config } from "../../config/config.js";
 import { classes } from "polytype";
-import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
-import { ReferenceModel } from "../../base/ReferenceModel.js";
 import type { AsyncResourceVariant } from "../../lib/provideReact.js";
 import { provideReact } from "../../lib/provideReact.js";
 import {
   IngressData,
   IngressListItemData,
+  IngressListModelQueryData,
   IngressListQueryData,
-  IngressListQueryModelData,
 } from "./types.js";
-import { IngressPath } from "../IngressPath/IngressPath.js";
-import { ListQueryModel } from "../../base/ListQueryModel.js";
-import { ListDataModel } from "../../base/ListDataModel.js";
+import {
+  ListDataModel,
+  ListQueryModel,
+  ReferenceModel,
+  DataModel,
+} from "../../base/index.js";
+import { extractId } from "../../base/extractId.js";
+import { omit } from "remeda";
+import { IngressPath } from "../IngressPath/index.js";
 
 export class Ingress extends ReferenceModel {
   public static ofId(id: string): Ingress {
@@ -58,6 +62,17 @@ export class Ingress extends ReferenceModel {
     () => Ingress.find(this.id),
     [this.id],
   ) as AsyncResourceVariant<IngressDetailed | undefined, []>;
+
+  public static query = (query: IngressListModelQueryData = {}) =>
+    new IngressListQuery(query);
+
+  public static findDefaultIngress = provideReact(
+    async (project?: string): Promise<IngressListItem | undefined> => {
+      const ingresses = await this.query({ project }).execute();
+
+      return ingresses.items.find((i) => i.data.isDefault);
+    },
+  );
 }
 
 export class IngressCommon extends classes(
@@ -99,12 +114,8 @@ export class IngressListItem extends classes(
   }
 }
 
-export class IngressListQuery extends ListQueryModel<IngressListQueryModelData> {
-  public constructor(query: IngressListQueryModelData = {}) {
-    super(query);
-  }
-
-  public refine(query: IngressListQueryModelData = {}) {
+export class IngressListQuery extends ListQueryModel<IngressListModelQueryData> {
+  public refine(query: IngressListModelQueryData) {
     return new IngressListQuery({
       ...this.query,
       ...query,
@@ -112,39 +123,16 @@ export class IngressListQuery extends ListQueryModel<IngressListQueryModelData> 
   }
 
   public execute = provideReact(async () => {
-    const { project, ...query } = this.query;
     const { items, totalCount } = await config.behaviors.ingress.list({
-      /** @todo: use this code when pagination is supported by API */
-      // limit: config.defaultPaginationLimit,
-      ...query,
-      projectId: project?.id,
+      ...omit(this.query, ["project"]),
+      projectId: extractId(this.query.project),
     });
 
     return new IngressList(
-      this.query,
+      this.query as IngressListQueryData,
       items.map((d) => new IngressListItem(d)),
       totalCount,
     );
-  }, [this.queryId]);
-
-  public getTotalCount = provideReact(async () => {
-    /** @todo: use this code when pagination is supported by API */
-    // const { totalCount } = await this.refine({ limit: 1 }).execute();
-    // return totalCount;
-    const { items } = await this.refine({}).execute();
-    return items.length;
-  }, [this.queryId]);
-
-  public findOneAndOnly = provideReact(async () => {
-    /** @todo: use this code when pagination is supported by API */
-    // const { items, totalCount } = await this.refine({ limit: 2 }).execute();
-    // if (totalCount === 1) {
-    //   return items[0];
-    // }
-    const { items, totalCount } = await this.refine({}).execute();
-    if (totalCount === 1) {
-      return items[0];
-    }
   }, [this.queryId]);
 }
 
@@ -153,16 +141,10 @@ export class IngressList extends classes(
   ListDataModel<IngressListItem>,
 ) {
   public constructor(
-    query: IngressListQueryModelData,
+    query: IngressListQueryData,
     ingresses: IngressListItem[],
     totalCount: number,
   ) {
     super([query], [ingresses, totalCount]);
-  }
-
-  public getDefault() {
-    const defaultIngress = this.items.find((i) => i.data.isDefault);
-    assertObjectFound(defaultIngress, IngressListItem, "IngressList");
-    return defaultIngress;
   }
 }

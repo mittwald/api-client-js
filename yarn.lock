@@ -1489,6 +1489,7 @@ __metadata:
     "@mittwald/api-client": "workspace:^"
     "@mittwald/react-use-promise": "npm:^2.3.13"
     "@sindresorhus/is": "npm:^7.0.1"
+    "@types/dinero.js": "npm:^1.9.4"
     "@types/invariant": "npm:^2.2.37"
     "@types/jest": "npm:^29.5.12"
     "@types/luxon": "npm:^3"
@@ -1497,6 +1498,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:^7.18.0"
     "@typescript-eslint/parser": "npm:^7.18.0"
     another-deep-freeze: "npm:^1.0.0"
+    dinero.js: "npm:^1.9.1"
     eslint: "npm:^8.57.0"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-json: "npm:^3.1.0"
@@ -1508,6 +1510,7 @@ __metadata:
     polytype: "npm:^0.17.0"
     prettier: "npm:^3.3.3"
     react: "npm:^18.3.1"
+    remeda: "npm:^2.17.3"
     rimraf: "npm:^5.0.10"
     ts-jest: "npm:^29.2.4"
     type-fest: "npm:^4.23.0"
@@ -2593,6 +2596,13 @@ __metadata:
   dependencies:
     "@types/ms": "npm:*"
   checksum: 10/47876a852de8240bfdaf7481357af2b88cb660d30c72e73789abf00c499d6bc7cd5e52f41c915d1b9cd8ec9fef5b05688d7b7aef17f7f272c2d04679508d1053
+  languageName: node
+  linkType: hard
+
+"@types/dinero.js@npm:^1.9.4":
+  version: 1.9.4
+  resolution: "@types/dinero.js@npm:1.9.4"
+  checksum: 10/c5d5dc5b073708d69ed886026a3180121005fa5002cf5ef6ef8592570a75600a3d8195d555faf04288e993c9796a0c7c8b309bda8fa54215d6eccbc275f50304
   languageName: node
   linkType: hard
 
@@ -4704,6 +4714,13 @@ __metadata:
   version: 5.2.0
   resolution: "diff@npm:5.2.0"
   checksum: 10/01b7b440f83a997350a988e9d2f558366c0f90f15be19f4aa7f1bb3109a4e153dfc3b9fbf78e14ea725717017407eeaa2271e3896374a0181e8f52445740846d
+  languageName: node
+  linkType: hard
+
+"dinero.js@npm:^1.9.1":
+  version: 1.9.1
+  resolution: "dinero.js@npm:1.9.1"
+  checksum: 10/e39d2eca2570844bc0de604959409e8443172d3175965a77ed5ef0c564e8a4dd69d17223a68e9af07eac3a437230c0a7799c7ec8265106d8c2530c992bea3a81
   languageName: node
   linkType: hard
 
@@ -10114,6 +10131,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"remeda@npm:^2.17.3":
+  version: 2.17.4
+  resolution: "remeda@npm:2.17.4"
+  dependencies:
+    type-fest: "npm:^4.27.0"
+  checksum: 10/faa9c1ec77f129232fe9b713bdd3d1ead3bd97b36df8d9232277f84634d3f0891439aa01718861b9ecdbcb51de73ab140dfabd9538556e0dd6e50d2cd406f12d
+  languageName: node
+  linkType: hard
+
 "require-directory@npm:^2.1.1":
   version: 2.1.1
   resolution: "require-directory@npm:2.1.1"
@@ -11312,6 +11338,13 @@ __metadata:
   version: 4.23.0
   resolution: "type-fest@npm:4.23.0"
   checksum: 10/c411dea83262f9a4453e09ff82e3ac729dd26afc2e68b7a9fe93dd633b1a2bf7bf2bf3e041676497ae8b8411266019b3add91d4fe34b926a82ba09eb41e9e52b
+  languageName: node
+  linkType: hard
+
+"type-fest@npm:^4.27.0":
+  version: 4.29.0
+  resolution: "type-fest@npm:4.29.0"
+  checksum: 10/e13757fcbad2c7ee2418c4a888eb4de8f44ecabdc67f8a00b6d5c7af5f39c605154382f99f8f134f31c1f81bfbe3bf8d7e72e5129373afdb41b6b9199e74d062
   languageName: node
   linkType: hard
 

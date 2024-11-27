@@ -8,10 +8,18 @@ export const apiInvoiceBehaviors = (
     const response = await client.contract.invoiceDetail({
       invoiceId: id,
     });
-
     if (response.status === 200) {
       return response.data;
     }
     assertStatus(response, 404);
+  },
+
+  getFileAccessToken: async (id, customerId) => {
+    const response = await client.contract.invoiceGetFileAccessToken({
+      invoiceId: id,
+      customerId,
+    });
+    assertStatus(response, 200);
+    return response.data;
   },
 });

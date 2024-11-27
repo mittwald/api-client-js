@@ -40,7 +40,7 @@ export class Project extends ReferenceModel {
 
   public constructor(id: string) {
     super(id);
-    this.ingresses = new IngressListQuery({
+    this.ingresses = Ingress.query({
       project: this,
     });
     this.appInstallations = AppInstallation.query(this);
