@@ -1,26 +1,41 @@
-import { config } from "../../config/config.js";
 import { classes } from "polytype";
-import { DataModel } from "../../base/DataModel.js";
-import assertObjectFound from "../../base/assertObjectFound.js";
-import { ReferenceModel } from "../../base/ReferenceModel.js";
-import {
-  AsyncResourceVariant,
-  provideReact,
-} from "../../react/provideReact.js";
+import { AsyncResourceVariant, provideReact } from "../../react/index.js";
 import {
   AppInstallationData,
   AppInstallationListItemData,
   AppInstallationListQueryData,
 } from "./types.js";
-import { ListQueryModel } from "../../base/ListQueryModel.js";
-import { ListDataModel } from "../../base/ListDataModel.js";
+import {
+  DataModel,
+  ReferenceModel,
+  AggregateMetaData,
+  ListQueryModel,
+  ListDataModel,
+} from "../../base/index.js";
+import { config } from "../../config/config.js";
+import assertObjectFound from "../../base/assertObjectFound.js";
 import { Project } from "../../project/index.js";
+import { AppVersion } from "../AppVersion/index.js";
+import { App } from "../App/index.js";
+import {
+  SystemSoftwareListItem,
+  SystemSoftwareNames,
+} from "../SystemSoftware/index.js";
 
 export class AppInstallation extends ReferenceModel {
+  public static aggregateMetaData = new AggregateMetaData(
+    "app",
+    "appinstallation",
+  );
+
+  public static ofId(id: string): AppInstallation {
+    return new AppInstallation(id);
+  }
+
   public static find = provideReact(
     async (id: string): Promise<AppInstallationDetailed | undefined> => {
       const data = await config.behaviors.appInstallation.find(id);
-      if (data !== undefined) {
+      if (data) {
         return new AppInstallationDetailed(data);
       }
     },
@@ -34,44 +49,62 @@ export class AppInstallation extends ReferenceModel {
     },
   );
 
-  public static ofId(id: string): AppInstallation {
-    return new AppInstallation(id);
-  }
+  public findDetailed = provideReact(async (): Promise<
+    AppInstallationDetailed | undefined
+  > => {
+    return AppInstallation.find(this.id);
+  }, [this.id]) as AsyncResourceVariant<
+    () => Promise<AppInstallationDetailed | undefined>
+  >;
 
-  public query(project: Project, query: AppInstallationListQueryData = {}) {
+  public getDetailed =
+    provideReact(async (): Promise<AppInstallationDetailed> => {
+      return AppInstallation.get(this.id);
+    }, [this.id]) as AsyncResourceVariant<
+      () => Promise<AppInstallationDetailed>
+    >;
+
+  public static query(
+    project: Project,
+    query: AppInstallationListQueryData = {},
+  ): AppInstallationListQuery {
     return new AppInstallationListQuery(project, query);
   }
-
-  /** @deprecated: use query() or project.appInstallations */
-  public static list = provideReact(
-    async (
-      projectId: string,
-      query: AppInstallationListQueryData = {},
-    ): Promise<Readonly<Array<AppInstallationListItem>>> => {
-      return new AppInstallationListQuery(Project.ofId(projectId), query)
-        .execute()
-        .then((r) => r.items);
-    },
-  );
-
-  public getDetailed = provideReact(
-    () => AppInstallation.get(this.id),
-    [this.id],
-  ) as AsyncResourceVariant<() => Promise<AppInstallationDetailed>>;
-
-  public findDetailed = provideReact(
-    () => AppInstallation.find(this.id),
-    [this.id],
-  ) as AsyncResourceVariant<() => Promise<AppInstallationDetailed | undefined>>;
 }
 
-// Common class for future extension
 class AppInstallationCommon extends classes(
-  DataModel<AppInstallationListItemData | AppInstallationData>,
+  DataModel<AppInstallationData | AppInstallationListItemData>,
   AppInstallation,
 ) {
-  public constructor(data: AppInstallationListItemData | AppInstallationData) {
+  public readonly description: string;
+  public readonly execCommand: string;
+  public readonly app: App;
+  public readonly appVersion: AppVersion;
+  public readonly project?: Project;
+  public readonly mStudioPath: string | undefined;
+  public constructor(data: AppInstallationData | AppInstallationListItemData) {
     super([data], [data.id]);
+    this.description = data.description;
+    this.execCommand = `app exec ${data.id}`;
+    this.app = App.ofId(data.appId);
+    this.project = data.projectId ? Project.ofId(data.projectId) : undefined;
+    this.appVersion = AppVersion.ofId(data.appVersion.desired, this.app);
+    this.mStudioPath = this.project
+      ? `/app/projects/${this.project.id}/apps/${this.id}`
+      : undefined;
+  }
+
+  public findInstalledSystemSoftware(
+    systemSoftwareList: readonly SystemSoftwareListItem[],
+    systemSoftwareName: SystemSoftwareNames,
+  ) {
+    const systemSoftware = systemSoftwareList.find(
+      (s) => s.data.name === systemSoftwareName,
+    );
+
+    return this.data.systemSoftware?.find(
+      (s) => s.systemSoftwareId === systemSoftware?.id,
+    );
   }
 }
 
@@ -106,7 +139,7 @@ export class AppInstallationListQuery extends ListQueryModel<AppInstallationList
     this.project = project;
   }
 
-  public refine(query: AppInstallationListQueryData) {
+  public refine(query: AppInstallationListQueryData): AppInstallationListQuery {
     return new AppInstallationListQuery(this.project, {
       ...this.query,
       ...query,
@@ -116,30 +149,19 @@ export class AppInstallationListQuery extends ListQueryModel<AppInstallationList
   public execute = provideReact(async () => {
     const { items, totalCount } = await config.behaviors.appInstallation.list(
       this.project.id,
-      {
-        limit: config.defaultPaginationLimit,
-        ...this.query,
-      },
+      this.query,
     );
-
     return new AppInstallationList(
       this.project,
       this.query,
       items.map((d) => new AppInstallationListItem(d)),
       totalCount,
     );
-  }, [this.queryId]);
+  });
 
   public getTotalCount = provideReact(async () => {
     const { totalCount } = await this.refine({ limit: 1 }).execute();
     return totalCount;
-  }, [this.queryId]);
-
-  public findOneAndOnly = provideReact(async () => {
-    const { items, totalCount } = await this.refine({ limit: 2 }).execute();
-    if (totalCount === 1) {
-      return items[0];
-    }
   }, [this.queryId]);
 }
 

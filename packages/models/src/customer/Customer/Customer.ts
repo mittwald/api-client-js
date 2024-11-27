@@ -1,35 +1,48 @@
 import { config } from "../../config/config.js";
 import { classes } from "polytype";
-import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
-import { ReferenceModel } from "../../base/ReferenceModel.js";
-import {
-  AsyncResourceVariant,
-  provideReact,
-} from "../../react/provideReact.js";
+import { AsyncResourceVariant, provideReact } from "../../react/index.js";
 import {
   CustomerData,
   CustomerListItemData,
   CustomerListQueryData,
   CustomerUpdateRequestData,
 } from "./types.js";
-import { ListQueryModel } from "../../base/ListQueryModel.js";
-import { ListDataModel } from "../../base/ListDataModel.js";
-import { ServerListQuery } from "../../server/index.js";
+import {
+  AggregateMetaData,
+  DataModel,
+  ListDataModel,
+  ListQueryModel,
+  ReferenceModel,
+} from "../../base/index.js";
+import { Server, ServerListQuery } from "../../server/index.js";
 import { ProjectListQuery } from "../../project/index.js";
+import { InvoiceSettings } from "../InvoiceSettings/index.js";
+import {
+  CustomerMembership,
+  CustomerMembershipListQuery,
+} from "../CustomerMembership/index.js";
+import { ContractPartner } from "../ContractPartner/index.js";
+import { File } from "../../file/File/index.js";
 
 export class Customer extends ReferenceModel {
+  public static aggregateMetaData = new AggregateMetaData(
+    "customer",
+    "customer",
+  );
   public readonly servers: ServerListQuery;
   public readonly projects: ProjectListQuery;
+  public readonly memberships: CustomerMembershipListQuery;
+  public readonly invoiceSettings: InvoiceSettings;
 
   public constructor(id: string) {
     super(id);
-    this.servers = new ServerListQuery({
-      customer: this,
-    });
+    this.servers = Server.query({ customer: this });
     this.projects = new ProjectListQuery({
       customer: this,
     });
+    this.invoiceSettings = InvoiceSettings.ofCustomerId(id);
+    this.memberships = CustomerMembership.query(this);
   }
 
   public static ofId(id: string): Customer {
@@ -80,13 +93,25 @@ export class Customer extends ReferenceModel {
   }
 }
 
-// Common class for future extension
 class CustomerCommon extends classes(
   DataModel<CustomerListItemData | CustomerData>,
   Customer,
 ) {
+  public readonly name: string;
+  public readonly number: string;
+  public readonly mStudioPath: string;
+  public readonly contractPartner?: ContractPartner;
+  public readonly avatar?: File;
+
   public constructor(data: CustomerListItemData | CustomerData) {
     super([data], [data.customerId]);
+    this.name = data.name;
+    this.number = data.customerNumber;
+    this.mStudioPath = `/app/organizations/${this.id}`;
+    if (data.owner) {
+      this.contractPartner = new ContractPartner(data.owner);
+    }
+    this.avatar = data.avatarRefId ? File.ofId(data.avatarRefId) : undefined;
   }
 }
 
