@@ -11,6 +11,7 @@ import assertObjectFound from "../../base/assertObjectFound.js";
 
 export class User extends ReferenceModel {
   public static aggregateMetaData = new AggregateMetaData("user", "user");
+  public static self = User.ofId("self");
 
   public static ofId(id: string): User {
     return new User(id);
@@ -46,8 +47,13 @@ export class User extends ReferenceModel {
 }
 
 class UserCommon extends classes(DataModel<UserData>, User) {
+  public readonly fullName: string;
+  public readonly mstudioPath: string;
+
   public constructor(data: UserData) {
     super([data], [data.userId]);
+    this.fullName = `${data.person.firstName} ${data.person.lastName}`;
+    this.mstudioPath = "/app/profile/personal-data";
   }
 }
 

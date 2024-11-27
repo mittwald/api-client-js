@@ -41,7 +41,7 @@ class ApiSetupState {
     config.behaviors.ingress = apiIngressBehaviors(client);
     config.behaviors.invoice = apiInvoiceBehaviors(client);
     config.behaviors.invoiceSettings = apiInvoiceSettingsBehaviors(client);
-    config.behaviors.notification = apiNotificationBehaviors();
+    config.behaviors.notification = apiNotificationBehaviors(client);
     config.behaviors.project = apiProjectBehaviors(client);
     config.behaviors.projectMembership = apiProjectMembershipBehaviors(client);
     config.behaviors.server = apiServerBehaviors(client);

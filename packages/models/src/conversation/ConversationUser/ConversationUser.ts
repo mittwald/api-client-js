@@ -7,7 +7,6 @@ import {
 import { classes } from "polytype";
 import { ConversationUserData } from "./types.js";
 import { Conversation } from "../Conversation/index.js";
-import { Department, Departments } from "../../user/Department/index.js";
 import { User } from "../../user/User/index.js";
 import { provideReact } from "../../lib/provideReact.js";
 import { config } from "../../config/config.js";
@@ -20,7 +19,6 @@ export class ConversationUser extends classes(
   public readonly conversation: Conversation;
   public readonly id: string;
   public readonly clearName?: string;
-  public readonly department?: Department;
   public readonly user: User;
 
   public constructor(conversation: Conversation, data: ConversationUserData) {
@@ -28,9 +26,6 @@ export class ConversationUser extends classes(
     this.conversation = conversation;
     this.id = data.userId;
     this.clearName = data.clearName;
-    this.department = data.department
-      ? Departments.getById(data.department)
-      : undefined;
     this.user = User.ofId(data.userId);
   }
 }

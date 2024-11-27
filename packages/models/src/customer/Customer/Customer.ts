@@ -42,7 +42,6 @@ export class Customer extends ReferenceModel {
     });
     this.invoiceSettings = InvoiceSettings.ofCustomerId(id);
     this.memberships = CustomerMembership.query(this);
-    //ToDo: User, Conversation, Invoice
   }
 
   public static ofId(id: string): Customer {

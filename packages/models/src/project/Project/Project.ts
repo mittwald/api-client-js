@@ -45,7 +45,6 @@ export class Project extends ReferenceModel {
     });
     this.appInstallations = AppInstallation.query(this);
     this.projectMemberships = ProjectMembership.query(this);
-    // ToDo: User
   }
 
   public static ofId(id: string): Project {

@@ -9,9 +9,7 @@ export class ConversationMessage extends DataModel<ConversationMessageData> {
   public readonly id: string;
   public readonly conversation: Conversation;
   public readonly createdAt: DateTime;
-  public readonly mutableUntil: DateTime;
   public readonly createdBy?: ConversationUser;
-  public readonly isCreatedByEmployee: boolean;
 
   public constructor(
     conversation: Conversation,
@@ -24,9 +22,6 @@ export class ConversationMessage extends DataModel<ConversationMessageData> {
     this.createdBy = data.createdBy
       ? new ConversationUser(conversation, data.createdBy)
       : undefined;
-    this.mutableUntil = this.createdAt.plus({ second: 179 });
-    this.isCreatedByEmployee =
-      !!this.createdBy?.department || !!this.data.internal;
   }
 
   public async update(content: string): Promise<void> {
