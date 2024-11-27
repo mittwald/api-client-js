@@ -31,6 +31,7 @@ import {
   ProjectMembershipListQuery,
 } from "../ProjectMembership/index.js";
 import { DateTime } from "luxon";
+import { File } from "../../file/File/index.js";
 
 export class Project extends ReferenceModel {
   public static aggregateMetaData = new AggregateMetaData("project", "project");
@@ -135,6 +136,7 @@ class ProjectCommon extends classes(
   public readonly description: string;
   public readonly disabledAt?: DateTime;
   public readonly createdAt: DateTime;
+  public readonly avatar?: File;
 
   public constructor(data: ProjectListItemData | ProjectData) {
     super([data], [data.id]);
@@ -149,6 +151,7 @@ class ProjectCommon extends classes(
       this.disabledAt = DateTime.fromISO(data.disabledAt);
     }
     this.createdAt = DateTime.fromISO(data.createdAt);
+    this.avatar = data.imageRefId ? File.ofId(data.imageRefId) : undefined;
   }
 }
 

@@ -1,4 +1,3 @@
-import { ReferenceModel } from "../../base/ReferenceModel.js";
 import {
   ServerData,
   ServerListItemData,
@@ -7,14 +6,20 @@ import {
 } from "./types.js";
 import { config } from "../../config/config.js";
 import { classes } from "polytype";
-import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import { Project, ProjectListQuery } from "../../project/index.js";
 import { FirstParameter, ParamsExceptFirst } from "../../lib/types.js";
 import { AsyncResourceVariant, provideReact } from "../../lib/provideReact.js";
-import { ListQueryModel } from "../../base/ListQueryModel.js";
-import { ListDataModel } from "../../base/ListDataModel.js";
+import {
+  ListDataModel,
+  ListQueryModel,
+  DataModel,
+  ReferenceModel,
+} from "../../base/index.js";
 import { AggregateMetaData } from "../../base/index.js";
+import { Customer } from "../../customer/index.js";
+import { File } from "../../file/File/index.js";
+import { DateTime } from "luxon";
 
 export class Server extends ReferenceModel {
   public static aggregateMetaData = new AggregateMetaData(
@@ -98,8 +103,19 @@ class ServerCommon extends classes(
   DataModel<ServerListItemData | ServerData>,
   Server,
 ) {
+  public readonly customer: Customer;
+  public readonly shortId: string;
+  public readonly description: string;
+  public readonly createdAt: DateTime;
+  public readonly avatar?: File;
+
   public constructor(data: ServerListItemData | ServerData) {
     super([data], [data.id]);
+    this.customer = Customer.ofId(data.customerId);
+    this.shortId = data.shortId;
+    this.description = data.description;
+    this.createdAt = DateTime.fromISO(data.createdAt);
+    this.avatar = data.imageRefId ? File.ofId(data.imageRefId) : undefined;
   }
 }
 
