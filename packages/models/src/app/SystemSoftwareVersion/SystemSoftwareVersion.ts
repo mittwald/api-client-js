@@ -2,8 +2,14 @@ import { classes } from "polytype";
 import type {
   SystemSoftwareVersionData,
   SystemSoftwareVersionListItemData,
+  SystemSoftwareVersionListQueryModelData,
 } from "./types.js";
-import { DataModel, ReferenceModel } from "../../base/index.js";
+import {
+  DataModel,
+  ListDataModel,
+  ListQueryModel,
+  ReferenceModel,
+} from "../../base/index.js";
 import { SystemSoftware } from "../SystemSoftware/index.js";
 import { AsyncResourceVariant, provideReact } from "../../lib/provideReact.js";
 import { config } from "../../config/config.js";
@@ -94,5 +100,45 @@ export class SystemSoftwareVersionListItem extends classes(
     systemSoftware: SystemSoftware,
   ) {
     super([data, systemSoftware], [data]);
+  }
+}
+
+export class SystemSoftwareVersionListQuery extends ListQueryModel<SystemSoftwareVersionListQueryModelData> {
+  public constructor(query: SystemSoftwareVersionListQueryModelData) {
+    super(query);
+  }
+
+  public refine(query: SystemSoftwareVersionListQueryModelData) {
+    return new SystemSoftwareVersionListQuery({
+      ...this.query,
+      ...query,
+    });
+  }
+
+  public execute = provideReact(async () => {
+    const { systemSoftware, ...query } = this.query;
+    const { items, totalCount } =
+      await config.behaviors.systemSoftwareVersion.list(systemSoftware.id, {
+        ...query,
+      });
+
+    return new SystemSoftwareVersionList(
+      this.query,
+      items.map((d) => new SystemSoftwareVersionListItem(d, systemSoftware)),
+      totalCount,
+    );
+  }, [this.queryId]);
+}
+
+export class SystemSoftwareVersionList extends classes(
+  SystemSoftwareVersionListQuery,
+  ListDataModel<SystemSoftwareVersionListItem>,
+) {
+  public constructor(
+    query: SystemSoftwareVersionListQueryModelData,
+    systemSoftwareVersions: SystemSoftwareVersionListItem[],
+    totalCount: number,
+  ) {
+    super([query], [systemSoftwareVersions, totalCount]);
   }
 }

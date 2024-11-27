@@ -16,4 +16,17 @@ export const apiSystemSoftwareVersionBehaviors = (
 
     assertStatus(response, 404);
   },
+
+  list: async (systemSoftwareId, query) => {
+    const response = await client.app.listSystemsoftwareversions({
+      systemSoftwareId,
+      queryParameters: query,
+    });
+
+    assertStatus(response, 200);
+    return {
+      items: response.data,
+      totalCount: response.data.length,
+    };
+  },
 });
