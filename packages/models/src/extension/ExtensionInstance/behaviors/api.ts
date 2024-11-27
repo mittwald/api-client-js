@@ -1,6 +1,5 @@
-import { MittwaldAPIV2Client } from "@mittwald/api-client";
+import { MittwaldAPIV2Client, assertStatus } from "@mittwald/api-client";
 import { ExtensionInstanceBehaviors } from "./types.js";
-import { assertStatus } from "@mittwald/api-client";
 
 export const apiExtensionInstanceBehaviors = (
   client: MittwaldAPIV2Client,

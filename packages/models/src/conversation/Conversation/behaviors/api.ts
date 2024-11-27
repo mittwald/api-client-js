@@ -1,6 +1,5 @@
-import { MittwaldAPIV2Client } from "@mittwald/api-client";
+import { MittwaldAPIV2Client, assertStatus } from "@mittwald/api-client";
 import { ConversationBehaviors } from "./types.js";
-import { assertStatus } from "@mittwald/api-client";
 
 export const apiConversationBehaviors = (
   client: MittwaldAPIV2Client,

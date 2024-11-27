@@ -1,10 +1,13 @@
 import { classes } from "polytype";
 import type { UserData } from "./types.js";
-import { DataModel, ReferenceModel } from "../../base/index.js";
+import {
+  DataModel,
+  ReferenceModel,
+  AggregateMetaData,
+} from "../../base/index.js";
 import { AsyncResourceVariant, provideReact } from "../../lib/provideReact.js";
 import { config } from "../../config/config.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
-import { AggregateMetaData } from "../../base/AggregateMetaData.js";
 
 export class User extends ReferenceModel {
   public static aggregateMetaData = new AggregateMetaData("user", "user");

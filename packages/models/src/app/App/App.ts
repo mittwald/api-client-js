@@ -1,6 +1,16 @@
 import { classes } from "polytype";
-import type { AppData, AppListItemData } from "./types.js";
-import { DataModel, ReferenceModel } from "../../base/index.js";
+import {
+  AppData,
+  AppListItemData,
+  AppListQueryData,
+  AppNames,
+} from "./types.js";
+import {
+  DataModel,
+  ListDataModel,
+  ListQueryModel,
+  ReferenceModel,
+} from "../../base/index.js";
 import { AsyncResourceVariant, provideReact } from "../../lib/provideReact.js";
 import { config } from "../../config/config.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
@@ -34,11 +44,21 @@ export class App extends ReferenceModel {
     () => App.find(this.id),
     [this.id],
   ) as AsyncResourceVariant<AppDetailed | undefined, []>;
+
+  public static query = (query: AppListQueryData = {}) =>
+    new AppListQuery(query);
 }
 
 class AppCommon extends classes(DataModel<AppData | AppListItemData>, App) {
+  public readonly isCustomApp: boolean;
   public constructor(data: AppData | AppListItemData) {
     super([data], [data.id]);
+
+    this.isCustomApp =
+      data.name === AppNames.node ||
+      data.name === AppNames.php ||
+      data.name === AppNames.staticapp ||
+      data.name === AppNames.python;
   }
 }
 
@@ -54,5 +74,50 @@ export class AppListItem extends classes(
 ) {
   public constructor(data: AppListItemData) {
     super([data], [data]);
+  }
+}
+
+export class AppListQuery extends ListQueryModel<AppListQueryData> {
+  public constructor(query: AppListQueryData = {}) {
+    super(query);
+  }
+
+  public refine(query: AppListQueryData) {
+    return new AppListQuery({
+      ...this.query,
+      ...query,
+    });
+  }
+
+  public execute = provideReact(async () => {
+    const { items, totalCount } = await config.behaviors.app.list(this.query);
+
+    return new AppList(
+      this.query,
+      items.map((d) => new AppListItem(d)),
+      totalCount,
+    );
+  }, [this.queryId]);
+
+  public getTotalCount = provideReact(async () => {
+    const { totalCount } = await this.refine({ limit: 1 }).execute();
+    return totalCount;
+  }, [this.queryId]);
+
+  public findOneAndOnly = provideReact(async () => {
+    const { items, totalCount } = await this.refine({ limit: 2 }).execute();
+    if (totalCount === 1) {
+      return items[0];
+    }
+  }, [this.queryId]);
+}
+
+export class AppList extends classes(AppListQuery, ListDataModel<AppListItem>) {
+  public constructor(
+    query: AppListQueryData,
+    apps: AppListItem[],
+    totalCount: number,
+  ) {
+    super([query], [apps, totalCount]);
   }
 }

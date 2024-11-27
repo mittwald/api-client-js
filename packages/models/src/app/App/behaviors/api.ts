@@ -1,6 +1,9 @@
-import { MittwaldAPIV2Client } from "@mittwald/api-client";
+import {
+  MittwaldAPIV2Client,
+  assertStatus,
+  extractTotalCountHeader,
+} from "@mittwald/api-client";
 import { AppBehaviors } from "./types.js";
-import { assertStatus } from "@mittwald/api-client";
 
 export const apiAppBehaviors = (client: MittwaldAPIV2Client): AppBehaviors => ({
   find: async (id) => {
@@ -11,5 +14,13 @@ export const apiAppBehaviors = (client: MittwaldAPIV2Client): AppBehaviors => ({
       return response.data;
     }
     assertStatus(response, 404);
+  },
+  list: async () => {
+    const response = await client.app.listApps();
+    assertStatus(response, 200);
+    return {
+      items: response.data,
+      totalCount: extractTotalCountHeader(response),
+    };
   },
 });
