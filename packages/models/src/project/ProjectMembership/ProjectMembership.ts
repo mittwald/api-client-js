@@ -2,11 +2,18 @@ import { classes } from "polytype";
 import type {
   ProjectMembershipData,
   ProjectMembershipListItemData,
+  ProjectMembershipListQueryData,
 } from "./types.js";
-import { DataModel, ReferenceModel } from "../../base/index.js";
+import {
+  DataModel,
+  ListDataModel,
+  ListQueryModel,
+  ReferenceModel,
+} from "../../base/index.js";
 import { AsyncResourceVariant, provideReact } from "../../lib/provideReact.js";
 import { config } from "../../config/config.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
+import { Project } from "../Project/index.js";
 
 export class ProjectMembership extends ReferenceModel {
   public static ofId(id: string): ProjectMembership {
@@ -42,6 +49,13 @@ export class ProjectMembership extends ReferenceModel {
   public getDetailed = provideReact((): Promise<ProjectMembershipDetailed> => {
     return ProjectMembership.get(this.id);
   }, [this.id]) as AsyncResourceVariant<ProjectMembershipDetailed, []>;
+
+  public static query(
+    project: Project,
+    query: ProjectMembershipListQueryData = {},
+  ) {
+    return new ProjectMembershipListQuery(project, query);
+  }
 }
 
 class ProjectMembershipCommon extends classes(
@@ -70,5 +84,66 @@ export class ProjectMembershipListItem extends classes(
 ) {
   public constructor(data: ProjectMembershipListItemData) {
     super([data], [data]);
+  }
+}
+
+export class ProjectMembershipListQuery extends ListQueryModel<ProjectMembershipListQueryData> {
+  public readonly project: Project;
+
+  public constructor(
+    project: Project,
+    query: ProjectMembershipListQueryData = {},
+  ) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    super(query, { dependencies: [project.id] });
+    this.project = project;
+  }
+
+  public refine(query: ProjectMembershipListQueryData) {
+    return new ProjectMembershipListQuery(this.project, {
+      ...this.query,
+      ...query,
+    });
+  }
+
+  public findOneAndOnly = provideReact(async () => {
+    const { items, totalCount } = await this.refine({ limit: 1 }).execute();
+    if (totalCount === 1) {
+      return items[0];
+    }
+  }, [this.queryId]);
+
+  public execute = provideReact(async () => {
+    const { items, totalCount } = await config.behaviors.projectMembership.list(
+      this.project.id,
+      this.query,
+    );
+
+    return new ProjectMembershipList(
+      this.project,
+      this.query,
+      items.map((d) => new ProjectMembershipListItem(d)),
+      totalCount,
+    );
+  }, [this.queryId]);
+
+  public getTotalCount = provideReact(async () => {
+    const { totalCount } = await this.refine({ limit: 1 }).execute();
+    return totalCount;
+  }, [this.queryId]);
+}
+
+export class ProjectMembershipList extends classes(
+  ProjectMembershipListQuery,
+  ListDataModel<ProjectMembershipListItem>,
+) {
+  public constructor(
+    project: Project,
+    query: ProjectMembershipListQueryData,
+    memberships: ProjectMembershipListItem[],
+    totalCount: number,
+  ) {
+    super([project, query], [memberships, totalCount]);
   }
 }

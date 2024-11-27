@@ -6,29 +6,37 @@ import {
 } from "./types.js";
 import { config } from "../../config/config.js";
 import { classes } from "polytype";
-import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import { Server } from "../../server/index.js";
 import {
   type AsyncResourceVariant,
   provideReact,
 } from "../../lib/provideReact.js";
-import { Customer } from "../../customer/Customer/Customer.js";
-import { ReferenceModel } from "../../base/ReferenceModel.js";
+import { Customer } from "../../customer/index.js";
 import {
   Ingress,
   IngressListItem,
   IngressListQuery,
 } from "../../domain/index.js";
-import { ListQueryModel } from "../../base/ListQueryModel.js";
-import { ListDataModel } from "../../base/ListDataModel.js";
+import {
+  ListDataModel,
+  ListQueryModel,
+  ReferenceModel,
+  DataModel,
+} from "../../base/index.js";
 import { AppInstallation, AppInstallationListQuery } from "../../app/index.js";
 import { AggregateMetaData } from "../../base/index.js";
+import {
+  ProjectMembership,
+  ProjectMembershipListQuery,
+} from "../ProjectMembership/index.js";
+import { DateTime } from "luxon";
 
 export class Project extends ReferenceModel {
   public static aggregateMetaData = new AggregateMetaData("project", "project");
   public readonly ingresses: IngressListQuery;
   public readonly appInstallations: AppInstallationListQuery;
+  public readonly projectMemberships: ProjectMembershipListQuery;
 
   public constructor(id: string) {
     super(id);
@@ -36,6 +44,8 @@ export class Project extends ReferenceModel {
       project: this,
     });
     this.appInstallations = AppInstallation.query(this);
+    this.projectMemberships = ProjectMembership.query(this);
+    // ToDo: User
   }
 
   public static ofId(id: string): Project {
@@ -122,11 +132,24 @@ class ProjectCommon extends classes(
 ) {
   public readonly server: Server | undefined;
   public readonly customer: Customer;
+  public readonly shortId: string;
+  public readonly description: string;
+  public readonly disabledAt?: DateTime;
+  public readonly createdAt: DateTime;
 
   public constructor(data: ProjectListItemData | ProjectData) {
     super([data], [data.id]);
-    this.server = data.serverId ? Server.ofId(data.serverId) : undefined;
+    this.server =
+      !data.projectHostingId && data.serverId
+        ? Server.ofId(data.serverId)
+        : undefined;
     this.customer = Customer.ofId(data.customerId);
+    this.shortId = data.shortId;
+    this.description = data.description;
+    if (data.disabledAt) {
+      this.disabledAt = DateTime.fromISO(data.disabledAt);
+    }
+    this.createdAt = DateTime.fromISO(data.createdAt);
   }
 }
 

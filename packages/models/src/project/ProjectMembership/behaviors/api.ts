@@ -1,4 +1,8 @@
-import { MittwaldAPIV2Client, assertStatus } from "@mittwald/api-client";
+import {
+  MittwaldAPIV2Client,
+  assertStatus,
+  extractTotalCountHeader,
+} from "@mittwald/api-client";
 import { ProjectMembershipBehaviors } from "./types.js";
 
 export const apiProjectMembershipBehaviors = (
@@ -12,5 +16,19 @@ export const apiProjectMembershipBehaviors = (
       return response.data;
     }
     assertStatus(response, 404);
+  },
+
+  list: async (projectId, query) => {
+    const response = await client.project.listMembershipsForProject({
+      projectId,
+      queryParameters: query,
+    });
+
+    assertStatus(response, 200);
+
+    return {
+      items: response.data,
+      totalCount: extractTotalCountHeader(response),
+    };
   },
 });

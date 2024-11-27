@@ -5,3 +5,6 @@ export type ProjectMembershipData =
 
 export type ProjectMembershipListItemData =
   MittwaldAPIV2.Operations.ProjectListProjectMemberships.ResponseData[number];
+
+export type ProjectMembershipListQueryData =
+  MittwaldAPIV2.Paths.V2ProjectsProjectIdMemberships.Get.Parameters.Query;
