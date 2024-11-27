@@ -18,12 +18,13 @@ import { apiUserBehaviors } from "../../user/User/behaviors/index.js";
 import { apiInvoiceBehaviors } from "../../invoice/Invoice/behaviors/index.js";
 import { apiNotificationBehaviors } from "../../notification/Notification/behaviors/index.js";
 import { apiConversationBehaviors } from "../../conversation/Conversation/behaviors/index.js";
-import { apiExtensionBehaviors } from "../../extension/Extension/behaviors/index.js";
-import { apiExtensionInstanceBehaviors } from "../../extension/ExtensionInstance/behaviors/index.js";
+import { apiExtensionBehaviors } from "../../marketplace/Extension/behaviors/index.js";
+import { apiExtensionInstanceBehaviors } from "../../marketplace/ExtensionInstance/behaviors/index.js";
 import { apiFileBehaviors } from "../../file/File/behaviors/index.js";
 import { apiCustomerMembershipBehaviors } from "../../customer/CustomerMembership/behaviors/index.js";
 import { apiProjectMembershipBehaviors } from "../../project/ProjectMembership/behaviors/index.js";
 import { apiMfaBehaviors } from "../../auth/Mfa/behaviors/index.js";
+import { apiContributorBehaviors } from "../../marketplace/Contributor/behaviors/index.js";
 
 class ApiSetupState {
   private _client: MittwaldAPIV2Client | undefined;
@@ -44,6 +45,7 @@ class ApiSetupState {
     config.behaviors.article = apiArticleBehaviors(client);
     config.behaviors.contract = apiContractBehaviors(client);
     config.behaviors.contractItem = apiContractItemBehaviors(client);
+    config.behaviors.contributor = apiContributorBehaviors(client);
     config.behaviors.conversation = apiConversationBehaviors(client);
     config.behaviors.customer = apiCustomerBehaviors(client);
     config.behaviors.customerMembership =

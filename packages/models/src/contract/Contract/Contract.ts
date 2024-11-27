@@ -29,10 +29,6 @@ export class Contract extends ReferenceModel {
     },
   );
 
-  public static query(query: ContractListQueryModelData) {
-    return new ContractListQuery(query);
-  }
-
   public static get = provideReact(
     async (id: string): Promise<ContractDetailed> => {
       const customer = await this.find(id);
@@ -40,6 +36,10 @@ export class Contract extends ReferenceModel {
       return customer;
     },
   );
+
+  public static query(query: ContractListQueryModelData) {
+    return new ContractListQuery(query);
+  }
 }
 
 class ContractCommon extends classes(

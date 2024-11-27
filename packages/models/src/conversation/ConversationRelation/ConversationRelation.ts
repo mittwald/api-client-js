@@ -4,8 +4,8 @@ import { Project } from "../../project/index.js";
 import { Server } from "../../server/index.js";
 import { Customer } from "../../customer/index.js";
 import { AppInstallation } from "../../app/index.js";
-import { ExtensionInstance } from "../../extension/ExtensionInstance/index.js";
-import { User } from "../../user/User/index.js";
+import { ExtensionInstance } from "../../marketplace/index.js";
+import { User } from "../../user/index.js";
 
 export class ConversationRelation extends DataModel<ConversationRelationData> {
   public readonly project?: Project;

@@ -14,13 +14,14 @@ import { InvoiceBehaviors } from "../invoice/Invoice/behaviors/index.js";
 import { NotificationBehaviors } from "../notification/Notification/behaviors/index.js";
 import { ConversationBehaviors } from "../conversation/Conversation/behaviors/index.js";
 import { CustomerMembershipBehaviors } from "../customer/CustomerMembership/behaviors/index.js";
-import { ExtensionBehaviors } from "../extension/Extension/behaviors/index.js";
-import { ExtensionInstanceBehaviors } from "../extension/ExtensionInstance/behaviors/index.js";
+import { ExtensionBehaviors } from "../marketplace/Extension/behaviors/index.js";
+import { ExtensionInstanceBehaviors } from "../marketplace/ExtensionInstance/behaviors/index.js";
 import { ProjectMembershipBehaviors } from "../project/ProjectMembership/behaviors/index.js";
 import { FileBehaviors } from "../file/File/behaviors/index.js";
 import { ContractItemBehaviors } from "../contract/ContractItem/behaviors/index.js";
 import { ArticleBehaviors } from "../article/Article/behaviors/index.js";
 import { MfaBehaviors } from "../auth/Mfa/behaviors/index.js";
+import { ContributorBehaviors } from "../marketplace/Contributor/behaviors/index.js";
 
 interface Config {
   defaultPaginationLimit: number;
@@ -31,6 +32,7 @@ interface Config {
     article: ArticleBehaviors;
     contract: ContractBehaviors;
     contractItem: ContractItemBehaviors;
+    contributor: ContributorBehaviors;
     conversation: ConversationBehaviors;
     customer: CustomerBehaviors;
     customerMembership: CustomerMembershipBehaviors;
@@ -60,6 +62,7 @@ export const config: Config = {
     article: undefined as unknown as ArticleBehaviors,
     contract: undefined as unknown as ContractBehaviors,
     contractItem: undefined as unknown as ContractItemBehaviors,
+    contributor: undefined as unknown as ContributorBehaviors,
     conversation: undefined as unknown as ConversationBehaviors,
     customer: undefined as unknown as CustomerBehaviors,
     customerMembership: undefined as unknown as CustomerMembershipBehaviors,
