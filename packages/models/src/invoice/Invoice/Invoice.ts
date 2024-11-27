@@ -4,8 +4,11 @@ import { DataModel, ReferenceModel } from "../../base/index.js";
 import { AsyncResourceVariant, provideReact } from "../../lib/provideReact.js";
 import { config } from "../../config/config.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
+import { AggregateMetaData } from "../../base/AggregateMetaData.js";
 
 export class Invoice extends ReferenceModel {
+  public static aggregateMetaData = new AggregateMetaData("invoice", "invoice");
+
   public static ofId(id: string): Invoice {
     return new Invoice(id);
   }

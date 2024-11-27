@@ -7,8 +7,14 @@ import { DataModel, ReferenceModel } from "../../base/index.js";
 import { AsyncResourceVariant, provideReact } from "../../lib/provideReact.js";
 import { config } from "../../config/config.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
+import { AggregateMetaData } from "../../base/AggregateMetaData.js";
 
 export class ExtensionInstance extends ReferenceModel {
+  public static aggregateMetaData = new AggregateMetaData(
+    "extension",
+    "extensionInstance",
+  );
+
   public static ofId(id: string): ExtensionInstance {
     return new ExtensionInstance(id);
   }
