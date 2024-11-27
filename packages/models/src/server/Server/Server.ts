@@ -94,7 +94,6 @@ export class Server extends ReferenceModel {
   ) as AsyncResourceVariant<ServerDetailed | undefined, []>;
 }
 
-// Common class for future extension
 class ServerCommon extends classes(
   DataModel<ServerListItemData | ServerData>,
   Server,

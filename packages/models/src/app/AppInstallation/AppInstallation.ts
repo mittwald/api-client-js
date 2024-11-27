@@ -80,7 +80,7 @@ class AppInstallationCommon extends classes(
   public readonly app: App;
   public readonly appVersion: AppVersion;
   public readonly project?: Project;
-  public readonly mstudioPath: string | undefined;
+  public readonly mStudioPath: string | undefined;
   public constructor(data: AppInstallationData | AppInstallationListItemData) {
     super([data], [data.id]);
     this.description = data.description;
@@ -88,7 +88,7 @@ class AppInstallationCommon extends classes(
     this.app = App.ofId(data.appId);
     this.project = data.projectId ? Project.ofId(data.projectId) : undefined;
     this.appVersion = AppVersion.ofId(data.appVersion.desired, this.app);
-    this.mstudioPath = this.project
+    this.mStudioPath = this.project
       ? `/app/projects/${this.project.id}/apps/${this.id}`
       : undefined;
   }

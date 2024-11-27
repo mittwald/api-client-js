@@ -110,7 +110,7 @@ class ConversationCommon extends classes(
   public readonly relation?: ConversationRelation;
   public readonly lastMessageAt?: DateTime;
   public readonly lastMessageBy?: ConversationUser;
-  public readonly mstudioPath: string;
+  public readonly mStudioPath: string;
   public readonly publicConversation: Conversation;
   public readonly categoryReferenceType: ConversationCategoryReferenceType;
   public readonly category?: ConversationCategory;
@@ -140,7 +140,7 @@ class ConversationCommon extends classes(
         data.lastMessage.createdBy,
       );
     }
-    this.mstudioPath = `/app/support/conversations/${this.id}`;
+    this.mStudioPath = `/app/support/conversations/${this.id}`;
     this.publicConversation = Conversation.ofId(data.conversationId);
     this.categoryReferenceType = [
       data.category?.referenceType[0] ?? "unspecified",
