@@ -20,6 +20,7 @@ import { ProjectMembershipBehaviors } from "../project/ProjectMembership/behavio
 import { FileBehaviors } from "../file/File/behaviors/index.js";
 import { ContractItemBehaviors } from "../contract/ContractItem/behaviors/index.js";
 import { ArticleBehaviors } from "../article/Article/behaviors/index.js";
+import { MfaBehaviors } from "../auth/Mfa/behaviors/index.js";
 
 interface Config {
   defaultPaginationLimit: number;
@@ -39,6 +40,7 @@ interface Config {
     ingress: IngressBehaviors;
     invoice: InvoiceBehaviors;
     invoiceSettings: InvoiceSettingsBehaviors;
+    mfa: MfaBehaviors;
     notification: NotificationBehaviors;
     project: ProjectBehaviors;
     projectMembership: ProjectMembershipBehaviors;
@@ -67,6 +69,7 @@ export const config: Config = {
     ingress: undefined as unknown as IngressBehaviors,
     invoice: undefined as unknown as InvoiceBehaviors,
     invoiceSettings: undefined as unknown as InvoiceSettingsBehaviors,
+    mfa: undefined as unknown as MfaBehaviors,
     notification: undefined as unknown as NotificationBehaviors,
     project: undefined as unknown as ProjectBehaviors,
     projectMembership: undefined as unknown as ProjectMembershipBehaviors,

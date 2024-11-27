@@ -1,5 +1,18 @@
 import { classes } from "polytype";
-import type { UserData } from "./types.js";
+import type {
+  UserAuthenticateRequestData,
+  UserConfirmPasswordResetRequestData,
+  UserData,
+  UserDeleteRequestData,
+  UserRegisterRequestData,
+  UserResendVerificationEmailRequestData,
+  UserUpdatePasswordRequestData,
+  UserUpdatePasswordResponseData,
+  UserUpdatePersonalInformationRequestData,
+  UserVerifyEmailRequestData,
+  UserVerifyPhoneNumberRequestData,
+  UserVerifyRegistrationRequestData,
+} from "./types.js";
 import {
   DataModel,
   ReferenceModel,
@@ -11,6 +24,8 @@ import assertObjectFound from "../../base/assertObjectFound.js";
 import { DomFile, File } from "../../file/File/index.js";
 import { FileAccessTokenProvider } from "../../file/FileAccessToken/FileAccessTokenProvider.js";
 import { UserAvatarAccessTokenProvider } from "./UserAvatarAccessTokenProvider.js";
+import { Session } from "../../auth/index.js";
+import { PendingMfaAuthentication } from "../../auth/Mfa/PendingMfaAuthentication.js";
 
 export class User extends ReferenceModel {
   public static aggregateMetaData = new AggregateMetaData("user", "user");
@@ -61,6 +76,92 @@ export class User extends ReferenceModel {
   public getAvatarUploadRules = provideReact(async () => {
     return File.getUploadRules("avatar");
   });
+
+  public getPasswordUpdatedAt = provideReact(
+    async (): Promise<{ passwordUpdatedAt: string }> => {
+      return await config.behaviors.user.getPasswordUpdatedAt();
+    },
+  );
+
+  public async updatePersonalInformation(
+    data: UserUpdatePersonalInformationRequestData,
+  ): Promise<void> {
+    await config.behaviors.user.updatePersonalInformation(this.id, data);
+  }
+
+  public async addPhoneNumber(phoneNumber: string): Promise<void> {
+    await config.behaviors.user.addPhoneNumber(this.id, phoneNumber);
+  }
+
+  public async verifyPhoneNumber(
+    data: UserVerifyPhoneNumberRequestData,
+  ): Promise<void> {
+    await config.behaviors.user.verifyPhoneNumber(this.id, data);
+  }
+
+  public async removePhoneNumber(): Promise<void> {
+    await config.behaviors.user.removePhoneNumber(this.id);
+  }
+
+  public async updateEmail(email: string): Promise<void> {
+    await config.behaviors.user.updateEmail(email);
+  }
+
+  public async verifyEmail(data: UserVerifyEmailRequestData): Promise<void> {
+    await config.behaviors.user.verifyEmail(data);
+  }
+
+  public async removeAvatar(): Promise<void> {
+    await config.behaviors.user.removeAvatar(this.id);
+  }
+
+  public async updatePassword(
+    data: UserUpdatePasswordRequestData,
+  ): Promise<UserUpdatePasswordResponseData> {
+    return await config.behaviors.user.updatePassword(data);
+  }
+
+  public async resetPassword(email: string): Promise<void> {
+    await config.behaviors.user.resetPassword(email);
+  }
+
+  public async confirmPasswordReset(
+    data: UserConfirmPasswordResetRequestData,
+  ): Promise<void> {
+    await config.behaviors.user.confirmPasswordReset(data);
+  }
+
+  public static async authenticate(
+    data: UserAuthenticateRequestData,
+  ): Promise<Session | PendingMfaAuthentication> {
+    const result = await config.behaviors.user.authenticate(data);
+    if ("token" in result) {
+      return new Session(result);
+    }
+    return new PendingMfaAuthentication(data);
+  }
+
+  public static async register(
+    data: UserRegisterRequestData,
+  ): Promise<{ id: string }> {
+    return await config.behaviors.user.register(data);
+  }
+
+  public static async verifyRegistration(
+    data: UserVerifyRegistrationRequestData,
+  ): Promise<void> {
+    return await config.behaviors.user.verifyRegistration(data);
+  }
+
+  public static async resendVerificationEmail(
+    data: UserResendVerificationEmailRequestData,
+  ): Promise<void> {
+    return await config.behaviors.user.resendVerificationEmail(data);
+  }
+
+  public static async delete(data: UserDeleteRequestData): Promise<void> {
+    await config.behaviors.user.delete(data);
+  }
 }
 
 class UserCommon extends classes(DataModel<UserData>, User) {
