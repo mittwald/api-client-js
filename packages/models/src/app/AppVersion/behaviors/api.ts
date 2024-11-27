@@ -1,13 +1,14 @@
 import { MittwaldAPIV2Client } from "@mittwald/api-client";
-import { AppInstallationBehaviors } from "./types.js";
+import { AppVersionBehaviors } from "./types.js";
 import { assertStatus } from "@mittwald/api-client";
 
-export const apiAppInstallationBehaviors = (
+export const apiAppVersionBehaviors = (
   client: MittwaldAPIV2Client,
-): AppInstallationBehaviors => ({
-  find: async (id) => {
-    const response = await client.app.getAppinstallation({
-      appInstallationId: id,
+): AppVersionBehaviors => ({
+  find: async (id, appId) => {
+    const response = await client.app.getAppversion({
+      appVersionId: id,
+      appId,
     });
     if (response.status === 200) {
       return response.data;

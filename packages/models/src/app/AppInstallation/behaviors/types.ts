@@ -1,14 +1,5 @@
-import {
-  AppInstallationListItemData,
-  AppInstallationData,
-  AppInstallationListQueryData,
-} from "../types.js";
-import { QueryResponseData } from "../../../base/index.js";
+import { AppInstallationData } from "../types.js";
 
 export interface AppInstallationBehaviors {
   find: (id: string) => Promise<AppInstallationData | undefined>;
-  list: (
-    projectId: string,
-    query?: AppInstallationListQueryData,
-  ) => Promise<QueryResponseData<AppInstallationListItemData>>;
 }

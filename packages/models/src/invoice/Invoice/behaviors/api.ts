@@ -1,14 +1,15 @@
 import { MittwaldAPIV2Client } from "@mittwald/api-client";
-import { AppInstallationBehaviors } from "./types.js";
+import { InvoiceBehaviors } from "./types.js";
 import { assertStatus } from "@mittwald/api-client";
 
-export const apiAppInstallationBehaviors = (
+export const apiInvoiceBehaviors = (
   client: MittwaldAPIV2Client,
-): AppInstallationBehaviors => ({
+): InvoiceBehaviors => ({
   find: async (id) => {
-    const response = await client.app.getAppinstallation({
-      appInstallationId: id,
+    const response = await client.contract.invoiceDetail({
+      invoiceId: id,
     });
+
     if (response.status === 200) {
       return response.data;
     }
