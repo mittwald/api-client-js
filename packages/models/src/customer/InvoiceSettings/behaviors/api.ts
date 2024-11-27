@@ -15,4 +15,12 @@ export const apiInvoiceSettingsBehaviors = (
 
     assertStatus(response, 404);
   },
+
+  update: async (id, data) => {
+    const response = await client.contract.invoiceUpdateInvoiceSettings({
+      customerId: id,
+      data,
+    });
+    assertStatus(response, 200);
+  },
 });

@@ -1,5 +1,8 @@
 import { classes } from "polytype";
-import type { InvoiceSettingsData } from "./types.js";
+import type {
+  InvoiceSettingsData,
+  InvoiceSettingsUpdateRequestData,
+} from "./types.js";
 import { DataModel, ReferenceModel } from "../../base/index.js";
 import { AsyncResourceVariant, provideReact } from "../../react/index.js";
 import { config } from "../../config/config.js";
@@ -38,6 +41,10 @@ export class InvoiceSettings extends ReferenceModel {
   public getDetailed = provideReact((): Promise<InvoiceSettingsDetailed> => {
     return InvoiceSettings.get(this.id);
   }, [this.id]) as AsyncResourceVariant<() => Promise<InvoiceSettingsDetailed>>;
+
+  public async update(data: InvoiceSettingsUpdateRequestData): Promise<void> {
+    await config.behaviors.invoiceSettings.update(this.id, data);
+  }
 }
 
 class InvoiceSettingsCommon extends classes(
