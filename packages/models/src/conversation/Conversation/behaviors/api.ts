@@ -30,6 +30,14 @@ export const apiConversationBehaviors = (
     assertStatus(response, 200);
   },
 
+  createMessage: async (id, data) => {
+    const response = await client.conversation.createMessage({
+      conversationId: id,
+      data,
+    });
+    assertStatus(response, 201);
+  },
+
   updateMessage: async (id, messageId, content) => {
     const response = await client.conversation.updateMessage({
       conversationId: id,
@@ -51,6 +59,28 @@ export const apiConversationBehaviors = (
       conversationId,
     });
 
+    assertStatus(response, 200);
+
+    return response.data;
+  },
+
+  createFileUploadToken: async (conversationId) => {
+    const response = await client.conversation.requestFileUpload({
+      conversationId,
+    });
+    assertStatus(response, 201);
+
+    return {
+      token: response.data.uploadToken,
+      rules: response.data.rules,
+    };
+  },
+
+  getFileDownloadToken: async (fileId, conversationId) => {
+    const response = await client.conversation.getFileAccessToken({
+      fileId,
+      conversationId,
+    });
     assertStatus(response, 200);
 
     return response.data;

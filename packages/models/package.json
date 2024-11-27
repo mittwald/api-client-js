@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@mittwald/api-client": "workspace:^",
+    "@sindresorhus/is": "^7.0.1",
     "@types/invariant": "^2.2.37",
     "another-deep-freeze": "^1.0.0",
     "invariant": "^2.2.4",
@@ -53,6 +54,7 @@
     "@mittwald/react-use-promise": "^2.3.13",
     "@types/jest": "^29.5.12",
     "@types/luxon": "^3",
+    "@types/node": "^22.9.0",
     "@types/react": "^18.3.3",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",

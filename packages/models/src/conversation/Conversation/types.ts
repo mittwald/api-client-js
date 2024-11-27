@@ -1,4 +1,5 @@
 import { MittwaldAPIV2 } from "@mittwald/api-client";
+import { DomFile } from "../../file/File/index.js";
 
 export type ConversationData =
   MittwaldAPIV2.Operations.ConversationGetConversation.ResponseData;
@@ -31,3 +32,13 @@ export type ConversationUpdateRequestData =
 
 export type ConversationDepartment =
   MittwaldAPIV2.Components.Schemas.ConversationDepartment;
+
+export type ConversationCreateMessageRequestData =
+  MittwaldAPIV2.Paths.V2ConversationsConversationIdMessages.Post.Parameters.RequestBody;
+
+export type ConversationCreateMessageRequestModelData = Omit<
+  ConversationCreateMessageRequestData,
+  "fileIds"
+> & {
+  files?: DomFile[] | FileList | null;
+};

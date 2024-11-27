@@ -18,6 +18,7 @@ import { apiCustomerMembershipBehaviors } from "../../customer/CustomerMembershi
 import { apiExtensionBehaviors } from "../../extension/Extension/behaviors/index.js";
 import { apiExtensionInstanceBehaviors } from "../../extension/ExtensionInstance/behaviors/index.js";
 import { apiProjectMembershipBehaviors } from "../../project/ProjectMembership/behaviors/index.js";
+import { apiFileBehaviors } from "../../file/File/behaviors/index.js";
 
 class ApiSetupState {
   private _client: MittwaldAPIV2Client | undefined;
@@ -38,6 +39,7 @@ class ApiSetupState {
       apiCustomerMembershipBehaviors(client);
     config.behaviors.extension = apiExtensionBehaviors(client);
     config.behaviors.extensionInstance = apiExtensionInstanceBehaviors(client);
+    config.behaviors.file = apiFileBehaviors(client);
     config.behaviors.ingress = apiIngressBehaviors(client);
     config.behaviors.invoice = apiInvoiceBehaviors(client);
     config.behaviors.invoiceSettings = apiInvoiceSettingsBehaviors(client);

@@ -16,6 +16,7 @@ import { CustomerMembershipBehaviors } from "../customer/CustomerMembership/beha
 import { ExtensionBehaviors } from "../extension/Extension/behaviors/index.js";
 import { ExtensionInstanceBehaviors } from "../extension/ExtensionInstance/behaviors/index.js";
 import { ProjectMembershipBehaviors } from "../project/ProjectMembership/behaviors/index.js";
+import { FileBehaviors } from "../file/File/behaviors/index.js";
 
 interface Config {
   defaultPaginationLimit: number;
@@ -28,6 +29,7 @@ interface Config {
     customerMembership: CustomerMembershipBehaviors;
     extension: ExtensionBehaviors;
     extensionInstance: ExtensionInstanceBehaviors;
+    file: FileBehaviors;
     ingress: IngressBehaviors;
     invoice: InvoiceBehaviors;
     invoiceSettings: InvoiceSettingsBehaviors;
@@ -52,6 +54,7 @@ export const config: Config = {
     customerMembership: undefined as unknown as CustomerMembershipBehaviors,
     extension: undefined as unknown as ExtensionBehaviors,
     extensionInstance: undefined as unknown as ExtensionInstanceBehaviors,
+    file: undefined as unknown as FileBehaviors,
     ingress: undefined as unknown as IngressBehaviors,
     invoice: undefined as unknown as InvoiceBehaviors,
     invoiceSettings: undefined as unknown as InvoiceSettingsBehaviors,

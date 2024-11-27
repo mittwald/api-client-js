@@ -11,6 +11,7 @@ import { User } from "../../user/User/index.js";
 import { provideReact } from "../../lib/provideReact.js";
 import { config } from "../../config/config.js";
 import { extractId } from "../../base/extractId.js";
+import { File } from "../../file/File/index.js";
 
 export class ConversationUser extends classes(
   DataModel<ConversationUserData>,
@@ -20,6 +21,7 @@ export class ConversationUser extends classes(
   public readonly id: string;
   public readonly clearName?: string;
   public readonly user: User;
+  public readonly avatar?: File;
 
   public constructor(conversation: Conversation, data: ConversationUserData) {
     super([data], [data.userId]);
@@ -27,6 +29,7 @@ export class ConversationUser extends classes(
     this.id = data.userId;
     this.clearName = data.clearName;
     this.user = User.ofId(data.userId);
+    this.avatar = data.avatarRefId ? File.ofId(data.avatarRefId) : undefined;
   }
 }
 

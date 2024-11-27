@@ -2,14 +2,20 @@ import { DateTime } from "luxon";
 import { DataModel } from "@mittwald/api-models";
 import { config } from "../../config/config.js";
 import { Conversation } from "../Conversation/index.js";
-import { ConversationMessageData } from "./types.js";
+import {
+  ConversationMessageData,
+  ConversationMessageFileData,
+} from "./types.js";
 import { ConversationUser } from "../ConversationUser/index.js";
+import { File } from "../../file/File/index.js";
+import { provideReact } from "../../lib/provideReact.js";
 
 export class ConversationMessage extends DataModel<ConversationMessageData> {
   public readonly id: string;
   public readonly conversation: Conversation;
   public readonly createdAt: DateTime;
   public readonly createdBy?: ConversationUser;
+  public readonly files: File[] = [];
 
   public constructor(
     conversation: Conversation,
@@ -22,6 +28,14 @@ export class ConversationMessage extends DataModel<ConversationMessageData> {
     this.createdBy = data.createdBy
       ? new ConversationUser(conversation, data.createdBy)
       : undefined;
+    this.files =
+      data.files
+        ?.filter(
+          (f): f is ConversationMessageFileData => f.status === "uploaded",
+        )
+        .map(
+          (f) => new File(f.id, this.conversation.fileAccessTokenProvider),
+        ) ?? [];
   }
 
   public async update(content: string): Promise<void> {
@@ -31,4 +45,8 @@ export class ConversationMessage extends DataModel<ConversationMessageData> {
       content,
     );
   }
+
+  public static getUploadRules = provideReact(async () => {
+    return File.getUploadRules("conversation");
+  });
 }

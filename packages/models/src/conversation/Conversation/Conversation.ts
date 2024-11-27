@@ -1,6 +1,7 @@
 import { classes } from "polytype";
 import type {
   ConversationAggregateReference,
+  ConversationCreateMessageRequestModelData,
   ConversationCreateRequest,
   ConversationData,
   ConversationListItemData,
@@ -16,7 +17,10 @@ import { AsyncResourceVariant, provideReact } from "../../lib/provideReact.js";
 import { config } from "../../config/config.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import { ConversationCategory } from "../ConversationCategory/index.js";
-import { ConversationUser } from "../ConversationUser/index.js";
+import {
+  ConversationUser,
+  ConversationUserListQuery,
+} from "../ConversationUser/index.js";
 import { DateTime } from "luxon";
 import { ConversationCategoryReferenceType } from "../ConversationCategory/types.js";
 import { Customer } from "../../customer/index.js";
@@ -25,12 +29,24 @@ import { Server } from "../../server/index.js";
 import { User } from "../../user/User/index.js";
 import { ConversationRelation } from "../ConversationRelation/index.js";
 import { ConversationStatus } from "../ConversationStatus/index.js";
+import { FileAccessTokenProvider } from "../../file/FileAccessToken/FileAccessTokenProvider.js";
+import { ConversationMessageFileAttachmentAccessTokenProvider } from "../ConversationMessage/ConversationMessageFileAttachmentAccessTokenProvider.js";
+import { File } from "../../file/File/index.js";
 
 export class Conversation extends ReferenceModel {
   public static aggregateMetaData = new AggregateMetaData(
     "conversation",
     "conversation",
   );
+  public readonly fileAccessTokenProvider: FileAccessTokenProvider;
+  public readonly users: ConversationUserListQuery;
+
+  public constructor(id: string) {
+    super(id);
+    this.fileAccessTokenProvider =
+      new ConversationMessageFileAttachmentAccessTokenProvider(this);
+    this.users = new ConversationUserListQuery(this);
+  }
 
   public static ofId(id: string): Conversation {
     return new Conversation(id);
@@ -89,6 +105,25 @@ export class Conversation extends ReferenceModel {
 
   public async updateTitle(title: string): Promise<void> {
     await config.behaviors.conversation.update(this.id, { title });
+  }
+
+  public async createMessage(
+    data: ConversationCreateMessageRequestModelData,
+  ): Promise<void> {
+    const { files, ...restData } = data;
+
+    const uploadedFiles = await Promise.all(
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      [...(files ?? [])].map((f) =>
+        File.upload(f, this.fileAccessTokenProvider),
+      ),
+    );
+
+    await config.behaviors.conversation.createMessage(this.id, {
+      ...restData,
+      fileIds: uploadedFiles.map((f) => f.id),
+    });
   }
 
   public static listCategories = provideReact(

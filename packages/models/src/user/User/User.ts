@@ -48,12 +48,12 @@ export class User extends ReferenceModel {
 
 class UserCommon extends classes(DataModel<UserData>, User) {
   public readonly fullName: string;
-  public readonly mstudioPath: string;
+  public readonly mStudioPath: string;
 
   public constructor(data: UserData) {
     super([data], [data.userId]);
     this.fullName = `${data.person.firstName} ${data.person.lastName}`;
-    this.mstudioPath = "/app/profile/personal-data";
+    this.mStudioPath = "/app/profile/personal-data";
   }
 }
 

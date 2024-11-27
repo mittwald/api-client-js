@@ -23,6 +23,7 @@ import {
   CustomerMembershipListQuery,
 } from "../CustomerMembership/index.js";
 import { ContractPartner } from "../ContractPartner/index.js";
+import { File } from "../../file/File/index.js";
 
 export class Customer extends ReferenceModel {
   public static aggregateMetaData = new AggregateMetaData(
@@ -100,6 +101,7 @@ class CustomerCommon extends classes(
   public readonly number: string;
   public readonly mStudioPath: string;
   public readonly contractPartner?: ContractPartner;
+  public readonly avatar?: File;
 
   public constructor(data: CustomerListItemData | CustomerData) {
     super([data], [data.customerId]);
@@ -109,6 +111,7 @@ class CustomerCommon extends classes(
     if (data.owner) {
       this.contractPartner = new ContractPartner(data.owner);
     }
+    this.avatar = data.avatarRefId ? File.ofId(data.avatarRefId) : undefined;
   }
 }
 
