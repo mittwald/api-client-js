@@ -177,6 +177,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getBaseItemOfContract: this.requestFunctionFactory(
       descriptors.contractGetBaseItemOfContract,
     ),
+    /** Return the Contract for the given Certificate. */
+    getDetailOfContractByCertificate: this.requestFunctionFactory(
+      descriptors.contractGetDetailOfContractByCertificate,
+    ),
     /** Return the Contract for the given Domain. */
     getDetailOfContractByDomain: this.requestFunctionFactory(
       descriptors.contractGetDetailOfContractByDomain,
@@ -423,6 +427,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     acceptCustomerInvite: this.requestFunctionFactory(
       descriptors.customerAcceptCustomerInvite,
     ),
+    /** List Invites belonging to a Customer. */
+    listInvitesForCustomer: this.requestFunctionFactory(
+      descriptors.customerListInvitesForCustomer,
+    ),
     /** Create a CustomerInvite. */
     createCustomerInvite: this.requestFunctionFactory(
       descriptors.customerCreateCustomerInvite,
@@ -435,6 +443,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     createCustomer: this.requestFunctionFactory(
       descriptors.customerCreateCustomer,
     ),
+    /** Lets us know your idea for our recommendation programm. */
+    createRecommendationSuggestion: this.requestFunctionFactory(
+      descriptors.customerCreateRecommendationSuggestion,
+    ),
+    /** Gets the Wallet of the Customer. */
+    getWallet: this.requestFunctionFactory(descriptors.customerGetWallet),
+    /** Create the Wallet for the Customer. */
+    createWallet: this.requestFunctionFactory(descriptors.customerCreateWallet),
     /** Decline a CustomerInvite. */
     declineCustomerInvite: this.requestFunctionFactory(
       descriptors.customerDeclineCustomerInvite,
@@ -488,10 +504,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** List CustomerMemberships belonging to the executing user. */
     listCustomerMemberships: this.requestFunctionFactory(
       descriptors.customerListCustomerMemberships,
-    ),
-    /** List Invites belonging to a Customer. */
-    listInvitesForCustomer: this.requestFunctionFactory(
-      descriptors.customerListInvitesForCustomer,
     ),
     /** List Memberships belonging to a Customer. */
     listMembershipsForCustomer: this.requestFunctionFactory(
@@ -731,6 +743,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ingressIngressVerifyOwnership: this.requestFunctionFactory(
       descriptors.ingressIngressVerifyOwnership,
     ),
+    /** List Ingresses compatible with a certificate. */
+    ingressListIngressesCompatibleWithCertificate: this.requestFunctionFactory(
+      descriptors.ingressListIngressesCompatibleWithCertificate,
+    ),
     /** Update the paths of an Ingress. */
     ingressUpdateIngressPaths: this.requestFunctionFactory(
       descriptors.ingressUpdateIngressPaths,
@@ -742,6 +758,42 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update the tls settings of an Ingress. */
     ingressUpdateIngressTls: this.requestFunctionFactory(
       descriptors.ingressUpdateIngressTls,
+    ),
+    /** Check the replacement of a Certificate. */
+    sslCheckReplaceCertificate: this.requestFunctionFactory(
+      descriptors.sslCheckReplaceCertificate,
+    ),
+    /** List CertificateRequests belonging to a Project or an Ingress. */
+    sslListCertificateRequests: this.requestFunctionFactory(
+      descriptors.sslListCertificateRequests,
+    ),
+    /** Create a CertificateRequest. */
+    sslCreateCertificateRequest: this.requestFunctionFactory(
+      descriptors.sslCreateCertificateRequest,
+    ),
+    /** Delete a CertificateRequest. */
+    sslDeleteCertificateRequest: this.requestFunctionFactory(
+      descriptors.sslDeleteCertificateRequest,
+    ),
+    /** Delete a Certificate. */
+    sslDeleteCertificate: this.requestFunctionFactory(
+      descriptors.sslDeleteCertificate,
+    ),
+    /** Get a CertificateRequest. */
+    sslGetCertificateRequest: this.requestFunctionFactory(
+      descriptors.sslGetCertificateRequest,
+    ),
+    /** Get a Certificate. */
+    sslGetCertificate: this.requestFunctionFactory(
+      descriptors.sslGetCertificate,
+    ),
+    /** Update a Certificate. */
+    sslReplaceCertificate: this.requestFunctionFactory(
+      descriptors.sslReplaceCertificate,
+    ),
+    /** List Certificates belonging to a Project or an Ingress. */
+    sslListCertificates: this.requestFunctionFactory(
+      descriptors.sslListCertificates,
     ),
   };
 
@@ -761,7 +813,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get a File. */
     getFile: this.requestFunctionFactory(descriptors.fileGetFile),
-    /** Get a File. */
+    /** Get a File with user-friendly url. */
     getFileWithName: this.requestFunctionFactory(
       descriptors.fileGetFileWithName,
     ),
@@ -1121,6 +1173,23 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateServerDescription: this.requestFunctionFactory(
       descriptors.projectUpdateServerDescription,
     ),
+    /** Get storage space Statistics belonging to a Project. */
+    storagespaceGetProjectStatistics: this.requestFunctionFactory(
+      descriptors.storagespaceGetProjectStatistics,
+    ),
+    /** Get storage space Statistics belonging to a Server. */
+    storagespaceGetServerStatistics: this.requestFunctionFactory(
+      descriptors.storagespaceGetServerStatistics,
+    ),
+    /** Update a Project's storage space notification threshold. */
+    storagespaceReplaceProjectNotificationThreshold:
+      this.requestFunctionFactory(
+        descriptors.storagespaceReplaceProjectNotificationThreshold,
+      ),
+    /** Update a Server's storage space notification threshold. */
+    storagespaceReplaceServerNotificationThreshold: this.requestFunctionFactory(
+      descriptors.storagespaceReplaceServerNotificationThreshold,
+    ),
   };
 
   /** The filesystem API allows you to directly access the filesystem of your project. */
@@ -1154,6 +1223,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Relocate an external Project to mittwald. */
     createRelocation: this.requestFunctionFactory(
       descriptors.relocationCreateRelocation,
+    ),
+  };
+
+  /** API endpoints that are not related to any specific API domain */
+  public readonly misc = {
+    /** Obtain a service token. */
+    servicetokenAuthenticateService: this.requestFunctionFactory(
+      descriptors.servicetokenAuthenticateService,
     ),
   };
 

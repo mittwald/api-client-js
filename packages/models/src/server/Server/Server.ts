@@ -14,8 +14,13 @@ import { FirstParameter, ParamsExceptFirst } from "../../lib/types.js";
 import { AsyncResourceVariant, provideReact } from "../../lib/provideReact.js";
 import { ListQueryModel } from "../../base/ListQueryModel.js";
 import { ListDataModel } from "../../base/ListDataModel.js";
+import { AggregateMetaData } from "../../base/index.js";
 
 export class Server extends ReferenceModel {
+  public static aggregateMetaData = new AggregateMetaData(
+    "project",
+    "placementgroup",
+  );
   public readonly projects: ProjectListQuery;
 
   public constructor(id: string) {

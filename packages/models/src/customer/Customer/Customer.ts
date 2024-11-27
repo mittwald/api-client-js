@@ -14,8 +14,13 @@ import { ListQueryModel } from "../../base/ListQueryModel.js";
 import { ListDataModel } from "../../base/ListDataModel.js";
 import { ServerListQuery } from "../../server/index.js";
 import { ProjectListQuery } from "../../project/index.js";
+import { AggregateMetaData } from "../../base/index.js";
 
 export class Customer extends ReferenceModel {
+  public static aggregateMetaData = new AggregateMetaData(
+    "customer",
+    "customer",
+  );
   public readonly servers: ServerListQuery;
   public readonly projects: ProjectListQuery;
 

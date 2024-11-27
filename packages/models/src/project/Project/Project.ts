@@ -23,8 +23,10 @@ import {
 import { ListQueryModel } from "../../base/ListQueryModel.js";
 import { ListDataModel } from "../../base/ListDataModel.js";
 import { AppInstallation, AppInstallationListQuery } from "../../app/index.js";
+import { AggregateMetaData } from "../../base/index.js";
 
 export class Project extends ReferenceModel {
+  public static aggregateMetaData = new AggregateMetaData("project", "project");
   public readonly ingresses: IngressListQuery;
   public readonly appInstallations: AppInstallationListQuery;
 

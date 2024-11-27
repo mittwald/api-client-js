@@ -2125,7 +2125,9 @@ const RAW_RUNTIME_STATE =
           ["@jest/globals", "npm:29.7.0"],\
           ["@mittwald/api-client", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#workspace:packages/mittwald"],\
           ["@mittwald/react-use-promise", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#npm:2.3.13"],\
+          ["@types/invariant", "npm:2.2.37"],\
           ["@types/jest", "npm:29.5.12"],\
+          ["@types/luxon", "npm:3.4.2"],\
           ["@types/react", "npm:18.3.3"],\
           ["@typescript-eslint/eslint-plugin", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:7.18.0"],\
           ["@typescript-eslint/parser", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:7.18.0"],\
@@ -2134,7 +2136,9 @@ const RAW_RUNTIME_STATE =
           ["eslint-config-prettier", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:9.1.0"],\
           ["eslint-plugin-json", "npm:3.1.0"],\
           ["eslint-plugin-prettier", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:5.2.1"],\
+          ["invariant", "npm:2.2.4"],\
           ["jest", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:29.7.0"],\
+          ["luxon", "npm:3.5.0"],\
           ["object-code", "npm:1.3.3"],\
           ["polytype", "npm:0.17.0"],\
           ["prettier", "npm:3.3.3"],\
@@ -9343,6 +9347,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/luxon-npm-3.4.4-c93f95dde8-c14164bc33.zip/node_modules/luxon/",\
         "packageDependencies": [\
           ["luxon", "npm:3.4.4"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.5.0", {\
+        "packageLocation": "./.yarn/cache/luxon-npm-3.5.0-92bb977f7f-48f86e6c1c.zip/node_modules/luxon/",\
+        "packageDependencies": [\
+          ["luxon", "npm:3.5.0"]\
         ],\
         "linkType": "HARD"\
       }]\
