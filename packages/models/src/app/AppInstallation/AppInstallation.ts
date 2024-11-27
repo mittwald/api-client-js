@@ -17,6 +17,10 @@ import assertObjectFound from "../../base/assertObjectFound.js";
 import { Project } from "../../project/index.js";
 import { AppVersion } from "../AppVersion/index.js";
 import { App } from "../App/index.js";
+import {
+  SystemSoftwareListItem,
+  SystemSoftwareNames,
+} from "../SystemSoftware/index.js";
 
 export class AppInstallation extends ReferenceModel {
   public static aggregateMetaData = new AggregateMetaData(
@@ -87,6 +91,19 @@ class AppInstallationCommon extends classes(
     this.mstudioPath = this.project
       ? `/app/projects/${this.project.id}/apps/${this.id}`
       : undefined;
+  }
+
+  public findInstalledSystemSoftware(
+    systemSoftwareList: readonly SystemSoftwareListItem[],
+    systemSoftwareName: SystemSoftwareNames,
+  ) {
+    const systemSoftware = systemSoftwareList.find(
+      (s) => s.data.name === systemSoftwareName,
+    );
+
+    return this.data.systemSoftware?.find(
+      (s) => s.systemSoftwareId === systemSoftware?.id,
+    );
   }
 }
 

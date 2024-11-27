@@ -2,8 +2,14 @@ import { classes } from "polytype";
 import type {
   SystemSoftwareData,
   SystemSoftwareListItemData,
+  SystemSoftwareListQueryData,
 } from "./types.js";
-import { DataModel, ReferenceModel } from "../../base/index.js";
+import {
+  DataModel,
+  ListDataModel,
+  ListQueryModel,
+  ReferenceModel,
+} from "../../base/index.js";
 import { AsyncResourceVariant, provideReact } from "../../lib/provideReact.js";
 import { config } from "../../config/config.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
@@ -67,5 +73,55 @@ export class SystemSoftwareListItem extends classes(
 ) {
   public constructor(data: SystemSoftwareListItemData) {
     super([data], [data]);
+  }
+}
+
+export class SystemSoftwareListQuery extends ListQueryModel<SystemSoftwareListQueryData> {
+  public constructor(query: SystemSoftwareListQueryData = {}) {
+    super(query);
+  }
+
+  public refine(query: SystemSoftwareListQueryData) {
+    return new SystemSoftwareListQuery({
+      ...this.query,
+      ...query,
+    });
+  }
+
+  public execute = provideReact(async () => {
+    const { items, totalCount } = await config.behaviors.systemSoftware.list(
+      this.query,
+    );
+
+    return new SystemSoftwareList(
+      this.query,
+      items.map((d) => new SystemSoftwareListItem(d)),
+      totalCount,
+    );
+  }, [this.queryId]);
+
+  public getTotalCount = provideReact(async () => {
+    const { totalCount } = await this.refine({ limit: 1 }).execute();
+    return totalCount;
+  }, [this.queryId]);
+
+  public findOneAndOnly = provideReact(async () => {
+    const { items, totalCount } = await this.refine({ limit: 2 }).execute();
+    if (totalCount === 1) {
+      return items[0];
+    }
+  }, [this.queryId]);
+}
+
+export class SystemSoftwareList extends classes(
+  SystemSoftwareListQuery,
+  ListDataModel<SystemSoftwareListItem>,
+) {
+  public constructor(
+    query: SystemSoftwareListQueryData,
+    systemSoftwares: SystemSoftwareListItem[],
+    totalCount: number,
+  ) {
+    super([query], [systemSoftwares, totalCount]);
   }
 }
