@@ -3,7 +3,6 @@ import {
   ContractListItemData,
   ContractListQueryData,
   ContractTerminationCreateRequest,
-  ContractTerminationData,
 } from "../types.js";
 import { QueryResponseData } from "../../../base/index.js";
 
@@ -16,7 +15,7 @@ export interface ContractBehaviors {
   terminate: (
     contractId: string,
     data: ContractTerminationCreateRequest,
-  ) => Promise<ContractTerminationData>;
+  ) => Promise<void>;
 
   cancelTermination: (contractId: string) => Promise<void>;
 }

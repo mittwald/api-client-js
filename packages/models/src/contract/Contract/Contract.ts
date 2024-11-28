@@ -47,12 +47,8 @@ export class Contract extends ReferenceModel {
     async (
       contractId: string,
       data: ContractTerminationCreateRequest,
-    ): Promise<ContractTermination> => {
-      const terminationData = await config.behaviors.contract.terminate(
-        contractId,
-        data,
-      );
-      return new ContractTermination(terminationData);
+    ): Promise<void> => {
+      await config.behaviors.contract.terminate(contractId, data);
     },
   );
 
@@ -67,8 +63,12 @@ class ContractCommon extends classes(
   DataModel<ContractListItemData | ContractData>,
   Contract,
 ) {
+  public readonly termination?: ContractTermination;
   public constructor(data: ContractListItemData | ContractData) {
     super([data], [data.customerId]);
+    if (data.termination) {
+      this.termination = new ContractTermination(data.termination);
+    }
   }
 }
 

@@ -35,8 +35,6 @@ export const apiContractBehaviors = (
     });
 
     assertStatus(response, 201);
-
-    return response.data;
   },
 
   cancelTermination: async (contractId) => {
