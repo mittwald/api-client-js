@@ -7,11 +7,11 @@ import {
 import { classes } from "polytype";
 import { ConversationUserData } from "./types.js";
 import { Conversation } from "../Conversation/index.js";
-import { User } from "../../user/User/index.js";
+import { User } from "../../user/index.js";
 import { provideReact } from "../../react/index.js";
 import { config } from "../../config/config.js";
 import { extractId } from "../../base/index.js";
-import { File } from "../../file/File/index.js";
+import { File } from "../../file/index.js";
 
 export class ConversationUser extends classes(
   DataModel<ConversationUserData>,
@@ -37,8 +37,6 @@ export class ConversationUserListQuery extends ListQueryModel<null> {
   private readonly conversation: Conversation;
 
   public constructor(conversation: Conversation) {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     super(null, { dependencies: [conversation.id] });
     this.conversation = conversation;
   }

@@ -23,11 +23,13 @@ import { ArticleBehaviors } from "../article/Article/behaviors/index.js";
 import { MfaBehaviors } from "../auth/Mfa/behaviors/index.js";
 import { ContributorBehaviors } from "../marketplace/Contributor/behaviors/index.js";
 import { NewsletterBehaviors } from "../newsletter/Newsletter/behaviors/index.js";
-import { SessionBehaviors } from "../auth/Session/behaviors/index.js";
+import { SessionBehaviors } from "../user/Session/behaviors/index.js";
+import { ApiTokenBehaviors } from "../user/ApiToken/behaviors/index.js";
 
 interface Config {
   defaultPaginationLimit: number;
   behaviors: {
+    apiToken: ApiTokenBehaviors;
     app: AppBehaviors;
     appInstallation: AppInstallationBehaviors;
     appVersion: AppVersionBehaviors;
@@ -60,6 +62,7 @@ interface Config {
 export const config: Config = {
   defaultPaginationLimit: 50,
   behaviors: {
+    apiToken: undefined as unknown as ApiTokenBehaviors,
     app: undefined as unknown as AppBehaviors,
     appInstallation: undefined as unknown as AppInstallationBehaviors,
     appVersion: undefined as unknown as AppVersionBehaviors,

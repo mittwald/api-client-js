@@ -26,7 +26,8 @@ import { apiProjectMembershipBehaviors } from "../../project/ProjectMembership/b
 import { apiMfaBehaviors } from "../../auth/Mfa/behaviors/index.js";
 import { apiContributorBehaviors } from "../../marketplace/Contributor/behaviors/index.js";
 import { apiNewsletterBehaviors } from "../../newsletter/Newsletter/behaviors/index.js";
-import { apiSessionBehaviors } from "../../auth/Session/behaviors/index.js";
+import { apiSessionBehaviors } from "../../user/Session/behaviors/index.js";
+import { apiApiTokenBehaviors } from "../../user/ApiToken/behaviors/index.js";
 
 class ApiSetupState {
   private _client: MittwaldAPIV2Client | undefined;
@@ -41,6 +42,7 @@ class ApiSetupState {
     this._client.defaultRequestOptions.onBeforeRequest =
       addUrlTagToProvideReactCache;
 
+    config.behaviors.apiToken = apiApiTokenBehaviors(client);
     config.behaviors.app = apiAppBehaviors(client);
     config.behaviors.appInstallation = apiAppInstallationBehaviors(client);
     config.behaviors.appVersion = apiAppVersionBehaviors(client);

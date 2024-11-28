@@ -95,8 +95,6 @@ export class ProjectMembershipListQuery extends ListQueryModel<ProjectMembership
     project: Project,
     query: ProjectMembershipListQueryData = {},
   ) {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     super(query, { dependencies: [project.id] });
     this.project = project;
   }

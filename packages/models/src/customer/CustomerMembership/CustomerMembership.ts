@@ -14,7 +14,7 @@ import { AsyncResourceVariant, provideReact } from "../../react/index.js";
 import { config } from "../../config/config.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import { Customer } from "../Customer/index.js";
-import { User } from "../../user/User/index.js";
+import { User } from "../../user/index.js";
 import { CustomerRole } from "../CustomerRole/index.js";
 
 export class CustomerMembership extends ReferenceModel {
@@ -102,8 +102,6 @@ export class CustomerMembershipListQuery extends ListQueryModel<CustomerMembersh
     customer: Customer,
     query: CustomerMembershipListQueryData = {},
   ) {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     super(query, { dependencies: [customer.id] });
     this.customer = customer;
   }
