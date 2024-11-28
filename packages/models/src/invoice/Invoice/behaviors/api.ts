@@ -1,4 +1,8 @@
-import { MittwaldAPIV2Client, assertStatus } from "@mittwald/api-client";
+import {
+  MittwaldAPIV2Client,
+  assertStatus,
+  extractTotalCountHeader,
+} from "@mittwald/api-client";
 import { InvoiceBehaviors } from "./types.js";
 
 export const apiInvoiceBehaviors = (
@@ -21,5 +25,14 @@ export const apiInvoiceBehaviors = (
     });
     assertStatus(response, 200);
     return response.data;
+  },
+
+  list: async (request) => {
+    const response = await client.contract.invoiceListCustomerInvoices(request);
+    assertStatus(response, 200);
+    return {
+      items: response.data,
+      totalCount: extractTotalCountHeader(response),
+    };
   },
 });

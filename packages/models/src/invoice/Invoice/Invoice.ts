@@ -2,11 +2,15 @@ import { classes } from "polytype";
 import type {
   InvoiceData,
   InvoiceListItemData,
+  InvoiceListQueryData,
+  InvoiceListQueryModelData,
   InvoiceStatus,
 } from "./types.js";
 import {
   AggregateMetaData,
   DataModel,
+  ListDataModel,
+  ListQueryModel,
   ReferenceModel,
 } from "../../base/index.js";
 import { AsyncResourceVariant, provideReact } from "../../react/index.js";
@@ -59,6 +63,10 @@ export class Invoice extends ReferenceModel {
     () => Invoice.get(this.id),
     [this.id],
   ) as AsyncResourceVariant<() => Promise<InvoiceDetailed>>;
+
+  public static query(query: InvoiceListQueryModelData) {
+    return new InvoiceListQuery(query);
+  }
 }
 
 class InvoiceCommon extends classes(
@@ -132,5 +140,63 @@ export class InvoiceListItem extends classes(
 ) {
   public constructor(data: InvoiceListItemData) {
     super([data], [data]);
+  }
+}
+
+export class InvoiceListQuery extends ListQueryModel<InvoiceListQueryModelData> {
+  public constructor(query: InvoiceListQueryModelData) {
+    super(query);
+  }
+
+  public refine(query: InvoiceListQueryData) {
+    return new InvoiceListQuery({
+      ...this.query,
+      ...query,
+    });
+  }
+
+  public execute = provideReact(async () => {
+    const { customer, ...query } = this.query;
+
+    const customerId = customer.id;
+    const request = {
+      customerId: customerId,
+      queryParameters: {
+        limit: config.defaultPaginationLimit,
+        ...query,
+      },
+    };
+    const { items, totalCount } = await config.behaviors.invoice.list(request);
+
+    return new InvoiceList(
+      this.query,
+      items.map((d) => new InvoiceListItem(d)),
+      totalCount,
+    );
+  }, [this.queryId]);
+
+  public getTotalCount = provideReact(async () => {
+    const { totalCount } = await this.refine({ limit: 1 }).execute();
+    return totalCount;
+  }, [this.queryId]);
+
+  public findOneAndOnly = provideReact(async () => {
+    const { items, totalCount } = await this.refine({ limit: 1 }).execute();
+    if (totalCount === 1) {
+      return items[0];
+    }
+  }, [this.queryId]);
+}
+
+export class InvoiceList extends classes(
+  InvoiceListQuery,
+  ListDataModel<InvoiceListItem>,
+) {
+  public constructor(
+    query: InvoiceListQueryModelData,
+    invoices: InvoiceListItem[],
+    totalCount: number,
+  ) {
+    super([query], [invoices, totalCount]);
   }
 }
