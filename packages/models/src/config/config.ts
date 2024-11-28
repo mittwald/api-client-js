@@ -32,6 +32,8 @@ import { OrderBehaviors } from "../order/Order/behaviors/index.js";
 import { DomainBehaviors } from "../domain/Domain/behaviors/index.js";
 import { DnsZoneBehaviors } from "../dns/DnsZone/behaviors/index.js";
 import { MailAddressBehaviors } from "../mail/MailAddress/behaviors/index.js";
+import { DeliveryBoxBehaviors } from "../mail/DeliveryBox/behaviors/index.js";
+import { MailSettingsBehaviors } from "../mail/MailSettings/behaviors/index.js";
 
 interface Config {
   defaultPaginationLimit: number;
@@ -47,6 +49,7 @@ interface Config {
     conversation: ConversationBehaviors;
     customer: CustomerBehaviors;
     customerMembership: CustomerMembershipBehaviors;
+    deliveryBox: DeliveryBoxBehaviors;
     dnsZone: DnsZoneBehaviors;
     domain: DomainBehaviors;
     extension: ExtensionBehaviors;
@@ -57,6 +60,7 @@ interface Config {
     invoice: InvoiceBehaviors;
     invoiceSettings: InvoiceSettingsBehaviors;
     mailAddress: MailAddressBehaviors;
+    mailSettings: MailSettingsBehaviors;
     mfa: MfaBehaviors;
     newsletter: NewsletterBehaviors;
     notification: NotificationBehaviors;
@@ -87,6 +91,7 @@ export const config: Config = {
     conversation: undefined as unknown as ConversationBehaviors,
     customer: undefined as unknown as CustomerBehaviors,
     customerMembership: undefined as unknown as CustomerMembershipBehaviors,
+    deliveryBox: undefined as unknown as DeliveryBoxBehaviors,
     dnsZone: undefined as unknown as DnsZoneBehaviors,
     domain: undefined as unknown as DomainBehaviors,
     extension: undefined as unknown as ExtensionBehaviors,
@@ -97,6 +102,7 @@ export const config: Config = {
     invoice: undefined as unknown as InvoiceBehaviors,
     invoiceSettings: undefined as unknown as InvoiceSettingsBehaviors,
     mailAddress: undefined as unknown as MailAddressBehaviors,
+    mailSettings: undefined as unknown as MailSettingsBehaviors,
     mfa: undefined as unknown as MfaBehaviors,
     newsletter: undefined as unknown as NewsletterBehaviors,
     notification: undefined as unknown as NotificationBehaviors,

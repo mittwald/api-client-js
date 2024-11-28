@@ -31,7 +31,12 @@ import {
 import { DateTime } from "luxon";
 import { File } from "../../file/index.js";
 import { DnsZone, DnsZoneListQuery } from "../../dns/index.js";
-import { MailAddress, MailAddressListQuery } from "../../mail/index.js";
+import {
+  DeliveryBox,
+  DeliveryBoxListQuery,
+  MailAddress,
+  MailAddressListQuery,
+} from "../../mail/index.js";
 
 export class Project extends ReferenceModel {
   public static aggregateMetaData = new AggregateMetaData("project", "project");
@@ -41,6 +46,7 @@ export class Project extends ReferenceModel {
   public readonly appInstallations: AppInstallationListQuery;
   public readonly projectMemberships: ProjectMembershipListQuery;
   public readonly mailAddresses: MailAddressListQuery;
+  public readonly deliveryBoxes: DeliveryBoxListQuery;
 
   public constructor(id: string) {
     super(id);
@@ -54,6 +60,7 @@ export class Project extends ReferenceModel {
     this.appInstallations = AppInstallation.query(this);
     this.projectMemberships = ProjectMembership.query(this);
     this.mailAddresses = MailAddress.query(this);
+    this.deliveryBoxes = DeliveryBox.query(this);
   }
 
   public static ofId(id: string): Project {

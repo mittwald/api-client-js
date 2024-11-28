@@ -9,7 +9,6 @@ import {
   MailAddressData,
   MailAddressListItemData,
   MailAddressListQueryData,
-  MailAddressListQueryModelData,
 } from "./types.js";
 import { AsyncResourceVariant, provideReact } from "../../react/index.js";
 import { config } from "../../config/config.js";
@@ -49,7 +48,7 @@ export class MailAddress extends ReferenceModel {
   }
 
   public static async create(
-    projectId: string,
+    project: Project,
     mailAddress: string,
     password: string,
     isCatchAll: boolean,
@@ -57,7 +56,7 @@ export class MailAddress extends ReferenceModel {
     quotaInBytes: number,
   ): Promise<MailAddress> {
     const { id } = await config.behaviors.mailAddress.create(
-      projectId,
+      project.id,
       mailAddress,
       password,
       isCatchAll,
@@ -68,12 +67,12 @@ export class MailAddress extends ReferenceModel {
   }
 
   public static async createForward(
-    projectId: string,
+    project: Project,
     address: string,
     forwardAddresses: string[],
   ): Promise<MailAddress> {
     const { id } = await config.behaviors.mailAddress.createForward(
-      projectId,
+      project.id,
       address,
       forwardAddresses,
     );
@@ -140,7 +139,6 @@ export class MailAddressCommon extends classes(
   public readonly isForward: boolean;
   public readonly receivingDisabled: boolean;
   public readonly sendingDisabled: boolean;
-  public readonly mailboxId: string | undefined;
   public readonly mStudioPath: string;
 
   public constructor(data: MailAddressData) {
@@ -149,7 +147,6 @@ export class MailAddressCommon extends classes(
     this.isForward = !this.data.mailbox;
     this.receivingDisabled = data.receivingDisabled;
     this.sendingDisabled = data.mailbox?.sendingEnabled === false;
-    this.mailboxId = data.mailbox?.name;
     this.mStudioPath = `/app/projects/${this.project.id}/email/addresses/${this.id}`;
   }
 }
@@ -172,19 +169,16 @@ export class MailAddressListItem extends classes(
   }
 }
 
-export class MailAddressListQuery extends ListQueryModel<MailAddressListQueryModelData> {
+export class MailAddressListQuery extends ListQueryModel<MailAddressListQueryData> {
   public readonly project: Project;
-  public constructor(
-    project: Project,
-    query: MailAddressListQueryModelData = {},
-  ) {
+  public constructor(project: Project, query: MailAddressListQueryData = {}) {
     super(query, {
       dependencies: [project.id],
     });
     this.project = project;
   }
 
-  public refine(query: MailAddressListQueryModelData = {}) {
+  public refine(query: MailAddressListQueryData = {}) {
     return new MailAddressListQuery(this.project, {
       ...this.query,
       ...query,
@@ -226,7 +220,7 @@ export class MailAddressList extends classes(
 ) {
   public constructor(
     project: Project,
-    query: MailAddressListQueryModelData,
+    query: MailAddressListQueryData,
     mailAddresses: MailAddressListItem[],
     totalCount: number,
   ) {

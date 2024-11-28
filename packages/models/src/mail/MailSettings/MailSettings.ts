@@ -18,18 +18,18 @@ export class MailSettings extends ReferenceModel {
   }
 
   public static find = provideReact(
-    async (projectId: string): Promise<MailSettings | undefined> => {
-      const data = await config.behaviors.mailSettings.find(projectId);
+    async (project: Project): Promise<MailSettings | undefined> => {
+      const data = await config.behaviors.mailSettings.find(project.id);
       if (data !== undefined) {
-        return new MailSettingsDetailed(projectId, data);
+        return new MailSettingsDetailed(project, data);
       }
     },
   );
 
   public static get = provideReact(
-    async (projectId: string): Promise<MailSettings> => {
-      const settings = await this.find(projectId);
-      assertObjectFound(settings, this, projectId);
+    async (project: Project): Promise<MailSettings> => {
+      const settings = await this.find(project);
+      assertObjectFound(settings, this, project);
       return settings;
     },
   );
@@ -39,7 +39,7 @@ export class MailSettingsDetailed extends classes(
   DataModel<MailSettingsData>,
   MailSettings,
 ) {
-  public constructor(projectId: string, data: MailSettingsData) {
-    super([data], [projectId]);
+  public constructor(project: Project, data: MailSettingsData) {
+    super([data], [project.id]);
   }
 }
