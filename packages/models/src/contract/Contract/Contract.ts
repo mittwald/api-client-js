@@ -13,7 +13,9 @@ import {
   ContractListItemData,
   ContractListQueryData,
   ContractListQueryModelData,
+  ContractTerminationCreateRequest,
 } from "./types.js";
+import { ContractTermination } from "../ContractTermination/index.js";
 
 export class Contract extends ReferenceModel {
   public static ofId(id: string): Contract {
@@ -40,6 +42,25 @@ export class Contract extends ReferenceModel {
   public static query(query: ContractListQueryModelData) {
     return new ContractListQuery(query);
   }
+
+  public static terminate = provideReact(
+    async (
+      contractId: string,
+      data: ContractTerminationCreateRequest,
+    ): Promise<ContractTermination> => {
+      const terminationData = await config.behaviors.contract.terminate(
+        contractId,
+        data,
+      );
+      return new ContractTermination(terminationData);
+    },
+  );
+
+  public static cancel = provideReact(
+    async (contractId: string): Promise<void> => {
+      await config.behaviors.contract.cancelTermination(contractId);
+    },
+  );
 }
 
 class ContractCommon extends classes(

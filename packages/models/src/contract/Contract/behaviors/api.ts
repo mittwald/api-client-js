@@ -27,4 +27,23 @@ export const apiContractBehaviors = (
       totalCount: extractTotalCountHeader(response),
     };
   },
+
+  terminate: async (contractId, data) => {
+    const response = await client.contract.terminateContract({
+      contractId,
+      data,
+    });
+
+    assertStatus(response, 201);
+
+    return response.data;
+  },
+
+  cancelTermination: async (contractId) => {
+    const response = await client.contract.cancelContractTermination({
+      contractId,
+    });
+
+    assertStatus(response, 200);
+  },
 });
