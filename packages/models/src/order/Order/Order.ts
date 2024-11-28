@@ -13,6 +13,7 @@ import { AggregateMetaData, extractId } from "../../base/index.js";
 import { config } from "../../config/config.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import {
+  TariffChangeRequestData,
   OrderCreateRequestData,
   OrderData,
   OrderListItemData,
@@ -20,12 +21,14 @@ import {
   OrderListQueryData,
   OrderPreviewRequestData,
   OrderStatus,
+  TariffChangePreviewRequestData,
 } from "./types.js";
 import { Customer } from "../../customer/index.js";
 import { Money } from "../../base/Money.js";
 import { OrderItem } from "../OrderItem/index.js";
 import { omit } from "remeda";
 import { OrderPreview } from "../OrderPreview/index.js";
+import { TariffChangePreview } from "../TariffChangePreview/index.js";
 
 export class Order extends ReferenceModel {
   public static aggregateMetaData = new AggregateMetaData("order", "order");
@@ -66,17 +69,31 @@ export class Order extends ReferenceModel {
     return new OrderListQuery(query);
   }
 
-  public static async create(
-    requestData: OrderCreateRequestData,
-  ): Promise<Order> {
-    const { id } = await config.behaviors.order.create(requestData);
+  public static async create(data: OrderCreateRequestData): Promise<Order> {
+    const { id } = await config.behaviors.order.create(data);
     return Order.ofId(id);
   }
 
   public static preview = provideReact(
-    async (requestData: OrderPreviewRequestData): Promise<OrderPreview> => {
-      const previewData = await config.behaviors.order.preview(requestData);
+    async (data: OrderPreviewRequestData): Promise<OrderPreview> => {
+      const previewData = await config.behaviors.order.preview(data);
       return new OrderPreview(previewData);
+    },
+  );
+
+  public static createTariffChange = provideReact(
+    async (tariffChangeData: TariffChangeRequestData): Promise<void> => {
+      await config.behaviors.order.createTariffChange(tariffChangeData);
+    },
+  );
+
+  public static previewTariffChange = provideReact(
+    async (
+      data: TariffChangePreviewRequestData,
+    ): Promise<TariffChangePreview> => {
+      const previewData =
+        await config.behaviors.order.previewTariffChange(data);
+      return new TariffChangePreview(previewData);
     },
   );
 }

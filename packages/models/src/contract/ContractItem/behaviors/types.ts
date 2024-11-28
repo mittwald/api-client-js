@@ -1,6 +1,6 @@
 import {
   ContractItemData,
-  ContractItemTerminationCreateRequest,
+  ContractItemTerminationCreateRequestData,
 } from "../types.js";
 
 export interface ContractItemBehaviors {
@@ -12,10 +12,15 @@ export interface ContractItemBehaviors {
   terminate: (
     contractId: string,
     contractItemId: string,
-    data: ContractItemTerminationCreateRequest,
+    data: ContractItemTerminationCreateRequestData,
   ) => Promise<void>;
 
   cancelTermination: (
+    contractId: string,
+    contractItemId: string,
+  ) => Promise<void>;
+
+  cancelTariffChange: (
     contractId: string,
     contractItemId: string,
   ) => Promise<void>;

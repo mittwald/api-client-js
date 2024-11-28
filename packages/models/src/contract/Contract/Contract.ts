@@ -13,7 +13,7 @@ import {
   ContractListItemData,
   ContractListQueryData,
   ContractListQueryModelData,
-  ContractTerminationCreateRequest,
+  ContractTerminationCreateRequestData,
 } from "./types.js";
 import { ContractTermination } from "../ContractTermination/index.js";
 import { ContractItem } from "../ContractItem/index.js";
@@ -45,20 +45,15 @@ export class Contract extends ReferenceModel {
     return new ContractListQuery(query);
   }
 
-  public static terminate = provideReact(
-    async (
-      contractId: string,
-      data: ContractTerminationCreateRequest,
-    ): Promise<void> => {
-      await config.behaviors.contract.terminate(contractId, data);
+  public terminate = provideReact(
+    async (data: ContractTerminationCreateRequestData): Promise<void> => {
+      await config.behaviors.contract.terminate(this.id, data);
     },
   );
 
-  public static cancel = provideReact(
-    async (contractId: string): Promise<void> => {
-      await config.behaviors.contract.cancelTermination(contractId);
-    },
-  );
+  public cancelTermination = provideReact(async (): Promise<void> => {
+    await config.behaviors.contract.cancelTermination(this.id);
+  });
 }
 
 class ContractCommon extends classes(
@@ -70,6 +65,7 @@ class ContractCommon extends classes(
   public readonly additionalItems: ContractItem[];
   public readonly allItems: ContractItem[];
   public readonly customer: Customer;
+
   public constructor(data: ContractListItemData | ContractData) {
     super([data], [data.customerId]);
     if (data.termination) {

@@ -1,5 +1,8 @@
 import { classes } from "polytype";
-import { ContractItemData } from "./types.js";
+import {
+  ContractItemData,
+  ContractItemTerminationCreateRequestData,
+} from "./types.js";
 import { DataModel, ReferenceModel } from "../../base/index.js";
 import { provideReact } from "../../react/index.js";
 import { config } from "../../config/config.js";
@@ -8,8 +11,17 @@ import { ContractArticle } from "../ContractArticle/index.js";
 import { Money } from "../../base/Money.js";
 import { ContractItemReference } from "./ContractItemReference.js";
 import { ContractTermination } from "../ContractTermination/index.js";
+import { TariffChange } from "../TariffChange/index.js";
+import { Order, TariffChangeRequestData } from "../../order/index.js";
 
 export class ContractItem extends ReferenceModel {
+  public readonly contractId: string;
+
+  public constructor(contractId: string, id: string) {
+    super(id);
+    this.contractId = contractId;
+  }
+
   public static ofId(contractId: string, id: string): ContractItem {
     return new ContractItem(contractId, id);
   }
@@ -40,12 +52,35 @@ export class ContractItem extends ReferenceModel {
     },
   );
 
-  public readonly contractId: string;
+  public terminate = provideReact(
+    async (data: ContractItemTerminationCreateRequestData): Promise<void> => {
+      await config.behaviors.contractItem.terminate(
+        this.contractId,
+        this.id,
+        data,
+      );
+    },
+  );
 
-  public constructor(contractId: string, id: string) {
-    super(id);
-    this.contractId = contractId;
-  }
+  public cancelTermination = provideReact(async (): Promise<void> => {
+    await config.behaviors.contractItem.cancelTermination(
+      this.contractId,
+      this.id,
+    );
+  });
+
+  public createTariffChange = provideReact(
+    async (data: TariffChangeRequestData): Promise<void> => {
+      await Order.createTariffChange(data);
+    },
+  );
+
+  public cancelTariffChange = provideReact(async (): Promise<void> => {
+    await config.behaviors.contractItem.cancelTariffChange(
+      this.contractId,
+      this.id,
+    );
+  });
 }
 
 export class ContractItemCommon extends classes(
@@ -64,6 +99,7 @@ export class ContractItemCommon extends classes(
   public readonly nextPossibleUpgradeDate?: Date;
   public readonly invoiceStop?: Date;
   public readonly termination?: ContractTermination;
+  public readonly tariffChange?: TariffChange;
   public constructor(contractId: string, data: ContractItemData) {
     super([data], [contractId, data.itemId]);
     this.description = data.description;
@@ -97,6 +133,9 @@ export class ContractItemCommon extends classes(
       : undefined;
     if (data.termination) {
       this.termination = new ContractTermination(data.termination);
+    }
+    if (data.tariffChange) {
+      this.tariffChange = new TariffChange(data.tariffChange);
     }
   }
 }

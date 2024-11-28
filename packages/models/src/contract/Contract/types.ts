@@ -17,5 +17,5 @@ export type ContractData =
 export type ContractListItemData =
   MittwaldAPIV2.Operations.ContractListContracts.ResponseData[number];
 
-export type ContractTerminationCreateRequest =
+export type ContractTerminationCreateRequestData =
   MittwaldAPIV2.Paths.V2ContractsContractIdTermination.Post.Parameters.RequestBody;

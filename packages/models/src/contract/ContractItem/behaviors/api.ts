@@ -22,7 +22,6 @@ export const apiContractItemBehaviors = (
       contractItemId,
       data,
     });
-
     assertStatus(response, 201);
   },
 
@@ -31,7 +30,17 @@ export const apiContractItemBehaviors = (
       contractId,
       contractItemId,
     });
+    assertStatus(response, 200);
+  },
 
+  cancelTariffChange: async (
+    contractId: string,
+    contractItemId: string,
+  ): Promise<void> => {
+    const response = await client.contract.cancelContractTariffChange({
+      contractId,
+      contractItemId,
+    });
     assertStatus(response, 200);
   },
 });

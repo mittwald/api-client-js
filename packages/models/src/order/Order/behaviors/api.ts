@@ -5,8 +5,14 @@ import {
   assertStatus,
   extractTotalCountHeader,
 } from "@mittwald/api-client";
-import { OrderCreateRequestData, OrderPreviewRequestData } from "../types.js";
+import {
+  TariffChangeRequestData,
+  OrderCreateRequestData,
+  OrderPreviewRequestData,
+  TariffChangePreviewRequestData,
+} from "../types.js";
 import { OrderPreviewData } from "../../OrderPreview/index.js";
+import { TariffChangePreviewData } from "../../TariffChangePreview/index.js";
 
 export const apiOrderBehaviors = (
   client: MittwaldAPIV2Client,
@@ -48,24 +54,37 @@ export const apiOrderBehaviors = (
     };
   },
 
-  create: async (
-    requestData: OrderCreateRequestData,
-  ): Promise<{ id: string }> => {
+  create: async (data: OrderCreateRequestData): Promise<{ id: string }> => {
     const response = await client.contract.orderCreateOrder({
-      data: requestData,
+      data,
     });
     assertStatus(response, 201);
 
     return { id: response.data.orderId };
   },
 
-  preview: async (
-    requestData: OrderPreviewRequestData,
-  ): Promise<OrderPreviewData> => {
+  preview: async (data: OrderPreviewRequestData): Promise<OrderPreviewData> => {
     const response = await client.contract.orderPreviewOrder({
-      data: requestData,
+      data,
     });
 
+    assertStatus(response, 200);
+    return response.data;
+  },
+
+  createTariffChange: async (data: TariffChangeRequestData): Promise<void> => {
+    const response = await client.contract.orderCreateTariffChange({
+      data,
+    });
+    assertStatus(response, 201);
+  },
+
+  previewTariffChange: async (
+    tariffChangePreviewData: TariffChangePreviewRequestData,
+  ): Promise<TariffChangePreviewData> => {
+    const response = await client.contract.orderPreviewTariffChange({
+      data: tariffChangePreviewData,
+    });
     assertStatus(response, 200);
     return response.data;
   },

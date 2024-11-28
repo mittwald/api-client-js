@@ -24,3 +24,9 @@ export type OrderCreateRequestData =
 
 export type OrderPreviewRequestData =
   MittwaldAPIV2.Operations.OrderPreviewOrder.RequestData;
+
+export type TariffChangeRequestData =
+  MittwaldAPIV2.Operations.OrderCreateTariffChange.RequestData;
+
+export type TariffChangePreviewRequestData =
+  MittwaldAPIV2.Operations.OrderPreviewTariffChange.RequestData;
