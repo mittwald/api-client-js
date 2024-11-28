@@ -32,6 +32,7 @@ import { apiSshKeyBehaviors } from "../../user/SshKey/behaviors/index.js";
 import { apiFeedbackBehaviors } from "../../user/Feedback/behaviors/index.js";
 import { apiSupportCodeBehaviors } from "../../user/SupportCode/behaviors/index.js";
 import { apiOrderBehaviors } from "../../order/Order/behaviors/index.js";
+import { apiDomainBehaviors } from "../../domain/Domain/behaviors/index.js";
 
 class ApiSetupState {
   private _client: MittwaldAPIV2Client | undefined;
@@ -58,6 +59,7 @@ class ApiSetupState {
     config.behaviors.customer = apiCustomerBehaviors(client);
     config.behaviors.customerMembership =
       apiCustomerMembershipBehaviors(client);
+    config.behaviors.domain = apiDomainBehaviors(client);
     config.behaviors.extension = apiExtensionBehaviors(client);
     config.behaviors.extensionInstance = apiExtensionInstanceBehaviors(client);
     config.behaviors.feedback = apiFeedbackBehaviors(client);

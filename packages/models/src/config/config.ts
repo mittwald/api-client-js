@@ -29,6 +29,7 @@ import { SshKeyBehaviors } from "../user/SshKey/behaviors/index.js";
 import { FeedbackBehaviors } from "../user/Feedback/behaviors/index.js";
 import { SupportCodeBehaviors } from "../user/SupportCode/behaviors/index.js";
 import { OrderBehaviors } from "../order/Order/behaviors/index.js";
+import { DomainBehaviors } from "../domain/Domain/behaviors/index.js";
 
 interface Config {
   defaultPaginationLimit: number;
@@ -44,6 +45,7 @@ interface Config {
     conversation: ConversationBehaviors;
     customer: CustomerBehaviors;
     customerMembership: CustomerMembershipBehaviors;
+    domain: DomainBehaviors;
     extension: ExtensionBehaviors;
     extensionInstance: ExtensionInstanceBehaviors;
     feedback: FeedbackBehaviors;
@@ -81,6 +83,7 @@ export const config: Config = {
     conversation: undefined as unknown as ConversationBehaviors,
     customer: undefined as unknown as CustomerBehaviors,
     customerMembership: undefined as unknown as CustomerMembershipBehaviors,
+    domain: undefined as unknown as DomainBehaviors,
     extension: undefined as unknown as ExtensionBehaviors,
     extensionInstance: undefined as unknown as ExtensionInstanceBehaviors,
     feedback: undefined as unknown as FeedbackBehaviors,

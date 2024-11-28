@@ -13,12 +13,15 @@ import {
   ListQueryModel,
   ReferenceModel,
   DataModel,
+  AggregateMetaData,
 } from "../../base/index.js";
 import { extractId } from "../../base/index.js";
 import { omit } from "remeda";
 import { IngressPath } from "../IngressPath/index.js";
 
 export class Ingress extends ReferenceModel {
+  public static aggregateMetaData = new AggregateMetaData("ingress", "ingress");
+
   public static ofId(id: string): Ingress {
     return new Ingress(id);
   }
