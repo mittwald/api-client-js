@@ -29,6 +29,7 @@ import { apiNewsletterBehaviors } from "../../newsletter/Newsletter/behaviors/in
 import { apiSessionBehaviors } from "../../user/Session/behaviors/index.js";
 import { apiApiTokenBehaviors } from "../../user/ApiToken/behaviors/index.js";
 import { apiSshKeyBehaviors } from "../../user/SshKey/behaviors/index.js";
+import { apiFeedbackBehaviors } from "../../user/Feedback/behaviors/index.js";
 
 class ApiSetupState {
   private _client: MittwaldAPIV2Client | undefined;
@@ -57,6 +58,7 @@ class ApiSetupState {
       apiCustomerMembershipBehaviors(client);
     config.behaviors.extension = apiExtensionBehaviors(client);
     config.behaviors.extensionInstance = apiExtensionInstanceBehaviors(client);
+    config.behaviors.feedback = apiFeedbackBehaviors(client);
     config.behaviors.file = apiFileBehaviors(client);
     config.behaviors.ingress = apiIngressBehaviors(client);
     config.behaviors.invoice = apiInvoiceBehaviors(client);

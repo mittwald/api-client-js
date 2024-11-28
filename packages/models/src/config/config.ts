@@ -26,6 +26,7 @@ import { NewsletterBehaviors } from "../newsletter/Newsletter/behaviors/index.js
 import { SessionBehaviors } from "../user/Session/behaviors/index.js";
 import { ApiTokenBehaviors } from "../user/ApiToken/behaviors/index.js";
 import { SshKeyBehaviors } from "../user/SshKey/behaviors/index.js";
+import { FeedbackBehaviors } from "../user/Feedback/behaviors/index.js";
 
 interface Config {
   defaultPaginationLimit: number;
@@ -43,6 +44,7 @@ interface Config {
     customerMembership: CustomerMembershipBehaviors;
     extension: ExtensionBehaviors;
     extensionInstance: ExtensionInstanceBehaviors;
+    feedback: FeedbackBehaviors;
     file: FileBehaviors;
     ingress: IngressBehaviors;
     invoice: InvoiceBehaviors;
@@ -77,6 +79,7 @@ export const config: Config = {
     customerMembership: undefined as unknown as CustomerMembershipBehaviors,
     extension: undefined as unknown as ExtensionBehaviors,
     extensionInstance: undefined as unknown as ExtensionInstanceBehaviors,
+    feedback: undefined as unknown as FeedbackBehaviors,
     file: undefined as unknown as FileBehaviors,
     ingress: undefined as unknown as IngressBehaviors,
     invoice: undefined as unknown as InvoiceBehaviors,
