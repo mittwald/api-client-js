@@ -1,4 +1,4 @@
 import { MittwaldAPIV2 } from "@mittwald/api-client";
 
-export type ContractItemArticleData =
+export type ContractArticleData =
   MittwaldAPIV2.Components.Schemas.ContractArticle;

@@ -1,15 +1,15 @@
-import { ContractItemArticleData } from "./types.js";
+import { ContractArticleData } from "./types.js";
 import { Money } from "../../base/Money.js";
 
-export class ContractItemArticle {
-  public readonly data: ContractItemArticleData;
+export class ContractArticle {
+  public readonly data: ContractArticleData;
   public readonly contractId: string;
   public readonly contractItemId: string;
   public readonly totalPrice: Money;
   public readonly displayName: string;
 
   public constructor(
-    data: ContractItemArticleData,
+    data: ContractArticleData,
     contractId: string,
     contractItemId: string,
   ) {

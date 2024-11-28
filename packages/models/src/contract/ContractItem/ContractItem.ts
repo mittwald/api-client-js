@@ -4,7 +4,7 @@ import { DataModel, ReferenceModel } from "../../base/index.js";
 import { provideReact } from "../../react/index.js";
 import { config } from "../../config/config.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
-import { ContractItemArticle } from "../ContractItemArticle/index.js";
+import { ContractArticle } from "../ContractArticle/index.js";
 
 export class ContractItem extends ReferenceModel {
   public static ofId(contractId: string, id: string): ContractItem {
@@ -55,14 +55,13 @@ export class ContractItemCommon extends classes(
 }
 
 export class ContractItemDetailed extends ContractItemCommon {
-  public readonly articles: ContractItemArticle[];
+  public readonly articles: ContractArticle[];
 
   public constructor(contractId: string, data: ContractItemData) {
     super(contractId, data);
 
     this.articles = data.articles.map(
-      (articleData) =>
-        new ContractItemArticle(articleData, contractId, this.id),
+      (articleData) => new ContractArticle(articleData, contractId, this.id),
     );
   }
 }
