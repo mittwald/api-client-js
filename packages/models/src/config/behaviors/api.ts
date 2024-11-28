@@ -28,6 +28,7 @@ import { apiContributorBehaviors } from "../../marketplace/Contributor/behaviors
 import { apiNewsletterBehaviors } from "../../newsletter/Newsletter/behaviors/index.js";
 import { apiSessionBehaviors } from "../../user/Session/behaviors/index.js";
 import { apiApiTokenBehaviors } from "../../user/ApiToken/behaviors/index.js";
+import { apiSshKeyBehaviors } from "../../user/SshKey/behaviors/index.js";
 
 class ApiSetupState {
   private _client: MittwaldAPIV2Client | undefined;
@@ -67,6 +68,7 @@ class ApiSetupState {
     config.behaviors.projectMembership = apiProjectMembershipBehaviors(client);
     config.behaviors.server = apiServerBehaviors(client);
     config.behaviors.session = apiSessionBehaviors(client);
+    config.behaviors.sshKey = apiSshKeyBehaviors(client);
     config.behaviors.systemSoftware = apiSystemSoftwareBehaviors(client);
     config.behaviors.systemSoftwareVersion =
       apiSystemSoftwareVersionBehaviors(client);

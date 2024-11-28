@@ -25,6 +25,7 @@ import { ContributorBehaviors } from "../marketplace/Contributor/behaviors/index
 import { NewsletterBehaviors } from "../newsletter/Newsletter/behaviors/index.js";
 import { SessionBehaviors } from "../user/Session/behaviors/index.js";
 import { ApiTokenBehaviors } from "../user/ApiToken/behaviors/index.js";
+import { SshKeyBehaviors } from "../user/SshKey/behaviors/index.js";
 
 interface Config {
   defaultPaginationLimit: number;
@@ -53,6 +54,7 @@ interface Config {
     projectMembership: ProjectMembershipBehaviors;
     server: ServerBehaviors;
     session: SessionBehaviors;
+    sshKey: SshKeyBehaviors;
     systemSoftware: SystemSoftwareBehaviors;
     systemSoftwareVersion: SystemSoftwareVersionBehaviors;
     user: UserBehaviors;
@@ -86,6 +88,7 @@ export const config: Config = {
     projectMembership: undefined as unknown as ProjectMembershipBehaviors,
     server: undefined as unknown as ServerBehaviors,
     session: undefined as unknown as SessionBehaviors,
+    sshKey: undefined as unknown as SshKeyBehaviors,
     systemSoftware: undefined as unknown as SystemSoftwareBehaviors,
     systemSoftwareVersion:
       undefined as unknown as SystemSoftwareVersionBehaviors,

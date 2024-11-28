@@ -41,12 +41,12 @@ export class ApiToken extends ReferenceModel {
   public getDetailed = provideReact(
     () => ApiToken.get(this.id),
     [this.id],
-  ) as AsyncResourceVariant<ApiTokenDetailed, []>;
+  ) as AsyncResourceVariant<() => Promise<ApiTokenDetailed>>;
 
   public findDetailed = provideReact(
     () => ApiToken.find(this.id),
     [this.id],
-  ) as AsyncResourceVariant<ApiTokenDetailed | undefined, []>;
+  ) as AsyncResourceVariant<() => Promise<ApiTokenDetailed | undefined>>;
 
   public query() {
     return new ApiTokenListQuery({});
