@@ -6,3 +6,6 @@ export type ContractItemData =
 export type ContractItemReferenceData = NonNullable<
   MittwaldAPIV2.Components.Schemas.ContractContractItem["aggregateReference"]
 >;
+
+export type ContractItemTerminationCreateRequest =
+  MittwaldAPIV2.Operations.ContractTerminateContractItem.RequestData;

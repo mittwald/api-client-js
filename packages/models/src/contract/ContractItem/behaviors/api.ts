@@ -15,4 +15,23 @@ export const apiContractItemBehaviors = (
     }
     assertStatus(response, 404);
   },
+
+  terminate: async (contractId, contractItemId, data) => {
+    const response = await client.contract.terminateContractItem({
+      contractId,
+      contractItemId,
+      data,
+    });
+
+    assertStatus(response, 201);
+  },
+
+  cancelTermination: async (contractId, contractItemId) => {
+    const response = await client.contract.cancelContractItemTermination({
+      contractId,
+      contractItemId,
+    });
+
+    assertStatus(response, 200);
+  },
 });

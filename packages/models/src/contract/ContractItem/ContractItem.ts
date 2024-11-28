@@ -7,6 +7,7 @@ import assertObjectFound from "../../base/assertObjectFound.js";
 import { ContractArticle } from "../ContractArticle/index.js";
 import { Money } from "../../base/Money.js";
 import { ContractItemReference } from "./ContractItemReference.js";
+import { ContractTermination } from "../ContractTermination/index.js";
 
 export class ContractItem extends ReferenceModel {
   public static ofId(contractId: string, id: string): ContractItem {
@@ -62,6 +63,7 @@ export class ContractItemCommon extends classes(
   public readonly nextPossibleTerminationDate?: Date;
   public readonly nextPossibleUpgradeDate?: Date;
   public readonly invoiceStop?: Date;
+  public readonly termination?: ContractTermination;
   public constructor(contractId: string, data: ContractItemData) {
     super([data], [contractId, data.itemId]);
     this.description = data.description;
@@ -93,6 +95,9 @@ export class ContractItemCommon extends classes(
     this.invoiceStop = data.invoiceStop
       ? new Date(data.invoiceStop)
       : undefined;
+    if (data.termination) {
+      this.termination = new ContractTermination(data.termination);
+    }
   }
 }
 
