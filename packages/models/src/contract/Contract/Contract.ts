@@ -16,6 +16,8 @@ import {
   ContractTerminationCreateRequest,
 } from "./types.js";
 import { ContractTermination } from "../ContractTermination/index.js";
+import { ContractItem } from "../ContractItem/index.js";
+import { Customer } from "../../customer/index.js";
 
 export class Contract extends ReferenceModel {
   public static ofId(id: string): Contract {
@@ -64,11 +66,22 @@ class ContractCommon extends classes(
   Contract,
 ) {
   public readonly termination?: ContractTermination;
+  public readonly baseItem: ContractItem;
+  public readonly additionalItems: ContractItem[];
+  public readonly allItems: ContractItem[];
+  public readonly customer: Customer;
   public constructor(data: ContractListItemData | ContractData) {
     super([data], [data.customerId]);
     if (data.termination) {
       this.termination = new ContractTermination(data.termination);
     }
+    this.customer = Customer.ofId(data.customerId);
+    this.baseItem = ContractItem.ofId(data.contractId, data.baseItem.itemId);
+    this.additionalItems =
+      data.additionalItems?.map((item) => {
+        return ContractItem.ofId(data.contractId, item.itemId);
+      }) ?? [];
+    this.allItems = [this.baseItem, ...this.additionalItems];
   }
 }
 
