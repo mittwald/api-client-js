@@ -13,6 +13,7 @@ export * from "./invoice/index.js";
 export * from "./marketplace/index.js";
 export * from "./newsletter/index.js";
 export * from "./notification/index.js";
+export * from "./order/index.js";
 export * from "./project/index.js";
 export * from "./server/index.js";
 export * from "./user/index.js";

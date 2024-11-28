@@ -17,7 +17,7 @@ import {
 } from "../../base/index.js";
 import { AggregateMetaData } from "../../base/index.js";
 import { Customer } from "../../customer/index.js";
-import { File } from "../../file/File/index.js";
+import { File } from "../../file/index.js";
 import { DateTime } from "luxon";
 import { AsyncResourceVariant, provideReact } from "../../react/index.js";
 

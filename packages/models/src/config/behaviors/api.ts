@@ -31,6 +31,7 @@ import { apiApiTokenBehaviors } from "../../user/ApiToken/behaviors/index.js";
 import { apiSshKeyBehaviors } from "../../user/SshKey/behaviors/index.js";
 import { apiFeedbackBehaviors } from "../../user/Feedback/behaviors/index.js";
 import { apiSupportCodeBehaviors } from "../../user/SupportCode/behaviors/index.js";
+import { apiOrderBehaviors } from "../../order/Order/behaviors/index.js";
 
 class ApiSetupState {
   private _client: MittwaldAPIV2Client | undefined;
@@ -67,6 +68,7 @@ class ApiSetupState {
     config.behaviors.mfa = apiMfaBehaviors(client);
     config.behaviors.newsletter = apiNewsletterBehaviors(client);
     config.behaviors.notification = apiNotificationBehaviors(client);
+    config.behaviors.order = apiOrderBehaviors(client);
     config.behaviors.project = apiProjectBehaviors(client);
     config.behaviors.projectMembership = apiProjectMembershipBehaviors(client);
     config.behaviors.server = apiServerBehaviors(client);

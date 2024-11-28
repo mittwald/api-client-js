@@ -28,7 +28,7 @@ import {
   ProjectMembershipListQuery,
 } from "../ProjectMembership/index.js";
 import { DateTime } from "luxon";
-import { File } from "../../file/File/index.js";
+import { File } from "../../file/index.js";
 
 export class Project extends ReferenceModel {
   public static aggregateMetaData = new AggregateMetaData("project", "project");

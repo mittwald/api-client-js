@@ -28,6 +28,7 @@ import { ApiTokenBehaviors } from "../user/ApiToken/behaviors/index.js";
 import { SshKeyBehaviors } from "../user/SshKey/behaviors/index.js";
 import { FeedbackBehaviors } from "../user/Feedback/behaviors/index.js";
 import { SupportCodeBehaviors } from "../user/SupportCode/behaviors/index.js";
+import { OrderBehaviors } from "../order/Order/behaviors/index.js";
 
 interface Config {
   defaultPaginationLimit: number;
@@ -53,6 +54,7 @@ interface Config {
     mfa: MfaBehaviors;
     newsletter: NewsletterBehaviors;
     notification: NotificationBehaviors;
+    order: OrderBehaviors;
     project: ProjectBehaviors;
     projectMembership: ProjectMembershipBehaviors;
     server: ServerBehaviors;
@@ -89,6 +91,7 @@ export const config: Config = {
     mfa: undefined as unknown as MfaBehaviors,
     newsletter: undefined as unknown as NewsletterBehaviors,
     notification: undefined as unknown as NotificationBehaviors,
+    order: undefined as unknown as OrderBehaviors,
     project: undefined as unknown as ProjectBehaviors,
     projectMembership: undefined as unknown as ProjectMembershipBehaviors,
     server: undefined as unknown as ServerBehaviors,
