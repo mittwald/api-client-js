@@ -23,6 +23,7 @@ import { ArticleBehaviors } from "../article/Article/behaviors/index.js";
 import { MfaBehaviors } from "../auth/Mfa/behaviors/index.js";
 import { ContributorBehaviors } from "../marketplace/Contributor/behaviors/index.js";
 import { NewsletterBehaviors } from "../newsletter/Newsletter/behaviors/index.js";
+import { SessionBehaviors } from "../auth/Session/behaviors/index.js";
 
 interface Config {
   defaultPaginationLimit: number;
@@ -49,6 +50,7 @@ interface Config {
     project: ProjectBehaviors;
     projectMembership: ProjectMembershipBehaviors;
     server: ServerBehaviors;
+    session: SessionBehaviors;
     systemSoftware: SystemSoftwareBehaviors;
     systemSoftwareVersion: SystemSoftwareVersionBehaviors;
     user: UserBehaviors;
@@ -80,6 +82,7 @@ export const config: Config = {
     project: undefined as unknown as ProjectBehaviors,
     projectMembership: undefined as unknown as ProjectMembershipBehaviors,
     server: undefined as unknown as ServerBehaviors,
+    session: undefined as unknown as SessionBehaviors,
     systemSoftware: undefined as unknown as SystemSoftwareBehaviors,
     systemSoftwareVersion:
       undefined as unknown as SystemSoftwareVersionBehaviors,

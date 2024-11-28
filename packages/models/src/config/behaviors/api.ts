@@ -26,6 +26,7 @@ import { apiProjectMembershipBehaviors } from "../../project/ProjectMembership/b
 import { apiMfaBehaviors } from "../../auth/Mfa/behaviors/index.js";
 import { apiContributorBehaviors } from "../../marketplace/Contributor/behaviors/index.js";
 import { apiNewsletterBehaviors } from "../../newsletter/Newsletter/behaviors/index.js";
+import { apiSessionBehaviors } from "../../auth/Session/behaviors/index.js";
 
 class ApiSetupState {
   private _client: MittwaldAPIV2Client | undefined;
@@ -63,6 +64,7 @@ class ApiSetupState {
     config.behaviors.project = apiProjectBehaviors(client);
     config.behaviors.projectMembership = apiProjectMembershipBehaviors(client);
     config.behaviors.server = apiServerBehaviors(client);
+    config.behaviors.session = apiSessionBehaviors(client);
     config.behaviors.systemSoftware = apiSystemSoftwareBehaviors(client);
     config.behaviors.systemSoftwareVersion =
       apiSystemSoftwareVersionBehaviors(client);

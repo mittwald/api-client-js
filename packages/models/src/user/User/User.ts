@@ -24,7 +24,7 @@ import assertObjectFound from "../../base/assertObjectFound.js";
 import { DomFile, File } from "../../file/File/index.js";
 import { FileAccessTokenProvider } from "../../file/FileAccessToken/FileAccessTokenProvider.js";
 import { UserAvatarAccessTokenProvider } from "./UserAvatarAccessTokenProvider.js";
-import { Session } from "../../auth/index.js";
+import { SessionToken } from "../../auth/index.js";
 import { PendingMfaAuthentication } from "../../auth/Mfa/PendingMfaAuthentication.js";
 
 export class User extends ReferenceModel {
@@ -133,10 +133,10 @@ export class User extends ReferenceModel {
 
   public static async authenticate(
     data: UserAuthenticateRequestData,
-  ): Promise<Session | PendingMfaAuthentication> {
+  ): Promise<SessionToken | PendingMfaAuthentication> {
     const result = await config.behaviors.user.authenticate(data);
     if ("token" in result) {
-      return new Session(result);
+      return new SessionToken(result);
     }
     return new PendingMfaAuthentication(data);
   }

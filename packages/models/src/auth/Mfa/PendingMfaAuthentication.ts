@@ -1,5 +1,5 @@
 import { config } from "../../config/config.js";
-import { Session } from "../Session/index.js";
+import { SessionToken } from "../SessionToken/index.js";
 import { UserAuthenticateRequestData } from "../../user/index.js";
 
 export class PendingMfaAuthentication {
@@ -17,7 +17,7 @@ export class PendingMfaAuthentication {
 
     this.authenticationRequestData = undefined;
 
-    return new Session(sessionData);
+    return new SessionToken(sessionData);
   }
 
   public get isAlreadyConfirmed() {

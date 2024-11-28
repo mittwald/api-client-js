@@ -5,12 +5,12 @@ import {
   RecoverMfaRequestData,
   ResetMfaRecoveryResponseData,
 } from "../types.js";
-import { SessionData } from "../../Session/types.js";
+import { SessionTokenData } from "../../SessionToken/types.js";
 
 export interface MfaBehaviors {
   getStatus: () => Promise<MfaStatusData>;
 
-  recover: (data: RecoverMfaRequestData) => Promise<SessionData>;
+  recover: (data: RecoverMfaRequestData) => Promise<SessionTokenData>;
 
   resetRecoveryCodes: (
     multiFactorCode: string,
@@ -20,5 +20,7 @@ export interface MfaBehaviors {
 
   disable: (multiFactorCode: string) => Promise<void>;
 
-  authenticateMfa: (data: AuthenticateMfaRequestData) => Promise<SessionData>;
+  authenticateMfa: (
+    data: AuthenticateMfaRequestData,
+  ) => Promise<SessionTokenData>;
 }
