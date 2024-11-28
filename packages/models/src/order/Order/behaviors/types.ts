@@ -3,9 +3,11 @@ import type {
   OrderData,
   OrderListByCustomerQueryData,
   OrderListItemData,
+  OrderPreviewRequestData,
 } from "../types.js";
 import { type OrderListQueryData } from "../types.js";
 import { QueryResponseData } from "../../../base/index.js";
+import { OrderPreviewData } from "../../OrderPreview/index.js";
 
 export interface OrderBehaviors {
   find: (id: string) => Promise<OrderData | undefined>;
@@ -15,5 +17,6 @@ export interface OrderBehaviors {
   listByCustomer: (
     query: OrderListByCustomerQueryData,
   ) => Promise<QueryResponseData<OrderListItemData>>;
-  createOrder: (requestData: OrderCreateRequestData) => Promise<{ id: string }>;
+  create: (requestData: OrderCreateRequestData) => Promise<{ id: string }>;
+  preview: (requestData: OrderPreviewRequestData) => Promise<OrderPreviewData>;
 }

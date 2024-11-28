@@ -21,3 +21,6 @@ export type OrderStatus = MittwaldAPIV2.Components.Schemas.OrderOrderStatus;
 
 export type OrderCreateRequestData =
   MittwaldAPIV2.Operations.OrderCreateOrder.RequestData;
+
+export type OrderPreviewRequestData =
+  MittwaldAPIV2.Operations.OrderPreviewOrder.RequestData;

@@ -5,7 +5,8 @@ import {
   assertStatus,
   extractTotalCountHeader,
 } from "@mittwald/api-client";
-import { OrderCreateRequestData } from "../types.js";
+import { OrderCreateRequestData, OrderPreviewRequestData } from "../types.js";
+import { OrderPreviewData } from "../../OrderPreview/index.js";
 
 export const apiOrderBehaviors = (
   client: MittwaldAPIV2Client,
@@ -47,7 +48,7 @@ export const apiOrderBehaviors = (
     };
   },
 
-  createOrder: async (
+  create: async (
     requestData: OrderCreateRequestData,
   ): Promise<{ id: string }> => {
     const response = await client.contract.orderCreateOrder({
@@ -56,5 +57,16 @@ export const apiOrderBehaviors = (
     assertStatus(response, 201);
 
     return { id: response.data.orderId };
+  },
+
+  preview: async (
+    requestData: OrderPreviewRequestData,
+  ): Promise<OrderPreviewData> => {
+    const response = await client.contract.orderPreviewOrder({
+      data: requestData,
+    });
+
+    assertStatus(response, 200);
+    return response.data;
   },
 });

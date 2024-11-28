@@ -18,12 +18,14 @@ import {
   OrderListItemData,
   OrderListModelQueryData,
   OrderListQueryData,
+  OrderPreviewRequestData,
   OrderStatus,
 } from "./types.js";
 import { Customer } from "../../customer/index.js";
 import { Money } from "../../base/Money.js";
 import { OrderItem } from "../OrderItem/index.js";
 import { omit } from "remeda";
+import { OrderPreview } from "../OrderPreview/index.js";
 
 export class Order extends ReferenceModel {
   public static aggregateMetaData = new AggregateMetaData("order", "order");
@@ -67,9 +69,16 @@ export class Order extends ReferenceModel {
   public static async create(
     requestData: OrderCreateRequestData,
   ): Promise<Order> {
-    const { id } = await config.behaviors.order.createOrder(requestData);
+    const { id } = await config.behaviors.order.create(requestData);
     return Order.ofId(id);
   }
+
+  public static preview = provideReact(
+    async (requestData: OrderPreviewRequestData): Promise<OrderPreview> => {
+      const previewData = await config.behaviors.order.preview(requestData);
+      return new OrderPreview(previewData);
+    },
+  );
 }
 
 export class OrderCommon extends classes(
