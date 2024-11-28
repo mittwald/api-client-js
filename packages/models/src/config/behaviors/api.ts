@@ -34,6 +34,7 @@ import { apiSupportCodeBehaviors } from "../../user/SupportCode/behaviors/index.
 import { apiOrderBehaviors } from "../../order/Order/behaviors/index.js";
 import { apiDomainBehaviors } from "../../domain/Domain/behaviors/index.js";
 import { apiDnsZoneBehaviors } from "../../dns/DnsZone/behaviors/index.js";
+import { apiMailAddressBehaviors } from "../../mail/MailAddress/behaviors/index.js";
 
 class ApiSetupState {
   private _client: MittwaldAPIV2Client | undefined;
@@ -69,6 +70,7 @@ class ApiSetupState {
     config.behaviors.ingress = apiIngressBehaviors(client);
     config.behaviors.invoice = apiInvoiceBehaviors(client);
     config.behaviors.invoiceSettings = apiInvoiceSettingsBehaviors(client);
+    config.behaviors.mailAddress = apiMailAddressBehaviors(client);
     config.behaviors.mfa = apiMfaBehaviors(client);
     config.behaviors.newsletter = apiNewsletterBehaviors(client);
     config.behaviors.notification = apiNotificationBehaviors(client);

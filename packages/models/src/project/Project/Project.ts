@@ -31,6 +31,7 @@ import {
 import { DateTime } from "luxon";
 import { File } from "../../file/index.js";
 import { DnsZone, DnsZoneListQuery } from "../../dns/index.js";
+import { MailAddress, MailAddressListQuery } from "../../mail/index.js";
 
 export class Project extends ReferenceModel {
   public static aggregateMetaData = new AggregateMetaData("project", "project");
@@ -39,6 +40,7 @@ export class Project extends ReferenceModel {
   public readonly dnsZones: DnsZoneListQuery;
   public readonly appInstallations: AppInstallationListQuery;
   public readonly projectMemberships: ProjectMembershipListQuery;
+  public readonly mailAddresses: MailAddressListQuery;
 
   public constructor(id: string) {
     super(id);
@@ -51,6 +53,7 @@ export class Project extends ReferenceModel {
     this.dnsZones = DnsZone.query(this);
     this.appInstallations = AppInstallation.query(this);
     this.projectMemberships = ProjectMembership.query(this);
+    this.mailAddresses = MailAddress.query(this);
   }
 
   public static ofId(id: string): Project {
@@ -75,6 +78,16 @@ export class Project extends ReferenceModel {
     },
   );
 
+  public findDetailed = provideReact(
+    () => Project.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<ProjectDetailed | undefined>>;
+
+  public getDetailed = provideReact(
+    () => Project.get(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<ProjectDetailed>>;
+
   public static query(query: ProjectListQueryModelData = {}) {
     return new ProjectListQuery(query);
   }
@@ -86,16 +99,6 @@ export class Project extends ReferenceModel {
     const { id } = await config.behaviors.project.create(serverId, description);
     return new Project(id);
   }
-
-  public getDetailed = provideReact(
-    () => Project.get(this.id),
-    [this.id],
-  ) as AsyncResourceVariant<() => Promise<ProjectDetailed>>;
-
-  public findDetailed = provideReact(
-    () => Project.find(this.id),
-    [this.id],
-  ) as AsyncResourceVariant<() => Promise<ProjectDetailed | undefined>>;
 
   public getDefaultIngress = provideReact(async () => {
     const ingresses = await this.ingresses.execute();

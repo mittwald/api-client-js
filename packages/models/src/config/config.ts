@@ -31,6 +31,7 @@ import { SupportCodeBehaviors } from "../user/SupportCode/behaviors/index.js";
 import { OrderBehaviors } from "../order/Order/behaviors/index.js";
 import { DomainBehaviors } from "../domain/Domain/behaviors/index.js";
 import { DnsZoneBehaviors } from "../dns/DnsZone/behaviors/index.js";
+import { MailAddressBehaviors } from "../mail/MailAddress/behaviors/index.js";
 
 interface Config {
   defaultPaginationLimit: number;
@@ -55,6 +56,7 @@ interface Config {
     ingress: IngressBehaviors;
     invoice: InvoiceBehaviors;
     invoiceSettings: InvoiceSettingsBehaviors;
+    mailAddress: MailAddressBehaviors;
     mfa: MfaBehaviors;
     newsletter: NewsletterBehaviors;
     notification: NotificationBehaviors;
@@ -94,6 +96,7 @@ export const config: Config = {
     ingress: undefined as unknown as IngressBehaviors,
     invoice: undefined as unknown as InvoiceBehaviors,
     invoiceSettings: undefined as unknown as InvoiceSettingsBehaviors,
+    mailAddress: undefined as unknown as MailAddressBehaviors,
     mfa: undefined as unknown as MfaBehaviors,
     newsletter: undefined as unknown as NewsletterBehaviors,
     notification: undefined as unknown as NotificationBehaviors,
