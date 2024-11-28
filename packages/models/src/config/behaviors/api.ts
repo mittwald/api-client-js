@@ -30,6 +30,7 @@ import { apiSessionBehaviors } from "../../user/Session/behaviors/index.js";
 import { apiApiTokenBehaviors } from "../../user/ApiToken/behaviors/index.js";
 import { apiSshKeyBehaviors } from "../../user/SshKey/behaviors/index.js";
 import { apiFeedbackBehaviors } from "../../user/Feedback/behaviors/index.js";
+import { apiSupportCodeBehaviors } from "../../user/SupportCode/behaviors/index.js";
 
 class ApiSetupState {
   private _client: MittwaldAPIV2Client | undefined;
@@ -71,6 +72,7 @@ class ApiSetupState {
     config.behaviors.server = apiServerBehaviors(client);
     config.behaviors.session = apiSessionBehaviors(client);
     config.behaviors.sshKey = apiSshKeyBehaviors(client);
+    config.behaviors.supportCode = apiSupportCodeBehaviors(client);
     config.behaviors.systemSoftware = apiSystemSoftwareBehaviors(client);
     config.behaviors.systemSoftwareVersion =
       apiSystemSoftwareVersionBehaviors(client);

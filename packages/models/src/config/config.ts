@@ -27,6 +27,7 @@ import { SessionBehaviors } from "../user/Session/behaviors/index.js";
 import { ApiTokenBehaviors } from "../user/ApiToken/behaviors/index.js";
 import { SshKeyBehaviors } from "../user/SshKey/behaviors/index.js";
 import { FeedbackBehaviors } from "../user/Feedback/behaviors/index.js";
+import { SupportCodeBehaviors } from "../user/SupportCode/behaviors/index.js";
 
 interface Config {
   defaultPaginationLimit: number;
@@ -57,6 +58,7 @@ interface Config {
     server: ServerBehaviors;
     session: SessionBehaviors;
     sshKey: SshKeyBehaviors;
+    supportCode: SupportCodeBehaviors;
     systemSoftware: SystemSoftwareBehaviors;
     systemSoftwareVersion: SystemSoftwareVersionBehaviors;
     user: UserBehaviors;
@@ -92,6 +94,7 @@ export const config: Config = {
     server: undefined as unknown as ServerBehaviors,
     session: undefined as unknown as SessionBehaviors,
     sshKey: undefined as unknown as SshKeyBehaviors,
+    supportCode: undefined as unknown as SupportCodeBehaviors,
     systemSoftware: undefined as unknown as SystemSoftwareBehaviors,
     systemSoftwareVersion:
       undefined as unknown as SystemSoftwareVersionBehaviors,
