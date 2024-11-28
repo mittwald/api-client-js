@@ -30,6 +30,7 @@ import { FeedbackBehaviors } from "../user/Feedback/behaviors/index.js";
 import { SupportCodeBehaviors } from "../user/SupportCode/behaviors/index.js";
 import { OrderBehaviors } from "../order/Order/behaviors/index.js";
 import { DomainBehaviors } from "../domain/Domain/behaviors/index.js";
+import { DnsZoneBehaviors } from "../dns/DnsZone/behaviors/index.js";
 
 interface Config {
   defaultPaginationLimit: number;
@@ -45,6 +46,7 @@ interface Config {
     conversation: ConversationBehaviors;
     customer: CustomerBehaviors;
     customerMembership: CustomerMembershipBehaviors;
+    dnsZone: DnsZoneBehaviors;
     domain: DomainBehaviors;
     extension: ExtensionBehaviors;
     extensionInstance: ExtensionInstanceBehaviors;
@@ -83,6 +85,7 @@ export const config: Config = {
     conversation: undefined as unknown as ConversationBehaviors,
     customer: undefined as unknown as CustomerBehaviors,
     customerMembership: undefined as unknown as CustomerMembershipBehaviors,
+    dnsZone: undefined as unknown as DnsZoneBehaviors,
     domain: undefined as unknown as DomainBehaviors,
     extension: undefined as unknown as ExtensionBehaviors,
     extensionInstance: undefined as unknown as ExtensionInstanceBehaviors,

@@ -1,7 +1,6 @@
 import {
   ProjectData,
   ProjectListItemData,
-  ProjectListQueryData,
   ProjectListQueryModelData,
 } from "./types.js";
 import { config } from "../../config/config.js";
@@ -11,28 +10,33 @@ import { Server } from "../../server/index.js";
 import { AsyncResourceVariant, provideReact } from "../../react/index.js";
 import { Customer } from "../../customer/index.js";
 import {
+  Domain,
+  DomainListQuery,
   Ingress,
   IngressListItem,
   IngressListQuery,
 } from "../../domain/index.js";
 import {
+  AggregateMetaData,
+  DataModel,
   ListDataModel,
   ListQueryModel,
   ReferenceModel,
-  DataModel,
 } from "../../base/index.js";
 import { AppInstallation, AppInstallationListQuery } from "../../app/index.js";
-import { AggregateMetaData } from "../../base/index.js";
 import {
   ProjectMembership,
   ProjectMembershipListQuery,
 } from "../ProjectMembership/index.js";
 import { DateTime } from "luxon";
 import { File } from "../../file/index.js";
+import { DnsZone, DnsZoneListQuery } from "../../dns/index.js";
 
 export class Project extends ReferenceModel {
   public static aggregateMetaData = new AggregateMetaData("project", "project");
   public readonly ingresses: IngressListQuery;
+  public readonly domains: DomainListQuery;
+  public readonly dnsZones: DnsZoneListQuery;
   public readonly appInstallations: AppInstallationListQuery;
   public readonly projectMemberships: ProjectMembershipListQuery;
 
@@ -41,6 +45,10 @@ export class Project extends ReferenceModel {
     this.ingresses = Ingress.query({
       project: this,
     });
+    this.domains = Domain.query({
+      project: this,
+    });
+    this.dnsZones = DnsZone.query(this);
     this.appInstallations = AppInstallation.query(this);
     this.projectMemberships = ProjectMembership.query(this);
   }
@@ -71,15 +79,6 @@ export class Project extends ReferenceModel {
     return new ProjectListQuery(query);
   }
 
-  /** @deprecated: use query(), Customer.projects or Server.projects */
-  public static list = provideReact(
-    async (
-      query: ProjectListQueryData = {},
-    ): Promise<Readonly<Array<ProjectListItem>>> => {
-      return new ProjectListQuery(query).execute().then((r) => r.items);
-    },
-  );
-
   public static async create(
     serverId: string,
     description: string,
@@ -98,14 +97,9 @@ export class Project extends ReferenceModel {
     [this.id],
   ) as AsyncResourceVariant<() => Promise<ProjectDetailed | undefined>>;
 
-  /** @deprecated: use ingresses property */
-  public listIngresses = provideReact(() =>
-    Ingress.list({ projectId: this.id }),
-  );
-
   public getDefaultIngress = provideReact(async () => {
-    const ingresses = await Project.ofId(this.id).listIngresses();
-    const defaultIngress = ingresses.find((i) => i.data.isDefault);
+    const ingresses = await this.ingresses.execute();
+    const defaultIngress = ingresses.items.find((i) => i.data.isDefault);
     assertObjectFound(defaultIngress, IngressListItem, this);
     return defaultIngress;
   });

@@ -33,6 +33,7 @@ import { apiFeedbackBehaviors } from "../../user/Feedback/behaviors/index.js";
 import { apiSupportCodeBehaviors } from "../../user/SupportCode/behaviors/index.js";
 import { apiOrderBehaviors } from "../../order/Order/behaviors/index.js";
 import { apiDomainBehaviors } from "../../domain/Domain/behaviors/index.js";
+import { apiDnsZoneBehaviors } from "../../dns/DnsZone/behaviors/index.js";
 
 class ApiSetupState {
   private _client: MittwaldAPIV2Client | undefined;
@@ -59,6 +60,7 @@ class ApiSetupState {
     config.behaviors.customer = apiCustomerBehaviors(client);
     config.behaviors.customerMembership =
       apiCustomerMembershipBehaviors(client);
+    config.behaviors.dnsZone = apiDnsZoneBehaviors(client);
     config.behaviors.domain = apiDomainBehaviors(client);
     config.behaviors.extension = apiExtensionBehaviors(client);
     config.behaviors.extensionInstance = apiExtensionInstanceBehaviors(client);

@@ -8,14 +8,14 @@ import { config } from "../../config/config.js";
 import { classes } from "polytype";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import { Project, ProjectListQuery } from "../../project/index.js";
-import { FirstParameter, ParamsExceptFirst } from "../../lib/types.js";
+import { ParamsExceptFirst } from "../../lib/types.js";
 import {
+  AggregateMetaData,
+  DataModel,
   ListDataModel,
   ListQueryModel,
-  DataModel,
   ReferenceModel,
 } from "../../base/index.js";
-import { AggregateMetaData } from "../../base/index.js";
 import { Customer } from "../../customer/index.js";
 import { File } from "../../file/index.js";
 import { DateTime } from "luxon";
@@ -61,32 +61,11 @@ export class Server extends ReferenceModel {
     return new ServerListQuery(query);
   }
 
-  /** @deprecated: use query() or customer.servers */
-  public static list = provideReact(
-    async (
-      query: ServerListQueryData = {},
-    ): Promise<Readonly<ServerListItem[]>> => {
-      return new ServerListQuery(query).execute().then((r) => r.items);
-    },
-  );
-
   public async createProject(
     ...parameters: ParamsExceptFirst<typeof Project.create>
   ): ReturnType<typeof Project.create> {
     return Project.create(this.id, ...parameters);
   }
-
-  /** @deprecated Use Server.projects property */
-  public listProjects = provideReact(
-    async (
-      query: Omit<FirstParameter<typeof Project.list>, "serverId"> = {},
-    ): ReturnType<typeof Project.list> => {
-      return Project.list({
-        ...query,
-        serverId: this.id,
-      });
-    },
-  );
 
   public getDetailed = provideReact(
     () => Server.get(this.id),

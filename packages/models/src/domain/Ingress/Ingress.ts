@@ -30,14 +30,6 @@ export class Ingress extends ReferenceModel {
     return Ingress.ofId(hostname);
   }
 
-  /** @deprecated: use query() or project.ingresses */
-  public static list = provideReact(
-    async (
-      query: IngressListQueryData = {},
-    ): Promise<Readonly<Array<IngressListItem>>> =>
-      new IngressListQuery(query).execute().then((r) => r.items),
-  );
-
   public static find = provideReact(
     async (id: string): Promise<IngressDetailed | undefined> => {
       const data = await config.behaviors.ingress.find(id);

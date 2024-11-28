@@ -23,7 +23,7 @@ import {
   CustomerMembershipListQuery,
 } from "../CustomerMembership/index.js";
 import { ContractPartner } from "../ContractPartner/index.js";
-import { File } from "../../file/File/index.js";
+import { File } from "../../file/index.js";
 
 export class Customer extends ReferenceModel {
   public static aggregateMetaData = new AggregateMetaData(
@@ -61,14 +61,6 @@ export class Customer extends ReferenceModel {
   public static query(query: CustomerListQueryData = {}) {
     return new CustomerListQuery(query);
   }
-
-  /** @deprecated Use query() */
-  public static list = provideReact(
-    async (
-      query: CustomerListQueryData = {},
-    ): Promise<Readonly<Array<CustomerListItem>>> =>
-      new CustomerListQuery(query).execute().then((res) => res.items),
-  );
 
   public static get = provideReact(
     async (id: string): Promise<CustomerDetailed> => {
