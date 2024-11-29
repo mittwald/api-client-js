@@ -20,11 +20,7 @@ export const apiFileBehaviors = (
         fileId: id,
         headers: { Token: token },
       },
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         onBeforeRequest: (req) => {
           const writableRequest = req as Writable<typeof req>;
           writableRequest.requestConfig = {
