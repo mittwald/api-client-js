@@ -44,13 +44,10 @@ export class Extension extends ReferenceModel {
     },
   );
 
-  public findDetailed = provideReact(async (): Promise<
-    ExtensionDetailed | undefined
-  > => {
-    return await Extension.find(this.id);
-  }, [this.id]) as AsyncResourceVariant<
-    () => Promise<ExtensionDetailed | undefined>
-  >;
+  public findDetailed = provideReact(
+    () => Extension.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<ExtensionDetailed | undefined>>;
 
   public getDetailed = provideReact(
     () => Extension.get(this.id),

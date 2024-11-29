@@ -37,19 +37,17 @@ export class ProjectMembership extends ReferenceModel {
     },
   );
 
-  public findDetailed = provideReact((): Promise<
-    ProjectMembershipDetailed | undefined
-  > => {
-    return ProjectMembership.find(this.id);
-  }, [this.id]) as AsyncResourceVariant<
+  public findDetailed = provideReact(
+    () => ProjectMembership.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<
     () => Promise<ProjectMembershipDetailed | undefined>
   >;
 
-  public getDetailed = provideReact((): Promise<ProjectMembershipDetailed> => {
-    return ProjectMembership.get(this.id);
-  }, [this.id]) as AsyncResourceVariant<
-    () => Promise<ProjectMembershipDetailed>
-  >;
+  public getDetailed = provideReact(
+    () => ProjectMembership.get(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<ProjectMembershipDetailed>>;
 
   public static query(
     project: Project,

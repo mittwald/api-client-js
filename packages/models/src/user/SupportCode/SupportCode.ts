@@ -11,7 +11,6 @@ export class SupportCode extends ReferenceModel {
 
   public static get = provideReact(async (): Promise<SupportCodeDetailed> => {
     const data = await config.behaviors.supportCode.get();
-
     return new SupportCodeDetailed(data);
   });
 

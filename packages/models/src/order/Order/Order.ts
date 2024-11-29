@@ -54,15 +54,15 @@ export class Order extends ReferenceModel {
     },
   );
 
-  public findDetailed = provideReact((): Promise<OrderDetailed | undefined> => {
-    return Order.find(this.id);
-  }, [this.id]) as AsyncResourceVariant<
-    () => Promise<OrderDetailed | undefined>
-  >;
+  public findDetailed = provideReact(
+    () => Order.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<OrderDetailed | undefined>>;
 
-  public getDetailed = provideReact((): Promise<OrderDetailed> => {
-    return Order.get(this.id);
-  }, [this.id]) as AsyncResourceVariant<() => Promise<OrderDetailed>>;
+  public getDetailed = provideReact(
+    () => Order.get(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<OrderDetailed>>;
 
   public static query(query: OrderListQueryModelData = {}) {
     return new OrderListQuery(query);

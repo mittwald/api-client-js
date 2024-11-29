@@ -35,12 +35,14 @@ export class MailAddress extends ReferenceModel {
     return mailAddress;
   });
 
-  public findDetailed = provideReact(() =>
-    MailAddress.find(this.id),
+  public findDetailed = provideReact(
+    () => MailAddress.find(this.id),
+    [this.id],
   ) as AsyncResourceVariant<() => Promise<MailAddressDetailed | undefined>>;
 
-  public getDetailed = provideReact(() =>
-    MailAddress.get(this.id),
+  public getDetailed = provideReact(
+    () => MailAddress.get(this.id),
+    [this.id],
   ) as AsyncResourceVariant<() => Promise<MailAddressDetailed>>;
 
   public static query(project: Project, query: MailAddressListQueryData = {}) {

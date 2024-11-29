@@ -47,11 +47,10 @@ export class ExtensionInstance extends ReferenceModel {
     },
   );
 
-  public findDetailed = provideReact(async (): Promise<
-    ExtensionInstanceDetailed | undefined
-  > => {
-    return await ExtensionInstance.find(this.id);
-  }, [this.id]) as AsyncResourceVariant<
+  public findDetailed = provideReact(
+    () => ExtensionInstance.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<
     () => Promise<ExtensionInstanceDetailed | undefined>
   >;
 
