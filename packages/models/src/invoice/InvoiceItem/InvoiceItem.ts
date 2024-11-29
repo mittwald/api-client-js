@@ -43,12 +43,12 @@ export class InvoiceItem extends ReferenceModel {
     },
   );
 
-  public getDetailed = provideReact((): Promise<InvoiceItemDetailed> => {
-    return InvoiceItem.get(this.invoice, this.id);
-  }, [this.id]);
-
   public findDetailed = provideReact((): Promise<InvoiceItem | undefined> => {
     return InvoiceItem.find(this.invoice, this.id);
+  }, [this.id]);
+
+  public getDetailed = provideReact((): Promise<InvoiceItemDetailed> => {
+    return InvoiceItem.get(this.invoice, this.id);
   }, [this.id]);
 }
 

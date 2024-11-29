@@ -18,7 +18,7 @@ export class Notification extends ReferenceModel {
     return new Notification(id);
   }
 
-  public static query(query?: NotificationListQueryData) {
+  public static query(query: NotificationListQueryData = {}) {
     return new NotificationListQuery(query);
   }
 

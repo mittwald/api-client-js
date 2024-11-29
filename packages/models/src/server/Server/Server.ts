@@ -67,15 +67,15 @@ export class Server extends ReferenceModel {
     return Project.create(this.id, ...parameters);
   }
 
-  public getDetailed = provideReact(
-    () => Server.get(this.id),
-    [this.id],
-  ) as AsyncResourceVariant<() => Promise<ServerDetailed>>;
-
   public findDetailed = provideReact(
     () => Server.find(this.id),
     [this.id],
   ) as AsyncResourceVariant<() => Promise<ServerDetailed | undefined>>;
+
+  public getDetailed = provideReact(
+    () => Server.get(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<ServerDetailed>>;
 }
 
 class ServerCommon extends classes(

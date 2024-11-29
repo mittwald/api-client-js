@@ -12,7 +12,6 @@ import {
   ContractData,
   ContractListItemData,
   ContractListQueryData,
-  ContractListQueryModelData,
   ContractTerminationCreateRequestData,
 } from "./types.js";
 import { ContractTermination } from "../ContractTermination/index.js";
@@ -41,8 +40,8 @@ export class Contract extends ReferenceModel {
     },
   );
 
-  public static query(query: ContractListQueryModelData) {
-    return new ContractListQuery(query);
+  public static query(customer: Customer, query: ContractListQueryData = {}) {
+    return new ContractListQuery(customer, query);
   }
 
   public terminate = provideReact(
@@ -99,32 +98,30 @@ export class ContractListItem extends classes(
   }
 }
 
-export class ContractListQuery extends ListQueryModel<ContractListQueryModelData> {
-  public constructor(query: ContractListQueryModelData) {
-    super(query);
+export class ContractListQuery extends ListQueryModel<ContractListQueryData> {
+  public readonly customer: Customer;
+  public constructor(customer: Customer, query: ContractListQueryData) {
+    super(query, {
+      dependencies: [customer.id],
+    });
+    this.customer = customer;
   }
 
   public refine(query: ContractListQueryData) {
-    return new ContractListQuery({
+    return new ContractListQuery(this.customer, {
       ...this.query,
       ...query,
     });
   }
 
   public execute = provideReact(async () => {
-    const { customer, ...query } = this.query;
-
-    const customerId = customer.id;
-    const request = {
-      customerId: customerId,
-      queryParameters: {
-        limit: config.defaultPaginationLimit,
-        ...query,
-      },
-    };
-    const { items, totalCount } = await config.behaviors.contract.list(request);
+    const { items, totalCount } = await config.behaviors.contract.list(
+      this.customer.id,
+      this.query,
+    );
 
     return new ContractList(
+      this.customer,
       this.query,
       items.map((d) => new ContractListItem(d)),
       totalCount,
@@ -149,10 +146,11 @@ export class ContractList extends classes(
   ListDataModel<ContractListItem>,
 ) {
   public constructor(
-    query: ContractListQueryModelData,
+    customer: Customer,
+    query: ContractListQueryData,
     contracts: ContractListItem[],
     totalCount: number,
   ) {
-    super([query], [contracts, totalCount]);
+    super([customer, query], [contracts, totalCount]);
   }
 }

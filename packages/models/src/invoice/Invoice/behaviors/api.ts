@@ -27,8 +27,11 @@ export const apiInvoiceBehaviors = (
     return response.data;
   },
 
-  list: async (request) => {
-    const response = await client.contract.invoiceListCustomerInvoices(request);
+  list: async (customerId, query) => {
+    const response = await client.contract.invoiceListCustomerInvoices({
+      customerId,
+      queryParameters: query,
+    });
     assertStatus(response, 200);
     return {
       items: response.data,

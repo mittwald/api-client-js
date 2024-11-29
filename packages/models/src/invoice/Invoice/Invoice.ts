@@ -3,7 +3,6 @@ import type {
   InvoiceData,
   InvoiceListItemData,
   InvoiceListQueryData,
-  InvoiceListQueryModelData,
   InvoiceStatus,
 } from "./types.js";
 import {
@@ -23,7 +22,7 @@ import { Customer } from "../../customer/index.js";
 import { InvoiceItemGroup } from "../InvoiceItemGroup/index.js";
 import { InvoiceItemDetailed } from "../InvoiceItem/index.js";
 import { InvoiceCancellation } from "../InvoiceCancellation/index.js";
-import { File } from "../../file/File/index.js";
+import { File } from "../../file/index.js";
 import { InvoicePdfAccessTokenProvider } from "./InvoicePdfAccessTokenProvider.js";
 
 export class Invoice extends ReferenceModel {
@@ -64,8 +63,8 @@ export class Invoice extends ReferenceModel {
     [this.id],
   ) as AsyncResourceVariant<() => Promise<InvoiceDetailed>>;
 
-  public static query(query: InvoiceListQueryModelData) {
-    return new InvoiceListQuery(query);
+  public static query(customer: Customer, query: InvoiceListQueryData = {}) {
+    return new InvoiceListQuery(customer, query);
   }
 }
 
@@ -143,32 +142,29 @@ export class InvoiceListItem extends classes(
   }
 }
 
-export class InvoiceListQuery extends ListQueryModel<InvoiceListQueryModelData> {
-  public constructor(query: InvoiceListQueryModelData) {
-    super(query);
+export class InvoiceListQuery extends ListQueryModel<InvoiceListQueryData> {
+  public readonly customer: Customer;
+
+  public constructor(customer: Customer, query: InvoiceListQueryData) {
+    super(query, { dependencies: [customer.id] });
+    this.customer = customer;
   }
 
   public refine(query: InvoiceListQueryData) {
-    return new InvoiceListQuery({
+    return new InvoiceListQuery(this.customer, {
       ...this.query,
       ...query,
     });
   }
 
   public execute = provideReact(async () => {
-    const { customer, ...query } = this.query;
-
-    const customerId = customer.id;
-    const request = {
-      customerId: customerId,
-      queryParameters: {
-        limit: config.defaultPaginationLimit,
-        ...query,
-      },
-    };
-    const { items, totalCount } = await config.behaviors.invoice.list(request);
+    const { items, totalCount } = await config.behaviors.invoice.list(
+      this.customer.id,
+      this.query,
+    );
 
     return new InvoiceList(
+      this.customer,
       this.query,
       items.map((d) => new InvoiceListItem(d)),
       totalCount,
@@ -193,10 +189,11 @@ export class InvoiceList extends classes(
   ListDataModel<InvoiceListItem>,
 ) {
   public constructor(
-    query: InvoiceListQueryModelData,
+    customer: Customer,
+    query: InvoiceListQueryData,
     invoices: InvoiceListItem[],
     totalCount: number,
   ) {
-    super([query], [invoices, totalCount]);
+    super([customer, query], [invoices, totalCount]);
   }
 }

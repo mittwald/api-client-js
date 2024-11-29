@@ -37,15 +37,15 @@ export class Contributor extends ReferenceModel {
     },
   );
 
-  public getDetailed = provideReact(
-    () => Contributor.get(this.id),
-    [this.id],
-  ) as AsyncResourceVariant<() => Promise<ContributorDetailed>>;
-
   public findDetailed = provideReact(
     () => Contributor.find(this.id),
     [this.id],
   ) as AsyncResourceVariant<() => Promise<ContributorDetailed | undefined>>;
+
+  public getDetailed = provideReact(
+    () => Contributor.get(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<ContributorDetailed>>;
 
   public query(query: ContributorListQueryData = {}) {
     return new ContributorListQuery(query);

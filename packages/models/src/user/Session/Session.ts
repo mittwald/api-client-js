@@ -32,15 +32,15 @@ export class Session extends ReferenceModel {
     },
   );
 
-  public getDetailed = provideReact(
-    () => Session.get(this.id),
-    [this.id],
-  ) as AsyncResourceVariant<() => Promise<SessionDetailed>>;
-
   public findDetailed = provideReact(
     () => Session.find(this.id),
     [this.id],
   ) as AsyncResourceVariant<() => Promise<SessionDetailed | undefined>>;
+
+  public getDetailed = provideReact(
+    () => Session.get(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<SessionDetailed>>;
 
   public query() {
     return new SessionListQuery({});

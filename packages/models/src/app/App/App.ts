@@ -35,15 +35,15 @@ export class App extends ReferenceModel {
     return app;
   });
 
-  public getDetailed = provideReact(
-    () => App.get(this.id),
-    [this.id],
-  ) as AsyncResourceVariant<() => Promise<AppDetailed>>;
-
   public findDetailed = provideReact(
     () => App.find(this.id),
     [this.id],
   ) as AsyncResourceVariant<() => Promise<AppDetailed | undefined>>;
+
+  public getDetailed = provideReact(
+    () => App.get(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<AppDetailed>>;
 
   public static query = (query: AppListQueryData = {}) =>
     new AppListQuery(query);

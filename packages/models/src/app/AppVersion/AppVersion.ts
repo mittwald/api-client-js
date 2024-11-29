@@ -2,7 +2,7 @@ import { classes } from "polytype";
 import type {
   AppVersionData,
   AppVersionListItemData,
-  AppVersionListQueryModelData,
+  AppVersionListQueryData,
 } from "./types.js";
 import {
   DataModel,
@@ -54,8 +54,8 @@ export class AppVersion extends ReferenceModel {
     [this.id],
   ) as AsyncResourceVariant<() => Promise<AppVersionDetailed>>;
 
-  public static query(query: AppVersionListQueryModelData) {
-    return new AppVersionListQuery(query);
+  public static query(app: App, query: AppVersionListQueryData = {}) {
+    return new AppVersionListQuery(app, query);
   }
 }
 
@@ -86,28 +86,30 @@ export class AppVersionListItem extends classes(
   }
 }
 
-export class AppVersionListQuery extends ListQueryModel<AppVersionListQueryModelData> {
-  public constructor(query: AppVersionListQueryModelData) {
-    super(query);
+export class AppVersionListQuery extends ListQueryModel<AppVersionListQueryData> {
+  public readonly app: App;
+  public constructor(app: App, query: AppVersionListQueryData = {}) {
+    super(query, {
+      dependencies: [app.id],
+    });
+    this.app = app;
   }
 
-  public refine(query: AppVersionListQueryModelData) {
-    return new AppVersionListQuery({
+  public refine(query: AppVersionListQueryData) {
+    return new AppVersionListQuery(this.app, {
       ...this.query,
       ...query,
     });
   }
 
   public execute = provideReact(async () => {
-    const { app, ...query } = this.query;
     const { items, totalCount } = await config.behaviors.appVersion.list(
-      app.id,
-      {
-        ...query,
-      },
+      this.app.id,
+      this.query,
     );
 
     return new AppVersionList(
+      this.app,
       this.query,
       items.map((d) => new AppVersionListItem(d)),
       totalCount,
@@ -120,10 +122,11 @@ export class AppVersionList extends classes(
   ListDataModel<AppVersionListItem>,
 ) {
   public constructor(
-    query: AppVersionListQueryModelData,
+    app: App,
+    query: AppVersionListQueryData,
     appVersions: AppVersionListItem[],
     totalCount: number,
   ) {
-    super([query], [appVersions, totalCount]);
+    super([app, query], [appVersions, totalCount]);
   }
 }

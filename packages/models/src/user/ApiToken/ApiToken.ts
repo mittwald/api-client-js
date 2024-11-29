@@ -38,15 +38,15 @@ export class ApiToken extends ReferenceModel {
     },
   );
 
-  public getDetailed = provideReact(
-    () => ApiToken.get(this.id),
-    [this.id],
-  ) as AsyncResourceVariant<() => Promise<ApiTokenDetailed>>;
-
   public findDetailed = provideReact(
     () => ApiToken.find(this.id),
     [this.id],
   ) as AsyncResourceVariant<() => Promise<ApiTokenDetailed | undefined>>;
+
+  public getDetailed = provideReact(
+    () => ApiToken.get(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<ApiTokenDetailed>>;
 
   public query() {
     return new ApiTokenListQuery({});

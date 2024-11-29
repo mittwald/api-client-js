@@ -21,7 +21,7 @@ import {
 import { AsyncResourceVariant, provideReact } from "../../react/index.js";
 import { config } from "../../config/config.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
-import { DomFile, File } from "../../file/File/index.js";
+import { DomFile, File } from "../../file/index.js";
 import { FileAccessTokenProvider } from "../../file/FileAccessToken/FileAccessTokenProvider.js";
 import { UserAvatarAccessTokenProvider } from "./UserAvatarAccessTokenProvider.js";
 import { SessionToken } from "../../auth/index.js";
@@ -59,15 +59,15 @@ export class User extends ReferenceModel {
     },
   );
 
-  public getDetailed = provideReact(
-    () => User.get(this.id),
-    [this.id],
-  ) as AsyncResourceVariant<() => Promise<UserDetailed>>;
-
   public findDetailed = provideReact(
     () => User.find(this.id),
     [this.id],
   ) as AsyncResourceVariant<() => Promise<UserDetailed | undefined>>;
+
+  public getDetailed = provideReact(
+    () => User.get(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<UserDetailed>>;
 
   public async uploadAvatar(file: DomFile) {
     await File.upload(file, this.fileAccessTokenProvider);

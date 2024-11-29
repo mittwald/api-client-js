@@ -35,15 +35,15 @@ export class DeliveryBox extends ReferenceModel {
     return deliveryBox;
   });
 
-  public getDetailed = provideReact(
-    () => DeliveryBox.find(this.id),
-    [this.id],
-  ) as AsyncResourceVariant<() => Promise<DeliveryBoxDetailed>>;
-
   public findDetailed = provideReact(
     () => DeliveryBox.find(this.id),
     [this.id],
   ) as AsyncResourceVariant<() => Promise<DeliveryBoxDetailed | undefined>>;
+
+  public getDetailed = provideReact(
+    () => DeliveryBox.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<DeliveryBoxDetailed>>;
 
   public static query(project: Project, query: DeliveryBoxListQueryData = {}) {
     return new DeliveryBoxListQuery(project, query);

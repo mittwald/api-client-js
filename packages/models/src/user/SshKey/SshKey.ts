@@ -38,15 +38,15 @@ export class SshKey extends ReferenceModel {
     },
   );
 
-  public getDetailed = provideReact(
-    () => SshKey.get(this.id),
-    [this.id],
-  ) as AsyncResourceVariant<() => Promise<SshKeyDetailed>>;
-
   public findDetailed = provideReact(
     () => SshKey.find(this.id),
     [this.id],
   ) as AsyncResourceVariant<() => Promise<SshKeyDetailed | undefined>>;
+
+  public getDetailed = provideReact(
+    () => SshKey.get(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<SshKeyDetailed>>;
 
   public query() {
     return new SshKeyListQuery({});

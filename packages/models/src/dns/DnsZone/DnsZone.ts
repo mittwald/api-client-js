@@ -42,19 +42,19 @@ export class DnsZone extends ReferenceModel {
     },
   );
 
-  public static query(project: Project, query: DnsZoneListQueryData = {}) {
-    return new DnsZoneListQuery(project, query);
-  }
+  public findDetailed = provideReact(
+    () => DnsZone.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<DnsZoneDetailed | undefined>>;
 
   public getDetailed = provideReact(
     () => DnsZone.get(this.id),
     [this.id],
   ) as AsyncResourceVariant<() => Promise<DnsZoneDetailed>>;
 
-  public findDetailed = provideReact(
-    () => DnsZone.find(this.id),
-    [this.id],
-  ) as AsyncResourceVariant<() => Promise<DnsZoneDetailed | undefined>>;
+  public static query(project: Project, query: DnsZoneListQueryData = {}) {
+    return new DnsZoneListQuery(project, query);
+  }
 
   public static async create(
     name: string,

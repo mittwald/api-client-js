@@ -58,10 +58,6 @@ export class Customer extends ReferenceModel {
     },
   );
 
-  public static query(query: CustomerListQueryData = {}) {
-    return new CustomerListQuery(query);
-  }
-
   public static get = provideReact(
     async (id: string): Promise<CustomerDetailed> => {
       const customer = await this.find(id);
@@ -70,15 +66,19 @@ export class Customer extends ReferenceModel {
     },
   );
 
+  public findDetailed = provideReact(
+    () => Customer.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<CustomerDetailed | undefined>>;
+
   public getDetailed = provideReact(
     () => Customer.get(this.id),
     [this.id],
   ) as AsyncResourceVariant<() => Promise<CustomerDetailed>>;
 
-  public findDetailed = provideReact(
-    () => Customer.find(this.id),
-    [this.id],
-  ) as AsyncResourceVariant<() => Promise<CustomerDetailed | undefined>>;
+  public static query(query: CustomerListQueryData = {}) {
+    return new CustomerListQuery(query);
+  }
 
   public async update(data: CustomerUpdateRequestData): Promise<void> {
     await config.behaviors.customer.update(this.id, data);

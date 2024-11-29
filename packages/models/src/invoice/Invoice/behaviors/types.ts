@@ -14,8 +14,8 @@ export interface InvoiceBehaviors {
     customerId: string,
   ) => Promise<FileDownloadTokenData>;
 
-  list: (request: {
-    customerId: string;
-    queryParameters?: InvoiceListQueryData;
-  }) => Promise<QueryResponseData<InvoiceListItemData>>;
+  list: (
+    customerId: string,
+    query?: InvoiceListQueryData,
+  ) => Promise<QueryResponseData<InvoiceListItemData>>;
 }

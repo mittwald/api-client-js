@@ -19,8 +19,11 @@ export const apiContractBehaviors = (
     assertStatus(response, 404);
   },
 
-  list: async (request) => {
-    const response = await client.contract.listContracts(request);
+  list: async (customerId, query) => {
+    const response = await client.contract.listContracts({
+      queryParameters: query,
+      customerId,
+    });
     assertStatus(response, 200);
     return {
       items: response.data,

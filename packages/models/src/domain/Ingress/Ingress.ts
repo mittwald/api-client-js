@@ -49,15 +49,15 @@ export class Ingress extends ReferenceModel {
     },
   );
 
-  public getDetailed = provideReact(
-    () => Ingress.get(this.id),
-    [this.id],
-  ) as AsyncResourceVariant<() => Promise<IngressDetailed>>;
-
   public findDetailed = provideReact(
     () => Ingress.find(this.id),
     [this.id],
   ) as AsyncResourceVariant<() => Promise<IngressDetailed | undefined>>;
+
+  public getDetailed = provideReact(
+    () => Ingress.get(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<IngressDetailed>>;
 
   public static query = (query: IngressListModelQueryData = {}) =>
     new IngressListQuery(query);

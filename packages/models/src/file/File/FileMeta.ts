@@ -42,18 +42,18 @@ export class FileMeta extends ReferenceModel {
     },
   );
 
+  public findDetailed = provideReact(() => {
+    return FileMeta.find(this.file);
+  }, [this.id]) as AsyncResourceVariant<
+    () => Promise<FileMetaDetailed | undefined>
+  >;
+
   public getDetailed = provideReact(async () => {
     if (this instanceof FileMetaDetailed) {
       return this;
     }
     return FileMeta.get(this.file);
   }, [this.id]) as AsyncResourceVariant<() => Promise<FileMetaDetailed>>;
-
-  public findDetailed = provideReact(() => {
-    return FileMeta.find(this.file);
-  }, [this.id]) as AsyncResourceVariant<
-    () => Promise<FileMetaDetailed | undefined>
-  >;
 }
 
 export class FileMetaDetailed extends classes(
