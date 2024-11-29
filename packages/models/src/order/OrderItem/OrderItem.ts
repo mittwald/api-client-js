@@ -1,13 +1,13 @@
 import { OrderItemData } from "./types.js";
+import { DataModel } from "../../base/index.js";
 
-export class OrderItem {
+export class OrderItem extends DataModel<OrderItemData> {
   public readonly id: string;
-  public readonly data: OrderItemData;
   public readonly name: string;
 
   public constructor(data: OrderItemData) {
+    super(data);
     this.id = data.orderItemId;
-    this.data = data;
     this.name = data.articleName ?? data.orderItemId;
   }
 }

@@ -1,8 +1,8 @@
 import { ContractArticleData } from "./types.js";
 import { Money } from "../../base/Money.js";
+import { DataModel } from "../../base/index.js";
 
-export class ContractArticle {
-  public readonly data: ContractArticleData;
+export class ContractArticle extends DataModel<ContractArticleData> {
   public readonly contractId: string;
   public readonly contractItemId: string;
   public readonly totalPrice: Money;
@@ -13,7 +13,7 @@ export class ContractArticle {
     contractId: string,
     contractItemId: string,
   ) {
-    this.data = data;
+    super(data);
 
     this.contractId = contractId;
     this.contractItemId = contractItemId;

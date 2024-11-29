@@ -1,26 +1,32 @@
 import { classes } from "polytype";
 import { AsyncResourceVariant, provideReact } from "../../react/index.js";
 import {
+  AppInstallationCopyRequestData,
+  AppInstallationCreateRequestData,
   AppInstallationData,
+  AppInstallationLinkDatabaseRequestData,
   AppInstallationListItemData,
   AppInstallationListQueryData,
+  AppInstallationStatus,
+  AppInstallationUpdateRequestData,
 } from "./types.js";
 import {
-  DataModel,
-  ReferenceModel,
   AggregateMetaData,
-  ListQueryModel,
+  DataModel,
   ListDataModel,
+  ListQueryModel,
+  ReferenceModel,
 } from "../../base/index.js";
 import { config } from "../../config/config.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import { Project } from "../../project/index.js";
 import { AppVersion } from "../AppVersion/index.js";
-import { App } from "../App/index.js";
+import { App, AppUpdatePolicyData } from "../App/index.js";
 import {
   SystemSoftwareListItem,
   SystemSoftwareNames,
 } from "../SystemSoftware/index.js";
+import { AppInstallationMissingDependencies } from "../AppInstallationMissingDependencies/index.js";
 
 export class AppInstallation extends ReferenceModel {
   public static aggregateMetaData = new AggregateMetaData(
@@ -70,6 +76,95 @@ export class AppInstallation extends ReferenceModel {
   ): AppInstallationListQuery {
     return new AppInstallationListQuery(project, query);
   }
+
+  public static async create(
+    projectId: string,
+    data: AppInstallationCreateRequestData,
+  ): Promise<AppInstallation> {
+    const { id } = await config.behaviors.appInstallation.create(
+      projectId,
+      data,
+    );
+    return new AppInstallation(id);
+  }
+
+  public async update(data: AppInstallationUpdateRequestData): Promise<void> {
+    await config.behaviors.appInstallation.update(this.id, data);
+  }
+
+  public async addSystemSoftware(
+    systemSoftwareId: string,
+    systemSoftwareVersionId: string,
+    updatePolicy?: AppUpdatePolicyData,
+  ): Promise<void> {
+    await this.update({
+      systemSoftware: {
+        [systemSoftwareId]: {
+          systemSoftwareVersion: systemSoftwareVersionId,
+          updatePolicy: updatePolicy ?? "patchLevel",
+        },
+      },
+    });
+  }
+
+  public async updateSystemSoftwareVersion(
+    systemSoftwareId: string,
+    systemSoftwareVersionId: string,
+  ): Promise<void> {
+    await this.update({
+      systemSoftware: {
+        [systemSoftwareId]: {
+          systemSoftwareVersion: systemSoftwareVersionId,
+        },
+      },
+    });
+  }
+
+  public async deleteSystemSoftware(systemSoftwareId: string): Promise<void> {
+    await this.update({
+      systemSoftware: {
+        [systemSoftwareId]: {},
+      },
+    });
+  }
+
+  public async delete(): Promise<void> {
+    await config.behaviors.appInstallation.delete(this.id);
+  }
+
+  public async linkDatabase(
+    data: AppInstallationLinkDatabaseRequestData,
+  ): Promise<void> {
+    await config.behaviors.appInstallation.linkDatabase(this.id, data);
+  }
+
+  public async unlinkDatabase(databaseId: string): Promise<void> {
+    await config.behaviors.appInstallation.unlinkDatabase(this.id, databaseId);
+  }
+
+  public retrieveStatus = provideReact(
+    async (id: string): Promise<AppInstallationStatus> => {
+      return await config.behaviors.appInstallation.retrieveStatus(id);
+    },
+  );
+
+  public async copy(data: AppInstallationCopyRequestData): Promise<void> {
+    await config.behaviors.appInstallation.copy(this.id, data);
+  }
+
+  public listMissingDependencies = provideReact(
+    async (
+      id: string,
+      targetAppVersionId: string,
+    ): Promise<AppInstallationMissingDependencies> => {
+      const data =
+        await config.behaviors.appInstallation.listMissingDependencies(
+          id,
+          targetAppVersionId,
+        );
+      return new AppInstallationMissingDependencies(data);
+    },
+  );
 }
 
 class AppInstallationCommon extends classes(

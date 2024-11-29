@@ -7,6 +7,9 @@ export type AppListItemData =
 
 export type AppListQueryData = MittwaldAPIV2.Paths.V2Apps.Get.Parameters.Query;
 
+export type AppUpdatePolicyData =
+  MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
+
 export enum AppNames {
   bookstack = "BookStack",
   contao = "Contao",
