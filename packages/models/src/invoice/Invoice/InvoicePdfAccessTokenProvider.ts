@@ -1,6 +1,8 @@
-import { FileAccessTokenProvider } from "../../file/FileAccessToken/FileAccessTokenProvider.js";
 import { InvoiceDetailed } from "./Invoice.js";
-import { FileDownloadTokenData } from "../../file/FileAccessToken/types.js";
+import {
+  FileDownloadTokenData,
+  FileAccessTokenProvider,
+} from "../../file/index.js";
 import { config } from "../../config/config.js";
 
 export class InvoicePdfAccessTokenProvider implements FileAccessTokenProvider {

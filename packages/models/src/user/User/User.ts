@@ -21,11 +21,9 @@ import {
 import { AsyncResourceVariant, provideReact } from "../../react/index.js";
 import { config } from "../../config/config.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
-import { DomFile, File } from "../../file/index.js";
-import { FileAccessTokenProvider } from "../../file/FileAccessToken/FileAccessTokenProvider.js";
+import { DomFile, File, FileAccessTokenProvider } from "../../file/index.js";
 import { UserAvatarAccessTokenProvider } from "./UserAvatarAccessTokenProvider.js";
-import { SessionToken } from "../../auth/index.js";
-import { PendingMfaAuthentication } from "../../auth/Mfa/PendingMfaAuthentication.js";
+import { SessionToken, PendingMfaAuthentication } from "../../auth/index.js";
 
 export class User extends ReferenceModel {
   public static aggregateMetaData = new AggregateMetaData("user", "user");

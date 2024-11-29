@@ -26,12 +26,11 @@ import { ConversationCategoryReferenceType } from "../ConversationCategory/types
 import { Customer } from "../../customer/index.js";
 import { Project } from "../../project/index.js";
 import { Server } from "../../server/index.js";
-import { User } from "../../user/User/index.js";
+import { User } from "../../user/index.js";
 import { ConversationRelation } from "../ConversationRelation/index.js";
 import { ConversationStatus } from "../ConversationStatus/index.js";
-import { FileAccessTokenProvider } from "../../file/FileAccessToken/FileAccessTokenProvider.js";
 import { ConversationMessageFileAttachmentAccessTokenProvider } from "../ConversationMessage/ConversationMessageFileAttachmentAccessTokenProvider.js";
-import { File } from "../../file/File/index.js";
+import { File, FileAccessTokenProvider } from "../../file/index.js";
 
 export class Conversation extends ReferenceModel {
   public static aggregateMetaData = new AggregateMetaData(

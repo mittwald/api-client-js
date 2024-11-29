@@ -7,7 +7,7 @@ import {
   ConversationMessageFileData,
 } from "./types.js";
 import { ConversationUser } from "../ConversationUser/index.js";
-import { File } from "../../file/File/index.js";
+import { File } from "../../file/index.js";
 import { provideReact } from "../../react/index.js";
 
 export class ConversationMessage extends DataModel<ConversationMessageData> {

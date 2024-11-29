@@ -1,9 +1,9 @@
-import { FileAccessTokenProvider } from "../../file/FileAccessToken/FileAccessTokenProvider.js";
 import { Conversation } from "../Conversation/index.js";
 import {
   FileDownloadTokenData,
   FileUploadTokenData,
-} from "../../file/FileAccessToken/types.js";
+  FileAccessTokenProvider,
+} from "../../file/index.js";
 import { config } from "../../config/config.js";
 
 export class ConversationMessageFileAttachmentAccessTokenProvider

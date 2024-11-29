@@ -13,7 +13,7 @@ import {
   UserVerifyPhoneNumberRequestData,
   UserVerifyRegistrationRequestData,
 } from "../types.js";
-import { FileUploadTokenData } from "../../../file/FileAccessToken/types.js";
+import { FileUploadTokenData } from "../../../file/index.js";
 
 export interface UserBehaviors {
   find: (id: string) => Promise<UserData | undefined>;

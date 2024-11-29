@@ -39,6 +39,10 @@ import {
   MailAddress,
   MailAddressListQuery,
 } from "../../mail/index.js";
+import {
+  ExtensionInstance,
+  ExtensionInstanceListQuery,
+} from "../../marketplace/index.js";
 
 export class Project extends ReferenceModel {
   public static aggregateMetaData = new AggregateMetaData("project", "project");
@@ -50,6 +54,7 @@ export class Project extends ReferenceModel {
   public readonly mailAddresses: MailAddressListQuery;
   public readonly deliveryBoxes: DeliveryBoxListQuery;
   public readonly certificates: CertificateListQuery;
+  public readonly extensionInstances: ExtensionInstanceListQuery;
 
   public constructor(id: string) {
     super(id);
@@ -65,6 +70,7 @@ export class Project extends ReferenceModel {
     this.mailAddresses = MailAddress.query(this);
     this.deliveryBoxes = DeliveryBox.query(this);
     this.certificates = Certificate.query({ project: this });
+    this.extensionInstances = ExtensionInstance.query({ context: this });
   }
 
   public static ofId(id: string): Project {

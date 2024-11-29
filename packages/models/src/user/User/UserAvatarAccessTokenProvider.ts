@@ -1,6 +1,8 @@
-import { FileAccessTokenProvider } from "../../file/FileAccessToken/FileAccessTokenProvider.js";
 import { User } from "./User.js";
-import { FileUploadTokenData } from "../../file/FileAccessToken/types.js";
+import {
+  FileUploadTokenData,
+  FileAccessTokenProvider,
+} from "../../file/index.js";
 import { config } from "../../config/config.js";
 
 export class UserAvatarAccessTokenProvider implements FileAccessTokenProvider {

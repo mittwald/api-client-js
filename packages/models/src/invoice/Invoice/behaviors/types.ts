@@ -3,7 +3,7 @@ import {
   InvoiceListItemData,
   InvoiceListQueryData,
 } from "../types.js";
-import { FileDownloadTokenData } from "../../../file/FileAccessToken/types.js";
+import { FileDownloadTokenData } from "../../../file/index.js";
 import { QueryResponseData } from "../../../base/index.js";
 
 export interface InvoiceBehaviors {

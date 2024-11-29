@@ -18,6 +18,8 @@ import { config } from "../../config/config.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import { Project } from "../../project/index.js";
 import { Customer } from "../../customer/index.js";
+import { Extension } from "../Extension/index.js";
+import { Contributor } from "../Contributor/index.js";
 
 export class ExtensionInstance extends ReferenceModel {
   public static aggregateMetaData = new AggregateMetaData(
@@ -59,6 +61,10 @@ export class ExtensionInstance extends ReferenceModel {
     [this.id],
   ) as AsyncResourceVariant<() => Promise<ExtensionInstanceDetailed>>;
 
+  public static query(query: ExtensionInstanceListQueryModelData) {
+    return new ExtensionInstanceListQuery(query);
+  }
+
   public static async create(
     data: ExtensionInstanceCreateRequestData,
   ): Promise<ExtensionInstance> {
@@ -90,10 +96,14 @@ class ExtensionInstanceCommon extends classes(
   DataModel<ExtensionInstanceData | ExtensionInstanceListItemData>,
   ExtensionInstance,
 ) {
+  public readonly extension: Extension;
+  public readonly contributor: Contributor;
   public constructor(
     data: ExtensionInstanceData | ExtensionInstanceListItemData,
   ) {
     super([data], [data.id]);
+    this.extension = Extension.ofId(data.extensionId);
+    this.contributor = Contributor.ofId(this.extension.id);
   }
 }
 

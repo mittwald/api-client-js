@@ -9,7 +9,7 @@ import { ConversationMemberData } from "../../ConversationUser/types.js";
 import {
   FileDownloadTokenData,
   FileUploadTokenData,
-} from "../../../file/FileAccessToken/types.js";
+} from "../../../file/index.js";
 
 export interface ConversationBehaviors {
   find: (id: string) => Promise<ConversationData | undefined>;

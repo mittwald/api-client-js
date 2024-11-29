@@ -24,6 +24,13 @@ import {
 } from "../CustomerMembership/index.js";
 import { ContractPartner } from "../ContractPartner/index.js";
 import { File } from "../../file/index.js";
+import { Contract, ContractListQuery } from "../../contract/index.js";
+import { Invoice, InvoiceListQuery } from "../../invoice/index.js";
+import { Order, OrderListQuery } from "../../order/index.js";
+import {
+  ExtensionInstance,
+  ExtensionInstanceListQuery,
+} from "../../marketplace/index.js";
 
 export class Customer extends ReferenceModel {
   public static aggregateMetaData = new AggregateMetaData(
@@ -34,6 +41,10 @@ export class Customer extends ReferenceModel {
   public readonly projects: ProjectListQuery;
   public readonly memberships: CustomerMembershipListQuery;
   public readonly invoiceSettings: InvoiceSettings;
+  public readonly contracts: ContractListQuery;
+  public readonly invoices: InvoiceListQuery;
+  public readonly orders: OrderListQuery;
+  public readonly extensionInstances: ExtensionInstanceListQuery;
 
   public constructor(id: string) {
     super(id);
@@ -43,6 +54,10 @@ export class Customer extends ReferenceModel {
     });
     this.invoiceSettings = InvoiceSettings.ofCustomerId(id);
     this.memberships = CustomerMembership.query(this);
+    this.contracts = Contract.query(this);
+    this.invoices = Invoice.query(this);
+    this.orders = Order.query({ customer: this });
+    this.extensionInstances = ExtensionInstance.query({ context: this });
   }
 
   public static ofId(id: string): Customer {

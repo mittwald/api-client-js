@@ -1,5 +1,5 @@
 import { MittwaldAPIV2 } from "@mittwald/api-client";
-import { DomFile } from "../../file/File/index.js";
+import { DomFile } from "../../file/index.js";
 
 export type ConversationData =
   MittwaldAPIV2.Operations.ConversationGetConversation.ResponseData;
