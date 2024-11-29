@@ -69,17 +69,15 @@ export class Conversation extends ReferenceModel {
     },
   );
 
-  public findDetailed = provideReact((): Promise<
-    ConversationDetailed | undefined
-  > => {
-    return Conversation.find(this.id);
-  }, [this.id]) as AsyncResourceVariant<
-    () => Promise<ConversationDetailed | undefined>
-  >;
+  public findDetailed = provideReact(
+    () => Conversation.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<ConversationDetailed | undefined>>;
 
-  public getDetailed = provideReact((): Promise<ConversationDetailed> => {
-    return Conversation.get(this.id);
-  }, [this.id]) as AsyncResourceVariant<() => Promise<ConversationDetailed>>;
+  public getDetailed = provideReact(
+    () => Conversation.get(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<ConversationDetailed>>;
 
   public static async create(
     data: ConversationCreateRequest,

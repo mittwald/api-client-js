@@ -9,7 +9,6 @@ import {
 import {
   DomainData,
   DomainListItemData,
-  DomainListQueryData,
   DomainListQueryModelData,
   DomainTransferableReasons,
   HandleField,
@@ -143,7 +142,7 @@ export class DomainListItem extends classes(
   }
 }
 
-export class DomainListQuery extends ListQueryModel<DomainListQueryData> {
+export class DomainListQuery extends ListQueryModel<DomainListQueryModelData> {
   public constructor(data: DomainListQueryModelData = {}) {
     super(data);
   }
@@ -187,7 +186,7 @@ export class DomainList extends classes(
   ListDataModel<DomainListItem>,
 ) {
   public constructor(
-    query: DomainListQueryData,
+    query: DomainListQueryModelData,
     domains: DomainListItem[],
     totalCount: number,
   ) {

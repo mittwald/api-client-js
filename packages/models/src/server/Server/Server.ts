@@ -1,7 +1,6 @@
 import {
   ServerData,
   ServerListItemData,
-  ServerListQueryData,
   ServerListQueryModelData,
 } from "./types.js";
 import { config } from "../../config/config.js";
@@ -161,7 +160,7 @@ export class ServerList extends classes(
   ListDataModel<ServerListItem>,
 ) {
   public constructor(
-    query: ServerListQueryData,
+    query: ServerListQueryModelData,
     servers: ServerListItem[],
     totalCount: number,
   ) {

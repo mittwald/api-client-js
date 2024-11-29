@@ -12,7 +12,6 @@ import {
   DnsZoneData,
   DnsZoneListItemData,
   DnsZoneListQueryData,
-  DnsZoneListQueryModelData,
 } from "./types.js";
 import { AsyncResourceVariant, provideReact } from "../../react/index.js";
 import { config } from "../../config/config.js";
@@ -125,14 +124,14 @@ export class DnsZoneDetailed extends classes(
   }
 }
 
-export class DnsZoneListQuery extends ListQueryModel<DnsZoneListQueryModelData> {
+export class DnsZoneListQuery extends ListQueryModel<DnsZoneListQueryData> {
   public readonly project: Project;
-  public constructor(project: Project, query: DnsZoneListQueryModelData = {}) {
+  public constructor(project: Project, query: DnsZoneListQueryData = {}) {
     super(query, { dependencies: [project.id] });
     this.project = project;
   }
 
-  public refine(query: DnsZoneListQueryModelData = {}) {
+  public refine(query: DnsZoneListQueryData = {}) {
     return new DnsZoneListQuery(this.project, {
       ...this.query,
       ...query,
@@ -167,7 +166,7 @@ export class DnsZoneList extends classes(
 ) {
   public constructor(
     project: Project,
-    query: DnsZoneListQueryModelData,
+    query: DnsZoneListQueryData,
     zones: DnsZoneListItem[],
     totalCount: number,
   ) {

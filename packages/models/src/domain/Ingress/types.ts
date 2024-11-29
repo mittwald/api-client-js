@@ -4,7 +4,7 @@ import { Project } from "../../project/index.js";
 export type IngressListQueryData =
   MittwaldAPIV2.Paths.V2Ingresses.Get.Parameters.Query;
 
-export type IngressListModelQueryData = Omit<
+export type IngressListQueryModelData = Omit<
   IngressListQueryData,
   "projectId"
 > & {

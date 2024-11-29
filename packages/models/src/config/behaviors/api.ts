@@ -33,11 +33,13 @@ import { apiFeedbackBehaviors } from "../../user/Feedback/behaviors/index.js";
 import { apiSupportCodeBehaviors } from "../../user/SupportCode/behaviors/index.js";
 import { apiOrderBehaviors } from "../../order/Order/behaviors/index.js";
 import { apiDomainBehaviors } from "../../domain/Domain/behaviors/index.js";
-import { apiDnsZoneBehaviors } from "../../dns/DnsZone/behaviors/index.js";
+import { apiDnsZoneBehaviors } from "../../domain/DnsZone/behaviors/index.js";
 import { apiMailAddressBehaviors } from "../../mail/MailAddress/behaviors/index.js";
 import { apiDeliveryBoxBehaviors } from "../../mail/DeliveryBox/behaviors/index.js";
 import { apiMailSettingsBehaviors } from "../../mail/MailSettings/behaviors/index.js";
 import { apiTldBehaviors } from "../../domain/Tld/behaviors/index.js";
+import { apiCertificateBehaviors } from "../../domain/Certificate/behaviors/index.js";
+import { apiCertificateRequestBehaviors } from "../../domain/CertificateRequest/behaviors/index.js";
 
 class ApiSetupState {
   private _client: MittwaldAPIV2Client | undefined;
@@ -57,6 +59,9 @@ class ApiSetupState {
     config.behaviors.appInstallation = apiAppInstallationBehaviors(client);
     config.behaviors.appVersion = apiAppVersionBehaviors(client);
     config.behaviors.article = apiArticleBehaviors(client);
+    config.behaviors.certificate = apiCertificateBehaviors(client);
+    config.behaviors.certificateRequest =
+      apiCertificateRequestBehaviors(client);
     config.behaviors.contract = apiContractBehaviors(client);
     config.behaviors.contractItem = apiContractItemBehaviors(client);
     config.behaviors.contributor = apiContributorBehaviors(client);

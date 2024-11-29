@@ -6,8 +6,7 @@ import {
   CertificateSettings,
   IngressData,
   IngressListItemData,
-  IngressListModelQueryData,
-  IngressListQueryData,
+  IngressListQueryModelData,
   PathSettings,
 } from "./types.js";
 import {
@@ -59,7 +58,7 @@ export class Ingress extends ReferenceModel {
     [this.id],
   ) as AsyncResourceVariant<() => Promise<IngressDetailed>>;
 
-  public static query = (query: IngressListModelQueryData = {}) =>
+  public static query = (query: IngressListQueryModelData = {}) =>
     new IngressListQuery(query);
 
   public static findDefaultIngress = provideReact(
@@ -150,8 +149,8 @@ export class IngressListItem extends classes(
   }
 }
 
-export class IngressListQuery extends ListQueryModel<IngressListModelQueryData> {
-  public refine(query: IngressListModelQueryData) {
+export class IngressListQuery extends ListQueryModel<IngressListQueryModelData> {
+  public refine(query: IngressListQueryModelData) {
     return new IngressListQuery({
       ...this.query,
       ...query,
@@ -165,7 +164,7 @@ export class IngressListQuery extends ListQueryModel<IngressListModelQueryData> 
     });
 
     return new IngressList(
-      this.query as IngressListQueryData,
+      this.query as IngressListQueryModelData,
       items.map((d) => new IngressListItem(d)),
       totalCount,
     );
@@ -177,7 +176,7 @@ export class IngressList extends classes(
   ListDataModel<IngressListItem>,
 ) {
   public constructor(
-    query: IngressListQueryData,
+    query: IngressListQueryModelData,
     ingresses: IngressListItem[],
     totalCount: number,
   ) {

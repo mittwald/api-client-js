@@ -39,19 +39,17 @@ export class CustomerMembership extends ReferenceModel {
     },
   );
 
-  public findDetailed = provideReact((): Promise<
-    CustomerMembershipDetailed | undefined
-  > => {
-    return CustomerMembership.find(this.id);
-  }, [this.id]) as AsyncResourceVariant<
+  public findDetailed = provideReact(
+    () => CustomerMembership.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<
     () => Promise<CustomerMembershipDetailed | undefined>
   >;
 
-  public getDetailed = provideReact((): Promise<CustomerMembershipDetailed> => {
-    return CustomerMembership.get(this.id);
-  }, [this.id]) as AsyncResourceVariant<
-    () => Promise<CustomerMembershipDetailed>
-  >;
+  public getDetailed = provideReact(
+    () => CustomerMembership.get(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<CustomerMembershipDetailed>>;
 
   public static query(
     customer: Customer,

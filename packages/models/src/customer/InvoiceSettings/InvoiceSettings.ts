@@ -30,17 +30,15 @@ export class InvoiceSettings extends ReferenceModel {
     },
   );
 
-  public findDetailed = provideReact((): Promise<
-    InvoiceSettingsDetailed | undefined
-  > => {
-    return InvoiceSettings.find(this.id);
-  }, [this.id]) as AsyncResourceVariant<
-    () => Promise<InvoiceSettingsDetailed | undefined>
-  >;
+  public findDetailed = provideReact(
+    () => InvoiceSettings.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<InvoiceSettingsDetailed | undefined>>;
 
-  public getDetailed = provideReact((): Promise<InvoiceSettingsDetailed> => {
-    return InvoiceSettings.get(this.id);
-  }, [this.id]) as AsyncResourceVariant<() => Promise<InvoiceSettingsDetailed>>;
+  public getDetailed = provideReact(
+    () => InvoiceSettings.get(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<InvoiceSettingsDetailed>>;
 
   public async update(data: InvoiceSettingsUpdateRequestData): Promise<void> {
     await config.behaviors.invoiceSettings.update(this.id, data);

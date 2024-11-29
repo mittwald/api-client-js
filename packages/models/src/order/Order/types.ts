@@ -13,7 +13,7 @@ export type OrderListByCustomerQueryData = OrderListQueryData & {
   customerId: string;
 };
 
-export type OrderListModelQueryData = OrderListQueryData & {
+export type OrderListQueryModelData = OrderListQueryData & {
   customer?: Customer | string;
 };
 

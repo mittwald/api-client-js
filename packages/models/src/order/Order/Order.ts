@@ -17,8 +17,7 @@ import {
   OrderCreateRequestData,
   OrderData,
   OrderListItemData,
-  OrderListModelQueryData,
-  OrderListQueryData,
+  OrderListQueryModelData,
   OrderPreviewRequestData,
   OrderStatus,
   TariffChangePreviewRequestData,
@@ -65,7 +64,7 @@ export class Order extends ReferenceModel {
     return Order.get(this.id);
   }, [this.id]) as AsyncResourceVariant<() => Promise<OrderDetailed>>;
 
-  public static query(query: OrderListModelQueryData = {}) {
+  public static query(query: OrderListQueryModelData = {}) {
     return new OrderListQuery(query);
   }
 
@@ -151,8 +150,8 @@ export class OrderListItem extends classes(
   }
 }
 
-export class OrderListQuery extends ListQueryModel<OrderListModelQueryData> {
-  public refine(query: OrderListQueryData) {
+export class OrderListQuery extends ListQueryModel<OrderListQueryModelData> {
+  public refine(query: OrderListQueryModelData) {
     return new OrderListQuery({
       ...this.query,
       ...query,
@@ -185,7 +184,7 @@ export class OrderList extends classes(
   ListDataModel<OrderListItem>,
 ) {
   public constructor(
-    query: OrderListModelQueryData,
+    query: OrderListQueryModelData,
     orders: OrderListItem[],
     totalCount: number,
   ) {

@@ -10,6 +10,8 @@ import { Server } from "../../server/index.js";
 import { AsyncResourceVariant, provideReact } from "../../react/index.js";
 import { Customer } from "../../customer/index.js";
 import {
+  Certificate,
+  CertificateListQuery,
   Domain,
   DomainListQuery,
   Ingress,
@@ -30,7 +32,7 @@ import {
 } from "../ProjectMembership/index.js";
 import { DateTime } from "luxon";
 import { File } from "../../file/index.js";
-import { DnsZone, DnsZoneListQuery } from "../../dns/index.js";
+import { DnsZone, DnsZoneListQuery } from "../../domain/index.js";
 import {
   DeliveryBox,
   DeliveryBoxListQuery,
@@ -47,6 +49,7 @@ export class Project extends ReferenceModel {
   public readonly projectMemberships: ProjectMembershipListQuery;
   public readonly mailAddresses: MailAddressListQuery;
   public readonly deliveryBoxes: DeliveryBoxListQuery;
+  public readonly certificates: CertificateListQuery;
 
   public constructor(id: string) {
     super(id);
@@ -61,6 +64,7 @@ export class Project extends ReferenceModel {
     this.projectMemberships = ProjectMembership.query(this);
     this.mailAddresses = MailAddress.query(this);
     this.deliveryBoxes = DeliveryBox.query(this);
+    this.certificates = Certificate.query({ project: this });
   }
 
   public static ofId(id: string): Project {

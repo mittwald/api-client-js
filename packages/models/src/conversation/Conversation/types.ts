@@ -25,7 +25,7 @@ export type ConversationShareableAggregateReference =
   MittwaldAPIV2.Components.Schemas.ConversationShareableAggregateReference;
 
 export type ConversationRelatedAggregateReference =
-  MittwaldAPIV2.Components.Schemas.ConversationAggregateReference;
+  MittwaldAPIV2.Components.Schemas.ConversationRelatedAggregateReference;
 
 export type ConversationUpdateRequestData =
   MittwaldAPIV2.Paths.V2ConversationsConversationId.Put.Parameters.RequestBody;

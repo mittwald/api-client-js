@@ -37,20 +37,15 @@ export class SystemSoftware extends ReferenceModel {
     },
   );
 
-  public findDetailed = provideReact(async (): Promise<
-    SystemSoftwareDetailed | undefined
-  > => {
-    return SystemSoftware.find(this.id);
-  }, [this.id]) as AsyncResourceVariant<
-    () => Promise<SystemSoftwareDetailed | undefined>
-  >;
+  public findDetailed = provideReact(
+    () => SystemSoftware.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<SystemSoftwareDetailed | undefined>>;
 
-  public getDetailed =
-    provideReact(async (): Promise<SystemSoftwareDetailed> => {
-      return SystemSoftware.get(this.id);
-    }, [this.id]) as AsyncResourceVariant<
-      () => Promise<SystemSoftwareDetailed>
-    >;
+  public getDetailed = provideReact(
+    () => SystemSoftware.get(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<SystemSoftwareDetailed>>;
 }
 
 class SystemSoftwareCommon extends classes(

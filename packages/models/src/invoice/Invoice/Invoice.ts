@@ -20,7 +20,7 @@ import { Money } from "../../base/Money.js";
 import { InvoiceRecipient } from "../InvoiceRecipient/index.js";
 import { Customer } from "../../customer/index.js";
 import { InvoiceItemGroup } from "../InvoiceItemGroup/index.js";
-import { InvoiceItemDetailed } from "../InvoiceItem/index.js";
+import { InvoiceItem } from "../InvoiceItem/index.js";
 import { InvoiceCancellation } from "../InvoiceCancellation/index.js";
 import { File } from "../../file/index.js";
 import { InvoicePdfAccessTokenProvider } from "./InvoicePdfAccessTokenProvider.js";
@@ -50,13 +50,10 @@ export class Invoice extends ReferenceModel {
     },
   );
 
-  public findDetailed = provideReact(async (): Promise<
-    InvoiceDetailed | undefined
-  > => {
-    return await Invoice.find(this.id);
-  }, [this.id]) as AsyncResourceVariant<
-    () => Promise<InvoiceDetailed | undefined>
-  >;
+  public findDetailed = provideReact(
+    () => Invoice.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<InvoiceDetailed | undefined>>;
 
   public getDetailed = provideReact(
     () => Invoice.get(this.id),
@@ -104,7 +101,7 @@ export class InvoiceDetailed extends classes(
   public readonly recipient: InvoiceRecipient;
   public readonly mStudioPath: string;
   public readonly itemGroups: InvoiceItemGroup[];
-  public readonly itemsFlat: InvoiceItemDetailed[];
+  public readonly itemsFlat: InvoiceItem[];
   public readonly cancellation?: InvoiceCancellation;
   public readonly cancellationOf?: Invoice;
   public readonly status: InvoiceStatus;

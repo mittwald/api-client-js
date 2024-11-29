@@ -30,11 +30,13 @@ import { FeedbackBehaviors } from "../user/Feedback/behaviors/index.js";
 import { SupportCodeBehaviors } from "../user/SupportCode/behaviors/index.js";
 import { OrderBehaviors } from "../order/Order/behaviors/index.js";
 import { DomainBehaviors } from "../domain/Domain/behaviors/index.js";
-import { DnsZoneBehaviors } from "../dns/DnsZone/behaviors/index.js";
+import { DnsZoneBehaviors } from "../domain/DnsZone/behaviors/index.js";
 import { MailAddressBehaviors } from "../mail/MailAddress/behaviors/index.js";
 import { DeliveryBoxBehaviors } from "../mail/DeliveryBox/behaviors/index.js";
 import { MailSettingsBehaviors } from "../mail/MailSettings/behaviors/index.js";
 import { TldBehaviors } from "../domain/Tld/behaviors/index.js";
+import { CertificateBehaviors } from "../domain/Certificate/behaviors/index.js";
+import { CertificateRequestBehaviors } from "../domain/CertificateRequest/behaviors/index.js";
 
 interface Config {
   defaultPaginationLimit: number;
@@ -44,6 +46,8 @@ interface Config {
     appInstallation: AppInstallationBehaviors;
     appVersion: AppVersionBehaviors;
     article: ArticleBehaviors;
+    certificate: CertificateBehaviors;
+    certificateRequest: CertificateRequestBehaviors;
     contract: ContractBehaviors;
     contractItem: ContractItemBehaviors;
     contributor: ContributorBehaviors;
@@ -87,6 +91,8 @@ export const config: Config = {
     appInstallation: undefined as unknown as AppInstallationBehaviors,
     appVersion: undefined as unknown as AppVersionBehaviors,
     article: undefined as unknown as ArticleBehaviors,
+    certificate: undefined as unknown as CertificateBehaviors,
+    certificateRequest: undefined as unknown as CertificateRequestBehaviors,
     contract: undefined as unknown as ContractBehaviors,
     contractItem: undefined as unknown as ContractItemBehaviors,
     contributor: undefined as unknown as ContributorBehaviors,

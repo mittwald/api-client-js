@@ -1,6 +1,7 @@
 import { config } from "../../config/config.js";
 import { SessionToken } from "../SessionToken/index.js";
 import { UserAuthenticateRequestData } from "../../user/index.js";
+import invariant from "invariant";
 
 export class PendingMfaAuthentication {
   private authenticationRequestData: UserAuthenticateRequestData | undefined;
@@ -10,6 +11,10 @@ export class PendingMfaAuthentication {
   }
 
   public async provideMultiFactorCode(multiFactorCode: string) {
+    invariant(
+      this.authenticationRequestData,
+      "authenticationRequestData not found",
+    );
     const sessionData = await config.behaviors.mfa.authenticateMfa({
       ...this.authenticationRequestData,
       multiFactorCode,

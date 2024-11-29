@@ -94,14 +94,10 @@ export const apiIngressBehaviors = (
     certificate: string,
   ) => {
     const response =
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       await client.domain.ingressListIngressesCompatibleWithCertificate({
         data: { projectId, certificate },
       });
     assertStatus(response, 200);
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     return response.data.map((i) => Ingress.ofId(i.id));
   },
 });

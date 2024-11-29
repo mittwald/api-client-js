@@ -19,8 +19,6 @@ export const apiMailAddressBehaviors = (
   list: async (projectId: string, query?: MailAddressListQueryData) => {
     const response = await client.mail.listMailAddresses({
       projectId,
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       queryParameters: query,
     });
     assertStatus(response, 200);

@@ -2,7 +2,6 @@ import { ReferenceModel } from "../../base/ReferenceModel.js";
 import {
   ArticleData,
   ArticleListItemData,
-  ArticleListQueryData,
   ArticleListQueryModelData,
 } from "./types.js";
 import { config } from "../../config/config.js";
@@ -115,7 +114,7 @@ export class ArticleList extends classes(
   ListDataModel<ArticleListItem>,
 ) {
   public constructor(
-    query: ArticleListQueryData,
+    query: ArticleListQueryModelData,
     articles: ArticleListItem[],
     totalCount: number,
   ) {

@@ -56,20 +56,15 @@ export class AppInstallation extends ReferenceModel {
     },
   );
 
-  public findDetailed = provideReact(async (): Promise<
-    AppInstallationDetailed | undefined
-  > => {
-    return AppInstallation.find(this.id);
-  }, [this.id]) as AsyncResourceVariant<
-    () => Promise<AppInstallationDetailed | undefined>
-  >;
+  public findDetailed = provideReact(
+    () => AppInstallation.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<AppInstallationDetailed | undefined>>;
 
-  public getDetailed =
-    provideReact(async (): Promise<AppInstallationDetailed> => {
-      return AppInstallation.get(this.id);
-    }, [this.id]) as AsyncResourceVariant<
-      () => Promise<AppInstallationDetailed>
-    >;
+  public getDetailed = provideReact(
+    () => AppInstallation.get(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<AppInstallationDetailed>>;
 
   public static query(
     project: Project,
