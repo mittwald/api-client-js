@@ -1,24 +1,30 @@
-import { ReferenceModel } from "../../base/ReferenceModel.js";
 import {
   ServerData,
   ServerListItemData,
-  ServerListQueryData,
   ServerListQueryModelData,
 } from "./types.js";
 import { config } from "../../config/config.js";
 import { classes } from "polytype";
-import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import { Project, ProjectListQuery } from "../../project/index.js";
-import { FirstParameter, ParamsExceptFirst } from "../../lib/types.js";
+import { ParamsExceptFirst } from "../../lib/types.js";
 import {
-  AsyncResourceVariant,
-  provideReact,
-} from "../../react/provideReact.js";
-import { ListQueryModel } from "../../base/ListQueryModel.js";
-import { ListDataModel } from "../../base/ListDataModel.js";
+  AggregateMetaData,
+  DataModel,
+  ListDataModel,
+  ListQueryModel,
+  ReferenceModel,
+} from "../../base/index.js";
+import { Customer } from "../../customer/index.js";
+import { File } from "../../file/index.js";
+import { DateTime } from "luxon";
+import { AsyncResourceVariant, provideReact } from "../../react/index.js";
 
 export class Server extends ReferenceModel {
+  public static aggregateMetaData = new AggregateMetaData(
+    "project",
+    "placementgroup",
+  );
   public readonly projects: ProjectListQuery;
 
   public constructor(id: string) {
@@ -54,51 +60,40 @@ export class Server extends ReferenceModel {
     return new ServerListQuery(query);
   }
 
-  /** @deprecated: use query() or customer.servers */
-  public static list = provideReact(
-    async (
-      query: ServerListQueryData = {},
-    ): Promise<Readonly<ServerListItem[]>> => {
-      return new ServerListQuery(query).execute().then((r) => r.items);
-    },
-  );
-
   public async createProject(
     ...parameters: ParamsExceptFirst<typeof Project.create>
   ): ReturnType<typeof Project.create> {
     return Project.create(this.id, ...parameters);
   }
 
-  /** @deprecated Use Server.projects property */
-  public listProjects = provideReact(
-    async (
-      query: Omit<FirstParameter<typeof Project.list>, "serverId"> = {},
-    ): ReturnType<typeof Project.list> => {
-      return Project.list({
-        ...query,
-        serverId: this.id,
-      });
-    },
-  );
+  public findDetailed = provideReact(
+    () => Server.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<ServerDetailed | undefined>>;
 
   public getDetailed = provideReact(
     () => Server.get(this.id),
     [this.id],
   ) as AsyncResourceVariant<() => Promise<ServerDetailed>>;
-
-  public findDetailed = provideReact(
-    () => Server.find(this.id),
-    [this.id],
-  ) as AsyncResourceVariant<() => Promise<ServerDetailed | undefined>>;
 }
 
-// Common class for future extension
 class ServerCommon extends classes(
   DataModel<ServerListItemData | ServerData>,
   Server,
 ) {
+  public readonly customer: Customer;
+  public readonly shortId: string;
+  public readonly description: string;
+  public readonly createdAt: DateTime;
+  public readonly avatar?: File;
+
   public constructor(data: ServerListItemData | ServerData) {
     super([data], [data.id]);
+    this.customer = Customer.ofId(data.customerId);
+    this.shortId = data.shortId;
+    this.description = data.description;
+    this.createdAt = DateTime.fromISO(data.createdAt);
+    this.avatar = data.imageRefId ? File.ofId(data.imageRefId) : undefined;
   }
 }
 
@@ -165,7 +160,7 @@ export class ServerList extends classes(
   ListDataModel<ServerListItem>,
 ) {
   public constructor(
-    query: ServerListQueryData,
+    query: ServerListQueryModelData,
     servers: ServerListItem[],
     totalCount: number,
   ) {

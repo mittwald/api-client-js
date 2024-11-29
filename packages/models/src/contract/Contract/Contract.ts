@@ -12,8 +12,11 @@ import {
   ContractData,
   ContractListItemData,
   ContractListQueryData,
-  ContractListQueryModelData,
+  ContractTerminationCreateRequestData,
 } from "./types.js";
+import { ContractTermination } from "../ContractTermination/index.js";
+import { ContractItem } from "../ContractItem/index.js";
+import { Customer } from "../../customer/index.js";
 
 export class Contract extends ReferenceModel {
   public static ofId(id: string): Contract {
@@ -29,10 +32,6 @@ export class Contract extends ReferenceModel {
     },
   );
 
-  public static query(query: ContractListQueryModelData) {
-    return new ContractListQuery(query);
-  }
-
   public static get = provideReact(
     async (id: string): Promise<ContractDetailed> => {
       const customer = await this.find(id);
@@ -40,14 +39,44 @@ export class Contract extends ReferenceModel {
       return customer;
     },
   );
+
+  public static query(customer: Customer, query: ContractListQueryData = {}) {
+    return new ContractListQuery(customer, query);
+  }
+
+  public terminate = provideReact(
+    async (data: ContractTerminationCreateRequestData): Promise<void> => {
+      await config.behaviors.contract.terminate(this.id, data);
+    },
+  );
+
+  public cancelTermination = provideReact(async (): Promise<void> => {
+    await config.behaviors.contract.cancelTermination(this.id);
+  });
 }
 
 class ContractCommon extends classes(
   DataModel<ContractListItemData | ContractData>,
   Contract,
 ) {
+  public readonly termination?: ContractTermination;
+  public readonly baseItem: ContractItem;
+  public readonly additionalItems: ContractItem[];
+  public readonly allItems: ContractItem[];
+  public readonly customer: Customer;
+
   public constructor(data: ContractListItemData | ContractData) {
     super([data], [data.customerId]);
+    if (data.termination) {
+      this.termination = new ContractTermination(data.termination);
+    }
+    this.customer = Customer.ofId(data.customerId);
+    this.baseItem = ContractItem.ofId(data.contractId, data.baseItem.itemId);
+    this.additionalItems =
+      data.additionalItems?.map((item) => {
+        return ContractItem.ofId(data.contractId, item.itemId);
+      }) ?? [];
+    this.allItems = [this.baseItem, ...this.additionalItems];
   }
 }
 
@@ -69,32 +98,30 @@ export class ContractListItem extends classes(
   }
 }
 
-export class ContractListQuery extends ListQueryModel<ContractListQueryModelData> {
-  public constructor(query: ContractListQueryModelData) {
-    super(query);
+export class ContractListQuery extends ListQueryModel<ContractListQueryData> {
+  public readonly customer: Customer;
+  public constructor(customer: Customer, query: ContractListQueryData) {
+    super(query, {
+      dependencies: [customer.id],
+    });
+    this.customer = customer;
   }
 
   public refine(query: ContractListQueryData) {
-    return new ContractListQuery({
+    return new ContractListQuery(this.customer, {
       ...this.query,
       ...query,
     });
   }
 
   public execute = provideReact(async () => {
-    const { customer, ...query } = this.query;
-
-    const customerId = customer.id;
-    const request = {
-      customerId: customerId,
-      queryParameters: {
-        limit: config.defaultPaginationLimit,
-        ...query,
-      },
-    };
-    const { items, totalCount } = await config.behaviors.contract.list(request);
+    const { items, totalCount } = await config.behaviors.contract.list(
+      this.customer.id,
+      this.query,
+    );
 
     return new ContractList(
+      this.customer,
       this.query,
       items.map((d) => new ContractListItem(d)),
       totalCount,
@@ -119,10 +146,11 @@ export class ContractList extends classes(
   ListDataModel<ContractListItem>,
 ) {
   public constructor(
-    query: ContractListQueryModelData,
+    customer: Customer,
+    query: ContractListQueryData,
     contracts: ContractListItem[],
     totalCount: number,
   ) {
-    super([query], [contracts, totalCount]);
+    super([customer, query], [contracts, totalCount]);
   }
 }

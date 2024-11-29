@@ -1,35 +1,63 @@
 import { config } from "../../config/config.js";
 import { classes } from "polytype";
-import { DataModel } from "../../base/DataModel.js";
 import assertObjectFound from "../../base/assertObjectFound.js";
-import { ReferenceModel } from "../../base/ReferenceModel.js";
-import {
-  AsyncResourceVariant,
-  provideReact,
-} from "../../react/provideReact.js";
+import { AsyncResourceVariant, provideReact } from "../../react/index.js";
 import {
   CustomerData,
   CustomerListItemData,
   CustomerListQueryData,
   CustomerUpdateRequestData,
 } from "./types.js";
-import { ListQueryModel } from "../../base/ListQueryModel.js";
-import { ListDataModel } from "../../base/ListDataModel.js";
-import { ServerListQuery } from "../../server/index.js";
+import {
+  AggregateMetaData,
+  DataModel,
+  ListDataModel,
+  ListQueryModel,
+  ReferenceModel,
+} from "../../base/index.js";
+import { Server, ServerListQuery } from "../../server/index.js";
 import { ProjectListQuery } from "../../project/index.js";
+import { InvoiceSettings } from "../InvoiceSettings/index.js";
+import {
+  CustomerMembership,
+  CustomerMembershipListQuery,
+} from "../CustomerMembership/index.js";
+import { ContractPartner } from "../ContractPartner/index.js";
+import { File } from "../../file/index.js";
+import { Contract, ContractListQuery } from "../../contract/index.js";
+import { Invoice, InvoiceListQuery } from "../../invoice/index.js";
+import { Order, OrderListQuery } from "../../order/index.js";
+import {
+  ExtensionInstance,
+  ExtensionInstanceListQuery,
+} from "../../marketplace/index.js";
 
 export class Customer extends ReferenceModel {
+  public static aggregateMetaData = new AggregateMetaData(
+    "customer",
+    "customer",
+  );
   public readonly servers: ServerListQuery;
   public readonly projects: ProjectListQuery;
+  public readonly memberships: CustomerMembershipListQuery;
+  public readonly invoiceSettings: InvoiceSettings;
+  public readonly contracts: ContractListQuery;
+  public readonly invoices: InvoiceListQuery;
+  public readonly orders: OrderListQuery;
+  public readonly extensionInstances: ExtensionInstanceListQuery;
 
   public constructor(id: string) {
     super(id);
-    this.servers = new ServerListQuery({
-      customer: this,
-    });
+    this.servers = Server.query({ customer: this });
     this.projects = new ProjectListQuery({
       customer: this,
     });
+    this.invoiceSettings = InvoiceSettings.ofCustomerId(id);
+    this.memberships = CustomerMembership.query(this);
+    this.contracts = Contract.query(this);
+    this.invoices = Invoice.query(this);
+    this.orders = Order.query({ customer: this });
+    this.extensionInstances = ExtensionInstance.query({ context: this });
   }
 
   public static ofId(id: string): Customer {
@@ -45,18 +73,6 @@ export class Customer extends ReferenceModel {
     },
   );
 
-  public static query(query: CustomerListQueryData = {}) {
-    return new CustomerListQuery(query);
-  }
-
-  /** @deprecated Use query() */
-  public static list = provideReact(
-    async (
-      query: CustomerListQueryData = {},
-    ): Promise<Readonly<Array<CustomerListItem>>> =>
-      new CustomerListQuery(query).execute().then((res) => res.items),
-  );
-
   public static get = provideReact(
     async (id: string): Promise<CustomerDetailed> => {
       const customer = await this.find(id);
@@ -65,28 +81,44 @@ export class Customer extends ReferenceModel {
     },
   );
 
+  public findDetailed = provideReact(
+    () => Customer.find(this.id),
+    [this.id],
+  ) as AsyncResourceVariant<() => Promise<CustomerDetailed | undefined>>;
+
   public getDetailed = provideReact(
     () => Customer.get(this.id),
     [this.id],
   ) as AsyncResourceVariant<() => Promise<CustomerDetailed>>;
 
-  public findDetailed = provideReact(
-    () => Customer.find(this.id),
-    [this.id],
-  ) as AsyncResourceVariant<() => Promise<CustomerDetailed | undefined>>;
+  public static query(query: CustomerListQueryData = {}) {
+    return new CustomerListQuery(query);
+  }
 
   public async update(data: CustomerUpdateRequestData): Promise<void> {
     await config.behaviors.customer.update(this.id, data);
   }
 }
 
-// Common class for future extension
 class CustomerCommon extends classes(
   DataModel<CustomerListItemData | CustomerData>,
   Customer,
 ) {
+  public readonly name: string;
+  public readonly number: string;
+  public readonly mStudioPath: string;
+  public readonly contractPartner?: ContractPartner;
+  public readonly avatar?: File;
+
   public constructor(data: CustomerListItemData | CustomerData) {
     super([data], [data.customerId]);
+    this.name = data.name;
+    this.number = data.customerNumber;
+    this.mStudioPath = `/app/organizations/${this.id}`;
+    if (data.owner) {
+      this.contractPartner = new ContractPartner(data.owner);
+    }
+    this.avatar = data.avatarRefId ? File.ofId(data.avatarRefId) : undefined;
   }
 }
 

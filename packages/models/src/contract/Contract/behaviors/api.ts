@@ -19,12 +19,32 @@ export const apiContractBehaviors = (
     assertStatus(response, 404);
   },
 
-  list: async (request) => {
-    const response = await client.contract.listContracts(request);
+  list: async (customerId, query) => {
+    const response = await client.contract.listContracts({
+      queryParameters: query,
+      customerId,
+    });
     assertStatus(response, 200);
     return {
       items: response.data,
       totalCount: extractTotalCountHeader(response),
     };
+  },
+
+  terminate: async (contractId, data) => {
+    const response = await client.contract.terminateContract({
+      contractId,
+      data,
+    });
+
+    assertStatus(response, 201);
+  },
+
+  cancelTermination: async (contractId) => {
+    const response = await client.contract.cancelContractTermination({
+      contractId,
+    });
+
+    assertStatus(response, 200);
   },
 });
