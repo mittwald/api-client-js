@@ -37,6 +37,7 @@ import { apiDnsZoneBehaviors } from "../../dns/DnsZone/behaviors/index.js";
 import { apiMailAddressBehaviors } from "../../mail/MailAddress/behaviors/index.js";
 import { apiDeliveryBoxBehaviors } from "../../mail/DeliveryBox/behaviors/index.js";
 import { apiMailSettingsBehaviors } from "../../mail/MailSettings/behaviors/index.js";
+import { apiTldBehaviors } from "../../domain/Tld/behaviors/index.js";
 
 class ApiSetupState {
   private _client: MittwaldAPIV2Client | undefined;
@@ -88,6 +89,7 @@ class ApiSetupState {
     config.behaviors.systemSoftware = apiSystemSoftwareBehaviors(client);
     config.behaviors.systemSoftwareVersion =
       apiSystemSoftwareVersionBehaviors(client);
+    config.behaviors.tld = apiTldBehaviors(client);
     config.behaviors.user = apiUserBehaviors(client);
   }
 

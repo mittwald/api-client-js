@@ -43,6 +43,7 @@
     "@sindresorhus/is": "^7.0.1",
     "@types/invariant": "^2.2.37",
     "@types/node": "^22.10.0",
+    "ajv": "^8.17.1",
     "another-deep-freeze": "^1.0.0",
     "context": "^3.0.31",
     "dinero.js": "^1.9.1",

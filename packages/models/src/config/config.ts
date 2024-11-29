@@ -34,6 +34,7 @@ import { DnsZoneBehaviors } from "../dns/DnsZone/behaviors/index.js";
 import { MailAddressBehaviors } from "../mail/MailAddress/behaviors/index.js";
 import { DeliveryBoxBehaviors } from "../mail/DeliveryBox/behaviors/index.js";
 import { MailSettingsBehaviors } from "../mail/MailSettings/behaviors/index.js";
+import { TldBehaviors } from "../domain/Tld/behaviors/index.js";
 
 interface Config {
   defaultPaginationLimit: number;
@@ -73,6 +74,7 @@ interface Config {
     supportCode: SupportCodeBehaviors;
     systemSoftware: SystemSoftwareBehaviors;
     systemSoftwareVersion: SystemSoftwareVersionBehaviors;
+    tld: TldBehaviors;
     user: UserBehaviors;
   };
 }
@@ -116,6 +118,7 @@ export const config: Config = {
     systemSoftware: undefined as unknown as SystemSoftwareBehaviors,
     systemSoftwareVersion:
       undefined as unknown as SystemSoftwareVersionBehaviors,
+    tld: undefined as unknown as TldBehaviors,
     user: undefined as unknown as UserBehaviors,
   },
 };
