@@ -27,6 +27,7 @@ import {
   SystemSoftwareNames,
 } from "../SystemSoftware/index.js";
 import { AppInstallationMissingDependencies } from "../AppInstallationMissingDependencies/index.js";
+import { InstalledSystemSoftware } from "../InstalledSystemSoftware/index.js";
 
 export class AppInstallation extends ReferenceModel {
   public static aggregateMetaData = new AggregateMetaData(
@@ -177,6 +178,11 @@ class AppInstallationCommon extends classes(
   public readonly appVersion: AppVersion;
   public readonly project?: Project;
   public readonly mStudioPath: string | undefined;
+  public readonly isUpdating: boolean;
+  public readonly isInstalling: boolean;
+  public readonly host?: string;
+  public readonly installedSystemSoftwareList: InstalledSystemSoftware[];
+
   public constructor(data: AppInstallationData | AppInstallationListItemData) {
     super([data], [data.id]);
     this.description = data.description;
@@ -187,6 +193,17 @@ class AppInstallationCommon extends classes(
     this.mStudioPath = this.project
       ? `/app/projects/${this.project.id}/apps/${this.id}`
       : undefined;
+    this.isUpdating =
+      !!data.appVersion.current &&
+      data.appVersion.current !== data.appVersion.desired;
+
+    this.isInstalling = !data.appVersion.current;
+
+    this.host = data.userInputs?.find((u) => u.name === "host")?.value;
+
+    this.installedSystemSoftwareList = data.systemSoftware
+      ? data.systemSoftware.map((s) => new InstalledSystemSoftware(s))
+      : [];
   }
 
   public findInstalledSystemSoftware(

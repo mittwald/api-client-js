@@ -1,4 +1,8 @@
-import { MittwaldAPIV2Client, assertStatus } from "@mittwald/api-client";
+import {
+  MittwaldAPIV2Client,
+  assertStatus,
+  extractTotalCountHeader,
+} from "@mittwald/api-client";
 import { AppVersionBehaviors } from "./types.js";
 
 export const apiAppVersionBehaviors = (
@@ -23,7 +27,16 @@ export const apiAppVersionBehaviors = (
     assertStatus(response, 200);
     return {
       items: response.data,
-      totalCount: response.data.length,
+      totalCount: extractTotalCountHeader(response),
     };
+  },
+
+  listUpdateCandidates: async (appId, baseAppVersionId) => {
+    const response = await client.app.listUpdateCandidatesForAppversion({
+      appId,
+      baseAppVersionId,
+    });
+    assertStatus(response, 200);
+    return response.data;
   },
 });

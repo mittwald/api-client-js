@@ -1,4 +1,8 @@
-import { assertStatus, MittwaldAPIV2Client } from "@mittwald/api-client";
+import {
+  assertStatus,
+  MittwaldAPIV2Client,
+  extractTotalCountHeader,
+} from "@mittwald/api-client";
 import { TldBehaviors } from "./types.js";
 import { SchemaObject } from "ajv/dist/2019.js";
 
@@ -8,7 +12,7 @@ export const apiTldBehaviors = (client: MittwaldAPIV2Client): TldBehaviors => ({
     assertStatus(response, 200);
     return {
       items: response.data,
-      totalCount: response.data.length,
+      totalCount: extractTotalCountHeader(response),
     };
   },
   getContactSchemas: async (tld: string) => {

@@ -2,6 +2,7 @@ import {
   assertStatus,
   MittwaldAPIV2Client,
   assertOneOfStatus,
+  extractTotalCountHeader,
 } from "@mittwald/api-client";
 import { DnsZoneBehaviors } from "./types.js";
 import { DnsMxRecord, DnsRecordSettings, DnsSrvRecord } from "../types.js";
@@ -25,7 +26,7 @@ export const apiDnsZoneBehaviors = (
     assertStatus(response, 200);
     return {
       items: response.data,
-      totalCount: response.data.length,
+      totalCount: extractTotalCountHeader(response),
     };
   },
   delete: async (zoneId: string) => {

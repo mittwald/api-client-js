@@ -2,6 +2,7 @@ import {
   assertStatus,
   MittwaldAPIV2Client,
   assertOneOfStatus,
+  extractTotalCountHeader,
 } from "@mittwald/api-client";
 import { MailAddressBehaviors } from "./types.js";
 import { MailAddressListQueryData } from "../types.js";
@@ -25,7 +26,7 @@ export const apiMailAddressBehaviors = (
     assertStatus(response, 200);
     return {
       items: response.data,
-      totalCount: response.data.length,
+      totalCount: extractTotalCountHeader(response),
     };
   },
   delete: async (mailAddressId: string) => {

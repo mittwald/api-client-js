@@ -12,4 +12,9 @@ export interface AppVersionBehaviors {
     appId: string,
     query?: AppVersionListQueryData,
   ) => Promise<QueryResponseData<AppVersionListItemData>>;
+
+  listUpdateCandidates: (
+    appId: string,
+    baseAppVersionId: string,
+  ) => Promise<AppVersionListItemData[]>;
 }

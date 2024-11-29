@@ -57,6 +57,16 @@ export class AppVersion extends ReferenceModel {
   public static query(app: App, query: AppVersionListQueryData = {}) {
     return new AppVersionListQuery(app, query);
   }
+
+  public listUpdateCandidates = provideReact(
+    async (baseAppVersionId: string): Promise<AppVersionListItem[]> => {
+      const data = await config.behaviors.appVersion.listUpdateCandidates(
+        this.app.id,
+        baseAppVersionId,
+      );
+      return data.map((d) => new AppVersionListItem(d));
+    },
+  );
 }
 
 class AppVersionCommon extends classes(

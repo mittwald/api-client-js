@@ -2,6 +2,7 @@ import {
   assertStatus,
   MittwaldAPIV2Client,
   assertOneOfStatus,
+  extractTotalCountHeader,
 } from "@mittwald/api-client";
 import { DeliveryBoxBehaviors } from "./types.js";
 
@@ -25,7 +26,7 @@ export const apiDeliveryBoxBehaviors = (
     assertStatus(response, 200);
     return {
       items: response.data,
-      totalCount: response.data.length,
+      totalCount: extractTotalCountHeader(response),
     };
   },
   create: async (projectId: string, description: string, password: string) => {

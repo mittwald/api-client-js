@@ -1,4 +1,8 @@
-import { MittwaldAPIV2Client, assertStatus } from "@mittwald/api-client";
+import {
+  MittwaldAPIV2Client,
+  assertStatus,
+  extractTotalCountHeader,
+} from "@mittwald/api-client";
 import { SystemSoftwareVersionBehaviors } from "./types.js";
 
 export const apiSystemSoftwareVersionBehaviors = (
@@ -26,7 +30,7 @@ export const apiSystemSoftwareVersionBehaviors = (
     assertStatus(response, 200);
     return {
       items: response.data,
-      totalCount: response.data.length,
+      totalCount: extractTotalCountHeader(response),
     };
   },
 });
