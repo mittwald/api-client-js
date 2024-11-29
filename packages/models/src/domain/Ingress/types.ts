@@ -16,3 +16,17 @@ export type IngressData =
 
 export type IngressListItemData =
   MittwaldAPIV2.Operations.IngressListIngresses.ResponseData[number];
+
+export type CertificateSettings =
+  | { type: "acme" }
+  | { type: "certificate"; certificateId: string };
+
+export type PathSettings = {
+  path: string;
+  target:
+    | { directory: string }
+    | { url: string }
+    | { installationId: string }
+    | { useDefaultPage: boolean }
+    | { container: { id: string; portProtocol: string } };
+};

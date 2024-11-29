@@ -3,10 +3,12 @@ import { classes } from "polytype";
 import assertObjectFound from "../../base/assertObjectFound.js";
 import { AsyncResourceVariant, provideReact } from "../../react/index.js";
 import {
+  CertificateSettings,
   IngressData,
   IngressListItemData,
   IngressListModelQueryData,
   IngressListQueryData,
+  PathSettings,
 } from "./types.js";
 import {
   ListDataModel,
@@ -67,6 +69,46 @@ export class Ingress extends ReferenceModel {
       return ingresses.items.find((i) => i.data.isDefault);
     },
   );
+
+  public static async create(
+    projectId: string,
+    hostname: string,
+    paths: PathSettings[],
+  ): Promise<Ingress> {
+    const { id } = await config.behaviors.ingress.create(
+      projectId,
+      hostname,
+      paths,
+    );
+    return new Ingress(id);
+  }
+
+  public async delete(): Promise<void> {
+    await config.behaviors.ingress.delete(this.id);
+  }
+
+  public async updatePaths(paths: PathSettings[]): Promise<void> {
+    await config.behaviors.ingress.updatePaths(this.id, paths);
+  }
+  public async updateTls(certificate: CertificateSettings): Promise<void> {
+    await config.behaviors.ingress.updateTls(this.id, certificate);
+  }
+  public async requestAcmeCertificate(): Promise<void> {
+    await config.behaviors.ingress.requestAcmeCertificate(this.id);
+  }
+  public async verifyOwnership(): Promise<void> {
+    await config.behaviors.ingress.verifyOwnership(this.id);
+  }
+
+  public static async listCompatibleWithCertificate(
+    projectId: string,
+    certificate: string,
+  ): Promise<Ingress[]> {
+    return await config.behaviors.ingress.listCompatibleWithCertificate(
+      projectId,
+      certificate,
+    );
+  }
 }
 
 export class IngressCommon extends classes(
