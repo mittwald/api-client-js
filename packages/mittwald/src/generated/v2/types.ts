@@ -4236,6 +4236,8 @@ export declare module MittwaldAPIV2 {
         mainUser: boolean;
         name: string;
         passwordUpdatedAt: string;
+        status: MittwaldAPIV2.Components.Schemas.DatabaseDatabaseUserStatus;
+        statusSetAt: string;
         updatedAt: string;
       }
 
@@ -5669,6 +5671,7 @@ export declare module MittwaldAPIV2 {
         firstName?: string;
         lastName?: string;
         /**
+         * @deprecated
          * the users title
          */
         title?: "other" | "mr" | "ms";
@@ -6523,6 +6526,13 @@ export declare module MittwaldAPIV2 {
         name: string;
         value: string;
       }
+
+      export type DatabaseDatabaseUserStatus =
+        | "pending"
+        | "ready"
+        | "error"
+        | "terminating"
+        | "disabled";
 
       export interface CommonsAddress {
         street: string;
