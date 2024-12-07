@@ -4189,6 +4189,13 @@ export declare module MittwaldAPIV2 {
         | "importing"
         | "error";
 
+      export type DatabaseDatabaseUserStatus =
+        | "pending"
+        | "ready"
+        | "error"
+        | "terminating"
+        | "disabled";
+
       export interface DatabaseMySqlCharacterSettings {
         collations: string[];
         name: string;
@@ -6526,13 +6533,6 @@ export declare module MittwaldAPIV2 {
         name: string;
         value: string;
       }
-
-      export type DatabaseDatabaseUserStatus =
-        | "pending"
-        | "ready"
-        | "error"
-        | "terminating"
-        | "disabled";
 
       export interface CommonsAddress {
         street: string;
