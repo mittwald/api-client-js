@@ -5580,6 +5580,9 @@ export declare module MittwaldAPIV2 {
         authCode?: string;
         domain: string;
         handleData: {
+          /**
+           * @deprecated
+           */
           adminC?: MittwaldAPIV2.Components.Schemas.OrderDomainHandleField[];
           /**
            * @minItems 1
