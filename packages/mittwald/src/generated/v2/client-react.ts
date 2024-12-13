@@ -474,16 +474,6 @@ const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.extensionGetContributor,
     baseClient.marketplace.extensionGetContributor,
   ).getApiResource,
-  /** Get the ExtensionInstance of a specific customer and extension, if existing. */
-  extensionGetExtensionInstanceForCustomer: new ApiCallAsyncResourceFactory(
-    descriptors.extensionGetExtensionInstanceForCustomer,
-    baseClient.marketplace.extensionGetExtensionInstanceForCustomer,
-  ).getApiResource,
-  /** Get the ExtensionInstance of a specific project and extension, if existing. */
-  extensionGetExtensionInstanceForProject: new ApiCallAsyncResourceFactory(
-    descriptors.extensionGetExtensionInstanceForProject,
-    baseClient.marketplace.extensionGetExtensionInstanceForProject,
-  ).getApiResource,
   /** Get an Extension. */
   extensionGetExtension: new ApiCallAsyncResourceFactory(
     descriptors.extensionGetExtension,
@@ -503,6 +493,16 @@ const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
   extensionListExtensions: new ApiCallAsyncResourceFactory(
     descriptors.extensionListExtensions,
     baseClient.marketplace.extensionListExtensions,
+  ).getApiResource,
+  /** Get the ExtensionInstance of a specific customer and extension, if existing. */
+  extensionGetExtensionInstanceForCustomer: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetExtensionInstanceForCustomer,
+    baseClient.marketplace.extensionGetExtensionInstanceForCustomer,
+  ).getApiResource,
+  /** Get the ExtensionInstance of a specific project and extension, if existing. */
+  extensionGetExtensionInstanceForProject: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetExtensionInstanceForProject,
+    baseClient.marketplace.extensionGetExtensionInstanceForProject,
   ).getApiResource,
 });
 

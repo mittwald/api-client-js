@@ -305,14 +305,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionGetContributor: this.requestFunctionFactory(
       descriptors.extensionGetContributor,
     ),
-    /** Get the ExtensionInstance of a specific customer and extension, if existing. */
-    extensionGetExtensionInstanceForCustomer: this.requestFunctionFactory(
-      descriptors.extensionGetExtensionInstanceForCustomer,
-    ),
-    /** Get the ExtensionInstance of a specific project and extension, if existing. */
-    extensionGetExtensionInstanceForProject: this.requestFunctionFactory(
-      descriptors.extensionGetExtensionInstanceForProject,
-    ),
     /** Get an Extension. */
     extensionGetExtension: this.requestFunctionFactory(
       descriptors.extensionGetExtension,
@@ -328,6 +320,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** List Extensions. */
     extensionListExtensions: this.requestFunctionFactory(
       descriptors.extensionListExtensions,
+    ),
+    /** Get the ExtensionInstance of a specific customer and extension, if existing. */
+    extensionGetExtensionInstanceForCustomer: this.requestFunctionFactory(
+      descriptors.extensionGetExtensionInstanceForCustomer,
+    ),
+    /** Get the ExtensionInstance of a specific project and extension, if existing. */
+    extensionGetExtensionInstanceForProject: this.requestFunctionFactory(
+      descriptors.extensionGetExtensionInstanceForProject,
     ),
   };
 
