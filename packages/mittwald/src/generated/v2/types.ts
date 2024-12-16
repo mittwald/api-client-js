@@ -3414,30 +3414,6 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * An AppInstallation is a concrete manifestation of an App in a specific AppVersion.
-       */
-      export interface AppAppInstallationInternal {
-        appId: string;
-        appVersion: MittwaldAPIV2.Components.Schemas.AppVersionStatus;
-        customDocumentRoot?: string;
-        description: string;
-        disabled: boolean;
-        id: string;
-        installationPath: string;
-        linkedDatabases?: MittwaldAPIV2.Components.Schemas.AppLinkedDatabase[];
-        processRunningSince?: string;
-        processes?: string[];
-        projectEnvironment?: string;
-        projectId?: string;
-        screenshotId?: string;
-        screenshotRef?: string;
-        shortId: string;
-        systemSoftware?: MittwaldAPIV2.Components.Schemas.AppInstalledSystemSoftware[];
-        updatePolicy?: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
-        userInputs?: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
-      }
-
-      /**
        * The AppInstallationLifecycle can be used to express a specific point in the AppInstallation Lifecycle, e.g. while installing a new AppInstallation.
        */
       export type AppAppInstallationLifecycle =
@@ -3786,6 +3762,10 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface ContractTermination {
+        /**
+         * Indicates whether the User is allowed to cancel the Termination.
+         */
+        cancellationForbidden?: boolean;
         reason?: string;
         scheduledAtDate: string;
         scheduledByUserId?: string;
@@ -7478,8 +7458,7 @@ export declare module MittwaldAPIV2 {
         namespace Parameters {
           export type Path = {};
 
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+          export type Header = {};
 
           export type Query = {
             limit?: number;
