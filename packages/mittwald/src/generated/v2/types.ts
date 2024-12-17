@@ -13353,8 +13353,7 @@ export declare module MittwaldAPIV2 {
         namespace Parameters {
           export type Path = {};
 
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+          export type Header = {};
 
           export type Query = {
             version?: string;
