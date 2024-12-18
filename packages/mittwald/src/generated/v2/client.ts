@@ -1240,6 +1240,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     servicetokenAuthenticateService: this.requestFunctionFactory(
       descriptors.servicetokenAuthenticateService,
     ),
+    /** Check if an address exists. */
+    verificationVerifyAddress: this.requestFunctionFactory(
+      descriptors.verificationVerifyAddress,
+    ),
+    /** Check if a company exists. */
+    verificationVerifyCompany: this.requestFunctionFactory(
+      descriptors.verificationVerifyCompany,
+    ),
   };
 
   /** The SSH/SFTP User API allows you to manage your SSH/SFTP users within a project. */
