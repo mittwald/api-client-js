@@ -3842,11 +3842,6 @@ export declare module MittwaldAPIV2 {
         | "customerService"
         | "generic";
 
-      export interface ConversationDepartmentWithStatus {
-        department: MittwaldAPIV2.Components.Schemas.ConversationDepartment;
-        status: MittwaldAPIV2.Components.Schemas.ConversationStatus;
-      }
-
       export interface ConversationError {
         message: string;
         type: string;
@@ -3884,7 +3879,7 @@ export declare module MittwaldAPIV2 {
         | "customer_accountant"
         | "customer_member"
         | "project_owner"
-        | "project_email_admin"
+        | "project_emailadmin"
         | "project_external";
 
       export type ConversationRelatedAggregateReference =
@@ -6537,6 +6532,65 @@ export declare module MittwaldAPIV2 {
       export interface VarnishSoftwareSetting {
         name: string;
         value: string;
+      }
+
+      export interface TaskAggregateReference {
+        aggregate: string;
+        domain: string;
+        id: string;
+      }
+
+      export interface ConversationServiceRequest {
+        conversationId: string;
+        createdAt: string;
+        /**
+         * @maxItems 0
+         */
+        files?: [];
+        internal: boolean;
+        messageContent: "relocation" | "call";
+        messageId: string;
+        meta: MittwaldAPIV2.Components.Schemas.ConversationServiceRequestRelocationPayload;
+        type: "SERVICE_REQUEST";
+      }
+
+      export interface ConversationServiceRequestRelocationPayload {
+        contact: {
+          email: string;
+          firstname: string;
+          lastname: string;
+          phone?: string;
+        };
+        domain?: {
+          allDomains?: boolean;
+          domains?: {
+            authCode?: string;
+            domainName?: string;
+          }[];
+        };
+        notes?: string;
+        preferredRelocationDate?: string;
+        redirectusKey: number;
+        source: {
+          providerName: string;
+          providerPassword: string;
+          providerUrl: string;
+          providerUsername: string;
+          sourceAccount: string;
+        };
+        target: {
+          accountShortId: string;
+          application?: string;
+          articleType: string;
+          organisation: string;
+          prices?: {
+            name?: string;
+            price?: number;
+          }[];
+          product: string;
+          withDataCompare?: boolean;
+        };
+        userId: string;
       }
 
       export interface CommonsAddress {
@@ -9726,6 +9780,7 @@ export declare module MittwaldAPIV2 {
               export type ApplicationJson = (
                 | MittwaldAPIV2.Components.Schemas.ConversationMessage
                 | MittwaldAPIV2.Components.Schemas.ConversationStatusUpdate
+                | MittwaldAPIV2.Components.Schemas.ConversationServiceRequest
               )[];
             }
           }
