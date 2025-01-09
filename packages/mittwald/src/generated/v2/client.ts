@@ -329,6 +329,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionListExtensions: this.requestFunctionFactory(
       descriptors.extensionListExtensions,
     ),
+    /** List Extensions of own contributor. */
+    extensionListOwnExtensions: this.requestFunctionFactory(
+      descriptors.extensionListOwnExtensions,
+    ),
   };
 
   /** The conversation API allows you to manage your support conversations. */

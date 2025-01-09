@@ -12801,3 +12801,32 @@ export const verificationVerifyCompany: OpenAPIOperation<
   method: "POST",
   operationId: "verification-verify-company",
 };
+
+/** List Extensions of own contributor. */
+export const extensionListOwnExtensions: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensions.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensions.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensions.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensions.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensions.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensions.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/contributors/{contributorId}/extensions",
+  method: "GET",
+  operationId: "extension-list-own-extensions",
+};

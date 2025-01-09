@@ -504,6 +504,11 @@ const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.extensionListExtensions,
     baseClient.marketplace.extensionListExtensions,
   ).getApiResource,
+  /** List Extensions of own contributor. */
+  extensionListOwnExtensions: new ApiCallAsyncResourceFactory(
+    descriptors.extensionListOwnExtensions,
+    baseClient.marketplace.extensionListOwnExtensions,
+  ).getApiResource,
 });
 
 const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({
