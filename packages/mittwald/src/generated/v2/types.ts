@@ -1711,6 +1711,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ExtensionListOwnExtensions {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionListOwnExtensions
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionListOwnExtensions,
+          TStatus
+        >;
+    }
+
     namespace FileCreateFile {
       type RequestData = InferredRequestData<typeof descriptors.fileCreateFile>;
       type ResponseData<TStatus extends HttpStatus = 200> =
@@ -3343,17 +3354,6 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
-
-    namespace ExtensionListOwnExtensions {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionListOwnExtensions
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionListOwnExtensions,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -3924,6 +3924,59 @@ export declare module MittwaldAPIV2 {
             domain: "extension";
             id: string;
           };
+
+      export interface ConversationServiceRequestRelocationPayload {
+        contact: {
+          email: string;
+          firstname: string;
+          lastname: string;
+          phone?: string;
+        };
+        domain?: {
+          allDomains?: boolean;
+          domains?: {
+            authCode?: string;
+            domainName?: string;
+          }[];
+        };
+        notes?: string;
+        preferredRelocationDate?: string;
+        redirectusKey: number;
+        source: {
+          providerName: string;
+          providerPassword: string;
+          providerUrl: string;
+          providerUsername: string;
+          sourceAccount: string;
+        };
+        target: {
+          accountShortId: string;
+          application?: string;
+          articleType: string;
+          organisation: string;
+          prices?: {
+            name?: string;
+            price?: number;
+          }[];
+          product: string;
+          withDataCompare?: boolean;
+        };
+        userId: string;
+      }
+
+      export interface ConversationServiceRequest {
+        conversationId: string;
+        createdAt: string;
+        /**
+         * @maxItems 0
+         */
+        files?: [];
+        internal: boolean;
+        messageContent: "relocation" | "call";
+        messageId: string;
+        meta: MittwaldAPIV2.Components.Schemas.ConversationServiceRequestRelocationPayload;
+        type: "SERVICE_REQUEST";
+      }
 
       export type ConversationShareableAggregateReference =
         | {
@@ -4673,6 +4726,37 @@ export declare module MittwaldAPIV2 {
         MittwaldAPIV2.Components.Schemas.MarketplaceUrlFrontendFragment;
 
       export interface MarketplaceOptionalExtension {
+        backendComponents?: MittwaldAPIV2.Components.Schemas.MarketplaceBackendComponents;
+        /**
+         * @deprecated
+         */
+        blocked?: boolean;
+        context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+        contributorId: string;
+        description?: string;
+        detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
+        disabled?: boolean;
+        frontendComponents?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
+        frontendFragments?: {
+          [
+            k: string
+          ]: MittwaldAPIV2.Components.Schemas.MarketplaceFrontendFragment;
+        };
+        id: string;
+        name: string;
+        scopes?: string[];
+        /**
+         * deprecated
+         */
+        state?: "enabled" | "blocked" | "disabled";
+        support?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
+        /**
+         * @minItems 0
+         */
+        tags?: string[];
+      }
+
+      export interface MarketplaceOwnExtension {
         backendComponents?: MittwaldAPIV2.Components.Schemas.MarketplaceBackendComponents;
         /**
          * @deprecated
@@ -6292,6 +6376,12 @@ export declare module MittwaldAPIV2 {
         statisticCategories?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategory[];
       }
 
+      export interface TaskAggregateReference {
+        aggregate: string;
+        domain: string;
+        id: string;
+      }
+
       export interface SignupAccount {
         email?: string;
         /**
@@ -6543,96 +6633,6 @@ export declare module MittwaldAPIV2 {
       export interface VarnishSoftwareSetting {
         name: string;
         value: string;
-      }
-
-      export interface TaskAggregateReference {
-        aggregate: string;
-        domain: string;
-        id: string;
-      }
-
-      export interface ConversationServiceRequest {
-        conversationId: string;
-        createdAt: string;
-        /**
-         * @maxItems 0
-         */
-        files?: [];
-        internal: boolean;
-        messageContent: "relocation" | "call";
-        messageId: string;
-        meta: MittwaldAPIV2.Components.Schemas.ConversationServiceRequestRelocationPayload;
-        type: "SERVICE_REQUEST";
-      }
-
-      export interface ConversationServiceRequestRelocationPayload {
-        contact: {
-          email: string;
-          firstname: string;
-          lastname: string;
-          phone?: string;
-        };
-        domain?: {
-          allDomains?: boolean;
-          domains?: {
-            authCode?: string;
-            domainName?: string;
-          }[];
-        };
-        notes?: string;
-        preferredRelocationDate?: string;
-        redirectusKey: number;
-        source: {
-          providerName: string;
-          providerPassword: string;
-          providerUrl: string;
-          providerUsername: string;
-          sourceAccount: string;
-        };
-        target: {
-          accountShortId: string;
-          application?: string;
-          articleType: string;
-          organisation: string;
-          prices?: {
-            name?: string;
-            price?: number;
-          }[];
-          product: string;
-          withDataCompare?: boolean;
-        };
-        userId: string;
-      }
-
-      export interface MarketplaceOwnExtension {
-        backendComponents?: MittwaldAPIV2.Components.Schemas.MarketplaceBackendComponents;
-        /**
-         * @deprecated
-         */
-        blocked?: boolean;
-        context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
-        contributorId: string;
-        description?: string;
-        detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
-        disabled?: boolean;
-        frontendComponents?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
-        frontendFragments?: {
-          [
-            k: string
-          ]: MittwaldAPIV2.Components.Schemas.MarketplaceFrontendFragment;
-        };
-        id: string;
-        name: string;
-        scopes?: string[];
-        /**
-         * deprecated
-         */
-        state?: "enabled" | "blocked" | "disabled";
-        support?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
-        /**
-         * @minItems 0
-         */
-        tags?: string[];
       }
 
       export interface CommonsAddress {
@@ -16025,6 +16025,48 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.MarketplaceExtension[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdExtensions {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplaceOwnExtension[];
             }
           }
 
@@ -26259,48 +26301,6 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ContributorsContributorIdExtensions {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {
-            limit?: number;
-            skip?: number;
-            page?: number;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.MarketplaceOwnExtension[];
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
