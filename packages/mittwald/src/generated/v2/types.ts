@@ -4134,6 +4134,7 @@ export declare module MittwaldAPIV2 {
         abortedBy?: {
           id?: string;
         };
+        cronjobId: string;
         durationInMilliseconds?: number;
         end?: string;
         /**
