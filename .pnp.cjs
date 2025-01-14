@@ -2163,7 +2163,7 @@ const RAW_RUNTIME_STATE =
           ["typescript", "patch:typescript@npm%3A5.7.2#optional!builtin<compat/typescript>::version=5.7.2&hash=5786d5"],\
           ["verror", "npm:1.10.1"],\
           ["yieldable-json", "npm:2.1.0"],\
-          ["zod", "npm:3.24.0"],\
+          ["zod", "npm:3.24.1"],\
           ["zod-validation-error", "virtual:c806312c909ada0ed265736a6af40332d2accb083795ab196b921d4f525eaa216b5e743a115a866243d43c53d134d2f487232e8b22a59cccd45e185864151961#npm:3.4.0"]\
         ],\
         "linkType": "SOFT"\
@@ -14406,10 +14406,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["zod", [\
-      ["npm:3.24.0", {\
-        "packageLocation": "./.yarn/cache/zod-npm-3.24.0-f8fdf00a5a-a5a5897d34.zip/node_modules/zod/",\
+      ["npm:3.24.1", {\
+        "packageLocation": "./.yarn/cache/zod-npm-3.24.1-62ba4e84b3-54e2595649.zip/node_modules/zod/",\
         "packageDependencies": [\
-          ["zod", "npm:3.24.0"]\
+          ["zod", "npm:3.24.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -14427,7 +14427,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["zod-validation-error", "virtual:c806312c909ada0ed265736a6af40332d2accb083795ab196b921d4f525eaa216b5e743a115a866243d43c53d134d2f487232e8b22a59cccd45e185864151961#npm:3.4.0"],\
           ["@types/zod", null],\
-          ["zod", "npm:3.24.0"]\
+          ["zod", "npm:3.24.1"]\
         ],\
         "packagePeers": [\
           "@types/zod",\
