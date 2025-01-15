@@ -4726,37 +4726,6 @@ export declare module MittwaldAPIV2 {
       export type MarketplaceFrontendFragment =
         MittwaldAPIV2.Components.Schemas.MarketplaceUrlFrontendFragment;
 
-      export interface MarketplaceOptionalExtension {
-        backendComponents?: MittwaldAPIV2.Components.Schemas.MarketplaceBackendComponents;
-        /**
-         * @deprecated
-         */
-        blocked?: boolean;
-        context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
-        contributorId: string;
-        description?: string;
-        detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
-        disabled?: boolean;
-        frontendComponents?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
-        frontendFragments?: {
-          [
-            k: string
-          ]: MittwaldAPIV2.Components.Schemas.MarketplaceFrontendFragment;
-        };
-        id: string;
-        name: string;
-        scopes?: string[];
-        /**
-         * deprecated
-         */
-        state?: "enabled" | "blocked" | "disabled";
-        support?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
-        /**
-         * @minItems 0
-         */
-        tags?: string[];
-      }
-
       export interface MarketplaceOwnExtension {
         backendComponents?: MittwaldAPIV2.Components.Schemas.MarketplaceBackendComponents;
         /**
