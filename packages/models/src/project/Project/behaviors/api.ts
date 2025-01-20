@@ -43,8 +43,15 @@ export const apiProjectBehaviors = (
   },
 
   leave: async (id: string) => {
-    const response = await client.project.leaveProject({
-      projectId: id,
+    const selfMembershipResponse =
+      await client.project.getSelfMembershipForProject({
+        projectId: id,
+      });
+
+    assertStatus(selfMembershipResponse, 200);
+
+    const response = await client.project.deleteProjectMembership({
+      projectMembershipId: selfMembershipResponse.data.id,
     });
     assertStatus(response, 204);
   },
