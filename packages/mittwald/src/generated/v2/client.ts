@@ -505,10 +505,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     isCustomerLegallyCompetent: this.requestFunctionFactory(
       descriptors.customerIsCustomerLegallyCompetent,
     ),
-    /** Leave a Customer. */
-    leaveCustomer: this.requestFunctionFactory(
-      descriptors.customerLeaveCustomer,
-    ),
     /** List CustomerInvites belonging to the executing user. */
     listCustomerInvites: this.requestFunctionFactory(
       descriptors.customerListCustomerInvites,
@@ -1155,8 +1151,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get a Server. */
     getServer: this.requestFunctionFactory(descriptors.projectGetServer),
-    /** Leave a Project. */
-    leaveProject: this.requestFunctionFactory(descriptors.projectLeaveProject),
     /** List Memberships belonging to a Project. */
     listMembershipsForProject: this.requestFunctionFactory(
       descriptors.projectListMembershipsForProject,
