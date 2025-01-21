@@ -685,8 +685,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     checkDomainRegistrability: this.requestFunctionFactory(
       descriptors.domainCheckDomainRegistrability,
     ),
-    /** List Domains */
-    listDomains: this.requestFunctionFactory(descriptors.domainListDomains),
     /** Check if a Domain is available to transfer. */
     checkDomainTransferability: this.requestFunctionFactory(
       descriptors.domainCheckDomainTransferability,
@@ -694,10 +692,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Create an auth code for a Domains transfer-out process. */
     createDomainAuthCode: this.requestFunctionFactory(
       descriptors.domainCreateDomainAuthCode,
-    ),
-    /** Update the nameservers of a Domain. */
-    updateDomainNameservers: this.requestFunctionFactory(
-      descriptors.domainUpdateDomainNameservers,
     ),
     /** Get a Domain. */
     getDomain: this.requestFunctionFactory(descriptors.domainGetDomain),
@@ -707,6 +701,8 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getLatestScreenshot: this.requestFunctionFactory(
       descriptors.domainGetLatestScreenshot,
     ),
+    /** List Domains */
+    listDomains: this.requestFunctionFactory(descriptors.domainListDomains),
     /** List the contact schemas for a TLD. */
     listTldContactSchemas: this.requestFunctionFactory(
       descriptors.domainListTldContactSchemas,
@@ -726,6 +722,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update a contact of a Domain. */
     updateDomainContact: this.requestFunctionFactory(
       descriptors.domainUpdateDomainContact,
+    ),
+    /** Update the nameservers of a Domain. */
+    updateDomainNameservers: this.requestFunctionFactory(
+      descriptors.domainUpdateDomainNameservers,
     ),
     /** Update a Domain's project id. */
     updateDomainProjectId: this.requestFunctionFactory(

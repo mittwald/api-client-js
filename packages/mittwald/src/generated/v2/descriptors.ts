@@ -5047,40 +5047,6 @@ export const domainCheckDomainRegistrability: OpenAPIOperation<
   operationId: "domain-check-domain-registrability",
 };
 
-/** List Domains */
-export const domainListDomains: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2Domains.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2Domains.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2Domains.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Domains.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Domains.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Domains.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Domains.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domains",
-  method: "GET",
-  operationId: "domain-list-domains",
-};
-
 /** Check if a Domain is available to transfer. */
 export const domainCheckDomainTransferability: OpenAPIOperation<
   RequestType<
@@ -5152,45 +5118,6 @@ export const domainCreateDomainAuthCode: OpenAPIOperation<
   path: "/v2/domains/{domainId}/actions/auth-code",
   method: "POST",
   operationId: "domain-create-domain-auth-code",
-};
-
-/** Update the nameservers of a Domain. */
-export const domainUpdateDomainNameservers: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domains/{domainId}/nameservers",
-  method: "PATCH",
-  operationId: "domain-update-domain-nameservers",
 };
 
 /** Get a Domain. */
@@ -5308,6 +5235,40 @@ export const domainGetLatestScreenshot: OpenAPIOperation<
   path: "/v2/domains/{domainId}/latest-screenshot",
   method: "GET",
   operationId: "domain-get-latest-screenshot",
+};
+
+/** List Domains */
+export const domainListDomains: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2Domains.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2Domains.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2Domains.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Domains.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Domains.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Domains.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Domains.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains",
+  method: "GET",
+  operationId: "domain-list-domains",
 };
 
 /** List the contact schemas for a TLD. */
@@ -5527,6 +5488,45 @@ export const domainUpdateDomainContact: OpenAPIOperation<
   path: "/v2/domains/{domainId}/contacts/{contact}",
   method: "PATCH",
   operationId: "domain-update-domain-contact",
+};
+
+/** Update the nameservers of a Domain. */
+export const domainUpdateDomainNameservers: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/nameservers",
+  method: "PATCH",
+  operationId: "domain-update-domain-nameservers",
 };
 
 /** Update a Domain's project id. */

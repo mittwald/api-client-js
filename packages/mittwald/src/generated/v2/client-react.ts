@@ -396,11 +396,6 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.dnsListDnsZones,
     baseClient.domain.dnsListDnsZones,
   ).getApiResource,
-  /** List Domains */
-  listDomains: new ApiCallAsyncResourceFactory(
-    descriptors.domainListDomains,
-    baseClient.domain.listDomains,
-  ).getApiResource,
   /** Get a Domain. */
   getDomain: new ApiCallAsyncResourceFactory(
     descriptors.domainGetDomain,
@@ -410,6 +405,11 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   getLatestScreenshot: new ApiCallAsyncResourceFactory(
     descriptors.domainGetLatestScreenshot,
     baseClient.domain.getLatestScreenshot,
+  ).getApiResource,
+  /** List Domains */
+  listDomains: new ApiCallAsyncResourceFactory(
+    descriptors.domainListDomains,
+    baseClient.domain.listDomains,
   ).getApiResource,
   /** List the contact schemas for a TLD. */
   listTldContactSchemas: new ApiCallAsyncResourceFactory(
