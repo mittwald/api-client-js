@@ -627,40 +627,22 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
-  /** The notification API allows you to manage your notifications. */
-  public readonly notification = {
-    /** Subscribe a user to the mStudio newsletter. */
-    newsletterSubscribeUser: this.requestFunctionFactory(
-      descriptors.newsletterSubscribeUser,
-    ),
-    /** Getting the subscription status of the subscription. */
-    newsletterGetInfo: this.requestFunctionFactory(
-      descriptors.newsletterGetInfo,
-    ),
-    /** Unsubscribe a user from the mStudio newsletter. */
-    newsletterUnsubscribeUser: this.requestFunctionFactory(
-      descriptors.newsletterUnsubscribeUser,
-    ),
-    /** Get the counts for unread notifications of the user. */
-    scountUnreadNotifications: this.requestFunctionFactory(
-      descriptors.notificationsCountUnreadNotifications,
-    ),
-    /** List all unread notifications. */
-    slistNotifications: this.requestFunctionFactory(
-      descriptors.notificationsListNotifications,
-    ),
-    /** Mark all notifications as read. */
-    sreadAllNotifications: this.requestFunctionFactory(
-      descriptors.notificationsReadAllNotifications,
-    ),
-    /** Mark notification as read. */
-    sreadNotification: this.requestFunctionFactory(
-      descriptors.notificationsReadNotification,
-    ),
-  };
-
   /** The domain API allows you to manage your domains, DNS records, SSL certificates and ingress resources. */
   public readonly domain = {
+    /** List Domains */
+    listDomains: this.requestFunctionFactory(descriptors.domainListDomains),
+    /** Update the nameservers of a Domain. */
+    updateDomainNameservers: this.requestFunctionFactory(
+      descriptors.domainUpdateDomainNameservers,
+    ),
+    /** Update the paths of an Ingress. */
+    ingressUpdateIngressPaths: this.requestFunctionFactory(
+      descriptors.ingressUpdateIngressPaths,
+    ),
+    /** Update the tls settings of an Ingress. */
+    ingressUpdateIngressTls: this.requestFunctionFactory(
+      descriptors.ingressUpdateIngressTls,
+    ),
     /** Create a DNSZone. */
     dnsCreateDnsZone: this.requestFunctionFactory(descriptors.dnsCreateDnsZone),
     /** Get a DNSZone. */
@@ -701,8 +683,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getLatestScreenshot: this.requestFunctionFactory(
       descriptors.domainGetLatestScreenshot,
     ),
-    /** List Domains */
-    listDomains: this.requestFunctionFactory(descriptors.domainListDomains),
     /** List the contact schemas for a TLD. */
     listTldContactSchemas: this.requestFunctionFactory(
       descriptors.domainListTldContactSchemas,
@@ -722,10 +702,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update a contact of a Domain. */
     updateDomainContact: this.requestFunctionFactory(
       descriptors.domainUpdateDomainContact,
-    ),
-    /** Update the nameservers of a Domain. */
-    updateDomainNameservers: this.requestFunctionFactory(
-      descriptors.domainUpdateDomainNameservers,
     ),
     /** Update a Domain's project id. */
     updateDomainProjectId: this.requestFunctionFactory(
@@ -755,17 +731,9 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ingressListIngressesCompatibleWithCertificate: this.requestFunctionFactory(
       descriptors.ingressListIngressesCompatibleWithCertificate,
     ),
-    /** Update the paths of an Ingress. */
-    ingressUpdateIngressPaths: this.requestFunctionFactory(
-      descriptors.ingressUpdateIngressPaths,
-    ),
     /** Request the ACME certificate issuance of an Ingress. */
     ingressRequestIngressAcmeCertificateIssuance: this.requestFunctionFactory(
       descriptors.ingressRequestIngressAcmeCertificateIssuance,
-    ),
-    /** Update the tls settings of an Ingress. */
-    ingressUpdateIngressTls: this.requestFunctionFactory(
-      descriptors.ingressUpdateIngressTls,
     ),
     /** Check the replacement of a Certificate. */
     sslCheckReplaceCertificate: this.requestFunctionFactory(
@@ -805,30 +773,28 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
-  /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
-  public readonly file = {
-    /** Create a File. */
-    createFile: this.requestFunctionFactory(descriptors.fileCreateFile),
-    /** Get a File's meta. */
-    getFileMeta: this.requestFunctionFactory(descriptors.fileGetFileMeta),
-    /** Get a FileUploadToken's rules. */
-    getFileUploadTokenRules: this.requestFunctionFactory(
-      descriptors.fileGetFileUploadTokenRules,
-    ),
-    /** Get a FileUploadType's rules. */
-    getFileUploadTypeRules: this.requestFunctionFactory(
-      descriptors.fileGetFileUploadTypeRules,
-    ),
-    /** Get a File. */
-    getFile: this.requestFunctionFactory(descriptors.fileGetFile),
-    /** Get a File with user-friendly url. */
-    getFileWithName: this.requestFunctionFactory(
-      descriptors.fileGetFileWithName,
-    ),
-  };
-
   /** The mail API allows you to manage your mail accounts. */
   public readonly mail = {
+    /** Update the autoresponder of a MailAddress. */
+    updateMailAddressAutoresponder: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressAutoresponder,
+    ),
+    /** Update the forward addresses of a MailAddresses. */
+    updateMailAddressForwardAddresses: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressForwardAddresses,
+    ),
+    /** Update the password for a MailAddress. */
+    updateMailAddressPassword: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressPassword,
+    ),
+    /** Update the quota of a MailAddress. */
+    updateMailAddressQuota: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressQuota,
+    ),
+    /** Update the spam protection of a MailAddress. */
+    updateMailAddressSpamProtection: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressSpamProtection,
+    ),
     /** List DeliveryBoxes belonging to a Project. */
     listDeliveryBoxes: this.requestFunctionFactory(
       descriptors.mailListDeliveryBoxes,
@@ -873,33 +839,67 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateMailAddressAddress: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressAddress,
     ),
-    /** Update the autoresponder of a MailAddress. */
-    updateMailAddressAutoresponder: this.requestFunctionFactory(
-      descriptors.mailUpdateMailAddressAutoresponder,
-    ),
     /** Update the catchall of a MailAddress. */
     updateMailAddressCatchAll: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressCatchAll,
     ),
-    /** Update the forward addresses of a MailAddresses. */
-    updateMailAddressForwardAddresses: this.requestFunctionFactory(
-      descriptors.mailUpdateMailAddressForwardAddresses,
-    ),
-    /** Update the password for a MailAddress. */
-    updateMailAddressPassword: this.requestFunctionFactory(
-      descriptors.mailUpdateMailAddressPassword,
-    ),
-    /** Update the quota of a MailAddress. */
-    updateMailAddressQuota: this.requestFunctionFactory(
-      descriptors.mailUpdateMailAddressQuota,
-    ),
-    /** Update the spam protection of a MailAddress. */
-    updateMailAddressSpamProtection: this.requestFunctionFactory(
-      descriptors.mailUpdateMailAddressSpamProtection,
-    ),
     /** Update a mail setting of a Project. */
     updateProjectMailSetting: this.requestFunctionFactory(
       descriptors.mailUpdateProjectMailSetting,
+    ),
+  };
+
+  /** The notification API allows you to manage your notifications. */
+  public readonly notification = {
+    /** Subscribe a user to the mStudio newsletter. */
+    newsletterSubscribeUser: this.requestFunctionFactory(
+      descriptors.newsletterSubscribeUser,
+    ),
+    /** Getting the subscription status of the subscription. */
+    newsletterGetInfo: this.requestFunctionFactory(
+      descriptors.newsletterGetInfo,
+    ),
+    /** Unsubscribe a user from the mStudio newsletter. */
+    newsletterUnsubscribeUser: this.requestFunctionFactory(
+      descriptors.newsletterUnsubscribeUser,
+    ),
+    /** Get the counts for unread notifications of the user. */
+    scountUnreadNotifications: this.requestFunctionFactory(
+      descriptors.notificationsCountUnreadNotifications,
+    ),
+    /** List all unread notifications. */
+    slistNotifications: this.requestFunctionFactory(
+      descriptors.notificationsListNotifications,
+    ),
+    /** Mark all notifications as read. */
+    sreadAllNotifications: this.requestFunctionFactory(
+      descriptors.notificationsReadAllNotifications,
+    ),
+    /** Mark notification as read. */
+    sreadNotification: this.requestFunctionFactory(
+      descriptors.notificationsReadNotification,
+    ),
+  };
+
+  /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
+  public readonly file = {
+    /** Create a File. */
+    createFile: this.requestFunctionFactory(descriptors.fileCreateFile),
+    /** Get a File's meta. */
+    getFileMeta: this.requestFunctionFactory(descriptors.fileGetFileMeta),
+    /** Get a FileUploadToken's rules. */
+    getFileUploadTokenRules: this.requestFunctionFactory(
+      descriptors.fileGetFileUploadTokenRules,
+    ),
+    /** Get a FileUploadType's rules. */
+    getFileUploadTypeRules: this.requestFunctionFactory(
+      descriptors.fileGetFileUploadTypeRules,
+    ),
+    /** Get a File. */
+    getFile: this.requestFunctionFactory(descriptors.fileGetFile),
+    /** Get a File with user-friendly url. */
+    getFileWithName: this.requestFunctionFactory(
+      descriptors.fileGetFileWithName,
     ),
   };
 
