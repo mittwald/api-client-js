@@ -28,8 +28,15 @@ beforeEach(() => {
 });
 
 class TestModel extends ReferenceModel {
-  public static ofId(id: number) {
-    return new TestModel(String(id));
+  public readonly lazyDependency: number;
+
+  public static ofId(id: number, lazyDependency = 0) {
+    return new TestModel(String(id), lazyDependency);
+  }
+
+  public constructor(id: string, lazyDependency: number) {
+    super(id);
+    this.lazyDependency = lazyDependency;
   }
 
   public getDetailed = provideReact(async () => {
@@ -39,11 +46,14 @@ class TestModel extends ReferenceModel {
       id: this.id,
       foo: true,
     };
-  }, [this.id]);
+  }, [this.id, () => this.lazyDependency]);
 }
 
-const TestComponent: FC<{ id: number }> = (props) => {
-  const model = TestModel.ofId(props.id).getDetailed.use();
+const TestComponent: FC<{ id: number; lazyDependency?: number }> = (props) => {
+  const model = TestModel.ofId(
+    props.id,
+    props.lazyDependency,
+  ).getDetailed.use();
   return <span>{model.id}</span>;
 };
 
@@ -53,10 +63,14 @@ const TestWrapper: FC<PropsWithChildren> = (props) => (
   </MittwaldApiModelProvider>
 );
 
-const runTest = async (id: number, expectedDataLoadingCount: number) => {
+const runTest = async (
+  id: number,
+  expectedDataLoadingCount: number,
+  dynamicId = 0,
+) => {
   const ui = rerender
-    ? rerender(<TestComponent id={id} />)
-    : render(<TestComponent id={id} />, {
+    ? rerender(<TestComponent id={id} lazyDependency={dynamicId} />)
+    : render(<TestComponent id={id} lazyDependency={dynamicId} />, {
         wrapper: TestWrapper,
       });
 
@@ -77,6 +91,13 @@ test("Model caches data", async () => {
   await runTest(43, 2);
   await runTest(42, 2);
   await runTest(43, 2);
+});
+
+test("Model caches data with lazy dependency", async () => {
+  await runTest(43, 1);
+  await runTest(43, 2, 42);
+  await runTest(43, 2, 42);
+  await runTest(43, 3, 43);
 });
 
 test("Model cache can be refreshed", async () => {

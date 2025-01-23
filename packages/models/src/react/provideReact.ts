@@ -6,14 +6,30 @@ import { joinedId } from "../lib/joinedId.js";
 
 type AsyncFn = (...args: any[]) => Promise<unknown>;
 
+type ReactProvisionDep = string | number;
+type LazyReactProvisionDep = () => ReactProvisionDep;
+type ReactProvisionDeps = Array<ReactProvisionDep | LazyReactProvisionDep>;
+
 export const provideReact = <T extends AsyncFn>(
   loader: T,
-  dependencies: string[] = [],
+  dependencies: ReactProvisionDeps = [],
 ) => {
   type P = Parameters<T>;
-  const provisionId = joinedId(hash(loader), ...dependencies);
+  const loaderHash = hash(loader);
+  let cachedProvisionId: string | undefined;
 
   const getAsyncResource = (params: P) => {
+    const provisionId =
+      cachedProvisionId ??
+      joinedId(
+        loaderHash,
+        ...dependencies
+          .map((d) => (typeof d === "function" ? d() : d))
+          .map((d) => hash(d)),
+      );
+
+    cachedProvisionId = provisionId;
+
     const contextId = joinedId(provisionId, hash(params));
 
     const loaderWithContext = reactProvisionContext.bind(
