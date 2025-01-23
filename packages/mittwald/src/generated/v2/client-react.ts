@@ -639,11 +639,6 @@ const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.userGetSshKey,
     baseClient.user.getSshKey,
   ).getApiResource,
-  /** Get your account information. */
-  getOwnAccount: new ApiCallAsyncResourceFactory(
-    descriptors.userGetOwnAccount,
-    baseClient.user.getOwnAccount,
-  ).getApiResource,
   /** The timestamp of your latest password change. */
   getPasswordUpdatedAt: new ApiCallAsyncResourceFactory(
     descriptors.userGetPasswordUpdatedAt,

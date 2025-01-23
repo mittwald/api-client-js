@@ -3070,22 +3070,6 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.userDeleteUser, TStatus>;
     }
 
-    namespace UserGetOwnAccount {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userGetOwnAccount
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userGetOwnAccount, TStatus>;
-    }
-
-    namespace UserUpdateAccount {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userUpdateAccount
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userUpdateAccount, TStatus>;
-    }
-
     namespace UserGetPasswordUpdatedAt {
       type RequestData = InferredRequestData<
         typeof descriptors.userGetPasswordUpdatedAt
@@ -3288,6 +3272,14 @@ export declare module MittwaldAPIV2 {
           typeof descriptors.userSupportCodeRequest,
           TStatus
         >;
+    }
+
+    namespace UserUpdateAccount {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userUpdateAccount
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userUpdateAccount, TStatus>;
     }
 
     namespace UserVerifyEmail {
@@ -24592,90 +24584,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2UsersSelfPersonalInformation {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {}
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.SignupAccount;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Put {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            person: MittwaldAPIV2.Components.Schemas.CommonsPerson;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2UsersSelfCredentialsPasswordUpdatedAt {
       namespace Get {
         namespace Parameters {
@@ -25838,6 +25746,53 @@ export declare module MittwaldAPIV2 {
                  */
                 supportCode: string;
               }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2UsersSelfPersonalInformation {
+      namespace Put {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            person: MittwaldAPIV2.Components.Schemas.CommonsPerson;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
             }
           }
 

@@ -991,10 +991,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteSshKey: this.requestFunctionFactory(descriptors.userDeleteSshKey),
     /** Delete your account and all your personal data. */
     deleteUser: this.requestFunctionFactory(descriptors.userDeleteUser),
-    /** Get your account information. */
-    getOwnAccount: this.requestFunctionFactory(descriptors.userGetOwnAccount),
-    /** Update your account information. */
-    updateAccount: this.requestFunctionFactory(descriptors.userUpdateAccount),
     /** The timestamp of your latest password change. */
     getPasswordUpdatedAt: this.requestFunctionFactory(
       descriptors.userGetPasswordUpdatedAt,
@@ -1065,6 +1061,8 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     supportCodeRequest: this.requestFunctionFactory(
       descriptors.userSupportCodeRequest,
     ),
+    /** Update your account information. */
+    updateAccount: this.requestFunctionFactory(descriptors.userUpdateAccount),
     /** Verify an added Email-Address. */
     verifyEmail: this.requestFunctionFactory(descriptors.userVerifyEmail),
     /** Verify phone number. */
