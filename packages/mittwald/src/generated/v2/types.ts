@@ -17529,6 +17529,10 @@ export declare module MittwaldAPIV2 {
             printedInvoices?: boolean;
             recipient?: MittwaldAPIV2.Components.Schemas.InvoiceRecipient;
             recipientSameAsOwner?: boolean;
+            /**
+             * @deprecated
+             * parameter is deprecated and will be ignored
+             */
             targetDay?: number;
           }
 
