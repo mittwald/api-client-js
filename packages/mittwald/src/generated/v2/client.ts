@@ -881,50 +881,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
-  /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
-  public readonly file = {
-    /** Create a File. */
-    createFile: this.requestFunctionFactory(descriptors.fileCreateFile),
-    /** Get a File's meta. */
-    getFileMeta: this.requestFunctionFactory(descriptors.fileGetFileMeta),
-    /** Get a FileUploadToken's rules. */
-    getFileUploadTokenRules: this.requestFunctionFactory(
-      descriptors.fileGetFileUploadTokenRules,
-    ),
-    /** Get a FileUploadType's rules. */
-    getFileUploadTypeRules: this.requestFunctionFactory(
-      descriptors.fileGetFileUploadTypeRules,
-    ),
-    /** Get a File. */
-    getFile: this.requestFunctionFactory(descriptors.fileGetFile),
-    /** Get a File with user-friendly url. */
-    getFileWithName: this.requestFunctionFactory(
-      descriptors.fileGetFileWithName,
-    ),
-  };
-
-  /** The page insights API allows you to get page insights information. */
-  public readonly pageInsights = {
-    /** Get detailed performance data for a given domain and path. */
-    pageinsightsGetPerformanceData: this.requestFunctionFactory(
-      descriptors.pageinsightsGetPerformanceData,
-    ),
-    /** Get all data for a given strace. */
-    pageinsightsGetStraceData: this.requestFunctionFactory(
-      descriptors.pageinsightsGetStraceData,
-    ),
-    /** List websites (specified as domain and path) from a project where performance data is available. */
-    pageinsightsListPerformanceDataForProject: this.requestFunctionFactory(
-      descriptors.pageinsightsListPerformanceDataForProject,
-    ),
-    /** Schedule a strace measurement for a single http request. */
-    pageinsightsScheduleStrace: this.requestFunctionFactory(
-      descriptors.pageinsightsScheduleStrace,
-    ),
-  };
-
   /** The user API allows you to manage your own user and access information of other users that might be visible to you. */
   public readonly user = {
+    /** Update your account information. */
+    updateAccount: this.requestFunctionFactory(descriptors.userUpdateAccount),
     /** Get a PasswordPolicy. */
     passwordValidationGetPasswordPolicy: this.requestFunctionFactory(
       descriptors.passwordValidationGetPasswordPolicy,
@@ -1061,8 +1021,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     supportCodeRequest: this.requestFunctionFactory(
       descriptors.userSupportCodeRequest,
     ),
-    /** Update your account information. */
-    updateAccount: this.requestFunctionFactory(descriptors.userUpdateAccount),
     /** Verify an added Email-Address. */
     verifyEmail: this.requestFunctionFactory(descriptors.userVerifyEmail),
     /** Verify phone number. */
@@ -1072,6 +1030,48 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Verify your registration. */
     verifyRegistration: this.requestFunctionFactory(
       descriptors.userVerifyRegistration,
+    ),
+  };
+
+  /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
+  public readonly file = {
+    /** Create a File. */
+    createFile: this.requestFunctionFactory(descriptors.fileCreateFile),
+    /** Get a File's meta. */
+    getFileMeta: this.requestFunctionFactory(descriptors.fileGetFileMeta),
+    /** Get a FileUploadToken's rules. */
+    getFileUploadTokenRules: this.requestFunctionFactory(
+      descriptors.fileGetFileUploadTokenRules,
+    ),
+    /** Get a FileUploadType's rules. */
+    getFileUploadTypeRules: this.requestFunctionFactory(
+      descriptors.fileGetFileUploadTypeRules,
+    ),
+    /** Get a File. */
+    getFile: this.requestFunctionFactory(descriptors.fileGetFile),
+    /** Get a File with user-friendly url. */
+    getFileWithName: this.requestFunctionFactory(
+      descriptors.fileGetFileWithName,
+    ),
+  };
+
+  /** The page insights API allows you to get page insights information. */
+  public readonly pageInsights = {
+    /** Get detailed performance data for a given domain and path. */
+    pageinsightsGetPerformanceData: this.requestFunctionFactory(
+      descriptors.pageinsightsGetPerformanceData,
+    ),
+    /** Get all data for a given strace. */
+    pageinsightsGetStraceData: this.requestFunctionFactory(
+      descriptors.pageinsightsGetStraceData,
+    ),
+    /** List websites (specified as domain and path) from a project where performance data is available. */
+    pageinsightsListPerformanceDataForProject: this.requestFunctionFactory(
+      descriptors.pageinsightsListPerformanceDataForProject,
+    ),
+    /** Schedule a strace measurement for a single http request. */
+    pageinsightsScheduleStrace: this.requestFunctionFactory(
+      descriptors.pageinsightsScheduleStrace,
     ),
   };
 

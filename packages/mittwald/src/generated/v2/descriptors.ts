@@ -5191,6 +5191,40 @@ export const newsletterSubscribeUser: OpenAPIOperation<
   operationId: "newsletter-subscribe-user",
 };
 
+/** Update your account information. */
+export const userUpdateAccount: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/personal-information",
+  method: "PUT",
+  operationId: "user-update-account",
+};
+
 /** Create a DNSZone. */
 export const dnsCreateDnsZone: OpenAPIOperation<
   RequestType<
@@ -12513,40 +12547,6 @@ export const userSupportCodeRequest: OpenAPIOperation<
   path: "/v2/users/self/credentials/support-code",
   method: "GET",
   operationId: "user-support-code-request",
-};
-
-/** Update your account information. */
-export const userUpdateAccount: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/users/self/personal-information",
-  method: "PUT",
-  operationId: "user-update-account",
 };
 
 /** Verify an added Email-Address. */
