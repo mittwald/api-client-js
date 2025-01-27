@@ -6555,6 +6555,16 @@ export declare module MittwaldAPIV2 {
         value: string;
       }
 
+      export interface SignupOAuthClient {
+        allowedGrantTypes?: string[];
+        allowedRedirectUris?: string[];
+        allowedScopes?: string[];
+        contributorId: string;
+        description?: string;
+        humanReadableName: string;
+        id: string;
+      }
+
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
