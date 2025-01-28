@@ -4461,6 +4461,7 @@ export declare module MittwaldAPIV2 {
         domain: string;
         id: string;
         recordSet: {
+          caa: MittwaldAPIV2.Components.Schemas.DnsRecordCAA;
           cname: MittwaldAPIV2.Components.Schemas.DnsRecordCNAME;
           combinedARecords: MittwaldAPIV2.Components.Schemas.DnsRecordCombinedA;
           mx: MittwaldAPIV2.Components.Schemas.DnsRecordMX;
@@ -4578,7 +4579,7 @@ export declare module MittwaldAPIV2 {
 
       export interface MarketplaceContributor {
         customerId: string;
-        description: string;
+        description?: string;
         email?: string;
         id: string;
         logoRefId?: string;
@@ -4648,6 +4649,11 @@ export declare module MittwaldAPIV2 {
        */
       export interface MarketplaceExtensionDeprecation {
         deprecatedAt: string;
+        note?: string;
+        /**
+         * The ID of the successor extension.
+         */
+        successorId?: string;
       }
 
       /**
@@ -4708,8 +4714,11 @@ export declare module MittwaldAPIV2 {
         url: string;
       }
 
-      export type MarketplaceFrontendFragment =
-        MittwaldAPIV2.Components.Schemas.MarketplaceUrlFrontendFragment;
+      export type MarketplaceFrontendFragment = {
+        additionalProperties?: {
+          [k: string]: string;
+        };
+      } & MittwaldAPIV2.Components.Schemas.MarketplaceUrlFrontendFragment;
 
       export interface MarketplaceOwnExtension {
         backendComponents?: MittwaldAPIV2.Components.Schemas.MarketplaceBackendComponents;
@@ -6388,6 +6397,16 @@ export declare module MittwaldAPIV2 {
         ipAddress?: string;
       }
 
+      export interface SignupOAuthClient {
+        allowedGrantTypes?: string[];
+        allowedRedirectUris?: string[];
+        allowedScopes?: string[];
+        contributorId: string;
+        description?: string;
+        humanReadableName: string;
+        id: string;
+      }
+
       export interface SignupProfile {
         email?: string;
         /**
@@ -6555,14 +6574,25 @@ export declare module MittwaldAPIV2 {
         value: string;
       }
 
-      export interface SignupOAuthClient {
-        allowedGrantTypes?: string[];
-        allowedRedirectUris?: string[];
-        allowedScopes?: string[];
-        contributorId: string;
-        description?: string;
-        humanReadableName: string;
-        id: string;
+      export type DnsRecordCAA =
+        | MittwaldAPIV2.Components.Schemas.DnsRecordUnset
+        | MittwaldAPIV2.Components.Schemas.DnsRecordCAAComponent;
+
+      export interface DnsRecordCAAComponent {
+        /**
+         * @minItems 1
+         */
+        records: [
+          MittwaldAPIV2.Components.Schemas.DnsRecordCAARecord,
+          ...MittwaldAPIV2.Components.Schemas.DnsRecordCAARecord[],
+        ];
+        settings: MittwaldAPIV2.Components.Schemas.DnsRecordSettings;
+      }
+
+      export interface DnsRecordCAARecord {
+        flags: number;
+        tag: "issue" | "issuewild" | "iodef";
+        value: string;
       }
 
       export interface CommonsAddress {
@@ -14912,7 +14942,7 @@ export declare module MittwaldAPIV2 {
         namespace Parameters {
           export type Path = {
             dnsZoneId: string;
-            recordSet: "a" | "mx" | "txt" | "srv" | "cname";
+            recordSet: "a" | "mx" | "txt" | "srv" | "cname" | "caa";
           };
 
           export type RequestBody =
@@ -14921,7 +14951,8 @@ export declare module MittwaldAPIV2 {
             | MittwaldAPIV2.Components.Schemas.DnsRecordMXCustom
             | MittwaldAPIV2.Components.Schemas.DnsRecordTXTComponent
             | MittwaldAPIV2.Components.Schemas.DnsRecordSRVComponent
-            | MittwaldAPIV2.Components.Schemas.DnsRecordCNAMEComponent;
+            | MittwaldAPIV2.Components.Schemas.DnsRecordCNAMEComponent
+            | MittwaldAPIV2.Components.Schemas.DnsRecordCAAComponent;
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
