@@ -4342,6 +4342,27 @@ export declare module MittwaldAPIV2 {
         number: string;
       }
 
+      export type DnsRecordCAA =
+        | MittwaldAPIV2.Components.Schemas.DnsRecordUnset
+        | MittwaldAPIV2.Components.Schemas.DnsRecordCAAComponent;
+
+      export interface DnsRecordCAAComponent {
+        /**
+         * @minItems 1
+         */
+        records: [
+          MittwaldAPIV2.Components.Schemas.DnsRecordCAARecord,
+          ...MittwaldAPIV2.Components.Schemas.DnsRecordCAARecord[],
+        ];
+        settings: MittwaldAPIV2.Components.Schemas.DnsRecordSettings;
+      }
+
+      export interface DnsRecordCAARecord {
+        flags: number;
+        tag: "issue" | "issuewild" | "iodef";
+        value: string;
+      }
+
       export type DnsRecordCNAME =
         | MittwaldAPIV2.Components.Schemas.DnsRecordUnset
         | MittwaldAPIV2.Components.Schemas.DnsRecordCNAMEComponent;
@@ -6571,27 +6592,6 @@ export declare module MittwaldAPIV2 {
 
       export interface VarnishSoftwareSetting {
         name: string;
-        value: string;
-      }
-
-      export type DnsRecordCAA =
-        | MittwaldAPIV2.Components.Schemas.DnsRecordUnset
-        | MittwaldAPIV2.Components.Schemas.DnsRecordCAAComponent;
-
-      export interface DnsRecordCAAComponent {
-        /**
-         * @minItems 1
-         */
-        records: [
-          MittwaldAPIV2.Components.Schemas.DnsRecordCAARecord,
-          ...MittwaldAPIV2.Components.Schemas.DnsRecordCAARecord[],
-        ];
-        settings: MittwaldAPIV2.Components.Schemas.DnsRecordSettings;
-      }
-
-      export interface DnsRecordCAARecord {
-        flags: number;
-        tag: "issue" | "issuewild" | "iodef";
         value: string;
       }
 
