@@ -2122,7 +2122,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@mittwald/api-code-generator", "workspace:packages/generator"],\
           ["@jest/globals", "npm:29.7.0"],\
-          ["@oclif/core", "npm:3.27.0"],\
+          ["@oclif/core", "npm:4.2.5"],\
           ["@oclif/plugin-help", "npm:6.2.19"],\
           ["@oclif/plugin-plugins", "npm:4.3.10"],\
           ["@sindresorhus/is", "npm:6.3.1"],\
@@ -2846,7 +2846,7 @@ const RAW_RUNTIME_STATE =
           ["clean-stack", "npm:3.0.1"],\
           ["cli-progress", "npm:3.12.0"],\
           ["color", "npm:4.2.3"],\
-          ["debug", "virtual:135e8eab1747a52ed131c7b09545099ff90be2dfb076b634950da8e30af0467c233586cdf53b64476223ea3c6dbc6335da8e28936cdc745d1f296db6c80cb2f3#npm:4.3.6"],\
+          ["debug", "virtual:6e08d8c990d449b7be605136e15bf261695fe640c218fa8c631ba13172bb4b619902f4486f2642cb83c4af6070bd43d957918b50daee731f125aa1e5fe818ce2#npm:4.3.6"],\
           ["ejs", "npm:3.1.10"],\
           ["get-package-type", "npm:0.1.0"],\
           ["globby", "npm:11.1.0"],\
@@ -2877,7 +2877,7 @@ const RAW_RUNTIME_STATE =
           ["ansis", "npm:3.3.2"],\
           ["clean-stack", "npm:3.0.1"],\
           ["cli-spinners", "npm:2.9.2"],\
-          ["debug", "virtual:135e8eab1747a52ed131c7b09545099ff90be2dfb076b634950da8e30af0467c233586cdf53b64476223ea3c6dbc6335da8e28936cdc745d1f296db6c80cb2f3#npm:4.3.6"],\
+          ["debug", "virtual:6e08d8c990d449b7be605136e15bf261695fe640c218fa8c631ba13172bb4b619902f4486f2642cb83c4af6070bd43d957918b50daee731f125aa1e5fe818ce2#npm:4.3.6"],\
           ["ejs", "npm:3.1.10"],\
           ["get-package-type", "npm:0.1.0"],\
           ["globby", "npm:11.1.0"],\
@@ -2885,6 +2885,31 @@ const RAW_RUNTIME_STATE =
           ["is-wsl", "npm:2.2.0"],\
           ["lilconfig", "npm:3.1.2"],\
           ["minimatch", "npm:9.0.5"],\
+          ["string-width", "npm:4.2.3"],\
+          ["supports-color", "npm:8.1.1"],\
+          ["widest-line", "npm:3.1.0"],\
+          ["wordwrap", "npm:1.0.0"],\
+          ["wrap-ansi", "npm:7.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:4.2.5", {\
+        "packageLocation": "./.yarn/cache/@oclif-core-npm-4.2.5-1f65dc4e9b-c313648f26.zip/node_modules/@oclif/core/",\
+        "packageDependencies": [\
+          ["@oclif/core", "npm:4.2.5"],\
+          ["ansi-escapes", "npm:4.3.2"],\
+          ["ansis", "npm:3.10.0"],\
+          ["clean-stack", "npm:3.0.1"],\
+          ["cli-spinners", "npm:2.9.2"],\
+          ["debug", "virtual:1f65dc4e9b1d77395d2847ae1bb53e34ee0314fab6e3ec8c659c1be8536d68225c7ecd1d0633579b9a4b621fe2452df78a1f0efe6e29679970c6a4a938114e40#npm:4.4.0"],\
+          ["ejs", "npm:3.1.10"],\
+          ["get-package-type", "npm:0.1.0"],\
+          ["globby", "npm:11.1.0"],\
+          ["indent-string", "npm:4.0.0"],\
+          ["is-wsl", "npm:2.2.0"],\
+          ["lilconfig", "npm:3.1.3"],\
+          ["minimatch", "npm:9.0.5"],\
+          ["semver", "npm:7.6.3"],\
           ["string-width", "npm:4.2.3"],\
           ["supports-color", "npm:8.1.1"],\
           ["widest-line", "npm:3.1.0"],\
@@ -4554,6 +4579,13 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["ansis", [\
+      ["npm:3.10.0", {\
+        "packageLocation": "./.yarn/cache/ansis-npm-3.10.0-631d7f5b60-440721b606.zip/node_modules/ansis/",\
+        "packageDependencies": [\
+          ["ansis", "npm:3.10.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:3.3.2", {\
         "packageLocation": "./.yarn/cache/ansis-npm-3.3.2-f8efc0094e-e6c7b93a4f.zip/node_modules/ansis/",\
         "packageDependencies": [\
@@ -5965,12 +5997,19 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:135e8eab1747a52ed131c7b09545099ff90be2dfb076b634950da8e30af0467c233586cdf53b64476223ea3c6dbc6335da8e28936cdc745d1f296db6c80cb2f3#npm:4.3.6", {\
-        "packageLocation": "./.yarn/__virtual__/debug-virtual-9677f8f425/0/cache/debug-npm-4.3.6-ecb233d831-d3adb9af7d.zip/node_modules/debug/",\
+      ["npm:4.4.0", {\
+        "packageLocation": "./.yarn/cache/debug-npm-4.4.0-f6efe76023-1847944c2e.zip/node_modules/debug/",\
         "packageDependencies": [\
-          ["debug", "virtual:135e8eab1747a52ed131c7b09545099ff90be2dfb076b634950da8e30af0467c233586cdf53b64476223ea3c6dbc6335da8e28936cdc745d1f296db6c80cb2f3#npm:4.3.6"],\
+          ["debug", "npm:4.4.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:1f65dc4e9b1d77395d2847ae1bb53e34ee0314fab6e3ec8c659c1be8536d68225c7ecd1d0633579b9a4b621fe2452df78a1f0efe6e29679970c6a4a938114e40#npm:4.4.0", {\
+        "packageLocation": "./.yarn/__virtual__/debug-virtual-d32d484278/0/cache/debug-npm-4.4.0-f6efe76023-1847944c2e.zip/node_modules/debug/",\
+        "packageDependencies": [\
+          ["debug", "virtual:1f65dc4e9b1d77395d2847ae1bb53e34ee0314fab6e3ec8c659c1be8536d68225c7ecd1d0633579b9a4b621fe2452df78a1f0efe6e29679970c6a4a938114e40#npm:4.4.0"],\
           ["@types/supports-color", null],\
-          ["ms", "npm:2.1.2"],\
+          ["ms", "npm:2.1.3"],\
           ["supports-color", "npm:8.1.1"]\
         ],\
         "packagePeers": [\
@@ -5986,6 +6025,20 @@ const RAW_RUNTIME_STATE =
           ["@types/supports-color", null],\
           ["ms", "npm:2.1.2"],\
           ["supports-color", null]\
+        ],\
+        "packagePeers": [\
+          "@types/supports-color",\
+          "supports-color"\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["virtual:6e08d8c990d449b7be605136e15bf261695fe640c218fa8c631ba13172bb4b619902f4486f2642cb83c4af6070bd43d957918b50daee731f125aa1e5fe818ce2#npm:4.3.6", {\
+        "packageLocation": "./.yarn/__virtual__/debug-virtual-0d1724ed3a/0/cache/debug-npm-4.3.6-ecb233d831-d3adb9af7d.zip/node_modules/debug/",\
+        "packageDependencies": [\
+          ["debug", "virtual:6e08d8c990d449b7be605136e15bf261695fe640c218fa8c631ba13172bb4b619902f4486f2642cb83c4af6070bd43d957918b50daee731f125aa1e5fe818ce2#npm:4.3.6"],\
+          ["@types/supports-color", null],\
+          ["ms", "npm:2.1.2"],\
+          ["supports-color", "npm:8.1.1"]\
         ],\
         "packagePeers": [\
           "@types/supports-color",\
@@ -9413,6 +9466,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/lilconfig-npm-3.1.2-e5b7292949-8058403850.zip/node_modules/lilconfig/",\
         "packageDependencies": [\
           ["lilconfig", "npm:3.1.2"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.3", {\
+        "packageLocation": "./.yarn/cache/lilconfig-npm-3.1.3-74a77377bb-b932ce1af9.zip/node_modules/lilconfig/",\
+        "packageDependencies": [\
+          ["lilconfig", "npm:3.1.3"]\
         ],\
         "linkType": "HARD"\
       }]\

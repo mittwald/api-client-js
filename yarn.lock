@@ -1484,7 +1484,7 @@ __metadata:
   resolution: "@mittwald/api-code-generator@workspace:packages/generator"
   dependencies:
     "@jest/globals": "npm:^29.7.0"
-    "@oclif/core": "npm:^3.27.0"
+    "@oclif/core": "npm:^4.2.5"
     "@oclif/plugin-help": "npm:^6.2.19"
     "@oclif/plugin-plugins": "npm:^4.3.10"
     "@sindresorhus/is": "npm:^6.3.1"
@@ -2128,7 +2128,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oclif/core@npm:^3.25.2, @oclif/core@npm:^3.27.0":
+"@oclif/core@npm:^3.25.2":
   version: 3.27.0
   resolution: "@oclif/core@npm:3.27.0"
   dependencies:
@@ -2186,6 +2186,32 @@ __metadata:
     wordwrap: "npm:^1.0.0"
     wrap-ansi: "npm:^7.0.0"
   checksum: 10/9c286cac4b39b77cddc7d32470ba5067ce21ce856a2da2302348c03ea23c163488015928d312c20326c60478c125016e635d5634f1c981c22d6485b05e63e007
+  languageName: node
+  linkType: hard
+
+"@oclif/core@npm:^4.2.5":
+  version: 4.2.5
+  resolution: "@oclif/core@npm:4.2.5"
+  dependencies:
+    ansi-escapes: "npm:^4.3.2"
+    ansis: "npm:^3.9.0"
+    clean-stack: "npm:^3.0.1"
+    cli-spinners: "npm:^2.9.2"
+    debug: "npm:^4.4.0"
+    ejs: "npm:^3.1.10"
+    get-package-type: "npm:^0.1.0"
+    globby: "npm:^11.1.0"
+    indent-string: "npm:^4.0.0"
+    is-wsl: "npm:^2.2.0"
+    lilconfig: "npm:^3.1.3"
+    minimatch: "npm:^9.0.5"
+    semver: "npm:^7.6.3"
+    string-width: "npm:^4.2.3"
+    supports-color: "npm:^8"
+    widest-line: "npm:^3.1.0"
+    wordwrap: "npm:^1.0.0"
+    wrap-ansi: "npm:^7.0.0"
+  checksum: 10/c313648f260f3ec87f82fa16d5963c7784e2336cd64132a4f01fb9825364fc071ba91fabed2a9faec66890a6564200b9fd523a1dcf25dbf654169f8ce98acb03
   languageName: node
   linkType: hard
 
@@ -3544,6 +3570,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ansis@npm:^3.9.0":
+  version: 3.10.0
+  resolution: "ansis@npm:3.10.0"
+  checksum: 10/440721b606d80fd61efe4fcdfbfbb336889b0ba59cfb787c5b0d1d2ea01629796c894ed648fefcd381521344a6aec62654f94766feae8344d53803c17a4a9636
+  languageName: node
+  linkType: hard
+
 "anymatch@npm:^3.0.3":
   version: 3.1.3
   resolution: "anymatch@npm:3.1.3"
@@ -4726,6 +4759,18 @@ __metadata:
     supports-color:
       optional: true
   checksum: 10/d3adb9af7d57a9e809a68f404490cf776122acca16e6359a2702c0f462e510e91f9765c07f707b8ab0d91e03bad57328f3256f5082631cefb5393d0394d50fb7
+  languageName: node
+  linkType: hard
+
+"debug@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "debug@npm:4.4.0"
+  dependencies:
+    ms: "npm:^2.1.3"
+  peerDependenciesMeta:
+    supports-color:
+      optional: true
+  checksum: 10/1847944c2e3c2c732514b93d11886575625686056cd765336212dc15de2d2b29612b6cd80e1afba767bb8e1803b778caf9973e98169ef1a24a7a7009e1820367
   languageName: node
   linkType: hard
 
@@ -7774,6 +7819,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lilconfig@npm:^3.1.3":
+  version: 3.1.3
+  resolution: "lilconfig@npm:3.1.3"
+  checksum: 10/b932ce1af94985f0efbe8896e57b1f814a48c8dbd7fc0ef8469785c6303ed29d0090af3ccad7e36b626bfca3a4dc56cc262697e9a8dd867623cf09a39d54e4c3
+  languageName: node
+  linkType: hard
+
 "lines-and-columns@npm:2.0.3":
   version: 2.0.3
   resolution: "lines-and-columns@npm:2.0.3"
@@ -8597,7 +8649,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ms@npm:^2.1.2":
+"ms@npm:^2.1.2, ms@npm:^2.1.3":
   version: 2.1.3
   resolution: "ms@npm:2.1.3"
   checksum: 10/aa92de608021b242401676e35cfa5aa42dd70cbdc082b916da7fb925c542173e36bce97ea3e804923fe92c0ad991434e4a38327e15a1b5b5f945d66df615ae6d
