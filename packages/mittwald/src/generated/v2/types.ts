@@ -14872,20 +14872,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2DnsZonesZoneIdRecordsetAcombinedCustom {}
-
-    namespace V2DnsZonesZoneIdRecordsetAcombinedManagedIngress {}
-
-    namespace V2DnsZonesZoneIdRecordsetCname {}
-
-    namespace V2DnsZonesZoneIdRecordsetMxCustom {}
-
-    namespace V2DnsZonesZoneIdRecordsetMxManaged {}
-
-    namespace V2DnsZonesZoneIdRecordsetSrv {}
-
-    namespace V2DnsZonesZoneIdRecordsetTxt {}
-
     namespace V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged {
       namespace Post {
         namespace Parameters {
@@ -26167,5 +26153,19 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
+
+    namespace V2DnsZonesZoneIdRecordsetAcombinedManagedIngress {}
+
+    namespace V2DnsZonesZoneIdRecordsetMxManaged {}
+
+    namespace V2DnsZonesZoneIdRecordsetAcombinedCustom {}
+
+    namespace V2DnsZonesZoneIdRecordsetCname {}
+
+    namespace V2DnsZonesZoneIdRecordsetMxCustom {}
+
+    namespace V2DnsZonesZoneIdRecordsetSrv {}
+
+    namespace V2DnsZonesZoneIdRecordsetTxt {}
   }
 }
