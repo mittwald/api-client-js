@@ -9684,7 +9684,17 @@ export declare module MittwaldAPIV2 {
 
           export type Header = {};
 
-          export type Query = {};
+          export type Query = {
+            sort?: (
+              | "createdAt"
+              | "lastMessage.createdAt"
+              | "title"
+              | "priority"
+              | "shortId"
+              | "conversationId"
+            )[];
+            order?: ("asc" | "desc")[];
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -13820,6 +13830,20 @@ export declare module MittwaldAPIV2 {
     namespace V2CustomerCustomerIdActionsLeave {}
 
     namespace V2CustomersCustomerIdActionsLeave {}
+
+    namespace V2DnsZonesZoneIdRecordsetAcombinedCustom {}
+
+    namespace V2DnsZonesZoneIdRecordsetAcombinedManagedIngress {}
+
+    namespace V2DnsZonesZoneIdRecordsetCname {}
+
+    namespace V2DnsZonesZoneIdRecordsetMxCustom {}
+
+    namespace V2DnsZonesZoneIdRecordsetMxManaged {}
+
+    namespace V2DnsZonesZoneIdRecordsetSrv {}
+
+    namespace V2DnsZonesZoneIdRecordsetTxt {}
 
     namespace V2DomainsDomainIdHandlesOwnerc {}
 
@@ -26153,19 +26177,5 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
-
-    namespace V2DnsZonesZoneIdRecordsetAcombinedManagedIngress {}
-
-    namespace V2DnsZonesZoneIdRecordsetMxManaged {}
-
-    namespace V2DnsZonesZoneIdRecordsetAcombinedCustom {}
-
-    namespace V2DnsZonesZoneIdRecordsetCname {}
-
-    namespace V2DnsZonesZoneIdRecordsetMxCustom {}
-
-    namespace V2DnsZonesZoneIdRecordsetSrv {}
-
-    namespace V2DnsZonesZoneIdRecordsetTxt {}
   }
 }
