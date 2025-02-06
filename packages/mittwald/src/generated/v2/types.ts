@@ -4620,6 +4620,9 @@ export declare module MittwaldAPIV2 {
         context: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
         contributorId: string;
         deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
+        /**
+         * A short description of the capabilites of the Extension.
+         */
         description: string;
         detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
         disabled: boolean;
@@ -4645,6 +4648,7 @@ export declare module MittwaldAPIV2 {
          * deprecated
          */
         state: "enabled" | "blocked" | "disabled";
+        subTitle: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
         support: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
         /**
          * @minItems 0
@@ -4686,7 +4690,7 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * Supported languages. Format ISO-639-1.
+       * A detailed description of the capabilities of the extension.
        */
       export interface MarketplaceDetailedDescriptions {
         de: MittwaldAPIV2.Components.Schemas.MarketplaceDescriptionFormats;
@@ -4766,6 +4770,7 @@ export declare module MittwaldAPIV2 {
          * deprecated
          */
         state?: "enabled" | "blocked" | "disabled";
+        subTitle?: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
         support?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
         /**
          * @minItems 0
@@ -6593,6 +6598,41 @@ export declare module MittwaldAPIV2 {
       export interface VarnishSoftwareSetting {
         name: string;
         value: string;
+      }
+
+      /**
+       * A brief subtitle for the extension.
+       */
+      export interface MarketplaceSubTitle {
+        de: string;
+        en?: string;
+      }
+
+      export interface ProjectScaling {
+        maximum: number;
+        minimum: number;
+      }
+
+      export interface ProjectServerInternal {
+        clusterName: string;
+        createdAt: string;
+        customerId: string;
+        description: string;
+        disabledReason?: MittwaldAPIV2.Components.Schemas.ProjectServerDisableReason;
+        id: string;
+        imageRefId?: string;
+        /**
+         * @deprecated
+         * deprecated by property status
+         */
+        isReady: boolean;
+        machineType: MittwaldAPIV2.Components.Schemas.ProjectMachineType;
+        readiness: MittwaldAPIV2.Components.Schemas.ProjectDeprecatedServerReadinessStatus;
+        scaling?: MittwaldAPIV2.Components.Schemas.ProjectScaling;
+        shortId: string;
+        statisticsBaseDomain?: string;
+        status: MittwaldAPIV2.Components.Schemas.ProjectServerStatus;
+        storage: string;
       }
 
       export interface CommonsAddress {
