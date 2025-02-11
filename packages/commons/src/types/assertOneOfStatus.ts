@@ -8,7 +8,10 @@ export function assertOneOfStatus<T extends Response, S extends T["status"]>(
   if (!expectedStatus.includes(response.status as S)) {
     throw ApiClientError.fromResponse(
       `Unexpected response status (expected ${expectedStatus}, got: ${response.status})`,
-      response,
+      {
+        ...response,
+        request: null,
+      },
     );
   }
 }
