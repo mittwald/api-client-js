@@ -4601,12 +4601,19 @@ export declare module MittwaldAPIV2 {
       export interface MarketplaceContributor {
         customerId: string;
         description?: string;
+        /**
+         * @deprecated
+         */
         email?: string;
         id: string;
         logoRefId?: string;
         name: string;
+        /**
+         * @deprecated
+         */
         phone?: string;
         state: MittwaldAPIV2.Components.Schemas.MarketplaceContributorState;
+        supportInformation: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
         url?: string;
       }
 
@@ -4648,6 +4655,7 @@ export declare module MittwaldAPIV2 {
          * deprecated
          */
         state: "enabled" | "blocked" | "disabled";
+        statistics: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionStatistics;
         subTitle: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
         support: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
         /**
@@ -4734,6 +4742,10 @@ export declare module MittwaldAPIV2 {
         webhooksAreHalted: boolean;
       }
 
+      export interface MarketplaceExtensionStatistics {
+        amountOfInstances: number;
+      }
+
       export interface MarketplaceExternalComponent {
         name: string;
         url: string;
@@ -4763,19 +4775,33 @@ export declare module MittwaldAPIV2 {
             k: string
           ]: MittwaldAPIV2.Components.Schemas.MarketplaceFrontendFragment;
         };
+        functional: boolean;
         id: string;
+        /**
+         * This is the FileId of the Logo. Retrieve the file with this id on `/v2/files/{logoRefId}`.
+         */
+        logoRefId?: string;
         name: string;
+        published: boolean;
+        requestedChanges?: {
+          context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+          scopes?: string[];
+          webhookUrls?: MittwaldAPIV2.Components.Schemas.MarketplaceBackendComponents;
+        };
         scopes?: string[];
         /**
          * deprecated
          */
         state?: "enabled" | "blocked" | "disabled";
+        statistics: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionStatistics;
         subTitle?: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
         support?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
         /**
          * @minItems 0
          */
         tags?: string[];
+        verificationRequested: boolean;
+        verified: boolean;
       }
 
       export interface MarketplacePublicKey {
@@ -4785,6 +4811,14 @@ export declare module MittwaldAPIV2 {
          */
         key: string;
         serial: string;
+      }
+
+      /**
+       * A few words to promote your Extension.
+       */
+      export interface MarketplaceSubTitle {
+        de: string;
+        en?: string;
       }
 
       export interface MarketplaceSupportMeta {
@@ -4989,6 +5023,10 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface IngressTargetDirectory {
+        /**
+         * @deprecated
+         * This property is deprecated. It will only be supported until the end of march. Please use installationId instead.
+         */
         directory: string;
       }
 
@@ -6053,7 +6091,34 @@ export declare module MittwaldAPIV2 {
         webStorageUsageInBytesSetAt: string;
       }
 
+      export interface ProjectScaling {
+        maximum: number;
+        minimum: number;
+      }
+
       export type ProjectServerDisableReason = "suspended";
+
+      export interface ProjectServerInternal {
+        clusterName: string;
+        createdAt: string;
+        customerId: string;
+        description: string;
+        disabledReason?: MittwaldAPIV2.Components.Schemas.ProjectServerDisableReason;
+        id: string;
+        imageRefId?: string;
+        /**
+         * @deprecated
+         * deprecated by property status
+         */
+        isReady: boolean;
+        machineType: MittwaldAPIV2.Components.Schemas.ProjectMachineType;
+        readiness: MittwaldAPIV2.Components.Schemas.ProjectDeprecatedServerReadinessStatus;
+        scaling?: MittwaldAPIV2.Components.Schemas.ProjectScaling;
+        shortId: string;
+        statisticsBaseDomain?: string;
+        status: MittwaldAPIV2.Components.Schemas.ProjectServerStatus;
+        storage: string;
+      }
 
       export type ProjectServerStatus = "pending" | "ready" | "unready";
 
@@ -6598,41 +6663,6 @@ export declare module MittwaldAPIV2 {
       export interface VarnishSoftwareSetting {
         name: string;
         value: string;
-      }
-
-      /**
-       * A brief subtitle for the extension.
-       */
-      export interface MarketplaceSubTitle {
-        de: string;
-        en?: string;
-      }
-
-      export interface ProjectScaling {
-        maximum: number;
-        minimum: number;
-      }
-
-      export interface ProjectServerInternal {
-        clusterName: string;
-        createdAt: string;
-        customerId: string;
-        description: string;
-        disabledReason?: MittwaldAPIV2.Components.Schemas.ProjectServerDisableReason;
-        id: string;
-        imageRefId?: string;
-        /**
-         * @deprecated
-         * deprecated by property status
-         */
-        isReady: boolean;
-        machineType: MittwaldAPIV2.Components.Schemas.ProjectMachineType;
-        readiness: MittwaldAPIV2.Components.Schemas.ProjectDeprecatedServerReadinessStatus;
-        scaling?: MittwaldAPIV2.Components.Schemas.ProjectScaling;
-        shortId: string;
-        statisticsBaseDomain?: string;
-        status: MittwaldAPIV2.Components.Schemas.ProjectServerStatus;
-        storage: string;
       }
 
       export interface CommonsAddress {
