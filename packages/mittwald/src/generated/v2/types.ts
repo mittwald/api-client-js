@@ -4621,6 +4621,29 @@ export declare module MittwaldAPIV2 {
 
       export interface MarketplaceExtension {
         /**
+         * The assets/media (images and videos) of the extension.
+         *
+         * @maxItems 4
+         */
+        assets:
+          | []
+          | [MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset]
+          | [
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+            ]
+          | [
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+            ]
+          | [
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+            ];
+        /**
          * @deprecated
          */
         blocked: boolean;
@@ -4633,6 +4656,10 @@ export declare module MittwaldAPIV2 {
         description: string;
         detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
         disabled: boolean;
+        externalFrontends?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
+        /**
+         * @deprecated
+         */
         frontendComponents?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
         frontendFragments?: {
           [
@@ -4664,10 +4691,16 @@ export declare module MittwaldAPIV2 {
         tags: string[];
       }
 
+      /**
+       * @deprecated
+       */
       export interface MarketplaceBackendComponent {
         url: string;
       }
 
+      /**
+       * @deprecated
+       */
       export interface MarketplaceBackendComponents {
         extensionAddedToContext?: MittwaldAPIV2.Components.Schemas.MarketplaceBackendComponent;
         extensionInstanceRemovedFromContext?: MittwaldAPIV2.Components.Schemas.MarketplaceBackendComponent;
@@ -4758,6 +4791,7 @@ export declare module MittwaldAPIV2 {
       } & MittwaldAPIV2.Components.Schemas.MarketplaceUrlFrontendFragment;
 
       export interface MarketplaceOwnExtension {
+        assets: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset[];
         backendComponents?: MittwaldAPIV2.Components.Schemas.MarketplaceBackendComponents;
         /**
          * @deprecated
@@ -4769,6 +4803,10 @@ export declare module MittwaldAPIV2 {
         description?: string;
         detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
         disabled?: boolean;
+        externalFrontends?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
+        /**
+         * @deprecated
+         */
         frontendComponents?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
         frontendFragments?: {
           [
@@ -4786,7 +4824,7 @@ export declare module MittwaldAPIV2 {
         requestedChanges?: {
           context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
           scopes?: string[];
-          webhookUrls?: MittwaldAPIV2.Components.Schemas.MarketplaceBackendComponents;
+          webhookUrls?: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrls;
         };
         scopes?: string[];
         /**
@@ -4802,6 +4840,7 @@ export declare module MittwaldAPIV2 {
         tags?: string[];
         verificationRequested: boolean;
         verified: boolean;
+        webhookUrls?: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrls;
       }
 
       export interface MarketplacePublicKey {
@@ -6663,6 +6702,30 @@ export declare module MittwaldAPIV2 {
       export interface VarnishSoftwareSetting {
         name: string;
         value: string;
+      }
+
+      /**
+       * The following assets are the media that are associated with the extension and will be shown in extension details page.
+       */
+      export interface MarketplaceExtensionAsset {
+        assetType: "image" | "video";
+        fileName: string;
+        /**
+         * The asset ID and reference ID to its file. Retrieve the file with this id on `/v2/files/{id}
+         */
+        id: string;
+        index: number;
+      }
+
+      export interface MarketplaceWebhookUrl {
+        url: string;
+      }
+
+      export interface MarketplaceWebhookUrls {
+        extensionAddedToContext: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrl;
+        extensionInstanceRemovedFromContext: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrl;
+        extensionInstanceSecretRotated: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrl;
+        extensionInstanceUpdated: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrl;
       }
 
       export interface CommonsAddress {
@@ -16684,7 +16747,8 @@ export declare module MittwaldAPIV2 {
             contributorId: string;
           };
 
-          export type Header = {};
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {
             limit?: number;
