@@ -27,7 +27,7 @@
     "test:unit": "node --experimental-vm-modules $(yarn bin jest)"
   },
   "dependencies": {
-    "@oclif/core": "^3.27.0",
+    "@oclif/core": "^4.2.7",
     "@oclif/plugin-help": "^6.2.19",
     "@oclif/plugin-plugins": "^4.3.10",
     "@sindresorhus/is": "^6.3.1",
