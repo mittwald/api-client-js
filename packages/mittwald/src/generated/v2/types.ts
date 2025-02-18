@@ -4692,6 +4692,19 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
+       * The following assets are the media that are associated with the extension and will be shown in extension details page.
+       */
+      export interface MarketplaceExtensionAsset {
+        assetType: "image" | "video";
+        fileName: string;
+        /**
+         * The asset ID and reference ID to its file. Retrieve the file with this id on `/v2/files/{id}
+         */
+        id: string;
+        index: number;
+      }
+
+      /**
        * @deprecated
        */
       export interface MarketplaceBackendComponent {
@@ -4777,6 +4790,17 @@ export declare module MittwaldAPIV2 {
 
       export interface MarketplaceExtensionStatistics {
         amountOfInstances: number;
+      }
+
+      export interface MarketplaceWebhookUrl {
+        url: string;
+      }
+
+      export interface MarketplaceWebhookUrls {
+        extensionAddedToContext: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrl;
+        extensionInstanceRemovedFromContext: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrl;
+        extensionInstanceSecretRotated: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrl;
+        extensionInstanceUpdated: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrl;
       }
 
       export interface MarketplaceExternalComponent {
@@ -6702,30 +6726,6 @@ export declare module MittwaldAPIV2 {
       export interface VarnishSoftwareSetting {
         name: string;
         value: string;
-      }
-
-      /**
-       * The following assets are the media that are associated with the extension and will be shown in extension details page.
-       */
-      export interface MarketplaceExtensionAsset {
-        assetType: "image" | "video";
-        fileName: string;
-        /**
-         * The asset ID and reference ID to its file. Retrieve the file with this id on `/v2/files/{id}
-         */
-        id: string;
-        index: number;
-      }
-
-      export interface MarketplaceWebhookUrl {
-        url: string;
-      }
-
-      export interface MarketplaceWebhookUrls {
-        extensionAddedToContext: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrl;
-        extensionInstanceRemovedFromContext: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrl;
-        extensionInstanceSecretRotated: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrl;
-        extensionInstanceUpdated: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrl;
       }
 
       export interface CommonsAddress {
@@ -17021,7 +17021,11 @@ export declare module MittwaldAPIV2 {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            fileUploadType: "avatar" | "conversation";
+            fileUploadType:
+              | "avatar"
+              | "extensionAssetImage"
+              | "extensionAssetVideo"
+              | "conversation";
           };
 
           export type Header = {};
