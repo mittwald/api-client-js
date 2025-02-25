@@ -6154,34 +6154,7 @@ export declare module MittwaldAPIV2 {
         webStorageUsageInBytesSetAt: string;
       }
 
-      export interface ProjectScaling {
-        maximum: number;
-        minimum: number;
-      }
-
       export type ProjectServerDisableReason = "suspended";
-
-      export interface ProjectServerInternal {
-        clusterName: string;
-        createdAt: string;
-        customerId: string;
-        description: string;
-        disabledReason?: MittwaldAPIV2.Components.Schemas.ProjectServerDisableReason;
-        id: string;
-        imageRefId?: string;
-        /**
-         * @deprecated
-         * deprecated by property status
-         */
-        isReady: boolean;
-        machineType: MittwaldAPIV2.Components.Schemas.ProjectMachineType;
-        readiness: MittwaldAPIV2.Components.Schemas.ProjectDeprecatedServerReadinessStatus;
-        scaling?: MittwaldAPIV2.Components.Schemas.ProjectScaling;
-        shortId: string;
-        statisticsBaseDomain?: string;
-        status: MittwaldAPIV2.Components.Schemas.ProjectServerStatus;
-        storage: string;
-      }
 
       export type ProjectServerStatus = "pending" | "ready" | "unready";
 
