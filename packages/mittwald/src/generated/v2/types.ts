@@ -3585,6 +3585,8 @@ export declare module MittwaldAPIV2 {
         desired: string;
       }
 
+      export type BackupBackupSortOrder = "oldestFirst" | "newestFirst";
+
       export interface BackupBackupTemplate {
         expirationTime: string;
         ignoredSources?: MittwaldAPIV2.Components.Schemas.BackupIgnoredSources;
@@ -8440,7 +8442,10 @@ export declare module MittwaldAPIV2 {
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
-          export type Query = {};
+          export type Query = {
+            withExportsOnly?: boolean;
+            sortOrder?: MittwaldAPIV2.Components.Schemas.BackupBackupSortOrder;
+          };
         }
         namespace Responses {
           namespace $200 {
