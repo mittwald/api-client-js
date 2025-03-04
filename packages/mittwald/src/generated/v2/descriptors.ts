@@ -5988,9 +5988,9 @@ export const extensionConsentToExtensionScopes: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdScopes.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdScopes.Patch.Responses.$204.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdScopes.Patch.Responses.$204.Content.Empty>,
       204,
-      "application/json"
+      "empty"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdScopes.Patch.Responses.$400.Content.ApplicationJson>,
@@ -6063,6 +6063,16 @@ export const extensionCreateExtensionInstance: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ExtensionInstances.Post.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstances.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstances.Post.Responses.$412.Content.ApplicationJson>,
+      412,
       "application/json"
     >
   | Response<

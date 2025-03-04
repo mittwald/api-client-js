@@ -4791,7 +4791,10 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface MarketplaceExtensionStatistics {
-        amountOfInstances: number;
+        /**
+         * The amout of instances for this extension. Accurate for the Contributor. Publicly rounded to the next lower hundred.
+         */
+        amountOfInstances?: number;
       }
 
       export interface MarketplaceWebhookUrl {
@@ -6702,6 +6705,12 @@ export declare module MittwaldAPIV2 {
         name: string;
         value: string;
       }
+
+      export type CronjobCronjobExecutionSortOrder =
+        | "oldestFirst"
+        | "newestFirst"
+        | "slowestFirst"
+        | "fastestFirst";
 
       export interface CommonsAddress {
         street: string;
@@ -10779,6 +10788,8 @@ export declare module MittwaldAPIV2 {
             since?: string;
             until?: string;
             status?: string;
+            triggeredByUser?: boolean;
+            sortOrder?: MittwaldAPIV2.Components.Schemas.CronjobCronjobExecutionSortOrder;
           };
         }
         namespace Responses {
@@ -15959,9 +15970,7 @@ export declare module MittwaldAPIV2 {
         namespace Responses {
           namespace $204 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type Empty = unknown;
             }
           }
 
@@ -16068,6 +16077,22 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
