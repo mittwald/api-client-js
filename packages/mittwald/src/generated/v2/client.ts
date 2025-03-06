@@ -317,6 +317,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionGetExtension: this.requestFunctionFactory(
       descriptors.extensionGetExtension,
     ),
+    /** Get Extension of own contributor. */
+    extensionGetOwnExtension: this.requestFunctionFactory(
+      descriptors.extensionGetOwnExtension,
+    ),
     /** Get the public key to verify the webhook signature. */
     extensionGetPublicKey: this.requestFunctionFactory(
       descriptors.extensionGetPublicKey,

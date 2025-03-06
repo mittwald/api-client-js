@@ -1758,6 +1758,17 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.extensionGetExtension, TStatus>;
     }
 
+    namespace ExtensionGetOwnExtension {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionGetOwnExtension
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionGetOwnExtension,
+          TStatus
+        >;
+    }
+
     namespace ExtensionGetPublicKey {
       type RequestData = InferredRequestData<
         typeof descriptors.extensionGetPublicKey
@@ -4140,6 +4151,12 @@ export declare module MittwaldAPIV2 {
           id?: string;
         };
       }
+
+      export type CronjobCronjobExecutionSortOrder =
+        | "oldestFirst"
+        | "newestFirst"
+        | "slowestFirst"
+        | "fastestFirst";
 
       export interface CronjobCronjobRequest {
         active: boolean;
@@ -6705,12 +6722,6 @@ export declare module MittwaldAPIV2 {
         name: string;
         value: string;
       }
-
-      export type CronjobCronjobExecutionSortOrder =
-        | "oldestFirst"
-        | "newestFirst"
-        | "slowestFirst"
-        | "fastestFirst";
 
       export interface CommonsAddress {
         street: string;
@@ -16586,6 +16597,54 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.MarketplaceExtension;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdExtensionsExtensionId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplaceOwnExtension;
             }
           }
 
