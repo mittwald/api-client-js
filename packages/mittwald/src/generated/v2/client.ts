@@ -317,14 +317,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionGetExtension: this.requestFunctionFactory(
       descriptors.extensionGetExtension,
     ),
-    /** Get Extension of own contributor. */
-    extensionGetOwnExtension: this.requestFunctionFactory(
-      descriptors.extensionGetOwnExtension,
-    ),
-    /** Patch Extension. */
-    extensionPatchExtension: this.requestFunctionFactory(
-      descriptors.extensionPatchExtension,
-    ),
     /** Get the public key to verify the webhook signature. */
     extensionGetPublicKey: this.requestFunctionFactory(
       descriptors.extensionGetPublicKey,
@@ -340,10 +332,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** List Extensions of own contributor. */
     extensionListOwnExtensions: this.requestFunctionFactory(
       descriptors.extensionListOwnExtensions,
-    ),
-    /** Register an Extension. */
-    extensionRegisterExtension: this.requestFunctionFactory(
-      descriptors.extensionRegisterExtension,
     ),
   };
 
