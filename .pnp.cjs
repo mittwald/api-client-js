@@ -2058,7 +2058,7 @@ const RAW_RUNTIME_STATE =
           ["@types/parse-path", "npm:7.0.3"],\
           ["@typescript-eslint/eslint-plugin", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:7.18.0"],\
           ["@typescript-eslint/parser", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:7.18.0"],\
-          ["axios", "npm:1.7.9"],\
+          ["axios", "npm:1.8.2"],\
           ["eslint", "npm:8.57.1"],\
           ["eslint-config-prettier", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:9.1.0"],\
           ["eslint-plugin-json", "npm:3.1.0"],\
@@ -2094,7 +2094,7 @@ const RAW_RUNTIME_STATE =
           ["@types/parse-path", "npm:7.0.3"],\
           ["@typescript-eslint/eslint-plugin", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:7.18.0"],\
           ["@typescript-eslint/parser", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:7.18.0"],\
-          ["axios", "npm:1.7.9"],\
+          ["axios", "npm:1.8.2"],\
           ["eslint", "npm:8.57.1"],\
           ["eslint-config-prettier", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:9.1.0"],\
           ["eslint-plugin-json", "npm:3.1.0"],\
@@ -2136,7 +2136,7 @@ const RAW_RUNTIME_STATE =
           ["@types/yieldable-json", "npm:2.0.2"],\
           ["@typescript-eslint/eslint-plugin", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:7.18.0"],\
           ["@typescript-eslint/parser", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:7.18.0"],\
-          ["axios", "npm:1.7.9"],\
+          ["axios", "npm:1.8.2"],\
           ["camelcase", "npm:8.0.0"],\
           ["clone-deep", "npm:4.0.1"],\
           ["dot-prop", "npm:8.0.2"],\
@@ -2224,7 +2224,7 @@ const RAW_RUNTIME_STATE =
           ["@types/axios", null],\
           ["@types/luxon", "npm:3.4.2"],\
           ["@types/react", null],\
-          ["axios", "npm:1.7.9"],\
+          ["axios", "npm:1.8.2"],\
           ["browser-or-node", "npm:3.0.0"],\
           ["luxon", "npm:3.5.0"],\
           ["minimatch", "npm:10.0.1"],\
@@ -4736,6 +4736,16 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/axios-npm-1.7.9-3c98466f87-b7a5f660ea.zip/node_modules/axios/",\
         "packageDependencies": [\
           ["axios", "npm:1.7.9"],\
+          ["follow-redirects", "virtual:3c98466f874305529f1a16589101c28705aa489e7ec8ffcbfb5cc062090761c951973322264d8039ff40de705a591171bac1067843c49b197410972b4a9ed9f4#npm:1.15.6"],\
+          ["form-data", "npm:4.0.0"],\
+          ["proxy-from-env", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:1.8.2", {\
+        "packageLocation": "./.yarn/cache/axios-npm-1.8.2-55671cda10-d432875812.zip/node_modules/axios/",\
+        "packageDependencies": [\
+          ["axios", "npm:1.8.2"],\
           ["follow-redirects", "virtual:3c98466f874305529f1a16589101c28705aa489e7ec8ffcbfb5cc062090761c951973322264d8039ff40de705a591171bac1067843c49b197410972b4a9ed9f4#npm:1.15.6"],\
           ["form-data", "npm:4.0.0"],\
           ["proxy-from-env", "npm:1.1.0"]\

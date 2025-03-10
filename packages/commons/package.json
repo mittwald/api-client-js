@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@types/parse-path": "^7.0.3",
-    "axios": "^1.7.9",
+    "axios": "^1.8.2",
     "parse-path": "^7.0.0",
     "path-to-regexp": "^8.2.0",
     "type-fest": "^4.30.0"
