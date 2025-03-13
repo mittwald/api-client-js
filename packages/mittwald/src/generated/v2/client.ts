@@ -345,6 +345,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionRegisterExtension: this.requestFunctionFactory(
       descriptors.extensionRegisterExtension,
     ),
+    /** Generate a session key to transmit it to the extensions frontend fragment. */
+    extensionGenerateSessionKey: this.requestFunctionFactory(
+      descriptors.extensionGenerateSessionKey,
+    ),
   };
 
   /** The conversation API allows you to manage your support conversations. */
