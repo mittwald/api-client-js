@@ -29,7 +29,7 @@
   "dependencies": {
     "@oclif/core": "^3.27.0",
     "@oclif/plugin-help": "^6.2.19",
-    "@oclif/plugin-plugins": "^4.3.10",
+    "@oclif/plugin-plugins": "^5.4.34",
     "@sindresorhus/is": "^6.3.1",
     "@types/clone-deep": "^4.0.4",
     "@types/invariant": "^2.2.37",
