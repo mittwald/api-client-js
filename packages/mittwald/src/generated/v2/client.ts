@@ -301,6 +301,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionEnableExtensionInstance: this.requestFunctionFactory(
       descriptors.extensionEnableExtensionInstance,
     ),
+    /** Generate a session key to transmit it to the extensions frontend fragment. */
+    extensionGenerateSessionKey: this.requestFunctionFactory(
+      descriptors.extensionGenerateSessionKey,
+    ),
     /** Get a Contributor. */
     extensionGetContributor: this.requestFunctionFactory(
       descriptors.extensionGetContributor,
@@ -344,10 +348,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Register an Extension. */
     extensionRegisterExtension: this.requestFunctionFactory(
       descriptors.extensionRegisterExtension,
-    ),
-    /** Generate a session key to transmit it to the extensions frontend fragment. */
-    extensionGenerateSessionKey: this.requestFunctionFactory(
-      descriptors.extensionGenerateSessionKey,
     ),
   };
 

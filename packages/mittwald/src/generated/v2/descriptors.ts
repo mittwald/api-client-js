@@ -6295,6 +6295,45 @@ export const extensionEnableExtensionInstance: OpenAPIOperation<
   operationId: "extension-enable-extension-instance",
 };
 
+/** Generate a session key to transmit it to the extensions frontend fragment. */
+export const extensionGenerateSessionKey: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionSessionId.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionSessionId.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionSessionId.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionSessionId.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionSessionId.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionSessionId.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionSessionId.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionSessionId.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/extension-instances/{extensionInstanceId}/session/{sessionId}",
+  method: "POST",
+  operationId: "extension-generate-session-key",
+};
+
 /** Get a Contributor. */
 export const extensionGetContributor: OpenAPIOperation<
   RequestType<
@@ -12864,43 +12903,4 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
-};
-
-/** Generate a session key to transmit it to the extensions frontend fragment. */
-export const extensionGenerateSessionKey: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionSessionId.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionSessionId.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionSessionId.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionSessionId.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionSessionId.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionSessionId.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionSessionId.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionSessionId.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/extension-instances/{extensionInstanceId}/session/{sessionId}",
-  method: "POST",
-  operationId: "extension-generate-session-key",
 };

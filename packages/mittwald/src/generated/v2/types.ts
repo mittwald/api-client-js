@@ -1717,6 +1717,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ExtensionGenerateSessionKey {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionGenerateSessionKey
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionGenerateSessionKey,
+          TStatus
+        >;
+    }
+
     namespace ExtensionGetContributor {
       type RequestData = InferredRequestData<
         typeof descriptors.extensionGetContributor
@@ -3363,17 +3374,6 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
-
-    namespace ExtensionGenerateSessionKey {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionGenerateSessionKey
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionGenerateSessionKey,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -4748,7 +4748,10 @@ export declare module MittwaldAPIV2 {
        */
       export interface MarketplaceExtensionAsset {
         assetType: "image" | "video";
-        fileName: string;
+        /**
+         * @deprecated
+         */
+        fileName?: string;
         /**
          * The asset ID and reference ID to its file. Retrieve the file with this id on `/v2/files/{id}
          */
@@ -16478,6 +16481,63 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2ExtensionInstancesExtensionInstanceIdSessionSessionId {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            extensionInstanceId: string;
+            sessionId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                sessionKeyJwt?: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2ContributorsContributorId {
       namespace Get {
         namespace Parameters {
@@ -26547,63 +26607,6 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ExtensionInstancesExtensionInstanceIdSessionSessionId {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            extensionInstanceId: string;
-            sessionId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                sessionKeyJwt?: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
