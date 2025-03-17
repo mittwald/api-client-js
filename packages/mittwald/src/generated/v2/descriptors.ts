@@ -6703,6 +6703,74 @@ export const extensionRegisterExtension: OpenAPIOperation<
   operationId: "extension-register-extension",
 };
 
+/** Start the verification process of an Extension. */
+export const extensionRequestExtensionVerification: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdVerificationProcess.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdVerificationProcess.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdVerificationProcess.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdVerificationProcess.Post.Responses.$204.Content.ApplicationJson>,
+      204,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdVerificationProcess.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdVerificationProcess.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdVerificationProcess.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/contributors/{contributorId}/extensions/{extensionId}/verification-process",
+  method: "POST",
+  operationId: "extension-request-extension-verification",
+};
+
+/** Publish or withdraw an Extension. */
+export const extensionSetExtensionPublishedState: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdPublished.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdPublished.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdPublished.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdPublished.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdPublished.Put.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdPublished.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdPublished.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdPublished.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/contributors/{contributorId}/extensions/{extensionId}/published",
+  method: "PUT",
+  operationId: "extension-set-extension-published-state",
+};
+
 /** Create a File. */
 export const fileCreateFile: OpenAPIOperation<
   RequestType<

@@ -1843,6 +1843,28 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ExtensionRequestExtensionVerification {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionRequestExtensionVerification
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionRequestExtensionVerification,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionSetExtensionPublishedState {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionSetExtensionPublishedState
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionSetExtensionPublishedState,
+          TStatus
+        >;
+    }
+
     namespace FileCreateFile {
       type RequestData = InferredRequestData<typeof descriptors.fileCreateFile>;
       type ResponseData<TStatus extends HttpStatus = 200> =
@@ -4756,6 +4778,9 @@ export declare module MittwaldAPIV2 {
          * The asset ID and reference ID to its file. Retrieve the file with this id on `/v2/files/{id}
          */
         id: string;
+        /**
+         * The index of the asset. Does not have to be successive. Can be used to order the assets.
+         */
         index: number;
       }
 
@@ -17062,6 +17087,114 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdExtensionsExtensionIdVerificationProcess {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export interface ApplicationJson {}
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdExtensionsExtensionIdPublished {
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * Whether the extension should be publicly visible.
+             */
+            published: boolean;
+            /**
+             * When setting withdrawing an extension a reason is required.
+             */
+            reason?: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                id: string;
+                published: boolean;
+              }
+            }
+          }
+
+          namespace $404 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;

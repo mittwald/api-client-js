@@ -349,6 +349,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionRegisterExtension: this.requestFunctionFactory(
       descriptors.extensionRegisterExtension,
     ),
+    /** Start the verification process of an Extension. */
+    extensionRequestExtensionVerification: this.requestFunctionFactory(
+      descriptors.extensionRequestExtensionVerification,
+    ),
+    /** Publish or withdraw an Extension. */
+    extensionSetExtensionPublishedState: this.requestFunctionFactory(
+      descriptors.extensionSetExtensionPublishedState,
+    ),
   };
 
   /** The conversation API allows you to manage your support conversations. */
