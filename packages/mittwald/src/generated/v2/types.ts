@@ -1843,6 +1843,25 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ExtensionRemoveAsset {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionRemoveAsset
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.extensionRemoveAsset, TStatus>;
+    }
+
+    namespace ExtensionRequestAssetUpload {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionRequestAssetUpload
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionRequestAssetUpload,
+          TStatus
+        >;
+    }
+
     namespace ExtensionRequestExtensionVerification {
       type RequestData = InferredRequestData<
         typeof descriptors.extensionRequestExtensionVerification
@@ -1850,6 +1869,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.extensionRequestExtensionVerification,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionRequestLogoUpload {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionRequestLogoUpload
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionRequestLogoUpload,
           TStatus
         >;
     }
@@ -4744,7 +4774,7 @@ export declare module MittwaldAPIV2 {
         /**
          * This is the FileId of the Logo. Retrieve the file with this id on `/v2/files/{logoRefId}`.
          */
-        logoRefId?: string;
+        logoRefId: string;
         name: string;
         /**
          * Whether the extension has been published by the contributor.
@@ -17058,7 +17088,11 @@ export declare module MittwaldAPIV2 {
             context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
             description?: string;
             detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
+            /**
+             * @deprecated
+             */
             externalFrontend?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
+            externalFrontends?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
             frontendFragments?: {
               [
                 k: string
@@ -17113,6 +17147,150 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2ContributorsContributorIdExtensionsExtensionIdAssetsAssetRefId {
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+            assetRefId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdExtensionsExtensionIdAssets {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+          };
+
+          export interface RequestBody {
+            assetType: "image" | "video";
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * Use the ID as upload token at `/v2/files/{assetRefId}`. This ID will also be the ID of your asset in extension.
+                 */
+                assetRefId: string;
+                /**
+                 * Constraints for the asset image or video upload, defers on the given assetType.
+                 */
+                rules: {
+                  extensions: string[];
+                  fileTypes: {
+                    extensions: string[];
+                    mimeType: string;
+                  }[];
+                  maxSizeInBytes: number;
+                  mimeTypes: string[];
+                  properties?: {
+                    imageDimensions?: {
+                      max: {
+                        height?: number;
+                        width?: number;
+                      };
+                      min: {
+                        height?: number;
+                        width?: number;
+                      };
+                    };
+                  };
+                };
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2ContributorsContributorIdExtensionsExtensionIdVerificationProcess {
       namespace Post {
         namespace Parameters {
@@ -17134,6 +17312,82 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdExtensionsExtensionIdLogo {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * Use the logoRefId as updload token at `/v2/files/{logoRefId}`.
+                 */
+                logoRefId: string;
+                /**
+                 * Constraints for the logo image upload.
+                 */
+                rules: {
+                  extensions: string[];
+                  fileTypes: {
+                    extensions: string[];
+                    mimeType: string;
+                  }[];
+                  maxSizeInBytes: number;
+                  mimeTypes: string[];
+                  properties?: {
+                    imageDimensions?: {
+                      max: {
+                        height?: number;
+                        width?: number;
+                      };
+                      min: {
+                        height?: number;
+                        width?: number;
+                      };
+                    };
+                  };
+                };
+              }
+            }
+          }
+
+          namespace $404 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;

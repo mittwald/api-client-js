@@ -349,9 +349,21 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionRegisterExtension: this.requestFunctionFactory(
       descriptors.extensionRegisterExtension,
     ),
+    /** Remove an asset of an extension. */
+    extensionRemoveAsset: this.requestFunctionFactory(
+      descriptors.extensionRemoveAsset,
+    ),
+    /** Add an asset to an extension. */
+    extensionRequestAssetUpload: this.requestFunctionFactory(
+      descriptors.extensionRequestAssetUpload,
+    ),
     /** Start the verification process of an Extension. */
     extensionRequestExtensionVerification: this.requestFunctionFactory(
       descriptors.extensionRequestExtensionVerification,
+    ),
+    /** Add a logo to an extension. */
+    extensionRequestLogoUpload: this.requestFunctionFactory(
+      descriptors.extensionRequestLogoUpload,
     ),
     /** Publish or withdraw an Extension. */
     extensionSetExtensionPublishedState: this.requestFunctionFactory(
