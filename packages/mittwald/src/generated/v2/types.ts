@@ -4271,6 +4271,8 @@ export declare module MittwaldAPIV2 {
         useFormalTerm?: boolean;
       }
 
+      export type CustomerCustomerFlag = "agency" | "employee";
+
       export interface CustomerCustomerMeta {
         avatarRefId?: string;
         customerId: string;
@@ -4292,8 +4294,10 @@ export declare module MittwaldAPIV2 {
         customerId: string;
         customerNumber: string;
         executingUserRoles?: MittwaldAPIV2.Components.Schemas.CustomerRole[];
+        flags?: MittwaldAPIV2.Components.Schemas.CustomerCustomerFlag[];
         isBanned?: boolean;
         isInDefaultOfPayment?: boolean;
+        levelOfUndeliverableDunningNotice?: "first" | "second";
         memberCount: number;
         name: string;
         owner?: MittwaldAPIV2.Components.Schemas.CustomerContact;
@@ -8560,8 +8564,12 @@ export declare module MittwaldAPIV2 {
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {
+            searchTerm?: string;
             withExportsOnly?: boolean;
             sortOrder?: MittwaldAPIV2.Components.Schemas.BackupBackupSortOrder;
+            limit?: number;
+            skip?: number;
+            page?: number;
           };
         }
         namespace Responses {
