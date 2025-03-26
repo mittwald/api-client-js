@@ -5979,6 +5979,40 @@ export const extensionAuthenticateInstance: OpenAPIOperation<
   operationId: "extension-authenticate-instance",
 };
 
+/** Authenticate your external application using the extensionInstanceSecret. */
+export const extensionAuthenticateWithSessionToken: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2AuthenticateSessionToken.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2AuthenticateSessionToken.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AuthenticateSessionToken.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AuthenticateSessionToken.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticateSessionToken.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticateSessionToken.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticateSessionToken.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticateSessionToken.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/authenticate-session-token",
+  method: "POST",
+  operationId: "extension-authenticate-with-session-token",
+};
+
 /** Consent to extension scopes. */
 export const extensionConsentToExtensionScopes: OpenAPIOperation<
   RequestType<
@@ -6193,6 +6227,118 @@ export const extensionDeleteExtensionInstance: OpenAPIOperation<
   operationId: "extension-delete-extension-instance",
 };
 
+/** Get Extension of own contributor. */
+export const extensionGetOwnExtension: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/contributors/{contributorId}/extensions/{extensionId}",
+  method: "GET",
+  operationId: "extension-get-own-extension",
+};
+
+/** Delete an extension. */
+export const extensionDeleteExtension: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Delete.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Delete.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/contributors/{contributorId}/extensions/{extensionId}",
+  method: "DELETE",
+  operationId: "extension-delete-extension",
+};
+
+/** Patch Extension. */
+export const extensionPatchExtension: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Patch.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Patch.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/contributors/{contributorId}/extensions/{extensionId}",
+  method: "PATCH",
+  operationId: "extension-patch-extension",
+};
+
 /** Disable an ExtensionInstance. */
 export const extensionDisableExtensionInstance: OpenAPIOperation<
   RequestType<
@@ -6295,43 +6441,43 @@ export const extensionEnableExtensionInstance: OpenAPIOperation<
   operationId: "extension-enable-extension-instance",
 };
 
-/** Generate a session key to transmit it to the extensions frontend fragment. */
-export const extensionGenerateSessionKey: OpenAPIOperation<
+/** Generate a session token to transmit it to the extensions frontend fragment. */
+export const extensionGenerateSessionToken: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionSessionId.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionSessionId.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionSessionId.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionsSessionId.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionsSessionId.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionsSessionId.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionSessionId.Post.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionsSessionId.Post.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionSessionId.Post.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionsSessionId.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionSessionId.Post.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionsSessionId.Post.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionSessionId.Post.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionsSessionId.Post.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionSessionId.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdSessionsSessionId.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/extension-instances/{extensionInstanceId}/session/{sessionId}",
+  path: "/v2/extension-instances/{extensionInstanceId}/sessions/{sessionId}",
   method: "POST",
-  operationId: "extension-generate-session-key",
+  operationId: "extension-generate-session-token",
 };
 
 /** Get a Contributor. */
@@ -6470,114 +6616,36 @@ export const extensionGetExtension: OpenAPIOperation<
   operationId: "extension-get-extension",
 };
 
-/** Get Extension of own contributor. */
-export const extensionGetOwnExtension: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/contributors/{contributorId}/extensions/{extensionId}",
-  method: "GET",
-  operationId: "extension-get-own-extension",
-};
-
-/** Patch Extension. */
-export const extensionPatchExtension: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Patch.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Patch.Responses.$409.Content.ApplicationJson>,
-      409,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/contributors/{contributorId}/extensions/{extensionId}",
-  method: "PATCH",
-  operationId: "extension-patch-extension",
-};
-
 /** Get the public key to verify the webhook signature. */
 export const extensionGetPublicKey: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2WebhookPublicKeysSerial.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2WebhookPublicKeysSerial.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2WebhookPublicKeysSerial.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2PublicKeysSerial.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2PublicKeysSerial.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2PublicKeysSerial.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2WebhookPublicKeysSerial.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2PublicKeysSerial.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2WebhookPublicKeysSerial.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2PublicKeysSerial.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2WebhookPublicKeysSerial.Get.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2PublicKeysSerial.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2WebhookPublicKeysSerial.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2PublicKeysSerial.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/webhook-public-keys/{serial}",
+  path: "/v2/public-keys/{serial}",
   method: "GET",
   operationId: "extension-get-public-key",
 };

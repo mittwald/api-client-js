@@ -469,6 +469,11 @@ const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.extensionGetExtensionInstance,
     baseClient.marketplace.extensionGetExtensionInstance,
   ).getApiResource,
+  /** Get Extension of own contributor. */
+  extensionGetOwnExtension: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetOwnExtension,
+    baseClient.marketplace.extensionGetOwnExtension,
+  ).getApiResource,
   /** Get a Contributor. */
   extensionGetContributor: new ApiCallAsyncResourceFactory(
     descriptors.extensionGetContributor,
@@ -488,11 +493,6 @@ const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
   extensionGetExtension: new ApiCallAsyncResourceFactory(
     descriptors.extensionGetExtension,
     baseClient.marketplace.extensionGetExtension,
-  ).getApiResource,
-  /** Get Extension of own contributor. */
-  extensionGetOwnExtension: new ApiCallAsyncResourceFactory(
-    descriptors.extensionGetOwnExtension,
-    baseClient.marketplace.extensionGetOwnExtension,
   ).getApiResource,
   /** Get the public key to verify the webhook signature. */
   extensionGetPublicKey: new ApiCallAsyncResourceFactory(

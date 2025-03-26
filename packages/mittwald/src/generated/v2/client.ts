@@ -265,6 +265,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionAuthenticateInstance: this.requestFunctionFactory(
       descriptors.extensionAuthenticateInstance,
     ),
+    /** Authenticate your external application using the extensionInstanceSecret. */
+    extensionAuthenticateWithSessionToken: this.requestFunctionFactory(
+      descriptors.extensionAuthenticateWithSessionToken,
+    ),
     /** Consent to extension scopes. */
     extensionConsentToExtensionScopes: this.requestFunctionFactory(
       descriptors.extensionConsentToExtensionScopes,
@@ -289,6 +293,18 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionDeleteExtensionInstance: this.requestFunctionFactory(
       descriptors.extensionDeleteExtensionInstance,
     ),
+    /** Get Extension of own contributor. */
+    extensionGetOwnExtension: this.requestFunctionFactory(
+      descriptors.extensionGetOwnExtension,
+    ),
+    /** Delete an extension. */
+    extensionDeleteExtension: this.requestFunctionFactory(
+      descriptors.extensionDeleteExtension,
+    ),
+    /** Patch Extension. */
+    extensionPatchExtension: this.requestFunctionFactory(
+      descriptors.extensionPatchExtension,
+    ),
     /** Disable an ExtensionInstance. */
     extensionDisableExtensionInstance: this.requestFunctionFactory(
       descriptors.extensionDisableExtensionInstance,
@@ -301,9 +317,9 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionEnableExtensionInstance: this.requestFunctionFactory(
       descriptors.extensionEnableExtensionInstance,
     ),
-    /** Generate a session key to transmit it to the extensions frontend fragment. */
-    extensionGenerateSessionKey: this.requestFunctionFactory(
-      descriptors.extensionGenerateSessionKey,
+    /** Generate a session token to transmit it to the extensions frontend fragment. */
+    extensionGenerateSessionToken: this.requestFunctionFactory(
+      descriptors.extensionGenerateSessionToken,
     ),
     /** Get a Contributor. */
     extensionGetContributor: this.requestFunctionFactory(
@@ -320,14 +336,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Get an Extension. */
     extensionGetExtension: this.requestFunctionFactory(
       descriptors.extensionGetExtension,
-    ),
-    /** Get Extension of own contributor. */
-    extensionGetOwnExtension: this.requestFunctionFactory(
-      descriptors.extensionGetOwnExtension,
-    ),
-    /** Patch Extension. */
-    extensionPatchExtension: this.requestFunctionFactory(
-      descriptors.extensionPatchExtension,
     ),
     /** Get the public key to verify the webhook signature. */
     extensionGetPublicKey: this.requestFunctionFactory(
