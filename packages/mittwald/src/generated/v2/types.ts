@@ -5109,6 +5109,7 @@ export declare module MittwaldAPIV2 {
       export interface FileFileUploadRules {
         extensions: string[];
         fileTypes: MittwaldAPIV2.Components.Schemas.FileFileType[];
+        maxNameLength: number;
         maxSizeInBytes: number;
         /**
          * @deprecated
@@ -25069,7 +25070,11 @@ export declare module MittwaldAPIV2 {
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
-          export type Query = {};
+          export type Query = {
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -25241,7 +25246,11 @@ export declare module MittwaldAPIV2 {
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
-          export type Query = {};
+          export type Query = {
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -26246,7 +26255,11 @@ export declare module MittwaldAPIV2 {
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
-          export type Query = {};
+          export type Query = {
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
         }
         namespace Responses {
           namespace $200 {
