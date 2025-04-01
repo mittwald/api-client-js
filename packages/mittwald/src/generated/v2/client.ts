@@ -571,6 +571,18 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     resendCustomerInviteMail: this.requestFunctionFactory(
       descriptors.customerResendCustomerInviteMail,
     ),
+    /** Gets the status of a agency verification request.. */
+    getOpenAgencyVerification: this.requestFunctionFactory(
+      descriptors.customerGetOpenAgencyVerification,
+    ),
+    /** Creates a new agency verification request. Only one active verification can be active at the same time. */
+    createAgencyVerification: this.requestFunctionFactory(
+      descriptors.customerCreateAgencyVerification,
+    ),
+    /** Abort an open agency verification process */
+    abortAgencyVerification: this.requestFunctionFactory(
+      descriptors.customerAbortAgencyVerification,
+    ),
   };
 
   /** The database API allows you to manage your databases, like MySQL and Redis databases. */

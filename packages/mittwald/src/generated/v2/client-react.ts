@@ -330,6 +330,11 @@ const buildCustomerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.customerListMembershipsForCustomer,
     baseClient.customer.listMembershipsForCustomer,
   ).getApiResource,
+  /** Gets the status of a agency verification request.. */
+  getOpenAgencyVerification: new ApiCallAsyncResourceFactory(
+    descriptors.customerGetOpenAgencyVerification,
+    baseClient.customer.getOpenAgencyVerification,
+  ).getApiResource,
 });
 
 const buildDatabaseApi = (baseClient: MittwaldAPIV2Client) => ({
