@@ -11,6 +11,7 @@ import {
   AxiosRequestConfig,
   RawAxiosRequestHeaders,
 } from "axios";
+import { ParamSerializer } from "./ParameterSerializer.js";
 
 export class Request<TOp extends OpenAPIOperation> {
   private readonly operationDescriptor: TOp;
@@ -91,30 +92,18 @@ export class Request<TOp extends OpenAPIOperation> {
     }
 
     if (typeof query === "object") {
-      const searchParams = new URLSearchParams();
+      const serializer = new ParamSerializer(
+        this.operationDescriptor.serialization?.query ?? {},
+      );
 
       for (const [key, value] of Object.entries(query)) {
         if (value === undefined) {
           continue;
         }
-
-        if (Array.isArray(value)) {
-          for (const arrayItem of value) {
-            searchParams.append(key, arrayItem);
-          }
-        } else {
-          searchParams.append(
-            key,
-            typeof value === "string" ||
-              typeof value === "number" ||
-              typeof value === "boolean"
-              ? value.toString()
-              : JSON.stringify(value),
-          );
-        }
+        serializer.serializeQueryParam(key, value);
       }
 
-      return searchParams;
+      return serializer.getSearchParams();
     }
 
     throw new Error(`Unexpected query parameter type (${typeof query})`);
