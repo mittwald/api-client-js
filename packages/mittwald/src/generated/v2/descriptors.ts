@@ -5302,8 +5302,8 @@ export const dnsDeleteDnsZone: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
@@ -5979,7 +5979,7 @@ export const extensionAuthenticateInstance: OpenAPIOperation<
   operationId: "extension-authenticate-instance",
 };
 
-/** Authenticate your external application using the extensionInstanceSecret. */
+/** Authenticate your external application using a session token and an extension secret */
 export const extensionAuthenticateWithSessionToken: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2AuthenticateSessionToken.Post.Parameters.RequestBody>,
@@ -6011,6 +6011,40 @@ export const extensionAuthenticateWithSessionToken: OpenAPIOperation<
   path: "/v2/authenticate-session-token",
   method: "POST",
   operationId: "extension-authenticate-with-session-token",
+};
+
+/** Change the context of an Extension. */
+export const extensionChangeContext: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdContext.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdContext.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdContext.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdContext.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdContext.Put.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdContext.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdContext.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdContext.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/contributors/{contributorId}/extensions/{extensionId}/context",
+  method: "PUT",
+  operationId: "extension-change-context",
 };
 
 /** Consent to extension scopes. */
@@ -6805,6 +6839,74 @@ export const extensionRemoveAsset: OpenAPIOperation<
   operationId: "extension-remove-asset",
 };
 
+/** Add a logo to an extension. */
+export const extensionRequestLogoUpload: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdLogo.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdLogo.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdLogo.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdLogo.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdLogo.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdLogo.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdLogo.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/contributors/{contributorId}/extensions/{extensionId}/logo",
+  method: "POST",
+  operationId: "extension-request-logo-upload",
+};
+
+/** Remove the logo of an extension. */
+export const extensionRemoveLogo: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdLogo.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdLogo.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdLogo.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdLogo.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdLogo.Delete.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdLogo.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdLogo.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/contributors/{contributorId}/extensions/{extensionId}/logo",
+  method: "DELETE",
+  operationId: "extension-remove-logo",
+};
+
 /** Add an asset to an extension. */
 export const extensionRequestAssetUpload: OpenAPIOperation<
   RequestType<
@@ -6881,40 +6983,6 @@ export const extensionRequestExtensionVerification: OpenAPIOperation<
   path: "/v2/contributors/{contributorId}/extensions/{extensionId}/verification-process",
   method: "POST",
   operationId: "extension-request-extension-verification",
-};
-
-/** Add a logo to an extension. */
-export const extensionRequestLogoUpload: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdLogo.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdLogo.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdLogo.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdLogo.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdLogo.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdLogo.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdLogo.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/contributors/{contributorId}/extensions/{extensionId}/logo",
-  method: "POST",
-  operationId: "extension-request-logo-upload",
 };
 
 /** Publish or withdraw an Extension. */
@@ -13156,136 +13224,4 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
-};
-
-/** Gets the status of a agency verification request.. */
-export const customerGetOpenAgencyVerification: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/agency-verification",
-  method: "GET",
-  operationId: "customer-get-open-agency-verification",
-};
-
-/** Creates a new agency verification request. Only one active verification can be active at the same time. */
-export const customerCreateAgencyVerification: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Post.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/agency-verification",
-  method: "POST",
-  operationId: "customer-create-agency-verification",
-};
-
-/** Abort an open agency verification process */
-export const customerAbortAgencyVerification: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Delete.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Delete.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Delete.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Delete.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Delete.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Delete.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Delete.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAgencyVerification.Delete.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/agency-verification",
-  method: "DELETE",
-  operationId: "customer-abort-agency-verification",
 };

@@ -9,10 +9,6 @@ if (target.type === "redirect") {
   void target.url;
 }
 
-if (target.type === "directory") {
-  void target.directory;
-}
-
 if (target.type === "appInstallation") {
   void target.appInstallation.id;
 }

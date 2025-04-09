@@ -265,9 +265,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionAuthenticateInstance: this.requestFunctionFactory(
       descriptors.extensionAuthenticateInstance,
     ),
-    /** Authenticate your external application using the extensionInstanceSecret. */
+    /** Authenticate your external application using a session token and an extension secret */
     extensionAuthenticateWithSessionToken: this.requestFunctionFactory(
       descriptors.extensionAuthenticateWithSessionToken,
+    ),
+    /** Change the context of an Extension. */
+    extensionChangeContext: this.requestFunctionFactory(
+      descriptors.extensionChangeContext,
     ),
     /** Consent to extension scopes. */
     extensionConsentToExtensionScopes: this.requestFunctionFactory(
@@ -361,6 +365,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionRemoveAsset: this.requestFunctionFactory(
       descriptors.extensionRemoveAsset,
     ),
+    /** Add a logo to an extension. */
+    extensionRequestLogoUpload: this.requestFunctionFactory(
+      descriptors.extensionRequestLogoUpload,
+    ),
+    /** Remove the logo of an extension. */
+    extensionRemoveLogo: this.requestFunctionFactory(
+      descriptors.extensionRemoveLogo,
+    ),
     /** Add an asset to an extension. */
     extensionRequestAssetUpload: this.requestFunctionFactory(
       descriptors.extensionRequestAssetUpload,
@@ -368,10 +380,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Start the verification process of an Extension. */
     extensionRequestExtensionVerification: this.requestFunctionFactory(
       descriptors.extensionRequestExtensionVerification,
-    ),
-    /** Add a logo to an extension. */
-    extensionRequestLogoUpload: this.requestFunctionFactory(
-      descriptors.extensionRequestLogoUpload,
     ),
     /** Publish or withdraw an Extension. */
     extensionSetExtensionPublishedState: this.requestFunctionFactory(
@@ -570,18 +578,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Resend the mail for a CustomerInvite. */
     resendCustomerInviteMail: this.requestFunctionFactory(
       descriptors.customerResendCustomerInviteMail,
-    ),
-    /** Gets the status of a agency verification request.. */
-    getOpenAgencyVerification: this.requestFunctionFactory(
-      descriptors.customerGetOpenAgencyVerification,
-    ),
-    /** Creates a new agency verification request. Only one active verification can be active at the same time. */
-    createAgencyVerification: this.requestFunctionFactory(
-      descriptors.customerCreateAgencyVerification,
-    ),
-    /** Abort an open agency verification process */
-    abortAgencyVerification: this.requestFunctionFactory(
-      descriptors.customerAbortAgencyVerification,
     ),
   };
 

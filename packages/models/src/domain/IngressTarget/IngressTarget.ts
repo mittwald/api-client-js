@@ -1,7 +1,6 @@
 import { DataModel } from "../../base/DataModel.js";
 import {
   IngressUndefinedTargetData,
-  IngressDirectoryTargetData,
   IngressAppInstallationTargetData,
   IngressRedirectTargetData,
   IngressTargetData,
@@ -29,17 +28,6 @@ export class IngressRedirectTarget extends IngressTargetBase<IngressRedirectTarg
     this.url = new URL(data.url);
   }
 }
-
-export class IngressDirectoryTarget extends IngressTargetBase<IngressDirectoryTargetData> {
-  public readonly type = "directory";
-  public readonly directory: string;
-
-  public constructor(path: IngressPath, data: IngressDirectoryTargetData) {
-    super(path, data);
-    this.directory = data.directory;
-  }
-}
-
 export class IngressAppInstallationTarget extends IngressTargetBase<IngressAppInstallationTargetData> {
   public readonly type = "appInstallation";
   public readonly appInstallation: AppInstallation;
@@ -59,7 +47,6 @@ export class IngressUndefinedTarget extends IngressTargetBase<IngressUndefinedTa
 
 export type IngressTarget =
   | IngressRedirectTarget
-  | IngressDirectoryTarget
   | IngressAppInstallationTarget
   | IngressUndefinedTarget;
 
@@ -67,10 +54,6 @@ export const ingressTargetFactory = (
   path: IngressPath,
   data: IngressTargetData,
 ): IngressTarget => {
-  if ("directory" in data) {
-    return new IngressDirectoryTarget(path, data);
-  }
-
   if ("url" in data) {
     return new IngressRedirectTarget(path, data);
   }
