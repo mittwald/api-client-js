@@ -1629,6 +1629,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ExtensionChangeContext {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionChangeContext
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionChangeContext,
+          TStatus
+        >;
+    }
+
     namespace ExtensionConsentToExtensionScopes {
       type RequestData = InferredRequestData<
         typeof descriptors.extensionConsentToExtensionScopes
@@ -1873,6 +1884,25 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.extensionRemoveAsset, TStatus>;
     }
 
+    namespace ExtensionRequestLogoUpload {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionRequestLogoUpload
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionRequestLogoUpload,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionRemoveLogo {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionRemoveLogo
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.extensionRemoveLogo, TStatus>;
+    }
+
     namespace ExtensionRequestAssetUpload {
       type RequestData = InferredRequestData<
         typeof descriptors.extensionRequestAssetUpload
@@ -1891,17 +1921,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.extensionRequestExtensionVerification,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionRequestLogoUpload {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionRequestLogoUpload
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionRequestLogoUpload,
           TStatus
         >;
     }
@@ -3448,39 +3467,6 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
-
-    namespace CustomerGetOpenAgencyVerification {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerGetOpenAgencyVerification
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.customerGetOpenAgencyVerification,
-          TStatus
-        >;
-    }
-
-    namespace CustomerCreateAgencyVerification {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerCreateAgencyVerification
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.customerCreateAgencyVerification,
-          TStatus
-        >;
-    }
-
-    namespace CustomerAbortAgencyVerification {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerAbortAgencyVerification
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.customerAbortAgencyVerification,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -4350,6 +4336,7 @@ export declare module MittwaldAPIV2 {
         customerNumber: string;
         executingUserRoles?: MittwaldAPIV2.Components.Schemas.CustomerRole[];
         flags?: MittwaldAPIV2.Components.Schemas.CustomerCustomerFlag[];
+        isAllowedToPlaceOrders?: boolean;
         isBanned?: boolean;
         isInDefaultOfPayment?: boolean;
         levelOfUndeliverableDunningNotice?: "first" | "second";
@@ -5244,7 +5231,6 @@ export declare module MittwaldAPIV2 {
       export interface IngressPath {
         path: string;
         target:
-          | MittwaldAPIV2.Components.Schemas.IngressTargetDirectory
           | MittwaldAPIV2.Components.Schemas.IngressTargetUrl
           | MittwaldAPIV2.Components.Schemas.IngressTargetInstallation
           | MittwaldAPIV2.Components.Schemas.IngressTargetUseDefaultPage
@@ -5259,14 +5245,6 @@ export declare module MittwaldAPIV2 {
            */
           portProtocol: string;
         };
-      }
-
-      export interface IngressTargetDirectory {
-        /**
-         * @deprecated
-         * This property is deprecated. It will only be supported until the end of march. Please use installationId instead.
-         */
-        directory: string;
       }
 
       export interface IngressTargetInstallation {
@@ -6877,14 +6855,6 @@ export declare module MittwaldAPIV2 {
         value: string;
       }
 
-      export interface AgencyprofileVerificationRequest {
-        customerId: string;
-        domain: string;
-        email: string;
-        requestedOn: string;
-        verificationId: string;
-      }
-
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -7662,6 +7632,8 @@ export declare module MittwaldAPIV2 {
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {
+            appIds?: string[];
+            searchTerm?: string;
             limit?: number;
             skip?: number;
             page?: number;
@@ -7707,6 +7679,8 @@ export declare module MittwaldAPIV2 {
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {
+            appIds?: string[];
+            searchTerm?: string;
             limit?: number;
             skip?: number;
             page?: number;
@@ -15113,7 +15087,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -16171,6 +16145,64 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdExtensionsExtensionIdContext {
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+          };
+
+          export interface RequestBody {
+            context: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * If this value is true the context will change asynchronously after removing all extension-instances of this extension.
+                 */
+                cleaningUpInstances: boolean;
+                currentContext: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+                id: string;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -17379,6 +17411,127 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2ContributorsContributorIdExtensionsExtensionIdLogo {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * Use the logoRefId as updload token at `/v2/files/{logoRefId}`.
+                 */
+                logoRefId: string;
+                /**
+                 * Constraints for the logo image upload.
+                 */
+                rules: {
+                  extensions: string[];
+                  fileTypes: {
+                    extensions: string[];
+                    mimeType: string;
+                  }[];
+                  maxSizeInBytes: number;
+                  mimeTypes: string[];
+                  properties?: {
+                    imageDimensions?: {
+                      max: {
+                        height?: number;
+                        width?: number;
+                      };
+                      min: {
+                        height?: number;
+                        width?: number;
+                      };
+                    };
+                  };
+                };
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2ContributorsContributorIdExtensionsExtensionIdAssets {
       namespace Post {
         namespace Parameters {
@@ -17496,82 +17649,6 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ContributorsContributorIdExtensionsExtensionIdLogo {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-            extensionId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                /**
-                 * Use the logoRefId as updload token at `/v2/files/{logoRefId}`.
-                 */
-                logoRefId: string;
-                /**
-                 * Constraints for the logo image upload.
-                 */
-                rules: {
-                  extensions: string[];
-                  fileTypes: {
-                    extensions: string[];
-                    mimeType: string;
-                  }[];
-                  maxSizeInBytes: number;
-                  mimeTypes: string[];
-                  properties?: {
-                    imageDimensions?: {
-                      max: {
-                        height?: number;
-                        width?: number;
-                      };
-                      min: {
-                        height?: number;
-                        width?: number;
-                      };
-                    };
-                  };
-                };
-              }
-            }
-          }
-
-          namespace $404 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -27198,198 +27275,6 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomersCustomerIdAgencyVerification {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AgencyprofileVerificationRequest;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export interface RequestBody {
-            domain?: string;
-            email?: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                verificationId: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Delete {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                /**
-                 * The ID of the verification
-                 */
-                verificationId?: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
