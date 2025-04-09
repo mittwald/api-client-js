@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.127.0](https://github.com/mittwald/api-client-js/compare/4.126.0...4.127.0) (2025-04-09)
+
+### Bug Fixes
+
+- **IngressTarget:** remove directory target types
+  ([3f1e823](https://github.com/mittwald/api-client-js/commit/3f1e8236b85c8e39cef0b48f425744644f78970f))
+
+### Features
+
+- update generated client
+  ([02cb611](https://github.com/mittwald/api-client-js/commit/02cb611564d0205dce6274c4bc7ae9946d85e129))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [4.126.0](https://github.com/mittwald/api-client-js/compare/4.125.0...4.126.0) (2025-04-01)
 
 ### Features
