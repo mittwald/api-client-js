@@ -120,6 +120,59 @@ const buildBackupApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
+const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** List Registries belonging to a Project. */
+  listRegistries: new ApiCallAsyncResourceFactory(
+    descriptors.containerListRegistries,
+    baseClient.container.listRegistries,
+  ).getApiResource,
+  /** Get a Stack. */
+  getStack: new ApiCallAsyncResourceFactory(
+    descriptors.containerGetStack,
+    baseClient.container.getStack,
+  ).getApiResource,
+  /** Get a Registry. */
+  getRegistry: new ApiCallAsyncResourceFactory(
+    descriptors.containerGetRegistry,
+    baseClient.container.getRegistry,
+  ).getApiResource,
+  /** Get a Volume belonging to a Stack. */
+  getVolume: new ApiCallAsyncResourceFactory(
+    descriptors.containerGetVolume,
+    baseClient.container.getVolume,
+  ).getApiResource,
+  /** Get a ContainerImageConfig. */
+  getContainerImageConfig: new ApiCallAsyncResourceFactory(
+    descriptors.containerGetContainerImageConfig,
+    baseClient.container.getContainerImageConfig,
+  ).getApiResource,
+  /** Get logs belonging to a Service. */
+  getServiceLogs: new ApiCallAsyncResourceFactory(
+    descriptors.containerGetServiceLogs,
+    baseClient.container.getServiceLogs,
+  ).getApiResource,
+  /** Get a Service belonging to a Stack. */
+  getService: new ApiCallAsyncResourceFactory(
+    descriptors.containerGetService,
+    baseClient.container.getService,
+  ).getApiResource,
+  /** List Services belonging to a Project. */
+  listServices: new ApiCallAsyncResourceFactory(
+    descriptors.containerListServices,
+    baseClient.container.listServices,
+  ).getApiResource,
+  /** List Stacks belonging to a Project. */
+  listStacks: new ApiCallAsyncResourceFactory(
+    descriptors.containerListStacks,
+    baseClient.container.listStacks,
+  ).getApiResource,
+  /** List Volumes belonging to a Project. */
+  listVolumes: new ApiCallAsyncResourceFactory(
+    descriptors.containerListVolumes,
+    baseClient.container.listVolumes,
+  ).getApiResource,
+});
+
 const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
   /** Return the BaseItem of the Contract with the given ID. */
   getBaseItemOfContract: new ApiCallAsyncResourceFactory(
@@ -825,6 +878,9 @@ export class MittwaldAPIV2ClientReact {
   /** The backup API allows you to manage your project backups. */
   public readonly backup: ReturnType<typeof buildBackupApi>;
 
+  /** The container API allows you to manage your stacks, containers, volumes and registries. */
+  public readonly container: ReturnType<typeof buildContainerApi>;
+
   /** The contract API allows you to manage your contracts and orders */
   public readonly contract: ReturnType<typeof buildContractApi>;
 
@@ -878,6 +934,8 @@ export class MittwaldAPIV2ClientReact {
     this.article = buildArticleApi(baseClient);
 
     this.backup = buildBackupApi(baseClient);
+
+    this.container = buildContainerApi(baseClient);
 
     this.contract = buildContractApi(baseClient);
 

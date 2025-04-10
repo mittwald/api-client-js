@@ -151,6 +151,86 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
+  /** The container API allows you to manage your stacks, containers, volumes and registries. */
+  public readonly container = {
+    /** List Registries belonging to a Project. */
+    listRegistries: this.requestFunctionFactory(
+      descriptors.containerListRegistries,
+    ),
+    /** Create a Registry. */
+    createRegistry: this.requestFunctionFactory(
+      descriptors.containerCreateRegistry,
+    ),
+    /** Get a Stack. */
+    getStack: this.requestFunctionFactory(descriptors.containerGetStack),
+    /** Declaratively create, update or delete Services or Volumes belonging to a Stack. */
+    declareStack: this.requestFunctionFactory(
+      descriptors.containerDeclareStack,
+    ),
+    /** Create, update or delete Services or Volumes belonging to a Stack. */
+    updateStack: this.requestFunctionFactory(descriptors.containerUpdateStack),
+    /** Get a Registry. */
+    getRegistry: this.requestFunctionFactory(descriptors.containerGetRegistry),
+    /** Delete a Registry. */
+    deleteRegistry: this.requestFunctionFactory(
+      descriptors.containerDeleteRegistry,
+    ),
+    /** Update a Registry. */
+    updateRegistry: this.requestFunctionFactory(
+      descriptors.containerUpdateRegistry,
+    ),
+    /** Get a Volume belonging to a Stack. */
+    getVolume: this.requestFunctionFactory(descriptors.containerGetVolume),
+    /** Delete a Volume belonging to a Stack. */
+    deleteVolume: this.requestFunctionFactory(
+      descriptors.containerDeleteVolume,
+    ),
+    /** Get a ContainerImageConfig. */
+    getContainerImageConfig: this.requestFunctionFactory(
+      descriptors.containerGetContainerImageConfig,
+    ),
+    /** Get logs belonging to a Service. */
+    getServiceLogs: this.requestFunctionFactory(
+      descriptors.containerGetServiceLogs,
+    ),
+    /** Get a Service belonging to a Stack. */
+    getService: this.requestFunctionFactory(descriptors.containerGetService),
+    /** List Services belonging to a Project. */
+    listServices: this.requestFunctionFactory(
+      descriptors.containerListServices,
+    ),
+    /** List Stacks belonging to a Project. */
+    listStacks: this.requestFunctionFactory(descriptors.containerListStacks),
+    /** List Volumes belonging to a Project. */
+    listVolumes: this.requestFunctionFactory(descriptors.containerListVolumes),
+    /** Pulls the latest version of the Service's image and recreates the Service. */
+    pullImageForService: this.requestFunctionFactory(
+      descriptors.containerPullImageForService,
+    ),
+    /** Recreate a Service. */
+    recreateService: this.requestFunctionFactory(
+      descriptors.containerRecreateService,
+    ),
+    /** Restart a started Service. */
+    restartService: this.requestFunctionFactory(
+      descriptors.containerRestartService,
+    ),
+    /** Start a stopped Service. */
+    startService: this.requestFunctionFactory(
+      descriptors.containerStartService,
+    ),
+    /** Stop a started Service. */
+    stopService: this.requestFunctionFactory(descriptors.containerStopService),
+    /** Validate a Registries' URI. */
+    validateContainerRegistryUri: this.requestFunctionFactory(
+      descriptors.containerValidateContainerRegistryUri,
+    ),
+    /** Validate a Registries' credentials. */
+    validateRegistryCredentials: this.requestFunctionFactory(
+      descriptors.containerValidateRegistryCredentials,
+    ),
+  };
+
   /** The contract API allows you to manage your contracts and orders */
   public readonly contract = {
     /** Schedule the Termination of a ContractItem. */
