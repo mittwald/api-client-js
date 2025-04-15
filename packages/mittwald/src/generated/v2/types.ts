@@ -2318,6 +2318,28 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace LeadFinderGetLeadFyndrProfileRequest {
+      type RequestData = InferredRequestData<
+        typeof descriptors.leadFinderGetLeadFyndrProfileRequest
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.leadFinderGetLeadFyndrProfileRequest,
+          TStatus
+        >;
+    }
+
+    namespace LeadFinderGetLeadFyndrProfile {
+      type RequestData = InferredRequestData<
+        typeof descriptors.leadFinderGetLeadFyndrProfile
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.leadFinderGetLeadFyndrProfile,
+          TStatus
+        >;
+    }
+
     namespace MailListDeliveryBoxes {
       type RequestData = InferredRequestData<
         typeof descriptors.mailListDeliveryBoxes
@@ -5284,6 +5306,7 @@ export declare module MittwaldAPIV2 {
          */
         logoRefId: string;
         name: string;
+        pricing?: MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricingStrategy;
         /**
          * Whether the extension has been published by the contributor.
          */
@@ -5470,6 +5493,7 @@ export declare module MittwaldAPIV2 {
          */
         logoRefId?: string;
         name: string;
+        pricing?: MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricingStrategy;
         published: boolean;
         requestedChanges?: {
           context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
@@ -5492,6 +5516,16 @@ export declare module MittwaldAPIV2 {
         verificationRequested: boolean;
         verified: boolean;
         webhookUrls?: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrls;
+      }
+
+      /**
+       * A strategy for pricing that occurs monthly.
+       */
+      export interface MarketplaceMonthlyPricingStrategy {
+        /**
+         * The monthly price in Euro Cents before tax.
+         */
+        netPrice: number;
       }
 
       export interface MarketplacePublicKey {
@@ -5889,6 +5923,32 @@ export declare module MittwaldAPIV2 {
         salutation: MittwaldAPIV2.Components.Schemas.CommonsSalutation;
         title?: string;
         useFormalTerm?: boolean;
+      }
+
+      export interface LeadFinderProfileRequest {
+        createdOn: string;
+        customerId: string;
+        domain: string;
+        profileId: string;
+        requestedBy: MittwaldAPIV2.Components.Schemas.LeadFinderUser;
+        resultOn?: string;
+        status:
+          | "NEW"
+          | "AUTOTEST_INIT"
+          | "MANUAL_VERIFICATION"
+          | "REJECTED"
+          | "APPROVED";
+      }
+
+      export interface LeadFinderProfile {
+        approvedOn: string;
+        customerId: string;
+        disabledOn?: string;
+        domain: string;
+      }
+
+      export interface LeadFinderUser {
+        userId: string;
       }
 
       export interface MailCreateMailAddress {
@@ -18699,6 +18759,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $429 {
             namespace Content {
               export interface ApplicationJson {
@@ -21057,6 +21125,130 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CustomersCustomerIdLeadFyndrProfileRequest {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.LeadFinderProfileRequest;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CustomersCustomerIdLeadFyndrProfile {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.LeadFinderProfile;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;

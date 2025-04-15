@@ -373,7 +373,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionGetExtensionInstance: this.requestFunctionFactory(
       descriptors.extensionGetExtensionInstance,
     ),
-    /** Delete an ExtensionInstance. */
+    /** Delete a free ExtensionInstance. If the Extension is chargable the contract must be terminated instead. */
     extensionDeleteExtensionInstance: this.requestFunctionFactory(
       descriptors.extensionDeleteExtensionInstance,
     ),
