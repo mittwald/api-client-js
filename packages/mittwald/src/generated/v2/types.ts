@@ -5463,6 +5463,27 @@ export declare module MittwaldAPIV2 {
         };
       } & MittwaldAPIV2.Components.Schemas.MarketplaceUrlFrontendFragment;
 
+      export interface MarketplaceOwnContributor {
+        contactPersonUserId: string;
+        contractOwner: MittwaldAPIV2.Components.Schemas.CustomerContact;
+        customerId: string;
+        description?: string;
+        /**
+         * @deprecated
+         */
+        email?: string;
+        id: string;
+        logoRefId?: string;
+        name: string;
+        /**
+         * @deprecated
+         */
+        phone?: string;
+        state: MittwaldAPIV2.Components.Schemas.MarketplaceContributorState;
+        supportInformation: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
+        url?: string;
+      }
+
       export interface MarketplaceOwnExtension {
         assets: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset[];
         backendComponents?: MittwaldAPIV2.Components.Schemas.MarketplaceBackendComponents;
@@ -19202,7 +19223,8 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.MarketplaceContributor;
+                | MittwaldAPIV2.Components.Schemas.MarketplaceContributor
+                | MittwaldAPIV2.Components.Schemas.MarketplaceOwnContributor;
             }
           }
 
