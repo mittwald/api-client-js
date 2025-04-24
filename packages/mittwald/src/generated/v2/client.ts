@@ -633,6 +633,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getCustomerTokenInvite: this.requestFunctionFactory(
       descriptors.customerGetCustomerTokenInvite,
     ),
+    /** Get your LeadFyndr request. */
+    getLeadFyndrProfileRequest: this.requestFunctionFactory(
+      descriptors.customerGetLeadFyndrProfileRequest,
+    ),
+    /** Get your LeadFyndr profile. */
+    getLeadFyndrProfile: this.requestFunctionFactory(
+      descriptors.customerGetLeadFyndrProfile,
+    ),
     /** Check if the customer profile has a valid contract partner configured. */
     isCustomerLegallyCompetent: this.requestFunctionFactory(
       descriptors.customerIsCustomerLegallyCompetent,
@@ -658,14 +666,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Resend the mail for a CustomerInvite. */
     resendCustomerInviteMail: this.requestFunctionFactory(
       descriptors.customerResendCustomerInviteMail,
-    ),
-    /** Get your LeadFyndr profile. */
-    getLeadFyndrProfile: this.requestFunctionFactory(
-      descriptors.customerGetLeadFyndrProfile,
-    ),
-    /** Get your LeadFyndr request. */
-    getLeadFyndrProfileRequest: this.requestFunctionFactory(
-      descriptors.customerGetLeadFyndrProfileRequest,
     ),
   };
 

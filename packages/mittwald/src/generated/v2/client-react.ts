@@ -363,6 +363,16 @@ const buildCustomerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.customerGetCustomerTokenInvite,
     baseClient.customer.getCustomerTokenInvite,
   ).getApiResource,
+  /** Get your LeadFyndr request. */
+  getLeadFyndrProfileRequest: new ApiCallAsyncResourceFactory(
+    descriptors.customerGetLeadFyndrProfileRequest,
+    baseClient.customer.getLeadFyndrProfileRequest,
+  ).getApiResource,
+  /** Get your LeadFyndr profile. */
+  getLeadFyndrProfile: new ApiCallAsyncResourceFactory(
+    descriptors.customerGetLeadFyndrProfile,
+    baseClient.customer.getLeadFyndrProfile,
+  ).getApiResource,
   /** Check if the customer profile has a valid contract partner configured. */
   isCustomerLegallyCompetent: new ApiCallAsyncResourceFactory(
     descriptors.customerIsCustomerLegallyCompetent,
@@ -382,16 +392,6 @@ const buildCustomerApi = (baseClient: MittwaldAPIV2Client) => ({
   listMembershipsForCustomer: new ApiCallAsyncResourceFactory(
     descriptors.customerListMembershipsForCustomer,
     baseClient.customer.listMembershipsForCustomer,
-  ).getApiResource,
-  /** Get your LeadFyndr profile. */
-  getLeadFyndrProfile: new ApiCallAsyncResourceFactory(
-    descriptors.customerGetLeadFyndrProfile,
-    baseClient.customer.getLeadFyndrProfile,
-  ).getApiResource,
-  /** Get your LeadFyndr request. */
-  getLeadFyndrProfileRequest: new ApiCallAsyncResourceFactory(
-    descriptors.customerGetLeadFyndrProfileRequest,
-    baseClient.customer.getLeadFyndrProfileRequest,
   ).getApiResource,
 });
 
