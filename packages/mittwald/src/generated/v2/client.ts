@@ -659,6 +659,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     resendCustomerInviteMail: this.requestFunctionFactory(
       descriptors.customerResendCustomerInviteMail,
     ),
+    /** Get your LeadFyndr profile. */
+    getLeadFyndrProfile: this.requestFunctionFactory(
+      descriptors.customerGetLeadFyndrProfile,
+    ),
+    /** Get your LeadFyndr request. */
+    getLeadFyndrProfileRequest: this.requestFunctionFactory(
+      descriptors.customerGetLeadFyndrProfileRequest,
+    ),
   };
 
   /** The database API allows you to manage your databases, like MySQL and Redis databases. */

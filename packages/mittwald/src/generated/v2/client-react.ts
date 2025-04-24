@@ -383,6 +383,16 @@ const buildCustomerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.customerListMembershipsForCustomer,
     baseClient.customer.listMembershipsForCustomer,
   ).getApiResource,
+  /** Get your LeadFyndr profile. */
+  getLeadFyndrProfile: new ApiCallAsyncResourceFactory(
+    descriptors.customerGetLeadFyndrProfile,
+    baseClient.customer.getLeadFyndrProfile,
+  ).getApiResource,
+  /** Get your LeadFyndr request. */
+  getLeadFyndrProfileRequest: new ApiCallAsyncResourceFactory(
+    descriptors.customerGetLeadFyndrProfileRequest,
+    baseClient.customer.getLeadFyndrProfileRequest,
+  ).getApiResource,
 });
 
 const buildDatabaseApi = (baseClient: MittwaldAPIV2Client) => ({
