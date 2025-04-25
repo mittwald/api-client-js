@@ -7397,6 +7397,22 @@ export declare module MittwaldAPIV2 {
         value: string;
       }
 
+      /**
+       * The Extension Instance Contract.
+       */
+      export type ExtensionExtensionInstanceContract =
+        MittwaldAPIV2.Components.Schemas.ExtensionSubscriptionBasedContract;
+
+      /**
+       * A strategy for Contracts that will be paid periodically.
+       */
+      export interface ExtensionSubscriptionBasedContract {
+        interactionDeadline?: string;
+        interactionRequired: boolean;
+        status: "notStarted" | "active" | "terminationPending";
+        terminationTargetDate?: string;
+      }
+
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
