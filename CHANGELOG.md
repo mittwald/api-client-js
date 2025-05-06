@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.136.2](https://github.com/mittwald/api-client-js/compare/4.136.1...4.136.2) (2025-05-06)
+
+### Bug Fixes
+
+- **Generation:** fix generated types for security HTTP scheme
+  ([905088e](https://github.com/mittwald/api-client-js/commit/905088e22f5d5ed82bffaae4de323b5a857e16ba))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [4.136.1](https://github.com/mittwald/api-client-js/compare/4.136.0...4.136.1) (2025-05-06)
 
 ### Bug Fixes
