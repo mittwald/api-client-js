@@ -5444,6 +5444,13 @@ export declare module MittwaldAPIV2 {
         pendingRemoval: boolean;
       }
 
+      export interface MarketplaceExtensionInstanceChargeability {
+        isChargeable: boolean;
+        reasons: {
+          isOwnExtension: boolean;
+        };
+      }
+
       export interface MarketplaceExtensionInstanceHealth {
         aggregateReference: {
           aggregate: string;
@@ -7507,13 +7514,6 @@ export declare module MittwaldAPIV2 {
       export interface VarnishSoftwareSetting {
         name: string;
         value: string;
-      }
-
-      export interface MarketplaceExtensionInstanceChargeability {
-        isChargeable: boolean;
-        reasons: {
-          isOwnExtension: boolean;
-        };
       }
 
       export interface CommonsAddress {
