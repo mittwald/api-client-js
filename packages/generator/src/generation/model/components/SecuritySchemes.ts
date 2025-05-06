@@ -24,8 +24,8 @@ export class SecuritySchemes {
     Object.values(doc).forEach((scheme) => {
       assertNoRefs(scheme);
       invariant(
-        scheme.type === "apiKey",
-        `Security scheme type '${scheme.type}' is not supported (allowed types: 'apiKey')`,
+        scheme.type === "apiKey" || scheme.type === "http",
+        `Security scheme type '${scheme.type}' is not supported (allowed types: 'apiKey', 'http')`,
       );
     });
 
