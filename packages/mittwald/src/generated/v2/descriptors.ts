@@ -7384,6 +7384,11 @@ export const extensionCreateExtensionInstance: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstances.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ExtensionInstances.Post.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"

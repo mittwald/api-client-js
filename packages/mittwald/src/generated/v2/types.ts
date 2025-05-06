@@ -3987,6 +3987,7 @@ export declare module MittwaldAPIV2 {
         id: string;
         parentId?: string;
         projectId: string;
+        requestedAt: string;
         status: string;
       }
 
@@ -4031,6 +4032,22 @@ export declare module MittwaldAPIV2 {
          */
         ttl?: string;
         updatedAt?: string;
+      }
+
+      /**
+       * The Extension Instance Contract.
+       */
+      export type ExtensionExtensionInstanceContract =
+        MittwaldAPIV2.Components.Schemas.ExtensionSubscriptionBasedContract;
+
+      /**
+       * A strategy for Contracts that will be paid periodically.
+       */
+      export interface ExtensionSubscriptionBasedContract {
+        interactionDeadline?: string;
+        interactionRequired: boolean;
+        status: "notStarted" | "active" | "terminationPending";
+        terminationTargetDate?: string;
       }
 
       export interface ContainerCreateRegistry {
@@ -5235,11 +5252,13 @@ export declare module MittwaldAPIV2 {
       export interface MarketplaceContributor {
         customerId: string;
         description?: string;
+        descriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceLocalizedDescription;
         /**
          * @deprecated
          */
         email?: string;
         id: string;
+        imprint?: MittwaldAPIV2.Components.Schemas.MarketplaceContributorImprint;
         logoRefId?: string;
         name: string;
         /**
@@ -5250,6 +5269,14 @@ export declare module MittwaldAPIV2 {
         supportInformation: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
         url?: string;
       }
+
+      export type MarketplaceContributorImprint =
+        | {
+            text: string;
+          }
+        | {
+            url: string;
+          };
 
       export type MarketplaceContributorState = "enabled" | "disabled";
 
@@ -5310,7 +5337,7 @@ export declare module MittwaldAPIV2 {
         /**
          * Whether the extension has been published by the contributor.
          */
-        published: boolean;
+        published: true;
         scopes: string[];
         /**
          * @deprecated
@@ -5407,6 +5434,7 @@ export declare module MittwaldAPIV2 {
           domain: string;
           id: string;
         };
+        chargeability?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstanceChargeability;
         consentedScopes: string[];
         createdAt?: string;
         disabled: boolean;
@@ -5463,9 +5491,18 @@ export declare module MittwaldAPIV2 {
         };
       } & MittwaldAPIV2.Components.Schemas.MarketplaceUrlFrontendFragment;
 
+      /**
+       * A few words about the introduction as a contributor
+       */
+      export interface MarketplaceLocalizedDescription {
+        de: string;
+        en?: string;
+      }
+
       export interface MarketplaceOwnContributor {
         contactPersonUserId: string;
-        contractOwner: MittwaldAPIV2.Components.Schemas.CustomerContact;
+        contractOwner: MittwaldAPIV2.Components.Schemas.CommonsContact;
+        contributorNumber: string;
         customerId: string;
         description?: string;
         /**
@@ -5473,6 +5510,7 @@ export declare module MittwaldAPIV2 {
          */
         email?: string;
         id: string;
+        imprint?: MittwaldAPIV2.Components.Schemas.MarketplaceContributorImprint;
         logoRefId?: string;
         name: string;
         /**
@@ -5566,6 +5604,76 @@ export declare module MittwaldAPIV2 {
       export interface MarketplaceSupportMeta {
         email?: string;
         phone?: string;
+      }
+
+      export interface MarketplaceUnpublishedExtension {
+        /**
+         * The assets/media (images and videos) of the extension.
+         *
+         * @maxItems 4
+         */
+        assets:
+          | []
+          | [MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset]
+          | [
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+            ]
+          | [
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+            ]
+          | [
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+            ];
+        /**
+         * @deprecated
+         */
+        blocked: boolean;
+        context: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+        contributorId: string;
+        deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
+        /**
+         * A short description of the capabilites of the Extension.
+         */
+        description?: string;
+        detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
+        disabled: boolean;
+        externalFrontends?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
+        /**
+         * @deprecated
+         */
+        frontendComponents?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
+        frontendFragments?: {
+          [
+            k: string
+          ]: MittwaldAPIV2.Components.Schemas.MarketplaceFrontendFragment;
+        };
+        id: string;
+        /**
+         * This is the FileId of the Logo. Retrieve the file with this id on `/v2/files/{logoRefId}`.
+         */
+        logoRefId?: string;
+        name: string;
+        pricing?: MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricingStrategy;
+        /**
+         * Whether the extension has been published by the contributor.
+         */
+        published?: false;
+        scopes: string[];
+        /**
+         * @deprecated
+         * deprecated
+         */
+        state: "enabled" | "blocked" | "disabled";
+        statistics: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionStatistics;
+        subTitle?: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
+        support?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
+        tags: string[];
       }
 
       export interface MarketplaceUrlFrontendFragment {
@@ -6852,7 +6960,11 @@ export declare module MittwaldAPIV2 {
 
       export type ProjectServerDisableReason = "suspended";
 
-      export type ProjectServerStatus = "pending" | "ready" | "unready";
+      export type ProjectServerStatus =
+        | "pending"
+        | "ready"
+        | "unready"
+        | "suspended";
 
       export interface ProjectServer {
         clusterName: string;
@@ -7397,20 +7509,11 @@ export declare module MittwaldAPIV2 {
         value: string;
       }
 
-      /**
-       * The Extension Instance Contract.
-       */
-      export type ExtensionExtensionInstanceContract =
-        MittwaldAPIV2.Components.Schemas.ExtensionSubscriptionBasedContract;
-
-      /**
-       * A strategy for Contracts that will be paid periodically.
-       */
-      export interface ExtensionSubscriptionBasedContract {
-        interactionDeadline?: string;
-        interactionRequired: boolean;
-        status: "notStarted" | "active" | "terminationPending";
-        terminationTargetDate?: string;
+      export interface MarketplaceExtensionInstanceChargeability {
+        isChargeable: boolean;
+        reasons: {
+          isOwnExtension: boolean;
+        };
       }
 
       export interface CommonsAddress {
@@ -7423,6 +7526,18 @@ export declare module MittwaldAPIV2 {
          */
         countryCode: string;
         addressPrefix?: string;
+      }
+
+      export interface CommonsContact {
+        firstName?: string;
+        lastName?: string;
+        title?: string;
+        salutation: MittwaldAPIV2.Components.Schemas.CommonsSalutation;
+        company?: string;
+        address: MittwaldAPIV2.Components.Schemas.CommonsAddress;
+        emailAddress?: string;
+        phoneNumbers?: string[];
+        useFormalTerm?: boolean;
       }
 
       export interface CommonsError {
@@ -18769,6 +18884,13 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $403 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
           namespace $404 {
             namespace Content {
               export interface ApplicationJson {
@@ -19513,7 +19635,8 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.MarketplaceExtension;
+                | MittwaldAPIV2.Components.Schemas.MarketplaceExtension
+                | MittwaldAPIV2.Components.Schemas.MarketplaceUnpublishedExtension;
             }
           }
 
@@ -19743,7 +19866,8 @@ export declare module MittwaldAPIV2 {
             subTitle?: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
             support?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
             tags?: string[];
-            webhookURLs?: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrls;
+            webhookURLs?: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrls & {};
+            webhookUrls?: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrls;
           }
 
           export type Header =
