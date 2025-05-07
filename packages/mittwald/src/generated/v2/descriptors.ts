@@ -9709,7 +9709,7 @@ export const mailUpdateMailAddressAddress: OpenAPIOperation<
   operationId: "mail-update-mail-address-address",
 };
 
-/** Update the catchall of a MailAddress. */
+/** Update the catch-all of a MailAddress. */
 export const mailUpdateMailAddressCatchAll: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchAll.Patch.Parameters.RequestBody>,

@@ -21635,9 +21635,21 @@ export declare module MittwaldAPIV2 {
 
           export type Query = {
             search?: string;
+            forwardAddress?: boolean;
+            catchAll?: boolean;
+            autoResponder?: boolean;
             limit?: number;
             skip?: number;
             page?: number;
+            sort?: (
+              | "address.domain"
+              | "address.local"
+              | "updatedAt"
+              | "projectId"
+              | "mailbox.quota"
+              | "mailbox.name"
+            )[];
+            order?: ("asc" | "desc")[];
           };
         }
         namespace Responses {

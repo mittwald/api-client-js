@@ -979,7 +979,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateMailAddressAddress: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressAddress,
     ),
-    /** Update the catchall of a MailAddress. */
+    /** Update the catch-all of a MailAddress. */
     updateMailAddressCatchAll: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressCatchAll,
     ),
