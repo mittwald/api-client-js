@@ -6457,6 +6457,10 @@ export declare module MittwaldAPIV2 {
 
       export interface MembershipProjectMembership {
         /**
+         * Avatar file reference id of the user.
+         */
+        avatarRef?: string;
+        /**
          * Email used by the invited user.
          */
         email: string;
@@ -6464,6 +6468,10 @@ export declare module MittwaldAPIV2 {
          * Time the ProjectMembership should expire at.
          */
         expiresAt?: string;
+        /**
+         * First name of the user.
+         */
+        firstName: string;
         /**
          * ID of the ProjectMembership.
          */
@@ -6476,6 +6484,10 @@ export declare module MittwaldAPIV2 {
          * ID of the ProjectInvite the membership was created from.
          */
         inviteId?: string;
+        /**
+         * Last name of the user.
+         */
+        lastName: string;
         /**
          * Date the projectMembership was created at.
          */
@@ -14962,6 +14974,8 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             limit?: number;
             skip?: number;
+            hasExpiry?: boolean;
+            role?: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
           };
         }
         namespace Responses {
@@ -15020,6 +15034,8 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             limit?: number;
             skip?: number;
+            hasExpiry?: boolean;
+            role?: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
           };
         }
         namespace Responses {
@@ -24947,6 +24963,9 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             limit?: number;
             skip?: number;
+            hasExpiry?: boolean;
+            isInherited?: boolean;
+            role?: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
           };
         }
         namespace Responses {
@@ -25051,6 +25070,9 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             limit?: number;
             skip?: number;
+            hasExpiry?: boolean;
+            isInherited?: boolean;
+            role?: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
           };
         }
         namespace Responses {
