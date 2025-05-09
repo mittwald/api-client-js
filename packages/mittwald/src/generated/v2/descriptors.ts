@@ -1848,6 +1848,11 @@ export const containerGetContainerImageConfig: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerImageConfig.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ContainerImageConfig.Get.Responses.$412.Content.ApplicationJson>,
       412,
       "application/json"
