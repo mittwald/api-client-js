@@ -401,6 +401,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionEnableExtensionInstance: this.requestFunctionFactory(
       descriptors.extensionEnableExtensionInstance,
     ),
+    /** Generate an Extension secret for the given Extension. */
+    extensionGenerateExtensionSecret: this.requestFunctionFactory(
+      descriptors.extensionGenerateExtensionSecret,
+    ),
     /** Generate a session token to transmit it to the extensions frontend fragment. */
     extensionGenerateSessionToken: this.requestFunctionFactory(
       descriptors.extensionGenerateSessionToken,
@@ -424,6 +428,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Get the public key to verify the webhook signature. */
     extensionGetPublicKey: this.requestFunctionFactory(
       descriptors.extensionGetPublicKey,
+    ),
+    /** Invalidate the given Extension secret immediately. */
+    extensionInvalidateExtensionSecret: this.requestFunctionFactory(
+      descriptors.extensionInvalidateExtensionSecret,
     ),
     /** List Contributors. */
     extensionListContributors: this.requestFunctionFactory(
