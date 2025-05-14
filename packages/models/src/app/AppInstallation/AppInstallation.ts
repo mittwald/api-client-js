@@ -100,7 +100,9 @@ export class AppInstallationListQuery extends ListQueryModel<AppInstallationList
     project: Project,
     query: AppInstallationListQueryData = {},
   ) {
-    super(query);
+    super(query, {
+      dependencies: [project.id],
+    });
     this.project = project;
   }
 

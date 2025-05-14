@@ -4,7 +4,7 @@ import { OpenAPIV3 } from "openapi-types";
 import invariant from "invariant";
 import { assertNoRefs } from "../../refs/assertNoRefs.js";
 import { asyncStringJoin } from "../../asyncStringJoin.js";
-import { SecurityScheme } from "./SecurityScheme.js";
+import { SecurityScheme, type SecuritySchemeType } from "./SecurityScheme.js";
 import { TypeCompilationOptions } from "../CodeGenerationModel.js";
 
 export class SecuritySchemes {
@@ -24,18 +24,14 @@ export class SecuritySchemes {
     Object.values(doc).forEach((scheme) => {
       assertNoRefs(scheme);
       invariant(
-        scheme.type === "apiKey",
-        `Security scheme type '${scheme.type}' is not supported (allowed types: 'apiKey')`,
+        scheme.type === "apiKey" || scheme.type === "http",
+        `Security scheme type '${scheme.type}' is not supported (allowed types: 'apiKey', 'http')`,
       );
     });
 
     this.schemes = Object.entries(doc).map(
       ([name, scheme]) =>
-        new SecurityScheme(
-          this,
-          name,
-          scheme as OpenAPIV3.ApiKeySecurityScheme,
-        ),
+        new SecurityScheme(this, name, scheme as SecuritySchemeType),
     );
   }
 

@@ -1,6 +1,6 @@
 {
   "name": "@mittwald/api-client",
-  "version": "0.0.0-development-e096ee7-20240924",
+  "version": "4.143.0",
   "author": "Mittwald CM Service GmbH & Co. KG <opensource@mittwald.de>",
   "type": "module",
   "description": "Auto-generated client for the mittwald API",
@@ -36,8 +36,8 @@
     "build:client-base": "run acg generate --name MittwaldAPIV2 /dev/stdin src/generated/v2 --optionalHeader x-access-token",
     "build:client-dev": "bash -e -o pipefail -c 'spec/transform-openapi.sh < spec/openapi-dev.json | run build:client-base'",
     "build:client-prod": "bash -e -o pipefail -c 'spec/transform-openapi.sh < spec/openapi.json | run build:client-base'",
-    "build:fetch-openapi": "curl --location --fail --silent https://api.mittwald.de/v2/openapi.json > spec/openapi.json",
     "build:fetch-openapi-dev": "curl --location --fail --silent https://developer.mittwald.de/specs/openapi-v2-dev.json > spec/openapi-dev.json",
+    "build:fetch-openapi-prod": "curl --location --fail --silent https://api.mittwald.de/v2/openapi.json > spec/openapi.json",
     "build:write-version-file": "run tsx dev/writeVersion.ts",
     "format": "run prettier --write '**/*.{ts,tsx,yaml,yml,json,md,mdx,js}'",
     "lint": "run eslint .",
@@ -51,29 +51,29 @@
   },
   "devDependencies": {
     "@mittwald/api-code-generator": "workspace:^",
-    "@mittwald/react-use-promise": "^2.5.0",
-    "@types/node": "^20.14.14",
-    "@types/react": "^18.3.3",
+    "@mittwald/react-use-promise": "^2.6.0",
+    "@types/node": "^22.10.1",
+    "@types/react": "^18.3.14",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
     "concurrently": "^8.2.2",
-    "eslint": "^8.57.0",
+    "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-json": "^3.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "has-flag": "^5.0.1",
-    "prettier": "^3.3.3",
+    "prettier": "^3.4.2",
     "prettier-plugin-jsdoc": "^1.3.0",
     "prettier-plugin-pkgsort": "^0.2.1",
     "prettier-plugin-sort-json": "^3.1.0",
     "react": "^18.3.1",
     "read-pkg": "^9.0.1",
     "rimraf": "^5.0.10",
-    "tsx": "^4.16.5",
-    "typescript": "5.5.4"
+    "tsx": "^4.19.2",
+    "typescript": "5.7.2"
   },
   "peerDependencies": {
-    "@mittwald/react-use-promise": "^2.3.12"
+    "@mittwald/react-use-promise": "^2.6.0"
   },
   "peerDependenciesMeta": {
     "@mittwald/react-use-promise": {

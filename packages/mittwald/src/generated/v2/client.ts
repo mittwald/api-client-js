@@ -203,6 +203,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listStacks: this.requestFunctionFactory(descriptors.containerListStacks),
     /** List Volumes belonging to a Project. */
     listVolumes: this.requestFunctionFactory(descriptors.containerListVolumes),
+    /** Pulls the latest version of the Service's image and recreates the Service. */
+    pullImageForService: this.requestFunctionFactory(
+      descriptors.containerPullImageForService,
+    ),
     /** Recreate a Service. */
     recreateService: this.requestFunctionFactory(
       descriptors.containerRecreateService,
@@ -341,6 +345,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionAuthenticateInstance: this.requestFunctionFactory(
       descriptors.extensionAuthenticateInstance,
     ),
+    /** Authenticate your external application using a session token and an extension secret */
+    extensionAuthenticateWithSessionToken: this.requestFunctionFactory(
+      descriptors.extensionAuthenticateWithSessionToken,
+    ),
+    /** Change the context of an Extension. */
+    extensionChangeContext: this.requestFunctionFactory(
+      descriptors.extensionChangeContext,
+    ),
     /** Consent to extension scopes. */
     extensionConsentToExtensionScopes: this.requestFunctionFactory(
       descriptors.extensionConsentToExtensionScopes,
@@ -361,9 +373,21 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionGetExtensionInstance: this.requestFunctionFactory(
       descriptors.extensionGetExtensionInstance,
     ),
-    /** Delete an ExtensionInstance. */
+    /** Delete a free ExtensionInstance. If the Extension is chargable the contract must be terminated instead. */
     extensionDeleteExtensionInstance: this.requestFunctionFactory(
       descriptors.extensionDeleteExtensionInstance,
+    ),
+    /** Get Extension of own contributor. */
+    extensionGetOwnExtension: this.requestFunctionFactory(
+      descriptors.extensionGetOwnExtension,
+    ),
+    /** Delete an extension. */
+    extensionDeleteExtension: this.requestFunctionFactory(
+      descriptors.extensionDeleteExtension,
+    ),
+    /** Patch Extension. */
+    extensionPatchExtension: this.requestFunctionFactory(
+      descriptors.extensionPatchExtension,
     ),
     /** Disable an ExtensionInstance. */
     extensionDisableExtensionInstance: this.requestFunctionFactory(
@@ -377,9 +401,25 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionEnableExtensionInstance: this.requestFunctionFactory(
       descriptors.extensionEnableExtensionInstance,
     ),
+    /** Generate an Extension secret for the given Extension. */
+    extensionGenerateExtensionSecret: this.requestFunctionFactory(
+      descriptors.extensionGenerateExtensionSecret,
+    ),
+    /** Generate a session token to transmit it to the extensions frontend fragment. */
+    extensionGenerateSessionToken: this.requestFunctionFactory(
+      descriptors.extensionGenerateSessionToken,
+    ),
     /** Get a Contributor. */
     extensionGetContributor: this.requestFunctionFactory(
       descriptors.extensionGetContributor,
+    ),
+    /** Get the ExtensionInstance of a specific customer and extension, if existing. */
+    extensionGetExtensionInstanceForCustomer: this.requestFunctionFactory(
+      descriptors.extensionGetExtensionInstanceForCustomer,
+    ),
+    /** Get the ExtensionInstance of a specific project and extension, if existing. */
+    extensionGetExtensionInstanceForProject: this.requestFunctionFactory(
+      descriptors.extensionGetExtensionInstanceForProject,
     ),
     /** Get an Extension. */
     extensionGetExtension: this.requestFunctionFactory(
@@ -389,6 +429,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionGetPublicKey: this.requestFunctionFactory(
       descriptors.extensionGetPublicKey,
     ),
+    /** Invalidate the given Extension secret immediately. */
+    extensionInvalidateExtensionSecret: this.requestFunctionFactory(
+      descriptors.extensionInvalidateExtensionSecret,
+    ),
     /** List Contributors. */
     extensionListContributors: this.requestFunctionFactory(
       descriptors.extensionListContributors,
@@ -396,6 +440,38 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** List Extensions. */
     extensionListExtensions: this.requestFunctionFactory(
       descriptors.extensionListExtensions,
+    ),
+    /** List Extensions of own contributor. */
+    extensionListOwnExtensions: this.requestFunctionFactory(
+      descriptors.extensionListOwnExtensions,
+    ),
+    /** Register an Extension. */
+    extensionRegisterExtension: this.requestFunctionFactory(
+      descriptors.extensionRegisterExtension,
+    ),
+    /** Remove an asset of an extension. */
+    extensionRemoveAsset: this.requestFunctionFactory(
+      descriptors.extensionRemoveAsset,
+    ),
+    /** Add a logo to an extension. */
+    extensionRequestLogoUpload: this.requestFunctionFactory(
+      descriptors.extensionRequestLogoUpload,
+    ),
+    /** Remove the logo of an extension. */
+    extensionRemoveLogo: this.requestFunctionFactory(
+      descriptors.extensionRemoveLogo,
+    ),
+    /** Add an asset to an extension. */
+    extensionRequestAssetUpload: this.requestFunctionFactory(
+      descriptors.extensionRequestAssetUpload,
+    ),
+    /** Start the verification process of an Extension. */
+    extensionRequestExtensionVerification: this.requestFunctionFactory(
+      descriptors.extensionRequestExtensionVerification,
+    ),
+    /** Publish or withdraw an Extension. */
+    extensionSetExtensionPublishedState: this.requestFunctionFactory(
+      descriptors.extensionSetExtensionPublishedState,
     ),
   };
 
@@ -503,6 +579,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     acceptCustomerInvite: this.requestFunctionFactory(
       descriptors.customerAcceptCustomerInvite,
     ),
+    /** List Invites belonging to a Customer. */
+    listInvitesForCustomer: this.requestFunctionFactory(
+      descriptors.customerListInvitesForCustomer,
+    ),
     /** Create a CustomerInvite. */
     createCustomerInvite: this.requestFunctionFactory(
       descriptors.customerCreateCustomerInvite,
@@ -515,6 +595,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     createCustomer: this.requestFunctionFactory(
       descriptors.customerCreateCustomer,
     ),
+    /** Lets us know your idea for our recommendation programm. */
+    createRecommendationSuggestion: this.requestFunctionFactory(
+      descriptors.customerCreateRecommendationSuggestion,
+    ),
+    /** Gets the Wallet of the Customer. */
+    getWallet: this.requestFunctionFactory(descriptors.customerGetWallet),
+    /** Create the Wallet for the Customer. */
+    createWallet: this.requestFunctionFactory(descriptors.customerCreateWallet),
     /** Decline a CustomerInvite. */
     declineCustomerInvite: this.requestFunctionFactory(
       descriptors.customerDeclineCustomerInvite,
@@ -553,13 +641,17 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getCustomerTokenInvite: this.requestFunctionFactory(
       descriptors.customerGetCustomerTokenInvite,
     ),
+    /** Get your LeadFyndr request. */
+    getLeadFyndrProfileRequest: this.requestFunctionFactory(
+      descriptors.customerGetLeadFyndrProfileRequest,
+    ),
+    /** Get your LeadFyndr profile. */
+    getLeadFyndrProfile: this.requestFunctionFactory(
+      descriptors.customerGetLeadFyndrProfile,
+    ),
     /** Check if the customer profile has a valid contract partner configured. */
     isCustomerLegallyCompetent: this.requestFunctionFactory(
       descriptors.customerIsCustomerLegallyCompetent,
-    ),
-    /** Leave a Customer. */
-    leaveCustomer: this.requestFunctionFactory(
-      descriptors.customerLeaveCustomer,
     ),
     /** List CustomerInvites belonging to the executing user. */
     listCustomerInvites: this.requestFunctionFactory(
@@ -568,10 +660,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** List CustomerMemberships belonging to the executing user. */
     listCustomerMemberships: this.requestFunctionFactory(
       descriptors.customerListCustomerMemberships,
-    ),
-    /** List Invites belonging to a Customer. */
-    listInvitesForCustomer: this.requestFunctionFactory(
-      descriptors.customerListInvitesForCustomer,
     ),
     /** List Memberships belonging to a Customer. */
     listMembershipsForCustomer: this.requestFunctionFactory(
@@ -687,40 +775,22 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
-  /** The notification API allows you to manage your notifications. */
-  public readonly notification = {
-    /** Subscribe a user to the mStudio newsletter. */
-    newsletterSubscribeUser: this.requestFunctionFactory(
-      descriptors.newsletterSubscribeUser,
-    ),
-    /** Getting the subscription status of the subscription. */
-    newsletterGetInfo: this.requestFunctionFactory(
-      descriptors.newsletterGetInfo,
-    ),
-    /** Unsubscribe a user from the mStudio newsletter. */
-    newsletterUnsubscribeUser: this.requestFunctionFactory(
-      descriptors.newsletterUnsubscribeUser,
-    ),
-    /** Get the counts for unread notifications of the user. */
-    scountUnreadNotifications: this.requestFunctionFactory(
-      descriptors.notificationsCountUnreadNotifications,
-    ),
-    /** List all unread notifications. */
-    slistNotifications: this.requestFunctionFactory(
-      descriptors.notificationsListNotifications,
-    ),
-    /** Mark all notifications as read. */
-    sreadAllNotifications: this.requestFunctionFactory(
-      descriptors.notificationsReadAllNotifications,
-    ),
-    /** Mark notification as read. */
-    sreadNotification: this.requestFunctionFactory(
-      descriptors.notificationsReadNotification,
-    ),
-  };
-
   /** The domain API allows you to manage your domains, DNS records, SSL certificates and ingress resources. */
   public readonly domain = {
+    /** List Domains */
+    listDomains: this.requestFunctionFactory(descriptors.domainListDomains),
+    /** Update the nameservers of a Domain. */
+    updateDomainNameservers: this.requestFunctionFactory(
+      descriptors.domainUpdateDomainNameservers,
+    ),
+    /** Update the paths of an Ingress. */
+    ingressUpdateIngressPaths: this.requestFunctionFactory(
+      descriptors.ingressUpdateIngressPaths,
+    ),
+    /** Update the tls settings of an Ingress. */
+    ingressUpdateIngressTls: this.requestFunctionFactory(
+      descriptors.ingressUpdateIngressTls,
+    ),
     /** Create a DNSZone. */
     dnsCreateDnsZone: this.requestFunctionFactory(descriptors.dnsCreateDnsZone),
     /** Get a DNSZone. */
@@ -745,8 +815,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     checkDomainRegistrability: this.requestFunctionFactory(
       descriptors.domainCheckDomainRegistrability,
     ),
-    /** List Domains */
-    listDomains: this.requestFunctionFactory(descriptors.domainListDomains),
     /** Check if a Domain is available to transfer. */
     checkDomainTransferability: this.requestFunctionFactory(
       descriptors.domainCheckDomainTransferability,
@@ -754,10 +822,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Create an auth code for a Domains transfer-out process. */
     createDomainAuthCode: this.requestFunctionFactory(
       descriptors.domainCreateDomainAuthCode,
-    ),
-    /** Update the nameservers of a Domain. */
-    updateDomainNameservers: this.requestFunctionFactory(
-      descriptors.domainUpdateDomainNameservers,
     ),
     /** Get a Domain. */
     getDomain: this.requestFunctionFactory(descriptors.domainGetDomain),
@@ -815,17 +879,9 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ingressListIngressesCompatibleWithCertificate: this.requestFunctionFactory(
       descriptors.ingressListIngressesCompatibleWithCertificate,
     ),
-    /** Update the paths of an Ingress. */
-    ingressUpdateIngressPaths: this.requestFunctionFactory(
-      descriptors.ingressUpdateIngressPaths,
-    ),
     /** Request the ACME certificate issuance of an Ingress. */
     ingressRequestIngressAcmeCertificateIssuance: this.requestFunctionFactory(
       descriptors.ingressRequestIngressAcmeCertificateIssuance,
-    ),
-    /** Update the tls settings of an Ingress. */
-    ingressUpdateIngressTls: this.requestFunctionFactory(
-      descriptors.ingressUpdateIngressTls,
     ),
     /** Check the replacement of a Certificate. */
     sslCheckReplaceCertificate: this.requestFunctionFactory(
@@ -863,36 +919,30 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     sslListCertificates: this.requestFunctionFactory(
       descriptors.sslListCertificates,
     ),
-    /** Update the certificate of a CertificateRequest. */
-    sslSetCertificateRequestCertificate: this.requestFunctionFactory(
-      descriptors.sslSetCertificateRequestCertificate,
-    ),
-  };
-
-  /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
-  public readonly file = {
-    /** Create a File. */
-    createFile: this.requestFunctionFactory(descriptors.fileCreateFile),
-    /** Get a File's meta. */
-    getFileMeta: this.requestFunctionFactory(descriptors.fileGetFileMeta),
-    /** Get a FileUploadToken's rules. */
-    getFileUploadTokenRules: this.requestFunctionFactory(
-      descriptors.fileGetFileUploadTokenRules,
-    ),
-    /** Get a FileUploadType's rules. */
-    getFileUploadTypeRules: this.requestFunctionFactory(
-      descriptors.fileGetFileUploadTypeRules,
-    ),
-    /** Get a File. */
-    getFile: this.requestFunctionFactory(descriptors.fileGetFile),
-    /** Get a File with user-friendly url. */
-    getFileWithName: this.requestFunctionFactory(
-      descriptors.fileGetFileWithName,
-    ),
   };
 
   /** The mail API allows you to manage your mail accounts. */
   public readonly mail = {
+    /** Update the autoresponder of a MailAddress. */
+    updateMailAddressAutoresponder: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressAutoresponder,
+    ),
+    /** Update the forward addresses of a MailAddresses. */
+    updateMailAddressForwardAddresses: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressForwardAddresses,
+    ),
+    /** Update the password for a MailAddress. */
+    updateMailAddressPassword: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressPassword,
+    ),
+    /** Update the quota of a MailAddress. */
+    updateMailAddressQuota: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressQuota,
+    ),
+    /** Update the spam protection of a MailAddress. */
+    updateMailAddressSpamProtection: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressSpamProtection,
+    ),
     /** List DeliveryBoxes belonging to a Project. */
     listDeliveryBoxes: this.requestFunctionFactory(
       descriptors.mailListDeliveryBoxes,
@@ -953,33 +1003,219 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateMailAddressAddress: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressAddress,
     ),
-    /** Update the autoresponder of a MailAddress. */
-    updateMailAddressAutoresponder: this.requestFunctionFactory(
-      descriptors.mailUpdateMailAddressAutoresponder,
-    ),
-    /** Update the catchall of a MailAddress. */
+    /** Update the catch-all of a MailAddress. */
     updateMailAddressCatchAll: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressCatchAll,
-    ),
-    /** Update the forward addresses of a MailAddresses. */
-    updateMailAddressForwardAddresses: this.requestFunctionFactory(
-      descriptors.mailUpdateMailAddressForwardAddresses,
-    ),
-    /** Update the password for a MailAddress. */
-    updateMailAddressPassword: this.requestFunctionFactory(
-      descriptors.mailUpdateMailAddressPassword,
-    ),
-    /** Update the quota of a MailAddress. */
-    updateMailAddressQuota: this.requestFunctionFactory(
-      descriptors.mailUpdateMailAddressQuota,
-    ),
-    /** Update the spam protection of a MailAddress. */
-    updateMailAddressSpamProtection: this.requestFunctionFactory(
-      descriptors.mailUpdateMailAddressSpamProtection,
     ),
     /** Update a mail setting of a Project. */
     updateProjectMailSetting: this.requestFunctionFactory(
       descriptors.mailUpdateProjectMailSetting,
+    ),
+  };
+
+  /** The notification API allows you to manage your notifications. */
+  public readonly notification = {
+    /** Subscribe a user to the mStudio newsletter. */
+    newsletterSubscribeUser: this.requestFunctionFactory(
+      descriptors.newsletterSubscribeUser,
+    ),
+    /** Getting the subscription status of the subscription. */
+    newsletterGetInfo: this.requestFunctionFactory(
+      descriptors.newsletterGetInfo,
+    ),
+    /** Unsubscribe a user from the mStudio newsletter. */
+    newsletterUnsubscribeUser: this.requestFunctionFactory(
+      descriptors.newsletterUnsubscribeUser,
+    ),
+    /** Get the counts for unread notifications of the user. */
+    scountUnreadNotifications: this.requestFunctionFactory(
+      descriptors.notificationsCountUnreadNotifications,
+    ),
+    /** List all unread notifications. */
+    slistNotifications: this.requestFunctionFactory(
+      descriptors.notificationsListNotifications,
+    ),
+    /** Mark all notifications as read. */
+    sreadAllNotifications: this.requestFunctionFactory(
+      descriptors.notificationsReadAllNotifications,
+    ),
+    /** Mark notification as read. */
+    sreadNotification: this.requestFunctionFactory(
+      descriptors.notificationsReadNotification,
+    ),
+  };
+
+  /** The user API allows you to manage your own user and access information of other users that might be visible to you. */
+  public readonly user = {
+    /** Update your account information. */
+    updateAccount: this.requestFunctionFactory(descriptors.userUpdateAccount),
+    /** Get a PasswordPolicy. */
+    passwordValidationGetPasswordPolicy: this.requestFunctionFactory(
+      descriptors.passwordValidationGetPasswordPolicy,
+    ),
+    /** Add phone number and start verification process. */
+    addPhoneNumber: this.requestFunctionFactory(descriptors.userAddPhoneNumber),
+    /** Remove phone number. */
+    removePhoneNumber: this.requestFunctionFactory(
+      descriptors.userRemovePhoneNumber,
+    ),
+    /** Validate your second factor. */
+    authenticateMfa: this.requestFunctionFactory(
+      descriptors.userAuthenticateMfa,
+    ),
+    /** Authenticate yourself to get an access token. */
+    authenticate: this.requestFunctionFactory(descriptors.userAuthenticate),
+    /** Authenticate an user with an access token retrieval key. */
+    authenticateWithAccessTokenRetrievalKey: this.requestFunctionFactory(
+      descriptors.userAuthenticateWithAccessTokenRetrievalKey,
+    ),
+    /** Get your verified Email-Address. */
+    getOwnEmail: this.requestFunctionFactory(descriptors.userGetOwnEmail),
+    /** Change your Email-Address. */
+    changeEmail: this.requestFunctionFactory(descriptors.userChangeEmail),
+    /** Change your password. */
+    changePassword: this.requestFunctionFactory(descriptors.userChangePassword),
+    /** Check token for validity. */
+    checkToken: this.requestFunctionFactory(descriptors.userCheckToken),
+    /** Get your current multi factor auth status. */
+    getMfaStatus: this.requestFunctionFactory(descriptors.userGetMfaStatus),
+    /** Reset RecoveryCodes for MFA. */
+    resetRecoverycodes: this.requestFunctionFactory(
+      descriptors.userResetRecoverycodes,
+    ),
+    /** Confirm Multi Factor Authentication. */
+    confirmMfa: this.requestFunctionFactory(descriptors.userConfirmMfa),
+    /** Disable Multi Factor Authentication. */
+    disableMfa: this.requestFunctionFactory(descriptors.userDisableMfa),
+    /** Confirm password reset. */
+    confirmPasswordReset: this.requestFunctionFactory(
+      descriptors.userConfirmPasswordReset,
+    ),
+    /** List all of your ApiTokens. */
+    listApiTokens: this.requestFunctionFactory(descriptors.userListApiTokens),
+    /** Store a new ApiToken. */
+    createApiToken: this.requestFunctionFactory(descriptors.userCreateApiToken),
+    /** Submit your user feedback. */
+    createFeedback: this.requestFunctionFactory(descriptors.userCreateFeedback),
+    /** Get your stored ssh-keys. */
+    listSshKeys: this.requestFunctionFactory(descriptors.userListSshKeys),
+    /** Store a new ssh-key. */
+    createSshKey: this.requestFunctionFactory(descriptors.userCreateSshKey),
+    /** Get a specific ApiToken. */
+    getApiToken: this.requestFunctionFactory(descriptors.userGetApiToken),
+    /** Update an existing `ApiToken`. */
+    editApiToken: this.requestFunctionFactory(descriptors.userEditApiToken),
+    /** Deletes an ApiToken. */
+    deleteApiToken: this.requestFunctionFactory(descriptors.userDeleteApiToken),
+    /** Get a specific stored ssh-key. */
+    getSshKey: this.requestFunctionFactory(descriptors.userGetSshKey),
+    /** Edit a stored ssh-key. */
+    editSshKey: this.requestFunctionFactory(descriptors.userEditSshKey),
+    /** Remove a ssh-key. */
+    deleteSshKey: this.requestFunctionFactory(descriptors.userDeleteSshKey),
+    /** Delete your account and all your personal data. */
+    deleteUser: this.requestFunctionFactory(descriptors.userDeleteUser),
+    /** The timestamp of your latest password change. */
+    getPasswordUpdatedAt: this.requestFunctionFactory(
+      descriptors.userGetPasswordUpdatedAt,
+    ),
+    /** Get personalized settings. */
+    getPersonalizedSettings: this.requestFunctionFactory(
+      descriptors.userGetPersonalizedSettings,
+    ),
+    /** Update personalized GUI settings. */
+    updatePersonalizedSettings: this.requestFunctionFactory(
+      descriptors.userUpdatePersonalizedSettings,
+    ),
+    /** Get poll settings for the specified user. */
+    getPollStatus: this.requestFunctionFactory(descriptors.userGetPollStatus),
+    /** Store new or update poll settings. */
+    postPollStatus: this.requestFunctionFactory(descriptors.userPostPollStatus),
+    /** Get a specific session. */
+    getSession: this.requestFunctionFactory(descriptors.userGetSession),
+    /** Terminate a specific Session. */
+    terminateSession: this.requestFunctionFactory(
+      descriptors.userTerminateSession,
+    ),
+    /** Get profile information for a user. */
+    getUser: this.requestFunctionFactory(descriptors.userGetUser),
+    /** Change personal information. */
+    updatePersonalInformation: this.requestFunctionFactory(
+      descriptors.userUpdatePersonalInformation,
+    ),
+    /** Initialize Multi Factor Authentication. If successful, it needs to be confirmed, before usage of mfa. */
+    initMfa: this.requestFunctionFactory(descriptors.userInitMfa),
+    /** Initialize password reset process. */
+    initPasswordReset: this.requestFunctionFactory(
+      descriptors.userInitPasswordReset,
+    ),
+    /** Submitted feedback of the given user. */
+    listFeedback: this.requestFunctionFactory(descriptors.userListFeedback),
+    /** List all sessions. */
+    listSessions: this.requestFunctionFactory(descriptors.userListSessions),
+    /** Refresh a session. */
+    refreshSession: this.requestFunctionFactory(descriptors.userRefreshSession),
+    /** Terminate all sessions, except the current session. */
+    terminateAllSessions: this.requestFunctionFactory(
+      descriptors.userTerminateAllSessions,
+    ),
+    /** Terminate session and invalidate access token. */
+    logout: this.requestFunctionFactory(descriptors.userLogout),
+    /** Obtain authorization from the resource owner. */
+    oauthGetAuthorization: this.requestFunctionFactory(
+      descriptors.userOauthGetAuthorization,
+    ),
+    /** Retrieve Access Token from Authorization Code. */
+    oauthRetrieveAccessToken: this.requestFunctionFactory(
+      descriptors.userOauthRetrieveAccessToken,
+    ),
+    /** Register with email and password. */
+    register: this.requestFunctionFactory(descriptors.userRegister),
+    /** Request a new avatar image upload. */
+    requestAvatarUpload: this.requestFunctionFactory(
+      descriptors.userRequestAvatarUpload,
+    ),
+    /** Remove Avatar. */
+    removeAvatar: this.requestFunctionFactory(descriptors.userRemoveAvatar),
+    /** Resend the Email-Address verification email. */
+    resendVerificationEmail: this.requestFunctionFactory(
+      descriptors.userResendVerificationEmail,
+    ),
+    /** Request a support code. */
+    supportCodeRequest: this.requestFunctionFactory(
+      descriptors.userSupportCodeRequest,
+    ),
+    /** Verify an added Email-Address. */
+    verifyEmail: this.requestFunctionFactory(descriptors.userVerifyEmail),
+    /** Verify phone number. */
+    verifyPhoneNumber: this.requestFunctionFactory(
+      descriptors.userVerifyPhoneNumber,
+    ),
+    /** Verify your registration. */
+    verifyRegistration: this.requestFunctionFactory(
+      descriptors.userVerifyRegistration,
+    ),
+  };
+
+  /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
+  public readonly file = {
+    /** Create a File. */
+    createFile: this.requestFunctionFactory(descriptors.fileCreateFile),
+    /** Get a File's meta. */
+    getFileMeta: this.requestFunctionFactory(descriptors.fileGetFileMeta),
+    /** Get a FileUploadToken's rules. */
+    getFileUploadTokenRules: this.requestFunctionFactory(
+      descriptors.fileGetFileUploadTokenRules,
+    ),
+    /** Get a FileUploadType's rules. */
+    getFileUploadTypeRules: this.requestFunctionFactory(
+      descriptors.fileGetFileUploadTypeRules,
+    ),
+    /** Get a File. */
+    getFile: this.requestFunctionFactory(descriptors.fileGetFile),
+    /** Get a File with user-friendly url. */
+    getFileWithName: this.requestFunctionFactory(
+      descriptors.fileGetFileWithName,
     ),
   };
 
@@ -1077,8 +1313,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get a Server. */
     getServer: this.requestFunctionFactory(descriptors.projectGetServer),
-    /** Leave a Project. */
-    leaveProject: this.requestFunctionFactory(descriptors.projectLeaveProject),
     /** List Memberships belonging to a Project. */
     listMembershipsForProject: this.requestFunctionFactory(
       descriptors.projectListMembershipsForProject,
@@ -1106,6 +1340,23 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update a Servers's description. */
     updateServerDescription: this.requestFunctionFactory(
       descriptors.projectUpdateServerDescription,
+    ),
+    /** Get storage space Statistics belonging to a Project. */
+    storagespaceGetProjectStatistics: this.requestFunctionFactory(
+      descriptors.storagespaceGetProjectStatistics,
+    ),
+    /** Get storage space Statistics belonging to a Server. */
+    storagespaceGetServerStatistics: this.requestFunctionFactory(
+      descriptors.storagespaceGetServerStatistics,
+    ),
+    /** Update a Project's storage space notification threshold. */
+    storagespaceReplaceProjectNotificationThreshold:
+      this.requestFunctionFactory(
+        descriptors.storagespaceReplaceProjectNotificationThreshold,
+      ),
+    /** Update a Server's storage space notification threshold. */
+    storagespaceReplaceServerNotificationThreshold: this.requestFunctionFactory(
+      descriptors.storagespaceReplaceServerNotificationThreshold,
     ),
   };
 
@@ -1140,6 +1391,22 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Relocate an external Project to mittwald. */
     createRelocation: this.requestFunctionFactory(
       descriptors.relocationCreateRelocation,
+    ),
+  };
+
+  /** API endpoints that are not related to any specific API domain */
+  public readonly misc = {
+    /** Obtain a service token. */
+    servicetokenAuthenticateService: this.requestFunctionFactory(
+      descriptors.servicetokenAuthenticateService,
+    ),
+    /** Check if an address exists. */
+    verificationVerifyAddress: this.requestFunctionFactory(
+      descriptors.verificationVerifyAddress,
+    ),
+    /** Check if a company exists. */
+    verificationVerifyCompany: this.requestFunctionFactory(
+      descriptors.verificationVerifyCompany,
     ),
   };
 
