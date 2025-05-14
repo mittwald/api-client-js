@@ -83,12 +83,12 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get runtime status belonging to an AppInstallation. */
     retrieveStatus: this.requestFunctionFactory(descriptors.appRetrieveStatus),
-    /** Remove linkage between an AppInstallation and a Database. */
-    unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
     /** Create linkage between an AppInstallation and DatabaseUsers. */
     setDatabaseUsers: this.requestFunctionFactory(
       descriptors.appSetDatabaseUsers,
     ),
+    /** Remove linkage between an AppInstallation and a Database. */
+    unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
   };
 
   /** The article API allows you to read article information. */
@@ -337,6 +337,30 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The marketplace API allows you to manage extensions and more information regaring the marketplace. */
   public readonly marketplace = {
+    /** Get Contributor Billing Information. */
+    contributorGetBillingInformation: this.requestFunctionFactory(
+      descriptors.contributorGetBillingInformation,
+    ),
+    /** Get the Stripe Billing Portal Link for a Customer */
+    contributorGetCustomerBillingPortalLink: this.requestFunctionFactory(
+      descriptors.contributorGetCustomerBillingPortalLink,
+    ),
+    /** Get the Stripe Dashboard Link for a Contributor. */
+    contributorGetLoginLink: this.requestFunctionFactory(
+      descriptors.contributorGetLoginLink,
+    ),
+    /** List incoming Invoices of a Contributor. */
+    contributorListIncomingInvoices: this.requestFunctionFactory(
+      descriptors.contributorListIncomingInvoices,
+    ),
+    /** List all invoices on behalf of a contributor. */
+    contributorListOnbehalfInvoices: this.requestFunctionFactory(
+      descriptors.contributorListOnbehalfInvoices,
+    ),
+    /** Request an Access Token for the Incoming Invoice file. */
+    contributorReceiptGetFileAccessToken: this.requestFunctionFactory(
+      descriptors.contributorReceiptGetFileAccessToken,
+    ),
     /** Rotate the secret for an extension instance. */
     contributorRotateSecretForExtensionInstance: this.requestFunctionFactory(
       descriptors.contributorRotateSecretForExtensionInstance,
@@ -349,6 +373,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionAuthenticateWithSessionToken: this.requestFunctionFactory(
       descriptors.extensionAuthenticateWithSessionToken,
     ),
+    /** Schedule an Extension Instance Termination for the next possible date. */
+    extensionScheduleExtensionTermination: this.requestFunctionFactory(
+      descriptors.extensionScheduleExtensionTermination,
+    ),
+    /** Cancel an Extension Instance Termination. */
+    extensionCancelExtensionTermination: this.requestFunctionFactory(
+      descriptors.extensionCancelExtensionTermination,
+    ),
     /** Change the context of an Extension. */
     extensionChangeContext: this.requestFunctionFactory(
       descriptors.extensionChangeContext,
@@ -356,6 +388,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Consent to extension scopes. */
     extensionConsentToExtensionScopes: this.requestFunctionFactory(
       descriptors.extensionConsentToExtensionScopes,
+    ),
+    /** Create the OnboardingProcess of a Contributor. */
+    extensionCreateContributorOnboardingProcess: this.requestFunctionFactory(
+      descriptors.extensionCreateContributorOnboardingProcess,
     ),
     /** List ExtensionInstances. */
     extensionListExtensionInstances: this.requestFunctionFactory(
@@ -413,6 +449,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionGetContributor: this.requestFunctionFactory(
       descriptors.extensionGetContributor,
     ),
+    /** Get the Contract Strategy of an Extension Instance */
+    extensionGetExtensionInstanceContract: this.requestFunctionFactory(
+      descriptors.extensionGetExtensionInstanceContract,
+    ),
+    /** Update or Create Contract for existing Extension Instances. */
+    extensionUpdateExtensionInstanceContract: this.requestFunctionFactory(
+      descriptors.extensionUpdateExtensionInstanceContract,
+    ),
     /** Get the ExtensionInstance of a specific customer and extension, if existing. */
     extensionGetExtensionInstanceForCustomer: this.requestFunctionFactory(
       descriptors.extensionGetExtensionInstanceForCustomer,
@@ -449,6 +493,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionRegisterExtension: this.requestFunctionFactory(
       descriptors.extensionRegisterExtension,
     ),
+    /** List Scopes. */
+    extensionListScopes: this.requestFunctionFactory(
+      descriptors.extensionListScopes,
+    ),
+    /** Order Extension with saved payment method */
+    extensionOrderExtension: this.requestFunctionFactory(
+      descriptors.extensionOrderExtension,
+    ),
     /** Remove an asset of an extension. */
     extensionRemoveAsset: this.requestFunctionFactory(
       descriptors.extensionRemoveAsset,
@@ -472,6 +524,22 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Publish or withdraw an Extension. */
     extensionSetExtensionPublishedState: this.requestFunctionFactory(
       descriptors.extensionSetExtensionPublishedState,
+    ),
+    /** Start a checkout process for an extension. */
+    extensionStartExtensionCheckout: this.requestFunctionFactory(
+      descriptors.extensionStartExtensionCheckout,
+    ),
+    /** Creates or Updates Pricing for an Extension. */
+    extensionUpdateExtensionPricing: this.requestFunctionFactory(
+      descriptors.extensionUpdateExtensionPricing,
+    ),
+    /** Get payment method details */
+    customerGetPaymentMethod: this.requestFunctionFactory(
+      descriptors.marketplaceCustomerGetPaymentMethod,
+    ),
+    /** Get the link to update the marketplace payment method */
+    customerUpdatePaymentMethod: this.requestFunctionFactory(
+      descriptors.marketplaceCustomerUpdatePaymentMethod,
     ),
   };
 
@@ -919,6 +987,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     sslListCertificates: this.requestFunctionFactory(
       descriptors.sslListCertificates,
     ),
+    /** Update the certificate of a CertificateRequest. */
+    sslSetCertificateRequestCertificate: this.requestFunctionFactory(
+      descriptors.sslSetCertificateRequestCertificate,
+    ),
   };
 
   /** The mail API allows you to manage your mail accounts. */
@@ -991,6 +1063,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     migrationRequestMailMigration: this.requestFunctionFactory(
       descriptors.mailMigrationRequestMailMigration,
     ),
+    /** Request to restore a backup for a MailAddress */
+    requestMailAddressBackup: this.requestFunctionFactory(
+      descriptors.mailRequestMailAddressBackup,
+    ),
     /** Update the description of a DeliveryBox. */
     updateDeliveryBoxDescription: this.requestFunctionFactory(
       descriptors.mailUpdateDeliveryBoxDescription,
@@ -1049,10 +1125,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
   public readonly user = {
     /** Update your account information. */
     updateAccount: this.requestFunctionFactory(descriptors.userUpdateAccount),
-    /** Get a PasswordPolicy. */
-    passwordValidationGetPasswordPolicy: this.requestFunctionFactory(
-      descriptors.passwordValidationGetPasswordPolicy,
-    ),
     /** Add phone number and start verification process. */
     addPhoneNumber: this.requestFunctionFactory(descriptors.userAddPhoneNumber),
     /** Remove phone number. */
@@ -1394,22 +1466,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
-  /** API endpoints that are not related to any specific API domain */
-  public readonly misc = {
-    /** Obtain a service token. */
-    servicetokenAuthenticateService: this.requestFunctionFactory(
-      descriptors.servicetokenAuthenticateService,
-    ),
-    /** Check if an address exists. */
-    verificationVerifyAddress: this.requestFunctionFactory(
-      descriptors.verificationVerifyAddress,
-    ),
-    /** Check if a company exists. */
-    verificationVerifyCompany: this.requestFunctionFactory(
-      descriptors.verificationVerifyCompany,
-    ),
-  };
-
   /** The SSH/SFTP User API allows you to manage your SSH/SFTP users within a project. */
   public readonly sshsftpUser = {
     /** Get all SFTPUsers for a Project. */
@@ -1454,153 +1510,15 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
-  /** The user API allows you to manage your own user and access information of other users that might be visible to you. */
-  public readonly user = {
-    /** Add phone number and start verification process. */
-    addPhoneNumber: this.requestFunctionFactory(descriptors.userAddPhoneNumber),
-    /** Remove phone number. */
-    removePhoneNumber: this.requestFunctionFactory(
-      descriptors.userRemovePhoneNumber,
+  /** API endpoints that are not related to any specific API domain */
+  public readonly misc = {
+    /** Check if an address exists. */
+    verificationVerifyAddress: this.requestFunctionFactory(
+      descriptors.verificationVerifyAddress,
     ),
-    /** Validate your second factor. */
-    authenticateMfa: this.requestFunctionFactory(
-      descriptors.userAuthenticateMfa,
-    ),
-    /** Authenticate yourself to get an access token. */
-    authenticate: this.requestFunctionFactory(descriptors.userAuthenticate),
-    /** Authenticate an user with an access token retrieval key. */
-    authenticateWithAccessTokenRetrievalKey: this.requestFunctionFactory(
-      descriptors.userAuthenticateWithAccessTokenRetrievalKey,
-    ),
-    /** Get your verified Email-Address. */
-    getOwnEmail: this.requestFunctionFactory(descriptors.userGetOwnEmail),
-    /** Change your Email-Address. */
-    changeEmail: this.requestFunctionFactory(descriptors.userChangeEmail),
-    /** Change your password. */
-    changePassword: this.requestFunctionFactory(descriptors.userChangePassword),
-    /** Check token for validity. */
-    checkToken: this.requestFunctionFactory(descriptors.userCheckToken),
-    /** Get your current multi factor auth status. */
-    getMfaStatus: this.requestFunctionFactory(descriptors.userGetMfaStatus),
-    /** Reset RecoveryCodes for MFA. */
-    resetRecoverycodes: this.requestFunctionFactory(
-      descriptors.userResetRecoverycodes,
-    ),
-    /** Confirm Multi Factor Authentication. */
-    confirmMfa: this.requestFunctionFactory(descriptors.userConfirmMfa),
-    /** Disable Multi Factor Authentication. */
-    disableMfa: this.requestFunctionFactory(descriptors.userDisableMfa),
-    /** Confirm password reset. */
-    confirmPasswordReset: this.requestFunctionFactory(
-      descriptors.userConfirmPasswordReset,
-    ),
-    /** List all of your ApiTokens. */
-    listApiTokens: this.requestFunctionFactory(descriptors.userListApiTokens),
-    /** Store a new ApiToken. */
-    createApiToken: this.requestFunctionFactory(descriptors.userCreateApiToken),
-    /** Submit your user feedback. */
-    createFeedback: this.requestFunctionFactory(descriptors.userCreateFeedback),
-    /** Get your stored ssh-keys. */
-    listSshKeys: this.requestFunctionFactory(descriptors.userListSshKeys),
-    /** Store a new ssh-key. */
-    createSshKey: this.requestFunctionFactory(descriptors.userCreateSshKey),
-    /** Get a specific ApiToken. */
-    getApiToken: this.requestFunctionFactory(descriptors.userGetApiToken),
-    /** Update an existing `ApiToken`. */
-    editApiToken: this.requestFunctionFactory(descriptors.userEditApiToken),
-    /** Deletes an ApiToken. */
-    deleteApiToken: this.requestFunctionFactory(descriptors.userDeleteApiToken),
-    /** Get a specific stored ssh-key. */
-    getSshKey: this.requestFunctionFactory(descriptors.userGetSshKey),
-    /** Edit a stored ssh-key. */
-    editSshKey: this.requestFunctionFactory(descriptors.userEditSshKey),
-    /** Remove a ssh-key. */
-    deleteSshKey: this.requestFunctionFactory(descriptors.userDeleteSshKey),
-    /** Delete your account and all your personal data. */
-    deleteUser: this.requestFunctionFactory(descriptors.userDeleteUser),
-    /** Get your account information. */
-    getOwnAccount: this.requestFunctionFactory(descriptors.userGetOwnAccount),
-    /** Update your account information. */
-    updateAccount: this.requestFunctionFactory(descriptors.userUpdateAccount),
-    /** The timestamp of your latest password change. */
-    getPasswordUpdatedAt: this.requestFunctionFactory(
-      descriptors.userGetPasswordUpdatedAt,
-    ),
-    /** Get personalized settings. */
-    getPersonalizedSettings: this.requestFunctionFactory(
-      descriptors.userGetPersonalizedSettings,
-    ),
-    /** Update personalized GUI settings. */
-    updatePersonalizedSettings: this.requestFunctionFactory(
-      descriptors.userUpdatePersonalizedSettings,
-    ),
-    /** Get poll settings for the specified user. */
-    getPollStatus: this.requestFunctionFactory(descriptors.userGetPollStatus),
-    /** Store new or update poll settings. */
-    postPollStatus: this.requestFunctionFactory(descriptors.userPostPollStatus),
-    /** Get a specific session. */
-    getSession: this.requestFunctionFactory(descriptors.userGetSession),
-    /** Terminate a specific Session. */
-    terminateSession: this.requestFunctionFactory(
-      descriptors.userTerminateSession,
-    ),
-    /** Get profile information for a user. */
-    getUser: this.requestFunctionFactory(descriptors.userGetUser),
-    /** Change personal information. */
-    updatePersonalInformation: this.requestFunctionFactory(
-      descriptors.userUpdatePersonalInformation,
-    ),
-    /** Initialize Multi Factor Authentication. If successful, it needs to be confirmed, before usage of mfa. */
-    initMfa: this.requestFunctionFactory(descriptors.userInitMfa),
-    /** Initialize password reset process. */
-    initPasswordReset: this.requestFunctionFactory(
-      descriptors.userInitPasswordReset,
-    ),
-    /** Submitted feedback of the given user. */
-    listFeedback: this.requestFunctionFactory(descriptors.userListFeedback),
-    /** List all sessions. */
-    listSessions: this.requestFunctionFactory(descriptors.userListSessions),
-    /** Refresh a session. */
-    refreshSession: this.requestFunctionFactory(descriptors.userRefreshSession),
-    /** Terminate all sessions, except the current session. */
-    terminateAllSessions: this.requestFunctionFactory(
-      descriptors.userTerminateAllSessions,
-    ),
-    /** Terminate session and invalidate access token. */
-    logout: this.requestFunctionFactory(descriptors.userLogout),
-    /** Obtain authorization from the resource owner. */
-    oauthGetAuthorization: this.requestFunctionFactory(
-      descriptors.userOauthGetAuthorization,
-    ),
-    /** Retrieve Access Token from Authorization Code. */
-    oauthRetrieveAccessToken: this.requestFunctionFactory(
-      descriptors.userOauthRetrieveAccessToken,
-    ),
-    /** Register with email and password. */
-    register: this.requestFunctionFactory(descriptors.userRegister),
-    /** Request a new avatar image upload. */
-    requestAvatarUpload: this.requestFunctionFactory(
-      descriptors.userRequestAvatarUpload,
-    ),
-    /** Remove Avatar. */
-    removeAvatar: this.requestFunctionFactory(descriptors.userRemoveAvatar),
-    /** Resend the Email-Address verification email. */
-    resendVerificationEmail: this.requestFunctionFactory(
-      descriptors.userResendVerificationEmail,
-    ),
-    /** Request a support code. */
-    supportCodeRequest: this.requestFunctionFactory(
-      descriptors.userSupportCodeRequest,
-    ),
-    /** Verify an added Email-Address. */
-    verifyEmail: this.requestFunctionFactory(descriptors.userVerifyEmail),
-    /** Verify phone number. */
-    verifyPhoneNumber: this.requestFunctionFactory(
-      descriptors.userVerifyPhoneNumber,
-    ),
-    /** Verify your registration. */
-    verifyRegistration: this.requestFunctionFactory(
-      descriptors.userVerifyRegistration,
+    /** Check if a company exists. */
+    verificationVerifyCompany: this.requestFunctionFactory(
+      descriptors.verificationVerifyCompany,
     ),
   };
 }
