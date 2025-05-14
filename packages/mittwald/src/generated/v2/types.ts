@@ -7784,8 +7784,6 @@ export declare module MittwaldAPIV2 {
             action: MittwaldAPIV2.Components.Schemas.AppAction;
           };
 
-          export interface RequestBody {}
-
           export type Header = {};
 
           export type Query = {};
