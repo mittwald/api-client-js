@@ -1187,28 +1187,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace CustomerGetLeadFyndrProfileRequest {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerGetLeadFyndrProfileRequest
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.customerGetLeadFyndrProfileRequest,
-          TStatus
-        >;
-    }
-
-    namespace CustomerGetLeadFyndrProfile {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerGetLeadFyndrProfile
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.customerGetLeadFyndrProfile,
-          TStatus
-        >;
-    }
-
     namespace CustomerIsCustomerLegallyCompetent {
       type RequestData = InferredRequestData<
         typeof descriptors.customerIsCustomerLegallyCompetent
@@ -6083,31 +6061,6 @@ export declare module MittwaldAPIV2 {
         salutation: MittwaldAPIV2.Components.Schemas.CommonsSalutation;
         title?: string;
         useFormalTerm?: boolean;
-      }
-
-      export interface LeadFinderProfileRequest {
-        createdOn: string;
-        customerId: string;
-        domain: string;
-        profileId: string;
-        requestedBy: MittwaldAPIV2.Components.Schemas.LeadFinderUser;
-        resultOn?: string;
-        status:
-          | "AUTOTEST_INIT"
-          | "MANUAL_VERIFICATION"
-          | "REJECTED"
-          | "APPROVED";
-      }
-
-      export interface LeadFinderProfile {
-        approvedOn: string;
-        customerId: string;
-        disabledOn?: string;
-        domain: string;
-      }
-
-      export interface LeadFinderUser {
-        userId: string;
       }
 
       export interface MailCreateMailAddress {
@@ -13227,10 +13180,6 @@ export declare module MittwaldAPIV2 {
             executionId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
@@ -13422,10 +13371,6 @@ export declare module MittwaldAPIV2 {
           export type Path = {
             cronjobId: string;
           };
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -14286,10 +14231,6 @@ export declare module MittwaldAPIV2 {
             customerInviteId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
@@ -14757,130 +14698,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2CustomersCustomerIdLeadFyndrProfileRequest {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LeadFinderProfileRequest;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomersCustomerIdLeadFyndrProfile {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LeadFinderProfile;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2CustomersCustomerIdLegallyCompetent {
       namespace Get {
         namespace Parameters {
@@ -15229,10 +15046,6 @@ export declare module MittwaldAPIV2 {
           export type Path = {
             customerInviteId: string;
           };
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -16056,10 +15869,6 @@ export declare module MittwaldAPIV2 {
             mysqlUserId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
@@ -16113,10 +15922,6 @@ export declare module MittwaldAPIV2 {
           export type Path = {
             mysqlUserId: string;
           };
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -24048,10 +23853,6 @@ export declare module MittwaldAPIV2 {
             projectInviteId: string;
           };
 
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
@@ -25126,6 +24927,7 @@ export declare module MittwaldAPIV2 {
             hasExpiry?: boolean;
             isInherited?: boolean;
             role?: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
+            hasMfa?: boolean;
           };
         }
         namespace Responses {
@@ -25419,10 +25221,6 @@ export declare module MittwaldAPIV2 {
           export type Path = {
             projectInviteId: string;
           };
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;

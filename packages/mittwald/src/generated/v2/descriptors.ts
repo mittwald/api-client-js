@@ -3640,7 +3640,7 @@ export const conversationUpdateMessage: OpenAPIOperation<
 /** Abort a CronjobExecution. */
 export const cronjobAbortExecution: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort.Post.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort.Post.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort.Post.Parameters.Header>
@@ -3771,7 +3771,7 @@ export const cronjobListExecutions: OpenAPIOperation<
 /** Trigger a Cronjob. */
 export const cronjobCreateExecution: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutions.Post.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutions.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutions.Post.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutions.Post.Parameters.Header>
@@ -4337,7 +4337,7 @@ export const customerCreateWallet: OpenAPIOperation<
 /** Decline a CustomerInvite. */
 export const customerDeclineCustomerInvite: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsDecline.Post.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsDecline.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsDecline.Post.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsDecline.Post.Parameters.Header>
@@ -4674,94 +4674,6 @@ export const customerGetCustomerTokenInvite: OpenAPIOperation<
   operationId: "customer-get-customer-token-invite",
 };
 
-/** Get your LeadFyndr request. */
-export const customerGetLeadFyndrProfileRequest: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/lead-fyndr-profile-request",
-  method: "GET",
-  operationId: "customer-get-lead-fyndr-profile-request",
-};
-
-/** Get your LeadFyndr profile. */
-export const customerGetLeadFyndrProfile: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfile.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfile.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfile.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfile.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfile.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfile.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfile.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfile.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfile.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/lead-fyndr-profile",
-  method: "GET",
-  operationId: "customer-get-lead-fyndr-profile",
-};
-
 /** Check if the customer profile has a valid contract partner configured. */
 export const customerIsCustomerLegallyCompetent: OpenAPIOperation<
   RequestType<
@@ -4994,7 +4906,7 @@ export const customerRemoveAvatar: OpenAPIOperation<
 /** Resend the mail for a CustomerInvite. */
 export const customerResendCustomerInviteMail: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsResend.Post.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsResend.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsResend.Post.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsResend.Post.Parameters.Header>
@@ -5565,7 +5477,7 @@ export const databaseDeleteRedisDatabase: OpenAPIOperation<
 /** Disable a MySQLUser. */
 export const databaseDisableMysqlUser: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsDisable.Post.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsDisable.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsDisable.Post.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsDisable.Post.Parameters.Header>
@@ -5604,7 +5516,7 @@ export const databaseDisableMysqlUser: OpenAPIOperation<
 /** Enable a MySQLUser. */
 export const databaseEnableMysqlUser: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsEnable.Post.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsEnable.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsEnable.Post.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsEnable.Post.Parameters.Header>
@@ -10705,7 +10617,7 @@ export const projectCreateProject: OpenAPIOperation<
 /** Decline a ProjectInvite. */
 export const projectDeclineProjectInvite: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsDecline.Post.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsDecline.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsDecline.Post.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsDecline.Post.Parameters.Header>
@@ -11640,7 +11552,7 @@ export const projectListServers: OpenAPIOperation<
 /** Resend the mail for a ProjectInvite. */
 export const projectResendProjectInviteMail: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsResend.Post.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsResend.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsResend.Post.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsResend.Post.Parameters.Header>
