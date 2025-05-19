@@ -8070,6 +8070,35 @@ export const extensionRegisterExtension: OpenAPIOperation<
   operationId: "extension-register-extension",
 };
 
+/** List Scopes. */
+export const extensionListScopes: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2Scopes.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2Scopes.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2Scopes.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Scopes.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Scopes.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Scopes.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/scopes",
+  method: "GET",
+  operationId: "extension-list-scopes",
+};
+
 /** Remove an asset of an extension. */
 export const extensionRemoveAsset: OpenAPIOperation<
   RequestType<

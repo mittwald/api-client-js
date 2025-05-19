@@ -449,6 +449,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionRegisterExtension: this.requestFunctionFactory(
       descriptors.extensionRegisterExtension,
     ),
+    /** List Scopes. */
+    extensionListScopes: this.requestFunctionFactory(
+      descriptors.extensionListScopes,
+    ),
     /** Remove an asset of an extension. */
     extensionRemoveAsset: this.requestFunctionFactory(
       descriptors.extensionRemoveAsset,

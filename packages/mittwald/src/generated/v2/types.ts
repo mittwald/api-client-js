@@ -2115,6 +2115,14 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ExtensionListScopes {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionListScopes
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.extensionListScopes, TStatus>;
+    }
+
     namespace ExtensionRemoveAsset {
       type RequestData = InferredRequestData<
         typeof descriptors.extensionRemoveAsset
@@ -6301,6 +6309,20 @@ export declare module MittwaldAPIV2 {
         folder: 0 | 1;
         keepDays: number;
         relocateSensitivity?: number;
+      }
+
+      export interface MarketplaceContractPartner {
+        contractPartner: {
+          address: MittwaldAPIV2.Components.Schemas.CommonsAddress;
+          company?: string;
+          email: string;
+          firstName: string;
+          lastName: string;
+        };
+        createdAt: string;
+        extensionId: string;
+        extensionInstanceId: string;
+        parentCustomerId: string;
       }
 
       export type MembershipCustomerInheritedRoles =
@@ -18661,11 +18683,14 @@ export declare module MittwaldAPIV2 {
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {
+            context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+            contextId?: string;
+            extensionId?: string;
             limit?: number;
             skip?: number;
             page?: number;
-            context: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
-            contextId: string;
+            sort?: ("createdAt" | "exensionId")[];
+            order?: ("asc" | "desc")[];
           };
         }
         namespace Responses {
@@ -19031,6 +19056,10 @@ export declare module MittwaldAPIV2 {
           };
 
           export interface RequestBody {
+            /**
+             * Used to patch asset order.
+             */
+            assets?: string[];
             deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
             description?: string;
             detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
@@ -19870,6 +19899,43 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2Scopes {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson = {
+                name: string;
+              }[];
             }
           }
 
