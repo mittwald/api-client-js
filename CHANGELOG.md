@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.147.0](https://github.com/mittwald/api-client-js/compare/4.146.0...4.147.0) (2025-05-20)
+
+### Features
+
+- enable experimental routes in generated api client
+  ([b20c982](https://github.com/mittwald/api-client-js/commit/b20c9823c49b9389b6a1ea64de11d929f8650dac))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [4.146.0](https://github.com/mittwald/api-client-js/compare/4.145.0...4.146.0) (2025-05-19)
 
 ### Features
