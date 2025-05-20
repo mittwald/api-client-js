@@ -873,6 +873,46 @@ const buildSshsftpUserApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
+const buildLeadFyndrApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get a simple lead. Use the unlocked route for more detail leads. */
+  leadfyndrGetLeadExperimental: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetLeadExperimental,
+    baseClient.leadFyndr.leadfyndrGetLeadExperimental,
+  ).getApiResource,
+  /** Get all leads. Use the unlocked routes for more lead details. */
+  leadfyndrListLeadsExperimental: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrListLeadsExperimental,
+    baseClient.leadFyndr.leadfyndrListLeadsExperimental,
+  ).getApiResource,
+  /** Get a detail of a unlocked lead. Organisation can unlock leads. */
+  leadfyndrGetUnlockedLeadExperimental: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetUnlockedLeadExperimental,
+    baseClient.leadFyndr.leadfyndrGetUnlockedLeadExperimental,
+  ).getApiResource,
+  /** Get all unlocked leads. Organisation can unlock leads. */
+  leadfyndrListUnlockedLeadsExperimental: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrListUnlockedLeadsExperimental,
+    baseClient.leadFyndr.leadfyndrListUnlockedLeadsExperimental,
+  ).getApiResource,
+  /** Get lead tariff options. How many leads did you unlock this month? */
+  leadfyndrGetLeadFyndrProfileTariffOptionsExperimental:
+    new ApiCallAsyncResourceFactory(
+      descriptors.leadfyndrGetLeadFyndrProfileTariffOptionsExperimental,
+      baseClient.leadFyndr.leadfyndrGetLeadFyndrProfileTariffOptionsExperimental,
+    ).getApiResource,
+  /** Get your LeadFyndr profile. */
+  leadfyndrGetLeadFyndrProfileExperimental: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetLeadFyndrProfileExperimental,
+    baseClient.leadFyndr.leadfyndrGetLeadFyndrProfileExperimental,
+  ).getApiResource,
+  /** Get your LeadFyndr request. */
+  leadfyndrGetLeadFyndrProfileRequestExperimental:
+    new ApiCallAsyncResourceFactory(
+      descriptors.leadfyndrGetLeadFyndrProfileRequestExperimental,
+      baseClient.leadFyndr.leadfyndrGetLeadFyndrProfileRequestExperimental,
+    ).getApiResource,
+});
+
 export class MittwaldAPIV2ClientReact {
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app: ReturnType<typeof buildAppApi>;
@@ -933,6 +973,9 @@ export class MittwaldAPIV2ClientReact {
   /** The SSH/SFTP User API allows you to manage your SSH/SFTP users within a project. */
   public readonly sshsftpUser: ReturnType<typeof buildSshsftpUserApi>;
 
+  /** The lead fyndr api allow you to manage you leads and your fyndr profile. */
+  public readonly leadFyndr: ReturnType<typeof buildLeadFyndrApi>;
+
   private constructor(baseClient: MittwaldAPIV2Client) {
     this.app = buildAppApi(baseClient);
 
@@ -971,6 +1014,8 @@ export class MittwaldAPIV2ClientReact {
     this.projectFileSystem = buildProjectFileSystemApi(baseClient);
 
     this.sshsftpUser = buildSshsftpUserApi(baseClient);
+
+    this.leadFyndr = buildLeadFyndrApi(baseClient);
   }
 
   public static fromBaseClient(
