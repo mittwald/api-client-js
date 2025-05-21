@@ -1199,6 +1199,58 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
+  /** The lead fyndr api allow you to manage you leads and your fyndr profile. */
+  public readonly leadFyndr = {
+    /** Get your LeadFyndr request. */
+    leadfyndrGetLeadFyndrProfileRequestExperimental:
+      this.requestFunctionFactory(
+        descriptors.leadfyndrGetLeadFyndrProfileRequestExperimental,
+      ),
+    /** Create a new access request for LeadFyndr. */
+    leadfyndrCreateLeadFyndrAccessRequestExperimental:
+      this.requestFunctionFactory(
+        descriptors.leadfyndrCreateLeadFyndrAccessRequestExperimental,
+      ),
+    /** Get a simple lead. Use the unlocked route for more detail leads. */
+    leadfyndrGetLeadExperimental: this.requestFunctionFactory(
+      descriptors.leadfyndrGetLeadExperimental,
+    ),
+    /** Get your LeadFyndr profile. */
+    leadfyndrGetLeadFyndrProfileExperimental: this.requestFunctionFactory(
+      descriptors.leadfyndrGetLeadFyndrProfileExperimental,
+    ),
+    /** Get lead tariff options. How many leads did you unlock this month? */
+    leadfyndrGetLeadFyndrProfileTariffOptionsExperimental:
+      this.requestFunctionFactory(
+        descriptors.leadfyndrGetLeadFyndrProfileTariffOptionsExperimental,
+      ),
+    /** Get a detail of a unlocked lead. Organisation can unlock leads. */
+    leadfyndrGetUnlockedLeadExperimental: this.requestFunctionFactory(
+      descriptors.leadfyndrGetUnlockedLeadExperimental,
+    ),
+    /** Unlock a lead for the given customerId. */
+    leadfyndrUnlockLeadExperimental: this.requestFunctionFactory(
+      descriptors.leadfyndrUnlockLeadExperimental,
+    ),
+    /** Get all leads. Use the unlocked routes for more lead details. */
+    leadfyndrListLeadsExperimental: this.requestFunctionFactory(
+      descriptors.leadfyndrListLeadsExperimental,
+    ),
+    /** Get all unlocked leads. Organisation can unlock leads. */
+    leadfyndrListUnlockedLeadsExperimental: this.requestFunctionFactory(
+      descriptors.leadfyndrListUnlockedLeadsExperimental,
+    ),
+    /** Reserve a unlocked lead for the given customerId. */
+    leadfyndrReserveUnlockedLeadExperimental: this.requestFunctionFactory(
+      descriptors.leadfyndrReserveUnlockedLeadExperimental,
+    ),
+    /** Removes a reservation on a unlocked lead for the given customerId. */
+    leadfyndrRemoveUnlockedLeadReservationExperimental:
+      this.requestFunctionFactory(
+        descriptors.leadfyndrRemoveUnlockedLeadReservationExperimental,
+      ),
+  };
+
   /** The page insights API allows you to get page insights information. */
   public readonly pageInsights = {
     /** Get detailed performance data for a given domain and path. */
@@ -1432,58 +1484,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     sshUserUpdateSshUser: this.requestFunctionFactory(
       descriptors.sshUserUpdateSshUser,
     ),
-  };
-
-  /** The lead fyndr api allow you to manage you leads and your fyndr profile. */
-  public readonly leadFyndr = {
-    /** Reserve a unlocked lead for the given customerId. */
-    leadfyndrReserveUnlockedLeadExperimental: this.requestFunctionFactory(
-      descriptors.leadfyndrReserveUnlockedLeadExperimental,
-    ),
-    /** Removes a reservation on a unlocked lead for the given customerId. */
-    leadfyndrRemoveUnlockedLeadReservationExperimental:
-      this.requestFunctionFactory(
-        descriptors.leadfyndrRemoveUnlockedLeadReservationExperimental,
-      ),
-    /** Get a simple lead. Use the unlocked route for more detail leads. */
-    leadfyndrGetLeadExperimental: this.requestFunctionFactory(
-      descriptors.leadfyndrGetLeadExperimental,
-    ),
-    /** Get all leads. Use the unlocked routes for more lead details. */
-    leadfyndrListLeadsExperimental: this.requestFunctionFactory(
-      descriptors.leadfyndrListLeadsExperimental,
-    ),
-    /** Get a detail of a unlocked lead. Organisation can unlock leads. */
-    leadfyndrGetUnlockedLeadExperimental: this.requestFunctionFactory(
-      descriptors.leadfyndrGetUnlockedLeadExperimental,
-    ),
-    /** Unlock a lead for the given customerId. */
-    leadfyndrUnlockLeadExperimental: this.requestFunctionFactory(
-      descriptors.leadfyndrUnlockLeadExperimental,
-    ),
-    /** Get all unlocked leads. Organisation can unlock leads. */
-    leadfyndrListUnlockedLeadsExperimental: this.requestFunctionFactory(
-      descriptors.leadfyndrListUnlockedLeadsExperimental,
-    ),
-    /** Get lead tariff options. How many leads did you unlock this month? */
-    leadfyndrGetLeadFyndrProfileTariffOptionsExperimental:
-      this.requestFunctionFactory(
-        descriptors.leadfyndrGetLeadFyndrProfileTariffOptionsExperimental,
-      ),
-    /** Get your LeadFyndr profile. */
-    leadfyndrGetLeadFyndrProfileExperimental: this.requestFunctionFactory(
-      descriptors.leadfyndrGetLeadFyndrProfileExperimental,
-    ),
-    /** Get your LeadFyndr request. */
-    leadfyndrGetLeadFyndrProfileRequestExperimental:
-      this.requestFunctionFactory(
-        descriptors.leadfyndrGetLeadFyndrProfileRequestExperimental,
-      ),
-    /** Create a new access request for LeadFyndr. */
-    leadfyndrCreateLeadFyndrAccessRequestExperimental:
-      this.requestFunctionFactory(
-        descriptors.leadfyndrCreateLeadFyndrAccessRequestExperimental,
-      ),
   };
 }
 
