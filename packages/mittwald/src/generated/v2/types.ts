@@ -10029,6 +10029,7 @@ export declare module MittwaldAPIV2 {
             hasCredentials?: boolean;
             limit?: number;
             skip?: number;
+            page?: number;
           };
         }
         namespace Responses {
@@ -11007,6 +11008,9 @@ export declare module MittwaldAPIV2 {
 
           export type Query = {
             stackId?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
           };
         }
         namespace Responses {
@@ -11078,7 +11082,11 @@ export declare module MittwaldAPIV2 {
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
-          export type Query = {};
+          export type Query = {
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -11143,6 +11151,9 @@ export declare module MittwaldAPIV2 {
 
           export type Query = {
             stackId?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
           };
         }
         namespace Responses {
