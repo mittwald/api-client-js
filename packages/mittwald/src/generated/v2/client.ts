@@ -333,6 +333,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     orderPreviewTariffChange: this.requestFunctionFactory(
       descriptors.orderPreviewTariffChange,
     ),
+    /** Return the Contract for the given LeadFyndrProfile. */
+    getDetailOfContractByLeadFyndr: this.requestFunctionFactory(
+      descriptors.contractGetDetailOfContractByLeadFyndr,
+    ),
   };
 
   /** The marketplace API allows you to manage extensions and more information regaring the marketplace. */

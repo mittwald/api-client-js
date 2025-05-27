@@ -259,6 +259,11 @@ const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.orderListProjectOrders,
     baseClient.contract.orderListProjectOrders,
   ).getApiResource,
+  /** Return the Contract for the given LeadFyndrProfile. */
+  getDetailOfContractByLeadFyndr: new ApiCallAsyncResourceFactory(
+    descriptors.contractGetDetailOfContractByLeadFyndr,
+    baseClient.contract.getDetailOfContractByLeadFyndr,
+  ).getApiResource,
 });
 
 const buildConversationApi = (baseClient: MittwaldAPIV2Client) => ({

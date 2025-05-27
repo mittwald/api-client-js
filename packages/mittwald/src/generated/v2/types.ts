@@ -3835,6 +3835,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace ContractGetDetailOfContractByLeadFyndr {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contractGetDetailOfContractByLeadFyndr
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contractGetDetailOfContractByLeadFyndr,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -7802,6 +7813,27 @@ export declare module MittwaldAPIV2 {
       export interface VarnishSoftwareSetting {
         name: string;
         value: string;
+      }
+
+      export interface OrderLeadFyndrOrderPreview {
+        reservationLimit: number;
+        unlockLimit: number;
+      }
+
+      export interface OrderLeadFyndrTariffChange {
+        contractId: string;
+        reservationLimit: number;
+        unlockLimit: number;
+      }
+
+      export interface OrderLeadFyndrOrderPreviewResponse {
+        totalPrice: number;
+      }
+
+      export interface OrderLeadFyndrOrder {
+        customerId: string;
+        reservationLimit: number;
+        unlockLimit: number;
       }
 
       export interface CommonsAddress {
@@ -24018,12 +24050,14 @@ export declare module MittwaldAPIV2 {
               | MittwaldAPIV2.Components.Schemas.OrderProjectHostingOrder
               | MittwaldAPIV2.Components.Schemas.OrderServerOrder
               | MittwaldAPIV2.Components.Schemas.OrderDomainOrder
-              | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrder;
+              | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrder
+              | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrder;
             orderType?:
               | "domain"
               | "projectHosting"
               | "server"
-              | "externalCertificate";
+              | "externalCertificate"
+              | "leadFyndr";
           }
 
           export type Header =
@@ -24075,8 +24109,9 @@ export declare module MittwaldAPIV2 {
           export interface RequestBody {
             tariffChangeData?:
               | MittwaldAPIV2.Components.Schemas.OrderProjectHostingTariffChange
-              | MittwaldAPIV2.Components.Schemas.OrderServerTariffChange;
-            tariffChangeType?: "projectHosting" | "server";
+              | MittwaldAPIV2.Components.Schemas.OrderServerTariffChange
+              | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrTariffChange;
+            tariffChangeType?: "projectHosting" | "server" | "leadFyndr";
           }
 
           export type Header =
@@ -24261,12 +24296,14 @@ export declare module MittwaldAPIV2 {
               | MittwaldAPIV2.Components.Schemas.OrderProjectHostingOrderPreview
               | MittwaldAPIV2.Components.Schemas.OrderServerOrderPreview
               | MittwaldAPIV2.Components.Schemas.OrderDomainOrderPreview
-              | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrderPreview;
+              | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrderPreview
+              | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrderPreview;
             orderType?:
               | "domain"
               | "projectHosting"
               | "server"
-              | "externalCertificate";
+              | "externalCertificate"
+              | "leadFyndr";
           }
 
           export type Header = {};
@@ -24279,7 +24316,8 @@ export declare module MittwaldAPIV2 {
               export type ApplicationJson =
                 | MittwaldAPIV2.Components.Schemas.OrderHostingOrderPreviewResponse
                 | MittwaldAPIV2.Components.Schemas.OrderDomainOrderPreviewResponse
-                | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrderPreviewResponse;
+                | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrderPreviewResponse
+                | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrderPreviewResponse;
             }
           }
 
@@ -24326,8 +24364,9 @@ export declare module MittwaldAPIV2 {
           export interface RequestBody {
             tariffChangeData?:
               | MittwaldAPIV2.Components.Schemas.OrderProjectHostingTariffChange
-              | MittwaldAPIV2.Components.Schemas.OrderServerTariffChange;
-            tariffChangeType?: "projectHosting" | "server";
+              | MittwaldAPIV2.Components.Schemas.OrderServerTariffChange
+              | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrTariffChange;
+            tariffChangeType?: "projectHosting" | "server" | "leadFyndr";
           }
 
           export type Header =
@@ -30915,6 +30954,61 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CustomersCustomerIdLeadFyndrProfileContract {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ContractContract;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
