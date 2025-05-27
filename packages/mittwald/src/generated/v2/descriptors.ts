@@ -317,32 +317,32 @@ export const appGetSystemsoftware: OpenAPIOperation<
 export const appGetSystemsoftwareversion: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/system-software/{systemSoftwareId}/versions/{systemSoftwareVersionId}",
+  path: "/v2/system-softwares/{systemSoftwareId}/versions/{systemSoftwareVersionId}",
   method: "GET",
   operationId: "app-get-systemsoftwareversion",
 };
@@ -574,27 +574,27 @@ export const appListSystemsoftwares: OpenAPIOperation<
 export const appListSystemsoftwareversions: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersions.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersions.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersions.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersions.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersions.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersions.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersions.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersions.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersions.Get.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersions.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersions.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersions.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/system-software/{systemSoftwareId}/versions",
+  path: "/v2/system-softwares/{systemSoftwareId}/versions",
   method: "GET",
   operationId: "app-list-systemsoftwareversions",
 };
@@ -2811,6 +2811,45 @@ export const contractGetDetailOfContractByDomain: OpenAPIOperation<
   path: "/v2/domains/{domainId}/contract",
   method: "GET",
   operationId: "contract-get-detail-of-contract-by-domain",
+};
+
+/** Return the Contract for the given LeadFyndrProfile. */
+export const contractGetDetailOfContractByLeadFyndr: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileContract.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileContract.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileContract.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileContract.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileContract.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileContract.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileContract.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileContract.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/lead-fyndr-profile/contract",
+  method: "GET",
+  operationId: "contract-get-detail-of-contract-by-lead-fyndr",
 };
 
 /** Return the Contract for the given Project. */
@@ -14987,43 +15026,4 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
-};
-
-/** Return the Contract for the given LeadFyndrProfile. */
-export const contractGetDetailOfContractByLeadFyndr: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileContract.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileContract.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileContract.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileContract.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileContract.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileContract.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileContract.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileContract.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/lead-fyndr-profile/contract",
-  method: "GET",
-  operationId: "contract-get-detail-of-contract-by-lead-fyndr",
 };
