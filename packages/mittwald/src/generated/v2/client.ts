@@ -1253,6 +1253,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
       this.requestFunctionFactory(
         descriptors.leadfyndrRemoveUnlockedLeadReservationExperimental,
       ),
+    /** Get cities in DACH. */
+    leadfyndrGetCitiesExperimental: this.requestFunctionFactory(
+      descriptors.leadfyndrGetCitiesExperimental,
+    ),
   };
 
   /** The page insights API allows you to get page insights information. */

@@ -645,6 +645,11 @@ const buildLeadFyndrApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.leadfyndrListUnlockedLeadsExperimental,
     baseClient.leadFyndr.leadfyndrListUnlockedLeadsExperimental,
   ).getApiResource,
+  /** Get cities in DACH. */
+  leadfyndrGetCitiesExperimental: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetCitiesExperimental,
+    baseClient.leadFyndr.leadfyndrGetCitiesExperimental,
+  ).getApiResource,
 });
 
 const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({

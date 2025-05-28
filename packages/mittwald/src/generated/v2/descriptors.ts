@@ -15027,3 +15027,47 @@ export const verificationVerifyCompany: OpenAPIOperation<
   method: "POST",
   operationId: "verification-verify-company",
 };
+
+/** Get cities in DACH. */
+export const leadfyndrGetCitiesExperimental: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCities.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCities.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCities.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCities.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCities.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCities.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCities.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCities.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCities.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2-experimental/cities",
+  method: "GET",
+  operationId: "leadfyndr-get-cities-experimental",
+};

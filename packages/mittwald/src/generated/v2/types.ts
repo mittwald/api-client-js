@@ -3846,6 +3846,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace LeadfyndrGetCitiesExperimental {
+      type RequestData = InferredRequestData<
+        typeof descriptors.leadfyndrGetCitiesExperimental
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.leadfyndrGetCitiesExperimental,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -4363,6 +4374,7 @@ export declare module MittwaldAPIV2 {
         shortId: string;
         stackId: string;
         status: MittwaldAPIV2.Components.Schemas.ContainerServiceStatus;
+        statusSetAt: string;
       }
 
       export interface ContainerServiceState {
@@ -7834,6 +7846,12 @@ export declare module MittwaldAPIV2 {
       export interface VarnishSoftwareSetting {
         name: string;
         value: string;
+      }
+
+      export interface LeadfyndrCity {
+        city: string;
+        country: string;
+        postCode: string;
       }
 
       export interface CommonsAddress {
@@ -20663,7 +20681,7 @@ export declare module MittwaldAPIV2 {
              */
             published: boolean;
             /**
-             * When setting withdrawing an extension a reason is required.
+             * When withdrawing an extension a reason is required.
              */
             reason?: string;
           }
@@ -22360,6 +22378,9 @@ export declare module MittwaldAPIV2 {
              * @maxItems 15
              */
             businessFields?: string[];
+            locationCity?: string;
+            locationPostCode?: string;
+            locationRadiusInKm?: number;
             "basic:timeToFirstByteMs:min"?: number;
             "basic:timeToFirstByteMs:max"?: number;
             "basic:desktop:performance:min"?: number;
@@ -22435,6 +22456,9 @@ export declare module MittwaldAPIV2 {
              * @maxItems 15
              */
             businessFields?: string[];
+            locationCity?: string;
+            locationPostCode?: string;
+            locationRadiusInKm?: number;
             "basic:timeToFirstByteMs:min"?: number;
             "basic:timeToFirstByteMs:max"?: number;
             "basic:desktop:performance:min"?: number;
@@ -31021,6 +31045,70 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2Cities {}
+
+    namespace V2ExperimentalCities {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {
+            input: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.LeadfyndrCity[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
