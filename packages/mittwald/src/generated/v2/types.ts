@@ -22356,6 +22356,10 @@ export declare module MittwaldAPIV2 {
             salesVolumeMin?: number;
             salesVolumeMax?: number;
             technologies?: string[];
+            /**
+             * @maxItems 15
+             */
+            businessFields?: string[];
             "basic:timeToFirstByteMs:min"?: number;
             "basic:timeToFirstByteMs:max"?: number;
             "basic:desktop:performance:min"?: number;
@@ -22427,6 +22431,10 @@ export declare module MittwaldAPIV2 {
             salesVolumeMin?: number;
             salesVolumeMax?: number;
             technologies?: string[];
+            /**
+             * @maxItems 15
+             */
+            businessFields?: string[];
             "basic:timeToFirstByteMs:min"?: number;
             "basic:timeToFirstByteMs:max"?: number;
             "basic:desktop:performance:min"?: number;
