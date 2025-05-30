@@ -189,6 +189,11 @@ const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.contractGetDetailOfContractByDomain,
     baseClient.contract.getDetailOfContractByDomain,
   ).getApiResource,
+  /** Return the Contract for the given LeadFyndrProfile. */
+  getDetailOfContractByLeadFyndr: new ApiCallAsyncResourceFactory(
+    descriptors.contractGetDetailOfContractByLeadFyndr,
+    baseClient.contract.getDetailOfContractByLeadFyndr,
+  ).getApiResource,
   /** Return the Contract for the given Project. */
   getDetailOfContractByProject: new ApiCallAsyncResourceFactory(
     descriptors.contractGetDetailOfContractByProject,
@@ -258,11 +263,6 @@ const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
   orderListProjectOrders: new ApiCallAsyncResourceFactory(
     descriptors.orderListProjectOrders,
     baseClient.contract.orderListProjectOrders,
-  ).getApiResource,
-  /** Return the Contract for the given LeadFyndrProfile. */
-  getDetailOfContractByLeadFyndr: new ApiCallAsyncResourceFactory(
-    descriptors.contractGetDetailOfContractByLeadFyndr,
-    baseClient.contract.getDetailOfContractByLeadFyndr,
   ).getApiResource,
 });
 
@@ -614,6 +614,11 @@ const buildLeadFyndrApi = (baseClient: MittwaldAPIV2Client) => ({
       descriptors.leadfyndrGetLeadFyndrProfileRequestExperimental,
       baseClient.leadFyndr.leadfyndrGetLeadFyndrProfileRequestExperimental,
     ).getApiResource,
+  /** Get cities in DACH. */
+  leadfyndrGetCitiesExperimental: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetCitiesExperimental,
+    baseClient.leadFyndr.leadfyndrGetCitiesExperimental,
+  ).getApiResource,
   /** Get a simple lead. Use the unlocked route for more detail leads. */
   leadfyndrGetLeadExperimental: new ApiCallAsyncResourceFactory(
     descriptors.leadfyndrGetLeadExperimental,
@@ -644,11 +649,6 @@ const buildLeadFyndrApi = (baseClient: MittwaldAPIV2Client) => ({
   leadfyndrListUnlockedLeadsExperimental: new ApiCallAsyncResourceFactory(
     descriptors.leadfyndrListUnlockedLeadsExperimental,
     baseClient.leadFyndr.leadfyndrListUnlockedLeadsExperimental,
-  ).getApiResource,
-  /** Get cities in DACH. */
-  leadfyndrGetCitiesExperimental: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrGetCitiesExperimental,
-    baseClient.leadFyndr.leadfyndrGetCitiesExperimental,
   ).getApiResource,
 });
 

@@ -265,6 +265,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getDetailOfContractByDomain: this.requestFunctionFactory(
       descriptors.contractGetDetailOfContractByDomain,
     ),
+    /** Return the Contract for the given LeadFyndrProfile. */
+    getDetailOfContractByLeadFyndr: this.requestFunctionFactory(
+      descriptors.contractGetDetailOfContractByLeadFyndr,
+    ),
     /** Return the Contract for the given Project. */
     getDetailOfContractByProject: this.requestFunctionFactory(
       descriptors.contractGetDetailOfContractByProject,
@@ -332,10 +336,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Preview TariffChange. */
     orderPreviewTariffChange: this.requestFunctionFactory(
       descriptors.orderPreviewTariffChange,
-    ),
-    /** Return the Contract for the given LeadFyndrProfile. */
-    getDetailOfContractByLeadFyndr: this.requestFunctionFactory(
-      descriptors.contractGetDetailOfContractByLeadFyndr,
     ),
   };
 
@@ -1215,6 +1215,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
       this.requestFunctionFactory(
         descriptors.leadfyndrCreateLeadFyndrAccessRequestExperimental,
       ),
+    /** Get cities in DACH. */
+    leadfyndrGetCitiesExperimental: this.requestFunctionFactory(
+      descriptors.leadfyndrGetCitiesExperimental,
+    ),
     /** Get a simple lead. Use the unlocked route for more detail leads. */
     leadfyndrGetLeadExperimental: this.requestFunctionFactory(
       descriptors.leadfyndrGetLeadExperimental,
@@ -1253,10 +1257,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
       this.requestFunctionFactory(
         descriptors.leadfyndrRemoveUnlockedLeadReservationExperimental,
       ),
-    /** Get cities in DACH. */
-    leadfyndrGetCitiesExperimental: this.requestFunctionFactory(
-      descriptors.leadfyndrGetCitiesExperimental,
-    ),
   };
 
   /** The page insights API allows you to get page insights information. */
