@@ -4153,6 +4153,7 @@ export declare module MittwaldAPIV2 {
           | "Failed"
           | "Completed"
           | "Expired";
+        sha256Checksum?: string;
         withPassword: boolean;
       }
 
@@ -5409,6 +5410,7 @@ export declare module MittwaldAPIV2 {
          * @deprecated
          */
         email?: string;
+        homepage?: string;
         id: string;
         imprint?: MittwaldAPIV2.Components.Schemas.MarketplaceContributorImprint;
         logoRefId?: string;
