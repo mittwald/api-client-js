@@ -4371,6 +4371,7 @@ export declare module MittwaldAPIV2 {
         message?: string;
         pendingState: MittwaldAPIV2.Components.Schemas.ContainerServiceState;
         projectId: string;
+        requiresRecreate: boolean;
         serviceName: string;
         shortId: string;
         stackId: string;
