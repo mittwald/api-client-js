@@ -6252,9 +6252,11 @@ export declare module MittwaldAPIV2 {
 
       export type LeadfyndrDetailCompany =
         MittwaldAPIV2.Components.Schemas.LeadfyndrBasicCompany & {
+          companyType: string[];
           coreProduct: string[];
           name?: string;
           targetGroup: string[];
+          websiteType: string[];
         };
 
       export interface LeadfyndrDetailMetrics {
@@ -6278,6 +6280,7 @@ export declare module MittwaldAPIV2 {
         hoster: {
           server: string[];
         };
+        languages: string[];
         leadId: string;
         mainTechnology?: MittwaldAPIV2.Components.Schemas.LeadfyndrTechnology;
         metrics: MittwaldAPIV2.Components.Schemas.LeadfyndrBasicMetrics;
@@ -6357,6 +6360,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface LeadfyndrUnlockedLead {
+        actualUrl: string;
         businessFields: string[];
         company: MittwaldAPIV2.Components.Schemas.LeadfyndrDetailCompany;
         contact: MittwaldAPIV2.Components.Schemas.LeadfyndrContact;
@@ -6364,6 +6368,7 @@ export declare module MittwaldAPIV2 {
         domain: string;
         globalUnlockedCount: number;
         hoster: MittwaldAPIV2.Components.Schemas.LeadfyndrHoster;
+        languages: string[];
         leadId: string;
         mainTechnology?: MittwaldAPIV2.Components.Schemas.LeadfyndrTechnology;
         metrics: MittwaldAPIV2.Components.Schemas.LeadfyndrDetailMetrics;
@@ -22457,16 +22462,8 @@ export declare module MittwaldAPIV2 {
             limit?: number;
             skip?: number;
             page?: number;
-            sort?: (
-              | "potential"
-              | "company.salesVolume"
-              | "company.employeeCount"
-              | "basic:desktop:performance"
-              | "basic:mobile:performance"
-              | "basic:desktop:seo"
-              | "basic:mobile:seo"
-            )[];
-            order?: ("asc" | "desc")[];
+            sort?: "potential" | "relevance";
+            order?: "asc" | "desc";
           };
         }
         namespace Responses {
@@ -22536,16 +22533,8 @@ export declare module MittwaldAPIV2 {
             limit?: number;
             skip?: number;
             page?: number;
-            sort?: (
-              | "potential"
-              | "company.salesVolume"
-              | "company.employeeCount"
-              | "basic:desktop:performance"
-              | "basic:mobile:performance"
-              | "basic:desktop:seo"
-              | "basic:mobile:seo"
-            )[];
-            order?: ("asc" | "desc")[];
+            sort?: "potential" | "relevance";
+            order?: "asc" | "desc";
           };
         }
         namespace Responses {
