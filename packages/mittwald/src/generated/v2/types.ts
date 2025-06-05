@@ -6276,7 +6276,6 @@ export declare module MittwaldAPIV2 {
         businessFields: string[];
         company: MittwaldAPIV2.Components.Schemas.LeadfyndrBasicCompany;
         description: string;
-        globalUnlockedCount: number;
         hoster: {
           server: string[];
         };
@@ -6366,7 +6365,6 @@ export declare module MittwaldAPIV2 {
         contact: MittwaldAPIV2.Components.Schemas.LeadfyndrContact;
         description: string;
         domain: string;
-        globalUnlockedCount: number;
         hoster: MittwaldAPIV2.Components.Schemas.LeadfyndrHoster;
         languages: string[];
         leadId: string;
