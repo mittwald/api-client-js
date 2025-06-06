@@ -5591,9 +5591,13 @@ export declare module MittwaldAPIV2 {
         };
         chargeability?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstanceChargeability;
         consentedScopes: string[];
+        contributorId?: string;
+        contributorName: string;
         createdAt?: string;
         disabled: boolean;
         extensionId: string;
+        extensionName: string;
+        extensionSubTitle?: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
         id: string;
         pendingInstallation: boolean;
         pendingRemoval: boolean;
@@ -20180,6 +20184,7 @@ export declare module MittwaldAPIV2 {
 
           export type Query = {
             context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+            searchTerm?: string;
             limit?: number;
             skip?: number;
             page?: number;
