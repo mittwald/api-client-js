@@ -6285,7 +6285,6 @@ export declare module MittwaldAPIV2 {
         hoster: {
           server: string[];
         };
-        isActive: boolean;
         languages: string[];
         leadId: string;
         mainTechnology?: MittwaldAPIV2.Components.Schemas.LeadfyndrTechnology;
@@ -6378,6 +6377,7 @@ export declare module MittwaldAPIV2 {
         mainTechnology?: MittwaldAPIV2.Components.Schemas.LeadfyndrTechnology;
         metrics: MittwaldAPIV2.Components.Schemas.LeadfyndrDetailMetrics;
         potential: number;
+        reservationAllowed?: boolean;
         reservedAt?: string;
         scannedAt?: string;
         screenshot: string;
