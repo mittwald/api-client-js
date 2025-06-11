@@ -6223,7 +6223,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface LeadfyndrBasicCompany {
-        city: string;
+        county: string;
         employeeCount?: number;
         foundingYear?: number;
         salesVolume?: number;
@@ -6240,6 +6240,7 @@ export declare module MittwaldAPIV2 {
       export interface LeadfyndrCity {
         city: string;
         country: string;
+        county?: string;
         postCode: string;
       }
 
@@ -6256,6 +6257,7 @@ export declare module MittwaldAPIV2 {
 
       export type LeadfyndrDetailCompany =
         MittwaldAPIV2.Components.Schemas.LeadfyndrBasicCompany & {
+          city: string;
           companyType: string[];
           coreProduct: string[];
           name?: string;
@@ -6283,6 +6285,7 @@ export declare module MittwaldAPIV2 {
         hoster: {
           server: string[];
         };
+        isActive: boolean;
         languages: string[];
         leadId: string;
         mainTechnology?: MittwaldAPIV2.Components.Schemas.LeadfyndrTechnology;
