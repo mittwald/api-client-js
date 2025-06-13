@@ -6296,6 +6296,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface LeadfyndrTariffOptions {
+        nextUnlockRenewalDate?: string;
         reservation: {
           available: number;
           tariffLimit: number;
