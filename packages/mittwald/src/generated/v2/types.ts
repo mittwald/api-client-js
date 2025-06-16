@@ -26384,6 +26384,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             customerId?: string;
             serverId?: string;
+            searchTerm?: string;
             limit?: number;
             skip?: number;
             page?: number;
@@ -26471,6 +26472,7 @@ export declare module MittwaldAPIV2 {
             limit?: number;
             page?: number;
             skip?: number;
+            searchTerm?: string;
           };
         }
         namespace Responses {
