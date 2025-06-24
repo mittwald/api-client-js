@@ -4333,16 +4333,23 @@ export declare module MittwaldAPIV2 {
          * Defaults to image config on empty
          */
         command?: string[];
-        description: string;
+        description?: string;
         /**
          * Defaults to image config on empty
          */
         entrypoint?: string[];
+        environment?: {
+          [k: string]: string;
+        };
+        /**
+         * @deprecated
+         * DEPRECATED: Use 'environment' instead. This field will be removed in a future version.
+         */
         envs?: {
           [k: string]: string;
         };
         image: string;
-        ports: string[];
+        ports?: string[];
         volumes?: string[];
       }
 
@@ -4439,6 +4446,7 @@ export declare module MittwaldAPIV2 {
 
       export interface ContainerVolumeResponse {
         id: string;
+        linkedServices?: string[];
         name: string;
         /**
          * Whether the Volume is attached to a Stack.
@@ -6393,6 +6401,7 @@ export declare module MittwaldAPIV2 {
 
       export interface MailCreateMailAddress {
         address: string;
+        forwardAddresses?: string[];
         isCatchAll: boolean;
         mailbox: {
           enableSpamProtection: boolean;
@@ -25789,6 +25798,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $502 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $503 {
             namespace Content {
               export interface ApplicationJson {
@@ -25849,6 +25866,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $502 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -25923,6 +25948,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $502 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $503 {
             namespace Content {
               export interface ApplicationJson {
@@ -25986,6 +26019,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $502 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $503 {
             namespace Content {
               export interface ApplicationJson {
@@ -26038,6 +26079,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $502 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
