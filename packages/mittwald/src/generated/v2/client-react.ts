@@ -317,6 +317,11 @@ const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.extensionGetContributor,
     baseClient.marketplace.extensionGetContributor,
   ).getApiResource,
+  /** Get all open extension orders for given customer */
+  extensionGetCustomerExtensionInstanceOrders: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetCustomerExtensionInstanceOrders,
+    baseClient.marketplace.extensionGetCustomerExtensionInstanceOrders,
+  ).getApiResource,
   /** Get the Contract Strategy of an Extension Instance */
   extensionGetExtensionInstanceContract: new ApiCallAsyncResourceFactory(
     descriptors.extensionGetExtensionInstanceContract,
@@ -336,6 +341,11 @@ const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
   extensionGetExtension: new ApiCallAsyncResourceFactory(
     descriptors.extensionGetExtension,
     baseClient.marketplace.extensionGetExtension,
+  ).getApiResource,
+  /** Get all open extension orders for given project */
+  extensionGetProjectExtensionInstanceOrders: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetProjectExtensionInstanceOrders,
+    baseClient.marketplace.extensionGetProjectExtensionInstanceOrders,
   ).getApiResource,
   /** Get the public key to verify the webhook signature. */
   extensionGetPublicKey: new ApiCallAsyncResourceFactory(
@@ -619,69 +629,6 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** List ExtensionInstances. */
-  extensionListExtensionInstances: new ApiCallAsyncResourceFactory(
-    descriptors.extensionListExtensionInstances,
-    baseClient.marketplace.extensionListExtensionInstances,
-  ).getApiResource,
-  /** Get an ExtensionInstance. */
-  extensionGetExtensionInstance: new ApiCallAsyncResourceFactory(
-    descriptors.extensionGetExtensionInstance,
-    baseClient.marketplace.extensionGetExtensionInstance,
-  ).getApiResource,
-  /** Get Extension of own contributor. */
-  extensionGetOwnExtension: new ApiCallAsyncResourceFactory(
-    descriptors.extensionGetOwnExtension,
-    baseClient.marketplace.extensionGetOwnExtension,
-  ).getApiResource,
-  /** Get a Contributor. */
-  extensionGetContributor: new ApiCallAsyncResourceFactory(
-    descriptors.extensionGetContributor,
-    baseClient.marketplace.extensionGetContributor,
-  ).getApiResource,
-  /** Get the ExtensionInstance of a specific customer and extension, if existing. */
-  extensionGetExtensionInstanceForCustomer: new ApiCallAsyncResourceFactory(
-    descriptors.extensionGetExtensionInstanceForCustomer,
-    baseClient.marketplace.extensionGetExtensionInstanceForCustomer,
-  ).getApiResource,
-  /** Get the ExtensionInstance of a specific project and extension, if existing. */
-  extensionGetExtensionInstanceForProject: new ApiCallAsyncResourceFactory(
-    descriptors.extensionGetExtensionInstanceForProject,
-    baseClient.marketplace.extensionGetExtensionInstanceForProject,
-  ).getApiResource,
-  /** Get an Extension. */
-  extensionGetExtension: new ApiCallAsyncResourceFactory(
-    descriptors.extensionGetExtension,
-    baseClient.marketplace.extensionGetExtension,
-  ).getApiResource,
-  /** Get the public key to verify the webhook signature. */
-  extensionGetPublicKey: new ApiCallAsyncResourceFactory(
-    descriptors.extensionGetPublicKey,
-    baseClient.marketplace.extensionGetPublicKey,
-  ).getApiResource,
-  /** List Contributors. */
-  extensionListContributors: new ApiCallAsyncResourceFactory(
-    descriptors.extensionListContributors,
-    baseClient.marketplace.extensionListContributors,
-  ).getApiResource,
-  /** List Extensions. */
-  extensionListExtensions: new ApiCallAsyncResourceFactory(
-    descriptors.extensionListExtensions,
-    baseClient.marketplace.extensionListExtensions,
-  ).getApiResource,
-  /** List Extensions of own contributor. */
-  extensionListOwnExtensions: new ApiCallAsyncResourceFactory(
-    descriptors.extensionListOwnExtensions,
-    baseClient.marketplace.extensionListOwnExtensions,
-  ).getApiResource,
-  /** List Scopes. */
-  extensionListScopes: new ApiCallAsyncResourceFactory(
-    descriptors.extensionListScopes,
-    baseClient.marketplace.extensionListScopes,
-  ).getApiResource,
-});
-
 const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({
   /** Get a File's meta. */
   getFileMeta: new ApiCallAsyncResourceFactory(
@@ -829,6 +776,89 @@ const buildPageInsightsApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
+const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get a PasswordPolicy. */
+  passwordValidationGetPasswordPolicy: new ApiCallAsyncResourceFactory(
+    descriptors.passwordValidationGetPasswordPolicy,
+    baseClient.user.passwordValidationGetPasswordPolicy,
+  ).getApiResource,
+  /** Get your verified Email-Address. */
+  getOwnEmail: new ApiCallAsyncResourceFactory(
+    descriptors.userGetOwnEmail,
+    baseClient.user.getOwnEmail,
+  ).getApiResource,
+  /** Get your current multi factor auth status. */
+  getMfaStatus: new ApiCallAsyncResourceFactory(
+    descriptors.userGetMfaStatus,
+    baseClient.user.getMfaStatus,
+  ).getApiResource,
+  /** List all of your ApiTokens. */
+  listApiTokens: new ApiCallAsyncResourceFactory(
+    descriptors.userListApiTokens,
+    baseClient.user.listApiTokens,
+  ).getApiResource,
+  /** Get your stored ssh-keys. */
+  listSshKeys: new ApiCallAsyncResourceFactory(
+    descriptors.userListSshKeys,
+    baseClient.user.listSshKeys,
+  ).getApiResource,
+  /** Get a specific ApiToken. */
+  getApiToken: new ApiCallAsyncResourceFactory(
+    descriptors.userGetApiToken,
+    baseClient.user.getApiToken,
+  ).getApiResource,
+  /** Get a specific stored ssh-key. */
+  getSshKey: new ApiCallAsyncResourceFactory(
+    descriptors.userGetSshKey,
+    baseClient.user.getSshKey,
+  ).getApiResource,
+  /** The timestamp of your latest password change. */
+  getPasswordUpdatedAt: new ApiCallAsyncResourceFactory(
+    descriptors.userGetPasswordUpdatedAt,
+    baseClient.user.getPasswordUpdatedAt,
+  ).getApiResource,
+  /** Get personalized settings. */
+  getPersonalizedSettings: new ApiCallAsyncResourceFactory(
+    descriptors.userGetPersonalizedSettings,
+    baseClient.user.getPersonalizedSettings,
+  ).getApiResource,
+  /** Get poll settings for the specified user. */
+  getPollStatus: new ApiCallAsyncResourceFactory(
+    descriptors.userGetPollStatus,
+    baseClient.user.getPollStatus,
+  ).getApiResource,
+  /** Get a specific session. */
+  getSession: new ApiCallAsyncResourceFactory(
+    descriptors.userGetSession,
+    baseClient.user.getSession,
+  ).getApiResource,
+  /** Get profile information for a user. */
+  getUser: new ApiCallAsyncResourceFactory(
+    descriptors.userGetUser,
+    baseClient.user.getUser,
+  ).getApiResource,
+  /** Submitted feedback of the given user. */
+  listFeedback: new ApiCallAsyncResourceFactory(
+    descriptors.userListFeedback,
+    baseClient.user.listFeedback,
+  ).getApiResource,
+  /** List all sessions. */
+  listSessions: new ApiCallAsyncResourceFactory(
+    descriptors.userListSessions,
+    baseClient.user.listSessions,
+  ).getApiResource,
+  /** Obtain authorization from the resource owner. */
+  oauthGetAuthorization: new ApiCallAsyncResourceFactory(
+    descriptors.userOauthGetAuthorization,
+    baseClient.user.oauthGetAuthorization,
+  ).getApiResource,
+  /** Request a support code. */
+  supportCodeRequest: new ApiCallAsyncResourceFactory(
+    descriptors.userSupportCodeRequest,
+    baseClient.user.supportCodeRequest,
+  ).getApiResource,
+});
+
 const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
   /** List Invites belonging to a Project. */
   listInvitesForProject: new ApiCallAsyncResourceFactory(
@@ -953,84 +983,6 @@ const buildSshsftpUserApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** Get your verified Email-Address. */
-  getOwnEmail: new ApiCallAsyncResourceFactory(
-    descriptors.userGetOwnEmail,
-    baseClient.user.getOwnEmail,
-  ).getApiResource,
-  /** Get your current multi factor auth status. */
-  getMfaStatus: new ApiCallAsyncResourceFactory(
-    descriptors.userGetMfaStatus,
-    baseClient.user.getMfaStatus,
-  ).getApiResource,
-  /** List all of your ApiTokens. */
-  listApiTokens: new ApiCallAsyncResourceFactory(
-    descriptors.userListApiTokens,
-    baseClient.user.listApiTokens,
-  ).getApiResource,
-  /** Get your stored ssh-keys. */
-  listSshKeys: new ApiCallAsyncResourceFactory(
-    descriptors.userListSshKeys,
-    baseClient.user.listSshKeys,
-  ).getApiResource,
-  /** Get a specific ApiToken. */
-  getApiToken: new ApiCallAsyncResourceFactory(
-    descriptors.userGetApiToken,
-    baseClient.user.getApiToken,
-  ).getApiResource,
-  /** Get a specific stored ssh-key. */
-  getSshKey: new ApiCallAsyncResourceFactory(
-    descriptors.userGetSshKey,
-    baseClient.user.getSshKey,
-  ).getApiResource,
-  /** The timestamp of your latest password change. */
-  getPasswordUpdatedAt: new ApiCallAsyncResourceFactory(
-    descriptors.userGetPasswordUpdatedAt,
-    baseClient.user.getPasswordUpdatedAt,
-  ).getApiResource,
-  /** Get personalized settings. */
-  getPersonalizedSettings: new ApiCallAsyncResourceFactory(
-    descriptors.userGetPersonalizedSettings,
-    baseClient.user.getPersonalizedSettings,
-  ).getApiResource,
-  /** Get poll settings for the specified user. */
-  getPollStatus: new ApiCallAsyncResourceFactory(
-    descriptors.userGetPollStatus,
-    baseClient.user.getPollStatus,
-  ).getApiResource,
-  /** Get a specific session. */
-  getSession: new ApiCallAsyncResourceFactory(
-    descriptors.userGetSession,
-    baseClient.user.getSession,
-  ).getApiResource,
-  /** Get profile information for a user. */
-  getUser: new ApiCallAsyncResourceFactory(
-    descriptors.userGetUser,
-    baseClient.user.getUser,
-  ).getApiResource,
-  /** Submitted feedback of the given user. */
-  listFeedback: new ApiCallAsyncResourceFactory(
-    descriptors.userListFeedback,
-    baseClient.user.listFeedback,
-  ).getApiResource,
-  /** List all sessions. */
-  listSessions: new ApiCallAsyncResourceFactory(
-    descriptors.userListSessions,
-    baseClient.user.listSessions,
-  ).getApiResource,
-  /** Obtain authorization from the resource owner. */
-  oauthGetAuthorization: new ApiCallAsyncResourceFactory(
-    descriptors.userOauthGetAuthorization,
-    baseClient.user.oauthGetAuthorization,
-  ).getApiResource,
-  /** Request a support code. */
-  supportCodeRequest: new ApiCallAsyncResourceFactory(
-    descriptors.userSupportCodeRequest,
-    baseClient.user.supportCodeRequest,
-  ).getApiResource,
-});
-
 export class MittwaldAPIV2ClientReact {
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app: ReturnType<typeof buildAppApi>;
@@ -1080,6 +1032,9 @@ export class MittwaldAPIV2ClientReact {
   /** The page insights API allows you to get page insights information. */
   public readonly pageInsights: ReturnType<typeof buildPageInsightsApi>;
 
+  /** The user API allows you to manage your own user and access information of other users that might be visible to you. */
+  public readonly user: ReturnType<typeof buildUserApi>;
+
   /** The project API allows you to manage your projects, and also any kinds of user memberships concerning these projects. */
   public readonly project: ReturnType<typeof buildProjectApi>;
 
@@ -1090,9 +1045,6 @@ export class MittwaldAPIV2ClientReact {
 
   /** The SSH/SFTP User API allows you to manage your SSH/SFTP users within a project. */
   public readonly sshsftpUser: ReturnType<typeof buildSshsftpUserApi>;
-
-  /** The user API allows you to manage your own user and access information of other users that might be visible to you. */
-  public readonly user: ReturnType<typeof buildUserApi>;
 
   private constructor(baseClient: MittwaldAPIV2Client) {
     this.app = buildAppApi(baseClient);
@@ -1127,13 +1079,13 @@ export class MittwaldAPIV2ClientReact {
 
     this.pageInsights = buildPageInsightsApi(baseClient);
 
+    this.user = buildUserApi(baseClient);
+
     this.project = buildProjectApi(baseClient);
 
     this.projectFileSystem = buildProjectFileSystemApi(baseClient);
 
     this.sshsftpUser = buildSshsftpUserApi(baseClient);
-
-    this.user = buildUserApi(baseClient);
   }
 
   public static fromBaseClient(

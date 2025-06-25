@@ -3125,6 +3125,45 @@ export const contributorGetBillingInformation: OpenAPIOperation<
   operationId: "contributor-get-billing-information",
 };
 
+/** Update Contributor Billing Information. */
+export const contributorUpdateBillingInformation: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdBillingInformation.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdBillingInformation.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdBillingInformation.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdBillingInformation.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdBillingInformation.Put.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdBillingInformation.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdBillingInformation.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdBillingInformation.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdBillingInformation.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/contributors/{contributorId}/billing-information",
+  method: "PUT",
+  operationId: "contributor-update-billing-information",
+};
+
 /** Get the Stripe Billing Portal Link for a Customer */
 export const contributorGetCustomerBillingPortalLink: OpenAPIOperation<
   RequestType<
@@ -8159,6 +8198,45 @@ export const extensionGetContributor: OpenAPIOperation<
   operationId: "extension-get-contributor",
 };
 
+/** Get all open extension orders for given customer */
+export const extensionGetCustomerExtensionInstanceOrders: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdExtensionOrders.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdExtensionOrders.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdExtensionOrders.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdExtensionOrders.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdExtensionOrders.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdExtensionOrders.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdExtensionOrders.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdExtensionOrders.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/extension-orders",
+  method: "GET",
+  operationId: "extension-get-customer-extension-instance-orders",
+};
+
 /** Get the Contract Strategy of an Extension Instance */
 export const extensionGetExtensionInstanceContract: OpenAPIOperation<
   RequestType<
@@ -8337,6 +8415,45 @@ export const extensionGetExtension: OpenAPIOperation<
   path: "/v2/extensions/{extensionId}",
   method: "GET",
   operationId: "extension-get-extension",
+};
+
+/** Get all open extension orders for given project */
+export const extensionGetProjectExtensionInstanceOrders: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdExtensionOrders.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdExtensionOrders.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdExtensionOrders.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdExtensionOrders.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdExtensionOrders.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdExtensionOrders.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdExtensionOrders.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdExtensionOrders.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/extension-orders",
+  method: "GET",
+  operationId: "extension-get-project-extension-instance-orders",
 };
 
 /** Get the public key to verify the webhook signature. */
@@ -8565,6 +8682,45 @@ export const extensionListScopes: OpenAPIOperation<
   path: "/v2/scopes",
   method: "GET",
   operationId: "extension-list-scopes",
+};
+
+/** Order Extension with saved payment method */
+export const extensionOrderExtension: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdOrder.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdOrder.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdOrder.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdOrder.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdOrder.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdOrder.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdOrder.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdOrder.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdOrder.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/extensions/{extensionId}/order",
+  method: "POST",
+  operationId: "extension-order-extension",
 };
 
 /** Remove an asset of an extension. */
@@ -10791,45 +10947,6 @@ export const mailMigrationRequestMailMigration: OpenAPIOperation<
   operationId: "mail-migration-request-mail-migration",
 };
 
-/** Request to restore a backup for a MailAddress */
-export const mailRequestMailAddressBackup: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsMailaddressesMailAddressIdActionsRequestBackup.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsMailaddressesMailAddressIdActionsRequestBackup.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsMailaddressesMailAddressIdActionsRequestBackup.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsMailaddressesMailAddressIdActionsRequestBackup.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsMailaddressesMailAddressIdActionsRequestBackup.Post.Responses.$200.Content.Empty>,
-      200,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsMailaddressesMailAddressIdActionsRequestBackup.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsMailaddressesMailAddressIdActionsRequestBackup.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsMailaddressesMailAddressIdActionsRequestBackup.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsMailaddressesMailAddressIdActionsRequestBackup.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/mailaddresses/{mailAddressId}/actions/request-backup",
-  method: "POST",
-  operationId: "mail-request-mail-address-backup",
-};
-
 /** Update the description of a DeliveryBox. */
 export const mailUpdateDeliveryBoxDescription: OpenAPIOperation<
   RequestType<
@@ -11778,6 +11895,35 @@ export const pageinsightsScheduleStrace: OpenAPIOperation<
   path: "/v2/projects/{projectId}/straces",
   method: "POST",
   operationId: "pageinsights-schedule-strace",
+};
+
+/** Get a PasswordPolicy. */
+export const passwordValidationGetPasswordPolicy: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPasswordPolicy.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPasswordPolicy.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPasswordPolicy.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPasswordPolicy.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPasswordPolicy.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPasswordPolicy.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/password-policies/{passwordPolicy}",
+  method: "GET",
+  operationId: "password-validation-get-password-policy",
 };
 
 /** Accept a ProjectInvite. */
@@ -15785,6 +15931,40 @@ export const userVerifyRegistration: OpenAPIOperation<
   operationId: "user-verify-registration",
 };
 
+/** Check if an email is from mittwald. */
+export const verificationDetectPhishingEmail: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/actions/detect-phishing-email",
+  method: "POST",
+  operationId: "verification-detect-phishing-email",
+};
+
 /** Check if an address exists. */
 export const verificationVerifyAddress: OpenAPIOperation<
   RequestType<
@@ -15856,4 +16036,38 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
+};
+
+/** Verify an Extension. */
+export const extensionVerifyExtensionInternal: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.InternalV2ContributorsContributorIdExtensionsExtensionIdActionsVerify.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.InternalV2ContributorsContributorIdExtensionsExtensionIdActionsVerify.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.InternalV2ContributorsContributorIdExtensionsExtensionIdActionsVerify.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.InternalV2ContributorsContributorIdExtensionsExtensionIdActionsVerify.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.InternalV2ContributorsContributorIdExtensionsExtensionIdActionsVerify.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.InternalV2ContributorsContributorIdExtensionsExtensionIdActionsVerify.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.InternalV2ContributorsContributorIdExtensionsExtensionIdActionsVerify.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/internal-v2/contributors/{contributorId}/extensions/{extensionId}/actions/verify",
+  method: "POST",
+  operationId: "extension-verify-extension-internal",
 };

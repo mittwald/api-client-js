@@ -345,6 +345,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     contributorGetBillingInformation: this.requestFunctionFactory(
       descriptors.contributorGetBillingInformation,
     ),
+    /** Update Contributor Billing Information. */
+    contributorUpdateBillingInformation: this.requestFunctionFactory(
+      descriptors.contributorUpdateBillingInformation,
+    ),
     /** Get the Stripe Billing Portal Link for a Customer */
     contributorGetCustomerBillingPortalLink: this.requestFunctionFactory(
       descriptors.contributorGetCustomerBillingPortalLink,
@@ -453,6 +457,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionGetContributor: this.requestFunctionFactory(
       descriptors.extensionGetContributor,
     ),
+    /** Get all open extension orders for given customer */
+    extensionGetCustomerExtensionInstanceOrders: this.requestFunctionFactory(
+      descriptors.extensionGetCustomerExtensionInstanceOrders,
+    ),
     /** Get the Contract Strategy of an Extension Instance */
     extensionGetExtensionInstanceContract: this.requestFunctionFactory(
       descriptors.extensionGetExtensionInstanceContract,
@@ -472,6 +480,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Get an Extension. */
     extensionGetExtension: this.requestFunctionFactory(
       descriptors.extensionGetExtension,
+    ),
+    /** Get all open extension orders for given project */
+    extensionGetProjectExtensionInstanceOrders: this.requestFunctionFactory(
+      descriptors.extensionGetProjectExtensionInstanceOrders,
     ),
     /** Get the public key to verify the webhook signature. */
     extensionGetPublicKey: this.requestFunctionFactory(
@@ -500,6 +512,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** List Scopes. */
     extensionListScopes: this.requestFunctionFactory(
       descriptors.extensionListScopes,
+    ),
+    /** Order Extension with saved payment method */
+    extensionOrderExtension: this.requestFunctionFactory(
+      descriptors.extensionOrderExtension,
     ),
     /** Remove an asset of an extension. */
     extensionRemoveAsset: this.requestFunctionFactory(
@@ -540,6 +556,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Get the link to update the marketplace payment method */
     customerUpdatePaymentMethod: this.requestFunctionFactory(
       descriptors.marketplaceCustomerUpdatePaymentMethod,
+    ),
+    /** Verify an Extension. */
+    extensionVerifyExtensionInternal: this.requestFunctionFactory(
+      descriptors.extensionVerifyExtensionInternal,
     ),
   };
 
@@ -1055,10 +1075,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     migrationRequestMailMigration: this.requestFunctionFactory(
       descriptors.mailMigrationRequestMailMigration,
     ),
-    /** Request to restore a backup for a MailAddress */
-    requestMailAddressBackup: this.requestFunctionFactory(
-      descriptors.mailRequestMailAddressBackup,
-    ),
     /** Update the description of a DeliveryBox. */
     updateDeliveryBoxDescription: this.requestFunctionFactory(
       descriptors.mailUpdateDeliveryBoxDescription,
@@ -1117,6 +1133,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
   public readonly user = {
     /** Update your account information. */
     updateAccount: this.requestFunctionFactory(descriptors.userUpdateAccount),
+    /** Get a PasswordPolicy. */
+    passwordValidationGetPasswordPolicy: this.requestFunctionFactory(
+      descriptors.passwordValidationGetPasswordPolicy,
+    ),
     /** Add phone number and start verification process. */
     addPhoneNumber: this.requestFunctionFactory(descriptors.userAddPhoneNumber),
     /** Remove phone number. */
@@ -1560,6 +1580,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** API endpoints that are not related to any specific API domain */
   public readonly misc = {
+    /** Check if an email is from mittwald. */
+    verificationDetectPhishingEmail: this.requestFunctionFactory(
+      descriptors.verificationDetectPhishingEmail,
+    ),
     /** Check if an address exists. */
     verificationVerifyAddress: this.requestFunctionFactory(
       descriptors.verificationVerifyAddress,
