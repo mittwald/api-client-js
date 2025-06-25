@@ -341,6 +341,26 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The marketplace API allows you to manage extensions and more information regaring the marketplace. */
   public readonly marketplace = {
+    /** Get Contributor Billing Information. */
+    contributorGetBillingInformation: this.requestFunctionFactory(
+      descriptors.contributorGetBillingInformation,
+    ),
+    /** Update Contributor Billing Information. */
+    contributorUpdateBillingInformation: this.requestFunctionFactory(
+      descriptors.contributorUpdateBillingInformation,
+    ),
+    /** Get the Stripe Billing Portal Link for a Customer */
+    contributorGetCustomerBillingPortalLink: this.requestFunctionFactory(
+      descriptors.contributorGetCustomerBillingPortalLink,
+    ),
+    /** Get the Stripe Dashboard Link for a Contributor. */
+    contributorGetLoginLink: this.requestFunctionFactory(
+      descriptors.contributorGetLoginLink,
+    ),
+    /** List all invoices on behalf of a contributor. */
+    contributorListOnbehalfInvoices: this.requestFunctionFactory(
+      descriptors.contributorListOnbehalfInvoices,
+    ),
     /** Rotate the secret for an extension instance. */
     contributorRotateSecretForExtensionInstance: this.requestFunctionFactory(
       descriptors.contributorRotateSecretForExtensionInstance,
@@ -353,6 +373,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionAuthenticateWithSessionToken: this.requestFunctionFactory(
       descriptors.extensionAuthenticateWithSessionToken,
     ),
+    /** Schedule an Extension Instance Termination for the next possible date. */
+    extensionScheduleExtensionTermination: this.requestFunctionFactory(
+      descriptors.extensionScheduleExtensionTermination,
+    ),
+    /** Cancel an Extension Instance Termination. */
+    extensionCancelExtensionTermination: this.requestFunctionFactory(
+      descriptors.extensionCancelExtensionTermination,
+    ),
     /** Change the context of an Extension. */
     extensionChangeContext: this.requestFunctionFactory(
       descriptors.extensionChangeContext,
@@ -360,6 +388,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Consent to extension scopes. */
     extensionConsentToExtensionScopes: this.requestFunctionFactory(
       descriptors.extensionConsentToExtensionScopes,
+    ),
+    /** Create the OnboardingProcess of a Contributor. */
+    extensionCreateContributorOnboardingProcess: this.requestFunctionFactory(
+      descriptors.extensionCreateContributorOnboardingProcess,
     ),
     /** List ExtensionInstances. */
     extensionListExtensionInstances: this.requestFunctionFactory(
@@ -417,6 +449,18 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionGetContributor: this.requestFunctionFactory(
       descriptors.extensionGetContributor,
     ),
+    /** Get all open extension orders for given customer */
+    extensionGetCustomerExtensionInstanceOrders: this.requestFunctionFactory(
+      descriptors.extensionGetCustomerExtensionInstanceOrders,
+    ),
+    /** Get the Contract Strategy of an Extension Instance */
+    extensionGetExtensionInstanceContract: this.requestFunctionFactory(
+      descriptors.extensionGetExtensionInstanceContract,
+    ),
+    /** Update or Create Contract for existing Extension Instances. */
+    extensionUpdateExtensionInstanceContract: this.requestFunctionFactory(
+      descriptors.extensionUpdateExtensionInstanceContract,
+    ),
     /** Get the ExtensionInstance of a specific customer and extension, if existing. */
     extensionGetExtensionInstanceForCustomer: this.requestFunctionFactory(
       descriptors.extensionGetExtensionInstanceForCustomer,
@@ -428,6 +472,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Get an Extension. */
     extensionGetExtension: this.requestFunctionFactory(
       descriptors.extensionGetExtension,
+    ),
+    /** Get all open extension orders for given project */
+    extensionGetProjectExtensionInstanceOrders: this.requestFunctionFactory(
+      descriptors.extensionGetProjectExtensionInstanceOrders,
     ),
     /** Get the public key to verify the webhook signature. */
     extensionGetPublicKey: this.requestFunctionFactory(
@@ -457,6 +505,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionListScopes: this.requestFunctionFactory(
       descriptors.extensionListScopes,
     ),
+    /** Order Extension with saved payment method */
+    extensionOrderExtension: this.requestFunctionFactory(
+      descriptors.extensionOrderExtension,
+    ),
     /** Remove an asset of an extension. */
     extensionRemoveAsset: this.requestFunctionFactory(
       descriptors.extensionRemoveAsset,
@@ -480,6 +532,22 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Publish or withdraw an Extension. */
     extensionSetExtensionPublishedState: this.requestFunctionFactory(
       descriptors.extensionSetExtensionPublishedState,
+    ),
+    /** Start a checkout process for an extension. */
+    extensionStartExtensionCheckout: this.requestFunctionFactory(
+      descriptors.extensionStartExtensionCheckout,
+    ),
+    /** Creates or Updates Pricing for an Extension. */
+    extensionUpdateExtensionPricing: this.requestFunctionFactory(
+      descriptors.extensionUpdateExtensionPricing,
+    ),
+    /** Get payment method details */
+    customerGetPaymentMethod: this.requestFunctionFactory(
+      descriptors.marketplaceCustomerGetPaymentMethod,
+    ),
+    /** Get the link to update the marketplace payment method */
+    customerUpdatePaymentMethod: this.requestFunctionFactory(
+      descriptors.marketplaceCustomerUpdatePaymentMethod,
     ),
   };
 

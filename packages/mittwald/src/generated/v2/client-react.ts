@@ -266,6 +266,109 @@ const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
+const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get Contributor Billing Information. */
+  contributorGetBillingInformation: new ApiCallAsyncResourceFactory(
+    descriptors.contributorGetBillingInformation,
+    baseClient.marketplace.contributorGetBillingInformation,
+  ).getApiResource,
+  /** Get the Stripe Billing Portal Link for a Customer */
+  contributorGetCustomerBillingPortalLink: new ApiCallAsyncResourceFactory(
+    descriptors.contributorGetCustomerBillingPortalLink,
+    baseClient.marketplace.contributorGetCustomerBillingPortalLink,
+  ).getApiResource,
+  /** Get the Stripe Dashboard Link for a Contributor. */
+  contributorGetLoginLink: new ApiCallAsyncResourceFactory(
+    descriptors.contributorGetLoginLink,
+    baseClient.marketplace.contributorGetLoginLink,
+  ).getApiResource,
+  /** List all invoices on behalf of a contributor. */
+  contributorListOnbehalfInvoices: new ApiCallAsyncResourceFactory(
+    descriptors.contributorListOnbehalfInvoices,
+    baseClient.marketplace.contributorListOnbehalfInvoices,
+  ).getApiResource,
+  /** List ExtensionInstances. */
+  extensionListExtensionInstances: new ApiCallAsyncResourceFactory(
+    descriptors.extensionListExtensionInstances,
+    baseClient.marketplace.extensionListExtensionInstances,
+  ).getApiResource,
+  /** Get an ExtensionInstance. */
+  extensionGetExtensionInstance: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetExtensionInstance,
+    baseClient.marketplace.extensionGetExtensionInstance,
+  ).getApiResource,
+  /** Get Extension of own contributor. */
+  extensionGetOwnExtension: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetOwnExtension,
+    baseClient.marketplace.extensionGetOwnExtension,
+  ).getApiResource,
+  /** Get a Contributor. */
+  extensionGetContributor: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetContributor,
+    baseClient.marketplace.extensionGetContributor,
+  ).getApiResource,
+  /** Get all open extension orders for given customer */
+  extensionGetCustomerExtensionInstanceOrders: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetCustomerExtensionInstanceOrders,
+    baseClient.marketplace.extensionGetCustomerExtensionInstanceOrders,
+  ).getApiResource,
+  /** Get the Contract Strategy of an Extension Instance */
+  extensionGetExtensionInstanceContract: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetExtensionInstanceContract,
+    baseClient.marketplace.extensionGetExtensionInstanceContract,
+  ).getApiResource,
+  /** Get the ExtensionInstance of a specific customer and extension, if existing. */
+  extensionGetExtensionInstanceForCustomer: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetExtensionInstanceForCustomer,
+    baseClient.marketplace.extensionGetExtensionInstanceForCustomer,
+  ).getApiResource,
+  /** Get the ExtensionInstance of a specific project and extension, if existing. */
+  extensionGetExtensionInstanceForProject: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetExtensionInstanceForProject,
+    baseClient.marketplace.extensionGetExtensionInstanceForProject,
+  ).getApiResource,
+  /** Get an Extension. */
+  extensionGetExtension: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetExtension,
+    baseClient.marketplace.extensionGetExtension,
+  ).getApiResource,
+  /** Get all open extension orders for given project */
+  extensionGetProjectExtensionInstanceOrders: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetProjectExtensionInstanceOrders,
+    baseClient.marketplace.extensionGetProjectExtensionInstanceOrders,
+  ).getApiResource,
+  /** Get the public key to verify the webhook signature. */
+  extensionGetPublicKey: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetPublicKey,
+    baseClient.marketplace.extensionGetPublicKey,
+  ).getApiResource,
+  /** List Contributors. */
+  extensionListContributors: new ApiCallAsyncResourceFactory(
+    descriptors.extensionListContributors,
+    baseClient.marketplace.extensionListContributors,
+  ).getApiResource,
+  /** List Extensions. */
+  extensionListExtensions: new ApiCallAsyncResourceFactory(
+    descriptors.extensionListExtensions,
+    baseClient.marketplace.extensionListExtensions,
+  ).getApiResource,
+  /** List Extensions of own contributor. */
+  extensionListOwnExtensions: new ApiCallAsyncResourceFactory(
+    descriptors.extensionListOwnExtensions,
+    baseClient.marketplace.extensionListOwnExtensions,
+  ).getApiResource,
+  /** List Scopes. */
+  extensionListScopes: new ApiCallAsyncResourceFactory(
+    descriptors.extensionListScopes,
+    baseClient.marketplace.extensionListScopes,
+  ).getApiResource,
+  /** Get payment method details */
+  customerGetPaymentMethod: new ApiCallAsyncResourceFactory(
+    descriptors.marketplaceCustomerGetPaymentMethod,
+    baseClient.marketplace.customerGetPaymentMethod,
+  ).getApiResource,
+});
+
 const buildConversationApi = (baseClient: MittwaldAPIV2Client) => ({
   /** Get all conversation the authenticated user has created or has access to. */
   listConversations: new ApiCallAsyncResourceFactory(
@@ -513,69 +616,6 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   sslListCertificates: new ApiCallAsyncResourceFactory(
     descriptors.sslListCertificates,
     baseClient.domain.sslListCertificates,
-  ).getApiResource,
-});
-
-const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** List ExtensionInstances. */
-  extensionListExtensionInstances: new ApiCallAsyncResourceFactory(
-    descriptors.extensionListExtensionInstances,
-    baseClient.marketplace.extensionListExtensionInstances,
-  ).getApiResource,
-  /** Get an ExtensionInstance. */
-  extensionGetExtensionInstance: new ApiCallAsyncResourceFactory(
-    descriptors.extensionGetExtensionInstance,
-    baseClient.marketplace.extensionGetExtensionInstance,
-  ).getApiResource,
-  /** Get Extension of own contributor. */
-  extensionGetOwnExtension: new ApiCallAsyncResourceFactory(
-    descriptors.extensionGetOwnExtension,
-    baseClient.marketplace.extensionGetOwnExtension,
-  ).getApiResource,
-  /** Get a Contributor. */
-  extensionGetContributor: new ApiCallAsyncResourceFactory(
-    descriptors.extensionGetContributor,
-    baseClient.marketplace.extensionGetContributor,
-  ).getApiResource,
-  /** Get the ExtensionInstance of a specific customer and extension, if existing. */
-  extensionGetExtensionInstanceForCustomer: new ApiCallAsyncResourceFactory(
-    descriptors.extensionGetExtensionInstanceForCustomer,
-    baseClient.marketplace.extensionGetExtensionInstanceForCustomer,
-  ).getApiResource,
-  /** Get the ExtensionInstance of a specific project and extension, if existing. */
-  extensionGetExtensionInstanceForProject: new ApiCallAsyncResourceFactory(
-    descriptors.extensionGetExtensionInstanceForProject,
-    baseClient.marketplace.extensionGetExtensionInstanceForProject,
-  ).getApiResource,
-  /** Get an Extension. */
-  extensionGetExtension: new ApiCallAsyncResourceFactory(
-    descriptors.extensionGetExtension,
-    baseClient.marketplace.extensionGetExtension,
-  ).getApiResource,
-  /** Get the public key to verify the webhook signature. */
-  extensionGetPublicKey: new ApiCallAsyncResourceFactory(
-    descriptors.extensionGetPublicKey,
-    baseClient.marketplace.extensionGetPublicKey,
-  ).getApiResource,
-  /** List Contributors. */
-  extensionListContributors: new ApiCallAsyncResourceFactory(
-    descriptors.extensionListContributors,
-    baseClient.marketplace.extensionListContributors,
-  ).getApiResource,
-  /** List Extensions. */
-  extensionListExtensions: new ApiCallAsyncResourceFactory(
-    descriptors.extensionListExtensions,
-    baseClient.marketplace.extensionListExtensions,
-  ).getApiResource,
-  /** List Extensions of own contributor. */
-  extensionListOwnExtensions: new ApiCallAsyncResourceFactory(
-    descriptors.extensionListOwnExtensions,
-    baseClient.marketplace.extensionListOwnExtensions,
-  ).getApiResource,
-  /** List Scopes. */
-  extensionListScopes: new ApiCallAsyncResourceFactory(
-    descriptors.extensionListScopes,
-    baseClient.marketplace.extensionListScopes,
   ).getApiResource,
 });
 
@@ -939,6 +979,9 @@ export class MittwaldAPIV2ClientReact {
   /** The contract API allows you to manage your contracts and orders */
   public readonly contract: ReturnType<typeof buildContractApi>;
 
+  /** The marketplace API allows you to manage extensions and more information regaring the marketplace. */
+  public readonly marketplace: ReturnType<typeof buildMarketplaceApi>;
+
   /** The conversation API allows you to manage your support conversations. */
   public readonly conversation: ReturnType<typeof buildConversationApi>;
 
@@ -953,9 +996,6 @@ export class MittwaldAPIV2ClientReact {
 
   /** The domain API allows you to manage your domains, DNS records, SSL certificates and ingress resources. */
   public readonly domain: ReturnType<typeof buildDomainApi>;
-
-  /** The marketplace API allows you to manage extensions and more information regaring the marketplace. */
-  public readonly marketplace: ReturnType<typeof buildMarketplaceApi>;
 
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
   public readonly file: ReturnType<typeof buildFileApi>;
@@ -997,6 +1037,8 @@ export class MittwaldAPIV2ClientReact {
 
     this.contract = buildContractApi(baseClient);
 
+    this.marketplace = buildMarketplaceApi(baseClient);
+
     this.conversation = buildConversationApi(baseClient);
 
     this.cronjob = buildCronjobApi(baseClient);
@@ -1006,8 +1048,6 @@ export class MittwaldAPIV2ClientReact {
     this.database = buildDatabaseApi(baseClient);
 
     this.domain = buildDomainApi(baseClient);
-
-    this.marketplace = buildMarketplaceApi(baseClient);
 
     this.file = buildFileApi(baseClient);
 
