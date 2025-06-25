@@ -10,7 +10,7 @@ import { MittwaldAPIV2 } from "./types.js";
 /** Trigger a runtime action belonging to an AppInstallation. */
 export const appExecuteAction: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Parameters.Header>
@@ -317,32 +317,32 @@ export const appGetSystemsoftware: OpenAPIOperation<
 export const appGetSystemsoftwareversion: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/system-software/{systemSoftwareId}/versions/{systemSoftwareVersionId}",
+  path: "/v2/system-softwares/{systemSoftwareId}/versions/{systemSoftwareVersionId}",
   method: "GET",
   operationId: "app-get-systemsoftwareversion",
 };
@@ -574,27 +574,27 @@ export const appListSystemsoftwares: OpenAPIOperation<
 export const appListSystemsoftwareversions: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersions.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersions.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersions.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersions.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersions.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersions.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersions.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersions.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersions.Get.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersions.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersions.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2SystemSoftwaresSystemSoftwareIdVersions.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/system-software/{systemSoftwareId}/versions",
+  path: "/v2/system-softwares/{systemSoftwareId}/versions",
   method: "GET",
   operationId: "app-list-systemsoftwareversions",
 };
@@ -2813,6 +2813,45 @@ export const contractGetDetailOfContractByDomain: OpenAPIOperation<
   operationId: "contract-get-detail-of-contract-by-domain",
 };
 
+/** Return the Contract for the given LeadFyndrProfile. */
+export const contractGetDetailOfContractByLeadFyndr: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileContract.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileContract.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileContract.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileContract.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileContract.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileContract.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileContract.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileContract.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/lead-fyndr-profile/contract",
+  method: "GET",
+  operationId: "contract-get-detail-of-contract-by-lead-fyndr",
+};
+
 /** Return the Contract for the given Project. */
 export const contractGetDetailOfContractByProject: OpenAPIOperation<
   RequestType<
@@ -3874,7 +3913,7 @@ export const conversationUpdateMessage: OpenAPIOperation<
 /** Abort a CronjobExecution. */
 export const cronjobAbortExecution: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort.Post.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort.Post.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort.Post.Parameters.Header>
@@ -4005,7 +4044,7 @@ export const cronjobListExecutions: OpenAPIOperation<
 /** Trigger a Cronjob. */
 export const cronjobCreateExecution: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutions.Post.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutions.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutions.Post.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutions.Post.Parameters.Header>
@@ -4571,7 +4610,7 @@ export const customerCreateWallet: OpenAPIOperation<
 /** Decline a CustomerInvite. */
 export const customerDeclineCustomerInvite: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsDecline.Post.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsDecline.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsDecline.Post.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsDecline.Post.Parameters.Header>
@@ -4908,143 +4947,6 @@ export const customerGetCustomerTokenInvite: OpenAPIOperation<
   operationId: "customer-get-customer-token-invite",
 };
 
-/** Get your LeadFyndr request. */
-export const customerGetLeadFyndrProfileRequest: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/lead-fyndr-profile-request",
-  method: "GET",
-  operationId: "customer-get-lead-fyndr-profile-request",
-};
-
-/** Create a new access request for LeadFyndr. */
-export const leadFinderCreateLeadFyndrAccessRequest: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Post.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Post.Responses.$409.Content.ApplicationJson>,
-      409,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfileRequest.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/lead-fyndr-profile-request",
-  method: "POST",
-  operationId: "lead-finder-create-lead-fyndr-access-request",
-};
-
-/** Get your LeadFyndr profile. */
-export const customerGetLeadFyndrProfile: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfile.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfile.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfile.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfile.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfile.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfile.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfile.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfile.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadFyndrProfile.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/lead-fyndr-profile",
-  method: "GET",
-  operationId: "customer-get-lead-fyndr-profile",
-};
-
 /** Check if the customer profile has a valid contract partner configured. */
 export const customerIsCustomerLegallyCompetent: OpenAPIOperation<
   RequestType<
@@ -5277,7 +5179,7 @@ export const customerRemoveAvatar: OpenAPIOperation<
 /** Resend the mail for a CustomerInvite. */
 export const customerResendCustomerInviteMail: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsResend.Post.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsResend.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsResend.Post.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsResend.Post.Parameters.Header>
@@ -5848,7 +5750,7 @@ export const databaseDeleteRedisDatabase: OpenAPIOperation<
 /** Disable a MySQLUser. */
 export const databaseDisableMysqlUser: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsDisable.Post.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsDisable.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsDisable.Post.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsDisable.Post.Parameters.Header>
@@ -5887,7 +5789,7 @@ export const databaseDisableMysqlUser: OpenAPIOperation<
 /** Enable a MySQLUser. */
 export const databaseEnableMysqlUser: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsEnable.Post.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsEnable.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsEnable.Post.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdActionsEnable.Post.Parameters.Header>
@@ -8640,73 +8542,29 @@ export const extensionRegisterExtension: OpenAPIOperation<
 export const extensionListScopes: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2MarketplaceScopes.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MarketplaceScopes.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MarketplaceScopes.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2Scopes.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2Scopes.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2Scopes.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MarketplaceScopes.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2Scopes.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MarketplaceScopes.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MarketplaceScopes.Get.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2Scopes.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MarketplaceScopes.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2Scopes.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/marketplace/scopes",
+  path: "/v2/scopes",
   method: "GET",
   operationId: "extension-list-scopes",
-};
-
-/** Order Extension with saved payment method */
-export const extensionOrderExtension: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdOrder.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdOrder.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdOrder.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdOrder.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdOrder.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdOrder.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdOrder.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdOrder.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdOrder.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/extensions/{extensionId}/order",
-  method: "POST",
-  operationId: "extension-order-extension",
 };
 
 /** Remove an asset of an extension. */
@@ -9783,336 +9641,527 @@ export const invoiceListCustomerInvoices: OpenAPIOperation<
   operationId: "invoice-list-customer-invoices",
 };
 
-/** Get lead tariff options. How many leads did you unlock this month? */
-export const leadFinderGetLeadTariffOptions: OpenAPIOperation<
+/** Get your LeadFyndr request. */
+export const leadfyndrGetLeadFyndrProfileRequestExperimental: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadTariffOptions.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadTariffOptions.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadTariffOptions.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadTariffOptions.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadTariffOptions.Get.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadTariffOptions.Get.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Get.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadTariffOptions.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadTariffOptions.Get.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadTariffOptions.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/customers/{customerId}/lead-tariff-options",
+  path: "/v2-experimental/customers/{customerId}/lead-fyndr-profile-request",
   method: "GET",
-  operationId: "lead-finder-get-lead-tariff-options",
+  operationId: "leadfyndr-get-lead-fyndr-profile-request-experimental",
+};
+
+/** Create a new access request for LeadFyndr. */
+export const leadfyndrCreateLeadFyndrAccessRequestExperimental: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Post.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2-experimental/customers/{customerId}/lead-fyndr-profile-request",
+  method: "POST",
+  operationId: "leadfyndr-create-lead-fyndr-access-request-experimental",
+};
+
+/** Get cities in DACH. */
+export const leadfyndrGetCitiesExperimental: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCities.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCities.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCities.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCities.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCities.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCities.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCities.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCities.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCities.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2-experimental/cities",
+  method: "GET",
+  operationId: "leadfyndr-get-cities-experimental",
 };
 
 /** Get a simple lead. Use the unlocked route for more detail leads. */
-export const leadFinderGetLead: OpenAPIOperation<
+export const leadfyndrGetLeadExperimental: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadsLeadId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadsLeadId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadsLeadId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadsLeadId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadsLeadId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadsLeadId.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadsLeadId.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadsLeadId.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadsLeadId.Get.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadsLeadId.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadsLeadId.Get.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadsLeadId.Get.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadsLeadId.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadsLeadId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadsLeadId.Get.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadsLeadId.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeadsLeadId.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadsLeadId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/customers/{customerId}/leads/{leadId}",
+  path: "/v2-experimental/customers/{customerId}/leads/{leadId}",
   method: "GET",
-  operationId: "lead-finder-get-lead",
+  operationId: "leadfyndr-get-lead-experimental",
+};
+
+/** Get your LeadFyndr profile. */
+export const leadfyndrGetLeadFyndrProfileExperimental: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfile.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfile.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfile.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfile.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfile.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfile.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfile.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfile.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfile.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2-experimental/customers/{customerId}/lead-fyndr-profile",
+  method: "GET",
+  operationId: "leadfyndr-get-lead-fyndr-profile-experimental",
+};
+
+/** Get lead tariff options. How many leads did you unlock this month? */
+export const leadfyndrGetLeadFyndrProfileTariffOptionsExperimental: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileTariff.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileTariff.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileTariff.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileTariff.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileTariff.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileTariff.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileTariff.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileTariff.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileTariff.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2-experimental/customers/{customerId}/lead-fyndr-profile/tariff",
+  method: "GET",
+  operationId: "leadfyndr-get-lead-fyndr-profile-tariff-options-experimental",
 };
 
 /** Get a detail of a unlocked lead. Organisation can unlock leads. */
-export const leadFinderGetUnlockedLead: OpenAPIOperation<
+export const leadfyndrGetUnlockedLeadExperimental: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadId.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadId.Get.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadId.Get.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Get.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadId.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadId.Get.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadId.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/customers/{customerId}/unlocked-leads/{leadId}",
+  path: "/v2-experimental/customers/{customerId}/unlocked-leads/{leadId}",
   method: "GET",
-  operationId: "lead-finder-get-unlocked-lead",
+  operationId: "leadfyndr-get-unlocked-lead-experimental",
 };
 
 /** Unlock a lead for the given customerId. */
-export const leadFinderUnlockLead: OpenAPIOperation<
+export const leadfyndrUnlockLeadExperimental: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadId.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadId.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadId.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadId.Post.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Post.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadId.Post.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadId.Post.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Post.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadId.Post.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Post.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadId.Post.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Post.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadId.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/customers/{customerId}/unlocked-leads/{leadId}",
+  path: "/v2-experimental/customers/{customerId}/unlocked-leads/{leadId}",
   method: "POST",
-  operationId: "lead-finder-unlock-lead",
+  operationId: "leadfyndr-unlock-lead-experimental",
 };
 
 /** Get all leads. Use the unlocked routes for more lead details. */
-export const leadFinderListLeads: OpenAPIOperation<
+export const leadfyndrListLeadsExperimental: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeads.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeads.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeads.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeads.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeads.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeads.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeads.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeads.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeads.Get.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeads.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeads.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeads.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/customers/{customerId}/leads",
+  path: "/v2-experimental/customers/{customerId}/leads",
   method: "GET",
-  operationId: "lead-finder-list-leads",
+  operationId: "leadfyndr-list-leads-experimental",
 };
 
 /** Get all unlocked leads. Organisation can unlock leads. */
-export const leadFinderListUnlockedLeads: OpenAPIOperation<
+export const leadfyndrListUnlockedLeadsExperimental: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeads.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeads.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeads.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeads.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeads.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeads.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeads.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeads.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeads.Get.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeads.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeads.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeads.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeads.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeads.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/customers/{customerId}/unlocked-leads",
+  path: "/v2-experimental/customers/{customerId}/unlocked-leads",
   method: "GET",
-  operationId: "lead-finder-list-unlocked-leads",
+  operationId: "leadfyndr-list-unlocked-leads-experimental",
 };
 
 /** Reserve a unlocked lead for the given customerId. */
-export const leadFinderReserveUnlockedLead: OpenAPIOperation<
+export const leadfyndrReserveUnlockedLeadExperimental: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Responses.$409.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Responses.$409.Content.ApplicationJson>,
       409,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/customers/{customerId}/unlocked-leads/{leadId}/reservation",
+  path: "/v2-experimental/customers/{customerId}/unlocked-leads/{leadId}/reservation",
   method: "POST",
-  operationId: "lead-finder-reserve-unlocked-lead",
+  operationId: "leadfyndr-reserve-unlocked-lead-experimental",
 };
 
 /** Removes a reservation on a unlocked lead for the given customerId. */
-export const leadFinderRemoveUnlockedLeadReservation: OpenAPIOperation<
+export const leadfyndrRemoveUnlockedLeadReservationExperimental: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Responses.$409.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Responses.$409.Content.ApplicationJson>,
       409,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/customers/{customerId}/unlocked-leads/{leadId}/reservation",
+  path: "/v2-experimental/customers/{customerId}/unlocked-leads/{leadId}/reservation",
   method: "DELETE",
-  operationId: "lead-finder-remove-unlocked-lead-reservation",
+  operationId: "leadfyndr-remove-unlocked-lead-reservation-experimental",
 };
 
 /** List DeliveryBoxes belonging to a Project. */
@@ -11895,7 +11944,7 @@ export const projectCreateProject: OpenAPIOperation<
 /** Decline a ProjectInvite. */
 export const projectDeclineProjectInvite: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsDecline.Post.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsDecline.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsDecline.Post.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsDecline.Post.Parameters.Header>
@@ -12344,6 +12393,11 @@ export const projectFileSystemGetDirectories: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDirectories.Get.Responses.$502.Content.ApplicationJson>,
+      502,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDirectories.Get.Responses.$503.Content.ApplicationJson>,
       503,
       "application/json"
@@ -12385,6 +12439,11 @@ export const projectFileSystemGetDiskUsage: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDiskUsage.Get.Responses.$429.Content.ApplicationJson>,
       429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDiskUsage.Get.Responses.$502.Content.ApplicationJson>,
+      502,
       "application/json"
     >
   | Response<
@@ -12432,6 +12491,11 @@ export const projectFileSystemGetFileContent: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFileContent.Get.Responses.$502.Content.ApplicationJson>,
+      502,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFileContent.Get.Responses.$503.Content.ApplicationJson>,
       503,
       "application/json"
@@ -12476,6 +12540,11 @@ export const projectFileSystemGetJwt: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdJwt.Get.Responses.$502.Content.ApplicationJson>,
+      502,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdJwt.Get.Responses.$503.Content.ApplicationJson>,
       503,
       "application/json"
@@ -12512,6 +12581,11 @@ export const projectFileSystemListFiles: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFiles.Get.Responses.$429.Content.ApplicationJson>,
       429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFiles.Get.Responses.$502.Content.ApplicationJson>,
+      502,
       "application/json"
     >
   | Response<
@@ -12830,7 +12904,7 @@ export const projectListServers: OpenAPIOperation<
 /** Resend the mail for a ProjectInvite. */
 export const projectResendProjectInviteMail: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsResend.Post.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsResend.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsResend.Post.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsResend.Post.Parameters.Header>

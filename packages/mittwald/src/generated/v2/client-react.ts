@@ -189,6 +189,11 @@ const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.contractGetDetailOfContractByDomain,
     baseClient.contract.getDetailOfContractByDomain,
   ).getApiResource,
+  /** Return the Contract for the given LeadFyndrProfile. */
+  getDetailOfContractByLeadFyndr: new ApiCallAsyncResourceFactory(
+    descriptors.contractGetDetailOfContractByLeadFyndr,
+    baseClient.contract.getDetailOfContractByLeadFyndr,
+  ).getApiResource,
   /** Return the Contract for the given Project. */
   getDetailOfContractByProject: new ApiCallAsyncResourceFactory(
     descriptors.contractGetDetailOfContractByProject,
@@ -466,16 +471,6 @@ const buildCustomerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.customerGetCustomerTokenInvite,
     baseClient.customer.getCustomerTokenInvite,
   ).getApiResource,
-  /** Get your LeadFyndr request. */
-  getLeadFyndrProfileRequest: new ApiCallAsyncResourceFactory(
-    descriptors.customerGetLeadFyndrProfileRequest,
-    baseClient.customer.getLeadFyndrProfileRequest,
-  ).getApiResource,
-  /** Get your LeadFyndr profile. */
-  getLeadFyndrProfile: new ApiCallAsyncResourceFactory(
-    descriptors.customerGetLeadFyndrProfile,
-    baseClient.customer.getLeadFyndrProfile,
-  ).getApiResource,
   /** Check if the customer profile has a valid contract partner configured. */
   isCustomerLegallyCompetent: new ApiCallAsyncResourceFactory(
     descriptors.customerIsCustomerLegallyCompetent,
@@ -624,6 +619,69 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
+const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** List ExtensionInstances. */
+  extensionListExtensionInstances: new ApiCallAsyncResourceFactory(
+    descriptors.extensionListExtensionInstances,
+    baseClient.marketplace.extensionListExtensionInstances,
+  ).getApiResource,
+  /** Get an ExtensionInstance. */
+  extensionGetExtensionInstance: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetExtensionInstance,
+    baseClient.marketplace.extensionGetExtensionInstance,
+  ).getApiResource,
+  /** Get Extension of own contributor. */
+  extensionGetOwnExtension: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetOwnExtension,
+    baseClient.marketplace.extensionGetOwnExtension,
+  ).getApiResource,
+  /** Get a Contributor. */
+  extensionGetContributor: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetContributor,
+    baseClient.marketplace.extensionGetContributor,
+  ).getApiResource,
+  /** Get the ExtensionInstance of a specific customer and extension, if existing. */
+  extensionGetExtensionInstanceForCustomer: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetExtensionInstanceForCustomer,
+    baseClient.marketplace.extensionGetExtensionInstanceForCustomer,
+  ).getApiResource,
+  /** Get the ExtensionInstance of a specific project and extension, if existing. */
+  extensionGetExtensionInstanceForProject: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetExtensionInstanceForProject,
+    baseClient.marketplace.extensionGetExtensionInstanceForProject,
+  ).getApiResource,
+  /** Get an Extension. */
+  extensionGetExtension: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetExtension,
+    baseClient.marketplace.extensionGetExtension,
+  ).getApiResource,
+  /** Get the public key to verify the webhook signature. */
+  extensionGetPublicKey: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetPublicKey,
+    baseClient.marketplace.extensionGetPublicKey,
+  ).getApiResource,
+  /** List Contributors. */
+  extensionListContributors: new ApiCallAsyncResourceFactory(
+    descriptors.extensionListContributors,
+    baseClient.marketplace.extensionListContributors,
+  ).getApiResource,
+  /** List Extensions. */
+  extensionListExtensions: new ApiCallAsyncResourceFactory(
+    descriptors.extensionListExtensions,
+    baseClient.marketplace.extensionListExtensions,
+  ).getApiResource,
+  /** List Extensions of own contributor. */
+  extensionListOwnExtensions: new ApiCallAsyncResourceFactory(
+    descriptors.extensionListOwnExtensions,
+    baseClient.marketplace.extensionListOwnExtensions,
+  ).getApiResource,
+  /** List Scopes. */
+  extensionListScopes: new ApiCallAsyncResourceFactory(
+    descriptors.extensionListScopes,
+    baseClient.marketplace.extensionListScopes,
+  ).getApiResource,
+});
+
 const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({
   /** Get a File's meta. */
   getFileMeta: new ApiCallAsyncResourceFactory(
@@ -649,6 +707,51 @@ const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({
   getFileWithName: new ApiCallAsyncResourceFactory(
     descriptors.fileGetFileWithName,
     baseClient.file.getFileWithName,
+  ).getApiResource,
+});
+
+const buildLeadFyndrApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get your LeadFyndr request. */
+  leadfyndrGetLeadFyndrProfileRequestExperimental:
+    new ApiCallAsyncResourceFactory(
+      descriptors.leadfyndrGetLeadFyndrProfileRequestExperimental,
+      baseClient.leadFyndr.leadfyndrGetLeadFyndrProfileRequestExperimental,
+    ).getApiResource,
+  /** Get cities in DACH. */
+  leadfyndrGetCitiesExperimental: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetCitiesExperimental,
+    baseClient.leadFyndr.leadfyndrGetCitiesExperimental,
+  ).getApiResource,
+  /** Get a simple lead. Use the unlocked route for more detail leads. */
+  leadfyndrGetLeadExperimental: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetLeadExperimental,
+    baseClient.leadFyndr.leadfyndrGetLeadExperimental,
+  ).getApiResource,
+  /** Get your LeadFyndr profile. */
+  leadfyndrGetLeadFyndrProfileExperimental: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetLeadFyndrProfileExperimental,
+    baseClient.leadFyndr.leadfyndrGetLeadFyndrProfileExperimental,
+  ).getApiResource,
+  /** Get lead tariff options. How many leads did you unlock this month? */
+  leadfyndrGetLeadFyndrProfileTariffOptionsExperimental:
+    new ApiCallAsyncResourceFactory(
+      descriptors.leadfyndrGetLeadFyndrProfileTariffOptionsExperimental,
+      baseClient.leadFyndr.leadfyndrGetLeadFyndrProfileTariffOptionsExperimental,
+    ).getApiResource,
+  /** Get a detail of a unlocked lead. Organisation can unlock leads. */
+  leadfyndrGetUnlockedLeadExperimental: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetUnlockedLeadExperimental,
+    baseClient.leadFyndr.leadfyndrGetUnlockedLeadExperimental,
+  ).getApiResource,
+  /** Get all leads. Use the unlocked routes for more lead details. */
+  leadfyndrListLeadsExperimental: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrListLeadsExperimental,
+    baseClient.leadFyndr.leadfyndrListLeadsExperimental,
+  ).getApiResource,
+  /** Get all unlocked leads. Organisation can unlock leads. */
+  leadfyndrListUnlockedLeadsExperimental: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrListUnlockedLeadsExperimental,
+    baseClient.leadFyndr.leadfyndrListUnlockedLeadsExperimental,
   ).getApiResource,
 });
 
@@ -965,6 +1068,9 @@ export class MittwaldAPIV2ClientReact {
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
   public readonly file: ReturnType<typeof buildFileApi>;
 
+  /** The lead fyndr api allow you to manage you leads and your fyndr profile. */
+  public readonly leadFyndr: ReturnType<typeof buildLeadFyndrApi>;
+
   /** The mail API allows you to manage your mail accounts. */
   public readonly mail: ReturnType<typeof buildMailApi>;
 
@@ -1012,6 +1118,8 @@ export class MittwaldAPIV2ClientReact {
     this.domain = buildDomainApi(baseClient);
 
     this.file = buildFileApi(baseClient);
+
+    this.leadFyndr = buildLeadFyndrApi(baseClient);
 
     this.mail = buildMailApi(baseClient);
 

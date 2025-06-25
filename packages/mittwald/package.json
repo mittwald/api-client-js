@@ -1,6 +1,6 @@
 {
   "name": "@mittwald/api-client",
-  "version": "0.0.0-development-6c87013-20250624",
+  "version": "4.167.0",
   "author": "Mittwald CM Service GmbH & Co. KG <opensource@mittwald.de>",
   "type": "module",
   "description": "Auto-generated client for the mittwald API",
@@ -37,7 +37,7 @@
     "build:client-dev": "bash -e -o pipefail -c 'spec/transform-openapi.sh < spec/openapi-dev.json | run build:client-base'",
     "build:client-prod": "bash -e -o pipefail -c 'spec/transform-openapi.sh < spec/openapi.json | run build:client-base'",
     "build:fetch-openapi-dev": "curl --location --fail --silent https://developer.mittwald.de/specs/openapi-v2-dev.json > spec/openapi-dev.json",
-    "build:fetch-openapi-prod": "curl --location --fail --silent https://api.mittwald.de/v2/openapi.json > spec/openapi.json",
+    "build:fetch-openapi-prod": "curl --location --fail --silent 'https://api.mittwald.de/v2/openapi.json?withExperimental=true' > spec/openapi.json",
     "build:write-version-file": "run tsx dev/writeVersion.ts",
     "format": "run prettier --write '**/*.{ts,tsx,yaml,yml,json,md,mdx,js}'",
     "lint": "run eslint .",
