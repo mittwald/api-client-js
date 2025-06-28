@@ -4824,6 +4824,14 @@ export declare module MittwaldAPIV2 {
         type: string;
       }
 
+      export interface ConversationDeletedFile {
+        deletionDate: string;
+        id: string;
+        name: string;
+        status: "deleted";
+        type: string;
+      }
+
       export interface ConversationRequestedFile {
         id: string;
         status: "requested";
@@ -8063,14 +8071,6 @@ export declare module MittwaldAPIV2 {
       export interface VarnishSoftwareSetting {
         name: string;
         value: string;
-      }
-
-      export interface ConversationDeletedFile {
-        deletionDate: string;
-        id: string;
-        name: string;
-        status: "deleted";
-        type: string;
       }
 
       export interface CommonsAddress {
