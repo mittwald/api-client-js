@@ -26,6 +26,7 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.PUBLISH_PAT }}
+          ref: "dev"
 
       - name: Git Identity 🪪
         run: |
