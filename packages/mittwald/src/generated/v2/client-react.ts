@@ -647,51 +647,6 @@ const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildLeadFyndrApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** Get your LeadFyndr request. */
-  leadfyndrGetLeadFyndrProfileRequestExperimental:
-    new ApiCallAsyncResourceFactory(
-      descriptors.leadfyndrGetLeadFyndrProfileRequestExperimental,
-      baseClient.leadFyndr.leadfyndrGetLeadFyndrProfileRequestExperimental,
-    ).getApiResource,
-  /** Get cities in DACH. */
-  leadfyndrGetCitiesExperimental: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrGetCitiesExperimental,
-    baseClient.leadFyndr.leadfyndrGetCitiesExperimental,
-  ).getApiResource,
-  /** Get a simple lead. Use the unlocked route for more detail leads. */
-  leadfyndrGetLeadExperimental: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrGetLeadExperimental,
-    baseClient.leadFyndr.leadfyndrGetLeadExperimental,
-  ).getApiResource,
-  /** Get your LeadFyndr profile. */
-  leadfyndrGetLeadFyndrProfileExperimental: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrGetLeadFyndrProfileExperimental,
-    baseClient.leadFyndr.leadfyndrGetLeadFyndrProfileExperimental,
-  ).getApiResource,
-  /** Get lead tariff options. How many leads did you unlock this month? */
-  leadfyndrGetLeadFyndrProfileTariffOptionsExperimental:
-    new ApiCallAsyncResourceFactory(
-      descriptors.leadfyndrGetLeadFyndrProfileTariffOptionsExperimental,
-      baseClient.leadFyndr.leadfyndrGetLeadFyndrProfileTariffOptionsExperimental,
-    ).getApiResource,
-  /** Get a detail of a unlocked lead. Organisation can unlock leads. */
-  leadfyndrGetUnlockedLeadExperimental: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrGetUnlockedLeadExperimental,
-    baseClient.leadFyndr.leadfyndrGetUnlockedLeadExperimental,
-  ).getApiResource,
-  /** Get all leads. Use the unlocked routes for more lead details. */
-  leadfyndrListLeadsExperimental: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrListLeadsExperimental,
-    baseClient.leadFyndr.leadfyndrListLeadsExperimental,
-  ).getApiResource,
-  /** Get all unlocked leads. Organisation can unlock leads. */
-  leadfyndrListUnlockedLeadsExperimental: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrListUnlockedLeadsExperimental,
-    baseClient.leadFyndr.leadfyndrListUnlockedLeadsExperimental,
-  ).getApiResource,
-});
-
 const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
   /** List DeliveryBoxes belonging to a Project. */
   listDeliveryBoxes: new ApiCallAsyncResourceFactory(
@@ -910,6 +865,16 @@ const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.storagespaceGetServerStatistics,
     baseClient.project.storagespaceGetServerStatistics,
   ).getApiResource,
+  /** Get a list of already created llm licences. */
+  getLlmLicencesExperimental: new ApiCallAsyncResourceFactory(
+    descriptors.projectGetLlmLicencesExperimental,
+    baseClient.project.getLlmLicencesExperimental,
+  ).getApiResource,
+  /** Get a licence of a project. */
+  getLlmLicenceExperimental: new ApiCallAsyncResourceFactory(
+    descriptors.projectGetLlmLicenceExperimental,
+    baseClient.project.getLlmLicenceExperimental,
+  ).getApiResource,
 });
 
 const buildProjectFileSystemApi = (baseClient: MittwaldAPIV2Client) => ({
@@ -963,6 +928,57 @@ const buildSshsftpUserApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
+const buildLeadFyndrApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get cities in DACH. */
+  leadfyndrGetCities: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetCities,
+    baseClient.leadFyndr.leadfyndrGetCities,
+  ).getApiResource,
+  /** Get a simple lead. Use the unlocked route for more detail leads. */
+  leadfyndrGetLead: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetLead,
+    baseClient.leadFyndr.leadfyndrGetLead,
+  ).getApiResource,
+  /** Get all leads. Use the unlocked routes for more lead details. */
+  leadfyndrListLeads: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrListLeads,
+    baseClient.leadFyndr.leadfyndrListLeads,
+  ).getApiResource,
+  /** Get a detail of a unlocked lead. Organisation can unlock leads. */
+  leadfyndrGetUnlockedLead: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetUnlockedLead,
+    baseClient.leadFyndr.leadfyndrGetUnlockedLead,
+  ).getApiResource,
+  /** Get all unlocked leads. Organisation can unlock leads. */
+  leadfyndrListUnlockedLeads: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrListUnlockedLeads,
+    baseClient.leadFyndr.leadfyndrListUnlockedLeads,
+  ).getApiResource,
+  /** Get lead tariff options. How many leads did you unlock this month? */
+  leadfyndrGetLeadFyndrProfileTariffOptions: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetLeadFyndrProfileTariffOptions,
+    baseClient.leadFyndr.leadfyndrGetLeadFyndrProfileTariffOptions,
+  ).getApiResource,
+  /** Get your LeadFyndr profile. */
+  leadfyndrGetLeadFyndrProfile: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetLeadFyndrProfile,
+    baseClient.leadFyndr.leadfyndrGetLeadFyndrProfile,
+  ).getApiResource,
+  /** Get your LeadFyndr request. */
+  leadfyndrGetLeadFyndrProfileRequest: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetLeadFyndrProfileRequest,
+    baseClient.leadFyndr.leadfyndrGetLeadFyndrProfileRequest,
+  ).getApiResource,
+});
+
+const buildMiscApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get a list of currently active llm models. */
+  getLlmModelsExperimental: new ApiCallAsyncResourceFactory(
+    descriptors.miscGetLlmModelsExperimental,
+    baseClient.misc.getLlmModelsExperimental,
+  ).getApiResource,
+});
+
 export class MittwaldAPIV2ClientReact {
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app: ReturnType<typeof buildAppApi>;
@@ -1000,9 +1016,6 @@ export class MittwaldAPIV2ClientReact {
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
   public readonly file: ReturnType<typeof buildFileApi>;
 
-  /** The lead fyndr api allow you to manage you leads and your fyndr profile. */
-  public readonly leadFyndr: ReturnType<typeof buildLeadFyndrApi>;
-
   /** The mail API allows you to manage your mail accounts. */
   public readonly mail: ReturnType<typeof buildMailApi>;
 
@@ -1025,6 +1038,12 @@ export class MittwaldAPIV2ClientReact {
 
   /** The SSH/SFTP User API allows you to manage your SSH/SFTP users within a project. */
   public readonly sshsftpUser: ReturnType<typeof buildSshsftpUserApi>;
+
+  /** The lead fyndr api allow you to manage you leads and your fyndr profile. */
+  public readonly leadFyndr: ReturnType<typeof buildLeadFyndrApi>;
+
+  /** API endpoints that are not related to any specific API domain */
+  public readonly misc: ReturnType<typeof buildMiscApi>;
 
   private constructor(baseClient: MittwaldAPIV2Client) {
     this.app = buildAppApi(baseClient);
@@ -1051,8 +1070,6 @@ export class MittwaldAPIV2ClientReact {
 
     this.file = buildFileApi(baseClient);
 
-    this.leadFyndr = buildLeadFyndrApi(baseClient);
-
     this.mail = buildMailApi(baseClient);
 
     this.notification = buildNotificationApi(baseClient);
@@ -1066,6 +1083,10 @@ export class MittwaldAPIV2ClientReact {
     this.projectFileSystem = buildProjectFileSystemApi(baseClient);
 
     this.sshsftpUser = buildSshsftpUserApi(baseClient);
+
+    this.leadFyndr = buildLeadFyndrApi(baseClient);
+
+    this.misc = buildMiscApi(baseClient);
   }
 
   public static fromBaseClient(
