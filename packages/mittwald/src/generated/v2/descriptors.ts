@@ -15770,50 +15770,6 @@ export const leadfyndrCreateLeadFyndrAccessRequest: OpenAPIOperation<
   operationId: "leadfyndr-create-lead-fyndr-access-request",
 };
 
-/** Get a list of currently active llm models. */
-export const aihostingGetLlmModelsExperimental: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2-experimental/llm/models",
-  method: "GET",
-  operationId: "aihosting-get-llm-models-experimental",
-};
-
 /** Get a list of already created llm licences. */
 export const projectGetLlmLicencesExperimental: OpenAPIOperation<
   RequestType<
@@ -16008,4 +15964,48 @@ export const projectUpdateLlmLicenceExperimental: OpenAPIOperation<
   path: "/v2-experimental/projects/{projectId}/llm-licences/{licenceId}",
   method: "PUT",
   operationId: "project-update-llm-licence-experimental",
+};
+
+/** Get a list of currently active llm models. */
+export const miscGetLlmModelsExperimental: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2-experimental/llm-models",
+  method: "GET",
+  operationId: "misc-get-llm-models-experimental",
 };

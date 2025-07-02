@@ -1476,6 +1476,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     verificationVerifyCompany: this.requestFunctionFactory(
       descriptors.verificationVerifyCompany,
     ),
+    /** Get a list of currently active llm models. */
+    getLlmModelsExperimental: this.requestFunctionFactory(
+      descriptors.miscGetLlmModelsExperimental,
+    ),
   };
 
   /** The SSH/SFTP User API allows you to manage your SSH/SFTP users within a project. */

@@ -971,6 +971,14 @@ const buildLeadFyndrApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
+const buildMiscApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get a list of currently active llm models. */
+  getLlmModelsExperimental: new ApiCallAsyncResourceFactory(
+    descriptors.miscGetLlmModelsExperimental,
+    baseClient.misc.getLlmModelsExperimental,
+  ).getApiResource,
+});
+
 export class MittwaldAPIV2ClientReact {
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app: ReturnType<typeof buildAppApi>;
@@ -1034,6 +1042,9 @@ export class MittwaldAPIV2ClientReact {
   /** The lead fyndr api allow you to manage you leads and your fyndr profile. */
   public readonly leadFyndr: ReturnType<typeof buildLeadFyndrApi>;
 
+  /** API endpoints that are not related to any specific API domain */
+  public readonly misc: ReturnType<typeof buildMiscApi>;
+
   private constructor(baseClient: MittwaldAPIV2Client) {
     this.app = buildAppApi(baseClient);
 
@@ -1074,6 +1085,8 @@ export class MittwaldAPIV2ClientReact {
     this.sshsftpUser = buildSshsftpUserApi(baseClient);
 
     this.leadFyndr = buildLeadFyndrApi(baseClient);
+
+    this.misc = buildMiscApi(baseClient);
   }
 
   public static fromBaseClient(
