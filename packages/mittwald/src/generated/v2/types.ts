@@ -8128,17 +8128,6 @@ export declare module MittwaldAPIV2 {
         value: string;
       }
 
-      export interface LlmlocksmithLicence {
-        containerMeta?: MittwaldAPIV2.Components.Schemas.LlmlocksmithContainerMeta;
-        customerId?: string;
-        licenceId: string;
-        licenceKey: string;
-        models: string[];
-        name: string;
-        projectId?: string;
-        rateLimit: number;
-      }
-
       export interface LlmlocksmithContainerMeta {
         containerId?: string;
         ingressId?: string;
@@ -8150,6 +8139,18 @@ export declare module MittwaldAPIV2 {
         displayName: string;
         docLink: string;
         name: string;
+        termsOfServiceLink: string;
+      }
+
+      export interface LlmlocksmithLicence {
+        containerMeta?: MittwaldAPIV2.Components.Schemas.LlmlocksmithContainerMeta;
+        customerId?: string;
+        licenceId: string;
+        licenceKey: string;
+        models: string[];
+        name: string;
+        projectId?: string;
+        rateLimit: number;
       }
 
       export interface CommonsAddress {
