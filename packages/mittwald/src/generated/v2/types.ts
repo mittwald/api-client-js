@@ -8128,18 +8128,18 @@ export declare module MittwaldAPIV2 {
         value: string;
       }
 
-      export interface LlmlocksmithContainerMeta {
-        containerId?: string;
-        ingressId?: string;
-        stackId?: string;
-        status: "created" | "requested";
-      }
-
       export interface LlmlocksmithModel {
         displayName: string;
         docLink: string;
         name: string;
         termsOfServiceLink: string;
+      }
+
+      export interface LlmlocksmithContainerMeta {
+        containerId?: string;
+        ingressId?: string;
+        stackId?: string;
+        status: "created" | "requested";
       }
 
       export interface LlmlocksmithLicence {
