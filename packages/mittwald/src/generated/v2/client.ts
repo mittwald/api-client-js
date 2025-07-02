@@ -1410,6 +1410,22 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     storagespaceReplaceServerNotificationThreshold: this.requestFunctionFactory(
       descriptors.storagespaceReplaceServerNotificationThreshold,
     ),
+    /** Get a list of already created llm licences. */
+    getLlmLicencesExperimental: this.requestFunctionFactory(
+      descriptors.projectGetLlmLicencesExperimental,
+    ),
+    /** Creates a new llm beta Licence for a project. Will be purged on end of beta. */
+    createLlmBetaLicenceExperimental: this.requestFunctionFactory(
+      descriptors.projectCreateLlmBetaLicenceExperimental,
+    ),
+    /** Get a licence of a project. */
+    getLlmLicenceExperimental: this.requestFunctionFactory(
+      descriptors.projectGetLlmLicenceExperimental,
+    ),
+    /** Update a llm Licence for a project. */
+    updateLlmLicenceExperimental: this.requestFunctionFactory(
+      descriptors.projectUpdateLlmLicenceExperimental,
+    ),
   };
 
   /** The filesystem API allows you to directly access the filesystem of your project. */

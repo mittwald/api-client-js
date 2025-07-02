@@ -865,6 +865,16 @@ const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.storagespaceGetServerStatistics,
     baseClient.project.storagespaceGetServerStatistics,
   ).getApiResource,
+  /** Get a list of already created llm licences. */
+  getLlmLicencesExperimental: new ApiCallAsyncResourceFactory(
+    descriptors.projectGetLlmLicencesExperimental,
+    baseClient.project.getLlmLicencesExperimental,
+  ).getApiResource,
+  /** Get a licence of a project. */
+  getLlmLicenceExperimental: new ApiCallAsyncResourceFactory(
+    descriptors.projectGetLlmLicenceExperimental,
+    baseClient.project.getLlmLicenceExperimental,
+  ).getApiResource,
 });
 
 const buildProjectFileSystemApi = (baseClient: MittwaldAPIV2Client) => ({

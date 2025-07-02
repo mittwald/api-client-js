@@ -15769,3 +15769,243 @@ export const leadfyndrCreateLeadFyndrAccessRequest: OpenAPIOperation<
   method: "POST",
   operationId: "leadfyndr-create-lead-fyndr-access-request",
 };
+
+/** Get a list of currently active llm models. */
+export const aihostingGetLlmModelsExperimental: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalLlmModels.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2-experimental/llm/models",
+  method: "GET",
+  operationId: "aihosting-get-llm-models-experimental",
+};
+
+/** Get a list of already created llm licences. */
+export const projectGetLlmLicencesExperimental: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicences.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicences.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicences.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicences.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicences.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicences.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicences.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicences.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicences.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2-experimental/projects/{projectId}/llm-licences",
+  method: "GET",
+  operationId: "project-get-llm-licences-experimental",
+};
+
+/** Creates a new llm beta Licence for a project. Will be purged on end of beta. */
+export const projectCreateLlmBetaLicenceExperimental: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicences.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicences.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicences.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicences.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicences.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicences.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicences.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicences.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicences.Post.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicences.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicences.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicences.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2-experimental/projects/{projectId}/llm-licences",
+  method: "POST",
+  operationId: "project-create-llm-beta-licence-experimental",
+};
+
+/** Get a licence of a project. */
+export const projectGetLlmLicenceExperimental: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicencesLicenceId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicencesLicenceId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicencesLicenceId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicencesLicenceId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicencesLicenceId.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicencesLicenceId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicencesLicenceId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicencesLicenceId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicencesLicenceId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2-experimental/projects/{projectId}/llm-licences/{licenceId}",
+  method: "GET",
+  operationId: "project-get-llm-licence-experimental",
+};
+
+/** Update a llm Licence for a project. */
+export const projectUpdateLlmLicenceExperimental: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicencesLicenceId.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicencesLicenceId.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicencesLicenceId.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicencesLicenceId.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicencesLicenceId.Put.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicencesLicenceId.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicencesLicenceId.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicencesLicenceId.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicencesLicenceId.Put.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicencesLicenceId.Put.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicencesLicenceId.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExperimentalProjectsProjectIdLlmLicencesLicenceId.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2-experimental/projects/{projectId}/llm-licences/{licenceId}",
+  method: "PUT",
+  operationId: "project-update-llm-licence-experimental",
+};
