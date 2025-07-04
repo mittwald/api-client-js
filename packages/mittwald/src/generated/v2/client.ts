@@ -1271,6 +1271,76 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
+  /** The lead fyndr api allow you to manage you leads and your fyndr profile. */
+  public readonly leadFyndr = {
+    /** Get your LeadFyndr request. */
+    leadfyndrGetLeadFyndrProfileRequest: this.requestFunctionFactory(
+      descriptors.leadfyndrGetLeadFyndrProfileRequest,
+    ),
+    /** Create a new access request for LeadFyndr. */
+    leadfyndrCreateLeadFyndrAccessRequest: this.requestFunctionFactory(
+      descriptors.leadfyndrCreateLeadFyndrAccessRequest,
+    ),
+    /** Get cities in DACH. */
+    leadfyndrGetCities: this.requestFunctionFactory(
+      descriptors.leadfyndrGetCities,
+    ),
+    /** Get lead tariff options. How many leads did you unlock this month? */
+    leadfyndrGetLeadFyndrProfileTariffOptions: this.requestFunctionFactory(
+      descriptors.leadfyndrGetLeadFyndrProfileTariffOptions,
+    ),
+    /** Get your LeadFyndr profile. */
+    leadfyndrGetLeadFyndrProfile: this.requestFunctionFactory(
+      descriptors.leadfyndrGetLeadFyndrProfile,
+    ),
+    /** Get a simple lead. Use the unlocked route for more detail leads. */
+    leadfyndrGetLead: this.requestFunctionFactory(descriptors.leadfyndrGetLead),
+    /** Get a detail of a unlocked lead. Organisation can unlock leads. */
+    leadfyndrGetUnlockedLead: this.requestFunctionFactory(
+      descriptors.leadfyndrGetUnlockedLead,
+    ),
+    /** Unlock a lead for the given customerId. */
+    leadfyndrUnlockLead: this.requestFunctionFactory(
+      descriptors.leadfyndrUnlockLead,
+    ),
+    /** Get all leads. Use the unlocked routes for more lead details. */
+    leadfyndrListLeads: this.requestFunctionFactory(
+      descriptors.leadfyndrListLeads,
+    ),
+    /** Get all unlocked leads. Organisation can unlock leads. */
+    leadfyndrListUnlockedLeads: this.requestFunctionFactory(
+      descriptors.leadfyndrListUnlockedLeads,
+    ),
+    /** Reserve a unlocked lead for the given customerId. */
+    leadfyndrReserveUnlockedLead: this.requestFunctionFactory(
+      descriptors.leadfyndrReserveUnlockedLead,
+    ),
+    /** Removes a reservation on a unlocked lead for the given customerId. */
+    leadfyndrRemoveUnlockedLeadReservation: this.requestFunctionFactory(
+      descriptors.leadfyndrRemoveUnlockedLeadReservation,
+    ),
+  };
+
+  /** API endpoints that are not related to any specific API domain */
+  public readonly misc = {
+    /** Get a list of currently active llm models. */
+    getLlmModelsExperimental: this.requestFunctionFactory(
+      descriptors.miscGetLlmModelsExperimental,
+    ),
+    /** Obtain a service token. */
+    servicetokenAuthenticateService: this.requestFunctionFactory(
+      descriptors.servicetokenAuthenticateService,
+    ),
+    /** Check if an address exists. */
+    verificationVerifyAddress: this.requestFunctionFactory(
+      descriptors.verificationVerifyAddress,
+    ),
+    /** Check if a company exists. */
+    verificationVerifyCompany: this.requestFunctionFactory(
+      descriptors.verificationVerifyCompany,
+    ),
+  };
+
   /** The page insights API allows you to get page insights information. */
   public readonly pageInsights = {
     /** Get detailed performance data for a given domain and path. */
@@ -1296,6 +1366,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Accept a ProjectInvite. */
     acceptProjectInvite: this.requestFunctionFactory(
       descriptors.projectAcceptProjectInvite,
+    ),
+    /** Get a list of already created llm licences. */
+    getLlmLicencesExperimental: this.requestFunctionFactory(
+      descriptors.projectGetLlmLicencesExperimental,
+    ),
+    /** Creates a new llm beta Licence for a project. Will be purged on end of beta. */
+    createLlmBetaLicenceExperimental: this.requestFunctionFactory(
+      descriptors.projectCreateLlmBetaLicenceExperimental,
     ),
     /** List Invites belonging to a Project. */
     listInvitesForProject: this.requestFunctionFactory(
@@ -1355,6 +1433,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteServerAvatar: this.requestFunctionFactory(
       descriptors.projectDeleteServerAvatar,
     ),
+    /** Get a licence of a project. */
+    getLlmLicenceExperimental: this.requestFunctionFactory(
+      descriptors.projectGetLlmLicenceExperimental,
+    ),
+    /** Update a llm Licence for a project. */
+    updateLlmLicenceExperimental: this.requestFunctionFactory(
+      descriptors.projectUpdateLlmLicenceExperimental,
+    ),
     /** Get a ProjectInvite by token. */
     getProjectTokenInvite: this.requestFunctionFactory(
       descriptors.projectGetProjectTokenInvite,
@@ -1410,22 +1496,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     storagespaceReplaceServerNotificationThreshold: this.requestFunctionFactory(
       descriptors.storagespaceReplaceServerNotificationThreshold,
     ),
-    /** Get a list of already created llm licences. */
-    getLlmLicencesExperimental: this.requestFunctionFactory(
-      descriptors.projectGetLlmLicencesExperimental,
-    ),
-    /** Creates a new llm beta Licence for a project. Will be purged on end of beta. */
-    createLlmBetaLicenceExperimental: this.requestFunctionFactory(
-      descriptors.projectCreateLlmBetaLicenceExperimental,
-    ),
-    /** Get a licence of a project. */
-    getLlmLicenceExperimental: this.requestFunctionFactory(
-      descriptors.projectGetLlmLicenceExperimental,
-    ),
-    /** Update a llm Licence for a project. */
-    updateLlmLicenceExperimental: this.requestFunctionFactory(
-      descriptors.projectUpdateLlmLicenceExperimental,
-    ),
   };
 
   /** The filesystem API allows you to directly access the filesystem of your project. */
@@ -1459,26 +1529,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Relocate an external Project to mittwald. */
     createRelocation: this.requestFunctionFactory(
       descriptors.relocationCreateRelocation,
-    ),
-  };
-
-  /** API endpoints that are not related to any specific API domain */
-  public readonly misc = {
-    /** Obtain a service token. */
-    servicetokenAuthenticateService: this.requestFunctionFactory(
-      descriptors.servicetokenAuthenticateService,
-    ),
-    /** Check if an address exists. */
-    verificationVerifyAddress: this.requestFunctionFactory(
-      descriptors.verificationVerifyAddress,
-    ),
-    /** Check if a company exists. */
-    verificationVerifyCompany: this.requestFunctionFactory(
-      descriptors.verificationVerifyCompany,
-    ),
-    /** Get a list of currently active llm models. */
-    getLlmModelsExperimental: this.requestFunctionFactory(
-      descriptors.miscGetLlmModelsExperimental,
     ),
   };
 
@@ -1523,56 +1573,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update an SSHUser. */
     sshUserUpdateSshUser: this.requestFunctionFactory(
       descriptors.sshUserUpdateSshUser,
-    ),
-  };
-
-  /** The lead fyndr api allow you to manage you leads and your fyndr profile. */
-  public readonly leadFyndr = {
-    /** Get cities in DACH. */
-    leadfyndrGetCities: this.requestFunctionFactory(
-      descriptors.leadfyndrGetCities,
-    ),
-    /** Reserve a unlocked lead for the given customerId. */
-    leadfyndrReserveUnlockedLead: this.requestFunctionFactory(
-      descriptors.leadfyndrReserveUnlockedLead,
-    ),
-    /** Removes a reservation on a unlocked lead for the given customerId. */
-    leadfyndrRemoveUnlockedLeadReservation: this.requestFunctionFactory(
-      descriptors.leadfyndrRemoveUnlockedLeadReservation,
-    ),
-    /** Get a simple lead. Use the unlocked route for more detail leads. */
-    leadfyndrGetLead: this.requestFunctionFactory(descriptors.leadfyndrGetLead),
-    /** Get all leads. Use the unlocked routes for more lead details. */
-    leadfyndrListLeads: this.requestFunctionFactory(
-      descriptors.leadfyndrListLeads,
-    ),
-    /** Get a detail of a unlocked lead. Organisation can unlock leads. */
-    leadfyndrGetUnlockedLead: this.requestFunctionFactory(
-      descriptors.leadfyndrGetUnlockedLead,
-    ),
-    /** Unlock a lead for the given customerId. */
-    leadfyndrUnlockLead: this.requestFunctionFactory(
-      descriptors.leadfyndrUnlockLead,
-    ),
-    /** Get all unlocked leads. Organisation can unlock leads. */
-    leadfyndrListUnlockedLeads: this.requestFunctionFactory(
-      descriptors.leadfyndrListUnlockedLeads,
-    ),
-    /** Get lead tariff options. How many leads did you unlock this month? */
-    leadfyndrGetLeadFyndrProfileTariffOptions: this.requestFunctionFactory(
-      descriptors.leadfyndrGetLeadFyndrProfileTariffOptions,
-    ),
-    /** Get your LeadFyndr profile. */
-    leadfyndrGetLeadFyndrProfile: this.requestFunctionFactory(
-      descriptors.leadfyndrGetLeadFyndrProfile,
-    ),
-    /** Get your LeadFyndr request. */
-    leadfyndrGetLeadFyndrProfileRequest: this.requestFunctionFactory(
-      descriptors.leadfyndrGetLeadFyndrProfileRequest,
-    ),
-    /** Create a new access request for LeadFyndr. */
-    leadfyndrCreateLeadFyndrAccessRequest: this.requestFunctionFactory(
-      descriptors.leadfyndrCreateLeadFyndrAccessRequest,
     ),
   };
 }
