@@ -128,6 +128,11 @@ export const appUninstallAppinstallation: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Delete.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Delete.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
@@ -3006,45 +3011,6 @@ export const contractGetDetailOfContract: OpenAPIOperation<
   path: "/v2/contracts/{contractId}",
   method: "GET",
   operationId: "contract-get-detail-of-contract",
-};
-
-/** Return the next TerminationDate for the ContractItem with the given ID. */
-export const contractGetNextTerminationDateForItem: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDates.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDates.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDates.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDates.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDates.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDates.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDates.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDates.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/contracts/{contractId}/items/{contractItemId}/next-termination-dates",
-  method: "GET",
-  operationId: "contract-get-next-termination-date-for-item",
 };
 
 /** Return a list of Contracts for the given Customer. */
@@ -8929,6 +8895,11 @@ export const extensionUpdateExtensionPricing: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdPricing.Put.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdPricing.Put.Responses.$412.Content.ApplicationJson>,
+      412,
       "application/json"
     >
   | Response<

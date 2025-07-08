@@ -285,10 +285,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getDetailOfContract: this.requestFunctionFactory(
       descriptors.contractGetDetailOfContract,
     ),
-    /** Return the next TerminationDate for the ContractItem with the given ID. */
-    getNextTerminationDateForItem: this.requestFunctionFactory(
-      descriptors.contractGetNextTerminationDateForItem,
-    ),
     /** Return a list of Contracts for the given Customer. */
     listContracts: this.requestFunctionFactory(
       descriptors.contractListContracts,

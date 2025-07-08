@@ -214,11 +214,6 @@ const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.contractGetDetailOfContract,
     baseClient.contract.getDetailOfContract,
   ).getApiResource,
-  /** Return the next TerminationDate for the ContractItem with the given ID. */
-  getNextTerminationDateForItem: new ApiCallAsyncResourceFactory(
-    descriptors.contractGetNextTerminationDateForItem,
-    baseClient.contract.getNextTerminationDateForItem,
-  ).getApiResource,
   /** Return a list of Contracts for the given Customer. */
   listContracts: new ApiCallAsyncResourceFactory(
     descriptors.contractListContracts,

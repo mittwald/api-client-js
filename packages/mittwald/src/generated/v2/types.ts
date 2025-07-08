@@ -742,17 +742,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace ContractGetNextTerminationDateForItem {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contractGetNextTerminationDateForItem
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.contractGetNextTerminationDateForItem,
-          TStatus
-        >;
-    }
-
     namespace ContractListContracts {
       type RequestData = InferredRequestData<
         typeof descriptors.contractListContracts
@@ -4148,6 +4137,13 @@ export declare module MittwaldAPIV2 {
         id: string;
         installationPath: string;
         linkedDatabases?: MittwaldAPIV2.Components.Schemas.AppLinkedDatabase[];
+        lockedBy?: {
+          [k: string]: MittwaldAPIV2.Components.Schemas.AppLockPurpose;
+        };
+        /**
+         * @deprecated
+         * Unused, will be removed in the future.
+         */
         processes?: string[];
         projectId?: string;
         screenshotId?: string;
@@ -8153,6 +8149,11 @@ export declare module MittwaldAPIV2 {
         value: string;
       }
 
+      /**
+       * LockPurpose describes why a given AppInstallation is locked from deletion.
+       */
+      export type AppLockPurpose = "unspecified" | "copy";
+
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -8537,6 +8538,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -12843,64 +12852,6 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.ContractContract;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ContractsContractIdItemsContractItemIdNextTerminationDates {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            contractId: string;
-            contractItemId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                contractItemId: string;
-                nextTerminationDate: string;
-              }
             }
           }
 
@@ -21916,6 +21867,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -32869,5 +32828,7 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
+
+    namespace V2ContractsContractIdItemsContractItemIdNextTerminationDates {}
   }
 }
