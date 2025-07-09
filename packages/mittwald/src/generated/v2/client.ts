@@ -285,10 +285,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getDetailOfContract: this.requestFunctionFactory(
       descriptors.contractGetDetailOfContract,
     ),
-    /** Return the next TerminationDate for the ContractItem with the given ID. */
-    getNextTerminationDateForItem: this.requestFunctionFactory(
-      descriptors.contractGetNextTerminationDateForItem,
-    ),
     /** Return a list of Contracts for the given Customer. */
     listContracts: this.requestFunctionFactory(
       descriptors.contractListContracts,
@@ -357,17 +353,9 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     contributorGetLoginLink: this.requestFunctionFactory(
       descriptors.contributorGetLoginLink,
     ),
-    /** List incoming Invoices of a Contributor. */
-    contributorListIncomingInvoices: this.requestFunctionFactory(
-      descriptors.contributorListIncomingInvoices,
-    ),
     /** List all invoices on behalf of a contributor. */
     contributorListOnbehalfInvoices: this.requestFunctionFactory(
       descriptors.contributorListOnbehalfInvoices,
-    ),
-    /** Request an Access Token for the Incoming Invoice file. */
-    contributorReceiptGetFileAccessToken: this.requestFunctionFactory(
-      descriptors.contributorReceiptGetFileAccessToken,
     ),
     /** Rotate the secret for an extension instance. */
     contributorRotateSecretForExtensionInstance: this.requestFunctionFactory(
@@ -556,10 +544,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Get the link to update the marketplace payment method */
     customerUpdatePaymentMethod: this.requestFunctionFactory(
       descriptors.marketplaceCustomerUpdatePaymentMethod,
-    ),
-    /** Verify an Extension. */
-    extensionVerifyExtensionInternal: this.requestFunctionFactory(
-      descriptors.extensionVerifyExtensionInternal,
     ),
   };
 
@@ -1306,57 +1290,71 @@ export class MittwaldAPIV2Client extends ApiClientBase {
   /** The lead fyndr api allow you to manage you leads and your fyndr profile. */
   public readonly leadFyndr = {
     /** Get your LeadFyndr request. */
-    leadfyndrGetLeadFyndrProfileRequestExperimental:
-      this.requestFunctionFactory(
-        descriptors.leadfyndrGetLeadFyndrProfileRequestExperimental,
-      ),
+    leadfyndrGetLeadFyndrProfileRequest: this.requestFunctionFactory(
+      descriptors.leadfyndrGetLeadFyndrProfileRequest,
+    ),
     /** Create a new access request for LeadFyndr. */
-    leadfyndrCreateLeadFyndrAccessRequestExperimental:
-      this.requestFunctionFactory(
-        descriptors.leadfyndrCreateLeadFyndrAccessRequestExperimental,
-      ),
+    leadfyndrCreateLeadFyndrAccessRequest: this.requestFunctionFactory(
+      descriptors.leadfyndrCreateLeadFyndrAccessRequest,
+    ),
     /** Get cities in DACH. */
-    leadfyndrGetCitiesExperimental: this.requestFunctionFactory(
-      descriptors.leadfyndrGetCitiesExperimental,
-    ),
-    /** Get a simple lead. Use the unlocked route for more detail leads. */
-    leadfyndrGetLeadExperimental: this.requestFunctionFactory(
-      descriptors.leadfyndrGetLeadExperimental,
-    ),
-    /** Get your LeadFyndr profile. */
-    leadfyndrGetLeadFyndrProfileExperimental: this.requestFunctionFactory(
-      descriptors.leadfyndrGetLeadFyndrProfileExperimental,
+    leadfyndrGetCities: this.requestFunctionFactory(
+      descriptors.leadfyndrGetCities,
     ),
     /** Get lead tariff options. How many leads did you unlock this month? */
-    leadfyndrGetLeadFyndrProfileTariffOptionsExperimental:
-      this.requestFunctionFactory(
-        descriptors.leadfyndrGetLeadFyndrProfileTariffOptionsExperimental,
-      ),
+    leadfyndrGetLeadFyndrProfileTariffOptions: this.requestFunctionFactory(
+      descriptors.leadfyndrGetLeadFyndrProfileTariffOptions,
+    ),
+    /** Get your LeadFyndr profile. */
+    leadfyndrGetLeadFyndrProfile: this.requestFunctionFactory(
+      descriptors.leadfyndrGetLeadFyndrProfile,
+    ),
+    /** Get a simple lead. Use the unlocked route for more detail leads. */
+    leadfyndrGetLead: this.requestFunctionFactory(descriptors.leadfyndrGetLead),
     /** Get a detail of a unlocked lead. Organisation can unlock leads. */
-    leadfyndrGetUnlockedLeadExperimental: this.requestFunctionFactory(
-      descriptors.leadfyndrGetUnlockedLeadExperimental,
+    leadfyndrGetUnlockedLead: this.requestFunctionFactory(
+      descriptors.leadfyndrGetUnlockedLead,
     ),
     /** Unlock a lead for the given customerId. */
-    leadfyndrUnlockLeadExperimental: this.requestFunctionFactory(
-      descriptors.leadfyndrUnlockLeadExperimental,
+    leadfyndrUnlockLead: this.requestFunctionFactory(
+      descriptors.leadfyndrUnlockLead,
     ),
     /** Get all leads. Use the unlocked routes for more lead details. */
-    leadfyndrListLeadsExperimental: this.requestFunctionFactory(
-      descriptors.leadfyndrListLeadsExperimental,
+    leadfyndrListLeads: this.requestFunctionFactory(
+      descriptors.leadfyndrListLeads,
     ),
     /** Get all unlocked leads. Organisation can unlock leads. */
-    leadfyndrListUnlockedLeadsExperimental: this.requestFunctionFactory(
-      descriptors.leadfyndrListUnlockedLeadsExperimental,
+    leadfyndrListUnlockedLeads: this.requestFunctionFactory(
+      descriptors.leadfyndrListUnlockedLeads,
     ),
     /** Reserve a unlocked lead for the given customerId. */
-    leadfyndrReserveUnlockedLeadExperimental: this.requestFunctionFactory(
-      descriptors.leadfyndrReserveUnlockedLeadExperimental,
+    leadfyndrReserveUnlockedLead: this.requestFunctionFactory(
+      descriptors.leadfyndrReserveUnlockedLead,
     ),
     /** Removes a reservation on a unlocked lead for the given customerId. */
-    leadfyndrRemoveUnlockedLeadReservationExperimental:
-      this.requestFunctionFactory(
-        descriptors.leadfyndrRemoveUnlockedLeadReservationExperimental,
-      ),
+    leadfyndrRemoveUnlockedLeadReservation: this.requestFunctionFactory(
+      descriptors.leadfyndrRemoveUnlockedLeadReservation,
+    ),
+  };
+
+  /** API endpoints that are not related to any specific API domain */
+  public readonly misc = {
+    /** Get a list of currently active llm models. */
+    getLlmModelsExperimental: this.requestFunctionFactory(
+      descriptors.miscGetLlmModelsExperimental,
+    ),
+    /** Obtain a service token. */
+    servicetokenAuthenticateService: this.requestFunctionFactory(
+      descriptors.servicetokenAuthenticateService,
+    ),
+    /** Check if an address exists. */
+    verificationVerifyAddress: this.requestFunctionFactory(
+      descriptors.verificationVerifyAddress,
+    ),
+    /** Check if a company exists. */
+    verificationVerifyCompany: this.requestFunctionFactory(
+      descriptors.verificationVerifyCompany,
+    ),
   };
 
   /** The page insights API allows you to get page insights information. */
@@ -1384,6 +1382,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Accept a ProjectInvite. */
     acceptProjectInvite: this.requestFunctionFactory(
       descriptors.projectAcceptProjectInvite,
+    ),
+    /** Get a list of already created llm licences. */
+    getLlmLicencesExperimental: this.requestFunctionFactory(
+      descriptors.projectGetLlmLicencesExperimental,
+    ),
+    /** Creates a new llm beta Licence for a project. Will be purged on end of beta. */
+    createLlmBetaLicenceExperimental: this.requestFunctionFactory(
+      descriptors.projectCreateLlmBetaLicenceExperimental,
     ),
     /** List Invites belonging to a Project. */
     listInvitesForProject: this.requestFunctionFactory(
@@ -1442,6 +1448,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Delete a Server's avatar. */
     deleteServerAvatar: this.requestFunctionFactory(
       descriptors.projectDeleteServerAvatar,
+    ),
+    /** Get a licence of a project. */
+    getLlmLicenceExperimental: this.requestFunctionFactory(
+      descriptors.projectGetLlmLicenceExperimental,
+    ),
+    /** Update a llm Licence for a project. */
+    updateLlmLicenceExperimental: this.requestFunctionFactory(
+      descriptors.projectUpdateLlmLicenceExperimental,
     ),
     /** Get a ProjectInvite by token. */
     getProjectTokenInvite: this.requestFunctionFactory(

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.168.0](https://github.com/mittwald/api-client-js/compare/4.167.0...4.168.0) (2025-06-25)
+
+### Features
+
+- allow request to be modified (e.g. in onBeforeRequest)
+  ([16e3f8d](https://github.com/mittwald/api-client-js/commit/16e3f8ddeb910406ad1a9fe8268f4e3a4dd60b79))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [4.129.2](https://github.com/mittwald/api-client-js/compare/4.129.0...4.129.2) (2025-04-16)
 
 **Note:** Version bump only for package @mittwald/api-client-commons

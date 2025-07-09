@@ -7,6 +7,8 @@ on:
       - dev
     paths:
       - packages/mittwald/spec/openapi-dev.json
+  schedule:
+    - cron: "0 19 * * *"
 
 jobs:
   update-client:
@@ -24,6 +26,7 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.PUBLISH_PAT }}
+          ref: "dev"
 
       - name: Git Identity 🪪
         run: |

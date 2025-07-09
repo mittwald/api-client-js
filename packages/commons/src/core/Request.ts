@@ -23,7 +23,7 @@ export class Request<TOp extends OpenAPIOperation> {
   ) {
     this.operationDescriptor = operationDescriptor;
     this.requestObject = requestObject;
-    this.requestConfig = Object.freeze(this.buildAxiosConfig());
+    this.requestConfig = this.buildAxiosConfig();
   }
 
   public execute(axios: AxiosInstance): ResponsePromise<TOp> {
