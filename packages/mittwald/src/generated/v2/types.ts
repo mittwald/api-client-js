@@ -794,6 +794,28 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ContributorListContractPartnersOfContributor {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorListContractPartnersOfContributor
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorListContractPartnersOfContributor,
+          TStatus
+        >;
+    }
+
+    namespace ContributorListIncomingInvoices {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorListIncomingInvoices
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorListIncomingInvoices,
+          TStatus
+        >;
+    }
+
     namespace ContributorListOnbehalfInvoices {
       type RequestData = InferredRequestData<
         typeof descriptors.contributorListOnbehalfInvoices
@@ -801,6 +823,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.contributorListOnbehalfInvoices,
+          TStatus
+        >;
+    }
+
+    namespace ContributorReceiptGetFileAccessToken {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorReceiptGetFileAccessToken
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorReceiptGetFileAccessToken,
           TStatus
         >;
     }
@@ -2829,17 +2862,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace MiscGetLlmModelsExperimental {
-      type RequestData = InferredRequestData<
-        typeof descriptors.miscGetLlmModelsExperimental
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.miscGetLlmModelsExperimental,
-          TStatus
-        >;
-    }
-
     namespace NewsletterGetInfo {
       type RequestData = InferredRequestData<
         typeof descriptors.newsletterGetInfo
@@ -3039,28 +3061,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.projectAcceptProjectInvite,
-          TStatus
-        >;
-    }
-
-    namespace ProjectGetLlmLicencesExperimental {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectGetLlmLicencesExperimental
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectGetLlmLicencesExperimental,
-          TStatus
-        >;
-    }
-
-    namespace ProjectCreateLlmBetaLicenceExperimental {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectCreateLlmBetaLicenceExperimental
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectCreateLlmBetaLicenceExperimental,
           TStatus
         >;
     }
@@ -3272,28 +3272,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.projectFileSystemListFiles,
-          TStatus
-        >;
-    }
-
-    namespace ProjectGetLlmLicenceExperimental {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectGetLlmLicenceExperimental
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectGetLlmLicenceExperimental,
-          TStatus
-        >;
-    }
-
-    namespace ProjectUpdateLlmLicenceExperimental {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectUpdateLlmLicenceExperimental
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectUpdateLlmLicenceExperimental,
           TStatus
         >;
     }
@@ -4131,17 +4109,6 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
-
-    namespace ExtensionVerifyExtensionInternal {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionVerifyExtensionInternal
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionVerifyExtensionInternal,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -4184,6 +4151,11 @@ export declare module MittwaldAPIV2 {
         uninstallImage: MittwaldAPIV2.Components.Schemas.AppAppJobImage;
         upgradeImage: MittwaldAPIV2.Components.Schemas.AppAppJobImage;
       }
+
+      /**
+       * LockPurpose describes why a given AppInstallation is locked from deletion.
+       */
+      export type AppLockPurpose = "unspecified" | "copy";
 
       /**
        * AppUpdatePolicy describes which updates should be applied automatically by our systems.
@@ -8215,10 +8187,10 @@ export declare module MittwaldAPIV2 {
         value: string;
       }
 
-      /**
-       * LockPurpose describes why a given AppInstallation is locked from deletion.
-       */
-      export type AppLockPurpose = "unspecified" | "copy";
+      export type VerificationEmailOrigin =
+        | "IS_MITTWALD"
+        | "IS_NOT_MITTWALD"
+        | "COULD_BE_MITTWALD";
 
       export interface CommonsAddress {
         street: string;
@@ -13219,7 +13191,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ContributorsContributorIdInvoicesOutgoing {
+    namespace V2ContributorsContributorIdContractPartners {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -13229,266 +13201,16 @@ export declare module MittwaldAPIV2 {
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson = {
-                invoiceDate: string;
-                invoiceId: string;
-                invoiceNumber: string;
-                pdfLink: string;
-                totalGross: number;
-                totalNet: number;
-                webLink: string;
-              }[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ContributorsContributorIdBillingInformation {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
+          export type Query = {
+            extensionId?: string;
+            extensionInstanceId?: string;
           };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
             namespace Content {
-              export interface ApplicationJson {
-                contributorId?: string;
-                invoiceFooter?: string;
-                onboardingStatus?: "NOT_STARTED" | "STARTED" | "SUCCESSFUL";
-                stripeAccountId?: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-          };
-
-          export interface RequestBody {
-            invoiceFooter?: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                contributorId?: string;
-                invoiceFooter?: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomersCustomerIdBillingPortal {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                url?: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ContributorsContributorIdDashboard {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                url?: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplaceContractPartner[];
             }
           }
 
@@ -21394,8 +21116,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2WebhookPublicKeysSerial {}
-
     namespace V2PublicKeysSerial {
       namespace Get {
         namespace Parameters {
@@ -23495,10 +23215,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace ExperimentalV2CustomersCustomerIdLeadFyndrProfileRequest {}
-
-    namespace V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest {}
-
     namespace V2CustomersCustomerIdLeadFyndrProfileRequest {
       namespace Get {
         namespace Parameters {
@@ -23634,10 +23350,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace ExperimentalV2Cities {}
-
-    namespace V2ExperimentalCities {}
-
     namespace V2Cities {
       namespace Get {
         namespace Parameters {
@@ -23700,10 +23412,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace ExperimentalV2CustomersCustomerIdLeadFyndrProfileTariff {}
-
-    namespace V2ExperimentalCustomersCustomerIdLeadFyndrProfileTariff {}
-
     namespace V2CustomersCustomerIdLeadFyndrProfileTariff {
       namespace Get {
         namespace Parameters {
@@ -23765,10 +23473,6 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
-
-    namespace ExperimentalV2CustomersCustomerIdLeadFyndrProfile {}
-
-    namespace V2ExperimentalCustomersCustomerIdLeadFyndrProfile {}
 
     namespace V2CustomersCustomerIdLeadFyndrProfile {
       namespace Get {
@@ -23834,10 +23538,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace ExperimentalV2CustomersCustomerIdLeadsLeadId {}
-
-    namespace V2ExperimentalCustomersCustomerIdLeadsLeadId {}
-
     namespace V2CustomersCustomerIdLeadsLeadId {
       namespace Get {
         namespace Parameters {
@@ -23900,10 +23600,6 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
-
-    namespace ExperimentalV2CustomersCustomerIdUnlockedLeadsLeadId {}
-
-    namespace V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId {}
 
     namespace V2CustomersCustomerIdUnlockedLeadsLeadId {
       namespace Get {
@@ -24030,10 +23726,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace ExperimentalV2CustomersCustomerIdLeads {}
-
-    namespace V2ExperimentalCustomersCustomerIdLeads {}
-
     namespace V2CustomersCustomerIdLeads {
       namespace Get {
         namespace Parameters {
@@ -24101,10 +23793,6 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
-
-    namespace ExperimentalV2CustomersCustomerIdUnlockedLeads {}
-
-    namespace V2ExperimentalCustomersCustomerIdUnlockedLeads {}
 
     namespace V2CustomersCustomerIdUnlockedLeads {
       namespace Get {
@@ -24190,10 +23878,6 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
-
-    namespace ExperimentalV2CustomersCustomerIdUnlockedLeadsLeadIdReservation {}
-
-    namespace V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation {}
 
     namespace V2CustomersCustomerIdUnlockedLeadsLeadIdReservation {
       namespace Post {
@@ -25813,68 +25497,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2LlmModels {}
-
-    namespace V2ExperimentalLlmModels {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LlmlocksmithModel[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2NewsletterSubscriptionsSelf {
       namespace Get {
         namespace Parameters {
@@ -26934,151 +26556,6 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
-
-    namespace V2ExperimentalProjectsProjectIdLlmLicences {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LlmlocksmithLicence[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export interface RequestBody {
-            createWebuiContainer?: boolean;
-            name: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LlmlocksmithLicence;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $409 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectProjectIdInvites {}
 
     namespace V2ProjectsProjectIdInvites {
       namespace Get {
@@ -28210,155 +27687,6 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
-
-    namespace V2ProjectsProjectIdLlmLicencesLicenceId {}
-
-    namespace V2ExperimentalProjectsProjectIdLlmLicencesLicenceId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-            licenceId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LlmlocksmithLicence;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-            licenceId: string;
-          };
-
-          export interface RequestBody {
-            createWebuiContainer?: boolean;
-            name?: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LlmlocksmithLicence;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $409 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomersProjectsProjectIdLlmLicences {}
 
     namespace V2ProjectTokenInvite {
       namespace Get {
