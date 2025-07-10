@@ -805,17 +805,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace ContributorListIncomingInvoices {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contributorListIncomingInvoices
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.contributorListIncomingInvoices,
-          TStatus
-        >;
-    }
-
     namespace ContributorListOnbehalfInvoices {
       type RequestData = InferredRequestData<
         typeof descriptors.contributorListOnbehalfInvoices
@@ -8237,15 +8226,6 @@ export declare module MittwaldAPIV2 {
         value: string;
       }
 
-      export type VerificationEmailOrigin =
-        | "IS_MITTWALD"
-        | "IS_NOT_MITTWALD"
-        | "COULD_BE_MITTWALD";
-
-      export interface VerificationEmailDetectPhishingMailResponse {
-        result: MittwaldAPIV2.Components.Schemas.VerificationEmailOrigin;
-      }
-
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -13287,72 +13267,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ContributorsContributorIdInvoicesIncoming {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson = {
-                currency: string;
-                customerId: string;
-                customerName: string;
-                customerNumber: string;
-                date: string;
-                id: string;
-                invoiceNumber: string;
-                pdfId: string;
-                recipient: MittwaldAPIV2.Components.Schemas.InvoiceRecipient;
-                totalGross: number;
-                totalNet: number;
-              }[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2ContributorsContributorIdInvoicesOutgoing {
       namespace Get {
         namespace Parameters {
@@ -17673,6 +17587,8 @@ export declare module MittwaldAPIV2 {
     namespace V2AppinstallationsAppInstallationIdDatabases {}
 
     namespace V2ContractsContractIdItemsContractItemIdNextTerminationDates {}
+
+    namespace V2CustomerCustomerIdActionsLeave {}
 
     namespace V2CustomersCustomerIdActionsLeave {}
 
