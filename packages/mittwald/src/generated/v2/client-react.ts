@@ -277,6 +277,11 @@ const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.contributorGetLoginLink,
     baseClient.marketplace.contributorGetLoginLink,
   ).getApiResource,
+  /** List ContractPartners of the contributor. */
+  contributorListContractPartnersOfContributor: new ApiCallAsyncResourceFactory(
+    descriptors.contributorListContractPartnersOfContributor,
+    baseClient.marketplace.contributorListContractPartnersOfContributor,
+  ).getApiResource,
   /** List all invoices on behalf of a contributor. */
   contributorListOnbehalfInvoices: new ApiCallAsyncResourceFactory(
     descriptors.contributorListOnbehalfInvoices,

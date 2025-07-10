@@ -3208,6 +3208,35 @@ export const contributorGetLoginLink: OpenAPIOperation<
   operationId: "contributor-get-login-link",
 };
 
+/** List ContractPartners of the contributor. */
+export const contributorListContractPartnersOfContributor: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdContractPartners.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdContractPartners.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdContractPartners.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdContractPartners.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdContractPartners.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdContractPartners.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/contributors/{contributorId}/contract-partners",
+  method: "GET",
+  operationId: "contributor-list-contract-partners-of-contributor",
+};
+
 /** List all invoices on behalf of a contributor. */
 export const contributorListOnbehalfInvoices: OpenAPIOperation<
   RequestType<

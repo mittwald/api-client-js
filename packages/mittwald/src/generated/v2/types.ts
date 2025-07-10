@@ -794,6 +794,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ContributorListContractPartnersOfContributor {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorListContractPartnersOfContributor
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorListContractPartnersOfContributor,
+          TStatus
+        >;
+    }
+
     namespace ContributorListOnbehalfInvoices {
       type RequestData = InferredRequestData<
         typeof descriptors.contributorListOnbehalfInvoices
@@ -4063,6 +4074,11 @@ export declare module MittwaldAPIV2 {
         uninstallImage: MittwaldAPIV2.Components.Schemas.AppAppJobImage;
         upgradeImage: MittwaldAPIV2.Components.Schemas.AppAppJobImage;
       }
+
+      /**
+       * LockPurpose describes why a given AppInstallation is locked from deletion.
+       */
+      export type AppLockPurpose = "unspecified" | "copy";
 
       /**
        * AppUpdatePolicy describes which updates should be applied automatically by our systems.
@@ -8088,11 +8104,6 @@ export declare module MittwaldAPIV2 {
         name: string;
         value: string;
       }
-
-      /**
-       * LockPurpose describes why a given AppInstallation is locked from deletion.
-       */
-      export type AppLockPurpose = "unspecified" | "copy";
 
       export interface CommonsAddress {
         street: string;
@@ -13119,6 +13130,48 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2ContributorsContributorIdContractPartners {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            extensionId?: string;
+            extensionInstanceId?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplaceContractPartner[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2ContributorsContributorIdInvoicesOutgoing {
       namespace Get {
         namespace Parameters {
@@ -17381,6 +17434,8 @@ export declare module MittwaldAPIV2 {
     }
 
     namespace V2AppinstallationsAppInstallationIdDatabases {}
+
+    namespace V2ContractsContractIdItemsContractItemIdNextTerminationDates {}
 
     namespace V2CustomerCustomerIdActionsLeave {}
 
@@ -32416,7 +32471,5 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
-
-    namespace V2ContractsContractIdItemsContractItemIdNextTerminationDates {}
   }
 }
