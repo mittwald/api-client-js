@@ -1524,6 +1524,22 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
+  /** API endpoints that are not related to any specific API domain */
+  public readonly misc = {
+    /** Obtain a service token. */
+    servicetokenAuthenticateService: this.requestFunctionFactory(
+      descriptors.servicetokenAuthenticateService,
+    ),
+    /** Check if an address exists. */
+    verificationVerifyAddress: this.requestFunctionFactory(
+      descriptors.verificationVerifyAddress,
+    ),
+    /** Check if a company exists. */
+    verificationVerifyCompany: this.requestFunctionFactory(
+      descriptors.verificationVerifyCompany,
+    ),
+  };
+
   /** The SSH/SFTP User API allows you to manage your SSH/SFTP users within a project. */
   public readonly sshsftpUser = {
     /** Get all SFTPUsers for a Project. */

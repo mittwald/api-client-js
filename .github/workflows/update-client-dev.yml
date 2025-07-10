@@ -2,11 +2,6 @@ name: Update API client (dev)
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - dev
-    paths:
-      - packages/mittwald/spec/openapi-dev.json
   schedule:
     - cron: "0 19 * * *"
 
@@ -26,7 +21,7 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.PUBLISH_PAT }}
-          ref: "dev"
+          ref: dev
 
       - name: Git Identity 🪪
         run: |
@@ -36,19 +31,14 @@ jobs:
       - name: Yarn Install 📦️
         run: yarn install --immutable
 
-      - name: Setup NX 1/2 🎛️
+      - name: Setup NX 🎛️
         uses: nrwl/nx-set-shas@v4
-
-      - name: Setup NX 2/2 🎛
-        if: github.ref != 'refs/heads/dev'
-        run: git branch --track master origin/dev
 
       - name: Merge in master ⛙
         run: |
           git merge refs/remotes/origin/master --strategy-option theirs
 
       - name: Update OpenAPI ⬇️
-        if: github.ref == 'refs/heads/dev'
         run: |
           yarn nx run @mittwald/api-client:build:fetch-openapi-dev
           if [ $(git status --porcelain . | wc -l) -gt 0 ] ; then

@@ -4178,11 +4178,6 @@ export declare module MittwaldAPIV2 {
         lockedBy?: {
           [k: string]: MittwaldAPIV2.Components.Schemas.AppLockPurpose;
         };
-        /**
-         * @deprecated
-         * Unused, will be removed in the future.
-         */
-        processes?: string[];
         projectId?: string;
         screenshotId?: string;
         screenshotRef?: string;
@@ -23170,6 +23165,8 @@ export declare module MittwaldAPIV2 {
             limit?: number;
             skip?: number;
             page?: number;
+            sort?: "invoiceNumber"[];
+            order?: ("asc" | "desc")[];
           };
         }
         namespace Responses {
@@ -26556,6 +26553,8 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
+
+    namespace V2ProjectProjectIdInvites {}
 
     namespace V2ProjectsProjectIdInvites {
       namespace Get {
