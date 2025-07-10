@@ -1349,6 +1349,26 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
+  /** API endpoints that are not related to any specific API domain */
+  public readonly misc = {
+    /** Get a list of currently active llm models. */
+    getLlmModelsExperimental: this.requestFunctionFactory(
+      descriptors.miscGetLlmModelsExperimental,
+    ),
+    /** Check if an email is from mittwald. */
+    verificationDetectPhishingEmail: this.requestFunctionFactory(
+      descriptors.verificationDetectPhishingEmail,
+    ),
+    /** Check if an address exists. */
+    verificationVerifyAddress: this.requestFunctionFactory(
+      descriptors.verificationVerifyAddress,
+    ),
+    /** Check if a company exists. */
+    verificationVerifyCompany: this.requestFunctionFactory(
+      descriptors.verificationVerifyCompany,
+    ),
+  };
+
   /** The page insights API allows you to get page insights information. */
   public readonly pageInsights = {
     /** Get detailed performance data for a given domain and path. */
@@ -1374,6 +1394,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Accept a ProjectInvite. */
     acceptProjectInvite: this.requestFunctionFactory(
       descriptors.projectAcceptProjectInvite,
+    ),
+    /** Get a list of already created llm licences. */
+    getLlmLicencesExperimental: this.requestFunctionFactory(
+      descriptors.projectGetLlmLicencesExperimental,
+    ),
+    /** Creates a new llm beta Licence for a project. Will be purged on end of beta. */
+    createLlmBetaLicenceExperimental: this.requestFunctionFactory(
+      descriptors.projectCreateLlmBetaLicenceExperimental,
     ),
     /** List Invites belonging to a Project. */
     listInvitesForProject: this.requestFunctionFactory(
@@ -1432,6 +1460,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Delete a Server's avatar. */
     deleteServerAvatar: this.requestFunctionFactory(
       descriptors.projectDeleteServerAvatar,
+    ),
+    /** Get a licence of a project. */
+    getLlmLicenceExperimental: this.requestFunctionFactory(
+      descriptors.projectGetLlmLicenceExperimental,
+    ),
+    /** Update a llm Licence for a project. */
+    updateLlmLicenceExperimental: this.requestFunctionFactory(
+      descriptors.projectUpdateLlmLicenceExperimental,
     ),
     /** Get a ProjectInvite by token. */
     getProjectTokenInvite: this.requestFunctionFactory(
@@ -1565,22 +1601,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update an SSHUser. */
     sshUserUpdateSshUser: this.requestFunctionFactory(
       descriptors.sshUserUpdateSshUser,
-    ),
-  };
-
-  /** API endpoints that are not related to any specific API domain */
-  public readonly misc = {
-    /** Check if an email is from mittwald. */
-    verificationDetectPhishingEmail: this.requestFunctionFactory(
-      descriptors.verificationDetectPhishingEmail,
-    ),
-    /** Check if an address exists. */
-    verificationVerifyAddress: this.requestFunctionFactory(
-      descriptors.verificationVerifyAddress,
-    ),
-    /** Check if a company exists. */
-    verificationVerifyCompany: this.requestFunctionFactory(
-      descriptors.verificationVerifyCompany,
     ),
   };
 }
