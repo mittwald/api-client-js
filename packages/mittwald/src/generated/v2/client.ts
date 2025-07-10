@@ -357,6 +357,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     contributorListContractPartnersOfContributor: this.requestFunctionFactory(
       descriptors.contributorListContractPartnersOfContributor,
     ),
+    /** List incoming Invoices of a Contributor. */
+    contributorListIncomingInvoices: this.requestFunctionFactory(
+      descriptors.contributorListIncomingInvoices,
+    ),
     /** List all invoices on behalf of a contributor. */
     contributorListOnbehalfInvoices: this.requestFunctionFactory(
       descriptors.contributorListOnbehalfInvoices,
