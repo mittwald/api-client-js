@@ -8187,6 +8187,10 @@ export declare module MittwaldAPIV2 {
         | "IS_NOT_MITTWALD"
         | "COULD_BE_MITTWALD";
 
+      export interface VerificationEmailDetectPhishingMailResponse {
+        result: MittwaldAPIV2.Components.Schemas.VerificationEmailOrigin;
+      }
+
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -17613,6 +17617,8 @@ export declare module MittwaldAPIV2 {
 
     namespace V2AppinstallationsAppInstallationIdDatabases {}
 
+    namespace V2ContractsContractIdItemsContractItemIdNextTerminationDates {}
+
     namespace V2CustomersCustomerIdActionsLeave {}
 
     namespace V2DnsZonesZoneIdRecordsetAcombinedCustom {}
@@ -26554,8 +26560,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectProjectIdInvites {}
-
     namespace V2ProjectsProjectIdInvites {
       namespace Get {
         namespace Parameters {
@@ -32650,9 +32654,8 @@ export declare module MittwaldAPIV2 {
         namespace Responses {
           namespace $200 {
             namespace Content {
-              export interface ApplicationJson {
-                result: MittwaldAPIV2.Components.Schemas.VerificationEmailOrigin;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.VerificationEmailDetectPhishingMailResponse;
             }
           }
 
@@ -32792,7 +32795,5 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
-
-    namespace V2ContractsContractIdItemsContractItemIdNextTerminationDates {}
   }
 }
