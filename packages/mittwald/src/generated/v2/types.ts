@@ -2359,17 +2359,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace ExtensionStartExtensionCheckout {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionStartExtensionCheckout
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionStartExtensionCheckout,
-          TStatus
-        >;
-    }
-
     namespace ExtensionUpdateExtensionPricing {
       type RequestData = InferredRequestData<
         typeof descriptors.extensionUpdateExtensionPricing
@@ -21928,78 +21917,6 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 id: string;
                 published: boolean;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ExtensionsExtensionIdCheckout {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            extensionId: string;
-          };
-
-          export type RequestBody =
-            | {
-                consentedScopes: string[];
-                /**
-                 * The customer the extension should be booked for. Either customerId or projectId is required.
-                 */
-                customerId: string;
-              }
-            | {
-                consentedScopes: string[];
-                /**
-                 * The project the extension should be installed in. Either customerId or projectId is required.
-                 */
-                projectId: string;
-              };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                checkoutUrl?: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
               }
             }
           }

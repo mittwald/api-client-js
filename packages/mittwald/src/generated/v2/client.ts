@@ -541,10 +541,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionSetExtensionPublishedState: this.requestFunctionFactory(
       descriptors.extensionSetExtensionPublishedState,
     ),
-    /** Start a checkout process for an extension. */
-    extensionStartExtensionCheckout: this.requestFunctionFactory(
-      descriptors.extensionStartExtensionCheckout,
-    ),
     /** Creates or Updates Pricing for an Extension. */
     extensionUpdateExtensionPricing: this.requestFunctionFactory(
       descriptors.extensionUpdateExtensionPricing,

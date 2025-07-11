@@ -8942,45 +8942,6 @@ export const extensionSetExtensionPublishedState: OpenAPIOperation<
   operationId: "extension-set-extension-published-state",
 };
 
-/** Start a checkout process for an extension. */
-export const extensionStartExtensionCheckout: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdCheckout.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdCheckout.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdCheckout.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdCheckout.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdCheckout.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdCheckout.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdCheckout.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdCheckout.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdCheckout.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/extensions/{extensionId}/checkout",
-  method: "POST",
-  operationId: "extension-start-extension-checkout",
-};
-
 /** Creates or Updates Pricing for an Extension. */
 export const extensionUpdateExtensionPricing: OpenAPIOperation<
   RequestType<
