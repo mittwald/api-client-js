@@ -11925,6 +11925,7 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export interface ApplicationJson {
+                reason?: string;
                 valid: boolean;
               }
             }
