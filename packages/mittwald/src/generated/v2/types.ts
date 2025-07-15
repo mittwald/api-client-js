@@ -8244,6 +8244,14 @@ export declare module MittwaldAPIV2 {
         | "IS_NOT_MITTWALD"
         | "COULD_BE_MITTWALD";
 
+      export type ContainerServiceSortOrder = "DESC" | "ASC";
+
+      export type ContainerVolumeSortOrder =
+        | "NAME_DESC"
+        | "NAME_ASC"
+        | "STORAGE_DESC"
+        | "STORAGE_ASC";
+
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -11434,6 +11442,10 @@ export declare module MittwaldAPIV2 {
 
           export type Query = {
             stackId?: string;
+            hasStatus?: MittwaldAPIV2.Components.Schemas.ContainerServiceStatus;
+            recreateRequired?: boolean;
+            searchTerm?: string;
+            sortOrder?: MittwaldAPIV2.Components.Schemas.ContainerServiceSortOrder;
             limit?: number;
             skip?: number;
             page?: number;
@@ -11577,6 +11589,8 @@ export declare module MittwaldAPIV2 {
 
           export type Query = {
             stackId?: string;
+            searchTerm?: string;
+            sortOrder?: MittwaldAPIV2.Components.Schemas.ContainerVolumeSortOrder;
             limit?: number;
             skip?: number;
             page?: number;
