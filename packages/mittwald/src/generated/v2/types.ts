@@ -4933,6 +4933,7 @@ export declare module MittwaldAPIV2 {
         | "accounting"
         | "cloudHosting"
         | "customerService"
+        | "productManagement"
         | "generic";
 
       export interface ConversationError {
