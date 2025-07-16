@@ -746,6 +746,14 @@ const buildMiscApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
+const buildMiscApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get a list of currently active llm models. */
+  getLlmModelsExperimental: new ApiCallAsyncResourceFactory(
+    descriptors.miscGetLlmModelsExperimental,
+    baseClient.misc.getLlmModelsExperimental,
+  ).getApiResource,
+});
+
 const buildNotificationApi = (baseClient: MittwaldAPIV2Client) => ({
   /** Getting the subscription status of the subscription. */
   newsletterGetInfo: new ApiCallAsyncResourceFactory(

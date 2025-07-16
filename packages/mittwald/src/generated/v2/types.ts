@@ -4153,6 +4153,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace VerificationDetectPhishingEmail {
+      type RequestData = InferredRequestData<
+        typeof descriptors.verificationDetectPhishingEmail
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.verificationDetectPhishingEmail,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -8243,14 +8254,6 @@ export declare module MittwaldAPIV2 {
         | "IS_MITTWALD"
         | "IS_NOT_MITTWALD"
         | "COULD_BE_MITTWALD";
-
-      export type ContainerServiceSortOrder = "DESC" | "ASC";
-
-      export type ContainerVolumeSortOrder =
-        | "NAME_DESC"
-        | "NAME_ASC"
-        | "STORAGE_DESC"
-        | "STORAGE_ASC";
 
       export interface CommonsAddress {
         street: string;
@@ -19097,6 +19100,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $404 {
             namespace Content {
               export interface ApplicationJson {
@@ -25496,7 +25507,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2LlmModels {
+    namespace V2LlmModels {}
+
+    namespace ExperimentalV2LlmModels {
       namespace Get {
         namespace Parameters {
           export type Path = {};
@@ -26616,7 +26629,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsProjectIdLlmLicences {
+    namespace ExperimentalV2ProjectsProjectIdLlmLicences {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -26758,6 +26771,8 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
+
+    namespace V2ProjectProjectIdInvites {}
 
     namespace V2ProjectsProjectIdInvites {
       namespace Get {
@@ -27890,7 +27905,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsProjectIdLlmLicencesLicenceId {
+    namespace V2ProjectsProjectIdLlmLicencesLicenceId {}
+
+    namespace ExperimentalV2ProjectsProjectIdLlmLicencesLicenceId {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -28034,6 +28051,8 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
+
+    namespace V2CustomersProjectsProjectIdLlmLicences {}
 
     namespace V2ProjectTokenInvite {
       namespace Get {
@@ -33126,6 +33145,54 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ActionsDetectPhishingEmail {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.VerificationEmailDetectPhishingMailResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
