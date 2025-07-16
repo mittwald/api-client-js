@@ -1351,9 +1351,9 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getLlmModelsExperimental: this.requestFunctionFactory(
       descriptors.miscGetLlmModelsExperimental,
     ),
-    /** Obtain a service token. */
-    servicetokenAuthenticateService: this.requestFunctionFactory(
-      descriptors.servicetokenAuthenticateService,
+    /** Check if an email is from mittwald. */
+    verificationDetectPhishingEmail: this.requestFunctionFactory(
+      descriptors.verificationDetectPhishingEmail,
     ),
     /** Check if an address exists. */
     verificationVerifyAddress: this.requestFunctionFactory(
@@ -1362,10 +1362,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Check if a company exists. */
     verificationVerifyCompany: this.requestFunctionFactory(
       descriptors.verificationVerifyCompany,
-    ),
-    /** Check if an email is from mittwald. */
-    verificationDetectPhishingEmail: this.requestFunctionFactory(
-      descriptors.verificationDetectPhishingEmail,
     ),
   };
 
