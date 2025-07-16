@@ -357,9 +357,17 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     contributorListContractPartnersOfContributor: this.requestFunctionFactory(
       descriptors.contributorListContractPartnersOfContributor,
     ),
+    /** List incoming Invoices of a Contributor. */
+    contributorListIncomingInvoices: this.requestFunctionFactory(
+      descriptors.contributorListIncomingInvoices,
+    ),
     /** List all invoices on behalf of a contributor. */
     contributorListOnbehalfInvoices: this.requestFunctionFactory(
       descriptors.contributorListOnbehalfInvoices,
+    ),
+    /** Request an Access Token for the Incoming Invoice file. */
+    contributorReceiptGetFileAccessToken: this.requestFunctionFactory(
+      descriptors.contributorReceiptGetFileAccessToken,
     ),
     /** Rotate the secret for an extension instance. */
     contributorRotateSecretForExtensionInstance: this.requestFunctionFactory(
@@ -1334,6 +1342,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Check if a company exists. */
     verificationVerifyCompany: this.requestFunctionFactory(
       descriptors.verificationVerifyCompany,
+    ),
+    /** Check if an email is from mittwald. */
+    verificationDetectPhishingEmail: this.requestFunctionFactory(
+      descriptors.verificationDetectPhishingEmail,
     ),
   };
 

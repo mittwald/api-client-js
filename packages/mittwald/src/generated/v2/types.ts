@@ -805,6 +805,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ContributorListIncomingInvoices {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorListIncomingInvoices
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorListIncomingInvoices,
+          TStatus
+        >;
+    }
+
     namespace ContributorListOnbehalfInvoices {
       type RequestData = InferredRequestData<
         typeof descriptors.contributorListOnbehalfInvoices
@@ -812,6 +823,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.contributorListOnbehalfInvoices,
+          TStatus
+        >;
+    }
+
+    namespace ContributorReceiptGetFileAccessToken {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorReceiptGetFileAccessToken
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorReceiptGetFileAccessToken,
           TStatus
         >;
     }
@@ -4073,6 +4095,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.verificationVerifyCompany,
+          TStatus
+        >;
+    }
+
+    namespace VerificationDetectPhishingEmail {
+      type RequestData = InferredRequestData<
+        typeof descriptors.verificationDetectPhishingEmail
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.verificationDetectPhishingEmail,
           TStatus
         >;
     }
@@ -8149,6 +8182,15 @@ export declare module MittwaldAPIV2 {
         name: string;
         value: string;
       }
+
+      export interface VerificationEmailDetectPhishingMailResponse {
+        result: MittwaldAPIV2.Components.Schemas.VerificationEmailOrigin;
+      }
+
+      export type VerificationEmailOrigin =
+        | "IS_MITTWALD"
+        | "IS_NOT_MITTWALD"
+        | "COULD_BE_MITTWALD";
 
       export interface CommonsAddress {
         street: string;
@@ -13218,6 +13260,72 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2ContributorsContributorIdInvoicesIncoming {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson = {
+                currency: string;
+                customerId: string;
+                customerName: string;
+                customerNumber: string;
+                date: string;
+                id: string;
+                invoiceNumber: string;
+                pdfId: string;
+                recipient: MittwaldAPIV2.Components.Schemas.InvoiceRecipient;
+                totalGross: number;
+                totalNet: number;
+              }[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2ContributorsContributorIdInvoicesOutgoing {
       namespace Get {
         namespace Parameters {
@@ -13242,6 +13350,64 @@ export declare module MittwaldAPIV2 {
                 totalNet: number;
                 webLink: string;
               }[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdInvoicesIncomingContributorReceiptIdFileAccessToken {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            contributorReceiptId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                accessToken: string;
+                expiresAt: string;
+              }
             }
           }
 
@@ -32794,6 +32960,54 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ActionsDetectPhishingEmail {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.VerificationEmailDetectPhishingMailResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 

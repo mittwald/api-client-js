@@ -3237,6 +3237,45 @@ export const contributorListContractPartnersOfContributor: OpenAPIOperation<
   operationId: "contributor-list-contract-partners-of-contributor",
 };
 
+/** List incoming Invoices of a Contributor. */
+export const contributorListIncomingInvoices: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdInvoicesIncoming.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdInvoicesIncoming.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdInvoicesIncoming.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdInvoicesIncoming.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdInvoicesIncoming.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdInvoicesIncoming.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdInvoicesIncoming.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdInvoicesIncoming.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/contributors/{contributorId}/invoices/incoming",
+  method: "GET",
+  operationId: "contributor-list-incoming-invoices",
+};
+
 /** List all invoices on behalf of a contributor. */
 export const contributorListOnbehalfInvoices: OpenAPIOperation<
   RequestType<
@@ -3274,6 +3313,45 @@ export const contributorListOnbehalfInvoices: OpenAPIOperation<
   path: "/v2/contributors/{contributorId}/invoices/outgoing",
   method: "GET",
   operationId: "contributor-list-onbehalf-invoices",
+};
+
+/** Request an Access Token for the Incoming Invoice file. */
+export const contributorReceiptGetFileAccessToken: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdInvoicesIncomingContributorReceiptIdFileAccessToken.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdInvoicesIncomingContributorReceiptIdFileAccessToken.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdInvoicesIncomingContributorReceiptIdFileAccessToken.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdInvoicesIncomingContributorReceiptIdFileAccessToken.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdInvoicesIncomingContributorReceiptIdFileAccessToken.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdInvoicesIncomingContributorReceiptIdFileAccessToken.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdInvoicesIncomingContributorReceiptIdFileAccessToken.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdInvoicesIncomingContributorReceiptIdFileAccessToken.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/contributors/{contributorId}/invoices/incoming/{contributorReceiptId}/file-access-token",
+  method: "GET",
+  operationId: "contributor-receipt-get-file-access-token",
 };
 
 /** Rotate the secret for an extension instance. */
@@ -15984,4 +16062,38 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
+};
+
+/** Check if an email is from mittwald. */
+export const verificationDetectPhishingEmail: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/actions/detect-phishing-email",
+  method: "POST",
+  operationId: "verification-detect-phishing-email",
 };
