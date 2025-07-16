@@ -718,6 +718,14 @@ const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
+const buildMiscApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get a list of currently active llm models. */
+  getLlmModelsExperimental: new ApiCallAsyncResourceFactory(
+    descriptors.miscGetLlmModelsExperimental,
+    baseClient.misc.getLlmModelsExperimental,
+  ).getApiResource,
+});
+
 const buildNotificationApi = (baseClient: MittwaldAPIV2Client) => ({
   /** Getting the subscription status of the subscription. */
   newsletterGetInfo: new ApiCallAsyncResourceFactory(
@@ -838,6 +846,11 @@ const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
 });
 
 const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get a list of already created llm licences. */
+  getLlmLicencesExperimental: new ApiCallAsyncResourceFactory(
+    descriptors.projectGetLlmLicencesExperimental,
+    baseClient.project.getLlmLicencesExperimental,
+  ).getApiResource,
   /** List Invites belonging to a Project. */
   listInvitesForProject: new ApiCallAsyncResourceFactory(
     descriptors.projectListInvitesForProject,
@@ -857,6 +870,11 @@ const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
   getProject: new ApiCallAsyncResourceFactory(
     descriptors.projectGetProject,
     baseClient.project.getProject,
+  ).getApiResource,
+  /** Get a licence of a project. */
+  getLlmLicenceExperimental: new ApiCallAsyncResourceFactory(
+    descriptors.projectGetLlmLicenceExperimental,
+    baseClient.project.getLlmLicenceExperimental,
   ).getApiResource,
   /** Get a ProjectInvite by token. */
   getProjectTokenInvite: new ApiCallAsyncResourceFactory(
@@ -1004,6 +1022,9 @@ export class MittwaldAPIV2ClientReact {
   /** The mail API allows you to manage your mail accounts. */
   public readonly mail: ReturnType<typeof buildMailApi>;
 
+  /** API endpoints that are not related to any specific API domain */
+  public readonly misc: ReturnType<typeof buildMiscApi>;
+
   /** The notification API allows you to manage your notifications. */
   public readonly notification: ReturnType<typeof buildNotificationApi>;
 
@@ -1052,6 +1073,8 @@ export class MittwaldAPIV2ClientReact {
     this.leadFyndr = buildLeadFyndrApi(baseClient);
 
     this.mail = buildMailApi(baseClient);
+
+    this.misc = buildMiscApi(baseClient);
 
     this.notification = buildNotificationApi(baseClient);
 
