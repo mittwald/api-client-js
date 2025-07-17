@@ -15991,6 +15991,40 @@ export const userVerifyRegistration: OpenAPIOperation<
   operationId: "user-verify-registration",
 };
 
+/** Check if an email is from mittwald. */
+export const verificationDetectPhishingEmail: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/actions/detect-phishing-email",
+  method: "POST",
+  operationId: "verification-detect-phishing-email",
+};
+
 /** Check if an address exists. */
 export const verificationVerifyAddress: OpenAPIOperation<
   RequestType<
@@ -16062,38 +16096,4 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
-};
-
-/** Check if an email is from mittwald. */
-export const verificationDetectPhishingEmail: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ActionsDetectPhishingEmail.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/actions/detect-phishing-email",
-  method: "POST",
-  operationId: "verification-detect-phishing-email",
 };

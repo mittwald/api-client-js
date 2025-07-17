@@ -4077,6 +4077,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace VerificationDetectPhishingEmail {
+      type RequestData = InferredRequestData<
+        typeof descriptors.verificationDetectPhishingEmail
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.verificationDetectPhishingEmail,
+          TStatus
+        >;
+    }
+
     namespace VerificationVerifyAddress {
       type RequestData = InferredRequestData<
         typeof descriptors.verificationVerifyAddress
@@ -4095,17 +4106,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.verificationVerifyCompany,
-          TStatus
-        >;
-    }
-
-    namespace VerificationDetectPhishingEmail {
-      type RequestData = InferredRequestData<
-        typeof descriptors.verificationDetectPhishingEmail
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.verificationDetectPhishingEmail,
           TStatus
         >;
     }
@@ -4970,6 +4970,11 @@ export declare module MittwaldAPIV2 {
         | {
             aggregate: "extensionInstance";
             domain: "extension";
+            id: string;
+          }
+        | {
+            aggregate: "container";
+            domain: "container";
             id: string;
           };
 
@@ -23164,6 +23169,7 @@ export declare module MittwaldAPIV2 {
               | "CORRECTION"
               | "CANCELLATION"
             )[];
+            search?: string;
             limit?: number;
             skip?: number;
             page?: number;
@@ -32864,6 +32870,54 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2ActionsDetectPhishingEmail {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            [k: string]: unknown;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.VerificationEmailDetectPhishingMailResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2ActionsVerifyAddress {
       namespace Post {
         namespace Parameters {
@@ -32960,54 +33014,6 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ActionsDetectPhishingEmail {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            [k: string]: unknown;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.VerificationEmailDetectPhishingMailResponse;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
