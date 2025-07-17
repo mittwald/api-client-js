@@ -1355,6 +1355,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     verificationDetectPhishingEmail: this.requestFunctionFactory(
       descriptors.verificationDetectPhishingEmail,
     ),
+    /** Check if an email is from mittwald. */
+    verificationDetectPhishingEmail: this.requestFunctionFactory(
+      descriptors.verificationDetectPhishingEmail,
+    ),
     /** Check if an address exists. */
     verificationVerifyAddress: this.requestFunctionFactory(
       descriptors.verificationVerifyAddress,

@@ -5017,6 +5017,11 @@ export declare module MittwaldAPIV2 {
             aggregate: "extensionInstance";
             domain: "extension";
             id: string;
+          }
+        | {
+            aggregate: "container";
+            domain: "container";
+            id: string;
           };
 
       export interface ConversationServiceRequestRelocationPayload {
@@ -23178,6 +23183,7 @@ export declare module MittwaldAPIV2 {
               | "CORRECTION"
               | "CANCELLATION"
             )[];
+            search?: string;
             limit?: number;
             skip?: number;
             page?: number;
