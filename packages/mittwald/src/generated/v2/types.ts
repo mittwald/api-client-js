@@ -6754,6 +6754,10 @@ export declare module MittwaldAPIV2 {
         forwardAddresses: string[];
       }
 
+      export interface MailMailAddressBackup {
+        name: string;
+      }
+
       export interface MailMailAddress {
         address: string;
         autoResponder: {
@@ -8257,10 +8261,6 @@ export declare module MittwaldAPIV2 {
         | "NAME_ASC"
         | "STORAGE_DESC"
         | "STORAGE_ASC";
-
-      export interface MailMailAddressBackup {
-        name: string;
-      }
 
       export interface CommonsAddress {
         street: string;
