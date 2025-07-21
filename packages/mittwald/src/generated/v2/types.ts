@@ -25343,9 +25343,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2LlmModels {}
-
-    namespace ExperimentalV2LlmModels {
+    namespace V2LlmModels {
       namespace Get {
         namespace Parameters {
           export type Path = {};
@@ -26471,7 +26469,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace ExperimentalV2ProjectsProjectIdLlmLicences {
+    namespace V2ProjectsProjectIdLlmLicences {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -27755,9 +27753,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsProjectIdLlmLicencesLicenceId {}
-
-    namespace ExperimentalV2ProjectsProjectIdLlmLicencesLicenceId {
+    namespace V2ProjectsProjectIdLlmLicencesLicenceId {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -27901,8 +27897,6 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
-
-    namespace V2CustomersProjectsProjectIdLlmLicences {}
 
     namespace V2ProjectTokenInvite {
       namespace Get {
