@@ -7923,6 +7923,14 @@ export declare module MittwaldAPIV2 {
 
       export interface StoragespaceStatisticsMeta {
         isExceeding?: boolean;
+        /**
+         * The latest total exceedance in bytes. It is retained as a historical record of the most recent exceedance and does not reset once set.
+         */
+        latestTotalExceedanceInBytes?: number;
+        /**
+         * The latest total exceedance date. It is retained as a historical record of the most recent exceedance and does not reset once set.
+         */
+        latestTotalExceedanceInBytesSetAt?: string;
         limitInBytes?: number;
         /**
          * If true, set notification threshold is used as limit for meta calculations. E.g. for projects with a parent server.
