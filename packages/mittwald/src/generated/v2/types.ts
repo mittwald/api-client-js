@@ -7666,6 +7666,7 @@ export declare module MittwaldAPIV2 {
         disableReason?: MittwaldAPIV2.Components.Schemas.ProjectDisableReason;
         disabledAt?: string;
         enabled: boolean;
+        features?: MittwaldAPIV2.Components.Schemas.ProjectProjectFeature[];
         id: string;
         imageRefId?: string;
         /**
@@ -8261,6 +8262,8 @@ export declare module MittwaldAPIV2 {
         | "NAME_ASC"
         | "STORAGE_DESC"
         | "STORAGE_ASC";
+
+      export type ProjectProjectFeature = "redis" | "node" | "container";
 
       export interface CommonsAddress {
         street: string;
@@ -21366,7 +21369,6 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
             searchTerm?: string;
-            hideDeprecated?: boolean;
             limit?: number;
             skip?: number;
             page?: number;
@@ -28412,6 +28414,7 @@ export declare module MittwaldAPIV2 {
                 disableReason?: MittwaldAPIV2.Components.Schemas.ProjectDisableReason;
                 disabledAt?: string;
                 enabled: boolean;
+                features?: MittwaldAPIV2.Components.Schemas.ProjectProjectFeature[];
                 id: string;
                 imageRefId?: string;
                 /**
