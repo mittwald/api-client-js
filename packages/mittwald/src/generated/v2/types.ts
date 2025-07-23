@@ -4720,7 +4720,9 @@ export declare module MittwaldAPIV2 {
         username: string;
       }
 
-      export type ContainerServiceSortOrder = "DESC" | "ASC";
+      export type ContainerServiceSortOrder =
+        | "descriptionAsc"
+        | "descriptionDesc";
 
       export interface ContainerStackResponse {
         description: string;
@@ -7666,7 +7668,6 @@ export declare module MittwaldAPIV2 {
         disableReason?: MittwaldAPIV2.Components.Schemas.ProjectDisableReason;
         disabledAt?: string;
         enabled: boolean;
-        features?: MittwaldAPIV2.Components.Schemas.ProjectProjectFeature[];
         id: string;
         imageRefId?: string;
         /**
@@ -8262,14 +8263,6 @@ export declare module MittwaldAPIV2 {
         | "IS_MITTWALD"
         | "IS_NOT_MITTWALD"
         | "COULD_BE_MITTWALD";
-
-      export interface MailMailAddressBackup {
-        name: string;
-      }
-
-      export type ContainerServiceSortOrder =
-        | "descriptionAsc"
-        | "descriptionDesc";
 
       export type ContainerVolumeSortOrder =
         | "nameAsc"
@@ -28426,7 +28419,6 @@ export declare module MittwaldAPIV2 {
                 disableReason?: MittwaldAPIV2.Components.Schemas.ProjectDisableReason;
                 disabledAt?: string;
                 enabled: boolean;
-                features?: MittwaldAPIV2.Components.Schemas.ProjectProjectFeature[];
                 id: string;
                 imageRefId?: string;
                 /**
