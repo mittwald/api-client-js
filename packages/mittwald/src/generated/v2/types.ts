@@ -7976,19 +7976,25 @@ export declare module MittwaldAPIV2 {
       export interface StoragespaceStatisticsMeta {
         isExceeding?: boolean;
         /**
-         * The latest total exceedance in bytes. It is retained as a historical record of the most recent exceedance and does not reset once set.
+         * The last total exceedance in bytes. It is retained as a historical record of the most recent exceedance and does not reset once set.
          */
-        latestTotalExceedanceInBytes?: number;
+        lastTotalExceedanceInBytes?: number;
         /**
-         * The latest total exceedance date. It is retained as a historical record of the most recent exceedance and does not reset once set.
+         * The last total exceedance date. It is retained as a historical record of the most recent exceedance and does not reset once set.
          */
-        latestTotalExceedanceInBytesSetAt?: string;
+        lastTotalExceedanceInBytesSetAt?: string;
         limitInBytes?: number;
         /**
          * If true, set notification threshold is used as limit for meta calculations. E.g. for projects with a parent server.
          */
         notificationThresholdUsedAsLimit?: boolean;
+        /**
+         * The current total exceedance in bytes.
+         */
         totalExceedanceInBytes?: number;
+        /**
+         * The current total exceedance date.
+         */
         totalExceedanceInBytesSetAt?: string;
         totalFreeInBytes?: number;
         totalFreeInPercentage?: number;
@@ -8257,13 +8263,19 @@ export declare module MittwaldAPIV2 {
         | "IS_NOT_MITTWALD"
         | "COULD_BE_MITTWALD";
 
-      export type ContainerVolumeSortOrder =
-        | "NAME_DESC"
-        | "NAME_ASC"
-        | "STORAGE_DESC"
-        | "STORAGE_ASC";
+      export interface MailMailAddressBackup {
+        name: string;
+      }
 
-      export type ProjectProjectFeature = "redis" | "node" | "container";
+      export type ContainerServiceSortOrder =
+        | "descriptionAsc"
+        | "descriptionDesc";
+
+      export type ContainerVolumeSortOrder =
+        | "nameAsc"
+        | "nameDesc"
+        | "storageAsc"
+        | "storageDesc";
 
       export interface CommonsAddress {
         street: string;
@@ -11455,8 +11467,8 @@ export declare module MittwaldAPIV2 {
 
           export type Query = {
             stackId?: string;
-            hasStatus?: MittwaldAPIV2.Components.Schemas.ContainerServiceStatus;
-            recreateRequired?: boolean;
+            status?: MittwaldAPIV2.Components.Schemas.ContainerServiceStatus;
+            requiresRecreate?: boolean;
             searchTerm?: string;
             sortOrder?: MittwaldAPIV2.Components.Schemas.ContainerServiceSortOrder;
             limit?: number;
