@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.189.0](https://github.com/mittwald/api-client-js/compare/4.188.0...4.189.0) (2025-07-23)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [4.188.0](https://github.com/mittwald/api-client-js/compare/4.187.0...4.188.0) (2025-07-22)
 
 **Note:** Version bump only for package @mittwald/api-models
