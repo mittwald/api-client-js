@@ -7663,6 +7663,8 @@ export declare module MittwaldAPIV2 {
         | "maliciousConduct"
         | "suspended";
 
+      export type ProjectProjectFeature = "redis" | "node" | "container";
+
       export type ProjectProjectStatus =
         | "pending"
         | "ready"
@@ -8292,8 +8294,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export type ProjectProjectFeature = "redis" | "node" | "container";
 
       export interface CommonsAddress {
         street: string;
