@@ -1047,10 +1047,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteMailAddress: this.requestFunctionFactory(
       descriptors.mailDeleteMailAddress,
     ),
-    /** List backups belonging to a MailAddress. */
-    listBackupsForMailAddress: this.requestFunctionFactory(
-      descriptors.mailListBackupsForMailAddress,
-    ),
     /** List mail settings of a Project. */
     listProjectMailSettings: this.requestFunctionFactory(
       descriptors.mailListProjectMailSettings,
@@ -1070,10 +1066,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Request a Mail Migration between two projects. */
     migrationRequestMailMigration: this.requestFunctionFactory(
       descriptors.mailMigrationRequestMailMigration,
-    ),
-    /** Recover emails for a MailAddress from a backup. */
-    recoverMailAddressEmails: this.requestFunctionFactory(
-      descriptors.mailRecoverMailAddressEmails,
     ),
     /** Update the description of a DeliveryBox. */
     updateDeliveryBoxDescription: this.requestFunctionFactory(

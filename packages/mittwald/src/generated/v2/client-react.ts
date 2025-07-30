@@ -721,11 +721,6 @@ const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.mailGetMailAddress,
     baseClient.mail.getMailAddress,
   ).getApiResource,
-  /** List backups belonging to a MailAddress. */
-  listBackupsForMailAddress: new ApiCallAsyncResourceFactory(
-    descriptors.mailListBackupsForMailAddress,
-    baseClient.mail.listBackupsForMailAddress,
-  ).getApiResource,
   /** List mail settings of a Project. */
   listProjectMailSettings: new ApiCallAsyncResourceFactory(
     descriptors.mailListProjectMailSettings,

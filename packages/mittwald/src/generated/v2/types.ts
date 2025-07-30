@@ -2719,17 +2719,6 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.mailDeleteMailAddress, TStatus>;
     }
 
-    namespace MailListBackupsForMailAddress {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailListBackupsForMailAddress
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.mailListBackupsForMailAddress,
-          TStatus
-        >;
-    }
-
     namespace MailListProjectMailSettings {
       type RequestData = InferredRequestData<
         typeof descriptors.mailListProjectMailSettings
@@ -2781,17 +2770,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.mailMigrationRequestMailMigration,
-          TStatus
-        >;
-    }
-
-    namespace MailRecoverMailAddressEmails {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailRecoverMailAddressEmails
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.mailRecoverMailAddressEmails,
           TStatus
         >;
     }
@@ -24729,77 +24707,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MailAddressesMailAddressIdBackups {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            mailAddressId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.MailMailAddressBackup[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2ProjectsProjectIdMailSettings {
       namespace Get {
         namespace Parameters {
@@ -25061,61 +24968,6 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2MailAddressesMailAddressIdBackupsBackupIdRecovery {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            mailAddressId: string;
-            backupId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
