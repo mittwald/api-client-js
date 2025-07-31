@@ -4153,6 +4153,28 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace MailListBackupsForMailAddress {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailListBackupsForMailAddress
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailListBackupsForMailAddress,
+          TStatus
+        >;
+    }
+
+    namespace MailRecoverMailAddressEmails {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailRecoverMailAddressEmails
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailRecoverMailAddressEmails,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -7980,7 +8002,11 @@ export declare module MittwaldAPIV2 {
       export interface StoragespaceStatisticsMeta {
         isExceeding?: boolean;
         /**
-         * The last total exceedance in bytes. It is retained as a historical record of the most recent exceedance and does not reset once set.
+         * The last exceedance limit in bytes during the exceedance time, therefore can differ from the current limit. It is retained as a historical record of the most recent exceedance and does not reset once set.
+         */
+        lastExceedanceLimitInBytes?: number;
+        /**
+         * The last total exceedance in bytes related to the limit during the exceedance time, see lastExceedanceLimitInBytes. It is retained as a historical record of the most recent exceedance and does not reset once set.
          */
         lastTotalExceedanceInBytes?: number;
         /**
@@ -25712,6 +25738,7 @@ export declare module MittwaldAPIV2 {
 
           export type Query = {
             status?: "unread" | "read";
+            severity?: ("success" | "info" | "warning" | "error")[];
             limit?: number;
             skip?: number;
             page?: number;
@@ -33157,6 +33184,132 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2MailAddressesMailAddressIdBackups {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            mailAddressId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MailMailAddressBackup[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2MailAddressesMailAddressIdBackupsBackupIdRecovery {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            mailAddressId: string;
+            backupId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 

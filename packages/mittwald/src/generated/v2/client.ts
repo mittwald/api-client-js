@@ -1087,6 +1087,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateProjectMailSetting: this.requestFunctionFactory(
       descriptors.mailUpdateProjectMailSetting,
     ),
+    /** List backups belonging to a MailAddress. */
+    listBackupsForMailAddress: this.requestFunctionFactory(
+      descriptors.mailListBackupsForMailAddress,
+    ),
+    /** Recover emails for a MailAddress from a backup. */
+    recoverMailAddressEmails: this.requestFunctionFactory(
+      descriptors.mailRecoverMailAddressEmails,
+    ),
   };
 
   /** The notification API allows you to manage your notifications. */

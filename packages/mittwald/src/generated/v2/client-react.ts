@@ -726,15 +726,10 @@ const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.mailListProjectMailSettings,
     baseClient.mail.listProjectMailSettings,
   ).getApiResource,
-  /** Get a Migration. */
-  migrationGetMigration: new ApiCallAsyncResourceFactory(
-    descriptors.mailMigrationGetMigration,
-    baseClient.mail.migrationGetMigration,
-  ).getApiResource,
-  /** List Migrations belonging to a Project in customer center or mStudio. */
-  migrationListMigrations: new ApiCallAsyncResourceFactory(
-    descriptors.mailMigrationListMigrations,
-    baseClient.mail.migrationListMigrations,
+  /** List backups belonging to a MailAddress. */
+  listBackupsForMailAddress: new ApiCallAsyncResourceFactory(
+    descriptors.mailListBackupsForMailAddress,
+    baseClient.mail.listBackupsForMailAddress,
   ).getApiResource,
 });
 
