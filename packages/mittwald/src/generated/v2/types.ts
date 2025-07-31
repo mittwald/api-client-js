@@ -7948,7 +7948,11 @@ export declare module MittwaldAPIV2 {
       export interface StoragespaceStatisticsMeta {
         isExceeding?: boolean;
         /**
-         * The last total exceedance in bytes. It is retained as a historical record of the most recent exceedance and does not reset once set.
+         * The last exceedance limit in bytes during the exceedance time, therefore can differ from the current limit. It is retained as a historical record of the most recent exceedance and does not reset once set.
+         */
+        lastExceedanceLimitInBytes?: number;
+        /**
+         * The last total exceedance in bytes related to the limit during the exceedance time, see lastExceedanceLimitInBytes. It is retained as a historical record of the most recent exceedance and does not reset once set.
          */
         lastTotalExceedanceInBytes?: number;
         /**
@@ -25591,6 +25595,7 @@ export declare module MittwaldAPIV2 {
 
           export type Query = {
             status?: "unread" | "read";
+            severity?: ("success" | "info" | "warning" | "error")[];
             limit?: number;
             skip?: number;
             page?: number;
