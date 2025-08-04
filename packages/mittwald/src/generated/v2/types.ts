@@ -10932,7 +10932,9 @@ export declare module MittwaldAPIV2 {
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
-          export type Query = {};
+          export type Query = {
+            recreate?: boolean;
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -11820,7 +11822,9 @@ export declare module MittwaldAPIV2 {
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
-          export type Query = {};
+          export type Query = {
+            skipRecreate?: boolean;
+          };
         }
         namespace Responses {
           namespace $204 {
