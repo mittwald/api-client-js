@@ -2123,7 +2123,7 @@ export const containerListVolumes: OpenAPIOperation<
   operationId: "container-list-volumes",
 };
 
-/** Pulls the latest version of the Service's image and recreates the Service. */
+/** Pulls the latest version of the Service's image and optionally recreates the Service. */
 export const containerPullImageForService: OpenAPIOperation<
   RequestType<
     Simplify<null>,

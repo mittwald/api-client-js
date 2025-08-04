@@ -4644,6 +4644,13 @@ export declare module MittwaldAPIV2 {
          * Defaults to image config on empty
          */
         entrypoint?: string[];
+        environment?: {
+          [k: string]: string;
+        };
+        /**
+         * @deprecated
+         * Deprecated by 'environment'. This field will be removed in a future version.
+         */
         envs?: {
           [k: string]: string;
         };
@@ -10806,7 +10813,9 @@ export declare module MittwaldAPIV2 {
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
-          export type Query = {};
+          export type Query = {
+            recreate?: boolean;
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -11687,7 +11696,9 @@ export declare module MittwaldAPIV2 {
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
-          export type Query = {};
+          export type Query = {
+            skipRecreate?: boolean;
+          };
         }
         namespace Responses {
           namespace $204 {
