@@ -4707,10 +4707,6 @@ export declare module MittwaldAPIV2 {
         };
         image: string;
         ports?: string[];
-        /**
-         * Whether to recreate the Service.
-         */
-        recreate?: boolean;
         volumes?: string[];
       }
 
@@ -11811,13 +11807,6 @@ export declare module MittwaldAPIV2 {
             stackId: string;
             serviceId: string;
           };
-
-          export interface RequestBody {
-            /**
-             * Whether to skip the Service recreate after pulling the image.
-             */
-            skipRecreate?: boolean;
-          }
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;

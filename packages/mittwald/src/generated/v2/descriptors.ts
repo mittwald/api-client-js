@@ -2170,7 +2170,7 @@ export const containerListVolumes: OpenAPIOperation<
 /** Pulls the latest version of the Service's image and optionally recreates the Service. */
 export const containerPullImageForService: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdActionsPull.Post.Parameters.RequestBody>,
+    Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdActionsPull.Post.Parameters.Path>,
     Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdActionsPull.Post.Parameters.Query>,
     Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdActionsPull.Post.Parameters.Header>
