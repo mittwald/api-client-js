@@ -1,6 +1,6 @@
 {
   "name": "@mittwald/api-client-commons",
-  "version": "0.0.0-development-7423599-20250729",
+  "version": "0.0.0-development-076c388-20250804",
   "author": "Mittwald CM Service GmbH & Co. KG <opensource@mittwald.de>",
   "type": "module",
   "description": "Common types and utilities for mittwald API clients",
