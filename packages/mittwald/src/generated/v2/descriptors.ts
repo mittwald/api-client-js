@@ -1290,48 +1290,48 @@ export const backupDeleteProjectBackup: OpenAPIOperation<
   operationId: "backup-delete-project-backup",
 };
 
-/** Restore a ProjectBackup's paths. */
-export const backupRequestProjectBackupRestorePaths: OpenAPIOperation<
+/** Restore a ProjectBackup's path. */
+export const backupRequestProjectBackupRestorePath: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePaths.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePaths.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePaths.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePaths.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePaths.Post.Responses.$204.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Responses.$204.Content.Empty>,
       204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePaths.Post.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePaths.Post.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePaths.Post.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePaths.Post.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePaths.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/project-backups/{projectBackupId}/restore-paths",
+  path: "/v2/project-backups/{projectBackupId}/restore-path",
   method: "POST",
-  operationId: "backup-request-project-backup-restore-paths",
+  operationId: "backup-request-project-backup-restore-path",
 };
 
 /** Change the description of a ProjectBackup. */
@@ -8759,6 +8759,11 @@ export const extensionOrderExtension: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdOrder.Post.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdOrder.Post.Responses.$412.Content.ApplicationJson>,
+      412,
       "application/json"
     >
   | Response<
