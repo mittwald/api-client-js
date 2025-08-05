@@ -25608,6 +25608,8 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             status?: "unread" | "read";
             severity?: ("success" | "info" | "warning" | "error")[];
+            type?: string[];
+            "type-not"?: string[];
             limit?: number;
             skip?: number;
             page?: number;
