@@ -8718,6 +8718,11 @@ export const extensionOrderExtension: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdOrder.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdOrder.Post.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
