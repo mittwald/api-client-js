@@ -7711,6 +7711,10 @@ export declare module MittwaldAPIV2 {
         disableReason?: MittwaldAPIV2.Components.Schemas.ProjectDisableReason;
         disabledAt?: string;
         enabled: boolean;
+        /**
+         * @deprecated
+         * deprecated by property supportedFeatures
+         */
         features?: MittwaldAPIV2.Components.Schemas.ProjectProjectFeature[];
         id: string;
         imageRefId?: string;
@@ -7730,6 +7734,7 @@ export declare module MittwaldAPIV2 {
         statisticsBaseDomain?: string;
         status: MittwaldAPIV2.Components.Schemas.ProjectProjectStatus;
         statusSetAt: string;
+        supportedFeatures: MittwaldAPIV2.Components.Schemas.ProjectProjectFeature[];
         webStorageUsageInBytes: number;
         webStorageUsageInBytesSetAt: string;
       }
@@ -28641,6 +28646,10 @@ export declare module MittwaldAPIV2 {
                 disableReason?: MittwaldAPIV2.Components.Schemas.ProjectDisableReason;
                 disabledAt?: string;
                 enabled: boolean;
+                /**
+                 * @deprecated
+                 * deprecated by property supportedFeatures
+                 */
                 features?: MittwaldAPIV2.Components.Schemas.ProjectProjectFeature[];
                 id: string;
                 imageRefId?: string;
@@ -28655,6 +28664,7 @@ export declare module MittwaldAPIV2 {
                 shortId: string;
                 status: MittwaldAPIV2.Components.Schemas.ProjectProjectStatus;
                 statusSetAt: string;
+                supportedFeatures: MittwaldAPIV2.Components.Schemas.ProjectProjectFeature[];
                 webStorageUsageInBytes: number;
                 webStorageUsageInBytesSetAt: string;
               }[];
