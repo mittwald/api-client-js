@@ -4719,7 +4719,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface ContainerUpdateRegistry {
-        credentials?: MittwaldAPIV2.Components.Schemas.ContainerSetRegistryCredentials;
+        credentials?: MittwaldAPIV2.Components.Schemas.ContainerSetRegistryCredentials | null;
         description?: string;
         uri?: string;
       }
