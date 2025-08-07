@@ -4,7 +4,7 @@ import { Components } from "./Components.js";
 import { asyncStringJoin } from "../../asyncStringJoin.js";
 import { TypeCompilationOptions } from "../CodeGenerationModel.js";
 import { OpenAPIV3 } from "openapi-types";
-import { populateNullableTypes } from "../../pupulateNullableTypes.js";
+import { populateNullableTypes } from "../../populateNullableTypes.js";
 
 export class Schemas {
   public static readonly ns = "Schemas";
