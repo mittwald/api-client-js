@@ -17,14 +17,12 @@ export function populateNullableTypes(
     schema.items = populateNullableTypes(schema.items);
   }
 
-  const compositionKeys: ("allOf" | "anyOf" | "oneOf")[] = [
-    "allOf",
-    "anyOf",
-    "oneOf",
-  ];
+  const compositionKeys = ["allOf", "anyOf", "oneOf"] as const;
+
   compositionKeys.forEach((key) => {
-    if (schema[key]) {
-      schema[key] = schema[key]!.map(populateNullableTypes);
+    const entries = schema[key];
+    if (Array.isArray(entries)) {
+      schema[key] = entries.map(populateNullableTypes);
     }
   });
 
