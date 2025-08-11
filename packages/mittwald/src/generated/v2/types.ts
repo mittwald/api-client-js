@@ -7353,6 +7353,7 @@ export declare module MittwaldAPIV2 {
 
       export interface OrderHostingOrderPreviewResponse {
         machineTypePrice: number;
+        possibleFreeTrialDays?: number;
         storagePrice: number;
         totalPrice: number;
       }
@@ -7373,6 +7374,7 @@ export declare module MittwaldAPIV2 {
         customerId?: string;
         description?: string;
         diskspaceInGiB: number;
+        promotionCode?: string;
         spec:
           | MittwaldAPIV2.Components.Schemas.OrderMachineTypeSpec
           | MittwaldAPIV2.Components.Schemas.OrderHardwareSpec;
@@ -7403,6 +7405,7 @@ export declare module MittwaldAPIV2 {
         description?: string;
         diskspaceInGiB: number;
         machineType: string;
+        promotionCode?: string;
       }
 
       export interface OrderServerOrder {
