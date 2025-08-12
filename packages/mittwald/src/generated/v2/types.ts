@@ -4478,6 +4478,10 @@ export declare module MittwaldAPIV2 {
        * A strategy for Contracts that will be paid periodically.
        */
       export interface ExtensionSubscriptionBasedContract {
+        /**
+         * monthly price in Euro Cent
+         */
+        currentPrice?: number;
         interactionDeadline?: string;
         interactionRequired: boolean;
         status: "notStarted" | "pending" | "active" | "terminationPending";
@@ -5817,7 +5821,12 @@ export declare module MittwaldAPIV2 {
         state: "enabled" | "blocked" | "disabled";
         statistics: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionStatistics;
         subTitle: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
-        support: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
+        support: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta & {
+          /**
+           * Whether the support information is inherited from the contributor.
+           */
+          inherited: boolean;
+        };
         /**
          * @minItems 0
          */
@@ -6051,7 +6060,12 @@ export declare module MittwaldAPIV2 {
         state?: "enabled" | "blocked" | "disabled";
         statistics: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionStatistics;
         subTitle?: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
-        support?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
+        support?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta & {
+          /**
+           * Whether the support information is inherited from the contributor.
+           */
+          inherited: boolean;
+        };
         /**
          * @minItems 0
          */
@@ -6156,7 +6170,12 @@ export declare module MittwaldAPIV2 {
         state: "enabled" | "blocked" | "disabled";
         statistics: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionStatistics;
         subTitle?: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
-        support?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
+        support?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta & {
+          /**
+           * Whether the support information is inherited from the contributor.
+           */
+          inherited: boolean;
+        };
         tags: string[];
       }
 
@@ -22381,6 +22400,7 @@ export declare module MittwaldAPIV2 {
               | "avatar"
               | "extensionAssetImage"
               | "extensionAssetVideo"
+              | "anchorIcon"
               | "conversation";
           };
 
@@ -28457,6 +28477,8 @@ export declare module MittwaldAPIV2 {
             limit?: number;
             skip?: number;
             page?: number;
+            sort?: "createdAt" | "description";
+            order?: "asc" | "desc";
           };
         }
         namespace Responses {
@@ -28544,10 +28566,12 @@ export declare module MittwaldAPIV2 {
 
           export type Query = {
             customerId?: string;
-            limit?: number;
-            page?: number;
-            skip?: number;
             searchTerm?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
+            sort?: "createdAt" | "description";
+            order?: "asc" | "desc";
           };
         }
         namespace Responses {
