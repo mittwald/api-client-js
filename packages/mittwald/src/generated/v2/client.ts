@@ -1059,22 +1059,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listProjectMailSettings: this.requestFunctionFactory(
       descriptors.mailListProjectMailSettings,
     ),
-    /** Check if a Migration between two projects is possible. */
-    migrationCheckMigrationIsPossible: this.requestFunctionFactory(
-      descriptors.mailMigrationCheckMigrationIsPossible,
-    ),
-    /** Get a Migration. */
-    migrationGetMigration: this.requestFunctionFactory(
-      descriptors.mailMigrationGetMigration,
-    ),
-    /** List Migrations belonging to a Project in customer center or mStudio. */
-    migrationListMigrations: this.requestFunctionFactory(
-      descriptors.mailMigrationListMigrations,
-    ),
-    /** Request a Mail Migration between two projects. */
-    migrationRequestMailMigration: this.requestFunctionFactory(
-      descriptors.mailMigrationRequestMailMigration,
-    ),
     /** Recover emails for a MailAddress from a backup. */
     recoverMailAddressEmails: this.requestFunctionFactory(
       descriptors.mailRecoverMailAddressEmails,
