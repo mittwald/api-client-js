@@ -1290,6 +1290,50 @@ export const backupDeleteProjectBackup: OpenAPIOperation<
   operationId: "backup-delete-project-backup",
 };
 
+/** Restore a ProjectBackup's path. */
+export const backupRequestProjectBackupRestorePath: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/project-backups/{projectBackupId}/restore-path",
+  method: "POST",
+  operationId: "backup-request-project-backup-restore-path",
+};
+
 /** Change the description of a ProjectBackup. */
 export const backupUpdateProjectBackupDescription: OpenAPIOperation<
   RequestType<
@@ -10834,6 +10878,147 @@ export const mailListProjectMailSettings: OpenAPIOperation<
   path: "/v2/projects/{projectId}/mail-settings",
   method: "GET",
   operationId: "mail-list-project-mail-settings",
+};
+
+/** Check if a Migration between two projects is possible. */
+export const mailMigrationCheckMigrationIsPossible: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2MailMigrationsActionsPossibilityCheck.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailMigrationsActionsPossibilityCheck.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailMigrationsActionsPossibilityCheck.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailMigrationsActionsPossibilityCheck.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailMigrationsActionsPossibilityCheck.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailMigrationsActionsPossibilityCheck.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailMigrationsActionsPossibilityCheck.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailMigrationsActionsPossibilityCheck.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mail-migrations/actions/possibility-check",
+  method: "POST",
+  operationId: "mail-migration-check-migration-is-possible",
+};
+
+/** Get a Migration. */
+export const mailMigrationGetMigration: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2MailMigrationsMigrationId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailMigrationsMigrationId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailMigrationsMigrationId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailMigrationsMigrationId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailMigrationsMigrationId.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailMigrationsMigrationId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailMigrationsMigrationId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mail-migrations/{migrationId}",
+  method: "GET",
+  operationId: "mail-migration-get-migration",
+};
+
+/** List Migrations belonging to a Project in customer center or mStudio. */
+export const mailMigrationListMigrations: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2MailMigrations.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailMigrations.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailMigrations.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailMigrations.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailMigrations.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailMigrations.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailMigrations.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mail-migrations",
+  method: "GET",
+  operationId: "mail-migration-list-migrations",
+};
+
+/** Request a Mail Migration between two projects. */
+export const mailMigrationRequestMailMigration: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2MailMigrationsActionsRequest.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailMigrationsActionsRequest.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailMigrationsActionsRequest.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailMigrationsActionsRequest.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailMigrationsActionsRequest.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailMigrationsActionsRequest.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailMigrationsActionsRequest.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailMigrationsActionsRequest.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailMigrationsActionsRequest.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mail-migrations/actions/request",
+  method: "POST",
+  operationId: "mail-migration-request-mail-migration",
 };
 
 /** Recover emails for a MailAddress from a backup. */

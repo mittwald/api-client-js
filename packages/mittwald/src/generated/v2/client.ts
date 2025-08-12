@@ -145,13 +145,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteProjectBackup: this.requestFunctionFactory(
       descriptors.backupDeleteProjectBackup,
     ),
-    /** Change the description of a ProjectBackup. */
-    updateProjectBackupDescription: this.requestFunctionFactory(
-      descriptors.backupUpdateProjectBackupDescription,
-    ),
     /** Restore a ProjectBackup's path. */
     requestProjectBackupRestorePath: this.requestFunctionFactory(
       descriptors.backupRequestProjectBackupRestorePath,
+    ),
+    /** Change the description of a ProjectBackup. */
+    updateProjectBackupDescription: this.requestFunctionFactory(
+      descriptors.backupUpdateProjectBackupDescription,
     ),
   };
 
@@ -1058,6 +1058,22 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** List mail settings of a Project. */
     listProjectMailSettings: this.requestFunctionFactory(
       descriptors.mailListProjectMailSettings,
+    ),
+    /** Check if a Migration between two projects is possible. */
+    migrationCheckMigrationIsPossible: this.requestFunctionFactory(
+      descriptors.mailMigrationCheckMigrationIsPossible,
+    ),
+    /** Get a Migration. */
+    migrationGetMigration: this.requestFunctionFactory(
+      descriptors.mailMigrationGetMigration,
+    ),
+    /** List Migrations belonging to a Project in customer center or mStudio. */
+    migrationListMigrations: this.requestFunctionFactory(
+      descriptors.mailMigrationListMigrations,
+    ),
+    /** Request a Mail Migration between two projects. */
+    migrationRequestMailMigration: this.requestFunctionFactory(
+      descriptors.mailMigrationRequestMailMigration,
     ),
     /** Recover emails for a MailAddress from a backup. */
     recoverMailAddressEmails: this.requestFunctionFactory(
