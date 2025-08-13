@@ -20243,7 +20243,7 @@ export declare module MittwaldAPIV2 {
             limit?: number;
             skip?: number;
             page?: number;
-            sort?: ("createdAt" | "exensionId")[];
+            sort?: ("createdAt" | "extensionId" | "extensionName")[];
             order?: ("asc" | "desc")[];
           };
         }
