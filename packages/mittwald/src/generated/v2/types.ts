@@ -18842,7 +18842,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $204 {
+          namespace $200 {
             namespace Content {
               export interface ApplicationJson {
                 ingressId?: string;

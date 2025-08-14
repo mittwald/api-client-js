@@ -6844,8 +6844,8 @@ export const dnsSetRecordSetManaged: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Responses.$204.Content.ApplicationJson>,
-      204,
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged.Post.Responses.$200.Content.ApplicationJson>,
+      200,
       "application/json"
     >
   | Response<
