@@ -2719,6 +2719,17 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.mailDeleteMailAddress, TStatus>;
     }
 
+    namespace MailListBackupsForMailAddress {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailListBackupsForMailAddress
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailListBackupsForMailAddress,
+          TStatus
+        >;
+    }
+
     namespace MailListProjectMailSettings {
       type RequestData = InferredRequestData<
         typeof descriptors.mailListProjectMailSettings
@@ -2726,6 +2737,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.mailListProjectMailSettings,
+          TStatus
+        >;
+    }
+
+    namespace MailRecoverMailAddressEmails {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailRecoverMailAddressEmails
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailRecoverMailAddressEmails,
           TStatus
         >;
     }
@@ -4109,28 +4131,6 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
-
-    namespace MailListBackupsForMailAddress {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailListBackupsForMailAddress
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.mailListBackupsForMailAddress,
-          TStatus
-        >;
-    }
-
-    namespace MailRecoverMailAddressEmails {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailRecoverMailAddressEmails
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.mailRecoverMailAddressEmails,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -4196,17 +4196,17 @@ export declare module MittwaldAPIV2 {
         disabled: boolean;
         id: string;
         installationPath: string;
-        linkedDatabases?: MittwaldAPIV2.Components.Schemas.AppLinkedDatabase[];
+        linkedDatabases: MittwaldAPIV2.Components.Schemas.AppLinkedDatabase[];
         lockedBy?: {
           [k: string]: MittwaldAPIV2.Components.Schemas.AppLockPurpose;
         };
-        projectId?: string;
+        projectId: string;
         screenshotId?: string;
         screenshotRef?: string;
         shortId: string;
-        systemSoftware?: MittwaldAPIV2.Components.Schemas.AppInstalledSystemSoftware[];
-        updatePolicy?: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
-        userInputs?: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
+        systemSoftware: MittwaldAPIV2.Components.Schemas.AppInstalledSystemSoftware[];
+        updatePolicy: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
+        userInputs: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
       }
 
       /**
@@ -4222,6 +4222,7 @@ export declare module MittwaldAPIV2 {
        */
       export interface AppAppVersion {
         appId: string;
+        backendPathTemplate?: string;
         breakingNote?: MittwaldAPIV2.Components.Schemas.AppBreakingNote;
         databases?: MittwaldAPIV2.Components.Schemas.AppDatabaseDependency[];
         docRoot: string;
@@ -4477,6 +4478,10 @@ export declare module MittwaldAPIV2 {
        * A strategy for Contracts that will be paid periodically.
        */
       export interface ExtensionSubscriptionBasedContract {
+        /**
+         * monthly price in Euro Cent
+         */
+        currentPrice?: number;
         interactionDeadline?: string;
         interactionRequired: boolean;
         status: "notStarted" | "pending" | "active" | "terminationPending";
@@ -4704,6 +4709,10 @@ export declare module MittwaldAPIV2 {
          */
         username: string;
       }
+
+      export type ContainerServiceSortOrder =
+        | "descriptionAsc"
+        | "descriptionDesc";
 
       export interface ContainerStackResponse {
         description: string;
@@ -5812,7 +5821,12 @@ export declare module MittwaldAPIV2 {
         state: "enabled" | "blocked" | "disabled";
         statistics: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionStatistics;
         subTitle: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
-        support: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
+        support: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta & {
+          /**
+           * Whether the support information is inherited from the contributor.
+           */
+          inherited: boolean;
+        };
         /**
          * @minItems 0
          */
@@ -6046,7 +6060,12 @@ export declare module MittwaldAPIV2 {
         state?: "enabled" | "blocked" | "disabled";
         statistics: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionStatistics;
         subTitle?: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
-        support?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
+        support?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta & {
+          /**
+           * Whether the support information is inherited from the contributor.
+           */
+          inherited: boolean;
+        };
         /**
          * @minItems 0
          */
@@ -6151,7 +6170,12 @@ export declare module MittwaldAPIV2 {
         state: "enabled" | "blocked" | "disabled";
         statistics: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionStatistics;
         subTitle?: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
-        support?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
+        support?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta & {
+          /**
+           * Whether the support information is inherited from the contributor.
+           */
+          inherited: boolean;
+        };
         tags: string[];
       }
 
@@ -6735,6 +6759,10 @@ export declare module MittwaldAPIV2 {
       export interface MailCreateForwardAddress {
         address: string;
         forwardAddresses: string[];
+      }
+
+      export interface MailMailAddressBackup {
+        name: string;
       }
 
       export interface MailMailAddress {
@@ -7344,6 +7372,7 @@ export declare module MittwaldAPIV2 {
 
       export interface OrderHostingOrderPreviewResponse {
         machineTypePrice: number;
+        possibleFreeTrialDays?: number;
         storagePrice: number;
         totalPrice: number;
       }
@@ -7364,6 +7393,7 @@ export declare module MittwaldAPIV2 {
         customerId?: string;
         description?: string;
         diskspaceInGiB: number;
+        promotionCode?: string;
         spec:
           | MittwaldAPIV2.Components.Schemas.OrderMachineTypeSpec
           | MittwaldAPIV2.Components.Schemas.OrderHardwareSpec;
@@ -7394,6 +7424,7 @@ export declare module MittwaldAPIV2 {
         description?: string;
         diskspaceInGiB: number;
         machineType: string;
+        promotionCode?: string;
       }
 
       export interface OrderServerOrder {
@@ -7618,6 +7649,8 @@ export declare module MittwaldAPIV2 {
         | "maliciousConduct"
         | "suspended";
 
+      export type ProjectProjectFeature = "redis" | "node" | "container";
+
       export type ProjectProjectStatus =
         | "pending"
         | "ready"
@@ -7645,6 +7678,10 @@ export declare module MittwaldAPIV2 {
         disableReason?: MittwaldAPIV2.Components.Schemas.ProjectDisableReason;
         disabledAt?: string;
         enabled: boolean;
+        /**
+         * @deprecated
+         * Deprecated by 'supportedFeatures'.
+         */
         features?: MittwaldAPIV2.Components.Schemas.ProjectProjectFeature[];
         id: string;
         imageRefId?: string;
@@ -7664,6 +7701,7 @@ export declare module MittwaldAPIV2 {
         statisticsBaseDomain?: string;
         status: MittwaldAPIV2.Components.Schemas.ProjectProjectStatus;
         statusSetAt: string;
+        supportedFeatures: MittwaldAPIV2.Components.Schemas.ProjectProjectFeature[];
         webStorageUsageInBytes: number;
         webStorageUsageInBytesSetAt: string;
       }
@@ -8246,21 +8284,11 @@ export declare module MittwaldAPIV2 {
         | "IS_NOT_MITTWALD"
         | "COULD_BE_MITTWALD";
 
-      export interface MailMailAddressBackup {
-        name: string;
-      }
-
-      export type ContainerServiceSortOrder =
-        | "descriptionAsc"
-        | "descriptionDesc";
-
       export type ContainerVolumeSortOrder =
         | "nameAsc"
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export type ProjectProjectFeature = "redis" | "node" | "container";
 
       export interface CommonsAddress {
         street: string;
@@ -19207,9 +19235,6 @@ export declare module MittwaldAPIV2 {
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {
-            /**
-             * Only for .de Domains.
-             */
             transit?: boolean;
           };
         }
@@ -22375,6 +22400,7 @@ export declare module MittwaldAPIV2 {
               | "avatar"
               | "extensionAssetImage"
               | "extensionAssetVideo"
+              | "anchorIcon"
               | "conversation";
           };
 
@@ -24811,6 +24837,77 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2MailAddressesMailAddressIdBackups {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            mailAddressId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MailMailAddressBackup[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2ProjectsProjectIdMailsettings {}
 
     namespace V2ProjectsProjectIdMailSettings {
@@ -24877,6 +24974,61 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2MailAddressesMailAddressIdBackupsBackupIdRecovery {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            mailAddressId: string;
+            backupId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -28325,6 +28477,8 @@ export declare module MittwaldAPIV2 {
             limit?: number;
             skip?: number;
             page?: number;
+            sort?: "createdAt" | "description";
+            order?: "asc" | "desc";
           };
         }
         namespace Responses {
@@ -28342,6 +28496,10 @@ export declare module MittwaldAPIV2 {
                 disableReason?: MittwaldAPIV2.Components.Schemas.ProjectDisableReason;
                 disabledAt?: string;
                 enabled: boolean;
+                /**
+                 * @deprecated
+                 * Deprecated by 'supportedFeatures'.
+                 */
                 features?: MittwaldAPIV2.Components.Schemas.ProjectProjectFeature[];
                 id: string;
                 imageRefId?: string;
@@ -28356,6 +28514,7 @@ export declare module MittwaldAPIV2 {
                 shortId: string;
                 status: MittwaldAPIV2.Components.Schemas.ProjectProjectStatus;
                 statusSetAt: string;
+                supportedFeatures: MittwaldAPIV2.Components.Schemas.ProjectProjectFeature[];
                 webStorageUsageInBytes: number;
                 webStorageUsageInBytesSetAt: string;
               }[];
@@ -28407,10 +28566,12 @@ export declare module MittwaldAPIV2 {
 
           export type Query = {
             customerId?: string;
-            limit?: number;
-            page?: number;
-            skip?: number;
             searchTerm?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
+            sort?: "createdAt" | "description";
+            order?: "asc" | "desc";
           };
         }
         namespace Responses {
@@ -33096,132 +33257,6 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2MailAddressesMailAddressIdBackups {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            mailAddressId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.MailMailAddressBackup[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2MailAddressesMailAddressIdBackupsBackupIdRecovery {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            mailAddressId: string;
-            backupId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
