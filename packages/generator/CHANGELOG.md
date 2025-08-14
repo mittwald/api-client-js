@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.199.1](https://github.com/mittwald/api-client-js/compare/4.199.0...4.199.1) (2025-08-14)
+
+### Bug Fixes
+
+- respect nullable property in schemas
+  ([c3437e2](https://github.com/mittwald/api-client-js/commit/c3437e27dd0a1045251872500ab4813fb8f37efa))
+- typo
+  ([a4813a0](https://github.com/mittwald/api-client-js/commit/a4813a02b19892b009e1f5e7629694389cead873))
+- typo
+  ([7f4ec48](https://github.com/mittwald/api-client-js/commit/7f4ec4826083b78136f9d3e850a989747161cd46))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [4.136.2](https://github.com/mittwald/api-client-js/compare/4.136.1...4.136.2) (2025-05-06)
 
 ### Bug Fixes
