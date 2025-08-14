@@ -4819,7 +4819,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface ContainerUpdateRegistry {
-        credentials?: MittwaldAPIV2.Components.Schemas.ContainerSetRegistryCredentials;
+        credentials?: MittwaldAPIV2.Components.Schemas.ContainerSetRegistryCredentials | null;
         description?: string;
         uri?: string;
       }
@@ -18950,7 +18950,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $204 {
+          namespace $200 {
             namespace Content {
               export interface ApplicationJson {
                 ingressId?: string;
