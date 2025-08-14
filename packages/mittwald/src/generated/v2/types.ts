@@ -4255,6 +4255,7 @@ export declare module MittwaldAPIV2 {
         lockedBy?: {
           [k: string]: MittwaldAPIV2.Components.Schemas.AppLockPurpose;
         };
+        phase: MittwaldAPIV2.Components.Schemas.AppAppPhase;
         projectId: string;
         screenshotId?: string;
         screenshotRef?: string;
@@ -6191,7 +6192,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface MarketplaceSupportMeta {
-        email?: string;
+        email: string;
         phone?: string;
       }
 
@@ -8380,6 +8381,28 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      /**
+       * AppPhase describes the current phase/state of an AppInstallation in its lifecycle.
+       */
+      export type AppAppPhase =
+        | "unspecified"
+        | "unknown"
+        | "choosingInstallationMethod"
+        | "pending"
+        | "deployingNewProjectEnvironment"
+        | "waitForNewProjectEnvironment"
+        | "deployingProjectEnvironment"
+        | "invalid"
+        | "installing"
+        | "importing"
+        | "reconfiguring"
+        | "upgrading"
+        | "error"
+        | "ready"
+        | "terminating"
+        | "removeFromProjectEnvironment"
+        | "projectEnvironmentDisabled";
 
       export interface CommonsAddress {
         street: string;
