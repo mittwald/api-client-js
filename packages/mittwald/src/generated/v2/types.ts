@@ -6100,7 +6100,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface MarketplaceSupportMeta {
-        email?: string;
+        email: string;
         phone?: string;
       }
 
@@ -20143,7 +20143,7 @@ export declare module MittwaldAPIV2 {
             limit?: number;
             skip?: number;
             page?: number;
-            sort?: ("createdAt" | "exensionId")[];
+            sort?: ("createdAt" | "extensionId" | "extensionName")[];
             order?: ("asc" | "desc")[];
           };
         }
