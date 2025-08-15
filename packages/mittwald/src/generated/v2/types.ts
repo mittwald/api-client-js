@@ -4235,6 +4235,28 @@ export declare module MittwaldAPIV2 {
       export type AppLockPurpose = "unspecified" | "copy";
 
       /**
+       * AppPhase describes the current phase/state of an AppInstallation in its lifecycle.
+       */
+      export type AppAppPhase =
+        | "unspecified"
+        | "unknown"
+        | "choosingInstallationMethod"
+        | "pending"
+        | "deployingNewProjectEnvironment"
+        | "waitForNewProjectEnvironment"
+        | "deployingProjectEnvironment"
+        | "invalid"
+        | "installing"
+        | "importing"
+        | "reconfiguring"
+        | "upgrading"
+        | "error"
+        | "ready"
+        | "terminating"
+        | "removeFromProjectEnvironment"
+        | "projectEnvironmentDisabled";
+
+      /**
        * AppUpdatePolicy describes which updates should be applied automatically by our systems.
        */
       export type AppAppUpdatePolicy = "none" | "patchLevel" | "all";
@@ -8381,28 +8403,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      /**
-       * AppPhase describes the current phase/state of an AppInstallation in its lifecycle.
-       */
-      export type AppAppPhase =
-        | "unspecified"
-        | "unknown"
-        | "choosingInstallationMethod"
-        | "pending"
-        | "deployingNewProjectEnvironment"
-        | "waitForNewProjectEnvironment"
-        | "deployingProjectEnvironment"
-        | "invalid"
-        | "installing"
-        | "importing"
-        | "reconfiguring"
-        | "upgrading"
-        | "error"
-        | "ready"
-        | "terminating"
-        | "removeFromProjectEnvironment"
-        | "projectEnvironmentDisabled";
 
       export interface CommonsAddress {
         street: string;
