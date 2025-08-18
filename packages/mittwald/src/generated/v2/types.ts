@@ -8404,6 +8404,22 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
+      export interface OrderMailArchiveOrderPreview {
+        mailAddressId: string;
+        useCurrentData?: boolean;
+      }
+
+      export interface OrderMailArchiveOrderPreviewResponse {
+        feePrice: number;
+        recurringPrice: number;
+        totalPrice: number;
+      }
+
+      export interface OrderMailArchiveOrder {
+        mailAddressId: string;
+        useCurrentData?: boolean;
+      }
+
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -26244,13 +26260,15 @@ export declare module MittwaldAPIV2 {
               | MittwaldAPIV2.Components.Schemas.OrderServerOrder
               | MittwaldAPIV2.Components.Schemas.OrderDomainOrder
               | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrder
-              | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrder;
+              | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrder
+              | MittwaldAPIV2.Components.Schemas.OrderMailArchiveOrder;
             orderType?:
               | "domain"
               | "projectHosting"
               | "server"
               | "externalCertificate"
-              | "leadFyndr";
+              | "leadFyndr"
+              | "mailArchive";
           }
 
           export type Header =
@@ -26490,13 +26508,15 @@ export declare module MittwaldAPIV2 {
               | MittwaldAPIV2.Components.Schemas.OrderServerOrderPreview
               | MittwaldAPIV2.Components.Schemas.OrderDomainOrderPreview
               | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrderPreview
-              | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrderPreview;
+              | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrderPreview
+              | MittwaldAPIV2.Components.Schemas.OrderMailArchiveOrderPreview;
             orderType?:
               | "domain"
               | "projectHosting"
               | "server"
               | "externalCertificate"
-              | "leadFyndr";
+              | "leadFyndr"
+              | "mailArchive";
           }
 
           export type Header = {};
@@ -26510,7 +26530,8 @@ export declare module MittwaldAPIV2 {
                 | MittwaldAPIV2.Components.Schemas.OrderHostingOrderPreviewResponse
                 | MittwaldAPIV2.Components.Schemas.OrderDomainOrderPreviewResponse
                 | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrderPreviewResponse
-                | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrderPreviewResponse;
+                | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrderPreviewResponse
+                | MittwaldAPIV2.Components.Schemas.OrderMailArchiveOrderPreviewResponse;
             }
           }
 
