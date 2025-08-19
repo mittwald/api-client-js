@@ -371,6 +371,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace BackupGetProjectBackupToc {
+      type RequestData = InferredRequestData<
+        typeof descriptors.backupGetProjectBackupToc
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.backupGetProjectBackupToc,
+          TStatus
+        >;
+    }
+
     namespace BackupRequestProjectBackupRestorePath {
       type RequestData = InferredRequestData<
         typeof descriptors.backupRequestProjectBackupRestorePath
@@ -4536,20 +4547,11 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface BackupProjectBackupRestorePathResponse {
-        /**
-         * Whether to clear the target path before restoring. If true, existing files in the target path will be deleted before the restore. If false, existing files will be kept and may be overwritten if they exist in the backup.
-         */
         clearTargetPath?: boolean;
-        determinedSourcePath?: string;
-        determinedTargetPath?: string;
-        phase?: MittwaldAPIV2.Components.Schemas.BackupRestorePathPhase;
-        /**
-         * Source path within the backup to restore from. If not set, it will be determined as '/home/p-shortid/html' as it's originally sourced from there.
-         */
+        determinedSourcePath: string;
+        determinedTargetPath: string;
+        phase: MittwaldAPIV2.Components.Schemas.BackupRestorePathPhase;
         sourcePath?: string;
-        /**
-         * Target path where the backup should be restored to. If not set, equaled source path with adjusted path mapping. The target path will be determined to equal the origin source, e.g. '/data-p-shortid-userdata/p-shortid/web' will be determined as '/home/p-shortid/html' as it's originally sourced from there.
-         */
         targetPath?: string;
       }
 
@@ -4580,6 +4582,18 @@ export declare module MittwaldAPIV2 {
          */
         ttl?: string;
         updatedAt?: string;
+      }
+
+      export interface BackupProjectBackupTOC {
+        absolutePath: string;
+        isDirectory?: boolean;
+        isExecutable?: boolean;
+        isFile?: boolean;
+        isSymlink?: boolean;
+        items?: MittwaldAPIV2.Components.Schemas.BackupProjectBackupTOC[];
+        name: string;
+        size: number;
+        target?: string;
       }
 
       /**
@@ -6881,6 +6895,11 @@ export declare module MittwaldAPIV2 {
 
       export interface MailMailAddress {
         address: string;
+        archive: {
+          active: boolean;
+          quota: number;
+          usedBytes: number;
+        };
         autoResponder: {
           active: boolean;
           expiresAt?: string;
@@ -10530,6 +10549,81 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectBackupsTocProjectIdProjectBackupId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+            projectBackupId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            directory?: string;
+            namespace?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.BackupProjectBackupTOC;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $502 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;

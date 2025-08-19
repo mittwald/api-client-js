@@ -145,6 +145,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteProjectBackup: this.requestFunctionFactory(
       descriptors.backupDeleteProjectBackup,
     ),
+    /** Get table of contents for a Project Backup. */
+    getProjectBackupToc: this.requestFunctionFactory(
+      descriptors.backupGetProjectBackupToc,
+    ),
     /** Restore a ProjectBackup's path. */
     requestProjectBackupRestorePath: this.requestFunctionFactory(
       descriptors.backupRequestProjectBackupRestorePath,
