@@ -816,17 +816,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace ContributorListContractPartnersOfContributor {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contributorListContractPartnersOfContributor
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.contributorListContractPartnersOfContributor,
-          TStatus
-        >;
-    }
-
     namespace ContributorListIncomingInvoices {
       type RequestData = InferredRequestData<
         typeof descriptors.contributorListIncomingInvoices
@@ -856,17 +845,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.contributorReceiptGetFileAccessToken,
-          TStatus
-        >;
-    }
-
-    namespace ContributorRotateSecretForExtensionInstance {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contributorRotateSecretForExtensionInstance
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.contributorRotateSecretForExtensionInstance,
           TStatus
         >;
     }
@@ -1978,28 +1956,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace ExtensionChangeContext {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionChangeContext
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionChangeContext,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionConsentToExtensionScopes {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionConsentToExtensionScopes
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionConsentToExtensionScopes,
-          TStatus
-        >;
-    }
-
     namespace ExtensionCreateContributorOnboardingProcess {
       type RequestData = InferredRequestData<
         typeof descriptors.extensionCreateContributorOnboardingProcess
@@ -2007,160 +1963,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.extensionCreateContributorOnboardingProcess,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionListExtensionInstances {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionListExtensionInstances
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionListExtensionInstances,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionCreateExtensionInstance {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionCreateExtensionInstance
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionCreateExtensionInstance,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionCreateRetrievalKey {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionCreateRetrievalKey
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionCreateRetrievalKey,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionGetExtensionInstance {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionGetExtensionInstance
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionGetExtensionInstance,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionDeleteExtensionInstance {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionDeleteExtensionInstance
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionDeleteExtensionInstance,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionGetOwnExtension {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionGetOwnExtension
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionGetOwnExtension,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionDeleteExtension {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionDeleteExtension
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionDeleteExtension,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionPatchExtension {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionPatchExtension
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionPatchExtension,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionDisableExtensionInstance {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionDisableExtensionInstance
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionDisableExtensionInstance,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionDryRunWebhook {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionDryRunWebhook
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionDryRunWebhook,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionEnableExtensionInstance {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionEnableExtensionInstance
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionEnableExtensionInstance,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionGenerateExtensionSecret {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionGenerateExtensionSecret
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionGenerateExtensionSecret,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionGenerateSessionToken {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionGenerateSessionToken
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionGenerateSessionToken,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionGetContributor {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionGetContributor
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionGetContributor,
           TStatus
         >;
     }
@@ -2198,36 +2000,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace ExtensionGetExtensionInstanceForCustomer {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionGetExtensionInstanceForCustomer
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionGetExtensionInstanceForCustomer,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionGetExtensionInstanceForProject {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionGetExtensionInstanceForProject
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionGetExtensionInstanceForProject,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionGetExtension {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionGetExtension
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.extensionGetExtension, TStatus>;
-    }
-
     namespace ExtensionGetProjectExtensionInstanceOrders {
       type RequestData = InferredRequestData<
         typeof descriptors.extensionGetProjectExtensionInstanceOrders
@@ -2239,77 +2011,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace ExtensionGetPublicKey {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionGetPublicKey
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.extensionGetPublicKey, TStatus>;
-    }
-
-    namespace ExtensionInvalidateExtensionSecret {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionInvalidateExtensionSecret
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionInvalidateExtensionSecret,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionListContributors {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionListContributors
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionListContributors,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionListExtensions {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionListExtensions
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionListExtensions,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionListOwnExtensions {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionListOwnExtensions
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionListOwnExtensions,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionRegisterExtension {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionRegisterExtension
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionRegisterExtension,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionListScopes {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionListScopes
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.extensionListScopes, TStatus>;
-    }
-
     namespace ExtensionOrderExtension {
       type RequestData = InferredRequestData<
         typeof descriptors.extensionOrderExtension
@@ -2317,66 +2018,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.extensionOrderExtension,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionRemoveAsset {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionRemoveAsset
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.extensionRemoveAsset, TStatus>;
-    }
-
-    namespace ExtensionRequestLogoUpload {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionRequestLogoUpload
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionRequestLogoUpload,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionRemoveLogo {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionRemoveLogo
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.extensionRemoveLogo, TStatus>;
-    }
-
-    namespace ExtensionRequestAssetUpload {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionRequestAssetUpload
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionRequestAssetUpload,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionRequestExtensionVerification {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionRequestExtensionVerification
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionRequestExtensionVerification,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionSetExtensionPublishedState {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionSetExtensionPublishedState
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionSetExtensionPublishedState,
           TStatus
         >;
     }
@@ -4197,6 +3838,365 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace ExtensionRequestExtensionVerification {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionRequestExtensionVerification
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionRequestExtensionVerification,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionGetPublicKey {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionGetPublicKey
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.extensionGetPublicKey, TStatus>;
+    }
+
+    namespace ContributorListContractPartnersOfContributor {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorListContractPartnersOfContributor
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorListContractPartnersOfContributor,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionGetExtension {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionGetExtension
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.extensionGetExtension, TStatus>;
+    }
+
+    namespace ExtensionInvalidateExtensionSecret {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionInvalidateExtensionSecret
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionInvalidateExtensionSecret,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionConsentToExtensionScopes {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionConsentToExtensionScopes
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionConsentToExtensionScopes,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionGetOwnExtension {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionGetOwnExtension
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionGetOwnExtension,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionDeleteExtension {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionDeleteExtension
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionDeleteExtension,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionPatchExtension {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionPatchExtension
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionPatchExtension,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionRequestLogoUpload {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionRequestLogoUpload
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionRequestLogoUpload,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionRemoveLogo {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionRemoveLogo
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.extensionRemoveLogo, TStatus>;
+    }
+
+    namespace ExtensionGenerateSessionToken {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionGenerateSessionToken
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionGenerateSessionToken,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionChangeContext {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionChangeContext
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionChangeContext,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionDisableExtensionInstance {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionDisableExtensionInstance
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionDisableExtensionInstance,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionGetExtensionInstance {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionGetExtensionInstance
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionGetExtensionInstance,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionDeleteExtensionInstance {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionDeleteExtensionInstance
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionDeleteExtensionInstance,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionGetContributor {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionGetContributor
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionGetContributor,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionGetExtensionInstanceForProject {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionGetExtensionInstanceForProject
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionGetExtensionInstanceForProject,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionRemoveAsset {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionRemoveAsset
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.extensionRemoveAsset, TStatus>;
+    }
+
+    namespace ExtensionListOwnExtensions {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionListOwnExtensions
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionListOwnExtensions,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionRegisterExtension {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionRegisterExtension
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionRegisterExtension,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionEnableExtensionInstance {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionEnableExtensionInstance
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionEnableExtensionInstance,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionSetExtensionPublishedState {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionSetExtensionPublishedState
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionSetExtensionPublishedState,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionGetExtensionInstanceForCustomer {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionGetExtensionInstanceForCustomer
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionGetExtensionInstanceForCustomer,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionListContributors {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionListContributors
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionListContributors,
+          TStatus
+        >;
+    }
+
+    namespace ContributorRotateSecretForExtensionInstance {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorRotateSecretForExtensionInstance
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorRotateSecretForExtensionInstance,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionRequestAssetUpload {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionRequestAssetUpload
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionRequestAssetUpload,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionListScopes {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionListScopes
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.extensionListScopes, TStatus>;
+    }
+
+    namespace ExtensionCreateRetrievalKey {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionCreateRetrievalKey
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionCreateRetrievalKey,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionGenerateExtensionSecret {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionGenerateExtensionSecret
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionGenerateExtensionSecret,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionDryRunWebhook {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionDryRunWebhook
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionDryRunWebhook,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionListExtensionInstances {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionListExtensionInstances
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionListExtensionInstances,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionCreateExtensionInstance {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionCreateExtensionInstance
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionCreateExtensionInstance,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionListExtensions {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionListExtensions
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionListExtensions,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -5839,484 +5839,6 @@ export declare module MittwaldAPIV2 {
         | "email"
         | "push";
 
-      export interface MarketplaceAggregateReference {
-        aggregate: "project" | "customer";
-        domain: "project" | "customer";
-        id: string;
-      }
-
-      export interface MarketplaceAggregateReferenceFilter {
-        aggregate?: "project" | "customer";
-        domain?: "project" | "customer";
-        id?: string;
-      }
-
-      export interface MarketplaceContributor {
-        customerId: string;
-        description?: string;
-        descriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceLocalizedDescription;
-        /**
-         * @deprecated
-         */
-        email?: string;
-        homepage?: string;
-        id: string;
-        imprint?: MittwaldAPIV2.Components.Schemas.MarketplaceContributorImprint;
-        logoRefId?: string;
-        name: string;
-        /**
-         * @deprecated
-         */
-        phone?: string;
-        state: MittwaldAPIV2.Components.Schemas.MarketplaceContributorState;
-        supportInformation: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
-        url?: string;
-      }
-
-      export type MarketplaceContributorImprint =
-        | {
-            text: string;
-          }
-        | {
-            url: string;
-          };
-
-      export type MarketplaceContributorState = "enabled" | "disabled";
-
-      export interface MarketplaceExtension {
-        /**
-         * The assets/media (images and videos) of the extension.
-         *
-         * @maxItems 4
-         */
-        assets:
-          | []
-          | [MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset]
-          | [
-              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
-              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
-            ]
-          | [
-              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
-              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
-              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
-            ]
-          | [
-              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
-              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
-              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
-              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
-            ];
-        /**
-         * @deprecated
-         */
-        blocked: boolean;
-        context: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
-        contributorId: string;
-        deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
-        /**
-         * A short description of the capabilites of the Extension.
-         */
-        description: string;
-        detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
-        disabled: boolean;
-        externalFrontends?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
-        /**
-         * @deprecated
-         */
-        frontendComponents?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
-        frontendFragments?: {
-          [
-            k: string
-          ]: MittwaldAPIV2.Components.Schemas.MarketplaceFrontendFragment;
-        };
-        id: string;
-        /**
-         * This is the FileId of the Logo. Retrieve the file with this id on `/v2/files/{logoRefId}`.
-         */
-        logoRefId: string;
-        name: string;
-        pricing?: MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricingStrategy;
-        /**
-         * Whether the extension has been published by the contributor.
-         */
-        published: true;
-        scopes: string[];
-        /**
-         * @deprecated
-         * deprecated
-         */
-        state: "enabled" | "blocked" | "disabled";
-        statistics: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionStatistics;
-        subTitle: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
-        support: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta & {
-          /**
-           * Whether the support information is inherited from the contributor.
-           */
-          inherited: boolean;
-        };
-        /**
-         * @minItems 0
-         */
-        tags: string[];
-      }
-
-      /**
-       * The following assets are the media that are associated with the extension and will be shown in extension details page.
-       */
-      export interface MarketplaceExtensionAsset {
-        assetType: "image" | "video";
-        /**
-         * @deprecated
-         */
-        fileName?: string;
-        /**
-         * The asset ID and reference ID to its file. Retrieve the file with this id on `/v2/files/{id}
-         */
-        id: string;
-        /**
-         * The index of the asset. Does not have to be successive. Can be used to order the assets.
-         */
-        index: number;
-      }
-
-      /**
-       * @deprecated
-       */
-      export interface MarketplaceBackendComponent {
-        url: string;
-      }
-
-      /**
-       * @deprecated
-       */
-      export interface MarketplaceBackendComponents {
-        extensionAddedToContext?: MittwaldAPIV2.Components.Schemas.MarketplaceBackendComponent;
-        extensionInstanceRemovedFromContext?: MittwaldAPIV2.Components.Schemas.MarketplaceBackendComponent;
-        extensionInstanceSecretRotated?: MittwaldAPIV2.Components.Schemas.MarketplaceBackendComponent;
-        extensionInstanceUpdated?: MittwaldAPIV2.Components.Schemas.MarketplaceBackendComponent;
-      }
-
-      export type MarketplaceContext = "project" | "customer";
-
-      /**
-       * The Extension is deprecated by the contributor and will expire at the given date.
-       */
-      export interface MarketplaceExtensionDeprecation {
-        deprecatedAt: string;
-        note?: string;
-        /**
-         * The ID of the successor extension.
-         */
-        successorId?: string;
-      }
-
-      /**
-       * Language specific descriptions in various formats.
-       */
-      export interface MarketplaceDescriptionFormats {
-        markdown: string;
-        plain?: string;
-      }
-
-      /**
-       * A detailed description of the capabilities of the extension.
-       */
-      export interface MarketplaceDetailedDescriptions {
-        de: MittwaldAPIV2.Components.Schemas.MarketplaceDescriptionFormats;
-        en?: MittwaldAPIV2.Components.Schemas.MarketplaceDescriptionFormats;
-      }
-
-      export interface MarketplaceExtensionHealth {
-        extensionInstances: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstanceHealth[];
-        functional: boolean;
-        id: string;
-        inoperableReason?: string;
-        published: boolean;
-        withdrawalReason?: string;
-      }
-
-      export interface MarketplaceExtensionInstance {
-        aggregateReference: {
-          aggregate: string;
-          domain: string;
-          id: string;
-        };
-        chargeability?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstanceChargeability;
-        consentedScopes: string[];
-        contributorId: string;
-        contributorName: string;
-        createdAt?: string;
-        disabled: boolean;
-        extensionId: string;
-        extensionName: string;
-        extensionSubTitle?: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
-        id: string;
-        pendingInstallation: boolean;
-        pendingRemoval: boolean;
-      }
-
-      export interface MarketplaceExtensionInstanceChargeability {
-        isChargeable: boolean;
-        reasons: {
-          isOwnExtension: boolean;
-        };
-      }
-
-      export interface MarketplaceExtensionInstanceHealth {
-        aggregateReference: {
-          aggregate: string;
-          domain: string;
-          id: string;
-        };
-        id: string;
-        instantiationIsPending: boolean;
-        pendingWebhooksCount: number;
-        removalIsPending: boolean;
-        webhooksAreHalted: boolean;
-      }
-
-      export interface MarketplaceExtensionSecret {
-        secretId: string;
-        usableUntil?: string;
-      }
-
-      export interface MarketplaceExtensionStatistics {
-        /**
-         * The amout of instances for this extension. Accurate for the Contributor. Publicly rounded to the next lower hundred.
-         */
-        amountOfInstances?: number;
-      }
-
-      export interface MarketplaceWebhookUrl {
-        url: string;
-      }
-
-      export interface MarketplaceWebhookUrls {
-        extensionAddedToContext: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrl;
-        extensionInstanceRemovedFromContext: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrl;
-        extensionInstanceSecretRotated: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrl;
-        extensionInstanceUpdated: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrl;
-      }
-
-      export interface MarketplaceExternalComponent {
-        name: string;
-        url: string;
-      }
-
-      export type MarketplaceFrontendFragment = {
-        additionalProperties?: {
-          [k: string]: string;
-        };
-      } & MittwaldAPIV2.Components.Schemas.MarketplaceUrlFrontendFragment;
-
-      /**
-       * A few words about the introduction as a contributor
-       */
-      export interface MarketplaceLocalizedDescription {
-        de: string;
-        en?: string;
-      }
-
-      export interface MarketplaceOwnContributor {
-        contactPersonUserId: string;
-        contractOwner: MittwaldAPIV2.Components.Schemas.CommonsContact;
-        contributorNumber: string;
-        customerId: string;
-        description?: string;
-        /**
-         * @deprecated
-         */
-        email?: string;
-        id: string;
-        imprint?: MittwaldAPIV2.Components.Schemas.MarketplaceContributorImprint;
-        logoRefId?: string;
-        name: string;
-        /**
-         * @deprecated
-         */
-        phone?: string;
-        state: MittwaldAPIV2.Components.Schemas.MarketplaceContributorState;
-        supportInformation: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
-        url?: string;
-      }
-
-      export interface MarketplaceOwnExtension {
-        assets: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset[];
-        backendComponents?: MittwaldAPIV2.Components.Schemas.MarketplaceBackendComponents;
-        /**
-         * @deprecated
-         */
-        blocked?: boolean;
-        context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
-        contributorId: string;
-        deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
-        description?: string;
-        detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
-        disabled?: boolean;
-        externalFrontends?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
-        /**
-         * @deprecated
-         */
-        frontendComponents?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
-        frontendFragments?: {
-          [
-            k: string
-          ]: MittwaldAPIV2.Components.Schemas.MarketplaceFrontendFragment;
-        };
-        functional: boolean;
-        id: string;
-        /**
-         * This is the FileId of the Logo. Retrieve the file with this id on `/v2/files/{logoRefId}`.
-         */
-        logoRefId?: string;
-        name: string;
-        pricing?: MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricingStrategy;
-        published: boolean;
-        requestedChanges?: {
-          context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
-          scopes?: string[];
-          webhookUrls?:
-            | MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrls
-            | {};
-        };
-        scopes?: string[];
-        secrets: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionSecret[];
-        /**
-         * deprecated
-         */
-        state?: "enabled" | "blocked" | "disabled";
-        statistics: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionStatistics;
-        subTitle?: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
-        support?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta & {
-          /**
-           * Whether the support information is inherited from the contributor.
-           */
-          inherited: boolean;
-        };
-        /**
-         * @minItems 0
-         */
-        tags?: string[];
-        verificationRequested: boolean;
-        verified: boolean;
-        webhookUrls?: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrls;
-      }
-
-      /**
-       * A strategy for pricing that occurs monthly.
-       */
-      export interface MarketplaceMonthlyPricingStrategy {
-        /**
-         * The monthly price in Euro Cents before tax.
-         */
-        netPrice: number;
-      }
-
-      export interface MarketplacePublicKey {
-        algorithm: string;
-        key: string;
-        serial: string;
-      }
-
-      /**
-       * A few words to promote your Extension.
-       */
-      export interface MarketplaceSubTitle {
-        de: string;
-        en?: string;
-      }
-
-      export interface MarketplaceSupportMeta {
-        email: string;
-        phone?: string;
-      }
-
-      export interface MarketplaceUnpublishedExtension {
-        /**
-         * The assets/media (images and videos) of the extension.
-         *
-         * @maxItems 4
-         */
-        assets:
-          | []
-          | [MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset]
-          | [
-              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
-              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
-            ]
-          | [
-              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
-              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
-              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
-            ]
-          | [
-              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
-              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
-              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
-              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
-            ];
-        /**
-         * @deprecated
-         */
-        blocked: boolean;
-        context: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
-        contributorId: string;
-        deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
-        /**
-         * A short description of the capabilites of the Extension.
-         */
-        description?: string;
-        detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
-        disabled: boolean;
-        externalFrontends?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
-        /**
-         * @deprecated
-         */
-        frontendComponents?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
-        frontendFragments?: {
-          [
-            k: string
-          ]: MittwaldAPIV2.Components.Schemas.MarketplaceFrontendFragment;
-        };
-        id: string;
-        /**
-         * This is the FileId of the Logo. Retrieve the file with this id on `/v2/files/{logoRefId}`.
-         */
-        logoRefId?: string;
-        name: string;
-        pricing?: MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricingStrategy;
-        /**
-         * Whether the extension has been published by the contributor.
-         */
-        published?: false;
-        scopes: string[];
-        /**
-         * @deprecated
-         * deprecated
-         */
-        state: "enabled" | "blocked" | "disabled";
-        statistics: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionStatistics;
-        subTitle?: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
-        support?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta & {
-          /**
-           * Whether the support information is inherited from the contributor.
-           */
-          inherited: boolean;
-        };
-        tags: string[];
-      }
-
-      export interface MarketplaceUrlFrontendFragment {
-        url: string;
-      }
-
-      export type MarketplaceWebhookKind =
-        | "extension-added-to-context"
-        | "extension-instance-updated"
-        | "extension-instance-secret-rotated"
-        | "extension-instance-removed-from-context";
-
       /**
        * A strategy for fees of resources.
        */
@@ -6895,11 +6417,6 @@ export declare module MittwaldAPIV2 {
 
       export interface MailMailAddress {
         address: string;
-        archive: {
-          active: boolean;
-          quota: number;
-          usedBytes: number;
-        };
         autoResponder: {
           active: boolean;
           expiresAt?: string;
@@ -7103,20 +6620,6 @@ export declare module MittwaldAPIV2 {
         folder: 0 | 1;
         keepDays: number;
         relocateSensitivity?: number;
-      }
-
-      export interface MarketplaceContractPartner {
-        contractPartner: {
-          address: MittwaldAPIV2.Components.Schemas.CommonsAddress;
-          company?: string;
-          email: string;
-          firstName: string;
-          lastName: string;
-        };
-        createdAt: string;
-        extensionId: string;
-        extensionInstanceId: string;
-        parentCustomerId: string;
       }
 
       export type MembershipCustomerInheritedRoles =
@@ -7747,12 +7250,18 @@ export declare module MittwaldAPIV2 {
 
       export interface LlmlocksmithContainerMeta {
         containerId?: string;
+        errorMessage?: string;
         ingressId?: string;
         stackId?: string;
-        status: "created" | "requested";
+        status: "created" | "requested" | "failed";
       }
 
       export interface LlmlocksmithLicence {
+        blocked?: {
+          executingUserId?: string;
+          reason: string;
+          timestamp: string;
+        };
         containerMeta?: MittwaldAPIV2.Components.Schemas.LlmlocksmithContainerMeta;
         customerId?: string;
         licenceId: string;
@@ -8423,20 +7932,496 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export interface OrderMailArchiveOrderPreview {
-        mailAddressId: string;
-        useCurrentData?: boolean;
+      export interface MarketplaceAggregateReferenceFilter {
+        aggregate?: "project" | "customer";
+        domain?: "project" | "customer";
+        id?: string;
       }
 
-      export interface OrderMailArchiveOrderPreviewResponse {
-        feePrice: number;
-        recurringPrice: number;
-        totalPrice: number;
+      export interface MarketplaceAggregateReference {
+        aggregate: "project" | "customer";
+        domain: "project" | "customer";
+        id: string;
       }
 
-      export interface OrderMailArchiveOrder {
-        mailAddressId: string;
-        useCurrentData?: boolean;
+      export interface MarketplaceWebhookUrls {
+        extensionAddedToContext: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrl;
+        extensionInstanceRemovedFromContext: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrl;
+        extensionInstanceSecretRotated: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrl;
+        extensionInstanceUpdated: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrl;
+      }
+
+      export interface MarketplaceSupportMeta {
+        email: string;
+        phone?: string;
+      }
+
+      export interface MarketplaceExtensionSecret {
+        secretId: string;
+        usableUntil?: string;
+      }
+
+      /**
+       * Language specific descriptions in various formats.
+       */
+      export interface MarketplaceDescriptionFormats {
+        markdown: string;
+        plain?: string;
+      }
+
+      export interface MarketplaceExternalComponent {
+        name: string;
+        url: string;
+      }
+
+      /**
+       * @deprecated
+       */
+      export interface MarketplaceBackendComponents {
+        extensionAddedToContext?: MittwaldAPIV2.Components.Schemas.MarketplaceBackendComponent;
+        extensionInstanceRemovedFromContext?: MittwaldAPIV2.Components.Schemas.MarketplaceBackendComponent;
+        extensionInstanceSecretRotated?: MittwaldAPIV2.Components.Schemas.MarketplaceBackendComponent;
+        extensionInstanceUpdated?: MittwaldAPIV2.Components.Schemas.MarketplaceBackendComponent;
+      }
+
+      export type MarketplaceContext = "project" | "customer";
+
+      export interface MarketplaceContractPartner {
+        contractPartner: {
+          address: MittwaldAPIV2.Components.Schemas.CommonsAddress;
+          company?: string;
+          email: string;
+          firstName: string;
+          lastName: string;
+        };
+        createdAt: string;
+        extensionId: string;
+        extensionInstanceId: string;
+        parentCustomerId: string;
+      }
+
+      /**
+       * @deprecated
+       */
+      export interface MarketplaceBackendComponent {
+        url: string;
+      }
+
+      /**
+       * A strategy for pricing that occurs monthly.
+       */
+      export interface MarketplaceMonthlyPricingStrategy {
+        /**
+         * The monthly price in Euro Cents before tax.
+         */
+        netPrice: number;
+      }
+
+      export type MarketplaceWebhookKind =
+        | "extension-added-to-context"
+        | "extension-instance-updated"
+        | "extension-instance-secret-rotated"
+        | "extension-instance-removed-from-context";
+
+      export interface MarketplaceExtensionInstanceHealth {
+        aggregateReference: {
+          aggregate: string;
+          domain: string;
+          id: string;
+        };
+        id: string;
+        instantiationIsPending: boolean;
+        pendingWebhooksCount: number;
+        removalIsPending: boolean;
+        webhooksAreHalted: boolean;
+      }
+
+      export interface MarketplaceExtensionStatistics {
+        /**
+         * The amout of instances for this extension. Accurate for the Contributor. Publicly rounded to the next lower hundred.
+         */
+        amountOfInstances?: number;
+      }
+
+      /**
+       * A few words about the introduction as a contributor
+       */
+      export interface MarketplaceLocalizedDescription {
+        de: string;
+        en?: string;
+      }
+
+      export interface MarketplaceUrlFrontendFragment {
+        url: string;
+      }
+
+      export interface MarketplaceExtensionHealth {
+        extensionInstances: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstanceHealth[];
+        functional: boolean;
+        id: string;
+        inoperableReason?: string;
+        published: boolean;
+        withdrawalReason?: string;
+      }
+
+      /**
+       * A few words to promote your Extension.
+       */
+      export interface MarketplaceSubTitle {
+        de: string;
+        en?: string;
+      }
+
+      export type MarketplaceContributorImprint =
+        | {
+            text: string;
+          }
+        | {
+            url: string;
+          };
+
+      export type MarketplaceFrontendFragment = {
+        additionalProperties?: {
+          [k: string]: string;
+        };
+      } & MittwaldAPIV2.Components.Schemas.MarketplaceUrlFrontendFragment;
+
+      export type MarketplaceContributorState = "enabled" | "disabled";
+
+      export interface MarketplaceContributor {
+        customerId: string;
+        description?: string;
+        descriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceLocalizedDescription;
+        /**
+         * @deprecated
+         */
+        email?: string;
+        homepage?: string;
+        id: string;
+        imprint?: MittwaldAPIV2.Components.Schemas.MarketplaceContributorImprint;
+        logoRefId?: string;
+        name: string;
+        /**
+         * @deprecated
+         */
+        phone?: string;
+        state: MittwaldAPIV2.Components.Schemas.MarketplaceContributorState;
+        supportInformation: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
+        url?: string;
+      }
+
+      /**
+       * The Extension is deprecated by the contributor and will expire at the given date.
+       */
+      export interface MarketplaceExtensionDeprecation {
+        deprecatedAt: string;
+        note?: string;
+        /**
+         * The ID of the successor extension.
+         */
+        successorId?: string;
+      }
+
+      export interface MarketplaceWebhookUrl {
+        url: string;
+      }
+
+      export interface MarketplaceUnpublishedExtension {
+        /**
+         * The assets/media (images and videos) of the extension.
+         *
+         * @maxItems 4
+         */
+        assets:
+          | []
+          | [MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset]
+          | [
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+            ]
+          | [
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+            ]
+          | [
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+            ];
+        /**
+         * @deprecated
+         */
+        blocked: boolean;
+        context: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+        contributorId: string;
+        deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
+        /**
+         * A short description of the capabilites of the Extension.
+         */
+        description?: string;
+        detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
+        disabled: boolean;
+        externalFrontends?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
+        /**
+         * @deprecated
+         */
+        frontendComponents?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
+        frontendFragments?: {
+          [
+            k: string
+          ]: MittwaldAPIV2.Components.Schemas.MarketplaceFrontendFragment;
+        };
+        id: string;
+        /**
+         * This is the FileId of the Logo. Retrieve the file with this id on `/v2/files/{logoRefId}`.
+         */
+        logoRefId?: string;
+        name: string;
+        pricing?: MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricingStrategy;
+        /**
+         * Whether the extension has been published by the contributor.
+         */
+        published?: false;
+        scopes: string[];
+        /**
+         * @deprecated
+         * deprecated
+         */
+        state: "enabled" | "blocked" | "disabled";
+        statistics: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionStatistics;
+        subTitle?: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
+        support?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta & {
+          /**
+           * Whether the support information is inherited from the contributor.
+           */
+          inherited: boolean;
+        };
+        tags: string[];
+      }
+
+      /**
+       * The following assets are the media that are associated with the extension and will be shown in extension details page.
+       */
+      export interface MarketplaceExtensionAsset {
+        assetType: "image" | "video";
+        /**
+         * @deprecated
+         */
+        fileName?: string;
+        /**
+         * The asset ID and reference ID to its file. Retrieve the file with this id on `/v2/files/{id}
+         */
+        id: string;
+        /**
+         * The index of the asset. Does not have to be successive. Can be used to order the assets.
+         */
+        index: number;
+      }
+
+      /**
+       * A detailed description of the capabilities of the extension.
+       */
+      export interface MarketplaceDetailedDescriptions {
+        de: MittwaldAPIV2.Components.Schemas.MarketplaceDescriptionFormats;
+        en?: MittwaldAPIV2.Components.Schemas.MarketplaceDescriptionFormats;
+      }
+
+      export interface MarketplacePublicKey {
+        algorithm: string;
+        key: string;
+        serial: string;
+      }
+
+      export interface MarketplaceExtensionInstance {
+        aggregateReference: {
+          aggregate: string;
+          domain: string;
+          id: string;
+        };
+        chargeability?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstanceChargeability;
+        consentedScopes: string[];
+        contributorId: string;
+        contributorName: string;
+        createdAt?: string;
+        disabled: boolean;
+        extensionId: string;
+        extensionName: string;
+        extensionSubTitle?: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
+        id: string;
+        pendingInstallation: boolean;
+        pendingRemoval: boolean;
+      }
+
+      export interface MarketplaceExtensionInstanceChargeability {
+        isChargeable: boolean;
+        reasons: {
+          isOwnExtension: boolean;
+        };
+      }
+
+      export interface MarketplaceOwnContributor {
+        contactPersonUserId: string;
+        contractOwner: MittwaldAPIV2.Components.Schemas.CommonsContact;
+        contributorNumber: string;
+        customerId: string;
+        description?: string;
+        /**
+         * @deprecated
+         */
+        email?: string;
+        id: string;
+        imprint?: MittwaldAPIV2.Components.Schemas.MarketplaceContributorImprint;
+        logoRefId?: string;
+        name: string;
+        /**
+         * @deprecated
+         */
+        phone?: string;
+        state: MittwaldAPIV2.Components.Schemas.MarketplaceContributorState;
+        supportInformation: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
+        url?: string;
+      }
+
+      export interface MarketplaceOwnExtension {
+        assets: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset[];
+        backendComponents?: MittwaldAPIV2.Components.Schemas.MarketplaceBackendComponents;
+        /**
+         * @deprecated
+         */
+        blocked?: boolean;
+        context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+        contributorId: string;
+        deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
+        description?: string;
+        detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
+        disabled?: boolean;
+        externalFrontends?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
+        /**
+         * @deprecated
+         */
+        frontendComponents?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
+        frontendFragments?: {
+          [
+            k: string
+          ]: MittwaldAPIV2.Components.Schemas.MarketplaceFrontendFragment;
+        };
+        functional: boolean;
+        id: string;
+        /**
+         * This is the FileId of the Logo. Retrieve the file with this id on `/v2/files/{logoRefId}`.
+         */
+        logoRefId?: string;
+        name: string;
+        pricing?: MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricingStrategy;
+        published: boolean;
+        requestedChanges?: {
+          context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+          scopes?: string[];
+          webhookUrls?:
+            | MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrls
+            | {};
+        };
+        scopes?: string[];
+        secrets: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionSecret[];
+        /**
+         * deprecated
+         */
+        state?: "enabled" | "blocked" | "disabled";
+        statistics: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionStatistics;
+        subTitle?: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
+        support?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta & {
+          /**
+           * Whether the support information is inherited from the contributor.
+           */
+          inherited: boolean;
+        };
+        /**
+         * @minItems 0
+         */
+        tags?: string[];
+        verificationRequested: boolean;
+        verified: boolean;
+        webhookUrls?: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrls;
+      }
+
+      export interface MarketplaceExtension {
+        /**
+         * The assets/media (images and videos) of the extension.
+         *
+         * @maxItems 4
+         */
+        assets:
+          | []
+          | [MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset]
+          | [
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+            ]
+          | [
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+            ]
+          | [
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+              MittwaldAPIV2.Components.Schemas.MarketplaceExtensionAsset,
+            ];
+        /**
+         * @deprecated
+         */
+        blocked: boolean;
+        context: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+        contributorId: string;
+        deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
+        /**
+         * A short description of the capabilites of the Extension.
+         */
+        description: string;
+        detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
+        disabled: boolean;
+        externalFrontends?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
+        /**
+         * @deprecated
+         */
+        frontendComponents?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
+        frontendFragments?: {
+          [
+            k: string
+          ]: MittwaldAPIV2.Components.Schemas.MarketplaceFrontendFragment;
+        };
+        id: string;
+        /**
+         * This is the FileId of the Logo. Retrieve the file with this id on `/v2/files/{logoRefId}`.
+         */
+        logoRefId: string;
+        name: string;
+        pricing?: MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricingStrategy;
+        /**
+         * Whether the extension has been published by the contributor.
+         */
+        published: true;
+        scopes: string[];
+        /**
+         * @deprecated
+         * deprecated
+         */
+        state: "enabled" | "blocked" | "disabled";
+        statistics: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionStatistics;
+        subTitle: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
+        support: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta & {
+          /**
+           * Whether the support information is inherited from the contributor.
+           */
+          inherited: boolean;
+        };
+        /**
+         * @minItems 0
+         */
+        tags: string[];
       }
 
       export interface CommonsAddress {
@@ -13589,48 +13574,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ContributorsContributorIdContractPartners {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            extensionId?: string;
-            extensionInstanceId?: string;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.MarketplaceContractPartner[];
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2ContributorsContributorIdInvoicesIncoming {
       namespace Get {
         namespace Parameters {
@@ -13778,75 +13721,6 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 accessToken: string;
                 expiresAt: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdSecret {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-            extensionId: string;
-            extensionInstanceId: string;
-          };
-
-          export interface RequestBody {
-            allowWebhookFailure?: boolean;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                secret: string;
-                webhookResult: {
-                  failure: boolean;
-                  /**
-                   * The status code returned by the external application.
-                   */
-                  statusCode?: string;
-                };
               }
             }
           }
@@ -20188,114 +20062,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ContributorsContributorIdExtensionsExtensionIdContext {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-            extensionId: string;
-          };
-
-          export interface RequestBody {
-            context: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                /**
-                 * If this value is true the context will change asynchronously after removing all extension-instances of this extension.
-                 */
-                cleaningUpInstances: boolean;
-                currentContext: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
-                id: string;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ExtensionInstancesExtensionInstanceIdScopes {
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            extensionInstanceId: string;
-          };
-
-          export interface RequestBody {
-            consentedScopes: string[];
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2ContributorsContributorIdOnboardingProcess {
       namespace Post {
         namespace Parameters {
@@ -20330,803 +20096,6 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ExtensionInstances {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
-            contextId?: string;
-            extensionId?: string;
-            searchTerm?: string;
-            limit?: number;
-            skip?: number;
-            page?: number;
-            sort?: ("createdAt" | "extensionId" | "extensionName")[];
-            order?: ("asc" | "desc")[];
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstance[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            consentedScopes: string[];
-            context: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
-            contextId: string;
-            extensionId: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                id: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsError;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ExtensionInstancesExtensionInstanceIdActionsCreateAccessTokenRetrievalKey {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            extensionInstanceId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                accessTokenRetrievalKey: string;
-                userId: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ExtensionInstancesExtensionInstanceId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            extensionInstanceId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstance;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Delete {
-        namespace Parameters {
-          export type Path = {
-            extensionInstanceId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ContributorsContributorIdExtensionsExtensionId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-            extensionId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.MarketplaceOwnExtension;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Delete {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-            extensionId: string;
-          };
-
-          export interface RequestBody {
-            reason?: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-            extensionId: string;
-          };
-
-          export interface RequestBody {
-            /**
-             * Used to patch asset order.
-             */
-            assets?: string[];
-            deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
-            description?: string;
-            detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
-            externalFrontends?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
-            frontendFragments?: {
-              [
-                k: string
-              ]: MittwaldAPIV2.Components.Schemas.MarketplaceFrontendFragment;
-            };
-            name?: string;
-            scopes?: string[];
-            subTitle?: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
-            support?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
-            tags?: string[];
-            webhookUrls?: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrls;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.MarketplaceOwnExtension;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $409 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ExtensionInstancesExtensionInstanceIdActionsDisable {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            extensionInstanceId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsDryRunWebhookKind {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-            extensionId: string;
-            extensionInstanceId: string;
-            webhookKind: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookKind;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            contextId?: string;
-            scopes?: string[];
-            instanceDisabled?: boolean;
-            createdAt?: string;
-            secret?: string;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                /**
-                 * The error message of an internal error.
-                 */
-                errorMessage?: string;
-                responseBody?: string;
-                /**
-                 * The http status code that the external application responded with.
-                 */
-                responseCode?: number;
-                responseHeaders?: string;
-                routeCalled: string;
-                /**
-                 * This shows if the response of the external application has been accepted as successful.
-                 */
-                successful: boolean;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ExtensionInstancesExtensionInstanceIdActionsEnable {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            extensionInstanceId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ContributorsContributorIdExtensionsExtensionIdSecret {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-            extensionId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                secret: string;
-                secretId: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ExtensionInstancesExtensionInstanceIdSessionsSessionId {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            extensionInstanceId: string;
-            sessionId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                sessionToken: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ContributorsContributorId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                | MittwaldAPIV2.Components.Schemas.MarketplaceContributor
-                | MittwaldAPIV2.Components.Schemas.MarketplaceOwnContributor;
             }
           }
 
@@ -21322,149 +20291,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2CustomersCustomerIdExtensionsExtensionId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-            extensionId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstance;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectsProjectIdExtensionsExtensionId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-            extensionId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstance;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ExtensionsExtensionId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            extensionId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                | MittwaldAPIV2.Components.Schemas.MarketplaceExtension
-                | MittwaldAPIV2.Components.Schemas.MarketplaceUnpublishedExtension;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2ProjectsProjectIdExtensionOrders {
       namespace Get {
         namespace Parameters {
@@ -21499,351 +20325,6 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2PublicKeysSerial {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            serial: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {
-            purpose?: "webhook" | "session_token";
-            format?: "raw" | "spki";
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.MarketplacePublicKey;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ContributorsContributorIdExtensionsExtensionIdSecretExtensionSecretId {
-      namespace Delete {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-            extensionId: string;
-            extensionSecretId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2Contributors {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header = {};
-
-          export type Query = {
-            limit?: number;
-            skip?: number;
-            page?: number;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.MarketplaceContributor[];
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2Extensions {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header = {};
-
-          export type Query = {
-            context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
-            searchTerm?: string;
-            includeDeprecated?: boolean;
-            limit?: number;
-            skip?: number;
-            page?: number;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.MarketplaceExtension[];
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ContributorsContributorIdExtensions {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            limit?: number;
-            skip?: number;
-            page?: number;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.MarketplaceOwnExtension[];
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-          };
-
-          export interface RequestBody {
-            context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
-            description?: string;
-            detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
-            /**
-             * @deprecated
-             */
-            externalFrontend?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
-            externalFrontends?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
-            frontendFragments?: {
-              [
-                k: string
-              ]: MittwaldAPIV2.Components.Schemas.MarketplaceFrontendFragment;
-            };
-            name: string;
-            scopes?: string[];
-            subTitle?: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
-            support?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
-            tags?: string[];
-            webhookURLs?: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrls & {};
-            webhookUrls?: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrls;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                id: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2Scopes {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson = {
-                name: string;
-              }[];
             }
           }
 
@@ -21918,379 +20399,6 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ContributorsContributorIdExtensionsExtensionIdAssetsAssetRefId {
-      namespace Delete {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-            extensionId: string;
-            assetRefId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ContributorsContributorIdExtensionsExtensionIdLogo {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-            extensionId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                /**
-                 * Use the logoRefId as updload token at `/v2/files/{logoRefId}`.
-                 */
-                logoRefId: string;
-                /**
-                 * Constraints for the logo image upload.
-                 */
-                rules: {
-                  extensions: string[];
-                  fileTypes: {
-                    extensions: string[];
-                    mimeType: string;
-                  }[];
-                  maxSizeInBytes: number;
-                  mimeTypes: string[];
-                  properties?: {
-                    imageDimensions?: {
-                      max: {
-                        height?: number;
-                        width?: number;
-                      };
-                      min: {
-                        height?: number;
-                        width?: number;
-                      };
-                    };
-                  };
-                };
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Delete {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-            extensionId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ContributorsContributorIdExtensionsExtensionIdAssets {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-            extensionId: string;
-          };
-
-          export interface RequestBody {
-            assetType: "image" | "video";
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                /**
-                 * Use the ID as upload token at `/v2/files/{assetRefId}`. This ID will also be the ID of your asset in extension.
-                 */
-                assetRefId: string;
-                /**
-                 * Constraints for the asset image or video upload, defers on the given assetType.
-                 */
-                rules: {
-                  extensions: string[];
-                  fileTypes: {
-                    extensions: string[];
-                    mimeType: string;
-                  }[];
-                  maxSizeInBytes: number;
-                  mimeTypes: string[];
-                  properties?: {
-                    imageDimensions?: {
-                      max: {
-                        height?: number;
-                        width?: number;
-                      };
-                      min: {
-                        height?: number;
-                        width?: number;
-                      };
-                    };
-                  };
-                };
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ContributorsContributorIdExtensionsExtensionIdVerificationProcess {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-            extensionId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export interface ApplicationJson {}
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ContributorsContributorIdExtensionsExtensionIdPublished {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-            extensionId: string;
-          };
-
-          export interface RequestBody {
-            /**
-             * Whether the extension should be publicly visible.
-             */
-            published: boolean;
-            /**
-             * When withdrawing an extension a reason is required.
-             */
-            reason?: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                id: string;
-                published: boolean;
-              }
-            }
-          }
-
-          namespace $404 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -26354,15 +24462,13 @@ export declare module MittwaldAPIV2 {
               | MittwaldAPIV2.Components.Schemas.OrderServerOrder
               | MittwaldAPIV2.Components.Schemas.OrderDomainOrder
               | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrder
-              | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrder
-              | MittwaldAPIV2.Components.Schemas.OrderMailArchiveOrder;
+              | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrder;
             orderType?:
               | "domain"
               | "projectHosting"
               | "server"
               | "externalCertificate"
-              | "leadFyndr"
-              | "mailArchive";
+              | "leadFyndr";
           }
 
           export type Header =
@@ -26602,15 +24708,13 @@ export declare module MittwaldAPIV2 {
               | MittwaldAPIV2.Components.Schemas.OrderServerOrderPreview
               | MittwaldAPIV2.Components.Schemas.OrderDomainOrderPreview
               | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrderPreview
-              | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrderPreview
-              | MittwaldAPIV2.Components.Schemas.OrderMailArchiveOrderPreview;
+              | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrderPreview;
             orderType?:
               | "domain"
               | "projectHosting"
               | "server"
               | "externalCertificate"
-              | "leadFyndr"
-              | "mailArchive";
+              | "leadFyndr";
           }
 
           export type Header = {};
@@ -26624,8 +24728,7 @@ export declare module MittwaldAPIV2 {
                 | MittwaldAPIV2.Components.Schemas.OrderHostingOrderPreviewResponse
                 | MittwaldAPIV2.Components.Schemas.OrderDomainOrderPreviewResponse
                 | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrderPreviewResponse
-                | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrderPreviewResponse
-                | MittwaldAPIV2.Components.Schemas.OrderMailArchiveOrderPreviewResponse;
+                | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrderPreviewResponse;
             }
           }
 
@@ -33617,6 +31720,1883 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdExtensionsExtensionIdVerificationProcess {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export interface ApplicationJson {}
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2PublicKeysSerial {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            serial: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {
+            purpose?: "webhook" | "session_token";
+            format?: "raw" | "spki";
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplacePublicKey;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdContractPartners {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            extensionId?: string;
+            extensionInstanceId?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplaceContractPartner[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ExtensionsExtensionId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            extensionId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                | MittwaldAPIV2.Components.Schemas.MarketplaceExtension
+                | MittwaldAPIV2.Components.Schemas.MarketplaceUnpublishedExtension;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdExtensionsExtensionIdSecretExtensionSecretId {
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+            extensionSecretId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ExtensionInstancesExtensionInstanceIdScopes {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            extensionInstanceId: string;
+          };
+
+          export interface RequestBody {
+            consentedScopes: string[];
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdExtensionsExtensionId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplaceOwnExtension;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+          };
+
+          export interface RequestBody {
+            reason?: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * Used to patch asset order.
+             */
+            assets?: string[];
+            deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
+            description?: string;
+            detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
+            externalFrontends?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
+            frontendFragments?: {
+              [
+                k: string
+              ]: MittwaldAPIV2.Components.Schemas.MarketplaceFrontendFragment;
+            };
+            name?: string;
+            scopes?: string[];
+            subTitle?: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
+            support?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
+            tags?: string[];
+            webhookUrls?: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrls;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplaceOwnExtension;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $409 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdExtensionsExtensionIdLogo {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * Use the logoRefId as updload token at `/v2/files/{logoRefId}`.
+                 */
+                logoRefId: string;
+                /**
+                 * Constraints for the logo image upload.
+                 */
+                rules: {
+                  extensions: string[];
+                  fileTypes: {
+                    extensions: string[];
+                    mimeType: string;
+                  }[];
+                  maxSizeInBytes: number;
+                  mimeTypes: string[];
+                  properties?: {
+                    imageDimensions?: {
+                      max: {
+                        height?: number;
+                        width?: number;
+                      };
+                      min: {
+                        height?: number;
+                        width?: number;
+                      };
+                    };
+                  };
+                };
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ExtensionInstancesExtensionInstanceIdSessionsSessionId {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            extensionInstanceId: string;
+            sessionId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                sessionToken: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdExtensionsExtensionIdContext {
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+          };
+
+          export interface RequestBody {
+            context: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * If this value is true the context will change asynchronously after removing all extension-instances of this extension.
+                 */
+                cleaningUpInstances: boolean;
+                currentContext: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+                id: string;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ExtensionInstancesExtensionInstanceIdActionsDisable {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            extensionInstanceId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ExtensionInstancesExtensionInstanceId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            extensionInstanceId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstance;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            extensionInstanceId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                | MittwaldAPIV2.Components.Schemas.MarketplaceContributor
+                | MittwaldAPIV2.Components.Schemas.MarketplaceOwnContributor;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectsProjectIdExtensionsExtensionId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+            extensionId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstance;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdExtensionsExtensionIdAssetsAssetRefId {
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+            assetRefId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdExtensions {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplaceOwnExtension[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+          };
+
+          export interface RequestBody {
+            context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+            description?: string;
+            detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
+            /**
+             * @deprecated
+             */
+            externalFrontend?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
+            externalFrontends?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
+            frontendFragments?: {
+              [
+                k: string
+              ]: MittwaldAPIV2.Components.Schemas.MarketplaceFrontendFragment;
+            };
+            name: string;
+            scopes?: string[];
+            subTitle?: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
+            support?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
+            tags?: string[];
+            webhookURLs?: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrls & {};
+            webhookUrls?: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrls;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                id: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ExtensionInstancesExtensionInstanceIdActionsEnable {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            extensionInstanceId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdExtensionsExtensionIdPublished {
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * Whether the extension should be publicly visible.
+             */
+            published: boolean;
+            /**
+             * When withdrawing an extension a reason is required.
+             */
+            reason?: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                id: string;
+                published: boolean;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CustomersCustomerIdExtensionsExtensionId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+            extensionId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstance;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2Contributors {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplaceContributor[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdSecret {
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+            extensionInstanceId: string;
+          };
+
+          export interface RequestBody {
+            allowWebhookFailure?: boolean;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                secret: string;
+                webhookResult: {
+                  failure: boolean;
+                  /**
+                   * The status code returned by the external application.
+                   */
+                  statusCode?: string;
+                };
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdExtensionsExtensionIdAssets {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+          };
+
+          export interface RequestBody {
+            assetType: "image" | "video";
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * Use the ID as upload token at `/v2/files/{assetRefId}`. This ID will also be the ID of your asset in extension.
+                 */
+                assetRefId: string;
+                /**
+                 * Constraints for the asset image or video upload, defers on the given assetType.
+                 */
+                rules: {
+                  extensions: string[];
+                  fileTypes: {
+                    extensions: string[];
+                    mimeType: string;
+                  }[];
+                  maxSizeInBytes: number;
+                  mimeTypes: string[];
+                  properties?: {
+                    imageDimensions?: {
+                      max: {
+                        height?: number;
+                        width?: number;
+                      };
+                      min: {
+                        height?: number;
+                        width?: number;
+                      };
+                    };
+                  };
+                };
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2Scopes {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson = {
+                name: string;
+              }[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ExtensionInstancesExtensionInstanceIdActionsCreateAccessTokenRetrievalKey {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            extensionInstanceId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                accessTokenRetrievalKey: string;
+                userId: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdExtensionsExtensionIdSecret {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                secret: string;
+                secretId: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsDryRunWebhookKind {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+            extensionInstanceId: string;
+            webhookKind: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookKind;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            contextId?: string;
+            scopes?: string[];
+            instanceDisabled?: boolean;
+            createdAt?: string;
+            secret?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * The error message of an internal error.
+                 */
+                errorMessage?: string;
+                responseBody?: string;
+                /**
+                 * The http status code that the external application responded with.
+                 */
+                responseCode?: number;
+                responseHeaders?: string;
+                routeCalled: string;
+                /**
+                 * This shows if the response of the external application has been accepted as successful.
+                 */
+                successful: boolean;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ExtensionInstances {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+            contextId?: string;
+            extensionId?: string;
+            searchTerm?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
+            sort?: ("createdAt" | "extensionId" | "extensionName")[];
+            order?: ("asc" | "desc")[];
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstance[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            consentedScopes: string[];
+            context: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+            contextId: string;
+            extensionId: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                id: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2Extensions {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {
+            context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+            searchTerm?: string;
+            includeDeprecated?: boolean;
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplaceExtension[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
