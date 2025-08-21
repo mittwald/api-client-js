@@ -6055,7 +6055,9 @@ export declare module MittwaldAPIV2 {
          */
         logoRefId?: string;
         name: string;
-        pricing?: MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricingStrategy;
+        pricing?:
+          | MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricingStrategy
+          | MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricePlanStrategy;
         published: boolean;
         requestedChanges?: {
           context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
