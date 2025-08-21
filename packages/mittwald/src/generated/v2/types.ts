@@ -5741,7 +5741,12 @@ export declare module MittwaldAPIV2 {
          */
         phone?: string;
         state: MittwaldAPIV2.Components.Schemas.MarketplaceContributorState;
-        supportInformation: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
+        supportInformation: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta & {
+          /**
+           * Whether the support information is inherited from the customer.
+           */
+          inherited: boolean;
+        };
         url?: string;
       }
 
@@ -5808,7 +5813,9 @@ export declare module MittwaldAPIV2 {
          */
         logoRefId: string;
         name: string;
-        pricing?: MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricingStrategy;
+        pricing?:
+          | MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricingStrategy
+          | MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricePlanStrategy;
         /**
          * Whether the extension has been published by the contributor.
          */
@@ -6009,7 +6016,12 @@ export declare module MittwaldAPIV2 {
          */
         phone?: string;
         state: MittwaldAPIV2.Components.Schemas.MarketplaceContributorState;
-        supportInformation: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
+        supportInformation: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta & {
+          /**
+           * Whether the support information is inherited from the customer.
+           */
+          inherited: boolean;
+        };
         url?: string;
       }
 
@@ -8289,6 +8301,19 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      /**
+       * A price plan with (multiple) variants, including different prices for different included service descriptions
+       */
+      export type MarketplaceMonthlyPricePlanStrategy = {
+        description?: string;
+        key: string;
+        name?: string;
+        /**
+         * The monthly price in Euro Cents before tax.
+         */
+        priceInCents: number;
+      }[];
 
       export interface CommonsAddress {
         street: string;
@@ -21457,6 +21482,8 @@ export declare module MittwaldAPIV2 {
             limit?: number;
             skip?: number;
             page?: number;
+            sort?: "name";
+            order?: "asc" | "desc";
           };
         }
         namespace Responses {
