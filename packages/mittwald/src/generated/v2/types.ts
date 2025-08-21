@@ -6090,6 +6090,19 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
+       * A price plan with (multiple) variants, including different prices for different included service descriptions
+       */
+      export type MarketplaceMonthlyPricePlanStrategy = {
+        description?: string;
+        key: string;
+        name?: string;
+        /**
+         * The monthly price in Euro Cents before tax.
+         */
+        priceInCents: number;
+      }[];
+
+      /**
        * A strategy for pricing that occurs monthly.
        */
       export interface MarketplaceMonthlyPricingStrategy {
@@ -8303,19 +8316,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      /**
-       * A price plan with (multiple) variants, including different prices for different included service descriptions
-       */
-      export type MarketplaceMonthlyPricePlanStrategy = {
-        description?: string;
-        key: string;
-        name?: string;
-        /**
-         * The monthly price in Euro Cents before tax.
-         */
-        priceInCents: number;
-      }[];
 
       export interface CommonsAddress {
         street: string;
