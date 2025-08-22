@@ -7641,12 +7641,18 @@ export declare module MittwaldAPIV2 {
 
       export interface LlmlocksmithContainerMeta {
         containerId?: string;
+        errorMessage?: string;
         ingressId?: string;
         stackId?: string;
-        status: "created" | "requested";
+        status: "created" | "requested" | "failed";
       }
 
       export interface LlmlocksmithLicence {
+        blocked?: {
+          executingUserId?: string;
+          reason: string;
+          timestamp: string;
+        };
         containerMeta?: MittwaldAPIV2.Components.Schemas.LlmlocksmithContainerMeta;
         customerId?: string;
         licenceId: string;
