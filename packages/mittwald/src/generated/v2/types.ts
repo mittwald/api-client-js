@@ -4131,6 +4131,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace ContractGetDetailOfContractByMailAddress {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contractGetDetailOfContractByMailAddress
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contractGetDetailOfContractByMailAddress,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -7648,13 +7659,12 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface LlmlocksmithLicence {
-        blocked?: {
-          executingUserId?: string;
-          reason: string;
-          timestamp: string;
-        };
         containerMeta?: MittwaldAPIV2.Components.Schemas.LlmlocksmithContainerMeta;
         customerId?: string;
+        /**
+         * Indicates whether the licence is blocked.
+         */
+        isBlocked: boolean;
         licenceId: string;
         licenceKey: string;
         models: string[];
@@ -33292,6 +33302,61 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2MailAddressesMailAddressIdContract {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            mailAddressId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ContractContract;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
