@@ -145,14 +145,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteProjectBackup: this.requestFunctionFactory(
       descriptors.backupDeleteProjectBackup,
     ),
-    /** Get table of contents for a Project Backup. */
-    getProjectBackupToc: this.requestFunctionFactory(
-      descriptors.backupGetProjectBackupToc,
-    ),
-    /** Restore a ProjectBackup's path. */
-    requestProjectBackupRestorePath: this.requestFunctionFactory(
-      descriptors.backupRequestProjectBackupRestorePath,
-    ),
     /** Change the description of a ProjectBackup. */
     updateProjectBackupDescription: this.requestFunctionFactory(
       descriptors.backupUpdateProjectBackupDescription,
@@ -277,6 +269,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getDetailOfContractByLeadFyndr: this.requestFunctionFactory(
       descriptors.contractGetDetailOfContractByLeadFyndr,
     ),
+    /** Return the Contract for the given Mail Address. */
+    getDetailOfContractByMailAddress: this.requestFunctionFactory(
+      descriptors.contractGetDetailOfContractByMailAddress,
+    ),
     /** Return the Contract for the given Project. */
     getDetailOfContractByProject: this.requestFunctionFactory(
       descriptors.contractGetDetailOfContractByProject,
@@ -361,6 +357,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     contributorGetLoginLink: this.requestFunctionFactory(
       descriptors.contributorGetLoginLink,
     ),
+    /** List ContractPartners of the contributor. */
+    contributorListContractPartnersOfContributor: this.requestFunctionFactory(
+      descriptors.contributorListContractPartnersOfContributor,
+    ),
     /** List incoming Invoices of a Contributor. */
     contributorListIncomingInvoices: this.requestFunctionFactory(
       descriptors.contributorListIncomingInvoices,
@@ -372,6 +372,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Request an Access Token for the Incoming Invoice file. */
     contributorReceiptGetFileAccessToken: this.requestFunctionFactory(
       descriptors.contributorReceiptGetFileAccessToken,
+    ),
+    /** Rotate the secret for an extension instance. */
+    contributorRotateSecretForExtensionInstance: this.requestFunctionFactory(
+      descriptors.contributorRotateSecretForExtensionInstance,
     ),
     /** Authenticate your external application using the extensionInstanceSecret. */
     extensionAuthenticateInstance: this.requestFunctionFactory(
@@ -389,65 +393,37 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionCancelExtensionTermination: this.requestFunctionFactory(
       descriptors.extensionCancelExtensionTermination,
     ),
-    /** Create the OnboardingProcess of a Contributor. */
-    extensionCreateContributorOnboardingProcess: this.requestFunctionFactory(
-      descriptors.extensionCreateContributorOnboardingProcess,
-    ),
-    /** Get all open extension orders for given customer */
-    extensionGetCustomerExtensionInstanceOrders: this.requestFunctionFactory(
-      descriptors.extensionGetCustomerExtensionInstanceOrders,
-    ),
-    /** Get the Contract Strategy of an Extension Instance */
-    extensionGetExtensionInstanceContract: this.requestFunctionFactory(
-      descriptors.extensionGetExtensionInstanceContract,
-    ),
-    /** Update or Create Contract for existing Extension Instances. */
-    extensionUpdateExtensionInstanceContract: this.requestFunctionFactory(
-      descriptors.extensionUpdateExtensionInstanceContract,
-    ),
-    /** Get all open extension orders for given project */
-    extensionGetProjectExtensionInstanceOrders: this.requestFunctionFactory(
-      descriptors.extensionGetProjectExtensionInstanceOrders,
-    ),
-    /** Order Extension with saved payment method */
-    extensionOrderExtension: this.requestFunctionFactory(
-      descriptors.extensionOrderExtension,
-    ),
-    /** Creates or Updates Pricing for an Extension. */
-    extensionUpdateExtensionPricing: this.requestFunctionFactory(
-      descriptors.extensionUpdateExtensionPricing,
-    ),
-    /** Get payment method details */
-    customerGetPaymentMethod: this.requestFunctionFactory(
-      descriptors.marketplaceCustomerGetPaymentMethod,
-    ),
-    /** Get the link to update the marketplace payment method */
-    customerUpdatePaymentMethod: this.requestFunctionFactory(
-      descriptors.marketplaceCustomerUpdatePaymentMethod,
-    ),
-    /** Start the verification process of an Extension. */
-    extensionRequestExtensionVerification: this.requestFunctionFactory(
-      descriptors.extensionRequestExtensionVerification,
-    ),
-    /** Get the public key to verify the webhook signature. */
-    extensionGetPublicKey: this.requestFunctionFactory(
-      descriptors.extensionGetPublicKey,
-    ),
-    /** List ContractPartners of the contributor. */
-    contributorListContractPartnersOfContributor: this.requestFunctionFactory(
-      descriptors.contributorListContractPartnersOfContributor,
-    ),
-    /** Get an Extension. */
-    extensionGetExtension: this.requestFunctionFactory(
-      descriptors.extensionGetExtension,
-    ),
-    /** Invalidate the given Extension secret immediately. */
-    extensionInvalidateExtensionSecret: this.requestFunctionFactory(
-      descriptors.extensionInvalidateExtensionSecret,
+    /** Change the context of an Extension. */
+    extensionChangeContext: this.requestFunctionFactory(
+      descriptors.extensionChangeContext,
     ),
     /** Consent to extension scopes. */
     extensionConsentToExtensionScopes: this.requestFunctionFactory(
       descriptors.extensionConsentToExtensionScopes,
+    ),
+    /** Create the OnboardingProcess of a Contributor. */
+    extensionCreateContributorOnboardingProcess: this.requestFunctionFactory(
+      descriptors.extensionCreateContributorOnboardingProcess,
+    ),
+    /** List ExtensionInstances. */
+    extensionListExtensionInstances: this.requestFunctionFactory(
+      descriptors.extensionListExtensionInstances,
+    ),
+    /** Create an ExtensionInstance. */
+    extensionCreateExtensionInstance: this.requestFunctionFactory(
+      descriptors.extensionCreateExtensionInstance,
+    ),
+    /** Create an access token retrieval key for an extension instance. */
+    extensionCreateRetrievalKey: this.requestFunctionFactory(
+      descriptors.extensionCreateRetrievalKey,
+    ),
+    /** Get an ExtensionInstance. */
+    extensionGetExtensionInstance: this.requestFunctionFactory(
+      descriptors.extensionGetExtensionInstance,
+    ),
+    /** Delete a free ExtensionInstance. If the Extension is chargable the contract must be terminated instead. */
+    extensionDeleteExtensionInstance: this.requestFunctionFactory(
+      descriptors.extensionDeleteExtensionInstance,
     ),
     /** Get Extension of own contributor. */
     extensionGetOwnExtension: this.requestFunctionFactory(
@@ -461,45 +437,73 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionPatchExtension: this.requestFunctionFactory(
       descriptors.extensionPatchExtension,
     ),
-    /** Add a logo to an extension. */
-    extensionRequestLogoUpload: this.requestFunctionFactory(
-      descriptors.extensionRequestLogoUpload,
+    /** Disable an ExtensionInstance. */
+    extensionDisableExtensionInstance: this.requestFunctionFactory(
+      descriptors.extensionDisableExtensionInstance,
     ),
-    /** Remove the logo of an extension. */
-    extensionRemoveLogo: this.requestFunctionFactory(
-      descriptors.extensionRemoveLogo,
+    /** Dry run a webhook with random or given values. */
+    extensionDryRunWebhook: this.requestFunctionFactory(
+      descriptors.extensionDryRunWebhook,
+    ),
+    /** Enable an ExtensionInstance. */
+    extensionEnableExtensionInstance: this.requestFunctionFactory(
+      descriptors.extensionEnableExtensionInstance,
+    ),
+    /** Generate an Extension secret for the given Extension. */
+    extensionGenerateExtensionSecret: this.requestFunctionFactory(
+      descriptors.extensionGenerateExtensionSecret,
     ),
     /** Generate a session token to transmit it to the extensions frontend fragment. */
     extensionGenerateSessionToken: this.requestFunctionFactory(
       descriptors.extensionGenerateSessionToken,
     ),
-    /** Change the context of an Extension. */
-    extensionChangeContext: this.requestFunctionFactory(
-      descriptors.extensionChangeContext,
-    ),
-    /** Disable an ExtensionInstance. */
-    extensionDisableExtensionInstance: this.requestFunctionFactory(
-      descriptors.extensionDisableExtensionInstance,
-    ),
-    /** Get an ExtensionInstance. */
-    extensionGetExtensionInstance: this.requestFunctionFactory(
-      descriptors.extensionGetExtensionInstance,
-    ),
-    /** Delete a free ExtensionInstance. If the Extension is chargable the contract must be terminated instead. */
-    extensionDeleteExtensionInstance: this.requestFunctionFactory(
-      descriptors.extensionDeleteExtensionInstance,
-    ),
     /** Get a Contributor. */
     extensionGetContributor: this.requestFunctionFactory(
       descriptors.extensionGetContributor,
+    ),
+    /** Get all open extension orders for given customer */
+    extensionGetCustomerExtensionInstanceOrders: this.requestFunctionFactory(
+      descriptors.extensionGetCustomerExtensionInstanceOrders,
+    ),
+    /** Get the Contract Strategy of an Extension Instance */
+    extensionGetExtensionInstanceContract: this.requestFunctionFactory(
+      descriptors.extensionGetExtensionInstanceContract,
+    ),
+    /** Update or Create Contract for existing Extension Instances. */
+    extensionUpdateExtensionInstanceContract: this.requestFunctionFactory(
+      descriptors.extensionUpdateExtensionInstanceContract,
+    ),
+    /** Get the ExtensionInstance of a specific customer and extension, if existing. */
+    extensionGetExtensionInstanceForCustomer: this.requestFunctionFactory(
+      descriptors.extensionGetExtensionInstanceForCustomer,
     ),
     /** Get the ExtensionInstance of a specific project and extension, if existing. */
     extensionGetExtensionInstanceForProject: this.requestFunctionFactory(
       descriptors.extensionGetExtensionInstanceForProject,
     ),
-    /** Remove an asset of an extension. */
-    extensionRemoveAsset: this.requestFunctionFactory(
-      descriptors.extensionRemoveAsset,
+    /** Get an Extension. */
+    extensionGetExtension: this.requestFunctionFactory(
+      descriptors.extensionGetExtension,
+    ),
+    /** Get all open extension orders for given project */
+    extensionGetProjectExtensionInstanceOrders: this.requestFunctionFactory(
+      descriptors.extensionGetProjectExtensionInstanceOrders,
+    ),
+    /** Get the public key to verify the webhook signature. */
+    extensionGetPublicKey: this.requestFunctionFactory(
+      descriptors.extensionGetPublicKey,
+    ),
+    /** Invalidate the given Extension secret immediately. */
+    extensionInvalidateExtensionSecret: this.requestFunctionFactory(
+      descriptors.extensionInvalidateExtensionSecret,
+    ),
+    /** List Contributors. */
+    extensionListContributors: this.requestFunctionFactory(
+      descriptors.extensionListContributors,
+    ),
+    /** List Extensions. */
+    extensionListExtensions: this.requestFunctionFactory(
+      descriptors.extensionListExtensions,
     ),
     /** List Extensions of own contributor. */
     extensionListOwnExtensions: this.requestFunctionFactory(
@@ -509,57 +513,49 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionRegisterExtension: this.requestFunctionFactory(
       descriptors.extensionRegisterExtension,
     ),
-    /** Enable an ExtensionInstance. */
-    extensionEnableExtensionInstance: this.requestFunctionFactory(
-      descriptors.extensionEnableExtensionInstance,
+    /** List Scopes. */
+    extensionListScopes: this.requestFunctionFactory(
+      descriptors.extensionListScopes,
     ),
-    /** Publish or withdraw an Extension. */
-    extensionSetExtensionPublishedState: this.requestFunctionFactory(
-      descriptors.extensionSetExtensionPublishedState,
+    /** Order Extension with saved payment method */
+    extensionOrderExtension: this.requestFunctionFactory(
+      descriptors.extensionOrderExtension,
     ),
-    /** Get the ExtensionInstance of a specific customer and extension, if existing. */
-    extensionGetExtensionInstanceForCustomer: this.requestFunctionFactory(
-      descriptors.extensionGetExtensionInstanceForCustomer,
+    /** Remove an asset of an extension. */
+    extensionRemoveAsset: this.requestFunctionFactory(
+      descriptors.extensionRemoveAsset,
     ),
-    /** List Contributors. */
-    extensionListContributors: this.requestFunctionFactory(
-      descriptors.extensionListContributors,
+    /** Add a logo to an extension. */
+    extensionRequestLogoUpload: this.requestFunctionFactory(
+      descriptors.extensionRequestLogoUpload,
     ),
-    /** Rotate the secret for an extension instance. */
-    contributorRotateSecretForExtensionInstance: this.requestFunctionFactory(
-      descriptors.contributorRotateSecretForExtensionInstance,
+    /** Remove the logo of an extension. */
+    extensionRemoveLogo: this.requestFunctionFactory(
+      descriptors.extensionRemoveLogo,
     ),
     /** Add an asset to an extension. */
     extensionRequestAssetUpload: this.requestFunctionFactory(
       descriptors.extensionRequestAssetUpload,
     ),
-    /** List Scopes. */
-    extensionListScopes: this.requestFunctionFactory(
-      descriptors.extensionListScopes,
+    /** Start the verification process of an Extension. */
+    extensionRequestExtensionVerification: this.requestFunctionFactory(
+      descriptors.extensionRequestExtensionVerification,
     ),
-    /** Create an access token retrieval key for an extension instance. */
-    extensionCreateRetrievalKey: this.requestFunctionFactory(
-      descriptors.extensionCreateRetrievalKey,
+    /** Publish or withdraw an Extension. */
+    extensionSetExtensionPublishedState: this.requestFunctionFactory(
+      descriptors.extensionSetExtensionPublishedState,
     ),
-    /** Generate an Extension secret for the given Extension. */
-    extensionGenerateExtensionSecret: this.requestFunctionFactory(
-      descriptors.extensionGenerateExtensionSecret,
+    /** Creates or Updates Pricing for an Extension. */
+    extensionUpdateExtensionPricing: this.requestFunctionFactory(
+      descriptors.extensionUpdateExtensionPricing,
     ),
-    /** Dry run a webhook with random or given values. */
-    extensionDryRunWebhook: this.requestFunctionFactory(
-      descriptors.extensionDryRunWebhook,
+    /** Get payment method details */
+    customerGetPaymentMethod: this.requestFunctionFactory(
+      descriptors.marketplaceCustomerGetPaymentMethod,
     ),
-    /** List ExtensionInstances. */
-    extensionListExtensionInstances: this.requestFunctionFactory(
-      descriptors.extensionListExtensionInstances,
-    ),
-    /** Create an ExtensionInstance. */
-    extensionCreateExtensionInstance: this.requestFunctionFactory(
-      descriptors.extensionCreateExtensionInstance,
-    ),
-    /** List Extensions. */
-    extensionListExtensions: this.requestFunctionFactory(
-      descriptors.extensionListExtensions,
+    /** Get the link to update the marketplace payment method */
+    customerUpdatePaymentMethod: this.requestFunctionFactory(
+      descriptors.marketplaceCustomerUpdatePaymentMethod,
     ),
   };
 
