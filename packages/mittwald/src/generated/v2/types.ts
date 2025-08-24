@@ -698,6 +698,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ContractGetDetailOfContractByMailAddress {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contractGetDetailOfContractByMailAddress
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contractGetDetailOfContractByMailAddress,
+          TStatus
+        >;
+    }
+
     namespace ContractGetDetailOfContractByProject {
       type RequestData = InferredRequestData<
         typeof descriptors.contractGetDetailOfContractByProject
@@ -4128,17 +4139,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.verificationVerifyCompany,
-          TStatus
-        >;
-    }
-
-    namespace ContractGetDetailOfContractByMailAddress {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contractGetDetailOfContractByMailAddress
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.contractGetDetailOfContractByMailAddress,
           TStatus
         >;
     }
@@ -12809,6 +12809,61 @@ export declare module MittwaldAPIV2 {
         namespace Parameters {
           export type Path = {
             customerId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ContractContract;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2MailAddressesMailAddressIdContract {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            mailAddressId: string;
           };
 
           export type Header =
@@ -33302,61 +33357,6 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2MailAddressesMailAddressIdContract {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            mailAddressId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.ContractContract;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 

@@ -269,6 +269,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getDetailOfContractByLeadFyndr: this.requestFunctionFactory(
       descriptors.contractGetDetailOfContractByLeadFyndr,
     ),
+    /** Return the Contract for the given Mail Address. */
+    getDetailOfContractByMailAddress: this.requestFunctionFactory(
+      descriptors.contractGetDetailOfContractByMailAddress,
+    ),
     /** Return the Contract for the given Project. */
     getDetailOfContractByProject: this.requestFunctionFactory(
       descriptors.contractGetDetailOfContractByProject,
@@ -332,10 +336,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Preview TariffChange. */
     orderPreviewTariffChange: this.requestFunctionFactory(
       descriptors.orderPreviewTariffChange,
-    ),
-    /** Return the Contract for the given Mail Address. */
-    getDetailOfContractByMailAddress: this.requestFunctionFactory(
-      descriptors.contractGetDetailOfContractByMailAddress,
     ),
   };
 
