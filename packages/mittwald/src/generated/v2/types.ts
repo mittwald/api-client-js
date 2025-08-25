@@ -5911,6 +5911,7 @@ export declare module MittwaldAPIV2 {
         blocked: boolean;
         context: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
         contributorId: string;
+        createdAt: string;
         deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
         /**
          * A short description of the capabilites of the Extension.
@@ -28262,7 +28263,7 @@ export declare module MittwaldAPIV2 {
         namespace Responses {
           namespace $200 {
             namespace Content {
-              export type Empty = unknown;
+              export type ApplicationOctetStream = string;
             }
           }
 
