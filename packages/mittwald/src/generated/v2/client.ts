@@ -557,6 +557,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionListExtensions: this.requestFunctionFactory(
       descriptors.extensionListExtensions,
     ),
+    /** Express interest to be a contributor. */
+    contributorExpressInterestToContribute: this.requestFunctionFactory(
+      descriptors.contributorExpressInterestToContribute,
+    ),
   };
 
   /** The conversation API allows you to manage your support conversations. */
