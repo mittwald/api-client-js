@@ -565,6 +565,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     customerUpdatePaymentMethod: this.requestFunctionFactory(
       descriptors.marketplaceCustomerUpdatePaymentMethod,
     ),
+    /** Express interest to be a contributor. */
+    contributorExpressInterestToContribute: this.requestFunctionFactory(
+      descriptors.contributorExpressInterestToContribute,
+    ),
   };
 
   /** The conversation API allows you to manage your support conversations. */
