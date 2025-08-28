@@ -1294,47 +1294,47 @@ export const backupDeleteProjectBackup: OpenAPIOperation<
 export const backupGetProjectBackupToc: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsTocProjectIdProjectBackupId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsTocProjectIdProjectBackupId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsTocProjectIdProjectBackupId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdToc.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdToc.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdToc.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsTocProjectIdProjectBackupId.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdToc.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsTocProjectIdProjectBackupId.Get.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdToc.Get.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsTocProjectIdProjectBackupId.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdToc.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsTocProjectIdProjectBackupId.Get.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdToc.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsTocProjectIdProjectBackupId.Get.Responses.$502.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdToc.Get.Responses.$502.Content.ApplicationJson>,
       502,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsTocProjectIdProjectBackupId.Get.Responses.$503.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdToc.Get.Responses.$503.Content.ApplicationJson>,
       503,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsTocProjectIdProjectBackupId.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdToc.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/project-backups/toc/{projectId}/{projectBackupId}",
+  path: "/v2/project-backups/{projectBackupId}/toc",
   method: "GET",
   operationId: "backup-get-project-backup-toc",
 };
@@ -8338,6 +8338,45 @@ export const extensionGetContributor: OpenAPIOperation<
   path: "/v2/contributors/{contributorId}",
   method: "GET",
   operationId: "extension-get-contributor",
+};
+
+/** Patch Contributor. */
+export const contributorPatchContributor: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorId.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorId.Patch.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorId.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorId.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorId.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/contributors/{contributorId}",
+  method: "PATCH",
+  operationId: "contributor-patch-contributor",
 };
 
 /** Get all open extension orders for given customer */
