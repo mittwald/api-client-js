@@ -1,6 +1,6 @@
 {
   "name": "@mittwald/api-client",
-  "version": "0.0.0-development-dbfaa98-20250828",
+  "version": "4.209.0",
   "author": "Mittwald CM Service GmbH & Co. KG <opensource@mittwald.de>",
   "type": "module",
   "description": "Auto-generated client for the mittwald API",
