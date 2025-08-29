@@ -457,6 +457,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionGetContributor: this.requestFunctionFactory(
       descriptors.extensionGetContributor,
     ),
+    /** Patch Contributor. */
+    contributorPatchContributor: this.requestFunctionFactory(
+      descriptors.contributorPatchContributor,
+    ),
     /** Enable an ExtensionInstance. */
     extensionEnableExtensionInstance: this.requestFunctionFactory(
       descriptors.extensionEnableExtensionInstance,

@@ -3877,6 +3877,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ContributorPatchContributor {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorPatchContributor
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorPatchContributor,
+          TStatus
+        >;
+    }
+
     namespace ExtensionEnableExtensionInstance {
       type RequestData = InferredRequestData<
         typeof descriptors.extensionEnableExtensionInstance
@@ -8055,7 +8066,7 @@ export declare module MittwaldAPIV2 {
          */
         logoRefId?: string;
         name: string;
-        pricing?: MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricingStrategy;
+        pricing?: MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricePlanStrategy;
         /**
          * Whether the extension has been published by the contributor.
          */
@@ -8154,9 +8165,7 @@ export declare module MittwaldAPIV2 {
          */
         logoRefId?: string;
         name: string;
-        pricing?:
-          | MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricingStrategy
-          | MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricePlanStrategy;
+        pricing?: MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricePlanStrategy;
         published: boolean;
         requestedChanges?: {
           context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
@@ -8205,7 +8214,7 @@ export declare module MittwaldAPIV2 {
         /**
          * @deprecated
          */
-        email?: string;
+        email: string;
         homepage?: string;
         id: string;
         imprint?: MittwaldAPIV2.Components.Schemas.MarketplaceContributorImprint;
@@ -8222,6 +8231,9 @@ export declare module MittwaldAPIV2 {
            */
           inherited: boolean;
         };
+        /**
+         * @deprecated
+         */
         url?: string;
       }
 
@@ -8231,14 +8243,17 @@ export declare module MittwaldAPIV2 {
         contributorNumber: string;
         customerId: string;
         description?: string;
+        descriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceLocalizedDescription;
         /**
          * @deprecated
          */
-        email?: string;
+        email: string;
+        homepage?: string;
         id: string;
         imprint?: MittwaldAPIV2.Components.Schemas.MarketplaceContributorImprint;
         logoRefId?: string;
         name: string;
+        nameInherited: boolean;
         /**
          * @deprecated
          */
@@ -8250,6 +8265,9 @@ export declare module MittwaldAPIV2 {
            */
           inherited: boolean;
         };
+        /**
+         * @deprecated
+         */
         url?: string;
       }
 
@@ -8324,9 +8342,7 @@ export declare module MittwaldAPIV2 {
          */
         logoRefId: string;
         name: string;
-        pricing?:
-          | MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricingStrategy
-          | MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricePlanStrategy;
+        pricing?: MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricePlanStrategy;
         /**
          * Whether the extension has been published by the contributor.
          */
@@ -31938,6 +31954,69 @@ export declare module MittwaldAPIV2 {
               export type ApplicationJson =
                 | MittwaldAPIV2.Components.Schemas.MarketplaceContributor
                 | MittwaldAPIV2.Components.Schemas.MarketplaceOwnContributor;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+          };
+
+          export interface RequestBody {
+            contactPersonUserId?: string;
+            descriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceLocalizedDescription;
+            deviatingContractOwner?: MittwaldAPIV2.Components.Schemas.MarketplaceContractOwner;
+            deviatingName?: string;
+            deviatingSupportInformation?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
+            homepage?: string;
+            imprint?: MittwaldAPIV2.Components.Schemas.MarketplaceContributorImprint;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplaceOwnContributor;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
