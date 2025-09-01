@@ -8503,18 +8503,6 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export interface BackupProjectBackupDirectory {
-        isDirectory?: boolean;
-        isExecutable?: boolean;
-        isFile?: boolean;
-        isSymlink?: boolean;
-        items?: MittwaldAPIV2.Components.Schemas.BackupProjectBackupDirectory[];
-        name: string;
-        path: string;
-        size: number;
-        target?: string;
-      }
-
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -21779,6 +21767,8 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
+
+    namespace V2WebhookPublicKeysSerial {}
 
     namespace V2PublicKeysSerial {
       namespace Get {
