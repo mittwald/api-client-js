@@ -2,7 +2,7 @@
   "name": "root",
   "private": true,
   "version": "4.6.0",
-  "packageManager": "yarn@4.5.3",
+  "packageManager": "yarn@4.9.4",
   "type": "module",
   "scripts": {
     "build": "nx run-many -t build",
@@ -35,9 +35,6 @@
     "prettier-plugin-pkgsort": "^0.2.1",
     "prettier-plugin-sort-json": "^3.1.0",
     "typescript": "^5.7.2"
-  },
-  "resolutions": {
-    "axios": "1.8.2"
   },
   "workspaces": [
     "packages/*"

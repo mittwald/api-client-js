@@ -349,18 +349,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The marketplace API allows you to manage extensions and more information regaring the marketplace. */
   public readonly marketplace = {
-    /** Get a Contributor. */
-    extensionGetContributor: this.requestFunctionFactory(
-      descriptors.extensionGetContributor,
-    ),
-    /** Delete a Contributor. */
-    contributorDeleteContributor: this.requestFunctionFactory(
-      descriptors.contributorDeleteContributor,
-    ),
-    /** Patch Contributor. */
-    contributorPatchContributor: this.requestFunctionFactory(
-      descriptors.contributorPatchContributor,
-    ),
     /** Express interest to be a contributor. */
     contributorExpressInterestToContribute: this.requestFunctionFactory(
       descriptors.contributorExpressInterestToContribute,
@@ -392,6 +380,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** List all invoices on behalf of a contributor. */
     contributorListOnbehalfInvoices: this.requestFunctionFactory(
       descriptors.contributorListOnbehalfInvoices,
+    ),
+    /** Get a Contributor. */
+    extensionGetContributor: this.requestFunctionFactory(
+      descriptors.extensionGetContributor,
+    ),
+    /** Patch Contributor. */
+    contributorPatchContributor: this.requestFunctionFactory(
+      descriptors.contributorPatchContributor,
     ),
     /** Request an Access Token for the Incoming Invoice file. */
     contributorReceiptGetFileAccessToken: this.requestFunctionFactory(
