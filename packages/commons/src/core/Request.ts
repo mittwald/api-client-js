@@ -7,6 +7,7 @@ import {
 } from "../types/index.js";
 import OpenAPIPath from "./OpenAPIPath.js";
 import {
+  AxiosError,
   AxiosInstance,
   AxiosRequestConfig,
   RawAxiosRequestHeaders,
@@ -26,8 +27,18 @@ export class Request<TOp extends OpenAPIOperation> {
     this.requestConfig = this.buildAxiosConfig();
   }
 
-  public execute(axios: AxiosInstance): ResponsePromise<TOp> {
-    return axios.request(this.requestConfig) as ResponsePromise<TOp>;
+  public async execute(axios: AxiosInstance): ResponsePromise<TOp> {
+    try {
+      const response = await axios.request(this.requestConfig);
+      return response as unknown as ResponsePromise<TOp>;
+    } catch (e) {
+      const error = AxiosError.from(e);
+      if (error.isAxiosError && error.response) {
+        return error.response as unknown as ResponsePromise<TOp>;
+      }
+
+      throw e;
+    }
   }
 
   private buildAxiosConfig(): AxiosRequestConfig {
@@ -65,7 +76,6 @@ export class Request<TOp extends OpenAPIOperation> {
       // Must be a plain object or an URLSearchParams object
       params,
       data,
-      validateStatus: () => true,
     };
   }
 

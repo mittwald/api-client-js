@@ -37,7 +37,7 @@
     "@types/prettier": "^3.0.0",
     "@types/verror": "^1.10.10",
     "@types/yieldable-json": "^2.0.2",
-    "axios": "^1.8.2",
+    "axios": "^1.11.0",
     "camelcase": "^8.0.0",
     "clone-deep": "^4.0.1",
     "dot-prop": "^8.0.2",
