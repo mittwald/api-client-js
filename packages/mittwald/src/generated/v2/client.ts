@@ -349,6 +349,18 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The marketplace API allows you to manage extensions and more information regaring the marketplace. */
   public readonly marketplace = {
+    /** Get a Contributor. */
+    extensionGetContributor: this.requestFunctionFactory(
+      descriptors.extensionGetContributor,
+    ),
+    /** Delete a Contributor. */
+    contributorDeleteContributor: this.requestFunctionFactory(
+      descriptors.contributorDeleteContributor,
+    ),
+    /** Patch Contributor. */
+    contributorPatchContributor: this.requestFunctionFactory(
+      descriptors.contributorPatchContributor,
+    ),
     /** Express interest to be a contributor. */
     contributorExpressInterestToContribute: this.requestFunctionFactory(
       descriptors.contributorExpressInterestToContribute,
@@ -380,14 +392,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** List all invoices on behalf of a contributor. */
     contributorListOnbehalfInvoices: this.requestFunctionFactory(
       descriptors.contributorListOnbehalfInvoices,
-    ),
-    /** Get a Contributor. */
-    extensionGetContributor: this.requestFunctionFactory(
-      descriptors.extensionGetContributor,
-    ),
-    /** Patch Contributor. */
-    contributorPatchContributor: this.requestFunctionFactory(
-      descriptors.contributorPatchContributor,
     ),
     /** Request an Access Token for the Incoming Invoice file. */
     contributorReceiptGetFileAccessToken: this.requestFunctionFactory(
@@ -889,6 +893,8 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     dnsGetDnsZone: this.requestFunctionFactory(descriptors.dnsGetDnsZone),
     /** Delete a DNSZone. */
     dnsDeleteDnsZone: this.requestFunctionFactory(descriptors.dnsDeleteDnsZone),
+    /** Get a zone file for a DNSZone. */
+    dnsGetZoneFile: this.requestFunctionFactory(descriptors.dnsGetZoneFile),
     /** List DNSZones belonging to a Project. */
     dnsListDnsZones: this.requestFunctionFactory(descriptors.dnsListDnsZones),
     /** Set a record set on a DNSZone to managed. */
@@ -1067,6 +1073,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteMailAddress: this.requestFunctionFactory(
       descriptors.mailDeleteMailAddress,
     ),
+    /** Disable a MailAddress Archive. */
+    disableMailArchive: this.requestFunctionFactory(
+      descriptors.mailDisableMailArchive,
+    ),
     /** List backups belonging to a MailAddress. */
     listBackupsForMailAddress: this.requestFunctionFactory(
       descriptors.mailListBackupsForMailAddress,
@@ -1114,10 +1124,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update a mail setting of a Project. */
     updateProjectMailSetting: this.requestFunctionFactory(
       descriptors.mailUpdateProjectMailSetting,
-    ),
-    /** Disable a MailAddress Archive. */
-    disableMailArchive: this.requestFunctionFactory(
-      descriptors.mailDisableMailArchive,
     ),
   };
 

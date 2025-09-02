@@ -307,11 +307,6 @@ const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.contributorListOnbehalfInvoices,
     baseClient.marketplace.contributorListOnbehalfInvoices,
   ).getApiResource,
-  /** Get a Contributor. */
-  extensionGetContributor: new ApiCallAsyncResourceFactory(
-    descriptors.extensionGetContributor,
-    baseClient.marketplace.extensionGetContributor,
-  ).getApiResource,
   /** Request an Access Token for the Incoming Invoice file. */
   contributorReceiptGetFileAccessToken: new ApiCallAsyncResourceFactory(
     descriptors.contributorReceiptGetFileAccessToken,
@@ -581,6 +576,11 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   dnsGetDnsZone: new ApiCallAsyncResourceFactory(
     descriptors.dnsGetDnsZone,
     baseClient.domain.dnsGetDnsZone,
+  ).getApiResource,
+  /** Get a zone file for a DNSZone. */
+  dnsGetZoneFile: new ApiCallAsyncResourceFactory(
+    descriptors.dnsGetZoneFile,
+    baseClient.domain.dnsGetZoneFile,
   ).getApiResource,
   /** List DNSZones belonging to a Project. */
   dnsListDnsZones: new ApiCallAsyncResourceFactory(
