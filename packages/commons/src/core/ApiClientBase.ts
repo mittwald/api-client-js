@@ -1,4 +1,4 @@
-import axios, { Axios, AxiosInstance, CreateAxiosDefaults } from "axios";
+import axios, { AxiosInstance, CreateAxiosDefaults } from "axios";
 import {
   RequestObject,
   RequestFunction,
@@ -11,9 +11,17 @@ export abstract class ApiClientBase {
   public readonly axios: AxiosInstance;
   public readonly defaultRequestOptions: RequestOptions = {};
 
-  public constructor(axiosConfig: AxiosInstance | CreateAxiosDefaults = axios) {
-    this.axios =
-      axiosConfig instanceof Axios ? axiosConfig : axios.create(axiosConfig);
+  public constructor(axiosOrConfig: AxiosInstance | CreateAxiosDefaults) {
+    if (
+      axiosOrConfig &&
+      typeof (axiosOrConfig as AxiosInstance).request === "function"
+    ) {
+      this.axios = axiosOrConfig as AxiosInstance;
+    } else if (axiosOrConfig && typeof axiosOrConfig === "object") {
+      this.axios = axios.create(axiosOrConfig as CreateAxiosDefaults);
+    } else {
+      throw new Error("missing axios instance");
+    }
   }
 
   private buildRequestOptions<TOp extends OpenAPIOperation>(
