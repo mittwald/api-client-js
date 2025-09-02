@@ -37,7 +37,7 @@ const RAW_RUNTIME_STATE =
   "fallbackExclusionList": [\
     ["@mittwald/api-client", ["virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#workspace:packages/mittwald", "workspace:packages/mittwald"]],\
     ["@mittwald/api-client-commons", ["virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#workspace:packages/commons", "workspace:packages/commons"]],\
-    ["@mittwald/api-code-generator", ["virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#workspace:packages/generator", "workspace:packages/generator"]],\
+    ["@mittwald/api-code-generator", ["workspace:packages/generator"]],\
     ["@mittwald/api-models", ["workspace:packages/models"]],\
     ["root", ["workspace:."]]\
   ],\
@@ -1986,7 +1986,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@mittwald/api-client", "virtual:e06e30328889a833dfcbfbc5c33f5e1173628bc1414934ce897e2f1b90b91087fa3f8b59a8a3ced3a53b1f7df474adc821437919c179e8897ac6cecf6bf31f00#workspace:packages/mittwald"],\
           ["@mittwald/api-client-commons", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#workspace:packages/commons"],\
-          ["@mittwald/api-code-generator", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#workspace:packages/generator"],\
+          ["@mittwald/api-code-generator", "workspace:packages/generator"],\
           ["@mittwald/react-use-promise", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#npm:2.6.0"],\
           ["@types/mittwald__react-use-promise", null],\
           ["@types/node", "npm:22.10.1"],\
@@ -2021,7 +2021,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@mittwald/api-client", "workspace:packages/mittwald"],\
           ["@mittwald/api-client-commons", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#workspace:packages/commons"],\
-          ["@mittwald/api-code-generator", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#workspace:packages/generator"],\
+          ["@mittwald/api-code-generator", "workspace:packages/generator"],\
           ["@mittwald/react-use-promise", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#npm:2.6.0"],\
           ["@types/node", "npm:22.10.1"],\
           ["@types/react", "npm:18.3.14"],\
@@ -2054,7 +2054,6 @@ const RAW_RUNTIME_STATE =
           ["@jest/globals", "npm:29.7.0"],\
           ["@mittwald/api-client-commons", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#workspace:packages/commons"],\
           ["@mittwald/react-use-promise", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#npm:2.6.0"],\
-          ["@types/axios", null],\
           ["@types/jest", "npm:29.5.14"],\
           ["@types/jest__globals", null],\
           ["@types/mittwald__react-use-promise", null],\
@@ -2083,7 +2082,6 @@ const RAW_RUNTIME_STATE =
         ],\
         "packagePeers": [\
           "@mittwald/react-use-promise",\
-          "@types/axios",\
           "@types/jest__globals",\
           "@types/mittwald__react-use-promise"\
         ],\
@@ -2123,61 +2121,6 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@mittwald/api-code-generator", [\
-      ["virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#workspace:packages/generator", {\
-        "packageLocation": "./.yarn/__virtual__/@mittwald-api-code-generator-virtual-8a5bb5c684/1/packages/generator/",\
-        "packageDependencies": [\
-          ["@jest/globals", "npm:29.7.0"],\
-          ["@mittwald/api-code-generator", "virtual:c868363b9225da9941a57efe275cc186f56bbc5675507a35ee9dd42e682f6dada28f6419bfde0c8606475daefedaf411ac54fad43a935d5d29d658bdc4a86153#workspace:packages/generator"],\
-          ["@oclif/core", "npm:3.27.0"],\
-          ["@oclif/plugin-help", "npm:6.2.19"],\
-          ["@oclif/plugin-plugins", "npm:4.3.10"],\
-          ["@sindresorhus/is", "npm:6.3.1"],\
-          ["@types/axios", null],\
-          ["@types/clone-deep", "npm:4.0.4"],\
-          ["@types/invariant", "npm:2.2.37"],\
-          ["@types/jest", "npm:29.5.14"],\
-          ["@types/js-yaml", "npm:4.0.9"],\
-          ["@types/prettier", "npm:3.0.0"],\
-          ["@types/swagger2openapi", "npm:7.0.4"],\
-          ["@types/verror", "npm:1.10.10"],\
-          ["@types/yieldable-json", "npm:2.0.2"],\
-          ["@typescript-eslint/eslint-plugin", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:7.18.0"],\
-          ["@typescript-eslint/parser", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:7.18.0"],\
-          ["axios", "npm:1.11.0"],\
-          ["camelcase", "npm:8.0.0"],\
-          ["clone-deep", "npm:4.0.1"],\
-          ["dot-prop", "npm:8.0.2"],\
-          ["eslint", "npm:8.57.1"],\
-          ["eslint-config-prettier", "virtual:36a01d8083315b8a6e8362097258ea8bc0f9dfb672cb210742e054760850c673a1038f542a6b7156397b5275ace8ee0482231cac5e8898044fa1a1c29f78ee5b#npm:9.1.0"],\
-          ["eslint-plugin-json", "npm:3.1.0"],\
-          ["eslint-plugin-prettier", "virtual:c806312c909ada0ed265736a6af40332d2accb083795ab196b921d4f525eaa216b5e743a115a866243d43c53d134d2f487232e8b22a59cccd45e185864151961#npm:5.2.1"],\
-          ["fs-jetpack", "npm:5.1.0"],\
-          ["get-stdin", "npm:9.0.0"],\
-          ["invariant", "npm:2.2.4"],\
-          ["jest", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:29.7.0"],\
-          ["js-yaml", "npm:4.1.0"],\
-          ["json-schema-to-typescript", "npm:15.0.3"],\
-          ["openapi-schema-validator", "npm:12.1.3"],\
-          ["openapi-types", "npm:12.1.3"],\
-          ["prettier", "npm:3.4.2"],\
-          ["prettier-plugin-jsdoc", "virtual:c806312c909ada0ed265736a6af40332d2accb083795ab196b921d4f525eaa216b5e743a115a866243d43c53d134d2f487232e8b22a59cccd45e185864151961#npm:1.3.0"],\
-          ["prettier-plugin-pkgsort", "virtual:c806312c909ada0ed265736a6af40332d2accb083795ab196b921d4f525eaa216b5e743a115a866243d43c53d134d2f487232e8b22a59cccd45e185864151961#npm:0.2.1"],\
-          ["prettier-plugin-sort-json", "virtual:c806312c909ada0ed265736a6af40332d2accb083795ab196b921d4f525eaa216b5e743a115a866243d43c53d134d2f487232e8b22a59cccd45e185864151961#npm:3.1.0"],\
-          ["rimraf", "npm:5.0.10"],\
-          ["swagger2openapi", "npm:7.0.8"],\
-          ["ts-jest", "virtual:b2e857f8c518119e848cf4ef51cff2bf36fb4db0f8e551e1de9a65b88f5466b35ebea1913543d6258bb39baec552d66e8e4c2e8ae0858f2f3f9bf35009befb70#npm:29.2.5"],\
-          ["type-fest", "npm:4.30.0"],\
-          ["typescript", "patch:typescript@npm%3A5.7.2#optional!builtin<compat/typescript>::version=5.7.2&hash=5786d5"],\
-          ["verror", "npm:1.10.1"],\
-          ["yieldable-json", "npm:2.1.0"],\
-          ["zod", "npm:3.24.0"],\
-          ["zod-validation-error", "virtual:c806312c909ada0ed265736a6af40332d2accb083795ab196b921d4f525eaa216b5e743a115a866243d43c53d134d2f487232e8b22a59cccd45e185864151961#npm:3.4.0"]\
-        ],\
-        "packagePeers": [\
-          "@types/axios"\
-        ],\
-        "linkType": "SOFT"\
-      }],\
       ["workspace:packages/generator", {\
         "packageLocation": "./packages/generator/",\
         "packageDependencies": [\

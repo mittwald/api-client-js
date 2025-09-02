@@ -13,14 +13,10 @@ import {
   RawAxiosRequestHeaders,
 } from "axios";
 
-interface RequestConfig extends AxiosRequestConfig {
-  _retryCount?: number;
-}
-
 export class Request<TOp extends OpenAPIOperation> {
   private readonly operationDescriptor: TOp;
   private readonly requestObject?: RequestObject<TOp>;
-  public readonly requestConfig: RequestConfig;
+  public readonly requestConfig: AxiosRequestConfig;
 
   public constructor(
     operationDescriptor: TOp,

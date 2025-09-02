@@ -1437,7 +1437,6 @@ __metadata:
     typescript: "npm:^5.7.2"
   peerDependencies:
     "@mittwald/react-use-promise": ^2.6.0
-    axios: ^1.11.0
   peerDependenciesMeta:
     "@jest/globals":
       optional: true
@@ -1529,8 +1528,6 @@ __metadata:
     yieldable-json: "npm:^2.1.0"
     zod: "npm:^3.24.0"
     zod-validation-error: "npm:^3.4.0"
-  peerDependencies:
-    axios: ^1.11.0
   bin:
     acg: ./bin/cli.js
   languageName: unknown
