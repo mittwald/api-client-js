@@ -116,7 +116,7 @@ test("test client will work with axios default", async () => {
   expect(apiHistory.at(0)).toHaveProperty("headers.test_from_default", "1");
 });
 
-test("test can receive data", async () => {
+test("test request will resolved with receive data", async () => {
   const response = testClient.testRequestWillSucceed();
   await expect(response).resolves.toHaveProperty("data.success", 1);
 });
@@ -146,7 +146,7 @@ test("test request will be resolved even when status check fails", async () => {
   expect(fail).toBeCalledWith("500");
 });
 
-test("test will resolved on network error", async () => {
+test("test request will rejects on network error", async () => {
   const success = jest.fn();
   const fail = jest.fn();
 
