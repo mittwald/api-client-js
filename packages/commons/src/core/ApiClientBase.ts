@@ -14,10 +14,13 @@ export abstract class ApiClientBase {
   public constructor(
     axiosOrConfig: AxiosInstance | CreateAxiosDefaults = axios,
   ) {
-    if (typeof (axiosOrConfig as AxiosInstance).request === "function") {
-      this.axios = axiosOrConfig as AxiosInstance;
+    if (
+      "request" in axiosOrConfig &&
+      typeof axiosOrConfig.request === "function"
+    ) {
+      this.axios = axiosOrConfig;
     } else if (typeof axiosOrConfig === "object") {
-      this.axios = axios.create(axiosOrConfig as CreateAxiosDefaults);
+      this.axios = axios.create(axiosOrConfig);
     } else {
       throw new Error("missing axios instance");
     }
