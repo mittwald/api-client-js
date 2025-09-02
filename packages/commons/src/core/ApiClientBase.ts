@@ -11,7 +11,9 @@ export abstract class ApiClientBase {
   public readonly axios: AxiosInstance;
   public readonly defaultRequestOptions: RequestOptions = {};
 
-  public constructor(axiosOrConfig: AxiosInstance | CreateAxiosDefaults) {
+  public constructor(
+    axiosOrConfig: AxiosInstance | CreateAxiosDefaults = axios,
+  ) {
     if (
       axiosOrConfig &&
       typeof (axiosOrConfig as AxiosInstance).request === "function"

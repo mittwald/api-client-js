@@ -116,6 +116,20 @@ test("test client will work with axios default", async () => {
   expect(apiHistory.at(0)).toHaveProperty("headers.test_from_default", "1");
 });
 
+test("test client will work with axios default param", async () => {
+  axios.defaults.headers = {
+    TEST_FROM_DEFAULT_PARAM: 1,
+  } as never;
+  const testClient = new TestClient();
+  await testClient.testRequestWillSucceed();
+
+  expect(apiHistory).toHaveLength(1);
+  expect(apiHistory.at(0)).toHaveProperty(
+    "headers.test_from_default_param",
+    "1",
+  );
+});
+
 test("test request will resolved with receive data", async () => {
   const response = testClient.testRequestWillSucceed();
   await expect(response).resolves.toHaveProperty("data.success", 1);
