@@ -4,6 +4,7 @@ import { asyncStringJoin } from "../../asyncStringJoin.js";
 import { Paths } from "./Paths.js";
 import { TypeCompilationOptions } from "../CodeGenerationModel.js";
 import { OpenAPIV3 } from "openapi-types";
+import { populateNullableTypesForPathItem } from "../../populateNullableTypes.js";
 
 export class Path {
   public readonly paths: Paths;
@@ -31,7 +32,11 @@ export class Path {
     name: string,
     operationsDoc: OpenAPIV3.PathItemObject,
   ) {
-    return new Path(paths, new Name(name, paths.name), operationsDoc);
+    return new Path(
+      paths,
+      new Name(name, paths.name),
+      populateNullableTypesForPathItem(operationsDoc),
+    );
   }
 
   public async compileTypes(options: TypeCompilationOptions): Promise<string> {
