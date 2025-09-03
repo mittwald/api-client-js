@@ -761,6 +761,39 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.contractListContracts, TStatus>;
     }
 
+    namespace ExtensionGetContributor {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionGetContributor
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionGetContributor,
+          TStatus
+        >;
+    }
+
+    namespace ContributorDeleteContributor {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorDeleteContributor
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorDeleteContributor,
+          TStatus
+        >;
+    }
+
+    namespace ContributorPatchContributor {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorPatchContributor
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorPatchContributor,
+          TStatus
+        >;
+    }
+
     namespace ContributorExpressInterestToContribute {
       type RequestData = InferredRequestData<
         typeof descriptors.contributorExpressInterestToContribute
@@ -849,28 +882,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace ExtensionGetContributor {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionGetContributor
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionGetContributor,
-          TStatus
-        >;
-    }
-
-    namespace ContributorPatchContributor {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contributorPatchContributor
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.contributorPatchContributor,
-          TStatus
-        >;
-    }
-
     namespace ContributorReceiptGetFileAccessToken {
       type RequestData = InferredRequestData<
         typeof descriptors.contributorReceiptGetFileAccessToken
@@ -878,6 +889,28 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.contributorReceiptGetFileAccessToken,
+          TStatus
+        >;
+    }
+
+    namespace ContributorRequestDeviatingContributorAvatarUpload {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorRequestDeviatingContributorAvatarUpload
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorRequestDeviatingContributorAvatarUpload,
+          TStatus
+        >;
+    }
+
+    namespace ContributorResetContributorAvatar {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorResetContributorAvatar
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorResetContributorAvatar,
           TStatus
         >;
     }
@@ -6076,6 +6109,7 @@ export declare module MittwaldAPIV2 {
         homepage?: string;
         id: string;
         imprint?: MittwaldAPIV2.Components.Schemas.MarketplaceContributorImprint;
+        logoInherited?: boolean;
         logoRefId?: string;
         name: string;
         nameInherited: boolean;
@@ -6170,16 +6204,6 @@ export declare module MittwaldAPIV2 {
          */
         priceInCents: number;
       }[];
-
-      /**
-       * A strategy for pricing that occurs monthly.
-       */
-      export interface MarketplaceMonthlyPricingStrategy {
-        /**
-         * The monthly price in Euro Cents before tax.
-         */
-        netPrice: number;
-      }
 
       export interface MarketplacePublicKey {
         algorithm: string;
@@ -13254,6 +13278,166 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2ContributorsContributorId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                | MittwaldAPIV2.Components.Schemas.MarketplaceContributor
+                | MittwaldAPIV2.Components.Schemas.MarketplaceOwnContributor;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+          };
+
+          export interface RequestBody {
+            contactPersonUserId?: string;
+            descriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceLocalizedDescription;
+            deviatingContractOwner?: MittwaldAPIV2.Components.Schemas.MarketplaceContractOwner;
+            deviatingName?: string;
+            deviatingSupportInformation?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
+            homepage?: string;
+            imprint?: MittwaldAPIV2.Components.Schemas.MarketplaceContributorImprint;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplaceOwnContributor;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2CustomersCustomerIdContributor {
       namespace Post {
         namespace Parameters {
@@ -13719,67 +13903,13 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ContributorsContributorId {
+    namespace V2ContributorsContributorIdInvoicesIncomingContributorReceiptIdFileAccessToken {
       namespace Get {
         namespace Parameters {
           export type Path = {
             contributorId: string;
+            contributorReceiptId: string;
           };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                | MittwaldAPIV2.Components.Schemas.MarketplaceContributor
-                | MittwaldAPIV2.Components.Schemas.MarketplaceOwnContributor;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-          };
-
-          export interface RequestBody {
-            contactPersonUserId?: string;
-            descriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceLocalizedDescription;
-            deviatingContractOwner?: MittwaldAPIV2.Components.Schemas.MarketplaceContractOwner;
-            deviatingName?: string;
-            deviatingSupportInformation?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
-            homepage?: string;
-            imprint?: MittwaldAPIV2.Components.Schemas.MarketplaceContributorImprint;
-          }
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -13789,8 +13919,10 @@ export declare module MittwaldAPIV2 {
         namespace Responses {
           namespace $200 {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.MarketplaceOwnContributor;
+              export interface ApplicationJson {
+                accessToken: string;
+                expiresAt: string;
+              }
             }
           }
 
@@ -13829,12 +13961,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ContributorsContributorIdInvoicesIncomingContributorReceiptIdFileAccessToken {
-      namespace Get {
+    namespace V2ContributorsContributorIdAvatar {
+      namespace Post {
         namespace Parameters {
           export type Path = {
             contributorId: string;
-            contributorReceiptId: string;
           };
 
           export type Header =
@@ -13846,17 +13977,79 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export interface ApplicationJson {
-                accessToken: string;
-                expiresAt: string;
+                /**
+                 * Use the avatarRefId as updload token at `/v2/files/{logoRefId}`.
+                 */
+                avatarRefId: string;
+                /**
+                 * Constraints for the logo image upload.
+                 */
+                rules: {
+                  extensions: string[];
+                  fileTypes: {
+                    extensions: string[];
+                    mimeType: string;
+                  }[];
+                  maxSizeInBytes: number;
+                  mimeTypes: string[];
+                  properties?: {
+                    imageDimensions?: {
+                      max: {
+                        height?: number;
+                        width?: number;
+                      };
+                      min: {
+                        height?: number;
+                        width?: number;
+                      };
+                    };
+                  };
+                };
               }
             }
           }
 
-          namespace $400 {
+          namespace $404 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
             }
           }
 
@@ -21226,7 +21419,9 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson = {
+                context?: "project" | "customer";
                 extensionId?: string;
+                referencedId?: string;
               }[];
             }
           }
@@ -21534,7 +21729,9 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson = {
+                context?: "project" | "customer";
                 extensionId?: string;
+                referencedId?: string;
               }[];
             }
           }
@@ -22384,6 +22581,10 @@ export declare module MittwaldAPIV2 {
 
           export interface RequestBody {
             /**
+             * If set to true, the request will be validated but not executed.
+             */
+            dryRun?: boolean;
+            /**
              * Price in cents.
              */
             priceInCents?: number;
@@ -22399,6 +22600,32 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export interface ApplicationJson {
                 extensionId?: string;
+                priceChangeConsequence?: {
+                  /**
+                   * Description of the consequence for the Extension from the perspective of the contributor. Values: * "NONE": No consequence. * "EDIT_BLOCK": The Extension will be blocked for editing by the contributor for 30 days.
+                   *
+                   */
+                  contributorConsequence: "NONE" | "EDIT_BLOCK";
+                  /**
+                   * Description of the consequence for all Customers of the Extension. Values: * "NONE": No consequence. * "INFO": Customers will be informed about the upcoming changes to their contracts. * "CONFIRM_REQUIRED": Customers will have to confirm or select the accepted changes to their contracts within 30 days or their contracts will be automatically cancelled.
+                   *
+                   */
+                  globalCustomerConsequence:
+                    | "NONE"
+                    | "INFO"
+                    | "CONFIRM_REQUIRED";
+                  variantConsequences: {
+                    /**
+                     * The individual consequence for customers of a specific variant of the Extension. Values: * "NONE": No consequence. * "INFO": Customers will be informed about the upcoming changes to their contracts. * "CONFIRM_REQUIRED": Customers will have to confirm or select the accepted changes to their contracts within 30 days or their contracts will be automatically cancelled.
+                     *
+                     */
+                    consequence?: "NONE" | "INFO" | "CONFIRM_REQUIRED";
+                    /**
+                     * The key of the variant of the Extension.
+                     */
+                    variantKey?: string;
+                  }[];
+                };
               }
             }
           }
@@ -24263,7 +24490,7 @@ export declare module MittwaldAPIV2 {
             limit?: number;
             skip?: number;
             page?: number;
-            sort?: "potential" | "relevance";
+            sort?: "potential" | "relevance" | "company";
             order?: "asc" | "desc";
           };
         }

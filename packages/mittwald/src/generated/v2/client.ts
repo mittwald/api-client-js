@@ -341,6 +341,18 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The marketplace API allows you to manage extensions and more information regaring the marketplace. */
   public readonly marketplace = {
+    /** Get a Contributor. */
+    extensionGetContributor: this.requestFunctionFactory(
+      descriptors.extensionGetContributor,
+    ),
+    /** Delete a Contributor. */
+    contributorDeleteContributor: this.requestFunctionFactory(
+      descriptors.contributorDeleteContributor,
+    ),
+    /** Patch Contributor. */
+    contributorPatchContributor: this.requestFunctionFactory(
+      descriptors.contributorPatchContributor,
+    ),
     /** Express interest to be a contributor. */
     contributorExpressInterestToContribute: this.requestFunctionFactory(
       descriptors.contributorExpressInterestToContribute,
@@ -373,17 +385,18 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     contributorListOnbehalfInvoices: this.requestFunctionFactory(
       descriptors.contributorListOnbehalfInvoices,
     ),
-    /** Get a Contributor. */
-    extensionGetContributor: this.requestFunctionFactory(
-      descriptors.extensionGetContributor,
-    ),
-    /** Patch Contributor. */
-    contributorPatchContributor: this.requestFunctionFactory(
-      descriptors.contributorPatchContributor,
-    ),
     /** Request an Access Token for the Incoming Invoice file. */
     contributorReceiptGetFileAccessToken: this.requestFunctionFactory(
       descriptors.contributorReceiptGetFileAccessToken,
+    ),
+    /** Add a deviating avatar to a Contributor. */
+    contributorRequestDeviatingContributorAvatarUpload:
+      this.requestFunctionFactory(
+        descriptors.contributorRequestDeviatingContributorAvatarUpload,
+      ),
+    /** Delete deviating contributor avatar und return to the inherited customer avatar. */
+    contributorResetContributorAvatar: this.requestFunctionFactory(
+      descriptors.contributorResetContributorAvatar,
     ),
     /** Rotate the secret for an extension instance. */
     contributorRotateSecretForExtensionInstance: this.requestFunctionFactory(

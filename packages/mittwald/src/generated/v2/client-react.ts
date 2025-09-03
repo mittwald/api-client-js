@@ -267,6 +267,11 @@ const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
 });
 
 const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get a Contributor. */
+  extensionGetContributor: new ApiCallAsyncResourceFactory(
+    descriptors.extensionGetContributor,
+    baseClient.marketplace.extensionGetContributor,
+  ).getApiResource,
   /** Get Contributor Billing Information. */
   contributorGetBillingInformation: new ApiCallAsyncResourceFactory(
     descriptors.contributorGetBillingInformation,
@@ -296,11 +301,6 @@ const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
   contributorListOnbehalfInvoices: new ApiCallAsyncResourceFactory(
     descriptors.contributorListOnbehalfInvoices,
     baseClient.marketplace.contributorListOnbehalfInvoices,
-  ).getApiResource,
-  /** Get a Contributor. */
-  extensionGetContributor: new ApiCallAsyncResourceFactory(
-    descriptors.extensionGetContributor,
-    baseClient.marketplace.extensionGetContributor,
   ).getApiResource,
   /** Request an Access Token for the Incoming Invoice file. */
   contributorReceiptGetFileAccessToken: new ApiCallAsyncResourceFactory(
