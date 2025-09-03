@@ -397,6 +397,15 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     contributorReceiptGetFileAccessToken: this.requestFunctionFactory(
       descriptors.contributorReceiptGetFileAccessToken,
     ),
+    /** Add a deviating avatar to a Contributor. */
+    contributorRequestDeviatingContributorAvatarUpload:
+      this.requestFunctionFactory(
+        descriptors.contributorRequestDeviatingContributorAvatarUpload,
+      ),
+    /** Delete deviating contributor avatar und return to the inherited customer avatar. */
+    contributorResetContributorAvatar: this.requestFunctionFactory(
+      descriptors.contributorResetContributorAvatar,
+    ),
     /** Rotate the secret for an extension instance. */
     contributorRotateSecretForExtensionInstance: this.requestFunctionFactory(
       descriptors.contributorRotateSecretForExtensionInstance,

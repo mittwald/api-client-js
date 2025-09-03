@@ -3632,6 +3632,74 @@ export const contributorReceiptGetFileAccessToken: OpenAPIOperation<
   operationId: "contributor-receipt-get-file-access-token",
 };
 
+/** Add a deviating avatar to a Contributor. */
+export const contributorRequestDeviatingContributorAvatarUpload: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdAvatar.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdAvatar.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdAvatar.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdAvatar.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdAvatar.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdAvatar.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdAvatar.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/contributors/{contributorId}/avatar",
+  method: "POST",
+  operationId: "contributor-request-deviating-contributor-avatar-upload",
+};
+
+/** Delete deviating contributor avatar und return to the inherited customer avatar. */
+export const contributorResetContributorAvatar: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdAvatar.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdAvatar.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdAvatar.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdAvatar.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdAvatar.Delete.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdAvatar.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdAvatar.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/contributors/{contributorId}/avatar",
+  method: "DELETE",
+  operationId: "contributor-reset-contributor-avatar",
+};
+
 /** Rotate the secret for an extension instance. */
 export const contributorRotateSecretForExtensionInstance: OpenAPIOperation<
   RequestType<

@@ -915,6 +915,28 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ContributorRequestDeviatingContributorAvatarUpload {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorRequestDeviatingContributorAvatarUpload
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorRequestDeviatingContributorAvatarUpload,
+          TStatus
+        >;
+    }
+
+    namespace ContributorResetContributorAvatar {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorResetContributorAvatar
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorResetContributorAvatar,
+          TStatus
+        >;
+    }
+
     namespace ContributorRotateSecretForExtensionInstance {
       type RequestData = InferredRequestData<
         typeof descriptors.contributorRotateSecretForExtensionInstance
@@ -6209,6 +6231,7 @@ export declare module MittwaldAPIV2 {
         homepage?: string;
         id: string;
         imprint?: MittwaldAPIV2.Components.Schemas.MarketplaceContributorImprint;
+        logoInherited?: boolean;
         logoRefId?: string;
         name: string;
         nameInherited: boolean;
@@ -6303,16 +6326,6 @@ export declare module MittwaldAPIV2 {
          */
         priceInCents: number;
       }[];
-
-      /**
-       * A strategy for pricing that occurs monthly.
-       */
-      export interface MarketplaceMonthlyPricingStrategy {
-        /**
-         * The monthly price in Euro Cents before tax.
-         */
-        netPrice: number;
-      }
 
       export interface MarketplacePublicKey {
         algorithm: string;
@@ -14182,6 +14195,125 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdAvatar {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * Use the avatarRefId as updload token at `/v2/files/{logoRefId}`.
+                 */
+                avatarRefId: string;
+                /**
+                 * Constraints for the logo image upload.
+                 */
+                rules: {
+                  extensions: string[];
+                  fileTypes: {
+                    extensions: string[];
+                    mimeType: string;
+                  }[];
+                  maxSizeInBytes: number;
+                  mimeTypes: string[];
+                  properties?: {
+                    imageDimensions?: {
+                      max: {
+                        height?: number;
+                        width?: number;
+                      };
+                      min: {
+                        height?: number;
+                        width?: number;
+                      };
+                    };
+                  };
+                };
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
             }
           }
 
@@ -24604,7 +24736,7 @@ export declare module MittwaldAPIV2 {
             limit?: number;
             skip?: number;
             page?: number;
-            sort?: "potential" | "relevance";
+            sort?: "potential" | "relevance" | "company";
             order?: "asc" | "desc";
           };
         }
