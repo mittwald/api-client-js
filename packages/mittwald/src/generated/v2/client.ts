@@ -1082,10 +1082,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteMailAddress: this.requestFunctionFactory(
       descriptors.mailDeleteMailAddress,
     ),
-    /** Disable a MailAddress Archive. */
-    disableMailArchive: this.requestFunctionFactory(
-      descriptors.mailDisableMailArchive,
-    ),
     /** List backups belonging to a MailAddress. */
     listBackupsForMailAddress: this.requestFunctionFactory(
       descriptors.mailListBackupsForMailAddress,

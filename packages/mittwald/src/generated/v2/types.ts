@@ -2813,17 +2813,6 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.mailDeleteMailAddress, TStatus>;
     }
 
-    namespace MailDisableMailArchive {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailDisableMailArchive
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.mailDisableMailArchive,
-          TStatus
-        >;
-    }
-
     namespace MailListBackupsForMailAddress {
       type RequestData = InferredRequestData<
         typeof descriptors.mailListBackupsForMailAddress
@@ -7009,11 +6998,6 @@ export declare module MittwaldAPIV2 {
 
       export interface MailMailAddress {
         address: string;
-        archive: {
-          active: boolean;
-          quota: number;
-          usedBytes: number;
-        };
         autoResponder: {
           active: boolean;
           expiresAt?: string;
@@ -7046,15 +7030,6 @@ export declare module MittwaldAPIV2 {
         projectId: string;
         receivingDisabled: boolean;
         updatedAt: string;
-      }
-
-      export interface MailMailArchiveAuthenticationResponse {
-        archive?: string[];
-        auth: string;
-        displayName?: string;
-        error?: string;
-        mail?: string[];
-        role?: string;
       }
 
       export interface MailMailsystemSettings {
@@ -14044,6 +14019,7 @@ export declare module MittwaldAPIV2 {
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {
+            search?: string;
             limit?: number;
             skip?: number;
             page?: number;
@@ -19593,8 +19569,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsProjectIdDnsZones {}
-
     namespace V2ProjectsProjectIdDnsZones {
       namespace Get {
         namespace Parameters {
@@ -25114,7 +25088,6 @@ export declare module MittwaldAPIV2 {
             forwardAddress?: boolean;
             catchAll?: boolean;
             autoResponder?: boolean;
-            mailArchive?: boolean;
             limit?: number;
             skip?: number;
             page?: number;
@@ -25548,68 +25521,6 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $503 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2MailArchiveMailArchiveId {
-      namespace Delete {
-        namespace Parameters {
-          export type Path = {
-            mailArchiveId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
