@@ -894,6 +894,8 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     dnsGetDnsZone: this.requestFunctionFactory(descriptors.dnsGetDnsZone),
     /** Delete a DNSZone. */
     dnsDeleteDnsZone: this.requestFunctionFactory(descriptors.dnsDeleteDnsZone),
+    /** Get a zone file for a DNSZone. */
+    dnsGetZoneFile: this.requestFunctionFactory(descriptors.dnsGetZoneFile),
     /** List DNSZones belonging to a Project. */
     dnsListDnsZones: this.requestFunctionFactory(descriptors.dnsListDnsZones),
     /** Set a record set on a DNSZone to managed. */

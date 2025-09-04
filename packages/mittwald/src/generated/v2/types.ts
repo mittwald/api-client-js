@@ -1824,6 +1824,12 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.dnsDeleteDnsZone, TStatus>;
     }
 
+    namespace DnsGetZoneFile {
+      type RequestData = InferredRequestData<typeof descriptors.dnsGetZoneFile>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.dnsGetZoneFile, TStatus>;
+    }
+
     namespace DnsListDnsZones {
       type RequestData = InferredRequestData<
         typeof descriptors.dnsListDnsZones
@@ -19303,6 +19309,52 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2DnsZonesDnsZoneIdZoneFile {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            dnsZoneId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type TextPlain = string;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2ProjectsProjectIdDnsZones {}
 
     namespace V2ProjectsProjectIdDnsZones {
@@ -23794,6 +23846,7 @@ export declare module MittwaldAPIV2 {
               | "CORRECTION"
               | "CANCELLATION"
             )[];
+            status?: ("CONFIRMED" | "PAID" | "PARTIALLY_PAID" | "OVERPAID")[];
             search?: string;
             limit?: number;
             skip?: number;

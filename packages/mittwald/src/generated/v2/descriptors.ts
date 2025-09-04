@@ -7054,6 +7054,40 @@ export const dnsDeleteDnsZone: OpenAPIOperation<
   operationId: "dns-delete-dns-zone",
 };
 
+/** Get a zone file for a DNSZone. */
+export const dnsGetZoneFile: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdZoneFile.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdZoneFile.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdZoneFile.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdZoneFile.Get.Responses.$200.Content.TextPlain>,
+      200,
+      "text/plain"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdZoneFile.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdZoneFile.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdZoneFile.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns-zones/{dnsZoneId}/zone-file",
+  method: "GET",
+  operationId: "dns-get-zone-file",
+};
+
 /** List DNSZones belonging to a Project. */
 export const dnsListDnsZones: OpenAPIOperation<
   RequestType<

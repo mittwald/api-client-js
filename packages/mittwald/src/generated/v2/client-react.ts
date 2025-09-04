@@ -572,6 +572,11 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.dnsGetDnsZone,
     baseClient.domain.dnsGetDnsZone,
   ).getApiResource,
+  /** Get a zone file for a DNSZone. */
+  dnsGetZoneFile: new ApiCallAsyncResourceFactory(
+    descriptors.dnsGetZoneFile,
+    baseClient.domain.dnsGetZoneFile,
+  ).getApiResource,
   /** List DNSZones belonging to a Project. */
   dnsListDnsZones: new ApiCallAsyncResourceFactory(
     descriptors.dnsListDnsZones,
