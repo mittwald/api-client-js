@@ -19593,6 +19593,8 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2ProjectsProjectIdDnsZones {}
+
     namespace V2ProjectsProjectIdDnsZones {
       namespace Get {
         namespace Parameters {
@@ -24072,6 +24074,7 @@ export declare module MittwaldAPIV2 {
               | "CORRECTION"
               | "CANCELLATION"
             )[];
+            status?: ("CONFIRMED" | "PAID" | "PARTIALLY_PAID" | "OVERPAID")[];
             search?: string;
             limit?: number;
             skip?: number;
