@@ -13786,6 +13786,7 @@ export declare module MittwaldAPIV2 {
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {
+            search?: string;
             limit?: number;
             skip?: number;
             page?: number;
