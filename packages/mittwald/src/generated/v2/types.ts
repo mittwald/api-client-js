@@ -6139,6 +6139,11 @@ export declare module MittwaldAPIV2 {
         extensionId: string;
         extensionName: string;
         extensionSubTitle?: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
+        frontendFragments?: {
+          [
+            k: string
+          ]: MittwaldAPIV2.Components.Schemas.MarketplaceFrontendFragment;
+        };
         id: string;
         pendingInstallation: boolean;
         pendingRemoval: boolean;
@@ -8541,6 +8546,11 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface DirectusEmailInbox {
+        email: string;
+        password: string;
+      }
 
       export interface CommonsAddress {
         street: string;
@@ -20922,6 +20932,7 @@ export declare module MittwaldAPIV2 {
             contextId?: string;
             extensionId?: string;
             searchTerm?: string;
+            anchor?: string;
             limit?: number;
             skip?: number;
             page?: number;
@@ -29766,6 +29777,10 @@ export declare module MittwaldAPIV2 {
              * List of domains which should be transferred (when allDomains is not checked).
              */
             domains?: MittwaldAPIV2.Components.Schemas.DirectusDomain[];
+            /**
+             * List of email inboxes which should be transferred.
+             */
+            emailInboxes?: MittwaldAPIV2.Components.Schemas.DirectusEmailInbox[];
             /**
              * Anything our customer service needs to know for the relocation process.
              */
