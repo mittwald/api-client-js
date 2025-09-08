@@ -8009,6 +8009,11 @@ export declare module MittwaldAPIV2 {
         name: string;
       }
 
+      export interface DirectusEmailInbox {
+        email: string;
+        password: string;
+      }
+
       export interface ScreenshotTarget {
         domain: string;
         path?: string;
