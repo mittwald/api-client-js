@@ -7883,6 +7883,11 @@ export declare module MittwaldAPIV2 {
         name: string;
       }
 
+      export interface DirectusEmailInbox {
+        email: string;
+        password: string;
+      }
+
       export interface ScreenshotTarget {
         domain: string;
         path?: string;
@@ -29417,6 +29422,10 @@ export declare module MittwaldAPIV2 {
              * List of domains which should be transferred (when allDomains is not checked).
              */
             domains?: MittwaldAPIV2.Components.Schemas.DirectusDomain[];
+            /**
+             * List of email inboxes which should be transferred.
+             */
+            emailInboxes?: MittwaldAPIV2.Components.Schemas.DirectusEmailInbox[];
             /**
              * Anything our customer service needs to know for the relocation process.
              */
