@@ -6843,6 +6843,7 @@ export declare module MittwaldAPIV2 {
           companyType: string[];
           coreProduct: string[];
           name?: string;
+          phoneNumbers: string[];
           targetGroup: string[];
           websiteType: string[];
         };
