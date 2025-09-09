@@ -6034,6 +6034,11 @@ export declare module MittwaldAPIV2 {
         extensionId: string;
         extensionName: string;
         extensionSubTitle?: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
+        frontendFragments?: {
+          [
+            k: string
+          ]: MittwaldAPIV2.Components.Schemas.MarketplaceFrontendFragment;
+        };
         id: string;
         pendingInstallation: boolean;
         pendingRemoval: boolean;
@@ -20725,6 +20730,7 @@ export declare module MittwaldAPIV2 {
             contextId?: string;
             extensionId?: string;
             searchTerm?: string;
+            anchor?: string;
             limit?: number;
             skip?: number;
             page?: number;
