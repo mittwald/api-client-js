@@ -1032,6 +1032,110 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
+  /** The mail API allows you to manage your mail accounts. */
+  public readonly mail = {
+    /** Update the autoresponder of a MailAddress. */
+    updateMailAddressAutoresponder: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressAutoresponder,
+    ),
+    /** Update the forward addresses of a MailAddresses. */
+    updateMailAddressForwardAddresses: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressForwardAddresses,
+    ),
+    /** Update the password for a MailAddress. */
+    updateMailAddressPassword: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressPassword,
+    ),
+    /** Update the quota of a MailAddress. */
+    updateMailAddressQuota: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressQuota,
+    ),
+    /** Update the spam protection of a MailAddress. */
+    updateMailAddressSpamProtection: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressSpamProtection,
+    ),
+    /** List DeliveryBoxes belonging to a Project. */
+    listDeliveryBoxes: this.requestFunctionFactory(
+      descriptors.mailListDeliveryBoxes,
+    ),
+    /** Create a DeliveryBox. */
+    createDeliverybox: this.requestFunctionFactory(
+      descriptors.mailCreateDeliverybox,
+    ),
+    /** List MailAddresses belonging to a Project. */
+    listMailAddresses: this.requestFunctionFactory(
+      descriptors.mailListMailAddresses,
+    ),
+    /** Create a MailAddress. */
+    createMailAddress: this.requestFunctionFactory(
+      descriptors.mailCreateMailAddress,
+    ),
+    /** Get a DeliveryBox. */
+    getDeliveryBox: this.requestFunctionFactory(descriptors.mailGetDeliveryBox),
+    /** Delete a DeliveryBox. */
+    deleteDeliveryBox: this.requestFunctionFactory(
+      descriptors.mailDeleteDeliveryBox,
+    ),
+    /** Get a MailAddress. */
+    getMailAddress: this.requestFunctionFactory(descriptors.mailGetMailAddress),
+    /** Delete a MailAddress. */
+    deleteMailAddress: this.requestFunctionFactory(
+      descriptors.mailDeleteMailAddress,
+    ),
+    /** Disable a MailAddress Archive. */
+    disableMailArchive: this.requestFunctionFactory(
+      descriptors.mailDisableMailArchive,
+    ),
+    /** List backups belonging to a MailAddress. */
+    listBackupsForMailAddress: this.requestFunctionFactory(
+      descriptors.mailListBackupsForMailAddress,
+    ),
+    /** List mail settings of a Project. */
+    listProjectMailSettings: this.requestFunctionFactory(
+      descriptors.mailListProjectMailSettings,
+    ),
+    /** Check if a Migration between two projects is possible. */
+    migrationCheckMigrationIsPossible: this.requestFunctionFactory(
+      descriptors.mailMigrationCheckMigrationIsPossible,
+    ),
+    /** Get a Migration. */
+    migrationGetMigration: this.requestFunctionFactory(
+      descriptors.mailMigrationGetMigration,
+    ),
+    /** List Migrations belonging to a Project in customer center or mStudio. */
+    migrationListMigrations: this.requestFunctionFactory(
+      descriptors.mailMigrationListMigrations,
+    ),
+    /** Request a Mail Migration between two projects. */
+    migrationRequestMailMigration: this.requestFunctionFactory(
+      descriptors.mailMigrationRequestMailMigration,
+    ),
+    /** Recover emails for a MailAddress from a backup. */
+    recoverMailAddressEmails: this.requestFunctionFactory(
+      descriptors.mailRecoverMailAddressEmails,
+    ),
+    /** Update the description of a DeliveryBox. */
+    updateDeliveryBoxDescription: this.requestFunctionFactory(
+      descriptors.mailUpdateDeliveryBoxDescription,
+    ),
+    /** Update the password of a DeliveryBox. */
+    updateDeliveryBoxPassword: this.requestFunctionFactory(
+      descriptors.mailUpdateDeliveryBoxPassword,
+    ),
+    /** Update a MailAddress. */
+    updateMailAddressAddress: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressAddress,
+    ),
+    /** Update the catch-all of a MailAddress. */
+    updateMailAddressCatchAll: this.requestFunctionFactory(
+      descriptors.mailUpdateMailAddressCatchAll,
+    ),
+    /** Update a mail setting of a Project. */
+    updateProjectMailSetting: this.requestFunctionFactory(
+      descriptors.mailUpdateProjectMailSetting,
+    ),
+  };
+
   /** The notification API allows you to manage your notifications. */
   public readonly notification = {
     /** Subscribe a user to the mStudio newsletter. */
@@ -1285,110 +1389,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Removes a reservation on a unlocked lead for the given customerId. */
     leadfyndrRemoveUnlockedLeadReservation: this.requestFunctionFactory(
       descriptors.leadfyndrRemoveUnlockedLeadReservation,
-    ),
-  };
-
-  /** The mail API allows you to manage your mail accounts. */
-  public readonly mail = {
-    /** Check if a Migration between two projects is possible. */
-    migrationCheckMigrationIsPossible: this.requestFunctionFactory(
-      descriptors.mailMigrationCheckMigrationIsPossible,
-    ),
-    /** Get a Migration. */
-    migrationGetMigration: this.requestFunctionFactory(
-      descriptors.mailMigrationGetMigration,
-    ),
-    /** List Migrations belonging to a Project in customer center or mStudio. */
-    migrationListMigrations: this.requestFunctionFactory(
-      descriptors.mailMigrationListMigrations,
-    ),
-    /** Request a Mail Migration between two projects. */
-    migrationRequestMailMigration: this.requestFunctionFactory(
-      descriptors.mailMigrationRequestMailMigration,
-    ),
-    /** Get a DeliveryBox. */
-    getDeliveryBox: this.requestFunctionFactory(descriptors.mailGetDeliveryBox),
-    /** Delete a DeliveryBox. */
-    deleteDeliveryBox: this.requestFunctionFactory(
-      descriptors.mailDeleteDeliveryBox,
-    ),
-    /** Disable a MailAddress Archive. */
-    disableMailArchive: this.requestFunctionFactory(
-      descriptors.mailDisableMailArchive,
-    ),
-    /** List backups belonging to a MailAddress. */
-    listBackupsForMailAddress: this.requestFunctionFactory(
-      descriptors.mailListBackupsForMailAddress,
-    ),
-    /** Update the quota of a MailAddress. */
-    updateMailAddressQuota: this.requestFunctionFactory(
-      descriptors.mailUpdateMailAddressQuota,
-    ),
-    /** Update a MailAddress. */
-    updateMailAddressAddress: this.requestFunctionFactory(
-      descriptors.mailUpdateMailAddressAddress,
-    ),
-    /** Update the forward addresses of a MailAddresses. */
-    updateMailAddressForwardAddresses: this.requestFunctionFactory(
-      descriptors.mailUpdateMailAddressForwardAddresses,
-    ),
-    /** Recover emails for a MailAddress from a backup. */
-    recoverMailAddressEmails: this.requestFunctionFactory(
-      descriptors.mailRecoverMailAddressEmails,
-    ),
-    /** List MailAddresses belonging to a Project. */
-    listMailAddresses: this.requestFunctionFactory(
-      descriptors.mailListMailAddresses,
-    ),
-    /** Create a MailAddress. */
-    createMailAddress: this.requestFunctionFactory(
-      descriptors.mailCreateMailAddress,
-    ),
-    /** Update the password for a MailAddress. */
-    updateMailAddressPassword: this.requestFunctionFactory(
-      descriptors.mailUpdateMailAddressPassword,
-    ),
-    /** Update the spam protection of a MailAddress. */
-    updateMailAddressSpamProtection: this.requestFunctionFactory(
-      descriptors.mailUpdateMailAddressSpamProtection,
-    ),
-    /** List DeliveryBoxes belonging to a Project. */
-    listDeliveryBoxes: this.requestFunctionFactory(
-      descriptors.mailListDeliveryBoxes,
-    ),
-    /** Create a DeliveryBox. */
-    createDeliverybox: this.requestFunctionFactory(
-      descriptors.mailCreateDeliverybox,
-    ),
-    /** Update the password of a DeliveryBox. */
-    updateDeliveryBoxPassword: this.requestFunctionFactory(
-      descriptors.mailUpdateDeliveryBoxPassword,
-    ),
-    /** Update the autoresponder of a MailAddress. */
-    updateMailAddressAutoresponder: this.requestFunctionFactory(
-      descriptors.mailUpdateMailAddressAutoresponder,
-    ),
-    /** Get a MailAddress. */
-    getMailAddress: this.requestFunctionFactory(descriptors.mailGetMailAddress),
-    /** Delete a MailAddress. */
-    deleteMailAddress: this.requestFunctionFactory(
-      descriptors.mailDeleteMailAddress,
-    ),
-    /** Update a mail setting of a Project. */
-    updateProjectMailSetting: this.requestFunctionFactory(
-      descriptors.mailUpdateProjectMailSetting,
-    ),
-    /** Update the description of a DeliveryBox. */
-    updateDeliveryBoxDescription: this.requestFunctionFactory(
-      descriptors.mailUpdateDeliveryBoxDescription,
-    ),
-    /** Update the catch-all of a MailAddress. */
-    updateMailAddressCatchAll: this.requestFunctionFactory(
-      descriptors.mailUpdateMailAddressCatchAll,
-    ),
-    /** List mail settings of a Project. */
-    listProjectMailSettings: this.requestFunctionFactory(
-      descriptors.mailListProjectMailSettings,
     ),
   };
 

@@ -716,6 +716,36 @@ const buildLeadFyndrApi = (baseClient: MittwaldAPIV2Client) => ({
 });
 
 const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** List DeliveryBoxes belonging to a Project. */
+  listDeliveryBoxes: new ApiCallAsyncResourceFactory(
+    descriptors.mailListDeliveryBoxes,
+    baseClient.mail.listDeliveryBoxes,
+  ).getApiResource,
+  /** List MailAddresses belonging to a Project. */
+  listMailAddresses: new ApiCallAsyncResourceFactory(
+    descriptors.mailListMailAddresses,
+    baseClient.mail.listMailAddresses,
+  ).getApiResource,
+  /** Get a DeliveryBox. */
+  getDeliveryBox: new ApiCallAsyncResourceFactory(
+    descriptors.mailGetDeliveryBox,
+    baseClient.mail.getDeliveryBox,
+  ).getApiResource,
+  /** Get a MailAddress. */
+  getMailAddress: new ApiCallAsyncResourceFactory(
+    descriptors.mailGetMailAddress,
+    baseClient.mail.getMailAddress,
+  ).getApiResource,
+  /** List backups belonging to a MailAddress. */
+  listBackupsForMailAddress: new ApiCallAsyncResourceFactory(
+    descriptors.mailListBackupsForMailAddress,
+    baseClient.mail.listBackupsForMailAddress,
+  ).getApiResource,
+  /** List mail settings of a Project. */
+  listProjectMailSettings: new ApiCallAsyncResourceFactory(
+    descriptors.mailListProjectMailSettings,
+    baseClient.mail.listProjectMailSettings,
+  ).getApiResource,
   /** Get a Migration. */
   migrationGetMigration: new ApiCallAsyncResourceFactory(
     descriptors.mailMigrationGetMigration,
@@ -725,36 +755,6 @@ const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
   migrationListMigrations: new ApiCallAsyncResourceFactory(
     descriptors.mailMigrationListMigrations,
     baseClient.mail.migrationListMigrations,
-  ).getApiResource,
-  /** Get a DeliveryBox. */
-  getDeliveryBox: new ApiCallAsyncResourceFactory(
-    descriptors.mailGetDeliveryBox,
-    baseClient.mail.getDeliveryBox,
-  ).getApiResource,
-  /** List backups belonging to a MailAddress. */
-  listBackupsForMailAddress: new ApiCallAsyncResourceFactory(
-    descriptors.mailListBackupsForMailAddress,
-    baseClient.mail.listBackupsForMailAddress,
-  ).getApiResource,
-  /** List MailAddresses belonging to a Project. */
-  listMailAddresses: new ApiCallAsyncResourceFactory(
-    descriptors.mailListMailAddresses,
-    baseClient.mail.listMailAddresses,
-  ).getApiResource,
-  /** List DeliveryBoxes belonging to a Project. */
-  listDeliveryBoxes: new ApiCallAsyncResourceFactory(
-    descriptors.mailListDeliveryBoxes,
-    baseClient.mail.listDeliveryBoxes,
-  ).getApiResource,
-  /** Get a MailAddress. */
-  getMailAddress: new ApiCallAsyncResourceFactory(
-    descriptors.mailGetMailAddress,
-    baseClient.mail.getMailAddress,
-  ).getApiResource,
-  /** List mail settings of a Project. */
-  listProjectMailSettings: new ApiCallAsyncResourceFactory(
-    descriptors.mailListProjectMailSettings,
-    baseClient.mail.listProjectMailSettings,
   ).getApiResource,
 });
 
