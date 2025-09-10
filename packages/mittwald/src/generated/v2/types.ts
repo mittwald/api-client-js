@@ -4713,6 +4713,10 @@ export declare module MittwaldAPIV2 {
          */
         command?: string[];
         /**
+         * The image digest.
+         */
+        digest: string;
+        /**
          * Entrypoint of the container image.
          */
         entrypoint?: string[];
@@ -8567,6 +8571,32 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      /**
+       * PricePlan with Variants.
+       */
+      export interface ExtensionPricePlan {
+        variants: MittwaldAPIV2.Components.Schemas.ExtensionVariant[];
+      }
+
+      export interface ExtensionVariant {
+        /**
+         * Description of Variant.
+         */
+        description?: string;
+        /**
+         * Key that needs to be unique in Variant.
+         */
+        key: string;
+        /**
+         * Name of Variant.
+         */
+        name?: string;
+        /**
+         * Price in cents.
+         */
+        priceInCents: number;
+      }
 
       export interface CommonsAddress {
         street: string;
@@ -21804,7 +21834,12 @@ export declare module MittwaldAPIV2 {
             extensionInstanceId: string;
           };
 
-          export interface RequestBody {}
+          export interface RequestBody {
+            /**
+             * The Variant Key of the selected Variant of the Extension. This is only required if the Extension has multiple Variants.
+             */
+            variantKey?: string;
+          }
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -22415,6 +22450,10 @@ export declare module MittwaldAPIV2 {
                  * The customer the extension should be booked for. Either customerId or projectId is required.
                  */
                 customerId: string;
+                /**
+                 * The Variant Key of the selected Variant of the Extension. This is only required if the Extension has multiple Variants.
+                 */
+                variantKey?: string;
               }
             | {
                 consentedScopes: string[];
@@ -22422,6 +22461,10 @@ export declare module MittwaldAPIV2 {
                  * The project the extension should be installed in. Either customerId or projectId is required.
                  */
                 projectId: string;
+                /**
+                 * The Variant Key of the selected Variant of the Extension. This is only required if the Extension has multiple Variants.
+                 */
+                variantKey?: string;
               };
 
           export type Header =
@@ -22860,16 +22903,24 @@ export declare module MittwaldAPIV2 {
             contributorId: string;
           };
 
-          export interface RequestBody {
-            /**
-             * If set to true, the request will be validated but not executed.
-             */
-            dryRun?: boolean;
-            /**
-             * Price in cents.
-             */
-            priceInCents?: number;
-          }
+          export type RequestBody =
+            | {
+                /**
+                 * If set to true, the request will be validated but not executed.
+                 */
+                dryRun?: boolean;
+                /**
+                 * Price in cents.
+                 */
+                priceInCents: number;
+              }
+            | {
+                /**
+                 * If set to true, the request will be validated but not executed.
+                 */
+                dryRun?: boolean;
+                pricePlan: MittwaldAPIV2.Components.Schemas.ExtensionPricePlan;
+              };
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
