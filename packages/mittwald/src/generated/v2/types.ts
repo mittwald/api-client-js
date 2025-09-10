@@ -5275,7 +5275,6 @@ export declare module MittwaldAPIV2 {
          * @maxItems 0
          */
         files?: [];
-        internal?: boolean;
         messageContent: "relocation" | "call";
         messageId: string;
         meta: MittwaldAPIV2.Components.Schemas.ConversationServiceRequestRelocationPayload;
