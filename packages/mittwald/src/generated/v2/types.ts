@@ -2813,17 +2813,6 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.mailDeleteMailAddress, TStatus>;
     }
 
-    namespace MailDisableMailArchive {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailDisableMailArchive
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.mailDisableMailArchive,
-          TStatus
-        >;
-    }
-
     namespace MailListBackupsForMailAddress {
       type RequestData = InferredRequestData<
         typeof descriptors.mailListBackupsForMailAddress
@@ -6173,6 +6162,7 @@ export declare module MittwaldAPIV2 {
         id: string;
         pendingInstallation: boolean;
         pendingRemoval: boolean;
+        variantKey?: string;
       }
 
       export interface MarketplaceExtensionInstanceChargeability {
@@ -25641,68 +25631,6 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $503 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2MailArchiveMailArchiveId {
-      namespace Delete {
-        namespace Parameters {
-          export type Path = {
-            mailArchiveId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;

@@ -11079,50 +11079,6 @@ export const mailDeleteMailAddress: OpenAPIOperation<
   operationId: "mail-delete-mail-address",
 };
 
-/** Disable a MailAddress Archive. */
-export const mailDisableMailArchive: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2MailArchiveMailArchiveId.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MailArchiveMailArchiveId.Delete.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MailArchiveMailArchiveId.Delete.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailArchiveMailArchiveId.Delete.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailArchiveMailArchiveId.Delete.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailArchiveMailArchiveId.Delete.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailArchiveMailArchiveId.Delete.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailArchiveMailArchiveId.Delete.Responses.$503.Content.ApplicationJson>,
-      503,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailArchiveMailArchiveId.Delete.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/mail-archive/{mailArchiveId}",
-  method: "DELETE",
-  operationId: "mail-disable-mail-archive",
-};
-
 /** List backups belonging to a MailAddress. */
 export const mailListBackupsForMailAddress: OpenAPIOperation<
   RequestType<
