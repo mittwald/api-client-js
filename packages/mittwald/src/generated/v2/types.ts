@@ -4280,6 +4280,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace MailDisableMailArchive {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailDisableMailArchive
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailDisableMailArchive,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -4349,7 +4360,8 @@ export declare module MittwaldAPIV2 {
         | "installing"
         | "upgrading"
         | "ready"
-        | "disabled";
+        | "disabled"
+        | "reconfiguring";
 
       /**
        * AppUpdatePolicy describes which updates should be applied automatically by our systems.
@@ -7019,8 +7031,17 @@ export declare module MittwaldAPIV2 {
       export interface MailMailAddress {
         address: string;
         archive: {
+          /**
+           * shows if the mail-archive is enabled
+           */
           active: boolean;
+          /**
+           * maximum available mail-archive storage in bytes
+           */
           quota: number;
+          /**
+           * current mail-archive usage in bytes
+           */
           usedBytes: number;
         };
         autoResponder: {
@@ -7884,7 +7905,7 @@ export declare module MittwaldAPIV2 {
         storage: string;
       }
 
-      export interface LlmlocksmithContainerMeta {
+      export interface AihostingContainerMeta {
         containerId?: string;
         errorMessage?: string;
         ingressId?: string;
@@ -7892,22 +7913,42 @@ export declare module MittwaldAPIV2 {
         status: "created" | "requested" | "failed";
       }
 
-      export interface LlmlocksmithLicence {
-        containerMeta?: MittwaldAPIV2.Components.Schemas.LlmlocksmithContainerMeta;
+      export interface AihostingLicence {
+        containerMeta?: MittwaldAPIV2.Components.Schemas.AihostingContainerMeta;
         customerId?: string;
         /**
          * Indicates whether the licence is blocked.
          */
         isBlocked: boolean;
+        /**
+         * Auto generated uuid to identify licences in requests.
+         */
         licenceId: string;
+        /**
+         * The secret API key which is required for authentication with the LLM hosting.
+         */
         licenceKey: string;
+        /**
+         * The number of allowed requests per unit. Limits are shared across all licences within the same project.
+         */
+        limit: {
+          allowedRequestsPerUnit: number;
+          unit: "minute" | "hour";
+        };
+        /**
+         * An array of LLM model identifiers enabled for this licence.
+         */
         models: string[];
         name: string;
         projectId?: string;
+        /**
+         * @deprecated
+         * Deprecated, please us limit.allowedRequestsPerUnit
+         */
         rateLimit: number;
       }
 
-      export interface LlmlocksmithModel {
+      export interface AihostingModel {
         displayName: string;
         docLink: string;
         name: string;
@@ -26662,7 +26703,7 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LlmlocksmithModel[];
+                MittwaldAPIV2.Components.Schemas.AihostingModel[];
             }
           }
 
@@ -27792,7 +27833,7 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LlmlocksmithLicence[];
+                MittwaldAPIV2.Components.Schemas.AihostingLicence[];
             }
           }
 
@@ -27857,7 +27898,7 @@ export declare module MittwaldAPIV2 {
           namespace $201 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LlmlocksmithLicence;
+                MittwaldAPIV2.Components.Schemas.AihostingLicence;
             }
           }
 
@@ -29067,7 +29108,7 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LlmlocksmithLicence;
+                MittwaldAPIV2.Components.Schemas.AihostingLicence;
             }
           }
 
@@ -29133,7 +29174,7 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LlmlocksmithLicence;
+                MittwaldAPIV2.Components.Schemas.AihostingLicence;
             }
           }
 
@@ -34301,6 +34342,84 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2MailAddressesMailAddressIdMailArchive {
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            mailAddressId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 

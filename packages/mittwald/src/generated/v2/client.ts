@@ -1134,6 +1134,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateProjectMailSetting: this.requestFunctionFactory(
       descriptors.mailUpdateProjectMailSetting,
     ),
+    /** Disable the mail-archive of a MailAddress. */
+    disableMailArchive: this.requestFunctionFactory(
+      descriptors.mailDisableMailArchive,
+    ),
   };
 
   /** The notification API allows you to manage your notifications. */
