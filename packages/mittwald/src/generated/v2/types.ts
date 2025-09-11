@@ -4203,6 +4203,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace MailDisableMailArchive {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailDisableMailArchive
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailDisableMailArchive,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -6903,6 +6914,20 @@ export declare module MittwaldAPIV2 {
 
       export interface MailMailAddress {
         address: string;
+        archive: {
+          /**
+           * shows if the mail-archive is enabled
+           */
+          active: boolean;
+          /**
+           * maximum available mail-archive storage in bytes
+           */
+          quota: number;
+          /**
+           * current mail-archive usage in bytes
+           */
+          usedBytes: number;
+        };
         autoResponder: {
           active: boolean;
           expiresAt?: string;
@@ -24971,6 +24996,7 @@ export declare module MittwaldAPIV2 {
             forwardAddress?: boolean;
             catchAll?: boolean;
             autoResponder?: boolean;
+            mailArchive?: boolean;
             limit?: number;
             skip?: number;
             page?: number;
@@ -33874,6 +33900,84 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2MailAddressesMailAddressIdMailArchive {
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            mailAddressId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
