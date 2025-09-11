@@ -4272,7 +4272,8 @@ export declare module MittwaldAPIV2 {
         | "installing"
         | "upgrading"
         | "ready"
-        | "disabled";
+        | "disabled"
+        | "reconfiguring";
 
       /**
        * AppUpdatePolicy describes which updates should be applied automatically by our systems.
@@ -4596,6 +4597,10 @@ export declare module MittwaldAPIV2 {
          * Command of the container image.
          */
         command?: string[];
+        /**
+         * The image digest.
+         */
+        digest: string;
         /**
          * Entrypoint of the container image.
          */
@@ -7743,7 +7748,7 @@ export declare module MittwaldAPIV2 {
         storage: string;
       }
 
-      export interface LlmlocksmithContainerMeta {
+      export interface AihostingContainerMeta {
         containerId?: string;
         errorMessage?: string;
         ingressId?: string;
@@ -7751,22 +7756,42 @@ export declare module MittwaldAPIV2 {
         status: "created" | "requested" | "failed";
       }
 
-      export interface LlmlocksmithLicence {
-        containerMeta?: MittwaldAPIV2.Components.Schemas.LlmlocksmithContainerMeta;
+      export interface AihostingLicence {
+        containerMeta?: MittwaldAPIV2.Components.Schemas.AihostingContainerMeta;
         customerId?: string;
         /**
          * Indicates whether the licence is blocked.
          */
         isBlocked: boolean;
+        /**
+         * Auto generated uuid to identify licences in requests.
+         */
         licenceId: string;
+        /**
+         * The secret API key which is required for authentication with the LLM hosting.
+         */
         licenceKey: string;
+        /**
+         * The number of allowed requests per unit. Limits are shared across all licences within the same project.
+         */
+        limit: {
+          allowedRequestsPerUnit: number;
+          unit: "minute" | "hour";
+        };
+        /**
+         * An array of LLM model identifiers enabled for this licence.
+         */
         models: string[];
         name: string;
         projectId?: string;
+        /**
+         * @deprecated
+         * Deprecated, please us limit.allowedRequestsPerUnit
+         */
         rateLimit: number;
       }
 
-      export interface LlmlocksmithModel {
+      export interface AihostingModel {
         displayName: string;
         docLink: string;
         name: string;
@@ -22198,6 +22223,10 @@ export declare module MittwaldAPIV2 {
                  * The customer the extension should be booked for. Either customerId or projectId is required.
                  */
                 customerId: string;
+                /**
+                 * The Variant Key of the selected Variant of the Extension. This is only required if the Extension has multiple Variants.
+                 */
+                variantKey?: string;
               }
             | {
                 consentedScopes: string[];
@@ -22205,6 +22234,10 @@ export declare module MittwaldAPIV2 {
                  * The project the extension should be installed in. Either customerId or projectId is required.
                  */
                 projectId: string;
+                /**
+                 * The Variant Key of the selected Variant of the Extension. This is only required if the Extension has multiple Variants.
+                 */
+                variantKey?: string;
               };
 
           export type Header =
@@ -26172,7 +26205,7 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LlmlocksmithModel[];
+                MittwaldAPIV2.Components.Schemas.AihostingModel[];
             }
           }
 
@@ -27303,7 +27336,7 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LlmlocksmithLicence[];
+                MittwaldAPIV2.Components.Schemas.AihostingLicence[];
             }
           }
 
@@ -27368,7 +27401,7 @@ export declare module MittwaldAPIV2 {
           namespace $201 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LlmlocksmithLicence;
+                MittwaldAPIV2.Components.Schemas.AihostingLicence;
             }
           }
 
@@ -28588,7 +28621,7 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LlmlocksmithLicence;
+                MittwaldAPIV2.Components.Schemas.AihostingLicence;
             }
           }
 
@@ -28654,7 +28687,7 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LlmlocksmithLicence;
+                MittwaldAPIV2.Components.Schemas.AihostingLicence;
             }
           }
 
