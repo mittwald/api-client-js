@@ -21060,6 +21060,7 @@ export declare module MittwaldAPIV2 {
             context: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
             contextId: string;
             extensionId: string;
+            variantKey?: string;
           }
 
           export type Header =
