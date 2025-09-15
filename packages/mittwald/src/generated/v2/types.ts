@@ -8603,30 +8603,20 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      /**
-       * PricePlan with Variants.
-       */
-      export interface ExtensionPricePlan {
-        variants: MittwaldAPIV2.Components.Schemas.ExtensionVariant[];
+      export interface OrderMailArchiveOrder {
+        mailAddressId: string;
+        syncExistingMails?: boolean;
       }
 
-      export interface ExtensionVariant {
-        /**
-         * Description of Variant.
-         */
-        description?: string;
-        /**
-         * Key that needs to be unique in Variant.
-         */
-        key: string;
-        /**
-         * Name of Variant.
-         */
-        name?: string;
-        /**
-         * Price in cents.
-         */
-        priceInCents: number;
+      export interface OrderMailArchiveOrderPreview {
+        mailAddressId: string;
+        syncExistingMails?: boolean;
+      }
+
+      export interface OrderMailArchiveOrderPreviewResponse {
+        feePrice: number;
+        recurringPrice: number;
+        totalPrice: number;
       }
 
       export interface CommonsAddress {

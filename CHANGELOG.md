@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.224.1](https://github.com/mittwald/api-client-js/compare/4.224.0...4.224.1) (2025-09-15)
+
+### Bug Fixes
+
+- **Dependencies:** Bump axios to fix CVE-2025-58754
+  ([64d55c6](https://github.com/mittwald/api-client-js/commit/64d55c6bc14e14cc0b0d4df8f98cc50b6a7debba))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [4.224.0](https://github.com/mittwald/api-client-js/compare/4.223.0...4.224.0) (2025-09-11)
 
 ### Features
