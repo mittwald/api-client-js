@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@types/parse-path": "^7.0.3",
-    "axios": "^1.11.0",
+    "axios": "^1.12.2",
     "parse-path": "^7.0.0",
     "path-to-regexp": "^8.2.0",
     "type-fest": "^4.30.0"
@@ -52,7 +52,7 @@
     "@types/jest": "^29.5.14",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
-    "axios": "^1.11.0",
+    "axios": "^1.12.2",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-json": "^3.1.0",
