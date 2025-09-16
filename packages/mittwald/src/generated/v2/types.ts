@@ -2791,6 +2791,17 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.mailDeleteMailAddress, TStatus>;
     }
 
+    namespace MailDisableMailArchive {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailDisableMailArchive
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailDisableMailArchive,
+          TStatus
+        >;
+    }
+
     namespace MailListBackupsForMailAddress {
       type RequestData = InferredRequestData<
         typeof descriptors.mailListBackupsForMailAddress
@@ -4200,17 +4211,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.verificationVerifyCompany,
-          TStatus
-        >;
-    }
-
-    namespace MailDisableMailArchive {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailDisableMailArchive
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.mailDisableMailArchive,
           TStatus
         >;
     }
@@ -7475,6 +7475,22 @@ export declare module MittwaldAPIV2 {
         machineType?: string;
       }
 
+      export interface OrderMailArchiveOrderPreviewResponse {
+        feePrice: number;
+        recurringPrice: number;
+        totalPrice: number;
+      }
+
+      export interface OrderMailArchiveOrderPreview {
+        mailAddressId: string;
+        syncExistingMails?: boolean;
+      }
+
+      export interface OrderMailArchiveOrder {
+        mailAddressId: string;
+        syncExistingMails?: boolean;
+      }
+
       export interface OrderOrderItem {
         addons?: MittwaldAPIV2.Components.Schemas.OrderAddons[];
         articleId: string;
@@ -8481,22 +8497,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export interface OrderMailArchiveOrder {
-        mailAddressId: string;
-        syncExistingMails?: boolean;
-      }
-
-      export interface OrderMailArchiveOrderPreview {
-        mailAddressId: string;
-        syncExistingMails?: boolean;
-      }
-
-      export interface OrderMailArchiveOrderPreviewResponse {
-        feePrice: number;
-        recurringPrice: number;
-        totalPrice: number;
-      }
 
       export interface CommonsAddress {
         street: string;
@@ -25494,6 +25494,84 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2MailAddressesMailAddressIdMailArchive {
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            mailAddressId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2MailAddressesMailAddressIdBackups {
       namespace Get {
         namespace Parameters {
@@ -33923,84 +34001,6 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2MailAddressesMailAddressIdMailArchive {
-      namespace Delete {
-        namespace Parameters {
-          export type Path = {
-            mailAddressId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $503 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
