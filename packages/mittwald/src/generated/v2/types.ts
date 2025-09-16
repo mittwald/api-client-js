@@ -4689,13 +4689,6 @@ export declare module MittwaldAPIV2 {
         MittwaldAPIV2.Components.Schemas.ExtensionSubscriptionBasedContract;
 
       /**
-       * PricePlan with Variants.
-       */
-      export interface ExtensionPricePlan {
-        variants: MittwaldAPIV2.Components.Schemas.ExtensionVariant[];
-      }
-
-      /**
        * A strategy for Contracts that will be paid periodically.
        */
       export interface ExtensionSubscriptionBasedContract {
@@ -4707,25 +4700,6 @@ export declare module MittwaldAPIV2 {
         interactionRequired: boolean;
         status: "notStarted" | "pending" | "active" | "terminationPending";
         terminationTargetDate?: string;
-      }
-
-      export interface ExtensionVariant {
-        /**
-         * Description of Variant.
-         */
-        description?: string;
-        /**
-         * Key that needs to be unique in Variant.
-         */
-        key: string;
-        /**
-         * Name of Variant.
-         */
-        name?: string;
-        /**
-         * Price in cents.
-         */
-        priceInCents: number;
       }
 
       export interface ContainerCreateRegistry {
@@ -9501,6 +9475,7 @@ export declare module MittwaldAPIV2 {
           export interface RequestBody {
             appVersionId: string;
             description: string;
+            installationPath?: string;
             updatePolicy: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
             userInputs: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
           }
@@ -9837,6 +9812,7 @@ export declare module MittwaldAPIV2 {
 
           export interface RequestBody {
             description: string;
+            installationPath?: string;
             targetProjectId?: string;
           }
 
@@ -21866,12 +21842,7 @@ export declare module MittwaldAPIV2 {
             extensionInstanceId: string;
           };
 
-          export interface RequestBody {
-            /**
-             * The Variant Key of the selected Variant of the Extension. This is only required if the Extension has multiple Variants.
-             */
-            variantKey?: string;
-          }
+          export interface RequestBody {}
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -22245,6 +22216,8 @@ export declare module MittwaldAPIV2 {
             limit?: number;
             skip?: number;
             page?: number;
+            sort?: "name";
+            order?: "asc" | "desc";
           };
         }
         namespace Responses {
@@ -22935,24 +22908,16 @@ export declare module MittwaldAPIV2 {
             contributorId: string;
           };
 
-          export type RequestBody =
-            | {
-                /**
-                 * If set to true, the request will be validated but not executed.
-                 */
-                dryRun?: boolean;
-                /**
-                 * Price in cents.
-                 */
-                priceInCents: number;
-              }
-            | {
-                /**
-                 * If set to true, the request will be validated but not executed.
-                 */
-                dryRun?: boolean;
-                pricePlan: MittwaldAPIV2.Components.Schemas.ExtensionPricePlan;
-              };
+          export interface RequestBody {
+            /**
+             * If set to true, the request will be validated but not executed.
+             */
+            dryRun?: boolean;
+            /**
+             * Price in cents.
+             */
+            priceInCents?: number;
+          }
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -27118,7 +27083,7 @@ export declare module MittwaldAPIV2 {
           namespace $422 {
             namespace Content {
               export interface ApplicationJson {
-                [k: string]: unknown;
+                error?: {};
               }
             }
           }
