@@ -4333,6 +4333,7 @@ export declare module MittwaldAPIV2 {
         backendPathTemplate?: string;
         breakingNote?: MittwaldAPIV2.Components.Schemas.AppBreakingNote;
         databases?: MittwaldAPIV2.Components.Schemas.AppDatabaseDependency[];
+        defaultCronjobs?: MittwaldAPIV2.Components.Schemas.AppDefaultCronjob[];
         docRoot: string;
         docRootUserEditable: boolean;
         externalVersion: string;
@@ -4351,6 +4352,12 @@ export declare module MittwaldAPIV2 {
         faqLink: string;
       }
 
+      export interface AppCronjobCommand {
+        interpreterTemplate?: string;
+        parametersTemplate?: string;
+        pathTemplate?: string;
+      }
+
       /**
        * A DatabaseDependency is a generic description of need for a database, used by AppVersions.
        */
@@ -4361,6 +4368,15 @@ export declare module MittwaldAPIV2 {
           [k: string]: string;
         };
         version: string;
+      }
+
+      export interface AppDefaultCronjob {
+        active: boolean;
+        command?: MittwaldAPIV2.Components.Schemas.AppCronjobCommand;
+        description: string;
+        interval: string;
+        timeout: number;
+        urlTemplate?: string;
       }
 
       export interface AppError {
@@ -22029,6 +22045,8 @@ export declare module MittwaldAPIV2 {
             limit?: number;
             skip?: number;
             page?: number;
+            sort?: "name";
+            order?: "asc" | "desc";
           };
         }
         namespace Responses {
