@@ -586,6 +586,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     customerUpdatePaymentMethod: this.requestFunctionFactory(
       descriptors.marketplaceCustomerUpdatePaymentMethod,
     ),
+    /** Start the verification process of a contributor. */
+    contributorRequestVerification: this.requestFunctionFactory(
+      descriptors.contributorRequestVerification,
+    ),
   };
 
   /** The conversation API allows you to manage your support conversations. */

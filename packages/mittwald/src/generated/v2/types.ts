@@ -4280,6 +4280,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace ContributorRequestVerification {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorRequestVerification
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorRequestVerification,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -4655,7 +4666,7 @@ export declare module MittwaldAPIV2 {
          */
         sourcePath?: string;
         /**
-         * Target path where the backup should be restored to. If not set, equaled source path with adjusted path mapping. The target path will be determined to equal the origin source, e.g. '/data-p-shortid-userdata/p-shortid/web' will be determined as 'data-p-shortid-userdata/p-shortid/web' as it's originally sourced from there.
+         * Target path where the backup should be restored to. If not set, the target path will be determined to equal the origin source, e.g. '/data-p-shortid-userdata/p-shortid' will be determined as 'data-p-shortid-userdata/p-shortid' as it's originally sourced from there.
          */
         targetPath?: string;
       }
@@ -6037,6 +6048,8 @@ export declare module MittwaldAPIV2 {
             url: string;
           };
 
+      /**
+       */
       export type MarketplaceContributorState = "enabled" | "disabled";
 
       export interface MarketplaceExtension {
@@ -6076,6 +6089,9 @@ export declare module MittwaldAPIV2 {
          */
         description: string;
         detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
+        /**
+         * @deprecated
+         */
         disabled: boolean;
         externalFrontends?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
         /**
@@ -6314,6 +6330,8 @@ export declare module MittwaldAPIV2 {
          * @deprecated
          */
         url?: string;
+        verificationRequested: boolean;
+        verified: boolean;
       }
 
       export interface MarketplaceOwnExtension {
@@ -6328,6 +6346,9 @@ export declare module MittwaldAPIV2 {
         deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
         description?: string;
         detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
+        /**
+         * @deprecated
+         */
         disabled?: boolean;
         externalFrontends?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
         /**
@@ -8459,45 +8480,6 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export type MembershipCustomerRoles =
-        | "notset"
-        | "owner"
-        | "member"
-        | "accountant";
-
-      export interface MembershipCustomerInvite {
-        /**
-         * Reference to the Project's avatar.
-         */
-        avatarRefId?: string;
-        /**
-         * ID of the Customer the invite is for.
-         */
-        customerId: string;
-        /**
-         * Name of the Customer the user is invited to.
-         */
-        customerName: string;
-        /**
-         * ID of the CustomerInvite.
-         */
-        id: string;
-        information: MittwaldAPIV2.Components.Schemas.MembershipInviteInformation;
-        /**
-         * Mail-address of the user the invite is for.
-         */
-        mailAddress: string;
-        /**
-         * Time the CustomerMembership should expire at.
-         */
-        membershipExpiresAt?: string;
-        /**
-         * Message contained in the CustomerInvite.
-         */
-        message?: string;
-        role: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
-      }
-
       export interface MembershipProjectMembership {
         /**
          * Avatar file reference id of the user.
@@ -8549,6 +8531,12 @@ export declare module MittwaldAPIV2 {
          */
         userId: string;
       }
+
+      export type MembershipCustomerRoles =
+        | "notset"
+        | "owner"
+        | "member"
+        | "accountant";
 
       export interface MembershipCustomerMembership {
         /**
@@ -8618,6 +8606,39 @@ export declare module MittwaldAPIV2 {
         | "owner"
         | "member"
         | "accountant";
+
+      export interface MembershipCustomerInvite {
+        /**
+         * Reference to the Project's avatar.
+         */
+        avatarRefId?: string;
+        /**
+         * ID of the Customer the invite is for.
+         */
+        customerId: string;
+        /**
+         * Name of the Customer the user is invited to.
+         */
+        customerName: string;
+        /**
+         * ID of the CustomerInvite.
+         */
+        id: string;
+        information: MittwaldAPIV2.Components.Schemas.MembershipInviteInformation;
+        /**
+         * Mail-address of the user the invite is for.
+         */
+        mailAddress: string;
+        /**
+         * Time the CustomerMembership should expire at.
+         */
+        membershipExpiresAt?: string;
+        /**
+         * Message contained in the CustomerInvite.
+         */
+        message?: string;
+        role: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
+      }
 
       export type MembershipProjectRoles =
         | "notset"
@@ -10788,7 +10809,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectBackupsProjectBackupIdToc {
+    namespace V2ProjectBackupsProjectBackupIdPaths {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -34387,6 +34408,52 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdVerificationProcess {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
