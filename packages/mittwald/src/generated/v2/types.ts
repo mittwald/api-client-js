@@ -9400,6 +9400,7 @@ export declare module MittwaldAPIV2 {
           export interface RequestBody {
             appVersionId: string;
             description: string;
+            installationPath?: string;
             updatePolicy: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
             userInputs: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
           }
@@ -9744,6 +9745,7 @@ export declare module MittwaldAPIV2 {
 
           export interface RequestBody {
             description: string;
+            installationPath?: string;
             targetProjectId?: string;
           }
 
