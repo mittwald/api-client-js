@@ -4214,6 +4214,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace ContributorRequestVerification {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorRequestVerification
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorRequestVerification,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -5894,6 +5905,8 @@ export declare module MittwaldAPIV2 {
             url: string;
           };
 
+      /**
+       */
       export type MarketplaceContributorState = "enabled" | "disabled";
 
       export interface MarketplaceExtension {
@@ -5933,6 +5946,9 @@ export declare module MittwaldAPIV2 {
          */
         description: string;
         detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
+        /**
+         * @deprecated
+         */
         disabled: boolean;
         externalFrontends?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
         /**
@@ -6171,6 +6187,8 @@ export declare module MittwaldAPIV2 {
          * @deprecated
          */
         url?: string;
+        verificationRequested: boolean;
+        verified: boolean;
       }
 
       export interface MarketplaceOwnExtension {
@@ -6185,6 +6203,9 @@ export declare module MittwaldAPIV2 {
         deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
         description?: string;
         detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
+        /**
+         * @deprecated
+         */
         disabled?: boolean;
         externalFrontends?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
         /**
@@ -6215,6 +6236,7 @@ export declare module MittwaldAPIV2 {
         scopes?: string[];
         secrets: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionSecret[];
         /**
+         * @deprecated
          * deprecated
          */
         state?: "enabled" | "blocked" | "disabled";
@@ -34021,6 +34043,52 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdVerificationProcess {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
