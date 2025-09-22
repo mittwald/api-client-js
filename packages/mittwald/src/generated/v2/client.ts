@@ -692,6 +692,18 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The customer API allows you to manage your own organizations and users. */
   public readonly customer = {
+    /** Accept a CustomerInvite. */
+    acceptCustomerInvite: this.requestFunctionFactory(
+      descriptors.customerAcceptCustomerInvite,
+    ),
+    /** List Invites belonging to a Customer. */
+    listInvitesForCustomer: this.requestFunctionFactory(
+      descriptors.customerListInvitesForCustomer,
+    ),
+    /** Create a CustomerInvite. */
+    createCustomerInvite: this.requestFunctionFactory(
+      descriptors.customerCreateCustomerInvite,
+    ),
     /** Get all customer profiles the authenticated user has access to. */
     listCustomers: this.requestFunctionFactory(
       descriptors.customerListCustomers,
@@ -708,26 +720,18 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getWallet: this.requestFunctionFactory(descriptors.customerGetWallet),
     /** Create the Wallet for the Customer. */
     createWallet: this.requestFunctionFactory(descriptors.customerCreateWallet),
-    /** Get a customer profile. */
-    getCustomer: this.requestFunctionFactory(descriptors.customerGetCustomer),
-    /** Update a customer profile. */
-    updateCustomer: this.requestFunctionFactory(
-      descriptors.customerUpdateCustomer,
+    /** Decline a CustomerInvite. */
+    declineCustomerInvite: this.requestFunctionFactory(
+      descriptors.customerDeclineCustomerInvite,
     ),
-    /** Delete a customer profile. */
-    deleteCustomer: this.requestFunctionFactory(
-      descriptors.customerDeleteCustomer,
+    /** Get a CustomerInvite. */
+    getCustomerInvite: this.requestFunctionFactory(
+      descriptors.customerGetCustomerInvite,
     ),
-    /** Check if the customer profile has a valid contract partner configured. */
-    isCustomerLegallyCompetent: this.requestFunctionFactory(
-      descriptors.customerIsCustomerLegallyCompetent,
+    /** Delete a CustomerInvite. */
+    deleteCustomerInvite: this.requestFunctionFactory(
+      descriptors.customerDeleteCustomerInvite,
     ),
-    /** Request a new avatar upload for the customer profile. */
-    requestAvatarUpload: this.requestFunctionFactory(
-      descriptors.customerRequestAvatarUpload,
-    ),
-    /** Remove the avatar picture of the customer profile. */
-    removeAvatar: this.requestFunctionFactory(descriptors.customerRemoveAvatar),
     /** Get a CustomerMembership. */
     getCustomerMembership: this.requestFunctionFactory(
       descriptors.customerGetCustomerMembership,
@@ -740,49 +744,45 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateCustomerMembership: this.requestFunctionFactory(
       descriptors.customerUpdateCustomerMembership,
     ),
-    /** Resend the mail for a CustomerInvite. */
-    resendCustomerInviteMail: this.requestFunctionFactory(
-      descriptors.customerResendCustomerInviteMail,
+    /** Get a customer profile. */
+    getCustomer: this.requestFunctionFactory(descriptors.customerGetCustomer),
+    /** Update a customer profile. */
+    updateCustomer: this.requestFunctionFactory(
+      descriptors.customerUpdateCustomer,
     ),
-    /** Accept a CustomerInvite. */
-    acceptCustomerInvite: this.requestFunctionFactory(
-      descriptors.customerAcceptCustomerInvite,
-    ),
-    /** Get a CustomerInvite. */
-    getCustomerInvite: this.requestFunctionFactory(
-      descriptors.customerGetCustomerInvite,
-    ),
-    /** Delete a CustomerInvite. */
-    deleteCustomerInvite: this.requestFunctionFactory(
-      descriptors.customerDeleteCustomerInvite,
-    ),
-    /** Decline a CustomerInvite. */
-    declineCustomerInvite: this.requestFunctionFactory(
-      descriptors.customerDeclineCustomerInvite,
-    ),
-    /** List CustomerMemberships belonging to the executing user. */
-    listCustomerMemberships: this.requestFunctionFactory(
-      descriptors.customerListCustomerMemberships,
-    ),
-    /** List Invites belonging to a Customer. */
-    listInvitesForCustomer: this.requestFunctionFactory(
-      descriptors.customerListInvitesForCustomer,
-    ),
-    /** Create a CustomerInvite. */
-    createCustomerInvite: this.requestFunctionFactory(
-      descriptors.customerCreateCustomerInvite,
+    /** Delete a customer profile. */
+    deleteCustomer: this.requestFunctionFactory(
+      descriptors.customerDeleteCustomer,
     ),
     /** Get a CustomerInvite by token. */
     getCustomerTokenInvite: this.requestFunctionFactory(
       descriptors.customerGetCustomerTokenInvite,
     ),
-    /** List Memberships belonging to a Customer. */
-    listMembershipsForCustomer: this.requestFunctionFactory(
-      descriptors.customerListMembershipsForCustomer,
+    /** Check if the customer profile has a valid contract partner configured. */
+    isCustomerLegallyCompetent: this.requestFunctionFactory(
+      descriptors.customerIsCustomerLegallyCompetent,
     ),
     /** List CustomerInvites belonging to the executing user. */
     listCustomerInvites: this.requestFunctionFactory(
       descriptors.customerListCustomerInvites,
+    ),
+    /** List CustomerMemberships belonging to the executing user. */
+    listCustomerMemberships: this.requestFunctionFactory(
+      descriptors.customerListCustomerMemberships,
+    ),
+    /** List Memberships belonging to a Customer. */
+    listMembershipsForCustomer: this.requestFunctionFactory(
+      descriptors.customerListMembershipsForCustomer,
+    ),
+    /** Request a new avatar upload for the customer profile. */
+    requestAvatarUpload: this.requestFunctionFactory(
+      descriptors.customerRequestAvatarUpload,
+    ),
+    /** Remove the avatar picture of the customer profile. */
+    removeAvatar: this.requestFunctionFactory(descriptors.customerRemoveAvatar),
+    /** Resend the mail for a CustomerInvite. */
+    resendCustomerInviteMail: this.requestFunctionFactory(
+      descriptors.customerResendCustomerInviteMail,
     ),
   };
 
@@ -1438,6 +1438,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The project API allows you to manage your projects, and also any kinds of user memberships concerning these projects. */
   public readonly project = {
+    /** Accept a ProjectInvite. */
+    acceptProjectInvite: this.requestFunctionFactory(
+      descriptors.projectAcceptProjectInvite,
+    ),
     /** Get a list of already created llm licences. */
     getLlmLicencesExperimental: this.requestFunctionFactory(
       descriptors.projectGetLlmLicencesExperimental,
@@ -1446,9 +1450,21 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     createLlmBetaLicenceExperimental: this.requestFunctionFactory(
       descriptors.projectCreateLlmBetaLicenceExperimental,
     ),
+    /** List Invites belonging to a Project. */
+    listInvitesForProject: this.requestFunctionFactory(
+      descriptors.projectListInvitesForProject,
+    ),
+    /** Create a ProjectInvite. */
+    createProjectInvite: this.requestFunctionFactory(
+      descriptors.projectCreateProjectInvite,
+    ),
     /** Create a Project belonging to a Server. */
     createProject: this.requestFunctionFactory(
       descriptors.projectCreateProject,
+    ),
+    /** Decline a ProjectInvite. */
+    declineProjectInvite: this.requestFunctionFactory(
+      descriptors.projectDeclineProjectInvite,
     ),
     /** Request a Project avatar upload. */
     requestProjectAvatarUpload: this.requestFunctionFactory(
@@ -1457,6 +1473,26 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Delete a Project's avatar. */
     deleteProjectAvatar: this.requestFunctionFactory(
       descriptors.projectDeleteProjectAvatar,
+    ),
+    /** Get a ProjectInvite. */
+    getProjectInvite: this.requestFunctionFactory(
+      descriptors.projectGetProjectInvite,
+    ),
+    /** Delete a ProjectInvite. */
+    deleteProjectInvite: this.requestFunctionFactory(
+      descriptors.projectDeleteProjectInvite,
+    ),
+    /** Get a ProjectMembership */
+    getProjectMembership: this.requestFunctionFactory(
+      descriptors.projectGetProjectMembership,
+    ),
+    /** Delete a ProjectMembership. */
+    deleteProjectMembership: this.requestFunctionFactory(
+      descriptors.projectDeleteProjectMembership,
+    ),
+    /** Update a ProjectMembership. */
+    updateProjectMembership: this.requestFunctionFactory(
+      descriptors.projectUpdateProjectMembership,
     ),
     /** Get a Project. */
     getProject: this.requestFunctionFactory(descriptors.projectGetProject),
@@ -1480,12 +1516,36 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateLlmLicenceExperimental: this.requestFunctionFactory(
       descriptors.projectUpdateLlmLicenceExperimental,
     ),
+    /** Get a ProjectInvite by token. */
+    getProjectTokenInvite: this.requestFunctionFactory(
+      descriptors.projectGetProjectTokenInvite,
+    ),
+    /** Get the executing user's membership in a Project. */
+    getSelfMembershipForProject: this.requestFunctionFactory(
+      descriptors.projectGetSelfMembershipForProject,
+    ),
     /** Get a Server. */
     getServer: this.requestFunctionFactory(descriptors.projectGetServer),
+    /** List Memberships belonging to a Project. */
+    listMembershipsForProject: this.requestFunctionFactory(
+      descriptors.projectListMembershipsForProject,
+    ),
+    /** List ProjectInvites belonging to the executing user. */
+    listProjectInvites: this.requestFunctionFactory(
+      descriptors.projectListProjectInvites,
+    ),
+    /** List ProjectMemberships belonging to the executing user. */
+    listProjectMemberships: this.requestFunctionFactory(
+      descriptors.projectListProjectMemberships,
+    ),
     /** List Projects belonging to the executing user. */
     listProjects: this.requestFunctionFactory(descriptors.projectListProjects),
     /** List Servers belonging to the executing user. */
     listServers: this.requestFunctionFactory(descriptors.projectListServers),
+    /** Resend the mail for a ProjectInvite. */
+    resendProjectInviteMail: this.requestFunctionFactory(
+      descriptors.projectResendProjectInviteMail,
+    ),
     /** Update a Project's description. */
     updateProjectDescription: this.requestFunctionFactory(
       descriptors.projectUpdateProjectDescription,
@@ -1510,66 +1570,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update a Server's storage space notification threshold. */
     storagespaceReplaceServerNotificationThreshold: this.requestFunctionFactory(
       descriptors.storagespaceReplaceServerNotificationThreshold,
-    ),
-    /** Resend the mail for a ProjectInvite. */
-    resendProjectInviteMail: this.requestFunctionFactory(
-      descriptors.projectResendProjectInviteMail,
-    ),
-    /** Accept a ProjectInvite. */
-    acceptProjectInvite: this.requestFunctionFactory(
-      descriptors.projectAcceptProjectInvite,
-    ),
-    /** Get a ProjectInvite by token. */
-    getProjectTokenInvite: this.requestFunctionFactory(
-      descriptors.projectGetProjectTokenInvite,
-    ),
-    /** List ProjectMemberships belonging to the executing user. */
-    listProjectMemberships: this.requestFunctionFactory(
-      descriptors.projectListProjectMemberships,
-    ),
-    /** Decline a ProjectInvite. */
-    declineProjectInvite: this.requestFunctionFactory(
-      descriptors.projectDeclineProjectInvite,
-    ),
-    /** Get a ProjectMembership */
-    getProjectMembership: this.requestFunctionFactory(
-      descriptors.projectGetProjectMembership,
-    ),
-    /** Delete a ProjectMembership. */
-    deleteProjectMembership: this.requestFunctionFactory(
-      descriptors.projectDeleteProjectMembership,
-    ),
-    /** Update a ProjectMembership. */
-    updateProjectMembership: this.requestFunctionFactory(
-      descriptors.projectUpdateProjectMembership,
-    ),
-    /** Get a ProjectInvite. */
-    getProjectInvite: this.requestFunctionFactory(
-      descriptors.projectGetProjectInvite,
-    ),
-    /** Delete a ProjectInvite. */
-    deleteProjectInvite: this.requestFunctionFactory(
-      descriptors.projectDeleteProjectInvite,
-    ),
-    /** Get the executing user's membership in a Project. */
-    getSelfMembershipForProject: this.requestFunctionFactory(
-      descriptors.projectGetSelfMembershipForProject,
-    ),
-    /** List ProjectInvites belonging to the executing user. */
-    listProjectInvites: this.requestFunctionFactory(
-      descriptors.projectListProjectInvites,
-    ),
-    /** List Invites belonging to a Project. */
-    listInvitesForProject: this.requestFunctionFactory(
-      descriptors.projectListInvitesForProject,
-    ),
-    /** Create a ProjectInvite. */
-    createProjectInvite: this.requestFunctionFactory(
-      descriptors.projectCreateProjectInvite,
-    ),
-    /** List Memberships belonging to a Project. */
-    listMembershipsForProject: this.requestFunctionFactory(
-      descriptors.projectListMembershipsForProject,
     ),
   };
 
