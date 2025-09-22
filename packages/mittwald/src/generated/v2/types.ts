@@ -915,6 +915,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ContributorRequestVerification {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorRequestVerification
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorRequestVerification,
+          TStatus
+        >;
+    }
+
     namespace ContributorRotateSecretForExtensionInstance {
       type RequestData = InferredRequestData<
         typeof descriptors.contributorRotateSecretForExtensionInstance
@@ -4211,17 +4222,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.verificationVerifyCompany,
-          TStatus
-        >;
-    }
-
-    namespace ContributorRequestVerification {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contributorRequestVerification
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.contributorRequestVerification,
           TStatus
         >;
     }
@@ -14204,6 +14204,52 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2ContributorsContributorIdVerificationProcess {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdSecret {
       namespace Put {
         namespace Parameters {
@@ -23350,6 +23396,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             projectId?: string;
             certificateId?: string;
+            hostnameSubstring?: string;
             limit?: number;
             skip?: number;
             page?: number;
@@ -34043,52 +34090,6 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ContributorsContributorIdVerificationProcess {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 

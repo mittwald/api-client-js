@@ -398,6 +398,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     contributorResetContributorAvatar: this.requestFunctionFactory(
       descriptors.contributorResetContributorAvatar,
     ),
+    /** Start the verification process of a contributor. */
+    contributorRequestVerification: this.requestFunctionFactory(
+      descriptors.contributorRequestVerification,
+    ),
     /** Rotate the secret for an extension instance. */
     contributorRotateSecretForExtensionInstance: this.requestFunctionFactory(
       descriptors.contributorRotateSecretForExtensionInstance,
@@ -577,10 +581,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Get the link to update the marketplace payment method */
     customerUpdatePaymentMethod: this.requestFunctionFactory(
       descriptors.marketplaceCustomerUpdatePaymentMethod,
-    ),
-    /** Start the verification process of a contributor. */
-    contributorRequestVerification: this.requestFunctionFactory(
-      descriptors.contributorRequestVerification,
     ),
   };
 
