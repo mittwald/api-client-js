@@ -11840,6 +11840,11 @@ export const orderCreateOrder: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Orders.Post.Responses.$422.Content.ApplicationJson>,
+      422,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2Orders.Post.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"

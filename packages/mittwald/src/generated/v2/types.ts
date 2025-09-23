@@ -26823,6 +26823,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $422 {
+            namespace Content {
+              export interface ApplicationJson {
+                error?: {};
+              }
+            }
+          }
+
           namespace $429 {
             namespace Content {
               export interface ApplicationJson {
