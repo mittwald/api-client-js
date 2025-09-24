@@ -1414,6 +1414,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     verificationVerifyCompany: this.requestFunctionFactory(
       descriptors.verificationVerifyCompany,
     ),
+    /** List valid time zones. */
+    ellaneousListTimeZones: this.requestFunctionFactory(
+      descriptors.miscellaneousListTimeZones,
+    ),
   };
 
   /** The page insights API allows you to get page insights information. */

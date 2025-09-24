@@ -4291,6 +4291,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace MiscellaneousListTimeZones {
+      type RequestData = InferredRequestData<
+        typeof descriptors.miscellaneousListTimeZones
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.miscellaneousListTimeZones,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -5461,6 +5472,7 @@ export declare module MittwaldAPIV2 {
         nextExecutionTime?: string;
         projectId?: string;
         shortId: string;
+        timeZone?: string;
         timeout: number;
         updatedAt: string;
       }
@@ -5512,6 +5524,7 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.CronjobCronjobCommand;
         email?: string;
         interval: string;
+        timeZone?: string;
         timeout: number;
       }
 
@@ -6177,7 +6190,7 @@ export declare module MittwaldAPIV2 {
           domain: string;
           id: string;
         };
-        chargeability: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstanceChargeability;
+        chargeability?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstanceChargeability;
         consentedScopes: string[];
         contributorId: string;
         contributorName: string;
@@ -6200,7 +6213,6 @@ export declare module MittwaldAPIV2 {
       export interface MarketplaceExtensionInstanceChargeability {
         isChargeable: boolean;
         reasons: {
-          isNonChargeableCustomer?: boolean;
           isOwnExtension: boolean;
         };
       }
@@ -31615,15 +31627,6 @@ export declare module MittwaldAPIV2 {
             }
           }
 
-          namespace $422 {
-            namespace Content {
-              export interface ApplicationJson {
-                errors?: {}[];
-                message?: string;
-              }
-            }
-          }
-
           namespace $429 {
             namespace Content {
               export interface ApplicationJson {
@@ -34461,6 +34464,42 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2TimeZones {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson = string[];
             }
           }
 

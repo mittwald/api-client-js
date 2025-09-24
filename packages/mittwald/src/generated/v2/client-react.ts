@@ -764,6 +764,11 @@ const buildMiscApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.miscGetLlmModelsExperimental,
     baseClient.misc.getLlmModelsExperimental,
   ).getApiResource,
+  /** List valid time zones. */
+  ellaneousListTimeZones: new ApiCallAsyncResourceFactory(
+    descriptors.miscellaneousListTimeZones,
+    baseClient.misc.ellaneousListTimeZones,
+  ).getApiResource,
 });
 
 const buildNotificationApi = (baseClient: MittwaldAPIV2Client) => ({

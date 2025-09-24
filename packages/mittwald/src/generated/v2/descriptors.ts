@@ -14939,11 +14939,6 @@ export const userAuthenticate: OpenAPIOperation<
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Authenticate.Post.Responses.$422.Content.ApplicationJson>,
-      422,
-      "application/json"
-    >
-  | Response<
       Simplify<MittwaldAPIV2.Paths.V2Authenticate.Post.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
@@ -16789,4 +16784,33 @@ export const backupRequestProjectBackupRestorePath: OpenAPIOperation<
   path: "/v2/project-backups/{projectBackupId}/restore-path",
   method: "POST",
   operationId: "backup-request-project-backup-restore-path",
+};
+
+/** List valid time zones. */
+export const miscellaneousListTimeZones: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2TimeZones.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2TimeZones.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2TimeZones.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2TimeZones.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2TimeZones.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2TimeZones.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/time-zones",
+  method: "GET",
+  operationId: "miscellaneous-list-time-zones",
 };
