@@ -4452,9 +4452,9 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface AppCronjobCommand {
-        interpreterTemplate?: string;
+        interpreterTemplate: string;
         parametersTemplate?: string;
-        pathTemplate?: string;
+        pathTemplate: string;
       }
 
       /**
