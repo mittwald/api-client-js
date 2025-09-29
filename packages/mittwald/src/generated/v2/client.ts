@@ -145,10 +145,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteProjectBackup: this.requestFunctionFactory(
       descriptors.backupDeleteProjectBackup,
     ),
-    /** Change the description of a ProjectBackup. */
-    updateProjectBackupDescription: this.requestFunctionFactory(
-      descriptors.backupUpdateProjectBackupDescription,
-    ),
     /** Get table of contents for a Project Backup. */
     getProjectBackupToc: this.requestFunctionFactory(
       descriptors.backupGetProjectBackupToc,
@@ -156,6 +152,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Restore a ProjectBackup's path. */
     requestProjectBackupRestorePath: this.requestFunctionFactory(
       descriptors.backupRequestProjectBackupRestorePath,
+    ),
+    /** Change the description of a ProjectBackup. */
+    updateProjectBackupDescription: this.requestFunctionFactory(
+      descriptors.backupUpdateProjectBackupDescription,
     ),
   };
 
@@ -349,6 +349,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The marketplace API allows you to manage extensions and more information regaring the marketplace. */
   public readonly marketplace = {
+    /** Start the verification process of a contributor. */
+    contributorRequestVerification: this.requestFunctionFactory(
+      descriptors.contributorRequestVerification,
+    ),
+    /** Cancel the verification-process of a contributor. */
+    contributorCancelVerification: this.requestFunctionFactory(
+      descriptors.contributorCancelVerification,
+    ),
     /** Get a Contributor. */
     extensionGetContributor: this.requestFunctionFactory(
       descriptors.extensionGetContributor,
@@ -405,14 +413,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Delete deviating contributor avatar und return to the inherited customer avatar. */
     contributorResetContributorAvatar: this.requestFunctionFactory(
       descriptors.contributorResetContributorAvatar,
-    ),
-    /** Start the verification process of a contributor. */
-    contributorRequestVerification: this.requestFunctionFactory(
-      descriptors.contributorRequestVerification,
-    ),
-    /** Cancel the verification-process of a contributor. */
-    contributorCancelVerification: this.requestFunctionFactory(
-      descriptors.contributorCancelVerification,
     ),
     /** Rotate the secret for an extension instance. */
     contributorRotateSecretForExtensionInstance: this.requestFunctionFactory(
@@ -1417,10 +1417,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Check if a company exists. */
     verificationVerifyCompany: this.requestFunctionFactory(
       descriptors.verificationVerifyCompany,
-    ),
-    /** List valid time zones. */
-    ellaneousListTimeZones: this.requestFunctionFactory(
-      descriptors.miscellaneousListTimeZones,
     ),
   };
 
