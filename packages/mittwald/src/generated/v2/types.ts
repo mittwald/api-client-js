@@ -371,13 +371,13 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace BackupGetProjectBackupToc {
+    namespace BackupGetProjectBackupDirectories {
       type RequestData = InferredRequestData<
-        typeof descriptors.backupGetProjectBackupToc
+        typeof descriptors.backupGetProjectBackupDirectories
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.backupGetProjectBackupToc,
+          typeof descriptors.backupGetProjectBackupDirectories,
           TStatus
         >;
     }
@@ -4607,7 +4607,7 @@ export declare module MittwaldAPIV2 {
         desired: string;
       }
 
-      export type BackupRestorePathPhase = "running" | "completed";
+      export type BackupRestorePathPhase = "running" | "completed" | "aborted";
 
       export type BackupBackupSortOrder = "oldestFirst" | "newestFirst";
 
@@ -4636,7 +4636,7 @@ export declare module MittwaldAPIV2 {
         parentId?: string;
         projectId: string;
         requestedAt: string;
-        restorePath?: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestorePathResponse;
+        restorePath?: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestorePath;
         status: string;
       }
 
@@ -4661,7 +4661,7 @@ export declare module MittwaldAPIV2 {
         withPassword: boolean;
       }
 
-      export interface BackupProjectBackupRestorePath {
+      export interface BackupProjectBackupRestorePathRequest {
         /**
          * If true, existing files in the target path will be deleted before the restore. If false, existing files will be kept and may be overwritten if they exist in the backup.
          */
@@ -4676,8 +4676,8 @@ export declare module MittwaldAPIV2 {
         targetDir?: string;
       }
 
-      export interface BackupProjectBackupRestorePathResponse {
-        clearTargetPath?: boolean;
+      export interface BackupProjectBackupRestorePath {
+        clearTargetPath: boolean;
         determinedSourcePath: string;
         determinedTargetPath?: string;
         phase: MittwaldAPIV2.Components.Schemas.BackupRestorePathPhase;
@@ -10817,7 +10817,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectBackupsProjectBackupIdPaths {
+    namespace V2ProjectBackupsProjectBackupIdDirectories {
       namespace Get {
         namespace Parameters {
           export type Path = {

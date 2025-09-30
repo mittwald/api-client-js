@@ -1291,52 +1291,52 @@ export const backupDeleteProjectBackup: OpenAPIOperation<
 };
 
 /** Get table of contents for a Project Backup. */
-export const backupGetProjectBackupToc: OpenAPIOperation<
+export const backupGetProjectBackupDirectories: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdPaths.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdPaths.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdPaths.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDirectories.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDirectories.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDirectories.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdPaths.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDirectories.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdPaths.Get.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDirectories.Get.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdPaths.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDirectories.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdPaths.Get.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDirectories.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdPaths.Get.Responses.$502.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDirectories.Get.Responses.$502.Content.ApplicationJson>,
       502,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdPaths.Get.Responses.$503.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDirectories.Get.Responses.$503.Content.ApplicationJson>,
       503,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdPaths.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDirectories.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/project-backups/{projectBackupId}/paths",
+  path: "/v2/project-backups/{projectBackupId}/directories",
   method: "GET",
-  operationId: "backup-get-project-backup-toc",
+  operationId: "backup-get-project-backup-directories",
 };
 
 /** Restore a ProjectBackup's path. */
