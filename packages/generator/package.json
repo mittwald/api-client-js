@@ -1,6 +1,6 @@
 {
   "name": "@mittwald/api-code-generator",
-  "version": "0.0.0-development-ccafe69-20250930",
+  "version": "0.0.0-development-e87cbeb-20251001",
   "type": "module",
   "repository": "https://github.com/mittwald/api-client-js.git",
   "license": "MIT",
