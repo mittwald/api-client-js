@@ -118,7 +118,7 @@ const buildBackupApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.backupGetProjectBackup,
     baseClient.backup.getProjectBackup,
   ).getApiResource,
-  /** Get table of contents for a Project Backup. */
+  /** Get table of contents for a ProjectBackup. */
   getProjectBackupDirectories: new ApiCallAsyncResourceFactory(
     descriptors.backupGetProjectBackupDirectories,
     baseClient.backup.getProjectBackupDirectories,
@@ -712,6 +712,11 @@ const buildLeadFyndrApi = (baseClient: MittwaldAPIV2Client) => ({
   leadfyndrListUnlockedLeads: new ApiCallAsyncResourceFactory(
     descriptors.leadfyndrListUnlockedLeads,
     baseClient.leadFyndr.leadfyndrListUnlockedLeads,
+  ).getApiResource,
+  /** Get unlocked leads export history for the given customerId. */
+  leadfyndrGetLeadsExportHistory: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetLeadsExportHistory,
+    baseClient.leadFyndr.leadfyndrGetLeadsExportHistory,
   ).getApiResource,
 });
 

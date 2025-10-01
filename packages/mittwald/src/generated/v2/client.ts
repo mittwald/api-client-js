@@ -145,7 +145,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteProjectBackup: this.requestFunctionFactory(
       descriptors.backupDeleteProjectBackup,
     ),
-    /** Get table of contents for a Project Backup. */
+    /** Get table of contents for a ProjectBackup. */
     getProjectBackupDirectories: this.requestFunctionFactory(
       descriptors.backupGetProjectBackupDirectories,
     ),
@@ -1397,6 +1397,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Removes a reservation on a unlocked lead for the given customerId. */
     leadfyndrRemoveUnlockedLeadReservation: this.requestFunctionFactory(
       descriptors.leadfyndrRemoveUnlockedLeadReservation,
+    ),
+    /** Get unlocked leads export history for the given customerId. */
+    leadfyndrGetLeadsExportHistory: this.requestFunctionFactory(
+      descriptors.leadfyndrGetLeadsExportHistory,
+    ),
+    /** Create an export of unlocked leads for the given customerId. */
+    leadfyndrCreateLeadsExport: this.requestFunctionFactory(
+      descriptors.leadfyndrCreateLeadsExport,
     ),
   };
 
