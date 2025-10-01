@@ -698,6 +698,11 @@ const buildLeadFyndrApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.leadfyndrGetLead,
     baseClient.leadFyndr.leadfyndrGetLead,
   ).getApiResource,
+  /** Get unlocked leads export history for the given customerId. */
+  leadfyndrGetLeadsExportHistory: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetLeadsExportHistory,
+    baseClient.leadFyndr.leadfyndrGetLeadsExportHistory,
+  ).getApiResource,
   /** Get a detail of a unlocked lead. Organisation can unlock leads. */
   leadfyndrGetUnlockedLead: new ApiCallAsyncResourceFactory(
     descriptors.leadfyndrGetUnlockedLead,
@@ -712,11 +717,6 @@ const buildLeadFyndrApi = (baseClient: MittwaldAPIV2Client) => ({
   leadfyndrListUnlockedLeads: new ApiCallAsyncResourceFactory(
     descriptors.leadfyndrListUnlockedLeads,
     baseClient.leadFyndr.leadfyndrListUnlockedLeads,
-  ).getApiResource,
-  /** Get unlocked leads export history for the given customerId. */
-  leadfyndrGetLeadsExportHistory: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrGetLeadsExportHistory,
-    baseClient.leadFyndr.leadfyndrGetLeadsExportHistory,
   ).getApiResource,
 });
 

@@ -1360,6 +1360,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     leadfyndrCreateLeadFyndrAccessRequest: this.requestFunctionFactory(
       descriptors.leadfyndrCreateLeadFyndrAccessRequest,
     ),
+    /** Create an export of unlocked leads for the given customerId. */
+    leadfyndrCreateLeadsExport: this.requestFunctionFactory(
+      descriptors.leadfyndrCreateLeadsExport,
+    ),
     /** Get cities in DACH. */
     leadfyndrGetCities: this.requestFunctionFactory(
       descriptors.leadfyndrGetCities,
@@ -1374,6 +1378,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get a simple lead. Use the unlocked route for more detail leads. */
     leadfyndrGetLead: this.requestFunctionFactory(descriptors.leadfyndrGetLead),
+    /** Get unlocked leads export history for the given customerId. */
+    leadfyndrGetLeadsExportHistory: this.requestFunctionFactory(
+      descriptors.leadfyndrGetLeadsExportHistory,
+    ),
     /** Get a detail of a unlocked lead. Organisation can unlock leads. */
     leadfyndrGetUnlockedLead: this.requestFunctionFactory(
       descriptors.leadfyndrGetUnlockedLead,
@@ -1397,14 +1405,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Removes a reservation on a unlocked lead for the given customerId. */
     leadfyndrRemoveUnlockedLeadReservation: this.requestFunctionFactory(
       descriptors.leadfyndrRemoveUnlockedLeadReservation,
-    ),
-    /** Get unlocked leads export history for the given customerId. */
-    leadfyndrGetLeadsExportHistory: this.requestFunctionFactory(
-      descriptors.leadfyndrGetLeadsExportHistory,
-    ),
-    /** Create an export of unlocked leads for the given customerId. */
-    leadfyndrCreateLeadsExport: this.requestFunctionFactory(
-      descriptors.leadfyndrCreateLeadsExport,
     ),
   };
 

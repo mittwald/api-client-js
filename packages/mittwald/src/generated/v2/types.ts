@@ -2673,6 +2673,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace LeadfyndrCreateLeadsExport {
+      type RequestData = InferredRequestData<
+        typeof descriptors.leadfyndrCreateLeadsExport
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.leadfyndrCreateLeadsExport,
+          TStatus
+        >;
+    }
+
     namespace LeadfyndrGetCities {
       type RequestData = InferredRequestData<
         typeof descriptors.leadfyndrGetCities
@@ -2709,6 +2720,17 @@ export declare module MittwaldAPIV2 {
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<typeof descriptors.leadfyndrGetLead, TStatus>;
+    }
+
+    namespace LeadfyndrGetLeadsExportHistory {
+      type RequestData = InferredRequestData<
+        typeof descriptors.leadfyndrGetLeadsExportHistory
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.leadfyndrGetLeadsExportHistory,
+          TStatus
+        >;
     }
 
     namespace LeadfyndrGetUnlockedLead {
@@ -4302,28 +4324,6 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
-
-    namespace LeadfyndrGetLeadsExportHistory {
-      type RequestData = InferredRequestData<
-        typeof descriptors.leadfyndrGetLeadsExportHistory
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.leadfyndrGetLeadsExportHistory,
-          TStatus
-        >;
-    }
-
-    namespace LeadfyndrCreateLeadsExport {
-      type RequestData = InferredRequestData<
-        typeof descriptors.leadfyndrCreateLeadsExport
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.leadfyndrCreateLeadsExport,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -4671,9 +4671,21 @@ export declare module MittwaldAPIV2 {
         withPassword: boolean;
       }
 
+      export interface BackupProjectBackupPath {
+        absolutePath: string;
+        isDirectory?: boolean;
+        isExecutable?: boolean;
+        isFile?: boolean;
+        isSymlink?: boolean;
+        items?: MittwaldAPIV2.Components.Schemas.BackupProjectBackupPath[];
+        name: string;
+        size: number;
+        target?: string;
+      }
+
       export interface BackupProjectBackupRestorePathRequest {
         /**
-         * Target path where the source path should be restored to. If not set, the target path will be determined to equal the origin source. The target path must be a directory
+         * Whether to clear the target path before restoring. If true, existing files in the target path will be deleted before the restore. If false, existing files will be kept and may be overwritten if they exist in the backup.
          */
         clearTargetPath?: boolean;
         sourcePath: string;
@@ -6987,6 +6999,26 @@ export declare module MittwaldAPIV2 {
         };
       }
 
+      export interface LeadfyndrLeadsExport {
+        customerId: string;
+        exportId: string;
+        exportedAt: string;
+        exportedBy?: MittwaldAPIV2.Components.Schemas.LeadfyndrLeadsExportExporter;
+        /**
+         * The number of leads included in the export.
+         */
+        leadCount: number;
+      }
+
+      export interface LeadfyndrLeadsExportExporter {
+        avatarRefId?: string;
+        person?: {
+          firstName: string;
+          lastName: string;
+        };
+        userId: string;
+      }
+
       export interface LeadfyndrLighthouse {
         accessibility?: number;
         bestPractice?: number;
@@ -8692,38 +8724,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export interface BackupProjectBackupPath {
-        absolutePath: string;
-        isDirectory?: boolean;
-        isExecutable?: boolean;
-        isFile?: boolean;
-        isSymlink?: boolean;
-        items?: MittwaldAPIV2.Components.Schemas.BackupProjectBackupPath[];
-        name: string;
-        size: number;
-        target?: string;
-      }
-
-      export interface LeadfyndrLeadsExport {
-        customerId: string;
-        exportId: string;
-        exportedAt: string;
-        exportedBy?: MittwaldAPIV2.Components.Schemas.LeadfyndrLeadsExportExporter;
-        /**
-         * The number of leads included in the export.
-         */
-        leadCount: number;
-      }
-
-      export interface LeadfyndrLeadsExportExporter {
-        avatarRefId?: string;
-        person?: {
-          firstName: string;
-          lastName: string;
-        };
-        userId: string;
-      }
 
       export interface CommonsAddress {
         street: string;
@@ -24545,6 +24545,112 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2CustomersCustomerIdUnlockedLeadsExport {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * Whether to export all leads or only not already exported leads.
+             */
+            exportAllLeads: boolean;
+            /**
+             * The fields to include in the export.
+             */
+            fieldKeys: (
+              | "domain"
+              | "potential"
+              | "performance"
+              | "generalLook"
+              | "companyName"
+              | "emails"
+              | "phoneNumbers"
+              | "address"
+              | "employeeCount"
+              | "revenue"
+              | "a-record"
+              | "nameserver"
+              | "mailserver"
+              | "techStack"
+            )[];
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * The base64 encoded csv content of the export.
+                 */
+                contentBase64: string;
+                exportId: string;
+              }
+
+              /**
+               * The csv content of the export.
+               */
+              export type TextCsv = string;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $409 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2Cities {
       namespace Get {
         namespace Parameters {
@@ -24750,6 +24856,74 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.LeadfyndrLead;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CustomersCustomerIdUnlockedLeadsExports {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+            page?: number;
+            sort?: "exportedAt";
+            order?: "asc" | "desc";
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.LeadfyndrLeadsExport[];
             }
           }
 
@@ -34557,180 +34731,6 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomersCustomerIdUnlockedLeadsExports {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {
-            limit?: number;
-            skip?: number;
-            page?: number;
-            sort?: "exportedAt";
-            order?: "asc" | "desc";
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LeadfyndrLeadsExport[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomersCustomerIdUnlockedLeadsExport {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export interface RequestBody {
-            /**
-             * Whether to export all leads or only not already exported leads.
-             */
-            exportAllLeads: boolean;
-            /**
-             * The fields to include in the export.
-             */
-            fieldKeys: (
-              | "domain"
-              | "potential"
-              | "performance"
-              | "generalLook"
-              | "companyName"
-              | "emails"
-              | "phoneNumbers"
-              | "address"
-              | "employeeCount"
-              | "revenue"
-              | "a-record"
-              | "nameserver"
-              | "mailserver"
-              | "techStack"
-            )[];
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                /**
-                 * The base64 encoded csv content of the export.
-                 */
-                contentBase64: string;
-                exportId: string;
-              }
-
-              /**
-               * The csv content of the export.
-               */
-              export type TextCsv = string;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $409 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
