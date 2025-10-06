@@ -5516,7 +5516,7 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.CronjobCronjobUrl
           | MittwaldAPIV2.Components.Schemas.CronjobCronjobCommand;
         email?: string;
-        failedExecutionAlertThreshold?: number;
+        failedExecutionAlertThreshold: number;
         id: string;
         interval: string;
         latestExecution?: MittwaldAPIV2.Components.Schemas.CronjobCronjobExecution;
