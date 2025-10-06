@@ -17079,6 +17079,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             limit?: number;
             skip?: number;
+            page?: number;
           };
         }
         namespace Responses {
@@ -17135,6 +17136,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             limit?: number;
             skip?: number;
+            page?: number;
             hasExpiry?: boolean;
             role?: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
           };
@@ -29847,6 +29849,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             limit?: number;
             skip?: number;
+            page?: number;
           };
         }
         namespace Responses {
@@ -29903,6 +29906,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             limit?: number;
             skip?: number;
+            page?: number;
             hasExpiry?: boolean;
             isInherited?: boolean;
             role?: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
