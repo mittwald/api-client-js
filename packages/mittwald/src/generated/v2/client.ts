@@ -237,6 +237,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     validateRegistryCredentials: this.requestFunctionFactory(
       descriptors.containerValidateRegistryCredentials,
     ),
+    /** List Volumes belonging to a Stack. */
+    listStackVolumes: this.requestFunctionFactory(
+      descriptors.containerListStackVolumes,
+    ),
   };
 
   /** The contract API allows you to manage your contracts and orders */
@@ -1405,6 +1409,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Removes a reservation on a unlocked lead for the given customerId. */
     leadfyndrRemoveUnlockedLeadReservation: this.requestFunctionFactory(
       descriptors.leadfyndrRemoveUnlockedLeadReservation,
+    ),
+    /** Get unlocked leads export history for the given customerId. */
+    leadfyndrGetLeadsExportHistory: this.requestFunctionFactory(
+      descriptors.leadfyndrGetLeadsExportHistory,
+    ),
+    /** Create an export of unlocked leads for the given customerId. */
+    leadfyndrCreateLeadsExport: this.requestFunctionFactory(
+      descriptors.leadfyndrCreateLeadsExport,
     ),
   };
 

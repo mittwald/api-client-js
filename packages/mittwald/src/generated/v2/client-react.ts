@@ -176,6 +176,11 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.containerListVolumes,
     baseClient.container.listVolumes,
   ).getApiResource,
+  /** List Volumes belonging to a Stack. */
+  listStackVolumes: new ApiCallAsyncResourceFactory(
+    descriptors.containerListStackVolumes,
+    baseClient.container.listStackVolumes,
+  ).getApiResource,
 });
 
 const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
@@ -717,6 +722,11 @@ const buildLeadFyndrApi = (baseClient: MittwaldAPIV2Client) => ({
   leadfyndrListUnlockedLeads: new ApiCallAsyncResourceFactory(
     descriptors.leadfyndrListUnlockedLeads,
     baseClient.leadFyndr.leadfyndrListUnlockedLeads,
+  ).getApiResource,
+  /** Get unlocked leads export history for the given customerId. */
+  leadfyndrGetLeadsExportHistory: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetLeadsExportHistory,
+    baseClient.leadFyndr.leadfyndrGetLeadsExportHistory,
   ).getApiResource,
 });
 
