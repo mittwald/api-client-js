@@ -1410,14 +1410,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     leadfyndrRemoveUnlockedLeadReservation: this.requestFunctionFactory(
       descriptors.leadfyndrRemoveUnlockedLeadReservation,
     ),
-    /** Get unlocked leads export history for the given customerId. */
-    leadfyndrGetLeadsExportHistory: this.requestFunctionFactory(
-      descriptors.leadfyndrGetLeadsExportHistory,
-    ),
-    /** Create an export of unlocked leads for the given customerId. */
-    leadfyndrCreateLeadsExport: this.requestFunctionFactory(
-      descriptors.leadfyndrCreateLeadsExport,
-    ),
   };
 
   /** API endpoints that are not related to any specific API domain */
