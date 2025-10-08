@@ -229,6 +229,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     validateRegistryCredentials: this.requestFunctionFactory(
       descriptors.containerValidateRegistryCredentials,
     ),
+    /** List Volumes belonging to a Stack. */
+    listStackVolumes: this.requestFunctionFactory(
+      descriptors.containerListStackVolumes,
+    ),
   };
 
   /** The contract API allows you to manage your contracts and orders */

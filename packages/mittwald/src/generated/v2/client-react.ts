@@ -171,6 +171,11 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.containerListVolumes,
     baseClient.container.listVolumes,
   ).getApiResource,
+  /** List Volumes belonging to a Stack. */
+  listStackVolumes: new ApiCallAsyncResourceFactory(
+    descriptors.containerListStackVolumes,
+    baseClient.container.listStackVolumes,
+  ).getApiResource,
 });
 
 const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
