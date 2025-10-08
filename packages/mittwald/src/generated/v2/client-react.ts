@@ -708,6 +708,11 @@ const buildLeadFyndrApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.leadfyndrListUnlockedLeads,
     baseClient.leadFyndr.leadfyndrListUnlockedLeads,
   ).getApiResource,
+  /** Get unlocked leads export history for the given customerId. */
+  leadfyndrGetLeadsExportHistory: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetLeadsExportHistory,
+    baseClient.leadFyndr.leadfyndrGetLeadsExportHistory,
+  ).getApiResource,
 });
 
 const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({

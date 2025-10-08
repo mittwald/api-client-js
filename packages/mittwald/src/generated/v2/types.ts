@@ -4225,6 +4225,28 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace LeadfyndrGetLeadsExportHistory {
+      type RequestData = InferredRequestData<
+        typeof descriptors.leadfyndrGetLeadsExportHistory
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.leadfyndrGetLeadsExportHistory,
+          TStatus
+        >;
+    }
+
+    namespace LeadfyndrCreateLeadsExport {
+      type RequestData = InferredRequestData<
+        typeof descriptors.leadfyndrCreateLeadsExport
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.leadfyndrCreateLeadsExport,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -4564,13 +4586,7 @@ export declare module MittwaldAPIV2 {
         downloadURL?: string;
         expiresAt?: string;
         format: string;
-        phase?:
-          | ""
-          | "Pending"
-          | "Exporting"
-          | "Failed"
-          | "Completed"
-          | "Expired";
+        phase?: "Pending" | "Exporting" | "Failed" | "Completed" | "Expired";
         sha256Checksum?: string;
         withPassword: boolean;
       }
@@ -6656,7 +6672,7 @@ export declare module MittwaldAPIV2 {
         amountPaid: number;
         cancellation?: MittwaldAPIV2.Components.Schemas.InvoiceCancellation;
         /**
-         * The ID of the invoice that this invoice cancels.
+         * The ID of the Invoice that this invoice cancels.
          */
         cancellationOf?: string;
         currency: string;
@@ -6673,6 +6689,10 @@ export declare module MittwaldAPIV2 {
         paymentSettings?: MittwaldAPIV2.Components.Schemas.InvoicePaymentSettings;
         pdfId: string;
         recipient: MittwaldAPIV2.Components.Schemas.InvoiceRecipient;
+        /**
+         * The ID of the Invoice that is a Reissue of this one.
+         */
+        reissuedBy?: string;
         status:
           | "NEW"
           | "CONFIRMED"
@@ -8537,6 +8557,26 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface LeadfyndrLeadsExport {
+        customerId: string;
+        exportId: string;
+        exportedAt: string;
+        exportedBy?: MittwaldAPIV2.Components.Schemas.LeadfyndrLeadsExportExporter;
+        /**
+         * The number of leads included in the export.
+         */
+        leadCount: number;
+      }
+
+      export interface LeadfyndrLeadsExportExporter {
+        avatarRefId?: string;
+        person?: {
+          firstName: string;
+          lastName: string;
+        };
+        userId: string;
+      }
 
       export interface CommonsAddress {
         street: string;
@@ -16738,6 +16778,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             limit?: number;
             skip?: number;
+            page?: number;
           };
         }
         namespace Responses {
@@ -16794,6 +16835,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             limit?: number;
             skip?: number;
+            page?: number;
             hasExpiry?: boolean;
             role?: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
           };
@@ -29199,6 +29241,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             limit?: number;
             skip?: number;
+            page?: number;
           };
         }
         namespace Responses {
@@ -29255,6 +29298,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             limit?: number;
             skip?: number;
+            page?: number;
             hasExpiry?: boolean;
             isInherited?: boolean;
             role?: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
@@ -34102,6 +34146,188 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace ExperimentalV2CustomersCustomerIdUnlockedLeadsExports {}
+
+    namespace V2ExperimentalCustomersCustomerIdUnlockedLeadsExports {}
+
+    namespace V2CustomersCustomerIdUnlockedLeadsExports {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+            page?: number;
+            sort?: "exportedAt";
+            order?: "asc" | "desc";
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.LeadfyndrLeadsExport[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace ExperimentalV2CustomersCustomerIdUnlockedLeadsExport {}
+
+    namespace V2ExperimentalCustomersCustomerIdUnlockedLeadsExport {}
+
+    namespace V2CustomersCustomerIdUnlockedLeadsExport {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * Whether to export all leads or only not already exported leads.
+             */
+            exportAllLeads: boolean;
+            /**
+             * The fields to include in the export.
+             */
+            fieldKeys: (
+              | "domain"
+              | "potential"
+              | "performance"
+              | "generalLook"
+              | "companyName"
+              | "emails"
+              | "phoneNumbers"
+              | "address"
+              | "employeeCount"
+              | "revenue"
+              | "a-record"
+              | "nameserver"
+              | "mailserver"
+              | "techStack"
+            )[];
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * The base64 encoded csv content of the export.
+                 */
+                contentBase64: string;
+                exportId: string;
+              }
+
+              /**
+               * The csv content of the export.
+               */
+              export type TextCsv = string;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $409 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
