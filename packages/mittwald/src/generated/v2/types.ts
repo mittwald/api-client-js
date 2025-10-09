@@ -926,6 +926,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ContributorCancelVerification {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorCancelVerification
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorCancelVerification,
+          TStatus
+        >;
+    }
+
     namespace ContributorRotateSecretForExtensionInstance {
       type RequestData = InferredRequestData<
         typeof descriptors.contributorRotateSecretForExtensionInstance
@@ -4343,6 +4354,7 @@ export declare module MittwaldAPIV2 {
         appVersion: MittwaldAPIV2.Components.Schemas.AppVersionStatus;
         createdAt: string;
         customDocumentRoot?: string;
+        deletionRequested?: boolean;
         description: string;
         disabled: boolean;
         id: string;
@@ -6291,6 +6303,7 @@ export declare module MittwaldAPIV2 {
        */
       export type MarketplaceMonthlyPricePlanStrategy = {
         description?: string;
+        isBookingStopped: boolean;
         key: string;
         name?: string;
         /**
@@ -14259,6 +14272,50 @@ export declare module MittwaldAPIV2 {
 
     namespace V2ContributorsContributorIdVerificationProcess {
       namespace Post {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Delete {
         namespace Parameters {
           export type Path = {
             contributorId: string;
