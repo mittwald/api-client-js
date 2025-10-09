@@ -418,14 +418,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     contributorResetContributorAvatar: this.requestFunctionFactory(
       descriptors.contributorResetContributorAvatar,
     ),
-    /** Start the verification process of a contributor. */
-    contributorRequestVerification: this.requestFunctionFactory(
-      descriptors.contributorRequestVerification,
-    ),
-    /** Cancel the verification-process of a contributor. */
-    contributorCancelVerification: this.requestFunctionFactory(
-      descriptors.contributorCancelVerification,
-    ),
     /** Rotate the secret for an extension instance. */
     contributorRotateSecretForExtensionInstance: this.requestFunctionFactory(
       descriptors.contributorRotateSecretForExtensionInstance,
