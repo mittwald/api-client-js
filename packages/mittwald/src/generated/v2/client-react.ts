@@ -166,6 +166,11 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.containerListServices,
     baseClient.container.listServices,
   ).getApiResource,
+  /** List Volumes belonging to a Stack. */
+  listStackVolumes: new ApiCallAsyncResourceFactory(
+    descriptors.containerListStackVolumes,
+    baseClient.container.listStackVolumes,
+  ).getApiResource,
   /** List Stacks belonging to a Project. */
   listStacks: new ApiCallAsyncResourceFactory(
     descriptors.containerListStacks,
@@ -175,11 +180,6 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
   listVolumes: new ApiCallAsyncResourceFactory(
     descriptors.containerListVolumes,
     baseClient.container.listVolumes,
-  ).getApiResource,
-  /** List Volumes belonging to a Stack. */
-  listStackVolumes: new ApiCallAsyncResourceFactory(
-    descriptors.containerListStackVolumes,
-    baseClient.container.listStackVolumes,
   ).getApiResource,
 });
 

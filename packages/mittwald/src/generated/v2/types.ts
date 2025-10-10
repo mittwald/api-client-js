@@ -534,6 +534,17 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.containerListServices, TStatus>;
     }
 
+    namespace ContainerListStackVolumes {
+      type RequestData = InferredRequestData<
+        typeof descriptors.containerListStackVolumes
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.containerListStackVolumes,
+          TStatus
+        >;
+    }
+
     namespace ContainerListStacks {
       type RequestData = InferredRequestData<
         typeof descriptors.containerListStacks
@@ -4324,17 +4335,6 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
-
-    namespace ContainerListStackVolumes {
-      type RequestData = InferredRequestData<
-        typeof descriptors.containerListStackVolumes
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.containerListStackVolumes,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -5171,6 +5171,7 @@ export declare module MittwaldAPIV2 {
          * Indicates whether the User is allowed to cancel the Termination.
          */
         cancellationForbidden?: boolean;
+        explanation?: string;
         reason?: string;
         scheduledAtDate: string;
         scheduledByUserId?: string;
@@ -12143,6 +12144,75 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2StacksStackIdVolumes {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            stackId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            searchTerm?: string;
+            sortOrder?: MittwaldAPIV2.Components.Schemas.ContainerVolumeSortOrder;
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ContainerVolumeResponse[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2ProjectsProjectIdStacks {
       namespace Get {
         namespace Parameters {
@@ -12873,6 +12943,7 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 contractId?: string;
                 contractItemId?: string;
+                explanation?: string;
                 reason?: string;
                 terminationTargetDate?: string;
               }
@@ -13038,6 +13109,7 @@ export declare module MittwaldAPIV2 {
           };
 
           export interface RequestBody {
+            explanation?: string;
             /**
              * A reason for the termination can be given as plain text.
              */
@@ -13058,6 +13130,7 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export interface ApplicationJson {
                 contractId?: string;
+                explanation?: string;
                 itemsScheduledForTermination?: string[];
                 reason?: string;
                 terminationTargetDate?: string;
@@ -34751,75 +34824,6 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2StacksStackIdVolumes {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            stackId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            searchTerm?: string;
-            sortOrder?: MittwaldAPIV2.Components.Schemas.ContainerVolumeSortOrder;
-            limit?: number;
-            skip?: number;
-            page?: number;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.ContainerVolumeResponse[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
