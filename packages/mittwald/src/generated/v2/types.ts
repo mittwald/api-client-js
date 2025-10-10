@@ -5032,6 +5032,7 @@ export declare module MittwaldAPIV2 {
          * Indicates whether the User is allowed to cancel the Termination.
          */
         cancellationForbidden?: boolean;
+        explanation?: string;
         reason?: string;
         scheduledAtDate: string;
         scheduledByUserId?: string;
@@ -12622,6 +12623,7 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 contractId?: string;
                 contractItemId?: string;
+                explanation?: string;
                 reason?: string;
                 terminationTargetDate?: string;
               }
@@ -12787,6 +12789,7 @@ export declare module MittwaldAPIV2 {
           };
 
           export interface RequestBody {
+            explanation?: string;
             /**
              * A reason for the termination can be given as plain text.
              */
@@ -12807,6 +12810,7 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export interface ApplicationJson {
                 contractId?: string;
+                explanation?: string;
                 itemsScheduledForTermination?: string[];
                 reason?: string;
                 terminationTargetDate?: string;
