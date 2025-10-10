@@ -42,7 +42,7 @@ export class ContributorIncomingInvoiceListQuery extends ListQueryModel<Contribu
     contributor: Contributor,
     query: ContributorListIncomingInvoiceQueryData = {},
   ) {
-    super(query);
+    super(query, { dependencies: [contributor.id] });
     this.contributor = contributor;
   }
 
