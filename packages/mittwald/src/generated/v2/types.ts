@@ -4774,34 +4774,6 @@ export declare module MittwaldAPIV2 {
         variantName?: string;
       }
 
-      export interface ExtensionVariant {
-        /**
-         * Description of Variant.
-         */
-        description?: string;
-        /**
-         * DescriptionChangeType defines how the description change should be handled. Values:
-         *   - FEATURE_SET_MODIFIED: The users have to confirm to the new contract details equal as price changes.
-         *   - FEATURE_SET_UNCHANGED: The changes are only wording updates and do not impact the contract details, so no confirm is required.
-         *
-         */
-        descriptionChangeType?:
-          | "FEATURE_SET_MODIFIED"
-          | "FEATURE_SET_UNCHANGED";
-        /**
-         * Key that needs to be unique in Variant.
-         */
-        key: string;
-        /**
-         * Name of Variant.
-         */
-        name?: string;
-        /**
-         * Price in cents.
-         */
-        priceInCents: number;
-      }
-
       export interface ContainerCreateRegistry {
         credentials?: MittwaldAPIV2.Components.Schemas.ContainerSetRegistryCredentials;
         description: string;
@@ -8742,6 +8714,61 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface LeadfyndrLeadsExport {
+        customerId: string;
+        exportId: string;
+        exportedAt: string;
+        exportedBy?: MittwaldAPIV2.Components.Schemas.LeadfyndrLeadsExportExporter;
+        /**
+         * The number of leads included in the export.
+         */
+        leadCount: number;
+      }
+
+      export interface LeadfyndrLeadsExportExporter {
+        avatarRefId?: string;
+        person?: {
+          firstName: string;
+          lastName: string;
+        };
+        userId: string;
+      }
+
+      /**
+       * PricePlan with Variants.
+       */
+      export interface ExtensionPricePlan {
+        variants: MittwaldAPIV2.Components.Schemas.ExtensionVariant[];
+      }
+
+      export interface ExtensionVariant {
+        /**
+         * Description of Variant.
+         */
+        description?: string;
+        /**
+         * DescriptionChangeType defines how the description change should be handled. Values:
+         *   - FEATURE_SET_MODIFIED: The users have to confirm to the new contract details equal as price changes.
+         *   - FEATURE_SET_UNCHANGED: The changes are only wording updates and do not impact the contract details, so no confirm is required.
+         *
+         */
+        descriptionChangeType?:
+          | "FEATURE_SET_MODIFIED"
+          | "FEATURE_SET_UNCHANGED";
+        /**
+         * Key that needs to be unique in Variant.
+         */
+        key: string;
+        /**
+         * Name of Variant.
+         */
+        name?: string;
+        /**
+         * Price in cents.
+         */
+        priceInCents: number;
+      }
 
       export interface CommonsAddress {
         street: string;
