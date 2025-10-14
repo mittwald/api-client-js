@@ -4661,6 +4661,9 @@ export declare module MittwaldAPIV2 {
         interactionRequired: boolean;
         status: "notStarted" | "pending" | "active" | "terminationPending";
         terminationTargetDate?: string;
+        variantDescription?: string;
+        variantKey?: string;
+        variantName?: string;
       }
 
       export interface ContainerCreateRegistry {
@@ -8601,6 +8604,41 @@ export declare module MittwaldAPIV2 {
           lastName: string;
         };
         userId: string;
+      }
+
+      /**
+       * PricePlan with Variants.
+       */
+      export interface ExtensionPricePlan {
+        variants: MittwaldAPIV2.Components.Schemas.ExtensionVariant[];
+      }
+
+      export interface ExtensionVariant {
+        /**
+         * Description of Variant.
+         */
+        description?: string;
+        /**
+         * DescriptionChangeType defines how the description change should be handled. Values:
+         *   - FEATURE_SET_MODIFIED: The users have to confirm to the new contract details equal as price changes.
+         *   - FEATURE_SET_UNCHANGED: The changes are only wording updates and do not impact the contract details, so no confirm is required.
+         *
+         */
+        descriptionChangeType?:
+          | "FEATURE_SET_MODIFIED"
+          | "FEATURE_SET_UNCHANGED";
+        /**
+         * Key that needs to be unique in Variant.
+         */
+        key: string;
+        /**
+         * Name of Variant.
+         */
+        name?: string;
+        /**
+         * Price in cents.
+         */
+        priceInCents: number;
       }
 
       export interface CommonsAddress {
@@ -21856,7 +21894,12 @@ export declare module MittwaldAPIV2 {
             extensionInstanceId: string;
           };
 
-          export interface RequestBody {}
+          export interface RequestBody {
+            /**
+             * The Variant Key of the selected Variant of the Extension. This is only required if the Extension has multiple Variants.
+             */
+            variantKey?: string;
+          }
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -22924,16 +22967,24 @@ export declare module MittwaldAPIV2 {
             contributorId: string;
           };
 
-          export interface RequestBody {
-            /**
-             * If set to true, the request will be validated but not executed.
-             */
-            dryRun?: boolean;
-            /**
-             * Price in cents.
-             */
-            priceInCents?: number;
-          }
+          export type RequestBody =
+            | {
+                /**
+                 * If set to true, the request will be validated but not executed.
+                 */
+                dryRun?: boolean;
+                /**
+                 * Price in cents.
+                 */
+                priceInCents: number;
+              }
+            | {
+                /**
+                 * If set to true, the request will be validated but not executed.
+                 */
+                dryRun?: boolean;
+                pricePlan: MittwaldAPIV2.Components.Schemas.ExtensionPricePlan;
+              };
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -22944,8 +22995,15 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export interface ApplicationJson {
-                extensionId?: string;
-                priceChangeConsequence?: {
+                /**
+                 * The ID of the Extension.
+                 */
+                extensionId: string;
+                /**
+                 * The time until which the contributor is blocked from changing the price again.
+                 */
+                nextPossiblePriceChange?: string;
+                priceChangeConsequence: {
                   /**
                    * Description of the consequence for the Extension from the perspective of the contributor. Values: * "NONE": No consequence. * "EDIT_BLOCK": The Extension will be blocked for editing by the contributor for 30 days.
                    *
