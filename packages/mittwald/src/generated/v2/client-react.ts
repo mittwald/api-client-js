@@ -161,6 +161,11 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.containerListServices,
     baseClient.container.listServices,
   ).getApiResource,
+  /** List Volumes belonging to a Stack. */
+  listStackVolumes: new ApiCallAsyncResourceFactory(
+    descriptors.containerListStackVolumes,
+    baseClient.container.listStackVolumes,
+  ).getApiResource,
   /** List Stacks belonging to a Project. */
   listStacks: new ApiCallAsyncResourceFactory(
     descriptors.containerListStacks,
@@ -170,11 +175,6 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
   listVolumes: new ApiCallAsyncResourceFactory(
     descriptors.containerListVolumes,
     baseClient.container.listVolumes,
-  ).getApiResource,
-  /** List Volumes belonging to a Stack. */
-  listStackVolumes: new ApiCallAsyncResourceFactory(
-    descriptors.containerListStackVolumes,
-    baseClient.container.listStackVolumes,
   ).getApiResource,
 });
 
@@ -698,6 +698,11 @@ const buildLeadFyndrApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.leadfyndrGetLead,
     baseClient.leadFyndr.leadfyndrGetLead,
   ).getApiResource,
+  /** Get unlocked leads export history for the given customerId. */
+  leadfyndrGetLeadsExportHistory: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetLeadsExportHistory,
+    baseClient.leadFyndr.leadfyndrGetLeadsExportHistory,
+  ).getApiResource,
   /** Get a detail of a unlocked lead. Organisation can unlock leads. */
   leadfyndrGetUnlockedLead: new ApiCallAsyncResourceFactory(
     descriptors.leadfyndrGetUnlockedLead,
@@ -712,11 +717,6 @@ const buildLeadFyndrApi = (baseClient: MittwaldAPIV2Client) => ({
   leadfyndrListUnlockedLeads: new ApiCallAsyncResourceFactory(
     descriptors.leadfyndrListUnlockedLeads,
     baseClient.leadFyndr.leadfyndrListUnlockedLeads,
-  ).getApiResource,
-  /** Get unlocked leads export history for the given customerId. */
-  leadfyndrGetLeadsExportHistory: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrGetLeadsExportHistory,
-    baseClient.leadFyndr.leadfyndrGetLeadsExportHistory,
   ).getApiResource,
 });
 
