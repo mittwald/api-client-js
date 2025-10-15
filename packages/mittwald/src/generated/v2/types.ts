@@ -24638,12 +24638,117 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace ExperimentalV2CustomersCustomerIdUnlockedLeadsExport {}
+
+    namespace V2ExperimentalCustomersCustomerIdUnlockedLeadsExport {}
+
     namespace V2CustomersCustomerIdUnlockedLeadsExport {
       namespace Post {
         namespace Parameters {
           export type Path = {
             customerId: string;
           };
+
+          export interface RequestBody {
+            /**
+             * Whether to export all leads or only not already exported leads.
+             */
+            exportAllLeads: boolean;
+            /**
+             * The fields to include in the export.
+             */
+            fieldKeys: (
+              | "domain"
+              | "potential"
+              | "performance"
+              | "generalLook"
+              | "companyName"
+              | "emails"
+              | "phoneNumbers"
+              | "address"
+              | "employeeCount"
+              | "revenue"
+              | "a-record"
+              | "nameserver"
+              | "mailserver"
+              | "techStack"
+            )[];
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * The base64 encoded csv content of the export.
+                 */
+                contentBase64: string;
+                exportId: string;
+              }
+
+              /**
+               * The csv content of the export.
+               */
+              export type TextCsv = string;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $409 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace ExperimentalV2Cities {}
 
           export interface RequestBody {
             /**
@@ -24995,12 +25100,79 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace ExperimentalV2CustomersCustomerIdUnlockedLeadsExports {}
+
+    namespace V2ExperimentalCustomersCustomerIdUnlockedLeadsExports {}
+
     namespace V2CustomersCustomerIdUnlockedLeadsExports {
       namespace Get {
         namespace Parameters {
           export type Path = {
             customerId: string;
           };
+
+          export type Header = {};
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+            page?: number;
+            sort?: "exportedAt";
+            order?: "asc" | "desc";
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.LeadfyndrLeadsExport[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace ExperimentalV2CustomersCustomerIdUnlockedLeadsLeadId {}
 
           export type Header = {};
 
