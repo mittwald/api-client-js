@@ -882,6 +882,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateRedisDatabaseDescription: this.requestFunctionFactory(
       descriptors.databaseUpdateRedisDatabaseDescription,
     ),
+    /** Copy a MySQLDatabase with a MySQLUser. */
+    copyMysqlDatabase: this.requestFunctionFactory(
+      descriptors.databaseCopyMysqlDatabase,
+    ),
   };
 
   /** The domain API allows you to manage your domains, DNS records, SSL certificates and ingress resources. */

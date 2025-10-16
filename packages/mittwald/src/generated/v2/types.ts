@@ -4269,6 +4269,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace DatabaseCopyMysqlDatabase {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseCopyMysqlDatabase
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseCopyMysqlDatabase,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -34527,6 +34538,68 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2MysqlDatabasesMysqlDatabaseIdActionsCopy {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            mysqlDatabaseId: string;
+          };
+
+          export interface RequestBody {
+            description: string;
+            user: MittwaldAPIV2.Components.Schemas.DatabaseCreateMySqlUserWithDatabase;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                id: string;
+                userId: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
