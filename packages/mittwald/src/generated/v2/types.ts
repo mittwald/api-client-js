@@ -8028,6 +8028,7 @@ export declare module MittwaldAPIV2 {
         clusterId?: string;
         createdAt: string;
         customerId: string;
+        deletionRequested?: boolean;
         description: string;
         directories: {
           [k: string]: string;
