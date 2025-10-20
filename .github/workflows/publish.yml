@@ -78,6 +78,7 @@ jobs:
           github.event.workflow_run.head_branch == 'master' || github.ref ==
           'refs/heads/master'
         run: |
+          git describe --exact-match --tags; [ $? -eq 128 ] && \
           yarn lerna publish \
             --message "chore(release): bump version to %v" \
             --skip-bump-only-releases \
@@ -143,6 +144,7 @@ jobs:
 
       - name: Version and publish 🚀
         run: |
+          git describe --exact-match --tags; [ $? -eq 128 ] && \
           yarn lerna publish 0.0.0-development-$(git rev-parse --short=7 HEAD)-$(date +%Y%m%d) \
             --message "chore(release): bump version to %v" \
             --skip-bump-only-releases \
