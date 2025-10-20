@@ -8149,6 +8149,7 @@ export declare module MittwaldAPIV2 {
         features?: MittwaldAPIV2.Components.Schemas.ProjectProjectFeature[];
         id: string;
         imageRefId?: string;
+        ipAddress?: string;
         /**
          * @deprecated
          * deprecated by property status
