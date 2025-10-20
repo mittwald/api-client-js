@@ -78,12 +78,16 @@ jobs:
           github.event.workflow_run.head_branch == 'master' || github.ref ==
           'refs/heads/master'
         run: |
-          yarn lerna publish \
-            --conventional-commits \
-            --create-release github \
-            --message "chore(release): bump version to %v" \
-            --yes --no-private \
-            --tag-version-prefix ""
+          git describe --exact-match --tags || code=$?
+          if [ "${code:-0}" -eq 128 ]; then
+            yarn lerna publish \
+              --message "chore(release): bump version to %v" \
+              --skip-bump-only-releases \
+              --conventional-commits \
+              --create-release github \
+              --yes --no-private \
+              --tag-version-prefix ""
+          fi
 
 
   publish-dev:
@@ -142,8 +146,12 @@ jobs:
 
       - name: Version and publish 🚀
         run: |
-          yarn lerna publish 0.0.0-development-$(git rev-parse --short=7 HEAD)-$(date +%Y%m%d) \
-            --message "chore(release): bump version to %v" \
-            --yes --no-private \
-            --tag-version-prefix "" \
-            --dist-tag development
+          git describe --exact-match --tags || code=$?
+          if [ "${code:-0}" -eq 128 ]; then
+            yarn lerna publish 0.0.0-development-$(git rev-parse --short=7 HEAD)-$(date +%Y%m%d) \
+              --message "chore(release): bump version to %v" \
+              --skip-bump-only-releases \
+              --yes --no-private \
+              --tag-version-prefix "" \
+              --dist-tag development
+          fi
