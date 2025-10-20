@@ -25,6 +25,7 @@
     "@typescript-eslint/parser": "^7.18.0",
     "@yarnpkg/pnpify": "^4.1.6",
     "concurrently": "^8.2.2",
+    "conventional-commits-filter": "^5.0.0",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.2",
     "eslint-plugin-json": "^3.1.0",
