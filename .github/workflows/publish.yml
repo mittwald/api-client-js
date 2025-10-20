@@ -79,9 +79,10 @@ jobs:
           'refs/heads/master'
         run: |
           yarn lerna publish \
+            --message "chore(release): bump version to %v" \
+            --skip-bump-only-releases \
             --conventional-commits \
             --create-release github \
-            --message "chore(release): bump version to %v" \
             --yes --no-private \
             --tag-version-prefix ""
 
@@ -144,6 +145,7 @@ jobs:
         run: |
           yarn lerna publish 0.0.0-development-$(git rev-parse --short=7 HEAD)-$(date +%Y%m%d) \
             --message "chore(release): bump version to %v" \
+            --skip-bump-only-releases \
             --yes --no-private \
             --tag-version-prefix "" \
             --dist-tag development
