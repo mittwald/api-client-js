@@ -796,6 +796,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The database API allows you to manage your databases, like MySQL and Redis databases. */
   public readonly database = {
+    /** Copy a MySQLDatabase with a MySQLUser. */
+    copyMysqlDatabase: this.requestFunctionFactory(
+      descriptors.databaseCopyMysqlDatabase,
+    ),
     /** List MySQLDatabases belonging to a Project. */
     listMysqlDatabases: this.requestFunctionFactory(
       descriptors.databaseListMysqlDatabases,
@@ -889,10 +893,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update a RedisDatabase's description. */
     updateRedisDatabaseDescription: this.requestFunctionFactory(
       descriptors.databaseUpdateRedisDatabaseDescription,
-    ),
-    /** Copy a MySQLDatabase with a MySQLUser. */
-    copyMysqlDatabase: this.requestFunctionFactory(
-      descriptors.databaseCopyMysqlDatabase,
     ),
   };
 
