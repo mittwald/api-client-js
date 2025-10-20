@@ -11168,6 +11168,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:^7.18.0"
     "@yarnpkg/pnpify": "npm:^4.1.6"
     concurrently: "npm:^8.2.2"
+    conventional-commits-filter: "npm:^5.0.0"
     eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^9.1.2"
     eslint-plugin-json: "npm:^3.1.0"
