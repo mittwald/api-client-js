@@ -118,10 +118,15 @@ const buildBackupApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.backupGetProjectBackup,
     baseClient.backup.getProjectBackup,
   ).getApiResource,
-  /** Get table of contents for a ProjectBackup. */
+  /** Get paths for a ProjectBackup. */
   getProjectBackupDirectories: new ApiCallAsyncResourceFactory(
     descriptors.backupGetProjectBackupDirectories,
     baseClient.backup.getProjectBackupDirectories,
+  ).getApiResource,
+  /** Get databases for a ProjectBackup. */
+  getProjectBackupDatabases: new ApiCallAsyncResourceFactory(
+    descriptors.backupGetProjectBackupDatabases,
+    baseClient.backup.getProjectBackupDatabases,
   ).getApiResource,
 });
 
@@ -457,6 +462,11 @@ const buildCronjobApi = (baseClient: MittwaldAPIV2Client) => ({
   getExecution: new ApiCallAsyncResourceFactory(
     descriptors.cronjobGetExecution,
     baseClient.cronjob.getExecution,
+  ).getApiResource,
+  /** Get a CronjobExecution analysis for failed executions. */
+  getExecutionAnalysis: new ApiCallAsyncResourceFactory(
+    descriptors.cronjobGetExecutionAnalysis,
+    baseClient.cronjob.getExecutionAnalysis,
   ).getApiResource,
 });
 

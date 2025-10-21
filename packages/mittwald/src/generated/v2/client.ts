@@ -145,7 +145,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteProjectBackup: this.requestFunctionFactory(
       descriptors.backupDeleteProjectBackup,
     ),
-    /** Get table of contents for a ProjectBackup. */
+    /** Get paths for a ProjectBackup. */
     getProjectBackupDirectories: this.requestFunctionFactory(
       descriptors.backupGetProjectBackupDirectories,
     ),
@@ -156,6 +156,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Change the description of a ProjectBackup. */
     updateProjectBackupDescription: this.requestFunctionFactory(
       descriptors.backupUpdateProjectBackupDescription,
+    ),
+    /** Restore a ProjectBackup's database. */
+    requestProjectBackupRestoreDatabase: this.requestFunctionFactory(
+      descriptors.backupRequestProjectBackupRestoreDatabase,
+    ),
+    /** Get databases for a ProjectBackup. */
+    getProjectBackupDatabases: this.requestFunctionFactory(
+      descriptors.backupGetProjectBackupDatabases,
     ),
   };
 
@@ -696,6 +704,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateCronjobAppId: this.requestFunctionFactory(
       descriptors.cronjobUpdateCronjobAppId,
     ),
+    /** Get a CronjobExecution analysis for failed executions. */
+    getExecutionAnalysis: this.requestFunctionFactory(
+      descriptors.cronjobGetExecutionAnalysis,
+    ),
   };
 
   /** The customer API allows you to manage your own organizations and users. */
@@ -1041,6 +1053,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** List Certificates belonging to a Project or an Ingress. */
     sslListCertificates: this.requestFunctionFactory(
       descriptors.sslListCertificates,
+    ),
+    /** Update the certificate of a CertificateRequest. */
+    sslSetCertificateRequestCertificate: this.requestFunctionFactory(
+      descriptors.sslSetCertificateRequestCertificate,
     ),
     /** Create a scheduled deletion of a Domain. */
     createScheduledDeletion: this.requestFunctionFactory(

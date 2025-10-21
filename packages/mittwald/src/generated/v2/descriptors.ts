@@ -1290,7 +1290,7 @@ export const backupDeleteProjectBackup: OpenAPIOperation<
   operationId: "backup-delete-project-backup",
 };
 
-/** Get table of contents for a ProjectBackup. */
+/** Get paths for a ProjectBackup. */
 export const backupGetProjectBackupDirectories: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -17001,45 +17001,6 @@ export const verificationVerifyCompany: OpenAPIOperation<
   operationId: "verification-verify-company",
 };
 
-/** Copy a MySQLDatabase with a MySQLUser. */
-export const databaseCopyMysqlDatabase: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdActionsCopy.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdActionsCopy.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdActionsCopy.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdActionsCopy.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdActionsCopy.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdActionsCopy.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdActionsCopy.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdActionsCopy.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdActionsCopy.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/mysql-databases/{mysqlDatabaseId}/actions/copy",
-  method: "POST",
-  operationId: "database-copy-mysql-database",
-};
-
 /** Create a scheduled deletion of a Domain. */
 export const domainCreateScheduledDeletion: OpenAPIOperation<
   RequestType<
@@ -17106,4 +17067,141 @@ export const domainCancelScheduledDeletion: OpenAPIOperation<
   path: "/v2/domains/{domainId}/scheduled-deletion",
   method: "DELETE",
   operationId: "domain-cancel-scheduled-deletion",
+};
+
+/** Get a CronjobExecution analysis for failed executions. */
+export const cronjobGetExecutionAnalysis: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdAnalysis.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdAnalysis.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdAnalysis.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdAnalysis.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdAnalysis.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdAnalysis.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdAnalysis.Get.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdAnalysis.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdAnalysis.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/cronjobs/{cronjobId}/executions/{executionId}/analysis",
+  method: "GET",
+  operationId: "cronjob-get-execution-analysis",
+};
+
+/** Restore a ProjectBackup's database. */
+export const backupRequestProjectBackupRestoreDatabase: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestoreDatabase.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestoreDatabase.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestoreDatabase.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestoreDatabase.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestoreDatabase.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestoreDatabase.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestoreDatabase.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestoreDatabase.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestoreDatabase.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestoreDatabase.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/project-backups/{projectBackupId}/restore-database",
+  method: "POST",
+  operationId: "backup-request-project-backup-restore-database",
+};
+
+/** Get databases for a ProjectBackup. */
+export const backupGetProjectBackupDatabases: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDatabase.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDatabase.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDatabase.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDatabase.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDatabase.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDatabase.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDatabase.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDatabase.Get.Responses.$502.Content.ApplicationJson>,
+      502,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDatabase.Get.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDatabase.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/project-backups/{projectBackupId}/database",
+  method: "GET",
+  operationId: "backup-get-project-backup-databases",
 };
