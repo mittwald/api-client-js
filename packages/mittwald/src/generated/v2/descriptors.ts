@@ -16751,3 +16751,71 @@ export const databaseCopyMysqlDatabase: OpenAPIOperation<
   method: "POST",
   operationId: "database-copy-mysql-database",
 };
+
+/** Create a scheduled deletion of a Domain. */
+export const domainCreateScheduledDeletion: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScheduledDeletion.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScheduledDeletion.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScheduledDeletion.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScheduledDeletion.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScheduledDeletion.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScheduledDeletion.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScheduledDeletion.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScheduledDeletion.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/scheduled-deletion",
+  method: "POST",
+  operationId: "domain-create-scheduled-deletion",
+};
+
+/** Cancel a scheduled deletion of a Domain. */
+export const domainCancelScheduledDeletion: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScheduledDeletion.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScheduledDeletion.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScheduledDeletion.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScheduledDeletion.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScheduledDeletion.Delete.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScheduledDeletion.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScheduledDeletion.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/scheduled-deletion",
+  method: "DELETE",
+  operationId: "domain-cancel-scheduled-deletion",
+};

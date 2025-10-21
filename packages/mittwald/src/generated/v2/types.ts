@@ -4280,6 +4280,28 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace DomainCreateScheduledDeletion {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainCreateScheduledDeletion
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainCreateScheduledDeletion,
+          TStatus
+        >;
+    }
+
+    namespace DomainCancelScheduledDeletion {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainCancelScheduledDeletion
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainCancelScheduledDeletion,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -5875,6 +5897,7 @@ export declare module MittwaldAPIV2 {
         nameservers: string[];
         processes?: MittwaldAPIV2.Components.Schemas.DomainProcess[];
         projectId: string;
+        scheduledDeletionDate?: string;
         transferInAuthCode?: string;
         usesDefaultNameserver: boolean;
       }
@@ -6163,7 +6186,7 @@ export declare module MittwaldAPIV2 {
           domain: string;
           id: string;
         };
-        chargeability?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstanceChargeability;
+        chargeability: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstanceChargeability;
         consentedScopes: string[];
         contributorId: string;
         contributorName: string;
@@ -6186,6 +6209,7 @@ export declare module MittwaldAPIV2 {
       export interface MarketplaceExtensionInstanceChargeability {
         isChargeable: boolean;
         reasons: {
+          isNonChargeableCustomer: boolean;
           isOwnExtension: boolean;
         };
       }
@@ -34589,6 +34613,100 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DomainsDomainIdScheduledDeletion {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            domainId: string;
+          };
+
+          export interface RequestBody {
+            deletionDate: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            domainId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;

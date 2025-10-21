@@ -1034,6 +1034,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     sslListCertificates: this.requestFunctionFactory(
       descriptors.sslListCertificates,
     ),
+    /** Create a scheduled deletion of a Domain. */
+    createScheduledDeletion: this.requestFunctionFactory(
+      descriptors.domainCreateScheduledDeletion,
+    ),
+    /** Cancel a scheduled deletion of a Domain. */
+    cancelScheduledDeletion: this.requestFunctionFactory(
+      descriptors.domainCancelScheduledDeletion,
+    ),
   };
 
   /** The mail API allows you to manage your mail accounts. */
