@@ -1042,9 +1042,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     sslListCertificates: this.requestFunctionFactory(
       descriptors.sslListCertificates,
     ),
-    /** Update the certificate of a CertificateRequest. */
-    sslSetCertificateRequestCertificate: this.requestFunctionFactory(
-      descriptors.sslSetCertificateRequestCertificate,
+    /** Create a scheduled deletion of a Domain. */
+    createScheduledDeletion: this.requestFunctionFactory(
+      descriptors.domainCreateScheduledDeletion,
+    ),
+    /** Cancel a scheduled deletion of a Domain. */
+    cancelScheduledDeletion: this.requestFunctionFactory(
+      descriptors.domainCancelScheduledDeletion,
     ),
   };
 
