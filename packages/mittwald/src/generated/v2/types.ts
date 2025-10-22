@@ -5007,6 +5007,14 @@ export declare module MittwaldAPIV2 {
          * Defaults to image config on empty
          */
         command?: string[];
+        deploy?: {
+          resources?: {
+            limits?: {
+              cpus?: string;
+              memory?: string;
+            };
+          };
+        };
         description?: string;
         /**
          * Defaults to image config on empty
@@ -5032,6 +5040,14 @@ export declare module MittwaldAPIV2 {
          * Defaults to image config on empty
          */
         command?: string[];
+        deploy?: {
+          resources?: {
+            limits?: {
+              cpus?: string;
+              memory?: string;
+            };
+          };
+        };
         description?: string;
         /**
          * Defaults to image config on empty
@@ -5056,6 +5072,10 @@ export declare module MittwaldAPIV2 {
         deployedState: MittwaldAPIV2.Components.Schemas.ContainerServiceState;
         description: string;
         id: string;
+        limits?: {
+          cpus?: string;
+          memory?: string;
+        };
         message?: string;
         pendingState: MittwaldAPIV2.Components.Schemas.ContainerServiceState;
         projectId: string;
@@ -35235,7 +35255,7 @@ export declare module MittwaldAPIV2 {
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {
-            directory?: string;
+            databaseName?: string;
           };
         }
         namespace Responses {
