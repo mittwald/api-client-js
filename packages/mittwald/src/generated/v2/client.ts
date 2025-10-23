@@ -788,6 +788,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The database API allows you to manage your databases, like MySQL and Redis databases. */
   public readonly database = {
+    /** Copy a MySQLDatabase with a MySQLUser. */
+    copyMysqlDatabase: this.requestFunctionFactory(
+      descriptors.databaseCopyMysqlDatabase,
+    ),
     /** List MySQLDatabases belonging to a Project. */
     listMysqlDatabases: this.requestFunctionFactory(
       descriptors.databaseListMysqlDatabases,
@@ -882,10 +886,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateRedisDatabaseDescription: this.requestFunctionFactory(
       descriptors.databaseUpdateRedisDatabaseDescription,
     ),
-    /** Copy a MySQLDatabase with a MySQLUser. */
-    copyMysqlDatabase: this.requestFunctionFactory(
-      descriptors.databaseCopyMysqlDatabase,
-    ),
   };
 
   /** The domain API allows you to manage your domains, DNS records, SSL certificates and ingress resources. */
@@ -925,6 +925,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Abort a Domain declaration. */
     abortDomainDeclaration: this.requestFunctionFactory(
       descriptors.domainAbortDomainDeclaration,
+    ),
+    /** Create a scheduled deletion of a Domain. */
+    createScheduledDeletion: this.requestFunctionFactory(
+      descriptors.domainCreateScheduledDeletion,
+    ),
+    /** Cancel a scheduled deletion of a Domain. */
+    cancelScheduledDeletion: this.requestFunctionFactory(
+      descriptors.domainCancelScheduledDeletion,
     ),
     /** Check if a Domain is available to register. */
     checkDomainRegistrability: this.requestFunctionFactory(
@@ -1033,14 +1041,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** List Certificates belonging to a Project or an Ingress. */
     sslListCertificates: this.requestFunctionFactory(
       descriptors.sslListCertificates,
-    ),
-    /** Create a scheduled deletion of a Domain. */
-    createScheduledDeletion: this.requestFunctionFactory(
-      descriptors.domainCreateScheduledDeletion,
-    ),
-    /** Cancel a scheduled deletion of a Domain. */
-    cancelScheduledDeletion: this.requestFunctionFactory(
-      descriptors.domainCancelScheduledDeletion,
     ),
   };
 
