@@ -946,14 +946,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     abortDomainDeclaration: this.requestFunctionFactory(
       descriptors.domainAbortDomainDeclaration,
     ),
-    /** Create a scheduled deletion of a Domain. */
-    createScheduledDeletion: this.requestFunctionFactory(
-      descriptors.domainCreateScheduledDeletion,
-    ),
-    /** Cancel a scheduled deletion of a Domain. */
-    cancelScheduledDeletion: this.requestFunctionFactory(
-      descriptors.domainCancelScheduledDeletion,
-    ),
     /** Check if a Domain is available to register. */
     checkDomainRegistrability: this.requestFunctionFactory(
       descriptors.domainCheckDomainRegistrability,
@@ -1061,6 +1053,18 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** List Certificates belonging to a Project or an Ingress. */
     sslListCertificates: this.requestFunctionFactory(
       descriptors.sslListCertificates,
+    ),
+    /** Update the certificate of a CertificateRequest. */
+    sslSetCertificateRequestCertificate: this.requestFunctionFactory(
+      descriptors.sslSetCertificateRequestCertificate,
+    ),
+    /** Create a scheduled deletion of a Domain. */
+    createScheduledDeletion: this.requestFunctionFactory(
+      descriptors.domainCreateScheduledDeletion,
+    ),
+    /** Cancel a scheduled deletion of a Domain. */
+    cancelScheduledDeletion: this.requestFunctionFactory(
+      descriptors.domainCancelScheduledDeletion,
     ),
   };
 
