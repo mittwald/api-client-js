@@ -399,49 +399,6 @@ const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildConversationApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** Get all conversation the authenticated user has created or has access to. */
-  listConversations: new ApiCallAsyncResourceFactory(
-    descriptors.conversationListConversations,
-    baseClient.conversation.listConversations,
-  ).getApiResource,
-  /** Get all message of the conversation. */
-  listMessagesByConversation: new ApiCallAsyncResourceFactory(
-    descriptors.conversationListMessagesByConversation,
-    baseClient.conversation.listMessagesByConversation,
-  ).getApiResource,
-  /** Get a specific conversation category. */
-  getCategory: new ApiCallAsyncResourceFactory(
-    descriptors.conversationGetCategory,
-    baseClient.conversation.getCategory,
-  ).getApiResource,
-  /** Get members of a support conversation. */
-  getConversationMembers: new ApiCallAsyncResourceFactory(
-    descriptors.conversationGetConversationMembers,
-    baseClient.conversation.getConversationMembers,
-  ).getApiResource,
-  /** Get preferences for customer conversations. */
-  getConversationPreferencesOfCustomer: new ApiCallAsyncResourceFactory(
-    descriptors.conversationGetConversationPreferencesOfCustomer,
-    baseClient.conversation.getConversationPreferencesOfCustomer,
-  ).getApiResource,
-  /** Get a support conversation. */
-  getConversation: new ApiCallAsyncResourceFactory(
-    descriptors.conversationGetConversation,
-    baseClient.conversation.getConversation,
-  ).getApiResource,
-  /** Request an access token for the File belonging to the Conversation. */
-  getFileAccessToken: new ApiCallAsyncResourceFactory(
-    descriptors.conversationGetFileAccessToken,
-    baseClient.conversation.getFileAccessToken,
-  ).getApiResource,
-  /** Get all conversation categories. */
-  listCategories: new ApiCallAsyncResourceFactory(
-    descriptors.conversationListCategories,
-    baseClient.conversation.listCategories,
-  ).getApiResource,
-});
-
 const buildCronjobApi = (baseClient: MittwaldAPIV2Client) => ({
   /** List Cronjobs belonging to a Project. */
   listCronjobs: new ApiCallAsyncResourceFactory(
@@ -1039,6 +996,49 @@ const buildSshsftpUserApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
+const buildConversationApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get all conversation categories. */
+  listCategories: new ApiCallAsyncResourceFactory(
+    descriptors.conversationListCategories,
+    baseClient.conversation.listCategories,
+  ).getApiResource,
+  /** Request an access token for the File belonging to the Conversation. */
+  getFileAccessToken: new ApiCallAsyncResourceFactory(
+    descriptors.conversationGetFileAccessToken,
+    baseClient.conversation.getFileAccessToken,
+  ).getApiResource,
+  /** Get all conversation the authenticated user has created or has access to. */
+  listConversations: new ApiCallAsyncResourceFactory(
+    descriptors.conversationListConversations,
+    baseClient.conversation.listConversations,
+  ).getApiResource,
+  /** Get a specific conversation category. */
+  getCategory: new ApiCallAsyncResourceFactory(
+    descriptors.conversationGetCategory,
+    baseClient.conversation.getCategory,
+  ).getApiResource,
+  /** Get members of a support conversation. */
+  getConversationMembers: new ApiCallAsyncResourceFactory(
+    descriptors.conversationGetConversationMembers,
+    baseClient.conversation.getConversationMembers,
+  ).getApiResource,
+  /** Get all message of the conversation. */
+  listMessagesByConversation: new ApiCallAsyncResourceFactory(
+    descriptors.conversationListMessagesByConversation,
+    baseClient.conversation.listMessagesByConversation,
+  ).getApiResource,
+  /** Get preferences for customer conversations. */
+  getConversationPreferencesOfCustomer: new ApiCallAsyncResourceFactory(
+    descriptors.conversationGetConversationPreferencesOfCustomer,
+    baseClient.conversation.getConversationPreferencesOfCustomer,
+  ).getApiResource,
+  /** Get a support conversation. */
+  getConversation: new ApiCallAsyncResourceFactory(
+    descriptors.conversationGetConversation,
+    baseClient.conversation.getConversation,
+  ).getApiResource,
+});
+
 export class MittwaldAPIV2ClientReact {
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app: ReturnType<typeof buildAppApi>;
@@ -1057,9 +1057,6 @@ export class MittwaldAPIV2ClientReact {
 
   /** The marketplace API allows you to manage extensions and more information regaring the marketplace. */
   public readonly marketplace: ReturnType<typeof buildMarketplaceApi>;
-
-  /** The conversation API allows you to manage your support conversations. */
-  public readonly conversation: ReturnType<typeof buildConversationApi>;
 
   /** The cronjob API allows you to manage cronjobs within a project. */
   public readonly cronjob: ReturnType<typeof buildCronjobApi>;
@@ -1105,6 +1102,9 @@ export class MittwaldAPIV2ClientReact {
   /** The SSH/SFTP User API allows you to manage your SSH/SFTP users within a project. */
   public readonly sshsftpUser: ReturnType<typeof buildSshsftpUserApi>;
 
+  /** The conversation API allows you to manage your support conversations. */
+  public readonly conversation: ReturnType<typeof buildConversationApi>;
+
   private constructor(baseClient: MittwaldAPIV2Client) {
     this.app = buildAppApi(baseClient);
 
@@ -1117,8 +1117,6 @@ export class MittwaldAPIV2ClientReact {
     this.contract = buildContractApi(baseClient);
 
     this.marketplace = buildMarketplaceApi(baseClient);
-
-    this.conversation = buildConversationApi(baseClient);
 
     this.cronjob = buildCronjobApi(baseClient);
 
@@ -1147,6 +1145,8 @@ export class MittwaldAPIV2ClientReact {
     this.projectFileSystem = buildProjectFileSystemApi(baseClient);
 
     this.sshsftpUser = buildSshsftpUserApi(baseClient);
+
+    this.conversation = buildConversationApi(baseClient);
   }
 
   public static fromBaseClient(
