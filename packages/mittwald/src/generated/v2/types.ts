@@ -7289,6 +7289,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface MailmigrationPossibleCheckErrors {
+        activeMailArchiveForAddress: MittwaldAPIV2.Components.Schemas.MailmigrationCheckMigrationIsPossibleErrorActiveMailArchiveForAddress[];
         alreadyExistingMailAddress: MittwaldAPIV2.Components.Schemas.MailmigrationCheckMigrationIsPossibleErrorAlreadyExistingMailAddress[];
         ambiguousMailAddressDelivery: MittwaldAPIV2.Components.Schemas.MailmigrationCheckMigrationIsPossibleErrorAmbiguousMailAddressDelivery[];
         ambiguousMailboxDelivery: MittwaldAPIV2.Components.Schemas.MailmigrationCheckMigrationIsPossibleErrorAmbiguousMailboxDelivery[];
@@ -8676,6 +8677,10 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface MailmigrationCheckMigrationIsPossibleErrorActiveMailArchiveForAddress {
+        address: string;
+      }
 
       export interface CommonsAddress {
         street: string;
