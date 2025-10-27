@@ -371,6 +371,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace BackupGetProjectBackupDatabases {
+      type RequestData = InferredRequestData<
+        typeof descriptors.backupGetProjectBackupDatabases
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.backupGetProjectBackupDatabases,
+          TStatus
+        >;
+    }
+
     namespace BackupGetProjectBackupDirectories {
       type RequestData = InferredRequestData<
         typeof descriptors.backupGetProjectBackupDirectories
@@ -378,6 +389,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.backupGetProjectBackupDirectories,
+          TStatus
+        >;
+    }
+
+    namespace BackupRequestProjectBackupRestoreDatabase {
+      type RequestData = InferredRequestData<
+        typeof descriptors.backupRequestProjectBackupRestoreDatabase
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.backupRequestProjectBackupRestoreDatabase,
           TStatus
         >;
     }
@@ -977,6 +999,160 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.contributorRotateSecretForExtensionInstance,
+          TStatus
+        >;
+    }
+
+    namespace ConversationListConversations {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationListConversations
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationListConversations,
+          TStatus
+        >;
+    }
+
+    namespace ConversationCreateConversation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationCreateConversation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationCreateConversation,
+          TStatus
+        >;
+    }
+
+    namespace ConversationListMessagesByConversation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationListMessagesByConversation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationListMessagesByConversation,
+          TStatus
+        >;
+    }
+
+    namespace ConversationCreateMessage {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationCreateMessage
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationCreateMessage,
+          TStatus
+        >;
+    }
+
+    namespace ConversationGetCategory {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationGetCategory
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationGetCategory,
+          TStatus
+        >;
+    }
+
+    namespace ConversationGetConversationMembers {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationGetConversationMembers
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationGetConversationMembers,
+          TStatus
+        >;
+    }
+
+    namespace ConversationGetConversationPreferencesOfCustomer {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationGetConversationPreferencesOfCustomer
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationGetConversationPreferencesOfCustomer,
+          TStatus
+        >;
+    }
+
+    namespace ConversationGetConversation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationGetConversation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationGetConversation,
+          TStatus
+        >;
+    }
+
+    namespace ConversationUpdateConversation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationUpdateConversation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationUpdateConversation,
+          TStatus
+        >;
+    }
+
+    namespace ConversationGetFileAccessToken {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationGetFileAccessToken
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationGetFileAccessToken,
+          TStatus
+        >;
+    }
+
+    namespace ConversationListCategories {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationListCategories
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationListCategories,
+          TStatus
+        >;
+    }
+
+    namespace ConversationRequestFileUpload {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationRequestFileUpload
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationRequestFileUpload,
+          TStatus
+        >;
+    }
+
+    namespace ConversationSetConversationStatus {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationSetConversationStatus
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationSetConversationStatus,
+          TStatus
+        >;
+    }
+
+    namespace ConversationUpdateMessage {
+      type RequestData = InferredRequestData<
+        typeof descriptors.conversationUpdateMessage
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.conversationUpdateMessage,
           TStatus
         >;
     }
@@ -1776,6 +1952,28 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.domainAbortDomainDeclaration,
+          TStatus
+        >;
+    }
+
+    namespace DomainCreateScheduledDeletion {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainCreateScheduledDeletion
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainCreateScheduledDeletion,
+          TStatus
+        >;
+    }
+
+    namespace DomainCancelScheduledDeletion {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainCancelScheduledDeletion
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainCancelScheduledDeletion,
           TStatus
         >;
     }
@@ -4193,28 +4391,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace DomainCreateScheduledDeletion {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainCreateScheduledDeletion
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainCreateScheduledDeletion,
-          TStatus
-        >;
-    }
-
-    namespace DomainCancelScheduledDeletion {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainCancelScheduledDeletion
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainCancelScheduledDeletion,
-          TStatus
-        >;
-    }
-
     namespace CronjobGetExecutionAnalysis {
       type RequestData = InferredRequestData<
         typeof descriptors.cronjobGetExecutionAnalysis
@@ -4222,182 +4398,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.cronjobGetExecutionAnalysis,
-          TStatus
-        >;
-    }
-
-    namespace BackupRequestProjectBackupRestoreDatabase {
-      type RequestData = InferredRequestData<
-        typeof descriptors.backupRequestProjectBackupRestoreDatabase
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.backupRequestProjectBackupRestoreDatabase,
-          TStatus
-        >;
-    }
-
-    namespace BackupGetProjectBackupDatabases {
-      type RequestData = InferredRequestData<
-        typeof descriptors.backupGetProjectBackupDatabases
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.backupGetProjectBackupDatabases,
-          TStatus
-        >;
-    }
-
-    namespace ConversationListCategories {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationListCategories
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.conversationListCategories,
-          TStatus
-        >;
-    }
-
-    namespace ConversationGetFileAccessToken {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationGetFileAccessToken
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.conversationGetFileAccessToken,
-          TStatus
-        >;
-    }
-
-    namespace ConversationListConversations {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationListConversations
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.conversationListConversations,
-          TStatus
-        >;
-    }
-
-    namespace ConversationCreateConversation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationCreateConversation
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.conversationCreateConversation,
-          TStatus
-        >;
-    }
-
-    namespace ConversationSetConversationStatus {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationSetConversationStatus
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.conversationSetConversationStatus,
-          TStatus
-        >;
-    }
-
-    namespace ConversationGetCategory {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationGetCategory
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.conversationGetCategory,
-          TStatus
-        >;
-    }
-
-    namespace ConversationGetConversationMembers {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationGetConversationMembers
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.conversationGetConversationMembers,
-          TStatus
-        >;
-    }
-
-    namespace ConversationListMessagesByConversation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationListMessagesByConversation
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.conversationListMessagesByConversation,
-          TStatus
-        >;
-    }
-
-    namespace ConversationCreateMessage {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationCreateMessage
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.conversationCreateMessage,
-          TStatus
-        >;
-    }
-
-    namespace ConversationGetConversationPreferencesOfCustomer {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationGetConversationPreferencesOfCustomer
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.conversationGetConversationPreferencesOfCustomer,
-          TStatus
-        >;
-    }
-
-    namespace ConversationUpdateMessage {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationUpdateMessage
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.conversationUpdateMessage,
-          TStatus
-        >;
-    }
-
-    namespace ConversationGetConversation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationGetConversation
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.conversationGetConversation,
-          TStatus
-        >;
-    }
-
-    namespace ConversationUpdateConversation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationUpdateConversation
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.conversationUpdateConversation,
-          TStatus
-        >;
-    }
-
-    namespace ConversationRequestFileUpload {
-      type RequestData = InferredRequestData<
-        typeof descriptors.conversationRequestFileUpload
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.conversationRequestFileUpload,
           TStatus
         >;
     }
@@ -4740,6 +4740,11 @@ export declare module MittwaldAPIV2 {
         status: string;
       }
 
+      export interface BackupProjectBackupDatabase {
+        databases: string[];
+        projectBackupId: string;
+      }
+
       export interface BackupProjectBackupExport {
         downloadURL?: string;
         expiresAt?: string;
@@ -4759,6 +4764,13 @@ export declare module MittwaldAPIV2 {
         name: string;
         size: number;
         target?: string;
+      }
+
+      export interface BackupProjectBackupRestoreDatabaseRequest {
+        databaseName: string;
+        destination?:
+          | MittwaldAPIV2.Components.Schemas.BackupNewDatabase
+          | MittwaldAPIV2.Components.Schemas.BackupExistingDatabase;
       }
 
       export interface BackupProjectBackupRestorePathRequest {
@@ -5028,6 +5040,10 @@ export declare module MittwaldAPIV2 {
         volumes?: string[];
       }
 
+      export interface ContainerDeploy {
+        resources?: MittwaldAPIV2.Components.Schemas.ContainerResources;
+      }
+
       export interface ContainerServiceRequest {
         /**
          * Defaults to image config on empty
@@ -5052,6 +5068,15 @@ export declare module MittwaldAPIV2 {
         image?: string;
         ports?: string[];
         volumes?: string[];
+      }
+
+      export interface ContainerResourceSpec {
+        cpus?: string;
+        memory?: string;
+      }
+
+      export interface ContainerResources {
+        limits?: MittwaldAPIV2.Components.Schemas.ContainerResourceSpec;
       }
 
       export interface ContainerServiceResponse {
@@ -5249,6 +5274,263 @@ export declare module MittwaldAPIV2 {
         scheduledAtDate: string;
         scheduledByUserId?: string;
         targetDate: string;
+      }
+
+      export interface ConversationAggregateReference {
+        aggregate: string;
+        domain: string;
+        id: string;
+      }
+
+      export type ConversationCategoryReferenceType = (
+        | "unspecified"
+        | "server"
+        | "project"
+        | "organisation"
+        | "extensionInstance"
+      )[];
+
+      export interface ConversationCategory {
+        categoryId: string;
+        name: string;
+        referenceType: MittwaldAPIV2.Components.Schemas.ConversationCategoryReferenceType;
+      }
+
+      export type ConversationConversationMembers =
+        (MittwaldAPIV2.Components.Schemas.ConversationUser & {
+          active: boolean;
+        })[];
+
+      export interface ConversationConversationPreferences {
+        customerId: string;
+        preferredUsers: {
+          categoryUserPairs?: {
+            [k: string]: string;
+          };
+          fallback?: string;
+        };
+      }
+
+      export interface ConversationConversation {
+        category?: MittwaldAPIV2.Components.Schemas.ConversationCategory;
+        conversationId: string;
+        createdAt: string;
+        createdBy?: MittwaldAPIV2.Components.Schemas.ConversationUser;
+        lastMessage?: {
+          createdAt: string;
+          createdBy?: MittwaldAPIV2.Components.Schemas.ConversationUser;
+        };
+        lastMessageAt?: string;
+        lastMessageBy?: MittwaldAPIV2.Components.Schemas.ConversationUser;
+        mainUser: MittwaldAPIV2.Components.Schemas.ConversationUser;
+        notificationRoles?: MittwaldAPIV2.Components.Schemas.ConversationNotificationRole[];
+        relatedTo?: MittwaldAPIV2.Components.Schemas.ConversationRelatedAggregateReference;
+        relations?: MittwaldAPIV2.Components.Schemas.ConversationAggregateReference[];
+        sharedWith?: MittwaldAPIV2.Components.Schemas.ConversationShareableAggregateReference;
+        shortId: string;
+        status: MittwaldAPIV2.Components.Schemas.ConversationStatus;
+        title: string;
+        visibility: "shared" | "private";
+      }
+
+      export interface ConversationGetConversationIdResponse {
+        conversationId: string;
+        shortId: string;
+      }
+
+      export type ConversationDepartment =
+        | "development"
+        | "mail"
+        | "accounting"
+        | "cloudHosting"
+        | "customerService"
+        | "productManagement"
+        | "generic";
+
+      export interface ConversationError {
+        message: string;
+        type: string;
+      }
+
+      export interface ConversationDeletedFile {
+        deletionDate: string;
+        id: string;
+        name: string;
+        status: "deleted";
+        type: string;
+      }
+
+      export interface ConversationRequestedFile {
+        id: string;
+        status: "requested";
+      }
+
+      export type ConversationFile =
+        | MittwaldAPIV2.Components.Schemas.ConversationRequestedFile
+        | MittwaldAPIV2.Components.Schemas.ConversationUploadedFile
+        | MittwaldAPIV2.Components.Schemas.ConversationDeletedFile;
+
+      export interface ConversationUploadedFile {
+        id: string;
+        name: string;
+        status: "uploaded";
+        type: string;
+      }
+
+      export interface ConversationMessage {
+        conversationId: string;
+        createdAt: string;
+        createdBy?: MittwaldAPIV2.Components.Schemas.ConversationUser;
+        files?: MittwaldAPIV2.Components.Schemas.ConversationFile[];
+        internal?: boolean;
+        messageContent?: string;
+        messageId: string;
+        type: "MESSAGE";
+      }
+
+      export type ConversationNotificationRole =
+        | "customer_owner"
+        | "customer_accountant"
+        | "customer_member"
+        | "project_owner"
+        | "project_emailadmin"
+        | "project_external";
+
+      export type ConversationRelatedAggregateReference =
+        | {
+            aggregate: "user";
+            domain: "user";
+            id: string;
+          }
+        | {
+            aggregate: "customer";
+            domain: "customer";
+            id: string;
+          }
+        | {
+            aggregate: "project";
+            domain: "project";
+            id: string;
+          }
+        | {
+            aggregate: "appinstallation";
+            domain: "app";
+            id: string;
+          }
+        | {
+            aggregate: "placementgroup";
+            domain: "project";
+            id: string;
+          }
+        | {
+            aggregate: "extensionInstance";
+            domain: "extension";
+            id: string;
+          }
+        | {
+            aggregate: "container";
+            domain: "container";
+            id: string;
+          };
+
+      export interface ConversationServiceRequestRelocationPayload {
+        contact: {
+          email: string;
+          firstname: string;
+          lastname: string;
+          phone?: string;
+        };
+        domain?: {
+          allDomains?: boolean;
+          domains?: {
+            authCode?: string;
+            domainName?: string;
+          }[];
+        };
+        notes?: string;
+        preferredRelocationDate?: string;
+        redirectusKey: number;
+        source: {
+          providerName: string;
+          providerPassword: string;
+          providerUrl: string;
+          providerUsername: string;
+          sourceAccount: string;
+        };
+        target: {
+          accountShortId: string;
+          application?: string;
+          articleType: string;
+          organisation: string;
+          prices?: {
+            name?: string;
+            price?: number;
+          }[];
+          product: string;
+          withDataCompare?: boolean;
+        };
+        userId: string;
+      }
+
+      export interface ConversationServiceRequest {
+        conversationId: string;
+        createdAt: string;
+        /**
+         * @maxItems 0
+         */
+        files?: [];
+        messageContent: "relocation" | "call";
+        messageId: string;
+        meta: MittwaldAPIV2.Components.Schemas.ConversationServiceRequestRelocationPayload;
+        type: "SERVICE_REQUEST";
+      }
+
+      export type ConversationShareableAggregateReference =
+        | {
+            aggregate: "user";
+            domain: "user";
+            id: string;
+          }
+        | {
+            aggregate: "customer";
+            domain: "customer";
+            id: string;
+          }
+        | {
+            aggregate: "project";
+            domain: "project";
+            id: string;
+          }
+        | {
+            aggregate: "placementgroup";
+            domain: "project";
+            id: string;
+          };
+
+      export type ConversationStatus =
+        | "open"
+        | "closed"
+        | "answered"
+        | "inProgress"
+        | "waiting";
+
+      export interface ConversationStatusUpdate {
+        conversationId: string;
+        createdAt: string;
+        internal?: boolean;
+        messageContent: string;
+        meta?: {
+          user?: MittwaldAPIV2.Components.Schemas.ConversationUser;
+        };
+        type: "STATUS_UPDATE";
+      }
+
+      export interface ConversationUser {
+        active?: boolean;
+        avatarRefId?: string;
+        clearName?: string;
+        department?: MittwaldAPIV2.Components.Schemas.ConversationDepartment;
+        userId: string;
       }
 
       export interface StraceData {
@@ -5847,6 +6129,10 @@ export declare module MittwaldAPIV2 {
         | "code"
         | "email"
         | "push";
+
+      export interface BackupExistingDatabase {
+        database_name: string;
+      }
 
       export interface MarketplaceAggregateReference {
         aggregate: "project" | "customer";
@@ -7410,6 +7696,12 @@ export declare module MittwaldAPIV2 {
         | "emailadmin"
         | "external";
 
+      export interface BackupNewDatabase {
+        database_name: string;
+        user_password: string;
+        version: string;
+      }
+
       export interface MessagingAggregateReference {
         aggregate: string;
         domain: string;
@@ -8561,6 +8853,12 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface CronjobCronjobExecutionAnalysis {
+        issues?: string[];
+        message: string;
+        recommendation?: string;
+      }
 
       export interface MailmigrationCheckMigrationIsPossibleErrorActiveMailArchiveForAddress {
         address: string;
@@ -10696,6 +10994,79 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2ProjectBackupsProjectBackupIdDatabase {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectBackupId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            databaseName?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.BackupProjectBackupDatabase;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $502 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2ProjectBackupsProjectBackupIdPath {
       namespace Get {
         namespace Parameters {
@@ -10751,6 +11122,71 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectBackupsProjectBackupIdRestoreDatabase {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            projectBackupId: string;
+          };
+
+          export type RequestBody =
+            MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestoreDatabaseRequest;
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -14543,6 +14979,829 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2Conversations {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {
+            sort?: (
+              | "createdAt"
+              | "lastMessage.createdAt"
+              | "title"
+              | "priority"
+              | "shortId"
+              | "conversationId"
+            )[];
+            order?: ("asc" | "desc")[];
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ConversationConversation[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            categoryId?: string;
+            mainUserId?: string;
+            notificationRoles?: MittwaldAPIV2.Components.Schemas.ConversationNotificationRole[];
+            relatedTo?: MittwaldAPIV2.Components.Schemas.ConversationRelatedAggregateReference;
+            sharedWith?: MittwaldAPIV2.Components.Schemas.ConversationShareableAggregateReference;
+            title?: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                conversationId: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ConversationsConversationIdMessages {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            conversationId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson = (
+                | MittwaldAPIV2.Components.Schemas.ConversationMessage
+                | MittwaldAPIV2.Components.Schemas.ConversationStatusUpdate
+                | MittwaldAPIV2.Components.Schemas.ConversationServiceRequest
+              )[];
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            conversationId: string;
+          };
+
+          export interface RequestBody {
+            fileIds?: string[];
+            messageContent?: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                conversationId: string;
+                messageId: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ConversationCategoriesCategoryId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            categoryId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ConversationCategory;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ConversationsConversationIdMembers {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            conversationId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ConversationConversationMembers;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CustomersCustomerIdConversationPreferences {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ConversationConversationPreferences;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ConversationsConversationId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            conversationId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ConversationConversation;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            conversationId: string;
+          };
+
+          export interface RequestBody {
+            categoryId?: string;
+            relatedTo?: MittwaldAPIV2.Components.Schemas.ConversationRelatedAggregateReference;
+            title?: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                conversationId: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ConversationsConversationIdFilesFileIdAccessToken {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            conversationId: string;
+            fileId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                accessToken: string;
+                expiresAt: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ConversationCategories {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ConversationCategory[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ConversationsConversationIdFiles {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            conversationId: string;
+          };
+
+          export interface RequestBody {}
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                conversationId: string;
+                rules: {
+                  maxSizeInKB: number;
+                  mimeTypes: string[];
+                  properties?: {
+                    imageDimensions?: {
+                      max?: {
+                        height?: number;
+                        width?: number;
+                      };
+                      min?: {
+                        height?: number;
+                        width?: number;
+                      };
+                    };
+                  };
+                };
+                uploadToken: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ConversationsConversationIdStatus {
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            conversationId: string;
+          };
+
+          export interface RequestBody {
+            status: "open" | "answered" | "closed";
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                conversationId: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ConversationsConversationIdMessagesMessageId {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            conversationId: string;
+            messageId: string;
+          };
+
+          export interface RequestBody {
+            messageContent?: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                messageId: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -19197,6 +20456,100 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DomainsDomainIdScheduledDeletion {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            domainId: string;
+          };
+
+          export interface RequestBody {
+            deletionDate: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            domainId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -33901,100 +35254,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2DomainsDomainIdScheduledDeletion {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            domainId: string;
-          };
-
-          export interface RequestBody {
-            deletionDate: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Delete {
-        namespace Parameters {
-          export type Path = {
-            domainId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2CronjobsCronjobIdExecutionsExecutionIdAnalysis {
       namespace Get {
         namespace Parameters {
@@ -34017,6 +35276,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -34048,960 +35315,7 @@ export declare module MittwaldAPIV2 {
             }
           }
 
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectBackupsProjectBackupIdRestoreDatabase {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            projectBackupId: string;
-          };
-
-          export type RequestBody =
-            MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestoreDatabaseRequest;
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectBackupsProjectBackupIdDatabase {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            projectBackupId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            databaseName?: string;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.BackupProjectBackupDatabase;
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $502 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $503 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ConversationCategories {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.ConversationCategory[];
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ConversationsConversationIdFilesFileIdAccessToken {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            conversationId: string;
-            fileId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                accessToken: string;
-                expiresAt: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2Conversations {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header = {};
-
-          export type Query = {
-            sort?: (
-              | "createdAt"
-              | "lastMessage.createdAt"
-              | "title"
-              | "priority"
-              | "shortId"
-              | "conversationId"
-            )[];
-            order?: ("asc" | "desc")[];
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.ConversationConversation[];
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            categoryId?: string;
-            mainUserId?: string;
-            notificationRoles?: MittwaldAPIV2.Components.Schemas.ConversationNotificationRole[];
-            relatedTo?: MittwaldAPIV2.Components.Schemas.ConversationRelatedAggregateReference;
-            sharedWith?: MittwaldAPIV2.Components.Schemas.ConversationShareableAggregateReference;
-            title?: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                conversationId: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ConversationsConversationIdStatus {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            conversationId: string;
-          };
-
-          export interface RequestBody {
-            status: "open" | "answered" | "closed";
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                conversationId: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ConversationCategoriesCategoryId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            categoryId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.ConversationCategory;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ConversationsConversationIdMembers {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            conversationId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.ConversationConversationMembers;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ConversationsConversationIdMessages {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            conversationId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson = (
-                | MittwaldAPIV2.Components.Schemas.ConversationMessage
-                | MittwaldAPIV2.Components.Schemas.ConversationStatusUpdate
-                | MittwaldAPIV2.Components.Schemas.ConversationServiceRequest
-              )[];
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            conversationId: string;
-          };
-
-          export interface RequestBody {
-            fileIds?: string[];
-            messageContent?: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                conversationId: string;
-                messageId: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomersCustomerIdConversationPreferences {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.ConversationConversationPreferences;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ConversationsConversationIdMessagesMessageId {
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            conversationId: string;
-            messageId: string;
-          };
-
-          export interface RequestBody {
-            messageContent?: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                messageId: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ConversationsConversationId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            conversationId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.ConversationConversation;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            conversationId: string;
-          };
-
-          export interface RequestBody {
-            categoryId?: string;
-            relatedTo?: MittwaldAPIV2.Components.Schemas.ConversationRelatedAggregateReference;
-            title?: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                conversationId: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ConversationsConversationIdFiles {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            conversationId: string;
-          };
-
-          export interface RequestBody {}
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                conversationId: string;
-                rules: {
-                  maxSizeInKB: number;
-                  mimeTypes: string[];
-                  properties?: {
-                    imageDimensions?: {
-                      max?: {
-                        height?: number;
-                        width?: number;
-                      };
-                      min?: {
-                        height?: number;
-                        width?: number;
-                      };
-                    };
-                  };
-                };
-                uploadToken: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
+          namespace $500 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;

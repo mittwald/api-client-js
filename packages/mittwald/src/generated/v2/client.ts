@@ -145,9 +145,17 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteProjectBackup: this.requestFunctionFactory(
       descriptors.backupDeleteProjectBackup,
     ),
+    /** Get databases for a ProjectBackup. */
+    getProjectBackupDatabases: this.requestFunctionFactory(
+      descriptors.backupGetProjectBackupDatabases,
+    ),
     /** Get paths for a ProjectBackup. */
     getProjectBackupDirectories: this.requestFunctionFactory(
       descriptors.backupGetProjectBackupDirectories,
+    ),
+    /** Restore a ProjectBackup's database. */
+    requestProjectBackupRestoreDatabase: this.requestFunctionFactory(
+      descriptors.backupRequestProjectBackupRestoreDatabase,
     ),
     /** Restore a ProjectBackup's path. */
     requestProjectBackupRestorePath: this.requestFunctionFactory(
@@ -156,14 +164,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Change the description of a ProjectBackup. */
     updateProjectBackupDescription: this.requestFunctionFactory(
       descriptors.backupUpdateProjectBackupDescription,
-    ),
-    /** Restore a ProjectBackup's database. */
-    requestProjectBackupRestoreDatabase: this.requestFunctionFactory(
-      descriptors.backupRequestProjectBackupRestoreDatabase,
-    ),
-    /** Get databases for a ProjectBackup. */
-    getProjectBackupDatabases: this.requestFunctionFactory(
-      descriptors.backupGetProjectBackupDatabases,
     ),
   };
 
@@ -608,6 +608,66 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
+  /** The conversation API allows you to manage your support conversations. */
+  public readonly conversation = {
+    /** Get all conversation the authenticated user has created or has access to. */
+    listConversations: this.requestFunctionFactory(
+      descriptors.conversationListConversations,
+    ),
+    /** Create a conversation. */
+    createConversation: this.requestFunctionFactory(
+      descriptors.conversationCreateConversation,
+    ),
+    /** Get all message of the conversation. */
+    listMessagesByConversation: this.requestFunctionFactory(
+      descriptors.conversationListMessagesByConversation,
+    ),
+    /** Send a new message in the conversation. */
+    createMessage: this.requestFunctionFactory(
+      descriptors.conversationCreateMessage,
+    ),
+    /** Get a specific conversation category. */
+    getCategory: this.requestFunctionFactory(
+      descriptors.conversationGetCategory,
+    ),
+    /** Get members of a support conversation. */
+    getConversationMembers: this.requestFunctionFactory(
+      descriptors.conversationGetConversationMembers,
+    ),
+    /** Get preferences for customer conversations. */
+    getConversationPreferencesOfCustomer: this.requestFunctionFactory(
+      descriptors.conversationGetConversationPreferencesOfCustomer,
+    ),
+    /** Get a support conversation. */
+    getConversation: this.requestFunctionFactory(
+      descriptors.conversationGetConversation,
+    ),
+    /** Update the basic properties of the conversation. */
+    updateConversation: this.requestFunctionFactory(
+      descriptors.conversationUpdateConversation,
+    ),
+    /** Request an access token for the File belonging to the Conversation. */
+    getFileAccessToken: this.requestFunctionFactory(
+      descriptors.conversationGetFileAccessToken,
+    ),
+    /** Get all conversation categories. */
+    listCategories: this.requestFunctionFactory(
+      descriptors.conversationListCategories,
+    ),
+    /** Request a file upload token for the conversation. */
+    requestFileUpload: this.requestFunctionFactory(
+      descriptors.conversationRequestFileUpload,
+    ),
+    /** Update the status of a conversation. */
+    setConversationStatus: this.requestFunctionFactory(
+      descriptors.conversationSetConversationStatus,
+    ),
+    /** Update the content of the message */
+    updateMessage: this.requestFunctionFactory(
+      descriptors.conversationUpdateMessage,
+    ),
+  };
+
   /** The cronjob API allows you to manage cronjobs within a project. */
   public readonly cronjob = {
     /** Abort a CronjobExecution. */
@@ -886,6 +946,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     abortDomainDeclaration: this.requestFunctionFactory(
       descriptors.domainAbortDomainDeclaration,
     ),
+    /** Create a scheduled deletion of a Domain. */
+    createScheduledDeletion: this.requestFunctionFactory(
+      descriptors.domainCreateScheduledDeletion,
+    ),
+    /** Cancel a scheduled deletion of a Domain. */
+    cancelScheduledDeletion: this.requestFunctionFactory(
+      descriptors.domainCancelScheduledDeletion,
+    ),
     /** Check if a Domain is available to register. */
     checkDomainRegistrability: this.requestFunctionFactory(
       descriptors.domainCheckDomainRegistrability,
@@ -997,14 +1065,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update the certificate of a CertificateRequest. */
     sslSetCertificateRequestCertificate: this.requestFunctionFactory(
       descriptors.sslSetCertificateRequestCertificate,
-    ),
-    /** Create a scheduled deletion of a Domain. */
-    createScheduledDeletion: this.requestFunctionFactory(
-      descriptors.domainCreateScheduledDeletion,
-    ),
-    /** Cancel a scheduled deletion of a Domain. */
-    cancelScheduledDeletion: this.requestFunctionFactory(
-      descriptors.domainCancelScheduledDeletion,
     ),
   };
 
@@ -1628,66 +1688,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update an SSHUser. */
     sshUserUpdateSshUser: this.requestFunctionFactory(
       descriptors.sshUserUpdateSshUser,
-    ),
-  };
-
-  /** The conversation API allows you to manage your support conversations. */
-  public readonly conversation = {
-    /** Get all conversation categories. */
-    listCategories: this.requestFunctionFactory(
-      descriptors.conversationListCategories,
-    ),
-    /** Request an access token for the File belonging to the Conversation. */
-    getFileAccessToken: this.requestFunctionFactory(
-      descriptors.conversationGetFileAccessToken,
-    ),
-    /** Get all conversation the authenticated user has created or has access to. */
-    listConversations: this.requestFunctionFactory(
-      descriptors.conversationListConversations,
-    ),
-    /** Create a conversation. */
-    createConversation: this.requestFunctionFactory(
-      descriptors.conversationCreateConversation,
-    ),
-    /** Update the status of a conversation. */
-    setConversationStatus: this.requestFunctionFactory(
-      descriptors.conversationSetConversationStatus,
-    ),
-    /** Get a specific conversation category. */
-    getCategory: this.requestFunctionFactory(
-      descriptors.conversationGetCategory,
-    ),
-    /** Get members of a support conversation. */
-    getConversationMembers: this.requestFunctionFactory(
-      descriptors.conversationGetConversationMembers,
-    ),
-    /** Get all message of the conversation. */
-    listMessagesByConversation: this.requestFunctionFactory(
-      descriptors.conversationListMessagesByConversation,
-    ),
-    /** Send a new message in the conversation. */
-    createMessage: this.requestFunctionFactory(
-      descriptors.conversationCreateMessage,
-    ),
-    /** Get preferences for customer conversations. */
-    getConversationPreferencesOfCustomer: this.requestFunctionFactory(
-      descriptors.conversationGetConversationPreferencesOfCustomer,
-    ),
-    /** Update the content of the message */
-    updateMessage: this.requestFunctionFactory(
-      descriptors.conversationUpdateMessage,
-    ),
-    /** Get a support conversation. */
-    getConversation: this.requestFunctionFactory(
-      descriptors.conversationGetConversation,
-    ),
-    /** Update the basic properties of the conversation. */
-    updateConversation: this.requestFunctionFactory(
-      descriptors.conversationUpdateConversation,
-    ),
-    /** Request a file upload token for the conversation. */
-    requestFileUpload: this.requestFunctionFactory(
-      descriptors.conversationRequestFileUpload,
     ),
   };
 }
