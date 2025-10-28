@@ -145,7 +145,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteProjectBackup: this.requestFunctionFactory(
       descriptors.backupDeleteProjectBackup,
     ),
-    /** Get databases for a ProjectBackup. */
+    /** Check databases for a ProjectBackup. */
     getProjectBackupDatabases: this.requestFunctionFactory(
       descriptors.backupGetProjectBackupDatabases,
     ),
@@ -946,14 +946,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     abortDomainDeclaration: this.requestFunctionFactory(
       descriptors.domainAbortDomainDeclaration,
     ),
-    /** Create a scheduled deletion of a Domain. */
-    createScheduledDeletion: this.requestFunctionFactory(
-      descriptors.domainCreateScheduledDeletion,
-    ),
-    /** Cancel a scheduled deletion of a Domain. */
-    cancelScheduledDeletion: this.requestFunctionFactory(
-      descriptors.domainCancelScheduledDeletion,
-    ),
     /** Check if a Domain is available to register. */
     checkDomainRegistrability: this.requestFunctionFactory(
       descriptors.domainCheckDomainRegistrability,
@@ -1065,6 +1057,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update the certificate of a CertificateRequest. */
     sslSetCertificateRequestCertificate: this.requestFunctionFactory(
       descriptors.sslSetCertificateRequestCertificate,
+    ),
+    /** Create a scheduled deletion of a Domain. */
+    createScheduledDeletion: this.requestFunctionFactory(
+      descriptors.domainCreateScheduledDeletion,
+    ),
+    /** Cancel a scheduled deletion of a Domain. */
+    cancelScheduledDeletion: this.requestFunctionFactory(
+      descriptors.domainCancelScheduledDeletion,
     ),
   };
 
