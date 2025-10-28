@@ -4869,6 +4869,7 @@ export declare module MittwaldAPIV2 {
          * Defaults to image config on empty
          */
         command?: string[];
+        deploy?: MittwaldAPIV2.Components.Schemas.ContainerDeploy;
         description?: string;
         /**
          * Defaults to image config on empty
@@ -4894,6 +4895,7 @@ export declare module MittwaldAPIV2 {
          * Defaults to image config on empty
          */
         command?: string[];
+        deploy?: MittwaldAPIV2.Components.Schemas.ContainerDeploy;
         description?: string;
         /**
          * Defaults to image config on empty
@@ -4915,6 +4917,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface ContainerServiceResponse {
+        deploy?: MittwaldAPIV2.Components.Schemas.ContainerDeploy;
         deployedState: MittwaldAPIV2.Components.Schemas.ContainerServiceState;
         description: string;
         id: string;
@@ -8680,6 +8683,19 @@ export declare module MittwaldAPIV2 {
 
       export interface MailmigrationCheckMigrationIsPossibleErrorActiveMailArchiveForAddress {
         address: string;
+      }
+
+      export interface ContainerDeploy {
+        resources?: MittwaldAPIV2.Components.Schemas.ContainerResources;
+      }
+
+      export interface ContainerResourceSpec {
+        cpus?: string;
+        memory?: string;
+      }
+
+      export interface ContainerResources {
+        limits?: MittwaldAPIV2.Components.Schemas.ContainerResourceSpec;
       }
 
       export interface CommonsAddress {
@@ -25254,7 +25270,7 @@ export declare module MittwaldAPIV2 {
             employeeCountMax?: number;
             salesVolumeMin?: number;
             salesVolumeMax?: number;
-            technologies?: string[];
+            technologies?: (string | "none")[];
             /**
              * @maxItems 15
              */
@@ -25326,7 +25342,7 @@ export declare module MittwaldAPIV2 {
             employeeCountMax?: number;
             salesVolumeMin?: number;
             salesVolumeMax?: number;
-            technologies?: string[];
+            technologies?: (string | "none")[];
             /**
              * @maxItems 15
              */
