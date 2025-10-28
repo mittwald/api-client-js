@@ -8864,6 +8864,19 @@ export declare module MittwaldAPIV2 {
         address: string;
       }
 
+      export interface ContainerDeploy {
+        resources?: MittwaldAPIV2.Components.Schemas.ContainerResources;
+      }
+
+      export interface ContainerResourceSpec {
+        cpus?: string;
+        memory?: string;
+      }
+
+      export interface ContainerResources {
+        limits?: MittwaldAPIV2.Components.Schemas.ContainerResourceSpec;
+      }
+
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -25618,7 +25631,7 @@ export declare module MittwaldAPIV2 {
             employeeCountMax?: number;
             salesVolumeMin?: number;
             salesVolumeMax?: number;
-            technologies?: string[];
+            technologies?: (string | "none")[];
             /**
              * @maxItems 15
              */
@@ -25686,7 +25699,7 @@ export declare module MittwaldAPIV2 {
             employeeCountMax?: number;
             salesVolumeMin?: number;
             salesVolumeMax?: number;
-            technologies?: string[];
+            technologies?: (string | "none")[];
             /**
              * @maxItems 15
              */
