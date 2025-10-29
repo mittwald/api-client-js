@@ -6,11 +6,13 @@ import { ContractBehaviors } from "../contract/Contract/behaviors/index.js";
 import { AppInstallationBehaviors } from "../app/AppInstallation/behaviors/index.js";
 import { ContractItemBehaviors } from "../contract/ContractItem/behaviors/index.js";
 import { ArticleBehaviors } from "../article/Article/behaviors/index.js";
+import type { ContributorBehaviors } from "../marketplace/Contributor/behaviors/types.js";
 
 interface Config {
   defaultPaginationLimit: number;
   behaviors: {
     contract: ContractBehaviors;
+    contributor: ContributorBehaviors;
     contractItem: ContractItemBehaviors;
     article: ArticleBehaviors;
     project: ProjectBehaviors;
@@ -26,6 +28,7 @@ export const config: Config = {
   behaviors: {
     contract: undefined as unknown as ContractBehaviors,
     contractItem: undefined as unknown as ContractItemBehaviors,
+    contributor: undefined as unknown as ContributorBehaviors,
     article: undefined as unknown as ArticleBehaviors,
     project: undefined as unknown as ProjectBehaviors,
     server: undefined as unknown as ServerBehaviors,
