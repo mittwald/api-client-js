@@ -4369,28 +4369,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace DomainCreateScheduledDeletion {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainCreateScheduledDeletion
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainCreateScheduledDeletion,
-          TStatus
-        >;
-    }
-
-    namespace DomainCancelScheduledDeletion {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainCancelScheduledDeletion
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainCancelScheduledDeletion,
-          TStatus
-        >;
-    }
-
     namespace CronjobGetExecutionAnalysis {
       type RequestData = InferredRequestData<
         typeof descriptors.cronjobGetExecutionAnalysis
@@ -7050,10 +7028,10 @@ export declare module MittwaldAPIV2 {
 
       export interface LeadfyndrContact {
         address?: {
-          address_prefix?: string;
+          addressPrefix?: string;
           city?: string;
-          country_code?: string;
-          house_number?: string;
+          countryCode?: string;
+          houseNumber?: string;
           street?: string;
           zip?: string;
         };
@@ -7423,6 +7401,10 @@ export declare module MittwaldAPIV2 {
       export interface MailmigrationMigrateMailboxCommandRequirements {
         mailbox?: MittwaldAPIV2.Components.Schemas.MailmigrationMailbox;
         projectId: string;
+      }
+
+      export interface MailmigrationCheckMigrationIsPossibleErrorActiveMailArchiveForAddress {
+        address: string;
       }
 
       export interface MailmigrationCheckMigrationIsPossibleErrorAlreadyExistingMailAddress {
@@ -8842,27 +8824,10 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export interface MailmigrationCheckMigrationIsPossibleErrorActiveMailArchiveForAddress {
-        address: string;
-      }
-
       export interface CronjobCronjobExecutionAnalysis {
         issues?: string[];
         message: string;
         recommendation?: string;
-      }
-
-      export interface ConversationGroup {
-        acronym?: string;
-        id: string;
-        isDefaultGroup?: boolean;
-        name: string;
-      }
-
-      export interface BackupProjectBackupRestoreDatabase {
-        phase: MittwaldAPIV2.Components.Schemas.BackupRestorePhase;
-        sourceDatabaseId: string;
-        targetDatabaseId: string;
       }
 
       export type BackupRestorePhase = "running" | "completed";
@@ -35149,100 +35114,6 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DomainsDomainIdScheduledDeletion {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            domainId: string;
-          };
-
-          export interface RequestBody {
-            deletionDate: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Delete {
-        namespace Parameters {
-          export type Path = {
-            domainId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
