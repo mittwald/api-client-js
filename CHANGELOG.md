@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.247.0](https://github.com/mittwald/api-client-js/compare/4.246.0...4.247.0) (2025-10-29)
+
+### Features
+
+* **models:** add contributor model ([ff1d76e](https://github.com/mittwald/api-client-js/commit/ff1d76e0730c9a7b668e75a39b64fcae0378a266))
+
 # [4.246.0](https://github.com/mittwald/api-client-js/compare/4.245.0...4.246.0) (2025-10-28)
 
 ### Features
