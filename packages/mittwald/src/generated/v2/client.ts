@@ -698,15 +698,15 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateCronjob: this.requestFunctionFactory(
       descriptors.cronjobUpdateCronjob,
     ),
+    /** Get a CronjobExecution analysis for failed executions. */
+    getExecutionAnalysis: this.requestFunctionFactory(
+      descriptors.cronjobGetExecutionAnalysis,
+    ),
     /** Get a CronjobExecution. */
     getExecution: this.requestFunctionFactory(descriptors.cronjobGetExecution),
     /** Update a Cronjob's app id. */
     updateCronjobAppId: this.requestFunctionFactory(
       descriptors.cronjobUpdateCronjobAppId,
-    ),
-    /** Get a CronjobExecution analysis for failed executions. */
-    getExecutionAnalysis: this.requestFunctionFactory(
-      descriptors.cronjobGetExecutionAnalysis,
     ),
   };
 
@@ -946,6 +946,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     abortDomainDeclaration: this.requestFunctionFactory(
       descriptors.domainAbortDomainDeclaration,
     ),
+    /** Create a scheduled deletion of a Domain. */
+    createScheduledDeletion: this.requestFunctionFactory(
+      descriptors.domainCreateScheduledDeletion,
+    ),
+    /** Cancel a scheduled deletion of a Domain. */
+    cancelScheduledDeletion: this.requestFunctionFactory(
+      descriptors.domainCancelScheduledDeletion,
+    ),
     /** Check if a Domain is available to register. */
     checkDomainRegistrability: this.requestFunctionFactory(
       descriptors.domainCheckDomainRegistrability,
@@ -1057,14 +1065,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update the certificate of a CertificateRequest. */
     sslSetCertificateRequestCertificate: this.requestFunctionFactory(
       descriptors.sslSetCertificateRequestCertificate,
-    ),
-    /** Create a scheduled deletion of a Domain. */
-    createScheduledDeletion: this.requestFunctionFactory(
-      descriptors.domainCreateScheduledDeletion,
-    ),
-    /** Cancel a scheduled deletion of a Domain. */
-    cancelScheduledDeletion: this.requestFunctionFactory(
-      descriptors.domainCancelScheduledDeletion,
     ),
   };
 

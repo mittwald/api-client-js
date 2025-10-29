@@ -458,15 +458,15 @@ const buildCronjobApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.cronjobGetCronjob,
     baseClient.cronjob.getCronjob,
   ).getApiResource,
-  /** Get a CronjobExecution. */
-  getExecution: new ApiCallAsyncResourceFactory(
-    descriptors.cronjobGetExecution,
-    baseClient.cronjob.getExecution,
-  ).getApiResource,
   /** Get a CronjobExecution analysis for failed executions. */
   getExecutionAnalysis: new ApiCallAsyncResourceFactory(
     descriptors.cronjobGetExecutionAnalysis,
     baseClient.cronjob.getExecutionAnalysis,
+  ).getApiResource,
+  /** Get a CronjobExecution. */
+  getExecution: new ApiCallAsyncResourceFactory(
+    descriptors.cronjobGetExecution,
+    baseClient.cronjob.getExecution,
   ).getApiResource,
 });
 
