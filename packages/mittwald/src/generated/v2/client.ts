@@ -688,6 +688,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateCronjobAppId: this.requestFunctionFactory(
       descriptors.cronjobUpdateCronjobAppId,
     ),
+    /** Get a CronjobExecution analysis for failed executions. */
+    getExecutionAnalysis: this.requestFunctionFactory(
+      descriptors.cronjobGetExecutionAnalysis,
+    ),
   };
 
   /** The customer API allows you to manage your own organizations and users. */

@@ -4302,6 +4302,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace CronjobGetExecutionAnalysis {
+      type RequestData = InferredRequestData<
+        typeof descriptors.cronjobGetExecutionAnalysis
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.cronjobGetExecutionAnalysis,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -4890,6 +4901,10 @@ export declare module MittwaldAPIV2 {
         volumes?: string[];
       }
 
+      export interface ContainerDeploy {
+        resources?: MittwaldAPIV2.Components.Schemas.ContainerResources;
+      }
+
       export interface ContainerServiceRequest {
         /**
          * Defaults to image config on empty
@@ -4914,6 +4929,15 @@ export declare module MittwaldAPIV2 {
         image?: string;
         ports?: string[];
         volumes?: string[];
+      }
+
+      export interface ContainerResourceSpec {
+        cpus?: string;
+        memory?: string;
+      }
+
+      export interface ContainerResources {
+        limits?: MittwaldAPIV2.Components.Schemas.ContainerResourceSpec;
       }
 
       export interface ContainerServiceResponse {
@@ -7264,6 +7288,10 @@ export declare module MittwaldAPIV2 {
         projectId: string;
       }
 
+      export interface MailmigrationCheckMigrationIsPossibleErrorActiveMailArchiveForAddress {
+        address: string;
+      }
+
       export interface MailmigrationCheckMigrationIsPossibleErrorAlreadyExistingMailAddress {
         address: string;
       }
@@ -8681,21 +8709,10 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export interface MailmigrationCheckMigrationIsPossibleErrorActiveMailArchiveForAddress {
-        address: string;
-      }
-
-      export interface ContainerDeploy {
-        resources?: MittwaldAPIV2.Components.Schemas.ContainerResources;
-      }
-
-      export interface ContainerResourceSpec {
-        cpus?: string;
-        memory?: string;
-      }
-
-      export interface ContainerResources {
-        limits?: MittwaldAPIV2.Components.Schemas.ContainerResourceSpec;
+      export interface CronjobCronjobExecutionAnalysis {
+        issues?: string[];
+        message: string;
+        recommendation?: string;
       }
 
       export interface CommonsAddress {
@@ -34740,6 +34757,86 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CronjobsCronjobIdExecutionsExecutionIdAnalysis {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            executionId: string;
+            cronjobId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CronjobCronjobExecutionAnalysis;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
