@@ -6889,10 +6889,10 @@ export declare module MittwaldAPIV2 {
 
       export interface LeadfyndrContact {
         address?: {
-          address_prefix?: string;
+          addressPrefix?: string;
           city?: string;
-          country_code?: string;
-          house_number?: string;
+          countryCode?: string;
+          houseNumber?: string;
           street?: string;
           zip?: string;
         };
