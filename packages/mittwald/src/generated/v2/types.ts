@@ -8867,6 +8867,10 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
+      export interface CronjobCronjobExecutionAnalysis {
+        message: string;
+      }
+
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
