@@ -8710,9 +8710,7 @@ export declare module MittwaldAPIV2 {
         | "storageDesc";
 
       export interface CronjobCronjobExecutionAnalysis {
-        issues?: string[];
         message: string;
-        recommendation?: string;
       }
 
       export interface CommonsAddress {
@@ -32015,9 +32013,9 @@ export declare module MittwaldAPIV2 {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                | MittwaldAPIV2.Components.Schemas.CommonsValidationErrors
+                | MittwaldAPIV2.Components.Schemas.CommonsError;
             }
           }
 
