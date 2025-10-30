@@ -4767,13 +4767,19 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface BackupProjectBackupRestoreDatabaseRequest {
-        sourceDatabaseId: string;
-        targetDatabaseId?: string;
+        /**
+         * Database backup dump from the backup to restore from.
+         */
+        databaseBackupDump: string;
+        /**
+         * ID of the target database to restore to.
+         */
+        targetDatabaseId: string;
       }
 
       export interface BackupProjectBackupRestoreDatabase {
+        databaseBackupDump: string;
         phase: MittwaldAPIV2.Components.Schemas.BackupRestorePhase;
-        sourceDatabaseId: string;
         targetDatabaseId: string;
       }
 
@@ -5684,9 +5690,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface CronjobCronjobExecutionAnalysis {
-        issues?: string[];
         message: string;
-        recommendation?: string;
       }
 
       export type CronjobCronjobExecutionSortOrder =
@@ -8867,10 +8871,6 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export interface CronjobCronjobExecutionAnalysis {
-        message: string;
-      }
-
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -11012,7 +11012,7 @@ export declare module MittwaldAPIV2 {
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {
-            databaseName?: string;
+            databaseBackupDump?: string;
           };
         }
         namespace Responses {
