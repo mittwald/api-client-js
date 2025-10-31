@@ -1180,6 +1180,17 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.cronjobUpdateCronjob, TStatus>;
     }
 
+    namespace CronjobGetExecutionAnalysis {
+      type RequestData = InferredRequestData<
+        typeof descriptors.cronjobGetExecutionAnalysis
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.cronjobGetExecutionAnalysis,
+          TStatus
+        >;
+    }
+
     namespace CronjobGetExecution {
       type RequestData = InferredRequestData<
         typeof descriptors.cronjobGetExecution
@@ -4302,17 +4313,6 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
-
-    namespace CronjobGetExecutionAnalysis {
-      type RequestData = InferredRequestData<
-        typeof descriptors.cronjobGetExecutionAnalysis
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.cronjobGetExecutionAnalysis,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -5529,6 +5529,10 @@ export declare module MittwaldAPIV2 {
         triggeredBy?: {
           id?: string;
         };
+      }
+
+      export interface CronjobCronjobExecutionAnalysis {
+        message: string;
       }
 
       export type CronjobCronjobExecutionSortOrder =
@@ -8708,10 +8712,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export interface CronjobCronjobExecutionAnalysis {
-        message: string;
-      }
 
       export interface CommonsAddress {
         street: string;
@@ -15858,6 +15858,86 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2CronjobsCronjobIdExecutionsExecutionIdAnalysis {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            executionId: string;
+            cronjobId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CronjobCronjobExecutionAnalysis;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2CronjobsCronjobIdExecutionsExecutionId {
       namespace Get {
         namespace Parameters {
@@ -21673,6 +21753,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -34755,86 +34843,6 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CronjobsCronjobIdExecutionsExecutionIdAnalysis {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            executionId: string;
-            cronjobId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CronjobCronjobExecutionAnalysis;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
