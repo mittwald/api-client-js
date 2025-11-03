@@ -11,7 +11,11 @@ function configureConsistencyHandlingInterceptor(axios: AxiosInstance): void {
   let lastEventId: string | undefined = undefined;
 
   axios.interceptors.request.use((config) => {
-    if (lastEventId !== undefined && !isMutatingRequest(config)) {
+    if (
+      lastEventId !== undefined &&
+      !isMutatingRequest(config) &&
+      config.headers["if-event-reached"] === undefined
+    ) {
       config.headers["if-event-reached"] = lastEventId;
     }
     return config;

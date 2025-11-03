@@ -1090,6 +1090,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateMailAddressSpamProtection: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressSpamProtection,
     ),
+    /** Update a mail setting of a Project. */
+    updateProjectMailSetting: this.requestFunctionFactory(
+      descriptors.mailUpdateProjectMailSetting,
+    ),
     /** List DeliveryBoxes belonging to a Project. */
     listDeliveryBoxes: this.requestFunctionFactory(
       descriptors.mailListDeliveryBoxes,
@@ -1165,10 +1169,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update the catch-all of a MailAddress. */
     updateMailAddressCatchAll: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressCatchAll,
-    ),
-    /** Update a mail setting of a Project. */
-    updateProjectMailSetting: this.requestFunctionFactory(
-      descriptors.mailUpdateProjectMailSetting,
     ),
   };
 

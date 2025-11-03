@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.251.1](https://github.com/mittwald/api-client-js/compare/4.251.0...4.251.1) (2025-11-03)
+
+### Bug Fixes
+
+* **interceptors:** only set if-event-reached header in ConsistencyHandlingInterceptor if not already set ([bbe21a1](https://github.com/mittwald/api-client-js/commit/bbe21a11cea6fb7b2dcc21d64e99b245e198f94d))
+
 # [4.251.0](https://github.com/mittwald/api-client-js/compare/4.250.0...4.251.0) (2025-10-31)
 
 ### Features
