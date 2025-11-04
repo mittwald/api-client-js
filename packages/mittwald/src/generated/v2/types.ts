@@ -371,6 +371,28 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace BackupGetProjectBackupDirectories {
+      type RequestData = InferredRequestData<
+        typeof descriptors.backupGetProjectBackupDirectories
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.backupGetProjectBackupDirectories,
+          TStatus
+        >;
+    }
+
+    namespace BackupRequestProjectBackupRestorePath {
+      type RequestData = InferredRequestData<
+        typeof descriptors.backupRequestProjectBackupRestorePath
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.backupRequestProjectBackupRestorePath,
+          TStatus
+        >;
+    }
+
     namespace BackupUpdateProjectBackupDescription {
       type RequestData = InferredRequestData<
         typeof descriptors.backupUpdateProjectBackupDescription
@@ -4619,6 +4641,8 @@ export declare module MittwaldAPIV2 {
         desired: string;
       }
 
+      export type BackupRestorePathPhase = "running" | "completed";
+
       export type BackupBackupSortOrder = "oldestFirst" | "newestFirst";
 
       export interface BackupBackupTemplate {
@@ -4646,6 +4670,7 @@ export declare module MittwaldAPIV2 {
         parentId?: string;
         projectId: string;
         requestedAt: string;
+        restorePath?: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestorePath;
         status: string;
       }
 
@@ -4656,6 +4681,38 @@ export declare module MittwaldAPIV2 {
         phase?: "Pending" | "Exporting" | "Failed" | "Completed" | "Expired";
         sha256Checksum?: string;
         withPassword: boolean;
+      }
+
+      export interface BackupProjectBackupPath {
+        absolutePath: string;
+        isDirectory?: boolean;
+        isExecutable?: boolean;
+        isFile?: boolean;
+        isSymlink?: boolean;
+        items?: MittwaldAPIV2.Components.Schemas.BackupProjectBackupPath[];
+        name: string;
+        size: number;
+        target?: string;
+      }
+
+      export interface BackupProjectBackupRestorePathRequest {
+        /**
+         * Whether to clear the target path before restoring. If true, existing files in the target path will be deleted before the restore. If false, existing files will be kept and may be overwritten if they exist in the backup.
+         */
+        clearTargetPath?: boolean;
+        sourcePath: string;
+        /**
+         * Target path where the source path should be restored to. If not set, the target path will be determined to equal the origin source. The target path should always be a folder, no files allowed here.
+         */
+        targetPath?: string;
+      }
+
+      export interface BackupProjectBackupRestorePath {
+        clearTargetPath: boolean;
+        determinedTargetPath: string;
+        phase: MittwaldAPIV2.Components.Schemas.BackupRestorePathPhase;
+        sourcePath: string;
+        targetPath?: string;
       }
 
       export interface BackupProjectBackupSchedule {
@@ -10831,6 +10888,144 @@ export declare module MittwaldAPIV2 {
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectBackupsProjectBackupIdPath {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectBackupId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            directory?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.BackupProjectBackupPath;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $502 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectBackupsProjectBackupIdRestorePath {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            projectBackupId: string;
+          };
+
+          export type RequestBody =
+            MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestorePathRequest;
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
