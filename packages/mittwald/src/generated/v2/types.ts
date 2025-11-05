@@ -4379,28 +4379,6 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
-
-    namespace BackupGetProjectBackupDatabaseDumps {
-      type RequestData = InferredRequestData<
-        typeof descriptors.backupGetProjectBackupDatabaseDumps
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.backupGetProjectBackupDatabaseDumps,
-          TStatus
-        >;
-    }
-
-    namespace BackupRequestProjectBackupRestoreDatabase {
-      type RequestData = InferredRequestData<
-        typeof descriptors.backupRequestProjectBackupRestoreDatabase
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.backupRequestProjectBackupRestoreDatabase,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -4707,6 +4685,8 @@ export declare module MittwaldAPIV2 {
         desired: string;
       }
 
+      export type BackupRestorePathPhase = "running" | "completed";
+
       export type BackupBackupSortOrder = "oldestFirst" | "newestFirst";
 
       export interface BackupBackupTemplate {
@@ -4734,7 +4714,6 @@ export declare module MittwaldAPIV2 {
         parentId?: string;
         projectId: string;
         requestedAt: string;
-        restoreDatabase?: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestoreDatabase;
         restorePath?: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestorePath;
         status: string;
       }
@@ -4775,7 +4754,7 @@ export declare module MittwaldAPIV2 {
       export interface BackupProjectBackupRestorePath {
         clearTargetPath: boolean;
         determinedTargetPath: string;
-        phase: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestorePhase;
+        phase: MittwaldAPIV2.Components.Schemas.BackupRestorePathPhase;
         sourcePath: string;
         targetPath?: string;
       }
@@ -8847,25 +8826,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export interface BackupProjectBackupRestoreDatabase {
-        databaseBackupDump: string;
-        phase: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestorePhase;
-        targetDatabaseId: string;
-      }
-
-      export interface BackupProjectBackupRestoreDatabaseRequest {
-        /**
-         * Database backup dump from the backup to restore from.
-         */
-        databaseBackupDump: string;
-        /**
-         * ID of the target database to restore to.
-         */
-        targetDatabaseId: string;
-      }
-
-      export type BackupProjectBackupRestorePhase = "running" | "completed";
 
       export interface CommonsAddress {
         street: string;
@@ -35192,143 +35152,6 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectBackupsProjectBackupIdDatabaseDumps {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            projectBackupId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                databases: string[];
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $502 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $503 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectBackupsProjectBackupIdRestoreDatabase {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            projectBackupId: string;
-          };
-
-          export type RequestBody =
-            MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestoreDatabaseRequest;
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
