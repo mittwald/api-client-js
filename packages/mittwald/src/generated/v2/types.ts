@@ -4379,28 +4379,6 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
-
-    namespace ExtensionScheduleExtensionVariantChange {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionScheduleExtensionVariantChange
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionScheduleExtensionVariantChange,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionCancelExtensionVariantChange {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionCancelExtensionVariantChange
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionCancelExtensionVariantChange,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -4821,14 +4799,6 @@ export declare module MittwaldAPIV2 {
        * PricePlan with Variants.
        */
       export interface ExtensionPricePlan {
-        /**
-         * Indicates whether downgrading between variants is allowed.
-         */
-        isDowngradeAllowed?: boolean;
-        /**
-         * Indicates whether upgrading between variants is allowed.
-         */
-        isUpgradeAllowed?: boolean;
         variants: MittwaldAPIV2.Components.Schemas.ExtensionVariant[];
       }
 
@@ -4842,10 +4812,6 @@ export declare module MittwaldAPIV2 {
         currentPrice?: number;
         interactionDeadline?: string;
         interactionRequired: boolean;
-        pendingVariantChange?: {
-          effectiveDate?: string;
-          targetVariantKey?: string;
-        };
         status: "notStarted" | "pending" | "active" | "terminationPending";
         terminationTargetDate?: string;
         variantDescription?: string;
@@ -4867,6 +4833,10 @@ export declare module MittwaldAPIV2 {
         descriptionChangeType?:
           | "FEATURE_SET_MODIFIED"
           | "FEATURE_SET_UNCHANGED";
+        /**
+         * stop extension variant from being booked
+         */
+        isBookingStopped?: boolean;
         /**
          * Key that needs to be unique in Variant.
          */
@@ -35187,123 +35157,6 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ExtensionInstancesExtensionInstanceIdContractVariantChange {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            extensionInstanceId: string;
-          };
-
-          export interface RequestBody {
-            /**
-             * The target variant key to change to.
-             */
-            targetVariantKey?: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {}
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Delete {
-        namespace Parameters {
-          export type Path = {
-            extensionInstanceId: string;
-          };
-
-          export interface RequestBody {}
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                extensionInstanceId: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
