@@ -598,6 +598,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     customerUpdatePaymentMethod: this.requestFunctionFactory(
       descriptors.marketplaceCustomerUpdatePaymentMethod,
     ),
+    /** Schedule an Extension Instance Variant change for the next possible date. */
+    extensionScheduleExtensionVariantChange: this.requestFunctionFactory(
+      descriptors.extensionScheduleExtensionVariantChange,
+    ),
+    /** Cancel an Extension Instance Variant Change. */
+    extensionCancelExtensionVariantChange: this.requestFunctionFactory(
+      descriptors.extensionCancelExtensionVariantChange,
+    ),
   };
 
   /** The conversation API allows you to manage your support conversations. */
