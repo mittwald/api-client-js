@@ -8862,6 +8862,13 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
+      export interface ConversationGroup {
+        acronym?: string;
+        id: string;
+        isDefaultGroup?: boolean;
+        name: string;
+      }
+
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
