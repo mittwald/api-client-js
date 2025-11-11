@@ -5449,9 +5449,11 @@ export declare module MittwaldAPIV2 {
 
       export interface ConversationUser {
         active?: boolean;
+        atlasGroup?: MittwaldAPIV2.Components.Schemas.ConversationGroup;
         avatarRefId?: string;
         clearName?: string;
         department?: MittwaldAPIV2.Components.Schemas.ConversationDepartment;
+        group?: MittwaldAPIV2.Components.Schemas.ConversationGroup;
         userId: string;
       }
 
@@ -8773,6 +8775,13 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface ConversationGroup {
+        acronym?: string;
+        id: string;
+        isDefaultGroup?: boolean;
+        name: string;
+      }
 
       export interface CommonsAddress {
         street: string;
