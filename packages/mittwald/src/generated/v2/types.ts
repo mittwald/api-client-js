@@ -4464,7 +4464,6 @@ export declare module MittwaldAPIV2 {
         appVersion: MittwaldAPIV2.Components.Schemas.AppVersionStatus;
         createdAt: string;
         customDocumentRoot?: string;
-        customerId?: string;
         deletionRequested?: boolean;
         description: string;
         disabled: boolean;
@@ -9615,7 +9614,6 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             appIds?: string[];
             searchTerm?: string;
-            customerId?: string;
             limit?: number;
             skip?: number;
             page?: number;
