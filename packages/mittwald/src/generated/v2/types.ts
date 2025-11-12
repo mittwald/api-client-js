@@ -5299,6 +5299,13 @@ export declare module MittwaldAPIV2 {
         type: string;
       }
 
+      export interface ConversationGroup {
+        acronym?: string;
+        id: string;
+        isDefaultGroup?: boolean;
+        name: string;
+      }
+
       export interface ConversationMessage {
         conversationId: string;
         createdAt: string;
@@ -8775,13 +8782,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export interface ConversationGroup {
-        acronym?: string;
-        id: string;
-        isDefaultGroup?: boolean;
-        name: string;
-      }
 
       export interface CommonsAddress {
         street: string;
