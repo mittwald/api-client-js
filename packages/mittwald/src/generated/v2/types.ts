@@ -14531,10 +14531,11 @@ export declare module MittwaldAPIV2 {
                 invoiceDate: string;
                 invoiceId: string;
                 invoiceNumber: string;
+                invoiceType: "INVOICE" | "CREDIT_NOTE";
                 pdfLink: string;
                 totalGross: number;
                 totalNet: number;
-                webLink: string;
+                webLink?: string;
               }[];
             }
           }
