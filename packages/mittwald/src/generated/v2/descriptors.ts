@@ -10051,6 +10051,11 @@ export const ingressCreateIngress: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Ingresses.Post.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2Ingresses.Post.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"

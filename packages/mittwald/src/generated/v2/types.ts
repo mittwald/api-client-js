@@ -5662,6 +5662,12 @@ export declare module MittwaldAPIV2 {
         creationDate: string;
         customerId: string;
         customerNumber: string;
+        deletionProhibitedBy?: (
+          | "hasOpenInvoices"
+          | "hasActiveContracts"
+          | "hasActiveExtensionSubscriptions"
+          | "isActiveContributor"
+        )[];
         executingUserRoles?: MittwaldAPIV2.Components.Schemas.CustomerRole[];
         flags?: MittwaldAPIV2.Components.Schemas.CustomerCustomerFlag[];
         isAllowedToPlaceOrders?: boolean;
@@ -7303,7 +7309,7 @@ export declare module MittwaldAPIV2 {
         finished: boolean;
         id: string;
         migrationJobs: MittwaldAPIV2.Components.Schemas.MailmigrationMigrationMailAddressMigrationJob;
-        preMigrationJobs: MittwaldAPIV2.Components.Schemas.MailmigrationMigrationMailAddressPreMigrationJob;
+        preMigrationJobs?: MittwaldAPIV2.Components.Schemas.MailmigrationMigrationMailAddressPreMigrationJob;
       }
 
       export interface MailmigrationMigrateMailAddressCommandRequirements {
@@ -24320,6 +24326,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $409 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
