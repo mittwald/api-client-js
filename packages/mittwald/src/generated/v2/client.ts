@@ -438,6 +438,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionCancelExtensionTermination: this.requestFunctionFactory(
       descriptors.extensionCancelExtensionTermination,
     ),
+    /** Schedule an Extension Instance Variant change for the next possible date. */
+    extensionScheduleExtensionVariantChange: this.requestFunctionFactory(
+      descriptors.extensionScheduleExtensionVariantChange,
+    ),
+    /** Cancel an Extension Instance Variant Change. */
+    extensionCancelExtensionVariantChange: this.requestFunctionFactory(
+      descriptors.extensionCancelExtensionVariantChange,
+    ),
     /** Change the context of an Extension. */
     extensionChangeContext: this.requestFunctionFactory(
       descriptors.extensionChangeContext,
