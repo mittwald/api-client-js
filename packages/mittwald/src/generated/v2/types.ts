@@ -5706,6 +5706,12 @@ export declare module MittwaldAPIV2 {
         creationDate: string;
         customerId: string;
         customerNumber: string;
+        deletionProhibitedBy?: (
+          | "hasOpenInvoices"
+          | "hasActiveContracts"
+          | "hasActiveExtensionSubscriptions"
+          | "isActiveContributor"
+        )[];
         executingUserRoles?: MittwaldAPIV2.Components.Schemas.CustomerRole[];
         flags?: MittwaldAPIV2.Components.Schemas.CustomerCustomerFlag[];
         isAllowedToPlaceOrders?: boolean;
@@ -6226,6 +6232,7 @@ export declare module MittwaldAPIV2 {
         logoRefId: string;
         name: string;
         pricing?: MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricePlanStrategy;
+        pricingDetails?: MittwaldAPIV2.Components.Schemas.MarketplacePricePlanDetails;
         /**
          * Whether the extension has been published by the contributor.
          */
@@ -6485,6 +6492,7 @@ export declare module MittwaldAPIV2 {
         logoRefId?: string;
         name: string;
         pricing?: MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricePlanStrategy;
+        pricingDetails?: MittwaldAPIV2.Components.Schemas.MarketplacePricePlanDetails;
         published: boolean;
         requestedChanges?: {
           context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
@@ -6522,6 +6530,9 @@ export declare module MittwaldAPIV2 {
        */
       export type MarketplaceMonthlyPricePlanStrategy = {
         description?: string;
+        /**
+         * If a variant is no longer bookable the existing extension instances will not be removed but no new ones can be created.
+         */
         isBookingStopped: boolean;
         key: string;
         name?: string;
@@ -7347,7 +7358,7 @@ export declare module MittwaldAPIV2 {
         finished: boolean;
         id: string;
         migrationJobs: MittwaldAPIV2.Components.Schemas.MailmigrationMigrationMailAddressMigrationJob;
-        preMigrationJobs: MittwaldAPIV2.Components.Schemas.MailmigrationMigrationMailAddressPreMigrationJob;
+        preMigrationJobs?: MittwaldAPIV2.Components.Schemas.MailmigrationMigrationMailAddressPreMigrationJob;
       }
 
       export interface MailmigrationMigrateMailAddressCommandRequirements {
@@ -8826,6 +8837,14 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      /**
+       * The details section of the price plan. It informs if choosing different variants as a upgrade or downgrade is possible.
+       */
+      export interface MarketplacePricePlanDetails {
+        isDowngradeAllowed: boolean;
+        isUpgradeAllowed: boolean;
+      }
 
       export interface CommonsAddress {
         street: string;
@@ -21929,14 +21948,6 @@ export declare module MittwaldAPIV2 {
             }
           }
 
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
           namespace $412 {
             namespace Content {
               export interface ApplicationJson {
@@ -24306,6 +24317,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $409 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;

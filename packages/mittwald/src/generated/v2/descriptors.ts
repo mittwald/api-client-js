@@ -8559,11 +8559,6 @@ export const extensionDeleteExtensionInstance: OpenAPIOperation<
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceId.Delete.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceId.Delete.Responses.$412.Content.ApplicationJson>,
       412,
       "application/json"
@@ -10048,6 +10043,11 @@ export const ingressCreateIngress: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2Ingresses.Post.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Ingresses.Post.Responses.$409.Content.ApplicationJson>,
+      409,
       "application/json"
     >
   | Response<
