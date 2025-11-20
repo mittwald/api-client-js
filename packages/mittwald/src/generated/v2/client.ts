@@ -1030,14 +1030,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     sslCheckReplaceCertificate: this.requestFunctionFactory(
       descriptors.sslCheckReplaceCertificate,
     ),
-    /** Get a Certificate. */
-    sslGetCertificate: this.requestFunctionFactory(
-      descriptors.sslGetCertificate,
-    ),
-    /** Update a Certificate. */
-    sslReplaceCertificate: this.requestFunctionFactory(
-      descriptors.sslReplaceCertificate,
-    ),
     /** List CertificateRequests belonging to a Project or an Ingress. */
     sslListCertificateRequests: this.requestFunctionFactory(
       descriptors.sslListCertificateRequests,
@@ -1046,14 +1038,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     sslCreateCertificateRequest: this.requestFunctionFactory(
       descriptors.sslCreateCertificateRequest,
     ),
-    /** Get a CertificateRequest. */
-    sslGetCertificateRequest: this.requestFunctionFactory(
-      descriptors.sslGetCertificateRequest,
-    ),
-    /** List Certificates belonging to a Project or an Ingress. */
-    sslListCertificates: this.requestFunctionFactory(
-      descriptors.sslListCertificates,
-    ),
     /** Delete a CertificateRequest. */
     sslDeleteCertificateRequest: this.requestFunctionFactory(
       descriptors.sslDeleteCertificateRequest,
@@ -1061,6 +1045,26 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Delete a Certificate. */
     sslDeleteCertificate: this.requestFunctionFactory(
       descriptors.sslDeleteCertificate,
+    ),
+    /** Get a CertificateRequest. */
+    sslGetCertificateRequest: this.requestFunctionFactory(
+      descriptors.sslGetCertificateRequest,
+    ),
+    /** Get a Certificate. */
+    sslGetCertificate: this.requestFunctionFactory(
+      descriptors.sslGetCertificate,
+    ),
+    /** Update a Certificate. */
+    sslReplaceCertificate: this.requestFunctionFactory(
+      descriptors.sslReplaceCertificate,
+    ),
+    /** List Certificates belonging to a Project or an Ingress. */
+    sslListCertificates: this.requestFunctionFactory(
+      descriptors.sslListCertificates,
+    ),
+    /** Update the certificate of a CertificateRequest. */
+    sslSetCertificateRequestCertificate: this.requestFunctionFactory(
+      descriptors.sslSetCertificateRequestCertificate,
     ),
   };
 

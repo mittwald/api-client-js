@@ -3832,6 +3832,104 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.sshUserUpdateSshUser, TStatus>;
     }
 
+    namespace SslCheckReplaceCertificate {
+      type RequestData = InferredRequestData<
+        typeof descriptors.sslCheckReplaceCertificate
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.sslCheckReplaceCertificate,
+          TStatus
+        >;
+    }
+
+    namespace SslListCertificateRequests {
+      type RequestData = InferredRequestData<
+        typeof descriptors.sslListCertificateRequests
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.sslListCertificateRequests,
+          TStatus
+        >;
+    }
+
+    namespace SslCreateCertificateRequest {
+      type RequestData = InferredRequestData<
+        typeof descriptors.sslCreateCertificateRequest
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.sslCreateCertificateRequest,
+          TStatus
+        >;
+    }
+
+    namespace SslDeleteCertificateRequest {
+      type RequestData = InferredRequestData<
+        typeof descriptors.sslDeleteCertificateRequest
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.sslDeleteCertificateRequest,
+          TStatus
+        >;
+    }
+
+    namespace SslDeleteCertificate {
+      type RequestData = InferredRequestData<
+        typeof descriptors.sslDeleteCertificate
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.sslDeleteCertificate, TStatus>;
+    }
+
+    namespace SslGetCertificateRequest {
+      type RequestData = InferredRequestData<
+        typeof descriptors.sslGetCertificateRequest
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.sslGetCertificateRequest,
+          TStatus
+        >;
+    }
+
+    namespace SslGetCertificate {
+      type RequestData = InferredRequestData<
+        typeof descriptors.sslGetCertificate
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.sslGetCertificate, TStatus>;
+    }
+
+    namespace SslReplaceCertificate {
+      type RequestData = InferredRequestData<
+        typeof descriptors.sslReplaceCertificate
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.sslReplaceCertificate, TStatus>;
+    }
+
+    namespace SslListCertificates {
+      type RequestData = InferredRequestData<
+        typeof descriptors.sslListCertificates
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.sslListCertificates, TStatus>;
+    }
+
+    namespace SslSetCertificateRequestCertificate {
+      type RequestData = InferredRequestData<
+        typeof descriptors.sslSetCertificateRequestCertificate
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.sslSetCertificateRequestCertificate,
+          TStatus
+        >;
+    }
+
     namespace StoragespaceGetProjectStatistics {
       type RequestData = InferredRequestData<
         typeof descriptors.storagespaceGetProjectStatistics
@@ -4344,93 +4442,6 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
-
-    namespace SslCheckReplaceCertificate {
-      type RequestData = InferredRequestData<
-        typeof descriptors.sslCheckReplaceCertificate
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.sslCheckReplaceCertificate,
-          TStatus
-        >;
-    }
-
-    namespace SslGetCertificate {
-      type RequestData = InferredRequestData<
-        typeof descriptors.sslGetCertificate
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.sslGetCertificate, TStatus>;
-    }
-
-    namespace SslReplaceCertificate {
-      type RequestData = InferredRequestData<
-        typeof descriptors.sslReplaceCertificate
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.sslReplaceCertificate, TStatus>;
-    }
-
-    namespace SslListCertificateRequests {
-      type RequestData = InferredRequestData<
-        typeof descriptors.sslListCertificateRequests
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.sslListCertificateRequests,
-          TStatus
-        >;
-    }
-
-    namespace SslCreateCertificateRequest {
-      type RequestData = InferredRequestData<
-        typeof descriptors.sslCreateCertificateRequest
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.sslCreateCertificateRequest,
-          TStatus
-        >;
-    }
-
-    namespace SslGetCertificateRequest {
-      type RequestData = InferredRequestData<
-        typeof descriptors.sslGetCertificateRequest
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.sslGetCertificateRequest,
-          TStatus
-        >;
-    }
-
-    namespace SslListCertificates {
-      type RequestData = InferredRequestData<
-        typeof descriptors.sslListCertificates
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.sslListCertificates, TStatus>;
-    }
-
-    namespace SslDeleteCertificateRequest {
-      type RequestData = InferredRequestData<
-        typeof descriptors.sslDeleteCertificateRequest
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.sslDeleteCertificateRequest,
-          TStatus
-        >;
-    }
-
-    namespace SslDeleteCertificate {
-      type RequestData = InferredRequestData<
-        typeof descriptors.sslDeleteCertificate
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.sslDeleteCertificate, TStatus>;
-    }
   }
 
   namespace Components {
@@ -4873,8 +4884,8 @@ export declare module MittwaldAPIV2 {
         interactionDeadline?: string;
         interactionRequired: boolean;
         pendingVariantChange?: {
-          effectiveDate?: string;
-          targetVariantKey?: string;
+          effectiveDate: string;
+          targetVariantKey: string;
         };
         status: "notStarted" | "pending" | "active" | "terminationPending";
         terminationTargetDate?: string;
@@ -8511,6 +8522,133 @@ export declare module MittwaldAPIV2 {
         userName: string;
       }
 
+      export interface SslCertificate {
+        caBundle?: string;
+        certificate: string;
+        certificateOrderId?: string;
+        certificateRequestId: string;
+        certificateType: MittwaldAPIV2.Components.Schemas.SslCertificateType;
+        commonName?: string;
+        contact?: MittwaldAPIV2.Components.Schemas.SslContact;
+        dnsNames?: string[];
+        id: string;
+        isExpired: boolean;
+        issuer?: string;
+        lastExpirationThresholdHit: number;
+        projectId: string;
+        validFrom: string;
+        validTo: string;
+      }
+
+      export interface SslCertificateData {
+        caBundle?: string;
+        certificate?: string;
+        signingRequest?: string;
+      }
+
+      export interface SslCertificateError {
+        message:
+          | "certificate_read_failed"
+          | "certificate_decode_failed"
+          | "certificate_parsing_failed"
+          | "certificate_self_signed"
+          | "certificate_not_authorized_to_sign"
+          | "certificate_expired"
+          | "ca_not_authorized_for_this_name"
+          | "too_many_intermediates"
+          | "incompatible_usage"
+          | "unknown_authority"
+          | "private_key_read_failed"
+          | "private_key_decode_failed"
+          | "private_key_parse_failed"
+          | "private_key_encrypted"
+          | "private_key_not_rsa"
+          | "private_key_mismatch"
+          | "unknown_cloudflare_error"
+          | "unknown";
+      }
+
+      export interface SslCertificateRequest {
+        certificateData: MittwaldAPIV2.Components.Schemas.SslCertificateData;
+        certificateType: MittwaldAPIV2.Components.Schemas.SslCertificateType;
+        commonName?: string;
+        contact?: MittwaldAPIV2.Components.Schemas.SslContact;
+        createdAt: string;
+        dnsNames?: string[];
+        id: string;
+        isCompleted: boolean;
+        issuer?: string;
+        projectId: string;
+        validFrom?: string;
+        validTo?: string;
+      }
+
+      export interface SslCertificateRequestCreateRequest {
+        certificate: string;
+        privateKey: string;
+        projectId: string;
+      }
+
+      export interface SslCertificateRequestCreateResponse {
+        commonName?: string;
+        contact: MittwaldAPIV2.Components.Schemas.SslContact;
+        dnsNames?: string[];
+        id: string;
+        issuer?: string;
+        signingRequest?: string;
+        validFrom?: string;
+        validTo?: string;
+      }
+
+      export interface SslCertificateRequestCreateWithCSRRequest {
+        commonName: string;
+        contact: MittwaldAPIV2.Components.Schemas.SslContact;
+        projectId: string;
+      }
+
+      export type SslCertificateType = 0 | 1 | 2;
+
+      export interface SslCheckReplaceChanges {
+        commonName?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceFieldChange;
+        dnsNames?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceSliceChange;
+        issuer?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceFieldChange;
+        validFrom?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceDateChange;
+        validTo?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceDateChange;
+      }
+
+      export interface SslCheckReplaceDateChange {
+        newValue: string;
+        oldValue: string;
+      }
+
+      export interface SslCheckReplaceFieldChange {
+        newValue: string;
+        oldValue: string;
+      }
+
+      export interface SslCheckReplaceCertificateResponse {
+        changes?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceChanges;
+        errors?: MittwaldAPIV2.Components.Schemas.SslCertificateError[];
+        isReplaceable: boolean;
+      }
+
+      export interface SslCheckReplaceSliceChange {
+        addedValues: string[];
+        removedValues: string[];
+        values: string[];
+      }
+
+      export interface SslContact {
+        city?: string;
+        company?: string;
+        /**
+         * Two letter abbreviation - country code (ISO 3166-1 Alpha-2).
+         */
+        country?: string;
+        organizationalUnit?: string;
+        state?: string;
+      }
+
       export type StoragespaceStatisticsCategoryKind =
         | "webspace"
         | "projectBackup"
@@ -8827,133 +8965,6 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export interface SslContact {
-        city?: string;
-        company?: string;
-        /**
-         * Two letter abbreviation - country code (ISO 3166-1 Alpha-2).
-         */
-        country?: string;
-        organizationalUnit?: string;
-        state?: string;
-      }
-
-      export interface SslCheckReplaceDateChange {
-        newValue: string;
-        oldValue: string;
-      }
-
-      export type SslCertificateType = 0 | 1 | 2;
-
-      export interface SslCertificateData {
-        caBundle?: string;
-        certificate?: string;
-        signingRequest?: string;
-      }
-
-      export interface SslCertificateRequestCreateResponse {
-        commonName?: string;
-        contact: MittwaldAPIV2.Components.Schemas.SslContact;
-        dnsNames?: string[];
-        id: string;
-        issuer?: string;
-        signingRequest?: string;
-        validFrom?: string;
-        validTo?: string;
-      }
-
-      export interface SslCheckReplaceChanges {
-        commonName?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceFieldChange;
-        dnsNames?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceSliceChange;
-        issuer?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceFieldChange;
-        validFrom?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceDateChange;
-        validTo?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceDateChange;
-      }
-
-      export interface SslCheckReplaceSliceChange {
-        addedValues: string[];
-        removedValues: string[];
-        values: string[];
-      }
-
-      export interface SslCertificateRequestCreateRequest {
-        certificate: string;
-        privateKey: string;
-        projectId: string;
-      }
-
-      export interface SslCheckReplaceFieldChange {
-        newValue: string;
-        oldValue: string;
-      }
-
-      export interface SslCertificateRequestCreateWithCSRRequest {
-        commonName: string;
-        contact: MittwaldAPIV2.Components.Schemas.SslContact;
-        projectId: string;
-      }
-
-      export interface SslCheckReplaceCertificateResponse {
-        changes?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceChanges;
-        errors?: MittwaldAPIV2.Components.Schemas.SslCertificateError[];
-        isReplaceable: boolean;
-      }
-
-      export interface SslCertificateRequest {
-        certificateData: MittwaldAPIV2.Components.Schemas.SslCertificateData;
-        certificateType: MittwaldAPIV2.Components.Schemas.SslCertificateType;
-        commonName?: string;
-        contact?: MittwaldAPIV2.Components.Schemas.SslContact;
-        createdAt: string;
-        dnsNames?: string[];
-        id: string;
-        isCompleted: boolean;
-        issuer?: string;
-        projectId: string;
-        validFrom?: string;
-        validTo?: string;
-      }
-
-      export interface SslCertificateError {
-        message:
-          | "certificate_read_failed"
-          | "certificate_decode_failed"
-          | "certificate_parsing_failed"
-          | "certificate_self_signed"
-          | "certificate_not_authorized_to_sign"
-          | "certificate_expired"
-          | "ca_not_authorized_for_this_name"
-          | "too_many_intermediates"
-          | "incompatible_usage"
-          | "unknown_authority"
-          | "private_key_read_failed"
-          | "private_key_decode_failed"
-          | "private_key_parse_failed"
-          | "private_key_encrypted"
-          | "private_key_not_rsa"
-          | "private_key_mismatch"
-          | "unknown_cloudflare_error"
-          | "unknown";
-      }
-
-      export interface SslCertificate {
-        caBundle?: string;
-        certificate: string;
-        certificateOrderId?: string;
-        certificateRequestId: string;
-        certificateType: MittwaldAPIV2.Components.Schemas.SslCertificateType;
-        commonName?: string;
-        contact?: MittwaldAPIV2.Components.Schemas.SslContact;
-        dnsNames?: string[];
-        id: string;
-        isExpired: boolean;
-        issuer?: string;
-        lastExpirationThresholdHit: number;
-        projectId: string;
-        validFrom: string;
-        validTo: string;
-      }
-
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -9088,6 +9099,11 @@ export declare module MittwaldAPIV2 {
         export interface ApplicationJson {}
       }
 
+      namespace SslValidationError {
+        export type ApplicationJson =
+          MittwaldAPIV2.Components.Schemas.SslCertificateError;
+      }
+
       namespace SignupInternalServerError {
         export type ApplicationJson =
           MittwaldAPIV2.Components.Schemas.SignupDomainError & {
@@ -9121,11 +9137,6 @@ export declare module MittwaldAPIV2 {
           MittwaldAPIV2.Components.Schemas.SignupDomainError & {
             name: "SecondFactorRequired";
           };
-      }
-
-      namespace SslValidationError {
-        export type ApplicationJson =
-          MittwaldAPIV2.Components.Schemas.SslCertificateError;
       }
 
       namespace CommonsDefaultError {
@@ -31975,7 +31986,517 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SshusersSshUserId {}
+    namespace V2CertificatesCertificateIdActionsCheckReplaceCertificate {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            certificateId: string;
+          };
+
+          export interface RequestBody {
+            certificate: string;
+            privateKey?: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.SslCheckReplaceCertificateResponse;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CertificateRequests {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            projectId?: string;
+            ingressId?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.SslCertificateRequest[];
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export type RequestBody =
+            | MittwaldAPIV2.Components.Schemas.SslCertificateRequestCreateRequest
+            | MittwaldAPIV2.Components.Schemas.SslCertificateRequestCreateWithCSRRequest;
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.SslCertificateRequestCreateResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CertificateRequestCertificateRequestId {
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            certificateRequestId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CertificateCertificateId {
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            certificateId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CertificateRequestsCertificateRequestId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            certificateRequestId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.SslCertificateRequest;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CertificatesCertificateId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            certificateId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.SslCertificate;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            certificateId: string;
+          };
+
+          export interface RequestBody {
+            certificate: string;
+            privateKey?: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2Certificates {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            projectId?: string;
+            ingressId?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.SslCertificate[];
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CertificateRequestsCertificateRequestIdCertificate {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            certificateRequestId: string;
+          };
+
+          export interface RequestBody {
+            certificate: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
     namespace V2ProjectsProjectIdStorageSpaceStatistics {
       namespace Get {
@@ -35194,452 +35715,6 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CertificatesCertificateIdActionsCheckReplaceCertificate {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            certificateId: string;
-          };
-
-          export interface RequestBody {
-            certificate: string;
-            privateKey?: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.SslCheckReplaceCertificateResponse;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CertificatesCertificateId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            certificateId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.SslCertificate;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            certificateId: string;
-          };
-
-          export interface RequestBody {
-            certificate: string;
-            privateKey?: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CertificateRequests {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            projectId?: string;
-            ingressId?: string;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.SslCertificateRequest[];
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export type RequestBody =
-            | MittwaldAPIV2.Components.Schemas.SslCertificateRequestCreateRequest
-            | MittwaldAPIV2.Components.Schemas.SslCertificateRequestCreateWithCSRRequest;
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.SslCertificateRequestCreateResponse;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CertificateRequestsCertificateRequestId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            certificateRequestId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.SslCertificateRequest;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2Certificates {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            projectId?: string;
-            ingressId?: string;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.SslCertificate[];
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CertificateRequestCertificateRequestId {
-      namespace Delete {
-        namespace Parameters {
-          export type Path = {
-            certificateRequestId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CertificateCertificateId {
-      namespace Delete {
-        namespace Parameters {
-          export type Path = {
-            certificateId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 

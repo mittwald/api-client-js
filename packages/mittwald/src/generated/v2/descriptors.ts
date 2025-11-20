@@ -14966,6 +14966,366 @@ export const sshUserUpdateSshUser: OpenAPIOperation<
   operationId: "ssh-user-update-ssh-user",
 };
 
+/** Check the replacement of a Certificate. */
+export const sslCheckReplaceCertificate: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateIdActionsCheckReplaceCertificate.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateIdActionsCheckReplaceCertificate.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateIdActionsCheckReplaceCertificate.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateIdActionsCheckReplaceCertificate.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateIdActionsCheckReplaceCertificate.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateIdActionsCheckReplaceCertificate.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateIdActionsCheckReplaceCertificate.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateIdActionsCheckReplaceCertificate.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/certificates/{certificateId}/actions/check-replace-certificate",
+  method: "POST",
+  operationId: "ssl-check-replace-certificate",
+};
+
+/** List CertificateRequests belonging to a Project or an Ingress. */
+export const sslListCertificateRequests: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/certificate-requests",
+  method: "GET",
+  operationId: "ssl-list-certificate-requests",
+};
+
+/** Create a CertificateRequest. */
+export const sslCreateCertificateRequest: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/certificate-requests",
+  method: "POST",
+  operationId: "ssl-create-certificate-request",
+};
+
+/** Delete a CertificateRequest. */
+export const sslDeleteCertificateRequest: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificateRequestCertificateRequestId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificateRequestCertificateRequestId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificateRequestCertificateRequestId.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestCertificateRequestId.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestCertificateRequestId.Delete.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestCertificateRequestId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestCertificateRequestId.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/certificate-request/{certificateRequestId}",
+  method: "DELETE",
+  operationId: "ssl-delete-certificate-request",
+};
+
+/** Delete a Certificate. */
+export const sslDeleteCertificate: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificateCertificateId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificateCertificateId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificateCertificateId.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateCertificateId.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateCertificateId.Delete.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateCertificateId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateCertificateId.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/certificate/{certificateId}",
+  method: "DELETE",
+  operationId: "ssl-delete-certificate",
+};
+
+/** Get a CertificateRequest. */
+export const sslGetCertificateRequest: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/certificate-requests/{certificateRequestId}",
+  method: "GET",
+  operationId: "ssl-get-certificate-request",
+};
+
+/** Get a Certificate. */
+export const sslGetCertificate: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/certificates/{certificateId}",
+  method: "GET",
+  operationId: "ssl-get-certificate",
+};
+
+/** Update a Certificate. */
+export const sslReplaceCertificate: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/certificates/{certificateId}",
+  method: "PUT",
+  operationId: "ssl-replace-certificate",
+};
+
+/** List Certificates belonging to a Project or an Ingress. */
+export const sslListCertificates: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2Certificates.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2Certificates.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2Certificates.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Certificates.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Certificates.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Certificates.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Certificates.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/certificates",
+  method: "GET",
+  operationId: "ssl-list-certificates",
+};
+
+/** Update the certificate of a CertificateRequest. */
+export const sslSetCertificateRequestCertificate: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/certificate-requests/{certificateRequestId}/certificate",
+  method: "PATCH",
+  operationId: "ssl-set-certificate-request-certificate",
+};
+
 /** Get storage space Statistics belonging to a Project. */
 export const storagespaceGetProjectStatistics: OpenAPIOperation<
   RequestType<
@@ -17040,320 +17400,4 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
-};
-
-/** Check the replacement of a Certificate. */
-export const sslCheckReplaceCertificate: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateIdActionsCheckReplaceCertificate.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateIdActionsCheckReplaceCertificate.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateIdActionsCheckReplaceCertificate.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateIdActionsCheckReplaceCertificate.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateIdActionsCheckReplaceCertificate.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateIdActionsCheckReplaceCertificate.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateIdActionsCheckReplaceCertificate.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateIdActionsCheckReplaceCertificate.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/certificates/{certificateId}/actions/check-replace-certificate",
-  method: "POST",
-  operationId: "ssl-check-replace-certificate",
-};
-
-/** Get a Certificate. */
-export const sslGetCertificate: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/certificates/{certificateId}",
-  method: "GET",
-  operationId: "ssl-get-certificate",
-};
-
-/** Update a Certificate. */
-export const sslReplaceCertificate: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Put.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Put.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Put.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Put.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificatesCertificateId.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/certificates/{certificateId}",
-  method: "PUT",
-  operationId: "ssl-replace-certificate",
-};
-
-/** List CertificateRequests belonging to a Project or an Ingress. */
-export const sslListCertificateRequests: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/certificate-requests",
-  method: "GET",
-  operationId: "ssl-list-certificate-requests",
-};
-
-/** Create a CertificateRequest. */
-export const sslCreateCertificateRequest: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequests.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/certificate-requests",
-  method: "POST",
-  operationId: "ssl-create-certificate-request",
-};
-
-/** Get a CertificateRequest. */
-export const sslGetCertificateRequest: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestId.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestId.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestId.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestId.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestId.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/certificate-requests/{certificateRequestId}",
-  method: "GET",
-  operationId: "ssl-get-certificate-request",
-};
-
-/** List Certificates belonging to a Project or an Ingress. */
-export const sslListCertificates: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2Certificates.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2Certificates.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2Certificates.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Certificates.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Certificates.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Certificates.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Certificates.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/certificates",
-  method: "GET",
-  operationId: "ssl-list-certificates",
-};
-
-/** Delete a CertificateRequest. */
-export const sslDeleteCertificateRequest: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificateRequestCertificateRequestId.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificateRequestCertificateRequestId.Delete.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificateRequestCertificateRequestId.Delete.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestCertificateRequestId.Delete.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestCertificateRequestId.Delete.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestCertificateRequestId.Delete.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestCertificateRequestId.Delete.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/certificate-request/{certificateRequestId}",
-  method: "DELETE",
-  operationId: "ssl-delete-certificate-request",
-};
-
-/** Delete a Certificate. */
-export const sslDeleteCertificate: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificateCertificateId.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificateCertificateId.Delete.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificateCertificateId.Delete.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateCertificateId.Delete.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateCertificateId.Delete.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateCertificateId.Delete.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateCertificateId.Delete.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/certificate/{certificateId}",
-  method: "DELETE",
-  operationId: "ssl-delete-certificate",
 };
