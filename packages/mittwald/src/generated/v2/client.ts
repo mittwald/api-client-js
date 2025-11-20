@@ -1022,26 +1022,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     sslCheckReplaceCertificate: this.requestFunctionFactory(
       descriptors.sslCheckReplaceCertificate,
     ),
-    /** List CertificateRequests belonging to a Project or an Ingress. */
-    sslListCertificateRequests: this.requestFunctionFactory(
-      descriptors.sslListCertificateRequests,
-    ),
-    /** Create a CertificateRequest. */
-    sslCreateCertificateRequest: this.requestFunctionFactory(
-      descriptors.sslCreateCertificateRequest,
-    ),
-    /** Delete a CertificateRequest. */
-    sslDeleteCertificateRequest: this.requestFunctionFactory(
-      descriptors.sslDeleteCertificateRequest,
-    ),
-    /** Delete a Certificate. */
-    sslDeleteCertificate: this.requestFunctionFactory(
-      descriptors.sslDeleteCertificate,
-    ),
-    /** Get a CertificateRequest. */
-    sslGetCertificateRequest: this.requestFunctionFactory(
-      descriptors.sslGetCertificateRequest,
-    ),
     /** Get a Certificate. */
     sslGetCertificate: this.requestFunctionFactory(
       descriptors.sslGetCertificate,
@@ -1050,9 +1030,29 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     sslReplaceCertificate: this.requestFunctionFactory(
       descriptors.sslReplaceCertificate,
     ),
+    /** List CertificateRequests belonging to a Project or an Ingress. */
+    sslListCertificateRequests: this.requestFunctionFactory(
+      descriptors.sslListCertificateRequests,
+    ),
+    /** Create a CertificateRequest. */
+    sslCreateCertificateRequest: this.requestFunctionFactory(
+      descriptors.sslCreateCertificateRequest,
+    ),
+    /** Get a CertificateRequest. */
+    sslGetCertificateRequest: this.requestFunctionFactory(
+      descriptors.sslGetCertificateRequest,
+    ),
     /** List Certificates belonging to a Project or an Ingress. */
     sslListCertificates: this.requestFunctionFactory(
       descriptors.sslListCertificates,
+    ),
+    /** Delete a CertificateRequest. */
+    sslDeleteCertificateRequest: this.requestFunctionFactory(
+      descriptors.sslDeleteCertificateRequest,
+    ),
+    /** Delete a Certificate. */
+    sslDeleteCertificate: this.requestFunctionFactory(
+      descriptors.sslDeleteCertificate,
     ),
   };
 
