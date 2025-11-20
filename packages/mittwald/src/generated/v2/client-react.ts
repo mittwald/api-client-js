@@ -632,6 +632,11 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.ingressGetIngress,
     baseClient.domain.ingressGetIngress,
   ).getApiResource,
+  /** Get a Certificate. */
+  sslGetCertificate: new ApiCallAsyncResourceFactory(
+    descriptors.sslGetCertificate,
+    baseClient.domain.sslGetCertificate,
+  ).getApiResource,
   /** List CertificateRequests belonging to a Project or an Ingress. */
   sslListCertificateRequests: new ApiCallAsyncResourceFactory(
     descriptors.sslListCertificateRequests,
@@ -641,11 +646,6 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   sslGetCertificateRequest: new ApiCallAsyncResourceFactory(
     descriptors.sslGetCertificateRequest,
     baseClient.domain.sslGetCertificateRequest,
-  ).getApiResource,
-  /** Get a Certificate. */
-  sslGetCertificate: new ApiCallAsyncResourceFactory(
-    descriptors.sslGetCertificate,
-    baseClient.domain.sslGetCertificate,
   ).getApiResource,
   /** List Certificates belonging to a Project or an Ingress. */
   sslListCertificates: new ApiCallAsyncResourceFactory(
