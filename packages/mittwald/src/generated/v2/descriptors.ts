@@ -11003,6 +11003,11 @@ export const leadfyndrListLeads: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeads.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLeads.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
@@ -11029,6 +11034,11 @@ export const leadfyndrListUnlockedLeads: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeads.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdUnlockedLeads.Get.Responses.$400.Content.ApplicationJson>,
+      400,
       "application/json"
     >
   | Response<
