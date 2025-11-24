@@ -771,6 +771,11 @@ const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.mailMigrationListMigrations,
     baseClient.mail.migrationListMigrations,
   ).getApiResource,
+  /** List MailAddresses. */
+  listMailAddressesForUser: new ApiCallAsyncResourceFactory(
+    descriptors.mailListMailAddressesForUser,
+    baseClient.mail.listMailAddressesForUser,
+  ).getApiResource,
 });
 
 const buildMiscApi = (baseClient: MittwaldAPIV2Client) => ({
