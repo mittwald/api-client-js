@@ -666,14 +666,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     customerUpdatePaymentMethod: this.requestFunctionFactory(
       descriptors.marketplaceCustomerUpdatePaymentMethod,
     ),
-    /** Reject a contributor verification request. */
-    contributorRejectContributorInternal: this.requestFunctionFactory(
-      descriptors.contributorRejectContributorInternal,
-    ),
-    /** Accept a contributor verification request */
-    contributorVerifyContributorInternal: this.requestFunctionFactory(
-      descriptors.contributorVerifyContributorInternal,
-    ),
   };
 
   /** The conversation API allows you to manage your support conversations. */
