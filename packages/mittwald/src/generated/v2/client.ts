@@ -5,6 +5,58 @@ import * as descriptors from "./descriptors.js";
 import { ApiClientBase } from "@mittwald/api-client-commons";
 
 export class MittwaldAPIV2Client extends ApiClientBase {
+  /** The AI hosting provides access to multiple large language and embedding models – GDPR compliant and hosted in Germany. */
+  public readonly aiHosting = {
+    /** Get a list of already created llm licences. */
+    customerGetLlmLicences: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetLlmLicences,
+    ),
+    /** Creates a new llm licence for a customer. */
+    customerCreateLlmLicence: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerCreateLlmLicence,
+    ),
+    /** Get a licence of a customer. */
+    customerGetLlmLicence: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetLlmLicence,
+    ),
+    /** Update a llm Licence for a customer. */
+    customerUpdateLlmLicence: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerUpdateLlmLicence,
+    ),
+    /** Delete a llm Licence for a customer. */
+    customerDeleteLlmLicence: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerDeleteLlmLicence,
+    ),
+    /** Get llm tariff and usages of a customer. */
+    customerGetCustomerLlmTariffOptions: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetCustomerLlmTariffOptions,
+    ),
+    /** Get a list of currently active llm models. */
+    getLlmModels: this.requestFunctionFactory(
+      descriptors.aiHostingGetLlmModels,
+    ),
+    /** Get a list of already created llm licences of a project. */
+    projectGetLlmLicences: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetLlmLicences,
+    ),
+    /** Creates a new llm beta Licence for a project. Will be purged on end of beta. */
+    projectCreateLlmBetaLicence: this.requestFunctionFactory(
+      descriptors.aiHostingProjectCreateLlmBetaLicence,
+    ),
+    /** Get a licence of a project. */
+    projectGetLlmLicence: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetLlmLicence,
+    ),
+    /** Update a llm Licence for a project. */
+    projectUpdateLlmLicence: this.requestFunctionFactory(
+      descriptors.aiHostingProjectUpdateLlmLicence,
+    ),
+    /** Get llm tariff and usages of a project. Same as the customer route, but less details. */
+    projectGetProjectLlmTariffOptions: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetProjectLlmTariffOptions,
+    ),
+  };
+
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app = {
     /** Trigger a runtime action belonging to an AppInstallation. */
@@ -409,6 +461,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     contributorReceiptGetFileAccessToken: this.requestFunctionFactory(
       descriptors.contributorReceiptGetFileAccessToken,
     ),
+    /** Reject a contributor verification request. */
+    contributorRejectContributorInternal: this.requestFunctionFactory(
+      descriptors.contributorRejectContributorInternal,
+    ),
     /** Add a deviating avatar to a Contributor. */
     contributorRequestDeviatingContributorAvatarUpload:
       this.requestFunctionFactory(
@@ -421,6 +477,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Rotate the secret for an extension instance. */
     contributorRotateSecretForExtensionInstance: this.requestFunctionFactory(
       descriptors.contributorRotateSecretForExtensionInstance,
+    ),
+    /** Accept a contributor verification request */
+    contributorVerifyContributorInternal: this.requestFunctionFactory(
+      descriptors.contributorVerifyContributorInternal,
     ),
     /** Authenticate your external application using the extensionInstanceSecret. */
     extensionAuthenticateInstance: this.requestFunctionFactory(
@@ -605,14 +665,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Get the link to update the marketplace payment method */
     customerUpdatePaymentMethod: this.requestFunctionFactory(
       descriptors.marketplaceCustomerUpdatePaymentMethod,
-    ),
-    /** Reject a contributor verification request. */
-    contributorRejectContributorInternal: this.requestFunctionFactory(
-      descriptors.contributorRejectContributorInternal,
-    ),
-    /** Accept a contributor verification request */
-    contributorVerifyContributorInternal: this.requestFunctionFactory(
-      descriptors.contributorVerifyContributorInternal,
     ),
   };
 
@@ -1138,6 +1190,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listBackupsForMailAddress: this.requestFunctionFactory(
       descriptors.mailListBackupsForMailAddress,
     ),
+    /** List MailAddresses. */
+    listMailAddressesForUser: this.requestFunctionFactory(
+      descriptors.mailListMailAddressesForUser,
+    ),
     /** List mail settings of a Project. */
     listProjectMailSettings: this.requestFunctionFactory(
       descriptors.mailListProjectMailSettings,
@@ -1177,10 +1233,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update the catch-all of a MailAddress. */
     updateMailAddressCatchAll: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressCatchAll,
-    ),
-    /** List MailAddresses. */
-    listMailAddressesForUser: this.requestFunctionFactory(
-      descriptors.mailListMailAddressesForUser,
     ),
   };
 
@@ -1448,26 +1500,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
-  /** API endpoints that are not related to any specific API domain */
-  public readonly misc = {
-    /** Get a list of currently active llm models. */
-    getLlmModelsExperimental: this.requestFunctionFactory(
-      descriptors.miscGetLlmModelsExperimental,
-    ),
-    /** Check if an email is from mittwald. */
-    verificationDetectPhishingEmail: this.requestFunctionFactory(
-      descriptors.verificationDetectPhishingEmail,
-    ),
-    /** Check if an address exists. */
-    verificationVerifyAddress: this.requestFunctionFactory(
-      descriptors.verificationVerifyAddress,
-    ),
-    /** Check if a company exists. */
-    verificationVerifyCompany: this.requestFunctionFactory(
-      descriptors.verificationVerifyCompany,
-    ),
-  };
-
   /** The page insights API allows you to get page insights information. */
   public readonly pageInsights = {
     /** Get detailed performance data for a given domain and path. */
@@ -1493,14 +1525,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Accept a ProjectInvite. */
     acceptProjectInvite: this.requestFunctionFactory(
       descriptors.projectAcceptProjectInvite,
-    ),
-    /** Get a list of already created llm licences. */
-    getLlmLicencesExperimental: this.requestFunctionFactory(
-      descriptors.projectGetLlmLicencesExperimental,
-    ),
-    /** Creates a new llm beta Licence for a project. Will be purged on end of beta. */
-    createLlmBetaLicenceExperimental: this.requestFunctionFactory(
-      descriptors.projectCreateLlmBetaLicenceExperimental,
     ),
     /** List Invites belonging to a Project. */
     listInvitesForProject: this.requestFunctionFactory(
@@ -1559,14 +1583,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Delete a Server's avatar. */
     deleteServerAvatar: this.requestFunctionFactory(
       descriptors.projectDeleteServerAvatar,
-    ),
-    /** Get a licence of a project. */
-    getLlmLicenceExperimental: this.requestFunctionFactory(
-      descriptors.projectGetLlmLicenceExperimental,
-    ),
-    /** Update a llm Licence for a project. */
-    updateLlmLicenceExperimental: this.requestFunctionFactory(
-      descriptors.projectUpdateLlmLicenceExperimental,
     ),
     /** Get a ProjectInvite by token. */
     getProjectTokenInvite: this.requestFunctionFactory(
@@ -1700,6 +1716,22 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update an SSHUser. */
     sshUserUpdateSshUser: this.requestFunctionFactory(
       descriptors.sshUserUpdateSshUser,
+    ),
+  };
+
+  /** API endpoints that are not related to any specific API domain */
+  public readonly misc = {
+    /** Check if an email is from mittwald. */
+    verificationDetectPhishingEmail: this.requestFunctionFactory(
+      descriptors.verificationDetectPhishingEmail,
+    ),
+    /** Check if an address exists. */
+    verificationVerifyAddress: this.requestFunctionFactory(
+      descriptors.verificationVerifyAddress,
+    ),
+    /** Check if a company exists. */
+    verificationVerifyCompany: this.requestFunctionFactory(
+      descriptors.verificationVerifyCompany,
     ),
   };
 }

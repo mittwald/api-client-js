@@ -6,6 +6,44 @@ import { ApiCallAsyncResourceFactory } from "@mittwald/api-client-commons/react"
 import * as descriptors from "./descriptors.js";
 export * from "@mittwald/react-use-promise";
 
+const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get a list of already created llm licences. */
+  customerGetLlmLicences: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingCustomerGetLlmLicences,
+    baseClient.aiHosting.customerGetLlmLicences,
+  ).getApiResource,
+  /** Get a licence of a customer. */
+  customerGetLlmLicence: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingCustomerGetLlmLicence,
+    baseClient.aiHosting.customerGetLlmLicence,
+  ).getApiResource,
+  /** Get llm tariff and usages of a customer. */
+  customerGetCustomerLlmTariffOptions: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingCustomerGetCustomerLlmTariffOptions,
+    baseClient.aiHosting.customerGetCustomerLlmTariffOptions,
+  ).getApiResource,
+  /** Get a list of currently active llm models. */
+  getLlmModels: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingGetLlmModels,
+    baseClient.aiHosting.getLlmModels,
+  ).getApiResource,
+  /** Get a list of already created llm licences of a project. */
+  projectGetLlmLicences: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingProjectGetLlmLicences,
+    baseClient.aiHosting.projectGetLlmLicences,
+  ).getApiResource,
+  /** Get a licence of a project. */
+  projectGetLlmLicence: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingProjectGetLlmLicence,
+    baseClient.aiHosting.projectGetLlmLicence,
+  ).getApiResource,
+  /** Get llm tariff and usages of a project. Same as the customer route, but less details. */
+  projectGetProjectLlmTariffOptions: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingProjectGetProjectLlmTariffOptions,
+    baseClient.aiHosting.projectGetProjectLlmTariffOptions,
+  ).getApiResource,
+});
+
 const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
   /** Get an App. */
   getApp: new ApiCallAsyncResourceFactory(
@@ -756,6 +794,11 @@ const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.mailListBackupsForMailAddress,
     baseClient.mail.listBackupsForMailAddress,
   ).getApiResource,
+  /** List MailAddresses. */
+  listMailAddressesForUser: new ApiCallAsyncResourceFactory(
+    descriptors.mailListMailAddressesForUser,
+    baseClient.mail.listMailAddressesForUser,
+  ).getApiResource,
   /** List mail settings of a Project. */
   listProjectMailSettings: new ApiCallAsyncResourceFactory(
     descriptors.mailListProjectMailSettings,
@@ -770,19 +813,6 @@ const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
   migrationListMigrations: new ApiCallAsyncResourceFactory(
     descriptors.mailMigrationListMigrations,
     baseClient.mail.migrationListMigrations,
-  ).getApiResource,
-  /** List MailAddresses. */
-  listMailAddressesForUser: new ApiCallAsyncResourceFactory(
-    descriptors.mailListMailAddressesForUser,
-    baseClient.mail.listMailAddressesForUser,
-  ).getApiResource,
-});
-
-const buildMiscApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** Get a list of currently active llm models. */
-  getLlmModelsExperimental: new ApiCallAsyncResourceFactory(
-    descriptors.miscGetLlmModelsExperimental,
-    baseClient.misc.getLlmModelsExperimental,
   ).getApiResource,
 });
 
@@ -906,11 +936,6 @@ const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
 });
 
 const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** Get a list of already created llm licences. */
-  getLlmLicencesExperimental: new ApiCallAsyncResourceFactory(
-    descriptors.projectGetLlmLicencesExperimental,
-    baseClient.project.getLlmLicencesExperimental,
-  ).getApiResource,
   /** List Invites belonging to a Project. */
   listInvitesForProject: new ApiCallAsyncResourceFactory(
     descriptors.projectListInvitesForProject,
@@ -930,11 +955,6 @@ const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
   getProject: new ApiCallAsyncResourceFactory(
     descriptors.projectGetProject,
     baseClient.project.getProject,
-  ).getApiResource,
-  /** Get a licence of a project. */
-  getLlmLicenceExperimental: new ApiCallAsyncResourceFactory(
-    descriptors.projectGetLlmLicenceExperimental,
-    baseClient.project.getLlmLicenceExperimental,
   ).getApiResource,
   /** Get a ProjectInvite by token. */
   getProjectTokenInvite: new ApiCallAsyncResourceFactory(
@@ -1040,6 +1060,9 @@ const buildSshsftpUserApi = (baseClient: MittwaldAPIV2Client) => ({
 });
 
 export class MittwaldAPIV2ClientReact {
+  /** The AI hosting provides access to multiple large language and embedding models – GDPR compliant and hosted in Germany. */
+  public readonly aiHosting: ReturnType<typeof buildAiHostingApi>;
+
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app: ReturnType<typeof buildAppApi>;
 
@@ -1082,9 +1105,6 @@ export class MittwaldAPIV2ClientReact {
   /** The mail API allows you to manage your mail accounts. */
   public readonly mail: ReturnType<typeof buildMailApi>;
 
-  /** API endpoints that are not related to any specific API domain */
-  public readonly misc: ReturnType<typeof buildMiscApi>;
-
   /** The notification API allows you to manage your notifications. */
   public readonly notification: ReturnType<typeof buildNotificationApi>;
 
@@ -1106,6 +1126,8 @@ export class MittwaldAPIV2ClientReact {
   public readonly sshsftpUser: ReturnType<typeof buildSshsftpUserApi>;
 
   private constructor(baseClient: MittwaldAPIV2Client) {
+    this.aiHosting = buildAiHostingApi(baseClient);
+
     this.app = buildAppApi(baseClient);
 
     this.article = buildArticleApi(baseClient);
@@ -1133,8 +1155,6 @@ export class MittwaldAPIV2ClientReact {
     this.leadFyndr = buildLeadFyndrApi(baseClient);
 
     this.mail = buildMailApi(baseClient);
-
-    this.misc = buildMiscApi(baseClient);
 
     this.notification = buildNotificationApi(baseClient);
 
