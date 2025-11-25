@@ -16981,3 +16981,71 @@ export const sslDeleteCertificate: OpenAPIOperation<
   method: "DELETE",
   operationId: "ssl-delete-certificate",
 };
+
+/** Reject a contributor verification request. */
+export const contributorRejectContributorInternal: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.InternalV2ContributorsContributorIdActionsReject.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.InternalV2ContributorsContributorIdActionsReject.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.InternalV2ContributorsContributorIdActionsReject.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.InternalV2ContributorsContributorIdActionsReject.Post.Responses.$201.Content.Empty>,
+      201,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.InternalV2ContributorsContributorIdActionsReject.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.InternalV2ContributorsContributorIdActionsReject.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.InternalV2ContributorsContributorIdActionsReject.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/internal-v2/contributors/{contributorId}/actions/reject",
+  method: "POST",
+  operationId: "contributor-reject-contributor-internal",
+};
+
+/** Accept a contributor verification request */
+export const contributorVerifyContributorInternal: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.InternalV2ContributorsContributorIdActionsVerify.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.InternalV2ContributorsContributorIdActionsVerify.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.InternalV2ContributorsContributorIdActionsVerify.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.InternalV2ContributorsContributorIdActionsVerify.Post.Responses.$201.Content.Empty>,
+      201,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.InternalV2ContributorsContributorIdActionsVerify.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.InternalV2ContributorsContributorIdActionsVerify.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.InternalV2ContributorsContributorIdActionsVerify.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/internal-v2/contributors/{contributorId}/actions/verify",
+  method: "POST",
+  operationId: "contributor-verify-contributor-internal",
+};
