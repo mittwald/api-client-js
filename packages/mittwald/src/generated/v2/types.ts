@@ -8716,12 +8716,6 @@ export declare module MittwaldAPIV2 {
 
       export type SslCertificateType = 0 | 1 | 2;
 
-      export interface SslCertificateData {
-        caBundle?: string;
-        certificate?: string;
-        signingRequest?: string;
-      }
-
       export interface SslCertificateRequestCreateResponse {
         commonName?: string;
         contact: MittwaldAPIV2.Components.Schemas.SslContact;
@@ -8733,12 +8727,10 @@ export declare module MittwaldAPIV2 {
         validTo?: string;
       }
 
-      export interface SslCheckReplaceChanges {
-        commonName?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceFieldChange;
-        dnsNames?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceSliceChange;
-        issuer?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceFieldChange;
-        validFrom?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceDateChange;
-        validTo?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceDateChange;
+      export interface SslCertificateData {
+        caBundle?: string;
+        certificate?: string;
+        signingRequest?: string;
       }
 
       export interface SslCheckReplaceSliceChange {
@@ -8747,27 +8739,24 @@ export declare module MittwaldAPIV2 {
         values: string[];
       }
 
-      export interface SslCertificateRequestCreateRequest {
-        certificate: string;
-        privateKey: string;
-        projectId: string;
-      }
-
-      export interface SslCheckReplaceFieldChange {
-        newValue: string;
-        oldValue: string;
-      }
-
-      export interface SslCertificateRequestCreateWithCSRRequest {
-        commonName: string;
-        contact: MittwaldAPIV2.Components.Schemas.SslContact;
-        projectId: string;
+      export interface SslCheckReplaceChanges {
+        commonName?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceFieldChange;
+        dnsNames?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceSliceChange;
+        issuer?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceFieldChange;
+        validFrom?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceDateChange;
+        validTo?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceDateChange;
       }
 
       export interface SslCheckReplaceCertificateResponse {
         changes?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceChanges;
         errors?: MittwaldAPIV2.Components.Schemas.SslCertificateError[];
         isReplaceable: boolean;
+      }
+
+      export interface SslCertificateRequestCreateRequest {
+        certificate: string;
+        privateKey: string;
+        projectId: string;
       }
 
       export interface SslCertificateRequest {
@@ -8783,6 +8772,35 @@ export declare module MittwaldAPIV2 {
         projectId: string;
         validFrom?: string;
         validTo?: string;
+      }
+
+      export interface SslCertificateRequestCreateWithCSRRequest {
+        commonName: string;
+        contact: MittwaldAPIV2.Components.Schemas.SslContact;
+        projectId: string;
+      }
+
+      export interface SslCertificate {
+        caBundle?: string;
+        certificate: string;
+        certificateOrderId?: string;
+        certificateRequestId: string;
+        certificateType: MittwaldAPIV2.Components.Schemas.SslCertificateType;
+        commonName?: string;
+        contact?: MittwaldAPIV2.Components.Schemas.SslContact;
+        dnsNames?: string[];
+        id: string;
+        isExpired: boolean;
+        issuer?: string;
+        lastExpirationThresholdHit: number;
+        projectId: string;
+        validFrom: string;
+        validTo: string;
+      }
+
+      export interface SslCheckReplaceFieldChange {
+        newValue: string;
+        oldValue: string;
       }
 
       export interface SslCertificateError {
@@ -8805,24 +8823,6 @@ export declare module MittwaldAPIV2 {
           | "private_key_mismatch"
           | "unknown_cloudflare_error"
           | "unknown";
-      }
-
-      export interface SslCertificate {
-        caBundle?: string;
-        certificate: string;
-        certificateOrderId?: string;
-        certificateRequestId: string;
-        certificateType: MittwaldAPIV2.Components.Schemas.SslCertificateType;
-        commonName?: string;
-        contact?: MittwaldAPIV2.Components.Schemas.SslContact;
-        dnsNames?: string[];
-        id: string;
-        isExpired: boolean;
-        issuer?: string;
-        lastExpirationThresholdHit: number;
-        projectId: string;
-        validFrom: string;
-        validTo: string;
       }
 
       export interface CommonsAddress {
