@@ -8698,6 +8698,11 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
+      export interface SslCheckReplaceDateChange {
+        newValue: string;
+        oldValue: string;
+      }
+
       export interface SslContact {
         city?: string;
         company?: string;
@@ -8707,11 +8712,6 @@ export declare module MittwaldAPIV2 {
         country?: string;
         organizationalUnit?: string;
         state?: string;
-      }
-
-      export interface SslCheckReplaceDateChange {
-        newValue: string;
-        oldValue: string;
       }
 
       export type SslCertificateType = 0 | 1 | 2;
@@ -8733,6 +8733,12 @@ export declare module MittwaldAPIV2 {
         signingRequest?: string;
       }
 
+      export interface SslCheckReplaceCertificateResponse {
+        changes?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceChanges;
+        errors?: MittwaldAPIV2.Components.Schemas.SslCertificateError[];
+        isReplaceable: boolean;
+      }
+
       export interface SslCheckReplaceSliceChange {
         addedValues: string[];
         removedValues: string[];
@@ -8745,12 +8751,6 @@ export declare module MittwaldAPIV2 {
         issuer?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceFieldChange;
         validFrom?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceDateChange;
         validTo?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceDateChange;
-      }
-
-      export interface SslCheckReplaceCertificateResponse {
-        changes?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceChanges;
-        errors?: MittwaldAPIV2.Components.Schemas.SslCertificateError[];
-        isReplaceable: boolean;
       }
 
       export interface SslCertificateRequestCreateRequest {
@@ -8780,6 +8780,11 @@ export declare module MittwaldAPIV2 {
         projectId: string;
       }
 
+      export interface SslCheckReplaceFieldChange {
+        newValue: string;
+        oldValue: string;
+      }
+
       export interface SslCertificate {
         caBundle?: string;
         certificate: string;
@@ -8796,11 +8801,6 @@ export declare module MittwaldAPIV2 {
         projectId: string;
         validFrom: string;
         validTo: string;
-      }
-
-      export interface SslCheckReplaceFieldChange {
-        newValue: string;
-        oldValue: string;
       }
 
       export interface SslCertificateError {
