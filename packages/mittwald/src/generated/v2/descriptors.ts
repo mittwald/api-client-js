@@ -17299,52 +17299,160 @@ export const verificationVerifyCompany: OpenAPIOperation<
   operationId: "verification-verify-company",
 };
 
-/** Get a list of currently active llm models. */
-export const miscGetLlmModelsExperimental: OpenAPIOperation<
+/** Get a licence of a customer. */
+export const aiHostingCustomerGetLlmLicence: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2LlmModels.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2LlmModels.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2LlmModels.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LlmModels.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LlmModels.Get.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LlmModels.Get.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Get.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LlmModels.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LlmModels.Get.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LlmModels.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/llm-models",
+  path: "/v2/customers/{customerId}/llm-licences/{licenceId}",
   method: "GET",
-  operationId: "misc-get-llm-models-experimental",
+  operationId: "ai-hosting-customer-get-llm-licence",
+};
+
+/** Update a llm Licence for a customer. */
+export const aiHostingCustomerUpdateLlmLicence: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Put.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Put.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Put.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/llm-licences/{licenceId}",
+  method: "PUT",
+  operationId: "ai-hosting-customer-update-llm-licence",
+};
+
+/** Delete a llm Licence for a customer. */
+export const aiHostingCustomerDeleteLlmLicence: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Delete.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Delete.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Delete.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Delete.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Delete.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesLicenceId.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/llm-licences/{licenceId}",
+  method: "DELETE",
+  operationId: "ai-hosting-customer-delete-llm-licence",
 };
 
 /** Get a licence of a project. */
-export const projectGetLlmLicenceExperimental: OpenAPIOperation<
+export const aiHostingProjectGetLlmLicence: OpenAPIOperation<
   RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicencesLicenceId.Get.Parameters.Path>,
@@ -17384,11 +17492,11 @@ export const projectGetLlmLicenceExperimental: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/llm-licences/{licenceId}",
   method: "GET",
-  operationId: "project-get-llm-licence-experimental",
+  operationId: "ai-hosting-project-get-llm-licence",
 };
 
 /** Update a llm Licence for a project. */
-export const projectUpdateLlmLicenceExperimental: OpenAPIOperation<
+export const aiHostingProjectUpdateLlmLicence: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicencesLicenceId.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicencesLicenceId.Put.Parameters.Path>,
@@ -17438,11 +17546,251 @@ export const projectUpdateLlmLicenceExperimental: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/llm-licences/{licenceId}",
   method: "PUT",
-  operationId: "project-update-llm-licence-experimental",
+  operationId: "ai-hosting-project-update-llm-licence",
+};
+
+/** Delete a llm Licence for a project. */
+export const aiHostingProjectDeleteLlmLicence: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicencesLicenceId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicencesLicenceId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicencesLicenceId.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicencesLicenceId.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicencesLicenceId.Delete.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicencesLicenceId.Delete.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicencesLicenceId.Delete.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicencesLicenceId.Delete.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicencesLicenceId.Delete.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicencesLicenceId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicencesLicenceId.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/llm-licences/{licenceId}",
+  method: "DELETE",
+  operationId: "ai-hosting-project-delete-llm-licence",
 };
 
 /** Get a list of already created llm licences. */
-export const projectGetLlmLicencesExperimental: OpenAPIOperation<
+export const aiHostingCustomerGetLlmLicences: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicences.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicences.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicences.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicences.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicences.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicences.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicences.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicences.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicences.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/llm-licences",
+  method: "GET",
+  operationId: "ai-hosting-customer-get-llm-licences",
+};
+
+/** Creates a new llm licence for a customer. */
+export const aiHostingCustomerCreateLlmLicence: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicences.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicences.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicences.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicences.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicences.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicences.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicences.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicences.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicences.Post.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicences.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicences.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicences.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/llm-licences",
+  method: "POST",
+  operationId: "ai-hosting-customer-create-llm-licence",
+};
+
+/** Get llm tariff and usages of a customer. */
+export const aiHostingCustomerGetLlmTariffOptions: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesTariff.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesTariff.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesTariff.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesTariff.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesTariff.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesTariff.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesTariff.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesTariff.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdLlmLicencesTariff.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/llm-licences/tariff",
+  method: "GET",
+  operationId: "ai-hosting-customer-get-llm-tariff-options",
+};
+
+/** Get a list of currently active llm models. */
+export const aiHostingGetLlmModels: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2LlmModels.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2LlmModels.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2LlmModels.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LlmModels.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LlmModels.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LlmModels.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LlmModels.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LlmModels.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LlmModels.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/llm-models",
+  method: "GET",
+  operationId: "ai-hosting-get-llm-models",
+};
+
+/** Get a list of already created llm licences of a project. */
+export const aiHostingProjectGetLlmLicences: OpenAPIOperation<
   RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicences.Get.Parameters.Path>,
@@ -17482,11 +17830,11 @@ export const projectGetLlmLicencesExperimental: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/llm-licences",
   method: "GET",
-  operationId: "project-get-llm-licences-experimental",
+  operationId: "ai-hosting-project-get-llm-licences",
 };
 
-/** Creates a new llm beta Licence for a project. Will be purged on end of beta. */
-export const projectCreateLlmBetaLicenceExperimental: OpenAPIOperation<
+/** Creates a new llm Licence for a project. */
+export const aiHostingProjectCreateLlmLicence: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicences.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicences.Post.Parameters.Path>,
@@ -17536,83 +17884,49 @@ export const projectCreateLlmBetaLicenceExperimental: OpenAPIOperation<
 > = {
   path: "/v2/projects/{projectId}/llm-licences",
   method: "POST",
-  operationId: "project-create-llm-beta-licence-experimental",
+  operationId: "ai-hosting-project-create-llm-licence",
 };
 
-/** Schedule an Extension Instance Variant change for the next possible date. */
-export const extensionScheduleExtensionVariantChange: OpenAPIOperation<
+/** Get llm tariff and usages of a project. Same as the customer route, but less details. */
+export const aiHostingProjectGetLlmTariffOptions: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Post.Parameters.Header>
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicencesTariff.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicencesTariff.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicencesTariff.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/extension-instances/{extensionInstanceId}/contract/variant-change",
-  method: "POST",
-  operationId: "extension-schedule-extension-variant-change",
-};
-
-/** Cancel an Extension Instance Variant Change. */
-export const extensionCancelExtensionVariantChange: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Delete.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Delete.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Delete.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Delete.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicencesTariff.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Delete.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicencesTariff.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Delete.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicencesTariff.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicencesTariff.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Delete.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicencesTariff.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Delete.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLlmLicencesTariff.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/extension-instances/{extensionInstanceId}/contract/variant-change",
-  method: "DELETE",
-  operationId: "extension-cancel-extension-variant-change",
+  path: "/v2/projects/{projectId}/llm-licences/tariff",
+  method: "GET",
+  operationId: "ai-hosting-project-get-llm-tariff-options",
 };

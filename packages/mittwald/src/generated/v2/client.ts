@@ -614,22 +614,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     customerUpdatePaymentMethod: this.requestFunctionFactory(
       descriptors.marketplaceCustomerUpdatePaymentMethod,
     ),
-    /** Reject a contributor verification request. */
-    contributorRejectContributorInternal: this.requestFunctionFactory(
-      descriptors.contributorRejectContributorInternal,
-    ),
-    /** Accept a contributor verification request */
-    contributorVerifyContributorInternal: this.requestFunctionFactory(
-      descriptors.contributorVerifyContributorInternal,
-    ),
-    /** Schedule an Extension Instance Variant change for the next possible date. */
-    extensionScheduleExtensionVariantChange: this.requestFunctionFactory(
-      descriptors.extensionScheduleExtensionVariantChange,
-    ),
-    /** Cancel an Extension Instance Variant Change. */
-    extensionCancelExtensionVariantChange: this.requestFunctionFactory(
-      descriptors.extensionCancelExtensionVariantChange,
-    ),
   };
 
   /** The conversation API allows you to manage your support conversations. */
@@ -1603,22 +1587,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     storagespaceReplaceServerNotificationThreshold: this.requestFunctionFactory(
       descriptors.storagespaceReplaceServerNotificationThreshold,
     ),
-    /** Get a licence of a project. */
-    getLlmLicenceExperimental: this.requestFunctionFactory(
-      descriptors.projectGetLlmLicenceExperimental,
-    ),
-    /** Update a llm Licence for a project. */
-    updateLlmLicenceExperimental: this.requestFunctionFactory(
-      descriptors.projectUpdateLlmLicenceExperimental,
-    ),
-    /** Get a list of already created llm licences. */
-    getLlmLicencesExperimental: this.requestFunctionFactory(
-      descriptors.projectGetLlmLicencesExperimental,
-    ),
-    /** Creates a new llm beta Licence for a project. Will be purged on end of beta. */
-    createLlmBetaLicenceExperimental: this.requestFunctionFactory(
-      descriptors.projectCreateLlmBetaLicenceExperimental,
-    ),
   };
 
   /** The filesystem API allows you to directly access the filesystem of your project. */
@@ -1713,9 +1681,61 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     verificationVerifyCompany: this.requestFunctionFactory(
       descriptors.verificationVerifyCompany,
     ),
+  };
+
+  /** The AI hosting provides access to multiple large language and embedding models – GDPR compliant and hosted in Germany. */
+  public readonly aiHosting = {
+    /** Get a licence of a customer. */
+    customerGetLlmLicence: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetLlmLicence,
+    ),
+    /** Update a llm Licence for a customer. */
+    customerUpdateLlmLicence: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerUpdateLlmLicence,
+    ),
+    /** Delete a llm Licence for a customer. */
+    customerDeleteLlmLicence: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerDeleteLlmLicence,
+    ),
+    /** Get a licence of a project. */
+    projectGetLlmLicence: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetLlmLicence,
+    ),
+    /** Update a llm Licence for a project. */
+    projectUpdateLlmLicence: this.requestFunctionFactory(
+      descriptors.aiHostingProjectUpdateLlmLicence,
+    ),
+    /** Delete a llm Licence for a project. */
+    projectDeleteLlmLicence: this.requestFunctionFactory(
+      descriptors.aiHostingProjectDeleteLlmLicence,
+    ),
+    /** Get a list of already created llm licences. */
+    customerGetLlmLicences: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetLlmLicences,
+    ),
+    /** Creates a new llm licence for a customer. */
+    customerCreateLlmLicence: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerCreateLlmLicence,
+    ),
+    /** Get llm tariff and usages of a customer. */
+    customerGetLlmTariffOptions: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetLlmTariffOptions,
+    ),
     /** Get a list of currently active llm models. */
-    getLlmModelsExperimental: this.requestFunctionFactory(
-      descriptors.miscGetLlmModelsExperimental,
+    getLlmModels: this.requestFunctionFactory(
+      descriptors.aiHostingGetLlmModels,
+    ),
+    /** Get a list of already created llm licences of a project. */
+    projectGetLlmLicences: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetLlmLicences,
+    ),
+    /** Creates a new llm Licence for a project. */
+    projectCreateLlmLicence: this.requestFunctionFactory(
+      descriptors.aiHostingProjectCreateLlmLicence,
+    ),
+    /** Get llm tariff and usages of a project. Same as the customer route, but less details. */
+    projectGetLlmTariffOptions: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetLlmTariffOptions,
     ),
   };
 }
