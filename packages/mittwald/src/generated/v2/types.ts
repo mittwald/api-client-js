@@ -4475,6 +4475,28 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace ExtensionScheduleExtensionVariantChange {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionScheduleExtensionVariantChange
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionScheduleExtensionVariantChange,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionCancelExtensionVariantChange {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionCancelExtensionVariantChange
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionCancelExtensionVariantChange,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -35961,6 +35983,132 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ExtensionInstancesExtensionInstanceIdContractVariantChange {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            extensionInstanceId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * The target variant key to change to.
+             */
+            targetVariantKey?: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * The Date the variant change will be executed.
+                 */
+                effectiveDate?: string;
+                /**
+                 * The ID of the Extension Instance the variant change was scheduled for.
+                 */
+                extensionInstanceId?: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            extensionInstanceId: string;
+          };
+
+          export interface RequestBody {}
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                extensionInstanceId: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
