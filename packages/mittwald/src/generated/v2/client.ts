@@ -1070,10 +1070,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     sslListCertificates: this.requestFunctionFactory(
       descriptors.sslListCertificates,
     ),
-    /** Update the certificate of a CertificateRequest. */
-    sslSetCertificateRequestCertificate: this.requestFunctionFactory(
-      descriptors.sslSetCertificateRequestCertificate,
-    ),
   };
 
   /** The mail API allows you to manage your mail accounts. */
