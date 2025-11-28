@@ -5,6 +5,62 @@ import * as descriptors from "./descriptors.js";
 import { ApiClientBase } from "@mittwald/api-client-commons";
 
 export class MittwaldAPIV2Client extends ApiClientBase {
+  /** The AI hosting provides access to multiple large language and embedding models – GDPR compliant and hosted in Germany. */
+  public readonly aiHosting = {
+    /** Get a list of already created llm licences. */
+    customerGetLlmLicences: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetLlmLicences,
+    ),
+    /** Creates a new llm licence for a customer. */
+    customerCreateLlmLicence: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerCreateLlmLicence,
+    ),
+    /** Get a licence of a customer. */
+    customerGetLlmLicence: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetLlmLicence,
+    ),
+    /** Update a llm Licence for a customer. */
+    customerUpdateLlmLicence: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerUpdateLlmLicence,
+    ),
+    /** Delete a llm Licence for a customer. */
+    customerDeleteLlmLicence: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerDeleteLlmLicence,
+    ),
+    /** Get llm tariff and usages of a customer. */
+    customerGetLlmTariffOptions: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetLlmTariffOptions,
+    ),
+    /** Get a list of currently active llm models. */
+    getLlmModels: this.requestFunctionFactory(
+      descriptors.aiHostingGetLlmModels,
+    ),
+    /** Get a list of already created llm licences of a project. */
+    projectGetLlmLicences: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetLlmLicences,
+    ),
+    /** Creates a new llm Licence for a project. */
+    projectCreateLlmLicence: this.requestFunctionFactory(
+      descriptors.aiHostingProjectCreateLlmLicence,
+    ),
+    /** Get a licence of a project. */
+    projectGetLlmLicence: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetLlmLicence,
+    ),
+    /** Update a llm Licence for a project. */
+    projectUpdateLlmLicence: this.requestFunctionFactory(
+      descriptors.aiHostingProjectUpdateLlmLicence,
+    ),
+    /** Delete a llm Licence for a project. */
+    projectDeleteLlmLicence: this.requestFunctionFactory(
+      descriptors.aiHostingProjectDeleteLlmLicence,
+    ),
+    /** Get llm tariff and usages of a project. Same as the customer route, but less details. */
+    projectGetLlmTariffOptions: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetLlmTariffOptions,
+    ),
+  };
+
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app = {
     /** Trigger a runtime action belonging to an AppInstallation. */
@@ -1070,6 +1126,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     sslListCertificates: this.requestFunctionFactory(
       descriptors.sslListCertificates,
     ),
+    /** Update the certificate of a CertificateRequest. */
+    sslSetCertificateRequestCertificate: this.requestFunctionFactory(
+      descriptors.sslSetCertificateRequestCertificate,
+    ),
   };
 
   /** The mail API allows you to manage your mail accounts. */
@@ -1676,62 +1736,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Check if a company exists. */
     verificationVerifyCompany: this.requestFunctionFactory(
       descriptors.verificationVerifyCompany,
-    ),
-  };
-
-  /** The AI hosting provides access to multiple large language and embedding models – GDPR compliant and hosted in Germany. */
-  public readonly aiHosting = {
-    /** Get a licence of a customer. */
-    customerGetLlmLicence: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetLlmLicence,
-    ),
-    /** Update a llm Licence for a customer. */
-    customerUpdateLlmLicence: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerUpdateLlmLicence,
-    ),
-    /** Delete a llm Licence for a customer. */
-    customerDeleteLlmLicence: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerDeleteLlmLicence,
-    ),
-    /** Get a licence of a project. */
-    projectGetLlmLicence: this.requestFunctionFactory(
-      descriptors.aiHostingProjectGetLlmLicence,
-    ),
-    /** Update a llm Licence for a project. */
-    projectUpdateLlmLicence: this.requestFunctionFactory(
-      descriptors.aiHostingProjectUpdateLlmLicence,
-    ),
-    /** Delete a llm Licence for a project. */
-    projectDeleteLlmLicence: this.requestFunctionFactory(
-      descriptors.aiHostingProjectDeleteLlmLicence,
-    ),
-    /** Get a list of already created llm licences. */
-    customerGetLlmLicences: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetLlmLicences,
-    ),
-    /** Creates a new llm licence for a customer. */
-    customerCreateLlmLicence: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerCreateLlmLicence,
-    ),
-    /** Get llm tariff and usages of a customer. */
-    customerGetLlmTariffOptions: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetLlmTariffOptions,
-    ),
-    /** Get a list of currently active llm models. */
-    getLlmModels: this.requestFunctionFactory(
-      descriptors.aiHostingGetLlmModels,
-    ),
-    /** Get a list of already created llm licences of a project. */
-    projectGetLlmLicences: this.requestFunctionFactory(
-      descriptors.aiHostingProjectGetLlmLicences,
-    ),
-    /** Creates a new llm Licence for a project. */
-    projectCreateLlmLicence: this.requestFunctionFactory(
-      descriptors.aiHostingProjectCreateLlmLicence,
-    ),
-    /** Get llm tariff and usages of a project. Same as the customer route, but less details. */
-    projectGetLlmTariffOptions: this.requestFunctionFactory(
-      descriptors.aiHostingProjectGetLlmTariffOptions,
     ),
   };
 }
