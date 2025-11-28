@@ -17049,3 +17049,81 @@ export const contributorVerifyContributorInternal: OpenAPIOperation<
   method: "POST",
   operationId: "contributor-verify-contributor-internal",
 };
+
+/** Schedule an Extension Instance Variant change for the next possible date. */
+export const extensionScheduleExtensionVariantChange: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/extension-instances/{extensionInstanceId}/contract/variant-change",
+  method: "POST",
+  operationId: "extension-schedule-extension-variant-change",
+};
+
+/** Cancel an Extension Instance Variant Change. */
+export const extensionCancelExtensionVariantChange: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Delete.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Delete.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Delete.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Delete.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdContractVariantChange.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/extension-instances/{extensionInstanceId}/contract/variant-change",
+  method: "DELETE",
+  operationId: "extension-cancel-extension-variant-change",
+};
