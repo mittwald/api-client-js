@@ -438,6 +438,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionCancelExtensionTermination: this.requestFunctionFactory(
       descriptors.extensionCancelExtensionTermination,
     ),
+    /** Schedule an Extension Instance Variant change for the next possible date. */
+    extensionScheduleExtensionVariantChange: this.requestFunctionFactory(
+      descriptors.extensionScheduleExtensionVariantChange,
+    ),
+    /** Cancel an Extension Instance Variant Change. */
+    extensionCancelExtensionVariantChange: this.requestFunctionFactory(
+      descriptors.extensionCancelExtensionVariantChange,
+    ),
     /** Change the context of an Extension. */
     extensionChangeContext: this.requestFunctionFactory(
       descriptors.extensionChangeContext,
@@ -597,22 +605,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Get the link to update the marketplace payment method */
     customerUpdatePaymentMethod: this.requestFunctionFactory(
       descriptors.marketplaceCustomerUpdatePaymentMethod,
-    ),
-    /** Reject a contributor verification request. */
-    contributorRejectContributorInternal: this.requestFunctionFactory(
-      descriptors.contributorRejectContributorInternal,
-    ),
-    /** Accept a contributor verification request */
-    contributorVerifyContributorInternal: this.requestFunctionFactory(
-      descriptors.contributorVerifyContributorInternal,
-    ),
-    /** Schedule an Extension Instance Variant change for the next possible date. */
-    extensionScheduleExtensionVariantChange: this.requestFunctionFactory(
-      descriptors.extensionScheduleExtensionVariantChange,
-    ),
-    /** Cancel an Extension Instance Variant Change. */
-    extensionCancelExtensionVariantChange: this.requestFunctionFactory(
-      descriptors.extensionCancelExtensionVariantChange,
     ),
   };
 
@@ -1038,14 +1030,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     sslCheckReplaceCertificate: this.requestFunctionFactory(
       descriptors.sslCheckReplaceCertificate,
     ),
-    /** Get a Certificate. */
-    sslGetCertificate: this.requestFunctionFactory(
-      descriptors.sslGetCertificate,
-    ),
-    /** Update a Certificate. */
-    sslReplaceCertificate: this.requestFunctionFactory(
-      descriptors.sslReplaceCertificate,
-    ),
     /** List CertificateRequests belonging to a Project or an Ingress. */
     sslListCertificateRequests: this.requestFunctionFactory(
       descriptors.sslListCertificateRequests,
@@ -1054,14 +1038,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     sslCreateCertificateRequest: this.requestFunctionFactory(
       descriptors.sslCreateCertificateRequest,
     ),
-    /** Get a CertificateRequest. */
-    sslGetCertificateRequest: this.requestFunctionFactory(
-      descriptors.sslGetCertificateRequest,
-    ),
-    /** List Certificates belonging to a Project or an Ingress. */
-    sslListCertificates: this.requestFunctionFactory(
-      descriptors.sslListCertificates,
-    ),
     /** Delete a CertificateRequest. */
     sslDeleteCertificateRequest: this.requestFunctionFactory(
       descriptors.sslDeleteCertificateRequest,
@@ -1069,6 +1045,22 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Delete a Certificate. */
     sslDeleteCertificate: this.requestFunctionFactory(
       descriptors.sslDeleteCertificate,
+    ),
+    /** Get a CertificateRequest. */
+    sslGetCertificateRequest: this.requestFunctionFactory(
+      descriptors.sslGetCertificateRequest,
+    ),
+    /** Get a Certificate. */
+    sslGetCertificate: this.requestFunctionFactory(
+      descriptors.sslGetCertificate,
+    ),
+    /** Update a Certificate. */
+    sslReplaceCertificate: this.requestFunctionFactory(
+      descriptors.sslReplaceCertificate,
+    ),
+    /** List Certificates belonging to a Project or an Ingress. */
+    sslListCertificates: this.requestFunctionFactory(
+      descriptors.sslListCertificates,
     ),
   };
 
