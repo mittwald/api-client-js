@@ -8671,7 +8671,7 @@ export declare module MittwaldAPIV2 {
 
       export interface SslCertificate {
         caBundle?: string;
-        certificate: string;
+        certificate?: string;
         certificateOrderId?: string;
         certificateRequestId: string;
         certificateType: MittwaldAPIV2.Components.Schemas.SslCertificateType;
@@ -8679,9 +8679,9 @@ export declare module MittwaldAPIV2 {
         contact?: MittwaldAPIV2.Components.Schemas.SslContact;
         dnsNames?: string[];
         id: string;
-        isExpired: boolean;
+        isExpired?: boolean;
         issuer?: string;
-        lastExpirationThresholdHit: number;
+        lastExpirationThresholdHit?: number;
         projectId: string;
         validFrom: string;
         validTo: string;
@@ -8753,7 +8753,7 @@ export declare module MittwaldAPIV2 {
         projectId: string;
       }
 
-      export type SslCertificateType = 0 | 1 | 2;
+      export type SslCertificateType = 0 | 1 | 2 | 3;
 
       export interface SslCheckReplaceChanges {
         commonName?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceFieldChange;
