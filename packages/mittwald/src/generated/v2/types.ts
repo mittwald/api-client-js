@@ -1088,17 +1088,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace ContributorRejectContributorInternal {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contributorRejectContributorInternal
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.contributorRejectContributorInternal,
-          TStatus
-        >;
-    }
-
     namespace ContributorRequestDeviatingContributorAvatarUpload {
       type RequestData = InferredRequestData<
         typeof descriptors.contributorRequestDeviatingContributorAvatarUpload
@@ -1128,17 +1117,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.contributorRotateSecretForExtensionInstance,
-          TStatus
-        >;
-    }
-
-    namespace ContributorVerifyContributorInternal {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contributorVerifyContributorInternal
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.contributorVerifyContributorInternal,
           TStatus
         >;
     }
@@ -8677,6 +8655,9 @@ export declare module MittwaldAPIV2 {
         certificateType: MittwaldAPIV2.Components.Schemas.SslCertificateType;
         commonName?: string;
         contact?: MittwaldAPIV2.Components.Schemas.SslContact;
+        dnsCertSpec?: {
+          cNameTarget?: string;
+        };
         dnsNames?: string[];
         id: string;
         isExpired?: boolean;
@@ -9111,6 +9092,11 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface SslCertificateRequestCreateWithDNSRequest {
+        commonName: string;
+        projectId: string;
+      }
 
       export interface CommonsAddress {
         street: string;
@@ -15853,52 +15839,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace InternalV2ContributorsContributorIdActionsReject {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2ContributorsContributorIdAvatar {
       namespace Post {
         namespace Parameters {
@@ -16061,52 +16001,6 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace InternalV2ContributorsContributorIdActionsVerify {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -33030,7 +32924,8 @@ export declare module MittwaldAPIV2 {
 
           export type RequestBody =
             | MittwaldAPIV2.Components.Schemas.SslCertificateRequestCreateRequest
-            | MittwaldAPIV2.Components.Schemas.SslCertificateRequestCreateWithCSRRequest;
+            | MittwaldAPIV2.Components.Schemas.SslCertificateRequestCreateWithCSRRequest
+            | MittwaldAPIV2.Components.Schemas.SslCertificateRequestCreateWithDNSRequest;
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;

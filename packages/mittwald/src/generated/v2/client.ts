@@ -465,10 +465,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     contributorReceiptGetFileAccessToken: this.requestFunctionFactory(
       descriptors.contributorReceiptGetFileAccessToken,
     ),
-    /** Reject a contributor verification request. */
-    contributorRejectContributorInternal: this.requestFunctionFactory(
-      descriptors.contributorRejectContributorInternal,
-    ),
     /** Add a deviating avatar to a Contributor. */
     contributorRequestDeviatingContributorAvatarUpload:
       this.requestFunctionFactory(
@@ -481,10 +477,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Rotate the secret for an extension instance. */
     contributorRotateSecretForExtensionInstance: this.requestFunctionFactory(
       descriptors.contributorRotateSecretForExtensionInstance,
-    ),
-    /** Accept a contributor verification request */
-    contributorVerifyContributorInternal: this.requestFunctionFactory(
-      descriptors.contributorVerifyContributorInternal,
     ),
     /** Authenticate your external application using the extensionInstanceSecret. */
     extensionAuthenticateInstance: this.requestFunctionFactory(
