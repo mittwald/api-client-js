@@ -1150,6 +1150,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateMailAddressCatchAll: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressCatchAll,
     ),
+    /** List MailAddresses. */
+    listMailAddressesForUser: this.requestFunctionFactory(
+      descriptors.mailListMailAddressesForUser,
+    ),
   };
 
   /** The notification API allows you to manage your notifications. */

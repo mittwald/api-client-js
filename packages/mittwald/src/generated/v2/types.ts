@@ -4357,6 +4357,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace MailListMailAddressesForUser {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailListMailAddressesForUser
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailListMailAddressesForUser,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -35251,6 +35262,104 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2MailAddresses {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            projectId?: string;
+            search?: string;
+            forwardAddress?: boolean;
+            catchAll?: boolean;
+            autoResponder?: boolean;
+            mailArchive?: boolean;
+            limit?: number;
+            skip?: number;
+            page?: number;
+            sort?: (
+              | "address.domain"
+              | "address.local"
+              | "updatedAt"
+              | "projectId"
+              | "mailbox.quota"
+              | "mailbox.name"
+              | "mailbox.storageInBytes.current"
+              | "mailbox.storageInBytes.limit"
+            )[];
+            order?: ("asc" | "desc")[];
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MailMailAddress[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
