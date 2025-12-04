@@ -20870,6 +20870,7 @@ export declare module MittwaldAPIV2 {
 
           export type Query = {
             transit?: boolean;
+            deleteIngresses?: boolean;
           };
         }
         namespace Responses {
