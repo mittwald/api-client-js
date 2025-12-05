@@ -804,15 +804,18 @@ const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.mailListProjectMailSettings,
     baseClient.mail.listProjectMailSettings,
   ).getApiResource,
-  /** Get a Migration. */
-  migrationGetMigration: new ApiCallAsyncResourceFactory(
-    descriptors.mailMigrationGetMigration,
-    baseClient.mail.migrationGetMigration,
+  /** List MailAddresses. */
+  listMailAddressesForUser: new ApiCallAsyncResourceFactory(
+    descriptors.mailListMailAddressesForUser,
+    baseClient.mail.listMailAddressesForUser,
   ).getApiResource,
-  /** List Migrations belonging to a Project in customer center or mStudio. */
-  migrationListMigrations: new ApiCallAsyncResourceFactory(
-    descriptors.mailMigrationListMigrations,
-    baseClient.mail.migrationListMigrations,
+});
+
+const buildMiscApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get a list of currently active llm models. */
+  getLlmModelsExperimental: new ApiCallAsyncResourceFactory(
+    descriptors.miscGetLlmModelsExperimental,
+    baseClient.misc.getLlmModelsExperimental,
   ).getApiResource,
 });
 
