@@ -5,62 +5,6 @@ import * as descriptors from "./descriptors.js";
 import { ApiClientBase } from "@mittwald/api-client-commons";
 
 export class MittwaldAPIV2Client extends ApiClientBase {
-  /** The AI hosting provides access to multiple large language and embedding models – GDPR compliant and hosted in Germany. */
-  public readonly aiHosting = {
-    /** Get a list of already created llm licences. */
-    customerGetLlmLicences: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetLlmLicences,
-    ),
-    /** Creates a new llm licence for a customer. */
-    customerCreateLlmLicence: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerCreateLlmLicence,
-    ),
-    /** Get a licence of a customer. */
-    customerGetLlmLicence: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetLlmLicence,
-    ),
-    /** Update a llm Licence for a customer. */
-    customerUpdateLlmLicence: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerUpdateLlmLicence,
-    ),
-    /** Delete a llm Licence for a customer. */
-    customerDeleteLlmLicence: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerDeleteLlmLicence,
-    ),
-    /** Get llm tariff and usages of a customer. */
-    customerGetLlmTariffOptions: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetLlmTariffOptions,
-    ),
-    /** Get a list of currently active llm models. */
-    getLlmModels: this.requestFunctionFactory(
-      descriptors.aiHostingGetLlmModels,
-    ),
-    /** Get a list of already created llm licences of a project. */
-    projectGetLlmLicences: this.requestFunctionFactory(
-      descriptors.aiHostingProjectGetLlmLicences,
-    ),
-    /** Creates a new llm Licence for a project. */
-    projectCreateLlmLicence: this.requestFunctionFactory(
-      descriptors.aiHostingProjectCreateLlmLicence,
-    ),
-    /** Get a licence of a project. */
-    projectGetLlmLicence: this.requestFunctionFactory(
-      descriptors.aiHostingProjectGetLlmLicence,
-    ),
-    /** Update a llm Licence for a project. */
-    projectUpdateLlmLicence: this.requestFunctionFactory(
-      descriptors.aiHostingProjectUpdateLlmLicence,
-    ),
-    /** Delete a llm Licence for a project. */
-    projectDeleteLlmLicence: this.requestFunctionFactory(
-      descriptors.aiHostingProjectDeleteLlmLicence,
-    ),
-    /** Get llm tariff and usages of a project. Same as the customer route, but less details. */
-    projectGetLlmTariffOptions: this.requestFunctionFactory(
-      descriptors.aiHostingProjectGetLlmTariffOptions,
-    ),
-  };
-
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app = {
     /** Trigger a runtime action belonging to an AppInstallation. */
@@ -1728,6 +1672,60 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Check if a company exists. */
     verificationVerifyCompany: this.requestFunctionFactory(
       descriptors.verificationVerifyCompany,
+    ),
+  };
+
+  /** The AI hosting provides access to multiple large language and embedding models – GDPR compliant and hosted in Germany. */
+  public readonly aiHosting = {
+    /** Get a key of a customer. */
+    customerGetKey: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetKey,
+    ),
+    /** Update a key for a customer. */
+    customerUpdateKey: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerUpdateKey,
+    ),
+    /** Delete a key for a customer. */
+    customerDeleteKey: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerDeleteKey,
+    ),
+    /** Get a key of a project. */
+    projectGetKey: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetKey,
+    ),
+    /** Update a key for a project. */
+    projectUpdateKey: this.requestFunctionFactory(
+      descriptors.aiHostingProjectUpdateKey,
+    ),
+    /** Delete a key for a project. */
+    projectDeleteKey: this.requestFunctionFactory(
+      descriptors.aiHostingProjectDeleteKey,
+    ),
+    /** Get a list of already created keys. */
+    customerGetKeys: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetKeys,
+    ),
+    /** Creates a new key. */
+    customerCreateKey: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerCreateKey,
+    ),
+    /** Get ai hosting tariff and usages of a customer. */
+    customerGetUsage: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetUsage,
+    ),
+    /** Get a list of currently active models. */
+    getModels: this.requestFunctionFactory(descriptors.aiHostingGetModels),
+    /** Get a list of keys of a project. */
+    projectGetKeys: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetKeys,
+    ),
+    /** Creates a new key for a project. */
+    projectCreateKey: this.requestFunctionFactory(
+      descriptors.aiHostingProjectCreateKey,
+    ),
+    /** Get ai hosting tariff and usages of a project. Same as the customer route, but less details. */
+    projectGetUsage: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetUsage,
     ),
   };
 }
