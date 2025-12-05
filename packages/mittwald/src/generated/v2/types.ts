@@ -4538,17 +4538,6 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
-
-    namespace MailListMailAddressesForUser {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailListMailAddressesForUser
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.mailListMailAddressesForUser,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -8730,7 +8719,7 @@ export declare module MittwaldAPIV2 {
 
       export interface SslCertificateRequestCreateResponse {
         commonName?: string;
-        contact: MittwaldAPIV2.Components.Schemas.SslContact;
+        contact?: MittwaldAPIV2.Components.Schemas.SslContact;
         dnsNames?: string[];
         id: string;
         issuer?: string;
@@ -9107,6 +9096,28 @@ export declare module MittwaldAPIV2 {
       export interface SslCertificateRequestCreateWithDNSRequest {
         commonName: string;
         projectId: string;
+      }
+
+      export interface OrderAIHostingTariffChange {
+        contractId: string;
+        monthlyTokens: number;
+        requestsPerMinute: number;
+      }
+
+      export interface OrderAIHostingOrderPreviewResponse {
+        totalPrice: number;
+      }
+
+      export interface OrderAIHostingOrderPreview {
+        monthlyTokens: number;
+        requestsPerMinute: number;
+      }
+
+      export interface OrderAIHostingOrder {
+        customerId: string;
+        monthlyTokens: number;
+        requestsPerMinute: number;
+        useFreeTrial?: boolean;
       }
 
       export interface CommonsAddress {
@@ -29564,14 +29575,16 @@ export declare module MittwaldAPIV2 {
               | MittwaldAPIV2.Components.Schemas.OrderDomainOrder
               | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrder
               | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrder
-              | MittwaldAPIV2.Components.Schemas.OrderMailArchiveOrder;
+              | MittwaldAPIV2.Components.Schemas.OrderMailArchiveOrder
+              | MittwaldAPIV2.Components.Schemas.OrderAIHostingOrder;
             orderType?:
               | "domain"
               | "projectHosting"
               | "server"
               | "externalCertificate"
               | "leadFyndr"
-              | "mailArchive";
+              | "mailArchive"
+              | "aiHosting";
           }
 
           export type Header =
@@ -29632,8 +29645,13 @@ export declare module MittwaldAPIV2 {
             tariffChangeData?:
               | MittwaldAPIV2.Components.Schemas.OrderProjectHostingTariffChange
               | MittwaldAPIV2.Components.Schemas.OrderServerTariffChange
-              | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrTariffChange;
-            tariffChangeType?: "projectHosting" | "server" | "leadFyndr";
+              | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrTariffChange
+              | MittwaldAPIV2.Components.Schemas.OrderAIHostingTariffChange;
+            tariffChangeType?:
+              | "projectHosting"
+              | "server"
+              | "leadFyndr"
+              | "aiHosting";
           }
 
           export type Header =
@@ -29820,14 +29838,16 @@ export declare module MittwaldAPIV2 {
               | MittwaldAPIV2.Components.Schemas.OrderDomainOrderPreview
               | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrderPreview
               | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrderPreview
-              | MittwaldAPIV2.Components.Schemas.OrderMailArchiveOrderPreview;
+              | MittwaldAPIV2.Components.Schemas.OrderMailArchiveOrderPreview
+              | MittwaldAPIV2.Components.Schemas.OrderAIHostingOrderPreview;
             orderType?:
               | "domain"
               | "projectHosting"
               | "server"
               | "externalCertificate"
               | "leadFyndr"
-              | "mailArchive";
+              | "mailArchive"
+              | "aiHosting";
           }
 
           export type Header = {};
@@ -29842,7 +29862,8 @@ export declare module MittwaldAPIV2 {
                 | MittwaldAPIV2.Components.Schemas.OrderDomainOrderPreviewResponse
                 | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrderPreviewResponse
                 | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrderPreviewResponse
-                | MittwaldAPIV2.Components.Schemas.OrderMailArchiveOrderPreviewResponse;
+                | MittwaldAPIV2.Components.Schemas.OrderMailArchiveOrderPreviewResponse
+                | MittwaldAPIV2.Components.Schemas.OrderAIHostingOrderPreviewResponse;
             }
           }
 
@@ -29890,8 +29911,13 @@ export declare module MittwaldAPIV2 {
             tariffChangeData?:
               | MittwaldAPIV2.Components.Schemas.OrderProjectHostingTariffChange
               | MittwaldAPIV2.Components.Schemas.OrderServerTariffChange
-              | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrTariffChange;
-            tariffChangeType?: "projectHosting" | "server" | "leadFyndr";
+              | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrTariffChange
+              | MittwaldAPIV2.Components.Schemas.OrderAIHostingTariffChange;
+            tariffChangeType?:
+              | "projectHosting"
+              | "server"
+              | "leadFyndr"
+              | "aiHosting";
           }
 
           export type Header =
@@ -36561,104 +36587,6 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2MailAddresses {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            projectId?: string;
-            search?: string;
-            forwardAddress?: boolean;
-            catchAll?: boolean;
-            autoResponder?: boolean;
-            mailArchive?: boolean;
-            limit?: number;
-            skip?: number;
-            page?: number;
-            sort?: (
-              | "address.domain"
-              | "address.local"
-              | "updatedAt"
-              | "projectId"
-              | "mailbox.quota"
-              | "mailbox.name"
-              | "mailbox.storageInBytes.current"
-              | "mailbox.storageInBytes.limit"
-            )[];
-            order?: ("asc" | "desc")[];
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.MailMailAddress[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $503 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
