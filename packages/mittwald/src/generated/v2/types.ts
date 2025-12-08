@@ -4992,6 +4992,10 @@ export declare module MittwaldAPIV2 {
 
       export interface ExtensionVariant {
         /**
+         * deadline for scheduled deletion of extension variant
+         */
+        deletionDeadline?: string;
+        /**
          * Description of Variant.
          */
         description?: string;
@@ -5008,6 +5012,10 @@ export declare module MittwaldAPIV2 {
          * stop extension variant from being booked
          */
         isBookingStopped?: boolean;
+        /**
+         * deletion of extension variant is scheduled
+         */
+        isDeletionScheduled?: boolean;
         /**
          * Key that needs to be unique in Variant.
          */
@@ -5889,7 +5897,6 @@ export declare module MittwaldAPIV2 {
         isAllowedToPlaceOrders?: boolean;
         isBanned?: boolean;
         isInDefaultOfPayment?: boolean;
-        is_mail_address_invalid?: boolean;
         levelOfUndeliverableDunningNotice?: "first" | "second";
         memberCount: number;
         name: string;
@@ -9077,8 +9084,10 @@ export declare module MittwaldAPIV2 {
 
       export interface AihostingTariffOptions {
         customerId: string;
+        deletedAt?: string;
         keys: MittwaldAPIV2.Components.Schemas.AihostingTariffUsage;
         limit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
+        nextTokenReset: string;
         tokens: MittwaldAPIV2.Components.Schemas.AihostingTariffUsageBig;
         topUsages?: {
           keyId?: string;
@@ -36555,6 +36564,7 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export interface ApplicationJson {
                 keys: MittwaldAPIV2.Components.Schemas.AihostingTariffUsage;
+                nextTokenReset?: string;
                 projectId: string;
               }
             }
