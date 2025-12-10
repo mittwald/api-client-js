@@ -118,10 +118,15 @@ const buildBackupApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.backupGetProjectBackup,
     baseClient.backup.getProjectBackup,
   ).getApiResource,
-  /** Get table of contents for a ProjectBackup. */
+  /** List paths for a ProjectBackup. */
   getProjectBackupDirectories: new ApiCallAsyncResourceFactory(
     descriptors.backupGetProjectBackupDirectories,
     baseClient.backup.getProjectBackupDirectories,
+  ).getApiResource,
+  /** List database dump's for a ProjectBackup. */
+  getProjectBackupDatabaseDumps: new ApiCallAsyncResourceFactory(
+    descriptors.backupGetProjectBackupDatabaseDumps,
+    baseClient.backup.getProjectBackupDatabaseDumps,
   ).getApiResource,
 });
 
@@ -273,6 +278,11 @@ const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
   orderListProjectOrders: new ApiCallAsyncResourceFactory(
     descriptors.orderListProjectOrders,
     baseClient.contract.orderListProjectOrders,
+  ).getApiResource,
+  /** Return the AI Hosting Contract for the given Customer. */
+  getDetailOfContractByAiHosting: new ApiCallAsyncResourceFactory(
+    descriptors.contractGetDetailOfContractByAiHosting,
+    baseClient.contract.getDetailOfContractByAiHosting,
   ).getApiResource,
 });
 

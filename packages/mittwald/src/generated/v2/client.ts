@@ -145,17 +145,21 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteProjectBackup: this.requestFunctionFactory(
       descriptors.backupDeleteProjectBackup,
     ),
-    /** Get table of contents for a ProjectBackup. */
+    /** List paths for a ProjectBackup. */
     getProjectBackupDirectories: this.requestFunctionFactory(
       descriptors.backupGetProjectBackupDirectories,
-    ),
-    /** Restore a ProjectBackup's path. */
-    requestProjectBackupRestorePath: this.requestFunctionFactory(
-      descriptors.backupRequestProjectBackupRestorePath,
     ),
     /** Change the description of a ProjectBackup. */
     updateProjectBackupDescription: this.requestFunctionFactory(
       descriptors.backupUpdateProjectBackupDescription,
+    ),
+    /** List database dump's for a ProjectBackup. */
+    getProjectBackupDatabaseDumps: this.requestFunctionFactory(
+      descriptors.backupGetProjectBackupDatabaseDumps,
+    ),
+    /** Restore a ProjectBackup (path or database). */
+    requestProjectBackupRestore: this.requestFunctionFactory(
+      descriptors.backupRequestProjectBackupRestore,
     ),
   };
 
@@ -348,6 +352,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Preview TariffChange. */
     orderPreviewTariffChange: this.requestFunctionFactory(
       descriptors.orderPreviewTariffChange,
+    ),
+    /** Return the AI Hosting Contract for the given Customer. */
+    getDetailOfContractByAiHosting: this.requestFunctionFactory(
+      descriptors.contractGetDetailOfContractByAiHosting,
     ),
   };
 
