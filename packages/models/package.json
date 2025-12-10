@@ -1,6 +1,6 @@
 {
   "name": "@mittwald/api-models",
-  "version": "0.0.0-development-745a848-20251209",
+  "version": "0.0.0-development-f9138b7-20251210",
   "author": "Mittwald CM Service GmbH & Co. KG <opensource@mittwald.de>",
   "type": "module",
   "description": "Collection of domain models for coherent interaction with the API",
