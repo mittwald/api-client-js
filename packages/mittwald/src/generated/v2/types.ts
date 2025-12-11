@@ -5917,6 +5917,7 @@ export declare module MittwaldAPIV2 {
         isAllowedToPlaceOrders?: boolean;
         isBanned?: boolean;
         isInDefaultOfPayment?: boolean;
+        is_mail_address_invalid?: boolean;
         levelOfUndeliverableDunningNotice?: "first" | "second";
         memberCount: number;
         name: string;
@@ -9199,6 +9200,25 @@ export declare module MittwaldAPIV2 {
         monthlyTokens: number;
         requestsPerMinute: number;
         useFreeTrial?: boolean;
+      }
+
+      export interface IngressListIngressesCompatibleWithCertificateRequest {
+        /**
+         * PEM-encoded certificate. Linebreaks have to be escaped with
+         * .
+         */
+        certificate: string;
+        /**
+         * The projects UUID.
+         */
+        projectId: string;
+      }
+
+      export interface IngressListIngressesCompatibleWithCertificateIDRequest {
+        /**
+         * The certificates UUID.
+         */
+        certificateId: string;
       }
 
       export interface CommonsAddress {
@@ -24929,17 +24949,9 @@ export declare module MittwaldAPIV2 {
         namespace Parameters {
           export type Path = {};
 
-          export interface RequestBody {
-            /**
-             * PEM-encoded certificate. Linebreaks have to be escaped with
-             * .
-             */
-            certificate: string;
-            /**
-             * The projects UUID.
-             */
-            projectId: string;
-          }
+          export type RequestBody =
+            | MittwaldAPIV2.Components.Schemas.IngressListIngressesCompatibleWithCertificateRequest
+            | MittwaldAPIV2.Components.Schemas.IngressListIngressesCompatibleWithCertificateIDRequest;
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
