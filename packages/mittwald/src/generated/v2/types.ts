@@ -9098,15 +9098,8 @@ export declare module MittwaldAPIV2 {
         }[];
       }
 
-      export interface AihostingContainerMeta {
-        containerId?: string;
-        errorMessage?: string;
-        ingressId?: string;
-        stackId?: string;
-        status: "created" | "requested" | "failed";
-      }
-
-      export interface AihostingTokenUsage {
+      export interface AihostingTariffUsage {
+        available: number;
         tariffLimit: number;
         used: number;
       }
@@ -9119,13 +9112,20 @@ export declare module MittwaldAPIV2 {
         unit: "minute";
       }
 
-      export interface AihostingTariffUsageBig {
-        available: number;
+      export interface AihostingTokenUsage {
         tariffLimit: number;
         used: number;
       }
 
-      export interface AihostingTariffUsage {
+      export interface AihostingContainerMeta {
+        containerId?: string;
+        errorMessage?: string;
+        ingressId?: string;
+        stackId?: string;
+        status: "created" | "requested" | "failed";
+      }
+
+      export interface AihostingTariffUsageBig {
         available: number;
         tariffLimit: number;
         used: number;
@@ -9180,13 +9180,13 @@ export declare module MittwaldAPIV2 {
         pathRestore?: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestorePathRequest;
       }
 
-      export interface OrderAIHostingOrderPreviewResponse {
-        totalPrice: number;
-      }
-
       export interface OrderAIHostingOrderPreview {
         monthlyTokens: number;
         requestsPerMinute: number;
+      }
+
+      export interface OrderAIHostingOrderPreviewResponse {
+        totalPrice: number;
       }
 
       export interface OrderAIHostingTariffChange {
