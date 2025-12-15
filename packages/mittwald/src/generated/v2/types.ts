@@ -20553,6 +20553,10 @@ export declare module MittwaldAPIV2 {
           };
 
           export interface RequestBody {
+            /**
+             * Whether to also delete the corresponding Ingress and subdomain Ingresses.
+             */
+            deleteIngresses?: boolean;
             deletionDate: string;
           }
 
@@ -21118,8 +21122,7 @@ export declare module MittwaldAPIV2 {
         namespace Parameters {
           export type Path = {};
 
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+          export type Header = {};
 
           export type Query = {
             prompt: string;
