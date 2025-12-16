@@ -6867,13 +6867,11 @@ export declare module MittwaldAPIV2 {
        * A price plan with (multiple) variants, including different prices for different included service descriptions
        */
       export type MarketplaceMonthlyPricePlanStrategy = {
-        deletionDeadline?: string;
         description?: string;
         /**
          * If a variant is no longer bookable the existing extension instances will not be removed but no new ones can be created.
          */
         isBookingStopped: boolean;
-        isDeletionScheduled: boolean;
         key: string;
         name?: string;
         /**
@@ -8117,24 +8115,6 @@ export declare module MittwaldAPIV2 {
         value: string;
       }
 
-      export interface OrderAIHostingOrderPreview {
-        monthlyTokens: number;
-        requestsPerMinute: number;
-      }
-
-      export interface OrderAIHostingOrder {
-        customerId: string;
-        monthlyTokens: number;
-        requestsPerMinute: number;
-        useFreeTrial?: boolean;
-      }
-
-      export interface OrderAIHostingTariffChange {
-        contractId: string;
-        monthlyTokens: number;
-        requestsPerMinute: number;
-      }
-
       export interface OrderArticleAddons {
         hidden?: boolean;
         key: string;
@@ -8287,10 +8267,6 @@ export declare module MittwaldAPIV2 {
       }
 
       export type OrderOrderType = "NEW_ORDER" | "CONTRACT_CHANGE";
-
-      export interface OrderAIHostingOrderPreviewResponse {
-        totalPrice: number;
-      }
 
       export interface OrderLeadFyndrOrderPreviewResponse {
         totalPrice: number;
@@ -8787,8 +8763,8 @@ export declare module MittwaldAPIV2 {
         issuer?: string;
         lastExpirationThresholdHit?: number;
         projectId: string;
-        validFrom: string;
-        validTo: string;
+        validFrom?: string;
+        validTo?: string;
       }
 
       export interface SslCertificateData {
@@ -9220,6 +9196,28 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface OrderAIHostingOrderPreview {
+        monthlyTokens: number;
+        requestsPerMinute: number;
+      }
+
+      export interface OrderAIHostingOrderPreviewResponse {
+        totalPrice: number;
+      }
+
+      export interface OrderAIHostingTariffChange {
+        contractId: string;
+        monthlyTokens: number;
+        requestsPerMinute: number;
+      }
+
+      export interface OrderAIHostingOrder {
+        customerId: string;
+        monthlyTokens: number;
+        requestsPerMinute: number;
+        useFreeTrial?: boolean;
+      }
 
       export interface CommonsAddress {
         street: string;
@@ -25254,6 +25252,10 @@ export declare module MittwaldAPIV2 {
                      */
                     consequence?: "NONE" | "INFO" | "CONFIRM_REQUIRED";
                     /**
+                     * The date the variant will ne deleted
+                     */
+                    deletionDeadline?: string;
+                    /**
                      * The key of the variant of the Extension.
                      */
                     variantKey?: string;
@@ -28689,8 +28691,6 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
-
-    namespace V2ProjectsProjectIdMailsettings {}
 
     namespace V2ProjectsProjectIdMailSettings {
       namespace Get {
