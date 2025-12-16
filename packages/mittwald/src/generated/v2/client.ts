@@ -1126,6 +1126,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listBackupsForMailAddress: this.requestFunctionFactory(
       descriptors.mailListBackupsForMailAddress,
     ),
+    /** List MailAddresses. */
+    listMailAddressesForUser: this.requestFunctionFactory(
+      descriptors.mailListMailAddressesForUser,
+    ),
     /** List mail settings of a Project. */
     listProjectMailSettings: this.requestFunctionFactory(
       descriptors.mailListProjectMailSettings,
@@ -1149,10 +1153,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update the catch-all of a MailAddress. */
     updateMailAddressCatchAll: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressCatchAll,
-    ),
-    /** List MailAddresses. */
-    listMailAddressesForUser: this.requestFunctionFactory(
-      descriptors.mailListMailAddressesForUser,
     ),
   };
 

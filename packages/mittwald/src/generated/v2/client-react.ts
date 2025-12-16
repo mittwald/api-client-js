@@ -756,15 +756,15 @@ const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.mailListBackupsForMailAddress,
     baseClient.mail.listBackupsForMailAddress,
   ).getApiResource,
-  /** List mail settings of a Project. */
-  listProjectMailSettings: new ApiCallAsyncResourceFactory(
-    descriptors.mailListProjectMailSettings,
-    baseClient.mail.listProjectMailSettings,
-  ).getApiResource,
   /** List MailAddresses. */
   listMailAddressesForUser: new ApiCallAsyncResourceFactory(
     descriptors.mailListMailAddressesForUser,
     baseClient.mail.listMailAddressesForUser,
+  ).getApiResource,
+  /** List mail settings of a Project. */
+  listProjectMailSettings: new ApiCallAsyncResourceFactory(
+    descriptors.mailListProjectMailSettings,
+    baseClient.mail.listProjectMailSettings,
   ).getApiResource,
 });
 
