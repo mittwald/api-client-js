@@ -28690,6 +28690,8 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2ProjectsProjectIdMailsettings {}
+
     namespace V2ProjectsProjectIdMailSettings {
       namespace Get {
         namespace Parameters {
