@@ -411,6 +411,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     orderPreviewTariffChange: this.requestFunctionFactory(
       descriptors.orderPreviewTariffChange,
     ),
+    /** Return the AI Hosting Contract for the given Customer. */
+    getDetailOfContractByAiHosting: this.requestFunctionFactory(
+      descriptors.contractGetDetailOfContractByAiHosting,
+    ),
   };
 
   /** The marketplace API allows you to manage extensions and more information regaring the marketplace. */

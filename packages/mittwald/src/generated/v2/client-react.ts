@@ -322,6 +322,11 @@ const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.orderListProjectOrders,
     baseClient.contract.orderListProjectOrders,
   ).getApiResource,
+  /** Return the AI Hosting Contract for the given Customer. */
+  getDetailOfContractByAiHosting: new ApiCallAsyncResourceFactory(
+    descriptors.contractGetDetailOfContractByAiHosting,
+    baseClient.contract.getDetailOfContractByAiHosting,
+  ).getApiResource,
 });
 
 const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
