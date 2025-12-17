@@ -4560,17 +4560,6 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
-
-    namespace ContractGetDetailOfContractByAiHosting {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contractGetDetailOfContractByAiHosting
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.contractGetDetailOfContractByAiHosting,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -6057,7 +6046,6 @@ export declare module MittwaldAPIV2 {
         isAllowedToPlaceOrders?: boolean;
         isBanned?: boolean;
         isInDefaultOfPayment?: boolean;
-        is_mail_address_invalid?: boolean;
         levelOfUndeliverableDunningNotice?: "first" | "second";
         memberCount: number;
         name: string;
@@ -6878,11 +6866,13 @@ export declare module MittwaldAPIV2 {
        * A price plan with (multiple) variants, including different prices for different included service descriptions
        */
       export type MarketplaceMonthlyPricePlanStrategy = {
+        deletionDeadline?: string;
         description?: string;
         /**
          * If a variant is no longer bookable the existing extension instances will not be removed but no new ones can be created.
          */
         isBookingStopped: boolean;
+        isDeletionScheduled: boolean;
         key: string;
         name?: string;
         /**
@@ -36828,61 +36818,6 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomersCustomerIdAiHostingContract {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.ContractContract;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
