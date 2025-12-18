@@ -4833,6 +4833,10 @@ export declare module MittwaldAPIV2 {
 
       export interface ExtensionVariant {
         /**
+         * deadline for scheduled deletion of extension variant
+         */
+        deletionDeadline?: string;
+        /**
          * Description of Variant.
          */
         description?: string;
@@ -4849,6 +4853,10 @@ export declare module MittwaldAPIV2 {
          * stop extension variant from being booked
          */
         isBookingStopped?: boolean;
+        /**
+         * deletion of extension variant is scheduled
+         */
+        isDeletionScheduled?: boolean;
         /**
          * Key that needs to be unique in Variant.
          */
@@ -6550,11 +6558,13 @@ export declare module MittwaldAPIV2 {
        * A price plan with (multiple) variants, including different prices for different included service descriptions
        */
       export type MarketplaceMonthlyPricePlanStrategy = {
+        deletionDeadline?: string;
         description?: string;
         /**
          * If a variant is no longer bookable the existing extension instances will not be removed but no new ones can be created.
          */
         isBookingStopped: boolean;
+        isDeletionScheduled: boolean;
         key: string;
         name?: string;
         /**
@@ -23902,6 +23912,10 @@ export declare module MittwaldAPIV2 {
                      */
                     consequence?: "NONE" | "INFO" | "CONFIRM_REQUIRED";
                     /**
+                     * The date the variant will ne deleted
+                     */
+                    deletionDeadline?: string;
+                    /**
                      * The key of the variant of the Extension.
                      */
                     variantKey?: string;
@@ -29983,6 +29997,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.ProjectFsApiJwt;
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 

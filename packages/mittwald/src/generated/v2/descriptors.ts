@@ -13664,6 +13664,11 @@ export const projectFileSystemGetJwt: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdJwt.Get.Responses.$401.Content.ApplicationJson>,
+      401,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdJwt.Get.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
