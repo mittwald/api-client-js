@@ -6046,6 +6046,7 @@ export declare module MittwaldAPIV2 {
         isAllowedToPlaceOrders?: boolean;
         isBanned?: boolean;
         isInDefaultOfPayment?: boolean;
+        isMailAddressInvalid?: boolean;
         levelOfUndeliverableDunningNotice?: "first" | "second";
         memberCount: number;
         name: string;
@@ -8116,6 +8117,24 @@ export declare module MittwaldAPIV2 {
         value: string;
       }
 
+      export interface OrderAIHostingOrderPreview {
+        monthlyTokens: number;
+        requestsPerMinute: number;
+      }
+
+      export interface OrderAIHostingOrder {
+        customerId: string;
+        monthlyTokens: number;
+        requestsPerMinute: number;
+        useFreeTrial?: boolean;
+      }
+
+      export interface OrderAIHostingTariffChange {
+        contractId: string;
+        monthlyTokens: number;
+        requestsPerMinute: number;
+      }
+
       export interface OrderArticleAddons {
         hidden?: boolean;
         key: string;
@@ -8268,6 +8287,10 @@ export declare module MittwaldAPIV2 {
       }
 
       export type OrderOrderType = "NEW_ORDER" | "CONTRACT_CHANGE";
+
+      export interface OrderAIHostingOrderPreviewResponse {
+        totalPrice: number;
+      }
 
       export interface OrderLeadFyndrOrderPreviewResponse {
         totalPrice: number;
@@ -9197,28 +9220,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export interface OrderAIHostingOrderPreview {
-        monthlyTokens: number;
-        requestsPerMinute: number;
-      }
-
-      export interface OrderAIHostingOrderPreviewResponse {
-        totalPrice: number;
-      }
-
-      export interface OrderAIHostingTariffChange {
-        contractId: string;
-        monthlyTokens: number;
-        requestsPerMinute: number;
-      }
-
-      export interface OrderAIHostingOrder {
-        customerId: string;
-        monthlyTokens: number;
-        requestsPerMinute: number;
-        useFreeTrial?: boolean;
-      }
 
       export interface CommonsAddress {
         street: string;
