@@ -15930,6 +15930,11 @@ export declare module MittwaldAPIV2 {
                 date: string;
                 id: string;
                 invoiceNumber: string;
+                invoiceType?:
+                  | "REGULAR"
+                  | "CORRECTION"
+                  | "REISSUE"
+                  | "CANCELLATION";
                 pdfId: string;
                 recipient: MittwaldAPIV2.Components.Schemas.InvoiceRecipient;
                 totalGross: number;
