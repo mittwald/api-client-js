@@ -2020,7 +2020,7 @@ export const backupGetProjectBackupDirectories: OpenAPIOperation<
   operationId: "backup-get-project-backup-directories",
 };
 
-/** Restore a ProjectBackup (path or database). */
+/** Restore a ProjectBackup. */
 export const backupRequestProjectBackupRestore: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestore.Post.Parameters.RequestBody>,

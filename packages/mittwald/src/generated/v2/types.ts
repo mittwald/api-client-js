@@ -5010,10 +5010,10 @@ export declare module MittwaldAPIV2 {
         targetDatabaseId: string;
       }
 
-      export type BackupProjectBackupRestoreDatabase = {
+      export interface BackupProjectBackupRestoreDatabase {
         databaseBackupDump: string;
         targetDatabaseId: string;
-      }[];
+      }
 
       export interface BackupProjectBackupRestorePathDeprecated {
         clearTargetPath: boolean;
@@ -5049,7 +5049,7 @@ export declare module MittwaldAPIV2 {
 
       export interface BackupProjectBackupRestorePath {
         clearTargetPath: boolean;
-        determinedTargetPath?: string;
+        determinedTargetPath: string;
         sourcePaths: string[];
         targetRestorePath?: string;
       }
@@ -5062,7 +5062,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface BackupProjectBackupRestore {
-        databaseRestore?: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestoreDatabase;
+        databaseRestores?: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestoreDatabase[];
         pathRestore?: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestorePath;
         phase: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestorePhase;
       }
@@ -11884,7 +11884,7 @@ export declare module MittwaldAPIV2 {
             searchTerm?: string;
             withExportsOnly?: boolean;
             sortOrder?: MittwaldAPIV2.Components.Schemas.BackupBackupSortOrder;
-            withRestoresOnly?: boolean;
+            runningRestoresOnly?: boolean;
             limit?: number;
             skip?: number;
             page?: number;

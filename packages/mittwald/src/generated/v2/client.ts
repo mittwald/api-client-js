@@ -207,7 +207,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getProjectBackupDirectories: this.requestFunctionFactory(
       descriptors.backupGetProjectBackupDirectories,
     ),
-    /** Restore a ProjectBackup (path or database). */
+    /** Restore a ProjectBackup. */
     requestProjectBackupRestore: this.requestFunctionFactory(
       descriptors.backupRequestProjectBackupRestore,
     ),
