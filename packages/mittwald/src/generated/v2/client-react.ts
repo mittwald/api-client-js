@@ -156,10 +156,15 @@ const buildBackupApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.backupGetProjectBackup,
     baseClient.backup.getProjectBackup,
   ).getApiResource,
-  /** Get table of contents for a ProjectBackup. */
+  /** List paths for a ProjectBackup. */
   getProjectBackupDirectories: new ApiCallAsyncResourceFactory(
     descriptors.backupGetProjectBackupDirectories,
     baseClient.backup.getProjectBackupDirectories,
+  ).getApiResource,
+  /** List database dump's for a ProjectBackup. */
+  getProjectBackupDatabaseDumps: new ApiCallAsyncResourceFactory(
+    descriptors.backupGetProjectBackupDatabaseDumps,
+    baseClient.backup.getProjectBackupDatabaseDumps,
   ).getApiResource,
 });
 
@@ -1064,6 +1069,14 @@ const buildSshsftpUserApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
+const buildMiscApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** List valid time zones. */
+  ellaneousListTimeZones: new ApiCallAsyncResourceFactory(
+    descriptors.miscellaneousListTimeZones,
+    baseClient.misc.ellaneousListTimeZones,
+  ).getApiResource,
+});
+
 export class MittwaldAPIV2ClientReact {
   /** The AI hosting provides access to multiple large language and embedding models – GDPR compliant and hosted in Germany. */
   public readonly aiHosting: ReturnType<typeof buildAiHostingApi>;
@@ -1130,6 +1143,9 @@ export class MittwaldAPIV2ClientReact {
   /** The SSH/SFTP User API allows you to manage your SSH/SFTP users within a project. */
   public readonly sshsftpUser: ReturnType<typeof buildSshsftpUserApi>;
 
+  /** API endpoints that are not related to any specific API domain */
+  public readonly misc: ReturnType<typeof buildMiscApi>;
+
   private constructor(baseClient: MittwaldAPIV2Client) {
     this.aiHosting = buildAiHostingApi(baseClient);
 
@@ -1172,6 +1188,8 @@ export class MittwaldAPIV2ClientReact {
     this.projectFileSystem = buildProjectFileSystemApi(baseClient);
 
     this.sshsftpUser = buildSshsftpUserApi(baseClient);
+
+    this.misc = buildMiscApi(baseClient);
   }
 
   public static fromBaseClient(

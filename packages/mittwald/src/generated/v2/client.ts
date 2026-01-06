@@ -199,7 +199,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteProjectBackup: this.requestFunctionFactory(
       descriptors.backupDeleteProjectBackup,
     ),
-    /** Get table of contents for a ProjectBackup. */
+    /** List paths for a ProjectBackup. */
     getProjectBackupDirectories: this.requestFunctionFactory(
       descriptors.backupGetProjectBackupDirectories,
     ),
@@ -210,6 +210,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Change the description of a ProjectBackup. */
     updateProjectBackupDescription: this.requestFunctionFactory(
       descriptors.backupUpdateProjectBackupDescription,
+    ),
+    /** List database dump's for a ProjectBackup. */
+    getProjectBackupDatabaseDumps: this.requestFunctionFactory(
+      descriptors.backupGetProjectBackupDatabaseDumps,
+    ),
+    /** Restore a ProjectBackup. */
+    requestProjectBackupRestore: this.requestFunctionFactory(
+      descriptors.backupRequestProjectBackupRestore,
     ),
   };
 
@@ -1730,6 +1738,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Check if a company exists. */
     verificationVerifyCompany: this.requestFunctionFactory(
       descriptors.verificationVerifyCompany,
+    ),
+    /** List valid time zones. */
+    ellaneousListTimeZones: this.requestFunctionFactory(
+      descriptors.miscellaneousListTimeZones,
     ),
   };
 }
