@@ -46,7 +46,7 @@ export const aiHostingCustomerGetKeys: OpenAPIOperation<
       "application/json"
     >
 > = {
-  path: "/v2/customers/{customerId}/ai-hosting/keys",
+  path: "/v2/customers/{customerId}/ai-hosting-keys",
   method: "GET",
   operationId: "ai-hosting-customer-get-keys",
 };
@@ -100,7 +100,7 @@ export const aiHostingCustomerCreateKey: OpenAPIOperation<
       "application/json"
     >
 > = {
-  path: "/v2/customers/{customerId}/ai-hosting/keys",
+  path: "/v2/customers/{customerId}/ai-hosting-keys",
   method: "POST",
   operationId: "ai-hosting-customer-create-key",
 };
@@ -144,7 +144,7 @@ export const aiHostingCustomerGetKey: OpenAPIOperation<
       "application/json"
     >
 > = {
-  path: "/v2/customers/{customerId}/ai-hosting/keys/{keyId}",
+  path: "/v2/customers/{customerId}/ai-hosting-keys/{keyId}",
   method: "GET",
   operationId: "ai-hosting-customer-get-key",
 };
@@ -198,7 +198,7 @@ export const aiHostingCustomerUpdateKey: OpenAPIOperation<
       "application/json"
     >
 > = {
-  path: "/v2/customers/{customerId}/ai-hosting/keys/{keyId}",
+  path: "/v2/customers/{customerId}/ai-hosting-keys/{keyId}",
   method: "PUT",
   operationId: "ai-hosting-customer-update-key",
 };
@@ -252,7 +252,7 @@ export const aiHostingCustomerDeleteKey: OpenAPIOperation<
       "application/json"
     >
 > = {
-  path: "/v2/customers/{customerId}/ai-hosting/keys/{keyId}",
+  path: "/v2/customers/{customerId}/ai-hosting-keys/{keyId}",
   method: "DELETE",
   operationId: "ai-hosting-customer-delete-key",
 };
@@ -384,7 +384,7 @@ export const aiHostingProjectGetKeys: OpenAPIOperation<
       "application/json"
     >
 > = {
-  path: "/v2/projects/{projectId}/ai-hosting/keys",
+  path: "/v2/projects/{projectId}/ai-hosting-keys",
   method: "GET",
   operationId: "ai-hosting-project-get-keys",
 };
@@ -438,7 +438,7 @@ export const aiHostingProjectCreateKey: OpenAPIOperation<
       "application/json"
     >
 > = {
-  path: "/v2/projects/{projectId}/ai-hosting/keys",
+  path: "/v2/projects/{projectId}/ai-hosting-keys",
   method: "POST",
   operationId: "ai-hosting-project-create-key",
 };
@@ -482,7 +482,7 @@ export const aiHostingProjectGetKey: OpenAPIOperation<
       "application/json"
     >
 > = {
-  path: "/v2/projects/{projectId}/ai-hosting/keys/{keyId}",
+  path: "/v2/projects/{projectId}/ai-hosting-keys/{keyId}",
   method: "GET",
   operationId: "ai-hosting-project-get-key",
 };
@@ -536,7 +536,7 @@ export const aiHostingProjectUpdateKey: OpenAPIOperation<
       "application/json"
     >
 > = {
-  path: "/v2/projects/{projectId}/ai-hosting/keys/{keyId}",
+  path: "/v2/projects/{projectId}/ai-hosting-keys/{keyId}",
   method: "PUT",
   operationId: "ai-hosting-project-update-key",
 };
@@ -590,7 +590,7 @@ export const aiHostingProjectDeleteKey: OpenAPIOperation<
       "application/json"
     >
 > = {
-  path: "/v2/projects/{projectId}/ai-hosting/keys/{keyId}",
+  path: "/v2/projects/{projectId}/ai-hosting-keys/{keyId}",
   method: "DELETE",
   operationId: "ai-hosting-project-delete-key",
 };
@@ -5071,40 +5071,6 @@ export const conversationUpdateMessage: OpenAPIOperation<
   path: "/v2/conversations/{conversationId}/messages/{messageId}",
   method: "PATCH",
   operationId: "conversation-update-message",
-};
-
-/** Abort a CronjobExecution. */
-export const cronjobAbortExecution: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/cronjobs/{cronjobId}/executions/{executionId}/actions/abort",
-  method: "POST",
-  operationId: "cronjob-abort-execution",
 };
 
 /** List Cronjobs belonging to a Project. */

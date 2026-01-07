@@ -736,10 +736,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The cronjob API allows you to manage cronjobs within a project. */
   public readonly cronjob = {
-    /** Abort a CronjobExecution. */
-    abortExecution: this.requestFunctionFactory(
-      descriptors.cronjobAbortExecution,
-    ),
     /** List Cronjobs belonging to a Project. */
     listCronjobs: this.requestFunctionFactory(descriptors.cronjobListCronjobs),
     /** Create a Cronjob. */

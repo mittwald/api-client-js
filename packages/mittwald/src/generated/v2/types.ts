@@ -1286,14 +1286,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace CronjobAbortExecution {
-      type RequestData = InferredRequestData<
-        typeof descriptors.cronjobAbortExecution
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.cronjobAbortExecution, TStatus>;
-    }
-
     namespace CronjobListCronjobs {
       type RequestData = InferredRequestData<
         typeof descriptors.cronjobListCronjobs
@@ -5943,9 +5935,10 @@ export declare module MittwaldAPIV2 {
           | "Pending"
           | "Running"
           | "AbortedByUser"
-          | "TimedOut";
+          | "TimedOut"
+          | "Error"
+          | "Suspended";
         successful: boolean;
-        summary?: MittwaldAPIV2.Components.Schemas.CronjobStatusSummary;
         triggeredBy?: {
           id?: string;
         };
@@ -8758,7 +8751,7 @@ export declare module MittwaldAPIV2 {
         commonName?: string;
         contact?: MittwaldAPIV2.Components.Schemas.SslContact;
         dnsCertSpec?: {
-          cNameTarget?: string;
+          cnameTarget?: string;
         };
         dnsNames?: string[];
         id: string;
@@ -9201,16 +9194,6 @@ export declare module MittwaldAPIV2 {
         | "storageDesc";
 
       export type CronjobConcurrencyPolicy = "allow" | "forbid" | "replace";
-
-      export type CronjobStatusSummary =
-        | "unspecified"
-        | "active"
-        | "complete"
-        | "suspended"
-        | "failed"
-        | "orphaned"
-        | "timeout"
-        | "error";
 
       export interface BackupProjectBackupRestore {
         databaseRestores?: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestoreDatabase[];
@@ -17047,53 +17030,6 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            cronjobId: string;
-            executionId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
             }
           }
 
@@ -36987,5 +36923,7 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
+
+    namespace V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort {}
   }
 }
