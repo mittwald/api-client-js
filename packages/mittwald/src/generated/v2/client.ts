@@ -199,6 +199,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteProjectBackup: this.requestFunctionFactory(
       descriptors.backupDeleteProjectBackup,
     ),
+    /** List database dump's for a ProjectBackup. */
+    getProjectBackupDatabaseDumps: this.requestFunctionFactory(
+      descriptors.backupGetProjectBackupDatabaseDumps,
+    ),
     /** List paths for a ProjectBackup. */
     getProjectBackupDirectories: this.requestFunctionFactory(
       descriptors.backupGetProjectBackupDirectories,
@@ -207,17 +211,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     requestProjectBackupRestorePath: this.requestFunctionFactory(
       descriptors.backupRequestProjectBackupRestorePath,
     ),
-    /** Change the description of a ProjectBackup. */
-    updateProjectBackupDescription: this.requestFunctionFactory(
-      descriptors.backupUpdateProjectBackupDescription,
-    ),
-    /** List database dump's for a ProjectBackup. */
-    getProjectBackupDatabaseDumps: this.requestFunctionFactory(
-      descriptors.backupGetProjectBackupDatabaseDumps,
-    ),
     /** Restore a ProjectBackup. */
     requestProjectBackupRestore: this.requestFunctionFactory(
       descriptors.backupRequestProjectBackupRestore,
+    ),
+    /** Change the description of a ProjectBackup. */
+    updateProjectBackupDescription: this.requestFunctionFactory(
+      descriptors.backupUpdateProjectBackupDescription,
     ),
   };
 
@@ -1504,17 +1504,9 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** API endpoints that are not related to any specific API domain */
   public readonly misc = {
-    /** Get a list of currently active llm models. */
-    getLlmModelsExperimental: this.requestFunctionFactory(
-      descriptors.miscGetLlmModelsExperimental,
-    ),
     /** List valid time zones. */
     ellaneousListTimeZones: this.requestFunctionFactory(
       descriptors.miscellaneousListTimeZones,
-    ),
-    /** Obtain a service token. */
-    servicetokenAuthenticateService: this.requestFunctionFactory(
-      descriptors.servicetokenAuthenticateService,
     ),
     /** Check if an email is from mittwald. */
     verificationDetectPhishingEmail: this.requestFunctionFactory(
@@ -1746,26 +1738,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update an SSHUser. */
     sshUserUpdateSshUser: this.requestFunctionFactory(
       descriptors.sshUserUpdateSshUser,
-    ),
-  };
-
-  /** API endpoints that are not related to any specific API domain */
-  public readonly misc = {
-    /** Check if an email is from mittwald. */
-    verificationDetectPhishingEmail: this.requestFunctionFactory(
-      descriptors.verificationDetectPhishingEmail,
-    ),
-    /** Check if an address exists. */
-    verificationVerifyAddress: this.requestFunctionFactory(
-      descriptors.verificationVerifyAddress,
-    ),
-    /** Check if a company exists. */
-    verificationVerifyCompany: this.requestFunctionFactory(
-      descriptors.verificationVerifyCompany,
-    ),
-    /** List valid time zones. */
-    ellaneousListTimeZones: this.requestFunctionFactory(
-      descriptors.miscellaneousListTimeZones,
     ),
   };
 }
