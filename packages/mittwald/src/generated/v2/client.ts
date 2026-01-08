@@ -269,6 +269,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getBaseItemOfContract: this.requestFunctionFactory(
       descriptors.contractGetBaseItemOfContract,
     ),
+    /** Return the AI Hosting Contract for the given Customer. */
+    getDetailOfContractByAiHosting: this.requestFunctionFactory(
+      descriptors.contractGetDetailOfContractByAiHosting,
+    ),
     /** Return the Contract for the given Certificate. */
     getDetailOfContractByCertificate: this.requestFunctionFactory(
       descriptors.contractGetDetailOfContractByCertificate,
@@ -348,10 +352,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Preview TariffChange. */
     orderPreviewTariffChange: this.requestFunctionFactory(
       descriptors.orderPreviewTariffChange,
-    ),
-    /** Return the AI Hosting Contract for the given Customer. */
-    getDetailOfContractByAiHosting: this.requestFunctionFactory(
-      descriptors.contractGetDetailOfContractByAiHosting,
     ),
   };
 
@@ -674,10 +674,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The cronjob API allows you to manage cronjobs within a project. */
   public readonly cronjob = {
-    /** Abort a CronjobExecution. */
-    abortExecution: this.requestFunctionFactory(
-      descriptors.cronjobAbortExecution,
-    ),
     /** List Cronjobs belonging to a Project. */
     listCronjobs: this.requestFunctionFactory(descriptors.cronjobListCronjobs),
     /** Create a Cronjob. */
@@ -1429,6 +1425,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Get a list of currently active llm models. */
     getLlmModelsExperimental: this.requestFunctionFactory(
       descriptors.miscGetLlmModelsExperimental,
+    ),
+    /** List valid time zones. */
+    ellaneousListTimeZones: this.requestFunctionFactory(
+      descriptors.miscellaneousListTimeZones,
     ),
     /** Obtain a service token. */
     servicetokenAuthenticateService: this.requestFunctionFactory(
