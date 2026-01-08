@@ -1502,6 +1502,34 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
+  /** API endpoints that are not related to any specific API domain */
+  public readonly misc = {
+    /** Get a list of currently active llm models. */
+    getLlmModelsExperimental: this.requestFunctionFactory(
+      descriptors.miscGetLlmModelsExperimental,
+    ),
+    /** List valid time zones. */
+    ellaneousListTimeZones: this.requestFunctionFactory(
+      descriptors.miscellaneousListTimeZones,
+    ),
+    /** Obtain a service token. */
+    servicetokenAuthenticateService: this.requestFunctionFactory(
+      descriptors.servicetokenAuthenticateService,
+    ),
+    /** Check if an email is from mittwald. */
+    verificationDetectPhishingEmail: this.requestFunctionFactory(
+      descriptors.verificationDetectPhishingEmail,
+    ),
+    /** Check if an address exists. */
+    verificationVerifyAddress: this.requestFunctionFactory(
+      descriptors.verificationVerifyAddress,
+    ),
+    /** Check if a company exists. */
+    verificationVerifyCompany: this.requestFunctionFactory(
+      descriptors.verificationVerifyCompany,
+    ),
+  };
+
   /** The page insights API allows you to get page insights information. */
   public readonly pageInsights = {
     /** Get detailed performance data for a given domain and path. */

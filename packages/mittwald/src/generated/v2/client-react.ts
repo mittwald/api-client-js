@@ -824,6 +824,11 @@ const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.mailMigrationListMigrations,
     baseClient.mail.migrationListMigrations,
   ).getApiResource,
+  /** List valid time zones. */
+  ellaneousListTimeZones: new ApiCallAsyncResourceFactory(
+    descriptors.miscellaneousListTimeZones,
+    baseClient.misc.ellaneousListTimeZones,
+  ).getApiResource,
 });
 
 const buildNotificationApi = (baseClient: MittwaldAPIV2Client) => ({
