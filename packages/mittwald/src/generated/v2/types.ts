@@ -33317,6 +33317,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $409 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $429 {
             namespace Content {
               export interface ApplicationJson {
