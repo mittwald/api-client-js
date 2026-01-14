@@ -774,11 +774,6 @@ const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
 });
 
 const buildMiscApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** Get a list of currently active llm models. */
-  getLlmModelsExperimental: new ApiCallAsyncResourceFactory(
-    descriptors.miscGetLlmModelsExperimental,
-    baseClient.misc.getLlmModelsExperimental,
-  ).getApiResource,
   /** List valid time zones. */
   ellaneousListTimeZones: new ApiCallAsyncResourceFactory(
     descriptors.miscellaneousListTimeZones,
@@ -906,11 +901,6 @@ const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
 });
 
 const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** Get a list of already created llm licences. */
-  getLlmLicencesExperimental: new ApiCallAsyncResourceFactory(
-    descriptors.projectGetLlmLicencesExperimental,
-    baseClient.project.getLlmLicencesExperimental,
-  ).getApiResource,
   /** List Invites belonging to a Project. */
   listInvitesForProject: new ApiCallAsyncResourceFactory(
     descriptors.projectListInvitesForProject,
@@ -930,11 +920,6 @@ const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
   getProject: new ApiCallAsyncResourceFactory(
     descriptors.projectGetProject,
     baseClient.project.getProject,
-  ).getApiResource,
-  /** Get a licence of a project. */
-  getLlmLicenceExperimental: new ApiCallAsyncResourceFactory(
-    descriptors.projectGetLlmLicenceExperimental,
-    baseClient.project.getLlmLicenceExperimental,
   ).getApiResource,
   /** Get a ProjectInvite by token. */
   getProjectTokenInvite: new ApiCallAsyncResourceFactory(
@@ -1039,6 +1024,44 @@ const buildSshsftpUserApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
+const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get a key of a customer. */
+  customerGetKey: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingCustomerGetKey,
+    baseClient.aiHosting.customerGetKey,
+  ).getApiResource,
+  /** Get a key of a project. */
+  projectGetKey: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingProjectGetKey,
+    baseClient.aiHosting.projectGetKey,
+  ).getApiResource,
+  /** Get a list of already created keys. */
+  customerGetKeys: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingCustomerGetKeys,
+    baseClient.aiHosting.customerGetKeys,
+  ).getApiResource,
+  /** Get ai hosting tariff and usages of a customer. */
+  customerGetUsage: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingCustomerGetUsage,
+    baseClient.aiHosting.customerGetUsage,
+  ).getApiResource,
+  /** Get a list of currently active models. */
+  getModels: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingGetModels,
+    baseClient.aiHosting.getModels,
+  ).getApiResource,
+  /** Get a list of keys of a project. */
+  projectGetKeys: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingProjectGetKeys,
+    baseClient.aiHosting.projectGetKeys,
+  ).getApiResource,
+  /** Get ai hosting tariff and usages of a project. Same as the customer route, but less details. */
+  projectGetUsage: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingProjectGetUsage,
+    baseClient.aiHosting.projectGetUsage,
+  ).getApiResource,
+});
+
 export class MittwaldAPIV2ClientReact {
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app: ReturnType<typeof buildAppApi>;
@@ -1105,6 +1128,9 @@ export class MittwaldAPIV2ClientReact {
   /** The SSH/SFTP User API allows you to manage your SSH/SFTP users within a project. */
   public readonly sshsftpUser: ReturnType<typeof buildSshsftpUserApi>;
 
+  /** The AI hosting provides access to multiple large language and embedding models – GDPR compliant and hosted in Germany. */
+  public readonly aiHosting: ReturnType<typeof buildAiHostingApi>;
+
   private constructor(baseClient: MittwaldAPIV2Client) {
     this.app = buildAppApi(baseClient);
 
@@ -1147,6 +1173,8 @@ export class MittwaldAPIV2ClientReact {
     this.projectFileSystem = buildProjectFileSystemApi(baseClient);
 
     this.sshsftpUser = buildSshsftpUserApi(baseClient);
+
+    this.aiHosting = buildAiHostingApi(baseClient);
   }
 
   public static fromBaseClient(
