@@ -1077,6 +1077,44 @@ const buildSshsftpUserApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
+const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get a key of a customer. */
+  customerGetKey: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingCustomerGetKey,
+    baseClient.aiHosting.customerGetKey,
+  ).getApiResource,
+  /** Get a key of a project. */
+  projectGetKey: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingProjectGetKey,
+    baseClient.aiHosting.projectGetKey,
+  ).getApiResource,
+  /** Get a list of already created keys. */
+  customerGetKeys: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingCustomerGetKeys,
+    baseClient.aiHosting.customerGetKeys,
+  ).getApiResource,
+  /** Get ai hosting tariff and usages of a customer. */
+  customerGetUsage: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingCustomerGetUsage,
+    baseClient.aiHosting.customerGetUsage,
+  ).getApiResource,
+  /** Get a list of currently active models. */
+  getModels: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingGetModels,
+    baseClient.aiHosting.getModels,
+  ).getApiResource,
+  /** Get a list of keys of a project. */
+  projectGetKeys: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingProjectGetKeys,
+    baseClient.aiHosting.projectGetKeys,
+  ).getApiResource,
+  /** Get ai hosting tariff and usages of a project. Same as the customer route, but less details. */
+  projectGetUsage: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingProjectGetUsage,
+    baseClient.aiHosting.projectGetUsage,
+  ).getApiResource,
+});
+
 export class MittwaldAPIV2ClientReact {
   /** The AI hosting provides access to multiple large language and embedding models – GDPR compliant and hosted in Germany. */
   public readonly aiHosting: ReturnType<typeof buildAiHostingApi>;
@@ -1146,6 +1184,9 @@ export class MittwaldAPIV2ClientReact {
   /** The SSH/SFTP User API allows you to manage your SSH/SFTP users within a project. */
   public readonly sshsftpUser: ReturnType<typeof buildSshsftpUserApi>;
 
+  /** The AI hosting provides access to multiple large language and embedding models – GDPR compliant and hosted in Germany. */
+  public readonly aiHosting: ReturnType<typeof buildAiHostingApi>;
+
   private constructor(baseClient: MittwaldAPIV2Client) {
     this.aiHosting = buildAiHostingApi(baseClient);
 
@@ -1190,6 +1231,8 @@ export class MittwaldAPIV2ClientReact {
     this.projectFileSystem = buildProjectFileSystemApi(baseClient);
 
     this.sshsftpUser = buildSshsftpUserApi(baseClient);
+
+    this.aiHosting = buildAiHostingApi(baseClient);
   }
 
   public static fromBaseClient(
