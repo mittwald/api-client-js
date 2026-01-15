@@ -257,7 +257,7 @@ export const aiHostingCustomerDeleteKey: OpenAPIOperation<
   operationId: "ai-hosting-customer-delete-key",
 };
 
-/** Get ai hosting tariff and usages of a customer. */
+/** Get ai hosting plan and usages of a customer. */
 export const aiHostingCustomerGetUsage: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -595,7 +595,7 @@ export const aiHostingProjectDeleteKey: OpenAPIOperation<
   operationId: "ai-hosting-project-delete-key",
 };
 
-/** Get ai hosting tariff and usages of a project. Same as the customer route, but less details. */
+/** Get ai hosting plan and usages of a project. Same as the customer route, but less details. */
 export const aiHostingProjectGetUsage: OpenAPIOperation<
   RequestType<
     Simplify<null>,

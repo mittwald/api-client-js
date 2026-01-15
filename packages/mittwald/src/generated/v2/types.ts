@@ -4626,34 +4626,11 @@ export declare module MittwaldAPIV2 {
         unit: "minute";
       }
 
-      export interface AihostingTariffOptions {
-        customerId: string;
-        deletedAt?: string;
-        keys: MittwaldAPIV2.Components.Schemas.AihostingTariffUsage;
-        nextTokenReset: string;
-        rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
-        tokens: MittwaldAPIV2.Components.Schemas.AihostingTariffUsageBig;
-        topUsages?: {
-          keyId?: string;
-          name: string;
-          projectId?: string;
-          tokenUsed: number;
-        }[];
-      }
-
-      export interface AihostingTariffUsageBig {
-        available: number;
-        tariffLimit: number;
-        used: number;
-      }
-
-      export interface AihostingTariffUsage {
-        available: number;
-        tariffLimit: number;
-        used: number;
-      }
-
       export interface AihostingTokenUsage {
+        planLimit: number;
+        /**
+         * @deprecated
+         */
         tariffLimit: number;
         used: number;
       }
@@ -9245,6 +9222,41 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
+      export interface AihostingPlanOptions {
+        customerId: string;
+        deletedAt?: string;
+        keys: MittwaldAPIV2.Components.Schemas.AihostingPlanUsage;
+        nextTokenReset: string;
+        rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
+        tokens: MittwaldAPIV2.Components.Schemas.AihostingPlanUsageBig;
+        topUsages?: {
+          keyId?: string;
+          name: string;
+          projectId?: string;
+          tokenUsed: number;
+        }[];
+      }
+
+      export interface AihostingPlanUsage {
+        available: number;
+        planLimit: number;
+        /**
+         * @deprecated
+         */
+        tariffLimit: number;
+        used: number;
+      }
+
+      export interface AihostingPlanUsageBig {
+        available: number;
+        planLimit: number;
+        /**
+         * @deprecated
+         */
+        tariffLimit: number;
+        used: number;
+      }
+
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -9851,7 +9863,7 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AihostingTariffOptions;
+                MittwaldAPIV2.Components.Schemas.AihostingPlanOptions;
             }
           }
 
@@ -10337,7 +10349,7 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export interface ApplicationJson {
-                keys: MittwaldAPIV2.Components.Schemas.AihostingTariffUsage;
+                keys: MittwaldAPIV2.Components.Schemas.AihostingPlanUsage;
                 nextTokenReset?: string;
                 projectId: string;
               }
@@ -10386,6 +10398,8 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
+
+    namespace V2AppinstallationsAppInstallationIdActionsAction {}
 
     namespace V2AppInstallationsAppInstallationIdActionsAction {
       namespace Post {

@@ -17,7 +17,7 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.aiHostingCustomerGetKey,
     baseClient.aiHosting.customerGetKey,
   ).getApiResource,
-  /** Get ai hosting tariff and usages of a customer. */
+  /** Get ai hosting plan and usages of a customer. */
   customerGetUsage: new ApiCallAsyncResourceFactory(
     descriptors.aiHostingCustomerGetUsage,
     baseClient.aiHosting.customerGetUsage,
@@ -37,7 +37,7 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.aiHostingProjectGetKey,
     baseClient.aiHosting.projectGetKey,
   ).getApiResource,
-  /** Get ai hosting tariff and usages of a project. Same as the customer route, but less details. */
+  /** Get ai hosting plan and usages of a project. Same as the customer route, but less details. */
   projectGetUsage: new ApiCallAsyncResourceFactory(
     descriptors.aiHostingProjectGetUsage,
     baseClient.aiHosting.projectGetUsage,

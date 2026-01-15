@@ -27,7 +27,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     customerDeleteKey: this.requestFunctionFactory(
       descriptors.aiHostingCustomerDeleteKey,
     ),
-    /** Get ai hosting tariff and usages of a customer. */
+    /** Get ai hosting plan and usages of a customer. */
     customerGetUsage: this.requestFunctionFactory(
       descriptors.aiHostingCustomerGetUsage,
     ),
@@ -53,7 +53,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     projectDeleteKey: this.requestFunctionFactory(
       descriptors.aiHostingProjectDeleteKey,
     ),
-    /** Get ai hosting tariff and usages of a project. Same as the customer route, but less details. */
+    /** Get ai hosting plan and usages of a project. Same as the customer route, but less details. */
     projectGetUsage: this.requestFunctionFactory(
       descriptors.aiHostingProjectGetUsage,
     ),
