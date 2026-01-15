@@ -10399,8 +10399,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2AppinstallationsAppInstallationIdActionsAction {}
-
     namespace V2AppInstallationsAppInstallationIdActionsAction {
       namespace Post {
         namespace Parameters {
@@ -16397,11 +16395,15 @@ export declare module MittwaldAPIV2 {
           export type Header = {};
 
           export type Query = {
+            fullTextSearch?: string;
+            status?: ("open" | "closed")[];
+            limit?: number;
+            skip?: number;
+            page?: number;
             sort?: (
               | "createdAt"
               | "lastMessage.createdAt"
               | "title"
-              | "priority"
               | "shortId"
               | "conversationId"
             )[];
