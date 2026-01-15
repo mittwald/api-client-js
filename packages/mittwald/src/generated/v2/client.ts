@@ -5,6 +5,60 @@ import * as descriptors from "./descriptors.js";
 import { ApiClientBase } from "@mittwald/api-client-commons";
 
 export class MittwaldAPIV2Client extends ApiClientBase {
+  /** The AI hosting provides access to multiple large language and embedding models – GDPR compliant and hosted in Germany. */
+  public readonly aiHosting = {
+    /** Get a list of already created keys. */
+    customerGetKeys: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetKeys,
+    ),
+    /** Creates a new key. */
+    customerCreateKey: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerCreateKey,
+    ),
+    /** Get a key of a customer. */
+    customerGetKey: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetKey,
+    ),
+    /** Update a key for a customer. */
+    customerUpdateKey: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerUpdateKey,
+    ),
+    /** Delete a key for a customer. */
+    customerDeleteKey: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerDeleteKey,
+    ),
+    /** Get ai hosting plan and usages of a customer. */
+    customerGetUsage: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetUsage,
+    ),
+    /** Get a list of currently active models. */
+    getModels: this.requestFunctionFactory(descriptors.aiHostingGetModels),
+    /** Get a list of keys of a project. */
+    projectGetKeys: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetKeys,
+    ),
+    /** Creates a new key for a project. */
+    projectCreateKey: this.requestFunctionFactory(
+      descriptors.aiHostingProjectCreateKey,
+    ),
+    /** Get a key of a project. */
+    projectGetKey: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetKey,
+    ),
+    /** Update a key for a project. */
+    projectUpdateKey: this.requestFunctionFactory(
+      descriptors.aiHostingProjectUpdateKey,
+    ),
+    /** Delete a key for a project. */
+    projectDeleteKey: this.requestFunctionFactory(
+      descriptors.aiHostingProjectDeleteKey,
+    ),
+    /** Get ai hosting plan and usages of a project. Same as the customer route, but less details. */
+    projectGetUsage: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetUsage,
+    ),
+  };
+
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app = {
     /** Trigger a runtime action belonging to an AppInstallation. */
@@ -1660,60 +1714,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update an SSHUser. */
     sshUserUpdateSshUser: this.requestFunctionFactory(
       descriptors.sshUserUpdateSshUser,
-    ),
-  };
-
-  /** The AI hosting provides access to multiple large language and embedding models – GDPR compliant and hosted in Germany. */
-  public readonly aiHosting = {
-    /** Get a key of a customer. */
-    customerGetKey: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetKey,
-    ),
-    /** Update a key for a customer. */
-    customerUpdateKey: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerUpdateKey,
-    ),
-    /** Delete a key for a customer. */
-    customerDeleteKey: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerDeleteKey,
-    ),
-    /** Get a key of a project. */
-    projectGetKey: this.requestFunctionFactory(
-      descriptors.aiHostingProjectGetKey,
-    ),
-    /** Update a key for a project. */
-    projectUpdateKey: this.requestFunctionFactory(
-      descriptors.aiHostingProjectUpdateKey,
-    ),
-    /** Delete a key for a project. */
-    projectDeleteKey: this.requestFunctionFactory(
-      descriptors.aiHostingProjectDeleteKey,
-    ),
-    /** Get a list of already created keys. */
-    customerGetKeys: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetKeys,
-    ),
-    /** Creates a new key. */
-    customerCreateKey: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerCreateKey,
-    ),
-    /** Get ai hosting tariff and usages of a customer. */
-    customerGetUsage: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetUsage,
-    ),
-    /** Get a list of currently active models. */
-    getModels: this.requestFunctionFactory(descriptors.aiHostingGetModels),
-    /** Get a list of keys of a project. */
-    projectGetKeys: this.requestFunctionFactory(
-      descriptors.aiHostingProjectGetKeys,
-    ),
-    /** Creates a new key for a project. */
-    projectCreateKey: this.requestFunctionFactory(
-      descriptors.aiHostingProjectCreateKey,
-    ),
-    /** Get ai hosting tariff and usages of a project. Same as the customer route, but less details. */
-    projectGetUsage: this.requestFunctionFactory(
-      descriptors.aiHostingProjectGetUsage,
     ),
   };
 }
