@@ -4521,10 +4521,6 @@ export declare module MittwaldAPIV2 {
 
       export interface AihostingTokenUsage {
         planLimit: number;
-        /**
-         * @deprecated
-         */
-        tariffLimit: number;
         used: number;
       }
 
@@ -9015,20 +9011,12 @@ export declare module MittwaldAPIV2 {
       export interface AihostingPlanUsage {
         available: number;
         planLimit: number;
-        /**
-         * @deprecated
-         */
-        tariffLimit: number;
         used: number;
       }
 
       export interface AihostingPlanUsageBig {
         available: number;
         planLimit: number;
-        /**
-         * @deprecated
-         */
-        tariffLimit: number;
         used: number;
       }
 
