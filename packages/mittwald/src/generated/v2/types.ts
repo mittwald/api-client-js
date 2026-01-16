@@ -4628,10 +4628,6 @@ export declare module MittwaldAPIV2 {
 
       export interface AihostingTokenUsage {
         planLimit: number;
-        /**
-         * @deprecated
-         */
-        tariffLimit: number;
         used: number;
       }
 
@@ -8781,6 +8777,7 @@ export declare module MittwaldAPIV2 {
         contact?: MittwaldAPIV2.Components.Schemas.SslContact;
         dnsCertSpec?: {
           cnameTarget?: string;
+          status?: MittwaldAPIV2.Components.Schemas.SslDNSCertStatus;
         };
         dnsNames?: string[];
         id: string;
@@ -9240,22 +9237,53 @@ export declare module MittwaldAPIV2 {
       export interface AihostingPlanUsage {
         available: number;
         planLimit: number;
-        /**
-         * @deprecated
-         */
-        tariffLimit: number;
         used: number;
       }
 
       export interface AihostingPlanUsageBig {
         available: number;
         planLimit: number;
-        /**
-         * @deprecated
-         */
-        tariffLimit: number;
         used: number;
       }
+
+      /**
+       * Software Licences
+       */
+      export type OrderLicenceOrder = {
+        licenceType: "typo3";
+        /**
+         * The mayor version for which a licence should be purchased.
+         */
+        mayorVersion: number;
+        projectId: string;
+      };
+
+      export interface OrderLicenceOrderPreviewResponse {
+        totalPrice: number;
+      }
+
+      /**
+       * Software Licences
+       */
+      export type OrderLicenceOrderPreview = {
+        licenceType: "typo3";
+        /**
+         * The mayor version for which a licence should be purchased.
+         */
+        mayorVersion: number;
+      };
+
+      export interface SslDNSCertStatus {
+        message?: string;
+        status?: MittwaldAPIV2.Components.Schemas.SslProjectCertificateStatus;
+        updatedAt?: string;
+      }
+
+      export type SslProjectCertificateStatus =
+        | "issuing"
+        | "ready"
+        | "error"
+        | "undefined";
 
       export interface CommonsAddress {
         street: string;
@@ -29910,7 +29938,8 @@ export declare module MittwaldAPIV2 {
               | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrder
               | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrder
               | MittwaldAPIV2.Components.Schemas.OrderMailArchiveOrder
-              | MittwaldAPIV2.Components.Schemas.OrderAIHostingOrder;
+              | MittwaldAPIV2.Components.Schemas.OrderAIHostingOrder
+              | MittwaldAPIV2.Components.Schemas.OrderLicenceOrder;
             orderType?:
               | "domain"
               | "projectHosting"
@@ -29918,7 +29947,8 @@ export declare module MittwaldAPIV2 {
               | "externalCertificate"
               | "leadFyndr"
               | "mailArchive"
-              | "aiHosting";
+              | "aiHosting"
+              | "licence";
           }
 
           export type Header =
@@ -30173,7 +30203,8 @@ export declare module MittwaldAPIV2 {
               | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrderPreview
               | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrderPreview
               | MittwaldAPIV2.Components.Schemas.OrderMailArchiveOrderPreview
-              | MittwaldAPIV2.Components.Schemas.OrderAIHostingOrderPreview;
+              | MittwaldAPIV2.Components.Schemas.OrderAIHostingOrderPreview
+              | MittwaldAPIV2.Components.Schemas.OrderLicenceOrderPreview;
             orderType?:
               | "domain"
               | "projectHosting"
@@ -30181,7 +30212,8 @@ export declare module MittwaldAPIV2 {
               | "externalCertificate"
               | "leadFyndr"
               | "mailArchive"
-              | "aiHosting";
+              | "aiHosting"
+              | "licence";
           }
 
           export type Header = {};
@@ -30197,7 +30229,8 @@ export declare module MittwaldAPIV2 {
                 | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrderPreviewResponse
                 | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrderPreviewResponse
                 | MittwaldAPIV2.Components.Schemas.OrderMailArchiveOrderPreviewResponse
-                | MittwaldAPIV2.Components.Schemas.OrderAIHostingOrderPreviewResponse;
+                | MittwaldAPIV2.Components.Schemas.OrderAIHostingOrderPreviewResponse
+                | MittwaldAPIV2.Components.Schemas.OrderLicenceOrderPreviewResponse;
             }
           }
 
