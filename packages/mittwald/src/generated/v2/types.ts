@@ -9246,18 +9246,6 @@ export declare module MittwaldAPIV2 {
         used: number;
       }
 
-      /**
-       * Software Licences
-       */
-      export type OrderLicenceOrder = {
-        licenceType: "typo3";
-        /**
-         * The mayor version for which a licence should be purchased.
-         */
-        mayorVersion: number;
-        projectId: string;
-      };
-
       export interface OrderLicenceOrderPreviewResponse {
         totalPrice: number;
       }
@@ -9273,9 +9261,21 @@ export declare module MittwaldAPIV2 {
         mayorVersion: number;
       };
 
+      /**
+       * Software Licences
+       */
+      export type OrderLicenceOrder = {
+        licenceType: "typo3";
+        /**
+         * The mayor version for which a licence should be purchased.
+         */
+        mayorVersion: number;
+        projectId: string;
+      };
+
       export interface SslDNSCertStatus {
         message?: string;
-        status?: MittwaldAPIV2.Components.Schemas.SslProjectCertificateStatus;
+        status: MittwaldAPIV2.Components.Schemas.SslProjectCertificateStatus;
         updatedAt?: string;
       }
 
