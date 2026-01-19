@@ -4618,6 +4618,33 @@ export declare module MittwaldAPIV2 {
         termsOfServiceLink: string;
       }
 
+      export interface AihostingPlanOptions {
+        customerId: string;
+        deletedAt?: string;
+        keys: MittwaldAPIV2.Components.Schemas.AihostingPlanUsage;
+        nextTokenReset: string;
+        rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
+        tokens: MittwaldAPIV2.Components.Schemas.AihostingPlanUsageBig;
+        topUsages?: {
+          keyId?: string;
+          name: string;
+          projectId?: string;
+          tokenUsed: number;
+        }[];
+      }
+
+      export interface AihostingPlanUsageBig {
+        available: number;
+        planLimit: number;
+        used: number;
+      }
+
+      export interface AihostingPlanUsage {
+        available: number;
+        planLimit: number;
+        used: number;
+      }
+
       /**
        * The number of allowed requests per unit. Limits are shared across all keys within the same project.
        */
@@ -8903,6 +8930,19 @@ export declare module MittwaldAPIV2 {
         state?: string;
       }
 
+      export interface SslDNSCertStatus {
+        message?: string;
+        status: MittwaldAPIV2.Components.Schemas.SslProjectCertificateStatus;
+        updatedAt?: string;
+      }
+
+      export type SslProjectCertificateStatus =
+        | "issuing"
+        | "ready"
+        | "cname_error"
+        | "error"
+        | "undefined";
+
       export type StoragespaceStatisticsCategoryKind =
         | "webspace"
         | "projectBackup"
@@ -9219,48 +9259,6 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export interface AihostingPlanOptions {
-        customerId: string;
-        deletedAt?: string;
-        keys: MittwaldAPIV2.Components.Schemas.AihostingPlanUsage;
-        nextTokenReset: string;
-        rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
-        tokens: MittwaldAPIV2.Components.Schemas.AihostingPlanUsageBig;
-        topUsages?: {
-          keyId?: string;
-          name: string;
-          projectId?: string;
-          tokenUsed: number;
-        }[];
-      }
-
-      export interface AihostingPlanUsage {
-        available: number;
-        planLimit: number;
-        used: number;
-      }
-
-      export interface AihostingPlanUsageBig {
-        available: number;
-        planLimit: number;
-        used: number;
-      }
-
-      export interface OrderLicenceOrderPreviewResponse {
-        totalPrice: number;
-      }
-
-      /**
-       * Software Licences
-       */
-      export type OrderLicenceOrderPreview = {
-        licenceType: "typo3";
-        /**
-         * The mayor version for which a licence should be purchased.
-         */
-        mayorVersion: number;
-      };
-
       /**
        * Software Licences
        */
@@ -9273,18 +9271,20 @@ export declare module MittwaldAPIV2 {
         projectId: string;
       };
 
-      export interface SslDNSCertStatus {
-        message?: string;
-        status: MittwaldAPIV2.Components.Schemas.SslProjectCertificateStatus;
-        updatedAt?: string;
-      }
+      /**
+       * Software Licences
+       */
+      export type OrderLicenceOrderPreview = {
+        licenceType: "typo3";
+        /**
+         * The mayor version for which a licence should be purchased.
+         */
+        mayorVersion: number;
+      };
 
-      export type SslProjectCertificateStatus =
-        | "issuing"
-        | "ready"
-        | "cname_error"
-        | "error"
-        | "undefined";
+      export interface OrderLicenceOrderPreviewResponse {
+        totalPrice: number;
+      }
 
       export interface CommonsAddress {
         street: string;
