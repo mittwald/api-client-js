@@ -9282,6 +9282,7 @@ export declare module MittwaldAPIV2 {
       export type SslProjectCertificateStatus =
         | "issuing"
         | "ready"
+        | "cname_error"
         | "error"
         | "undefined";
 
