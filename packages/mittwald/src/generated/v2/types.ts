@@ -22226,6 +22226,7 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export interface ApplicationJson {
                 authCode: string;
+                expirationDate?: string;
               }
             }
           }
