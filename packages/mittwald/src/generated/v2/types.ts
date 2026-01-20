@@ -5759,7 +5759,12 @@ export declare module MittwaldAPIV2 {
 
       export interface CronjobCronjob {
         active: boolean;
+        /**
+         * @deprecated
+         * DEPRECATED: Use 'appInstallationId' instead. This field will be removed in a future version.
+         */
         appId: string;
+        appInstallationId?: string;
         concurrencyPolicy?: MittwaldAPIV2.Components.Schemas.CronjobConcurrencyPolicy;
         createdAt: string;
         description: string;
@@ -5824,7 +5829,12 @@ export declare module MittwaldAPIV2 {
 
       export interface CronjobCronjobRequest {
         active: boolean;
+        /**
+         * @deprecated
+         * DEPRECATED: Use 'appInstallationId' instead. This field will be removed in a future version.
+         */
         appId: string;
+        appInstallationId?: string;
         concurrencyPolicy?: MittwaldAPIV2.Components.Schemas.CronjobConcurrencyPolicy;
         description: string;
         destination:
@@ -17370,7 +17380,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2CronjobsCronjobIdAppId {
+    namespace V2CronjobsCronjobIdAppId {}
+
+    namespace V2CronjobsCronjobIdAppInstallationId {
       namespace Patch {
         namespace Parameters {
           export type Path = {
@@ -17378,7 +17390,12 @@ export declare module MittwaldAPIV2 {
           };
 
           export interface RequestBody {
+            /**
+             * @deprecated
+             * DEPRECATED: Use 'appInstallationId' instead. This field will be removed in a future version.
+             */
             appId: string;
+            appInstallationId?: string;
           }
 
           export type Header =

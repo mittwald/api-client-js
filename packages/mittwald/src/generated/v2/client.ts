@@ -758,7 +758,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get a CronjobExecution. */
     getExecution: this.requestFunctionFactory(descriptors.cronjobGetExecution),
-    /** Update a Cronjob's app id. */
+    /** Update a Cronjob's app installation id. */
     updateCronjobAppId: this.requestFunctionFactory(
       descriptors.cronjobUpdateCronjobAppId,
     ),

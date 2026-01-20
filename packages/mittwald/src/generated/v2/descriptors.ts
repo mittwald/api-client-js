@@ -5414,41 +5414,41 @@ export const cronjobGetExecution: OpenAPIOperation<
   operationId: "cronjob-get-execution",
 };
 
-/** Update a Cronjob's app id. */
+/** Update a Cronjob's app installation id. */
 export const cronjobUpdateCronjobAppId: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Responses.$204.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Responses.$204.Content.Empty>,
       204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Responses.$412.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Responses.$412.Content.ApplicationJson>,
       412,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/cronjobs/{cronjobId}/app-id",
+  path: "/v2/cronjobs/{cronjobId}/app-installation-id",
   method: "PATCH",
   operationId: "cronjob-update-cronjob-app-id",
 };
