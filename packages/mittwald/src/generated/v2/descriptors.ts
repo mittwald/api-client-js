@@ -5507,41 +5507,41 @@ export const cronjobGetExecution: OpenAPIOperation<
   operationId: "cronjob-get-execution",
 };
 
-/** Update a Cronjob's app id. */
+/** Update a Cronjob's app installation id. */
 export const cronjobUpdateCronjobAppId: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Responses.$204.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Responses.$204.Content.Empty>,
       204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Responses.$412.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Responses.$412.Content.ApplicationJson>,
       412,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/cronjobs/{cronjobId}/app-id",
+  path: "/v2/cronjobs/{cronjobId}/app-installation-id",
   method: "PATCH",
   operationId: "cronjob-update-cronjob-app-id",
 };
@@ -11895,200 +11895,200 @@ export const leadfyndrRemoveUnlockedLeadReservation: OpenAPIOperation<
   operationId: "leadfyndr-remove-unlocked-lead-reservation",
 };
 
-/** Get a Licence. */
-export const licenceGetLicence: OpenAPIOperation<
+/** Get a license. */
+export const licenseGetLicense: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2LicencesLicenceId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2LicencesLicenceId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2LicencesLicenceId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseId.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LicencesLicenceId.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseId.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LicencesLicenceId.Get.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseId.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LicencesLicenceId.Get.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseId.Get.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LicencesLicenceId.Get.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseId.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LicencesLicenceId.Get.Responses.$500.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseId.Get.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LicencesLicenceId.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/licences/{licenceId}",
+  path: "/v2/licenses/{licenseId}",
   method: "GET",
-  operationId: "licence-get-licence",
+  operationId: "license-get-license",
 };
 
-/** List Licences belonging to a Project. */
-export const licenceListLicencesForProject: OpenAPIOperation<
+/** List Licenses belonging to a Project. */
+export const licenseListLicensesForProject: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLicences.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLicences.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLicences.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLicenses.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLicenses.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLicenses.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLicences.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLicenses.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLicences.Get.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLicenses.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLicences.Get.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLicenses.Get.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLicences.Get.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLicenses.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLicences.Get.Responses.$500.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLicenses.Get.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLicences.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLicenses.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/projects/{projectId}/licences",
+  path: "/v2/projects/{projectId}/licenses",
   method: "GET",
-  operationId: "licence-list-licences-for-project",
+  operationId: "license-list-licenses-for-project",
 };
 
-/** rotate a Licence's key, i.e. revoke the old and generate a new one. */
-export const licenceRotateLicenceKey: OpenAPIOperation<
+/** rotate a License's key, i.e. revoke the old and generate a new one. */
+export const licenseRotateLicenseKey: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2LicencesLicenceIdActionsRotateLicenceKey.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2LicencesLicenceIdActionsRotateLicenceKey.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2LicencesLicenceIdActionsRotateLicenceKey.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2LicencesLicenceIdActionsRotateLicenceKey.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdActionsRotateLicenseKey.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdActionsRotateLicenseKey.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdActionsRotateLicenseKey.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdActionsRotateLicenseKey.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LicencesLicenceIdActionsRotateLicenceKey.Post.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdActionsRotateLicenseKey.Post.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LicencesLicenceIdActionsRotateLicenceKey.Post.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdActionsRotateLicenseKey.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LicencesLicenceIdActionsRotateLicenceKey.Post.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdActionsRotateLicenseKey.Post.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LicencesLicenceIdActionsRotateLicenceKey.Post.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdActionsRotateLicenseKey.Post.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LicencesLicenceIdActionsRotateLicenceKey.Post.Responses.$412.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdActionsRotateLicenseKey.Post.Responses.$412.Content.ApplicationJson>,
       412,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LicencesLicenceIdActionsRotateLicenceKey.Post.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdActionsRotateLicenseKey.Post.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LicencesLicenceIdActionsRotateLicenceKey.Post.Responses.$500.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdActionsRotateLicenseKey.Post.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LicencesLicenceIdActionsRotateLicenceKey.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdActionsRotateLicenseKey.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/licences/{licenceId}/actions/rotate-licence-key",
+  path: "/v2/licenses/{licenseId}/actions/rotate-license-key",
   method: "POST",
-  operationId: "licence-rotate-licence-key",
+  operationId: "license-rotate-license-key",
 };
 
-/** Validate a Licence's key for a project. */
-export const licenceValidateLicenceKeyForProject: OpenAPIOperation<
+/** Validate a License's key for a project. */
+export const licenseValidateLicenseKeyForProject: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdActionsValidateLicenceKey.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdActionsValidateLicenceKey.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdActionsValidateLicenceKey.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdActionsValidateLicenceKey.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdActionsValidateLicenseKey.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdActionsValidateLicenseKey.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdActionsValidateLicenseKey.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdActionsValidateLicenseKey.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdActionsValidateLicenceKey.Post.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdActionsValidateLicenseKey.Post.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdActionsValidateLicenceKey.Post.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdActionsValidateLicenseKey.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdActionsValidateLicenceKey.Post.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdActionsValidateLicenseKey.Post.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdActionsValidateLicenceKey.Post.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdActionsValidateLicenseKey.Post.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdActionsValidateLicenceKey.Post.Responses.$412.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdActionsValidateLicenseKey.Post.Responses.$412.Content.ApplicationJson>,
       412,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdActionsValidateLicenceKey.Post.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdActionsValidateLicenseKey.Post.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdActionsValidateLicenceKey.Post.Responses.$500.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdActionsValidateLicenseKey.Post.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdActionsValidateLicenceKey.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdActionsValidateLicenseKey.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/projects/{projectId}/actions/validate-licence-key",
+  path: "/v2/projects/{projectId}/actions/validate-license-key",
   method: "POST",
-  operationId: "licence-validate-licence-key-for-project",
+  operationId: "license-validate-license-key-for-project",
 };
 
 /** List DeliveryBoxes belonging to a Project. */

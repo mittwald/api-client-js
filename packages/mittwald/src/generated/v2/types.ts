@@ -3046,43 +3046,43 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace LicenceGetLicence {
+    namespace LicenseGetLicense {
       type RequestData = InferredRequestData<
-        typeof descriptors.licenceGetLicence
+        typeof descriptors.licenseGetLicense
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.licenceGetLicence, TStatus>;
+        InferredResponseData<typeof descriptors.licenseGetLicense, TStatus>;
     }
 
-    namespace LicenceListLicencesForProject {
+    namespace LicenseListLicensesForProject {
       type RequestData = InferredRequestData<
-        typeof descriptors.licenceListLicencesForProject
+        typeof descriptors.licenseListLicensesForProject
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.licenceListLicencesForProject,
+          typeof descriptors.licenseListLicensesForProject,
           TStatus
         >;
     }
 
-    namespace LicenceRotateLicenceKey {
+    namespace LicenseRotateLicenseKey {
       type RequestData = InferredRequestData<
-        typeof descriptors.licenceRotateLicenceKey
+        typeof descriptors.licenseRotateLicenseKey
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.licenceRotateLicenceKey,
+          typeof descriptors.licenseRotateLicenseKey,
           TStatus
         >;
     }
 
-    namespace LicenceValidateLicenceKeyForProject {
+    namespace LicenseValidateLicenseKeyForProject {
       type RequestData = InferredRequestData<
-        typeof descriptors.licenceValidateLicenceKeyForProject
+        typeof descriptors.licenseValidateLicenseKeyForProject
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.licenceValidateLicenceKeyForProject,
+          typeof descriptors.licenseValidateLicenseKeyForProject,
           TStatus
         >;
     }
@@ -5940,7 +5940,12 @@ export declare module MittwaldAPIV2 {
 
       export interface CronjobCronjob {
         active: boolean;
+        /**
+         * @deprecated
+         * DEPRECATED: Use 'appInstallationId' instead. This field will be removed in a future version.
+         */
         appId: string;
+        appInstallationId?: string;
         concurrencyPolicy?: MittwaldAPIV2.Components.Schemas.CronjobConcurrencyPolicy;
         createdAt: string;
         description: string;
@@ -6005,7 +6010,12 @@ export declare module MittwaldAPIV2 {
 
       export interface CronjobCronjobRequest {
         active: boolean;
+        /**
+         * @deprecated
+         * DEPRECATED: Use 'appInstallationId' instead. This field will be removed in a future version.
+         */
         appId: string;
+        appInstallationId?: string;
         concurrencyPolicy?: MittwaldAPIV2.Components.Schemas.CronjobConcurrencyPolicy;
         description: string;
         destination:
@@ -7589,47 +7599,47 @@ export declare module MittwaldAPIV2 {
         userId: string;
       }
 
-      export interface LicenceAggregateReference {
+      export interface LicenseAggregateReference {
         aggregate: "project";
         domain: "project";
         id: string;
       }
 
-      export interface LicenceAppVersionMeta {
+      export interface LicenseAppVersionMeta {
         description: string;
       }
 
-      export interface LicenceExternalKey {
+      export interface LicenseExternalKey {
         externalKey: string;
       }
 
-      export interface LicenceKey {
+      export interface LicenseKey {
         key: string;
       }
 
-      export interface LicenceKeyResponse {
+      export interface LicenseKeyResponse {
         keyReference?:
-          | MittwaldAPIV2.Components.Schemas.LicenceKey
-          | MittwaldAPIV2.Components.Schemas.LicenceExternalKey;
+          | MittwaldAPIV2.Components.Schemas.LicenseKey
+          | MittwaldAPIV2.Components.Schemas.LicenseExternalKey;
       }
 
-      export type LicenceKind = "typo3-elts";
+      export type LicenseKind = "typo3-elts";
 
-      export interface LicenceLicence {
-        aggregateReference: MittwaldAPIV2.Components.Schemas.LicenceAggregateReference;
+      export interface LicenseLicense {
+        aggregateReference: MittwaldAPIV2.Components.Schemas.LicenseAggregateReference;
         description: string;
         expiryDate?: string;
         id: string;
         keyReference?:
-          | MittwaldAPIV2.Components.Schemas.LicenceKey
-          | MittwaldAPIV2.Components.Schemas.LicenceExternalKey;
-        kind: MittwaldAPIV2.Components.Schemas.LicenceKind;
-        meta: MittwaldAPIV2.Components.Schemas.LicenceMeta;
+          | MittwaldAPIV2.Components.Schemas.LicenseKey
+          | MittwaldAPIV2.Components.Schemas.LicenseExternalKey;
+        kind: MittwaldAPIV2.Components.Schemas.LicenseKind;
+        meta: MittwaldAPIV2.Components.Schemas.LicenseMeta;
         volume?: number;
       }
 
-      export interface LicenceMeta {
-        appVersion?: MittwaldAPIV2.Components.Schemas.LicenceAppVersionMeta;
+      export interface LicenseMeta {
+        appVersion?: MittwaldAPIV2.Components.Schemas.LicenseAppVersionMeta;
       }
 
       export interface MailCreateMailAddress {
@@ -8252,6 +8262,23 @@ export declare module MittwaldAPIV2 {
         unlockLimit: number;
       }
 
+      export type OrderLicenseOrderPreview = {
+        licenseType: "typo3";
+        /**
+         * The major version for which a license should be purchased.
+         */
+        majorVersion: number;
+      };
+
+      export type OrderLicenseOrder = {
+        licenseType: "typo3";
+        /**
+         * The major version for which a license should be purchased.
+         */
+        majorVersion: number;
+        projectId: string;
+      };
+
       export interface OrderMachineTypeSpec {
         machineType?: string;
       }
@@ -8314,6 +8341,10 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface OrderLeadFyndrOrderPreviewResponse {
+        totalPrice: number;
+      }
+
+      export interface OrderLicenseOrderPreviewResponse {
         totalPrice: number;
       }
 
@@ -9258,33 +9289,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      /**
-       * Software Licences
-       */
-      export type OrderLicenceOrderPreview = {
-        licenceType: "typo3";
-        /**
-         * The mayor version for which a licence should be purchased.
-         */
-        mayorVersion: number;
-      };
-
-      export interface OrderLicenceOrderPreviewResponse {
-        totalPrice: number;
-      }
-
-      /**
-       * Software Licences
-       */
-      export type OrderLicenceOrder = {
-        licenceType: "typo3";
-        /**
-         * The mayor version for which a licence should be purchased.
-         */
-        mayorVersion: number;
-        projectId: string;
-      };
 
       export interface CommonsAddress {
         street: string;
@@ -17749,7 +17753,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2CronjobsCronjobIdAppId {
+    namespace V2CronjobsCronjobIdAppInstallationId {
       namespace Patch {
         namespace Parameters {
           export type Path = {
@@ -17757,7 +17761,12 @@ export declare module MittwaldAPIV2 {
           };
 
           export interface RequestBody {
+            /**
+             * @deprecated
+             * DEPRECATED: Use 'appInstallationId' instead. This field will be removed in a future version.
+             */
             appId: string;
+            appInstallationId?: string;
           }
 
           export type Header =
@@ -27581,11 +27590,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2LicencesLicenceId {
+    namespace V2LicensesLicenseId {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            licenceId: string;
+            licenseId: string;
           };
 
           export type Header =
@@ -27597,7 +27606,7 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LicenceLicence;
+                MittwaldAPIV2.Components.Schemas.LicenseLicense;
             }
           }
 
@@ -27644,7 +27653,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsProjectIdLicences {
+    namespace V2ProjectsProjectIdLicenses {
       namespace Get {
         namespace Parameters {
           export type Path = {
@@ -27664,7 +27673,7 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LicenceLicence[];
+                MittwaldAPIV2.Components.Schemas.LicenseLicense[];
             }
           }
 
@@ -27711,11 +27720,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2LicencesLicenceIdActionsRotateLicenceKey {
+    namespace V2LicensesLicenseIdActionsRotateLicenseKey {
       namespace Post {
         namespace Parameters {
           export type Path = {
-            licenceId: string;
+            licenseId: string;
           };
 
           /**
@@ -27734,7 +27743,7 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LicenceKeyResponse;
+                MittwaldAPIV2.Components.Schemas.LicenseKeyResponse;
             }
           }
 
@@ -27797,7 +27806,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsProjectIdActionsValidateLicenceKey {
+    namespace V2ProjectsProjectIdActionsValidateLicenseKey {
       namespace Post {
         namespace Parameters {
           export type Path = {
@@ -27805,11 +27814,11 @@ export declare module MittwaldAPIV2 {
           };
 
           /**
-           * The Licence key to validate.
+           * The License key to validate.
            */
           export interface RequestBody {
             key: string;
-            kind: MittwaldAPIV2.Components.Schemas.LicenceKind;
+            kind: MittwaldAPIV2.Components.Schemas.LicenseKind;
           }
 
           export type Header =
@@ -29941,7 +29950,7 @@ export declare module MittwaldAPIV2 {
               | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrder
               | MittwaldAPIV2.Components.Schemas.OrderMailArchiveOrder
               | MittwaldAPIV2.Components.Schemas.OrderAIHostingOrder
-              | MittwaldAPIV2.Components.Schemas.OrderLicenceOrder;
+              | MittwaldAPIV2.Components.Schemas.OrderLicenseOrder;
             orderType?:
               | "domain"
               | "projectHosting"
@@ -29950,7 +29959,7 @@ export declare module MittwaldAPIV2 {
               | "leadFyndr"
               | "mailArchive"
               | "aiHosting"
-              | "licence";
+              | "license";
           }
 
           export type Header =
@@ -30206,7 +30215,7 @@ export declare module MittwaldAPIV2 {
               | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrderPreview
               | MittwaldAPIV2.Components.Schemas.OrderMailArchiveOrderPreview
               | MittwaldAPIV2.Components.Schemas.OrderAIHostingOrderPreview
-              | MittwaldAPIV2.Components.Schemas.OrderLicenceOrderPreview;
+              | MittwaldAPIV2.Components.Schemas.OrderLicenseOrderPreview;
             orderType?:
               | "domain"
               | "projectHosting"
@@ -30215,7 +30224,7 @@ export declare module MittwaldAPIV2 {
               | "leadFyndr"
               | "mailArchive"
               | "aiHosting"
-              | "licence";
+              | "license";
           }
 
           export type Header = {};
@@ -30232,7 +30241,7 @@ export declare module MittwaldAPIV2 {
                 | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrderPreviewResponse
                 | MittwaldAPIV2.Components.Schemas.OrderMailArchiveOrderPreviewResponse
                 | MittwaldAPIV2.Components.Schemas.OrderAIHostingOrderPreviewResponse
-                | MittwaldAPIV2.Components.Schemas.OrderLicenceOrderPreviewResponse;
+                | MittwaldAPIV2.Components.Schemas.OrderLicenseOrderPreviewResponse;
             }
           }
 
