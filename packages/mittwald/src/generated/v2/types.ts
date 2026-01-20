@@ -9262,6 +9262,18 @@ export declare module MittwaldAPIV2 {
       /**
        * Software Licences
        */
+      export type OrderLicenceOrder = {
+        licenceType: "typo3";
+        /**
+         * The mayor version for which a licence should be purchased.
+         */
+        mayorVersion: number;
+        projectId: string;
+      };
+
+      /**
+       * Software Licences
+       */
       export type OrderLicenceOrderPreview = {
         licenceType: "typo3";
         /**
@@ -9273,18 +9285,6 @@ export declare module MittwaldAPIV2 {
       export interface OrderLicenceOrderPreviewResponse {
         totalPrice: number;
       }
-
-      /**
-       * Software Licences
-       */
-      export type OrderLicenceOrder = {
-        licenceType: "typo3";
-        /**
-         * The mayor version for which a licence should be purchased.
-         */
-        mayorVersion: number;
-        projectId: string;
-      };
 
       export interface CommonsAddress {
         street: string;
