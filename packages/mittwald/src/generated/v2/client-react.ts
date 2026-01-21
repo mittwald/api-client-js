@@ -135,39 +135,6 @@ const buildArticleApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildBackupApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** List BackupSchedules belonging to a Project. */
-  listProjectBackupSchedules: new ApiCallAsyncResourceFactory(
-    descriptors.backupListProjectBackupSchedules,
-    baseClient.backup.listProjectBackupSchedules,
-  ).getApiResource,
-  /** List Backups belonging to a Project. */
-  listProjectBackups: new ApiCallAsyncResourceFactory(
-    descriptors.backupListProjectBackups,
-    baseClient.backup.listProjectBackups,
-  ).getApiResource,
-  /** Get a ProjectBackupSchedule. */
-  getProjectBackupSchedule: new ApiCallAsyncResourceFactory(
-    descriptors.backupGetProjectBackupSchedule,
-    baseClient.backup.getProjectBackupSchedule,
-  ).getApiResource,
-  /** Get a ProjectBackup. */
-  getProjectBackup: new ApiCallAsyncResourceFactory(
-    descriptors.backupGetProjectBackup,
-    baseClient.backup.getProjectBackup,
-  ).getApiResource,
-  /** List database dump's for a ProjectBackup. */
-  getProjectBackupDatabaseDumps: new ApiCallAsyncResourceFactory(
-    descriptors.backupGetProjectBackupDatabaseDumps,
-    baseClient.backup.getProjectBackupDatabaseDumps,
-  ).getApiResource,
-  /** List paths for a ProjectBackup. */
-  getProjectBackupDirectories: new ApiCallAsyncResourceFactory(
-    descriptors.backupGetProjectBackupDirectories,
-    baseClient.backup.getProjectBackupDirectories,
-  ).getApiResource,
-});
-
 const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
   /** List Registries belonging to a Project. */
   listRegistries: new ApiCallAsyncResourceFactory(
@@ -1090,6 +1057,39 @@ const buildSshsftpUserApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
+const buildBackupApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get a ProjectBackupSchedule. */
+  getProjectBackupSchedule: new ApiCallAsyncResourceFactory(
+    descriptors.backupGetProjectBackupSchedule,
+    baseClient.backup.getProjectBackupSchedule,
+  ).getApiResource,
+  /** List database dump's for a ProjectBackup. */
+  getProjectBackupDatabaseDumpsV2Experimental: new ApiCallAsyncResourceFactory(
+    descriptors.backupGetProjectBackupDatabaseDumpsV2Experimental,
+    baseClient.backup.getProjectBackupDatabaseDumpsV2Experimental,
+  ).getApiResource,
+  /** List BackupSchedules belonging to a Project. */
+  listProjectBackupSchedules: new ApiCallAsyncResourceFactory(
+    descriptors.backupListProjectBackupSchedules,
+    baseClient.backup.listProjectBackupSchedules,
+  ).getApiResource,
+  /** List Backups belonging to a Project. */
+  listProjectBackups: new ApiCallAsyncResourceFactory(
+    descriptors.backupListProjectBackups,
+    baseClient.backup.listProjectBackups,
+  ).getApiResource,
+  /** List paths for a ProjectBackup. */
+  getProjectBackupDirectories: new ApiCallAsyncResourceFactory(
+    descriptors.backupGetProjectBackupDirectories,
+    baseClient.backup.getProjectBackupDirectories,
+  ).getApiResource,
+  /** Get a ProjectBackup. */
+  getProjectBackup: new ApiCallAsyncResourceFactory(
+    descriptors.backupGetProjectBackup,
+    baseClient.backup.getProjectBackup,
+  ).getApiResource,
+});
+
 export class MittwaldAPIV2ClientReact {
   /** The AI hosting provides access to multiple large language and embedding models – GDPR compliant and hosted in Germany. */
   public readonly aiHosting: ReturnType<typeof buildAiHostingApi>;
@@ -1099,9 +1099,6 @@ export class MittwaldAPIV2ClientReact {
 
   /** The article API allows you to read article information. */
   public readonly article: ReturnType<typeof buildArticleApi>;
-
-  /** The backup API allows you to manage your project backups. */
-  public readonly backup: ReturnType<typeof buildBackupApi>;
 
   /** The container API allows you to manage your stacks, containers, volumes and registries. */
   public readonly container: ReturnType<typeof buildContainerApi>;
@@ -1162,14 +1159,15 @@ export class MittwaldAPIV2ClientReact {
   /** The SSH/SFTP User API allows you to manage your SSH/SFTP users within a project. */
   public readonly sshsftpUser: ReturnType<typeof buildSshsftpUserApi>;
 
+  /** The backup API allows you to manage your project backups. */
+  public readonly backup: ReturnType<typeof buildBackupApi>;
+
   private constructor(baseClient: MittwaldAPIV2Client) {
     this.aiHosting = buildAiHostingApi(baseClient);
 
     this.app = buildAppApi(baseClient);
 
     this.article = buildArticleApi(baseClient);
-
-    this.backup = buildBackupApi(baseClient);
 
     this.container = buildContainerApi(baseClient);
 
@@ -1208,6 +1206,8 @@ export class MittwaldAPIV2ClientReact {
     this.projectFileSystem = buildProjectFileSystemApi(baseClient);
 
     this.sshsftpUser = buildSshsftpUserApi(baseClient);
+
+    this.backup = buildBackupApi(baseClient);
   }
 
   public static fromBaseClient(

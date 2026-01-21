@@ -153,74 +153,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listArticles: this.requestFunctionFactory(descriptors.articleListArticles),
   };
 
-  /** The backup API allows you to manage your project backups. */
-  public readonly backup = {
-    /** Export a ProjectBackup for download. */
-    createProjectBackupExport: this.requestFunctionFactory(
-      descriptors.backupCreateProjectBackupExport,
-    ),
-    /** Delete a ProjectBackupExport. */
-    deleteProjectBackupExport: this.requestFunctionFactory(
-      descriptors.backupDeleteProjectBackupExport,
-    ),
-    /** List BackupSchedules belonging to a Project. */
-    listProjectBackupSchedules: this.requestFunctionFactory(
-      descriptors.backupListProjectBackupSchedules,
-    ),
-    /** Create a BackupSchedule for a Project. */
-    createProjectBackupSchedule: this.requestFunctionFactory(
-      descriptors.backupCreateProjectBackupSchedule,
-    ),
-    /** List Backups belonging to a Project. */
-    listProjectBackups: this.requestFunctionFactory(
-      descriptors.backupListProjectBackups,
-    ),
-    /** Create a Backup of a Project. */
-    createProjectBackup: this.requestFunctionFactory(
-      descriptors.backupCreateProjectBackup,
-    ),
-    /** Get a ProjectBackupSchedule. */
-    getProjectBackupSchedule: this.requestFunctionFactory(
-      descriptors.backupGetProjectBackupSchedule,
-    ),
-    /** Delete a ProjectBackupSchedule. */
-    deleteProjectBackupSchedule: this.requestFunctionFactory(
-      descriptors.backupDeleteProjectBackupSchedule,
-    ),
-    /** Update a ProjectBackupSchedule. */
-    updateProjectBackupSchedule: this.requestFunctionFactory(
-      descriptors.backupUpdateProjectBackupSchedule,
-    ),
-    /** Get a ProjectBackup. */
-    getProjectBackup: this.requestFunctionFactory(
-      descriptors.backupGetProjectBackup,
-    ),
-    /** Delete a ProjectBackup. */
-    deleteProjectBackup: this.requestFunctionFactory(
-      descriptors.backupDeleteProjectBackup,
-    ),
-    /** List database dump's for a ProjectBackup. */
-    getProjectBackupDatabaseDumps: this.requestFunctionFactory(
-      descriptors.backupGetProjectBackupDatabaseDumps,
-    ),
-    /** List paths for a ProjectBackup. */
-    getProjectBackupDirectories: this.requestFunctionFactory(
-      descriptors.backupGetProjectBackupDirectories,
-    ),
-    /** Restore a ProjectBackup's path. */
-    requestProjectBackupRestorePath: this.requestFunctionFactory(
-      descriptors.backupRequestProjectBackupRestorePath,
-    ),
-    /** Restore a ProjectBackup. */
-    requestProjectBackupRestore: this.requestFunctionFactory(
-      descriptors.backupRequestProjectBackupRestore,
-    ),
-    /** Change the description of a ProjectBackup. */
-    updateProjectBackupDescription: this.requestFunctionFactory(
-      descriptors.backupUpdateProjectBackupDescription,
-    ),
-  };
-
   /** The container API allows you to manage your stacks, containers, volumes and registries. */
   public readonly container = {
     /** List Registries belonging to a Project. */
@@ -1756,6 +1688,70 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update an SSHUser. */
     sshUserUpdateSshUser: this.requestFunctionFactory(
       descriptors.sshUserUpdateSshUser,
+    ),
+  };
+
+  /** The backup API allows you to manage your project backups. */
+  public readonly backup = {
+    /** Export a ProjectBackup for download. */
+    createProjectBackupExport: this.requestFunctionFactory(
+      descriptors.backupCreateProjectBackupExport,
+    ),
+    /** Delete a ProjectBackupExport. */
+    deleteProjectBackupExport: this.requestFunctionFactory(
+      descriptors.backupDeleteProjectBackupExport,
+    ),
+    /** Get a ProjectBackupSchedule. */
+    getProjectBackupSchedule: this.requestFunctionFactory(
+      descriptors.backupGetProjectBackupSchedule,
+    ),
+    /** Delete a ProjectBackupSchedule. */
+    deleteProjectBackupSchedule: this.requestFunctionFactory(
+      descriptors.backupDeleteProjectBackupSchedule,
+    ),
+    /** Update a ProjectBackupSchedule. */
+    updateProjectBackupSchedule: this.requestFunctionFactory(
+      descriptors.backupUpdateProjectBackupSchedule,
+    ),
+    /** List database dump's for a ProjectBackup. */
+    getProjectBackupDatabaseDumpsV2Experimental: this.requestFunctionFactory(
+      descriptors.backupGetProjectBackupDatabaseDumpsV2Experimental,
+    ),
+    /** Restore a ProjectBackup. */
+    requestProjectBackupRestoreV2Experimental: this.requestFunctionFactory(
+      descriptors.backupRequestProjectBackupRestoreV2Experimental,
+    ),
+    /** List BackupSchedules belonging to a Project. */
+    listProjectBackupSchedules: this.requestFunctionFactory(
+      descriptors.backupListProjectBackupSchedules,
+    ),
+    /** Create a BackupSchedule for a Project. */
+    createProjectBackupSchedule: this.requestFunctionFactory(
+      descriptors.backupCreateProjectBackupSchedule,
+    ),
+    /** List Backups belonging to a Project. */
+    listProjectBackups: this.requestFunctionFactory(
+      descriptors.backupListProjectBackups,
+    ),
+    /** Create a Backup of a Project. */
+    createProjectBackup: this.requestFunctionFactory(
+      descriptors.backupCreateProjectBackup,
+    ),
+    /** List paths for a ProjectBackup. */
+    getProjectBackupDirectories: this.requestFunctionFactory(
+      descriptors.backupGetProjectBackupDirectories,
+    ),
+    /** Get a ProjectBackup. */
+    getProjectBackup: this.requestFunctionFactory(
+      descriptors.backupGetProjectBackup,
+    ),
+    /** Delete a ProjectBackup. */
+    deleteProjectBackup: this.requestFunctionFactory(
+      descriptors.backupDeleteProjectBackup,
+    ),
+    /** Change the description of a ProjectBackup. */
+    updateProjectBackupDescription: this.requestFunctionFactory(
+      descriptors.backupUpdateProjectBackupDescription,
     ),
   };
 }
