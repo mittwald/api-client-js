@@ -17753,6 +17753,8 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2CronjobsCronjobIdAppId {}
+
     namespace V2CronjobsCronjobIdAppInstallationId {
       namespace Patch {
         namespace Parameters {
