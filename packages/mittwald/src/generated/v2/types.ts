@@ -17753,8 +17753,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2CronjobsCronjobIdAppId {}
-
     namespace V2CronjobsCronjobIdAppInstallationId {
       namespace Patch {
         namespace Parameters {
@@ -27621,6 +27619,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;

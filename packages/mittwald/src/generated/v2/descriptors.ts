@@ -11919,6 +11919,11 @@ export const licenseGetLicense: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseId.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
