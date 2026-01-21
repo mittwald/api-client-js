@@ -4511,6 +4511,33 @@ export declare module MittwaldAPIV2 {
         termsOfServiceLink: string;
       }
 
+      export interface AihostingPlanOptions {
+        customerId: string;
+        deletedAt?: string;
+        keys: MittwaldAPIV2.Components.Schemas.AihostingPlanUsage;
+        nextTokenReset: string;
+        rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
+        tokens: MittwaldAPIV2.Components.Schemas.AihostingPlanUsageBig;
+        topUsages?: {
+          keyId?: string;
+          name: string;
+          projectId?: string;
+          tokenUsed: number;
+        }[];
+      }
+
+      export interface AihostingPlanUsageBig {
+        available: number;
+        planLimit: number;
+        used: number;
+      }
+
+      export interface AihostingPlanUsage {
+        available: number;
+        planLimit: number;
+        used: number;
+      }
+
       /**
        * The number of allowed requests per unit. Limits are shared across all keys within the same project.
        */
@@ -9002,33 +9029,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export interface AihostingPlanOptions {
-        customerId: string;
-        deletedAt?: string;
-        keys: MittwaldAPIV2.Components.Schemas.AihostingPlanUsage;
-        nextTokenReset: string;
-        rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
-        tokens: MittwaldAPIV2.Components.Schemas.AihostingPlanUsageBig;
-        topUsages?: {
-          keyId?: string;
-          name: string;
-          projectId?: string;
-          tokenUsed: number;
-        }[];
-      }
-
-      export interface AihostingPlanUsage {
-        available: number;
-        planLimit: number;
-        used: number;
-      }
-
-      export interface AihostingPlanUsageBig {
-        available: number;
-        planLimit: number;
-        used: number;
-      }
 
       export interface CommonsAddress {
         street: string;
