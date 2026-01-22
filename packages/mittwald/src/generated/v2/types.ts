@@ -5916,7 +5916,6 @@ export declare module MittwaldAPIV2 {
         isAllowedToPlaceOrders?: boolean;
         isBanned?: boolean;
         isInDefaultOfPayment?: boolean;
-        isMailAddressInvalid?: boolean;
         levelOfUndeliverableDunningNotice?: "first" | "second";
         memberCount: number;
         name: string;
@@ -8102,6 +8101,10 @@ export declare module MittwaldAPIV2 {
       }
 
       export type OrderLicenseOrderPreview = {
+        /**
+         * Describe for which typo3 instance the license will be used.
+         */
+        description?: string;
         licenseType: "typo3";
         /**
          * The major version for which a license should be purchased.
@@ -8110,6 +8113,10 @@ export declare module MittwaldAPIV2 {
       };
 
       export type OrderLicenseOrder = {
+        /**
+         * Describe for which typo3 instance the license will be used.
+         */
+        description: string;
         licenseType: "typo3";
         /**
          * The major version for which a license should be purchased.
@@ -8711,7 +8718,8 @@ export declare module MittwaldAPIV2 {
           | "private_key_not_rsa"
           | "private_key_mismatch"
           | "unknown_cloudflare_error"
-          | "unknown";
+          | "unknown"
+          | MittwaldAPIV2.Components.Schemas.CommonsError;
       }
 
       export interface SslCertificateRequest {
@@ -9415,8 +9423,7 @@ export declare module MittwaldAPIV2 {
 
       namespace SslValidationError {
         export type ApplicationJson =
-          | MittwaldAPIV2.Components.Schemas.CommonsValidationErrors
-          | MittwaldAPIV2.Components.Schemas.SslCertificateError;
+          MittwaldAPIV2.Components.Schemas.SslCertificateError;
       }
 
       namespace SignupInternalServerError {
@@ -32402,6 +32409,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $409 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
