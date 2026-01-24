@@ -9180,6 +9180,11 @@ export declare module MittwaldAPIV2 {
         targetRestorePath?: string;
       }
 
+      export interface BackupProjectBackupRestoreDatabase {
+        databaseBackupDump: string;
+        targetDatabaseId: string;
+      }
+
       export interface BackupProjectBackupRestorePath {
         clearTargetPath: boolean;
         determinedTargetPath: string;
@@ -9202,14 +9207,22 @@ export declare module MittwaldAPIV2 {
         status: string;
       }
 
+      export interface BackupIgnoredSources {
+        databases?: MittwaldAPIV2.Components.Schemas.BackupDatabaseReference[];
+        files: boolean;
+      }
+
       export interface BackupBackupTemplate {
         expirationTime: string;
         ignoredSources?: MittwaldAPIV2.Components.Schemas.BackupIgnoredSources;
       }
 
-      export interface BackupIgnoredSources {
-        databases?: MittwaldAPIV2.Components.Schemas.BackupDatabaseReference[];
-        files: boolean;
+      export interface BackupProjectBackupRestorePathDeprecated {
+        clearTargetPath: boolean;
+        determinedTargetPath: string;
+        phase: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestorePhase;
+        sourcePath: string;
+        targetPath?: string;
       }
 
       export interface BackupProjectBackupRestoreDatabaseRequest {
@@ -9235,19 +9248,6 @@ export declare module MittwaldAPIV2 {
         targetPath?: string;
       }
 
-      export interface BackupProjectBackupRestoreDatabase {
-        databaseBackupDump: string;
-        targetDatabaseId: string;
-      }
-
-      export interface BackupProjectBackupRestorePathDeprecated {
-        clearTargetPath: boolean;
-        determinedTargetPath: string;
-        phase: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestorePhase;
-        sourcePath: string;
-        targetPath?: string;
-      }
-
       export interface BackupDatabaseReference {
         kind: string;
         name: string;
@@ -9262,18 +9262,18 @@ export declare module MittwaldAPIV2 {
         withPassword: boolean;
       }
 
+      export interface BackupProjectBackupRestore {
+        databaseRestores?: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestoreDatabase[];
+        pathRestore?: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestorePath;
+        phase: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestorePhase;
+      }
+
       export interface BackupProjectBackupRestoreRequest {
         databaseRestores?: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestoreDatabaseRequest[];
         pathRestore?: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestorePathRequest;
       }
 
       export type BackupProjectBackupRestorePhase = "running" | "completed";
-
-      export interface BackupProjectBackupRestore {
-        databaseRestores?: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestoreDatabase[];
-        pathRestore?: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestorePath;
-        phase: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestorePhase;
-      }
 
       export interface BackupProjectBackupPath {
         absolutePath: string;
