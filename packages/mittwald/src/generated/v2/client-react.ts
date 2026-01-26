@@ -360,6 +360,11 @@ const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.contributorReceiptGetFileAccessToken,
     baseClient.marketplace.contributorReceiptGetFileAccessToken,
   ).getApiResource,
+  /** Check if an Extension is unchargable for this specific context or if it must be charged. */
+  extensionCheckExtensionIsChargable: new ApiCallAsyncResourceFactory(
+    descriptors.extensionCheckExtensionIsChargable,
+    baseClient.marketplace.extensionCheckExtensionIsChargable,
+  ).getApiResource,
   /** List ExtensionInstances. */
   extensionListExtensionInstances: new ApiCallAsyncResourceFactory(
     descriptors.extensionListExtensionInstances,

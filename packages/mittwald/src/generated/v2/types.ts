@@ -1364,17 +1364,6 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.cronjobGetExecution, TStatus>;
     }
 
-    namespace CronjobUpdateCronjobAppId {
-      type RequestData = InferredRequestData<
-        typeof descriptors.cronjobUpdateCronjobAppId
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.cronjobUpdateCronjobAppId,
-          TStatus
-        >;
-    }
-
     namespace CustomerAcceptCustomerInvite {
       type RequestData = InferredRequestData<
         typeof descriptors.customerAcceptCustomerInvite
@@ -2321,6 +2310,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.extensionChangeContext,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionCheckExtensionIsChargable {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionCheckExtensionIsChargable
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionCheckExtensionIsChargable,
           TStatus
         >;
     }
@@ -4464,6 +4464,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.verificationVerifyCompany,
+          TStatus
+        >;
+    }
+
+    namespace CronjobReplaceCronjobAppInstallationId {
+      type RequestData = InferredRequestData<
+        typeof descriptors.cronjobReplaceCronjobAppInstallationId
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.cronjobReplaceCronjobAppInstallationId,
           TStatus
         >;
     }
@@ -17380,71 +17391,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2CronjobsCronjobIdAppId {}
-
-    namespace V2CronjobsCronjobIdAppInstallationId {
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            cronjobId: string;
-          };
-
-          export interface RequestBody {
-            /**
-             * @deprecated
-             * DEPRECATED: Use 'appInstallationId' instead. This field will be removed in a future version.
-             */
-            appId: string;
-            appInstallationId?: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2CustomerInvitesCustomerInviteIdActionsAccept {
       namespace Post {
         namespace Parameters {
@@ -22875,6 +22821,56 @@ export declare module MittwaldAPIV2 {
                 cleaningUpInstances: boolean;
                 currentContext: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
                 id: string;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ExtensionsExtensionIdContextsContextIdChargability {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            extensionId: string;
+            contextId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {
+            variantKey?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                chargeability: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstanceChargeability;
               }
             }
           }
@@ -36216,6 +36212,66 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CronjobsCronjobIdAppId {}
+
+    namespace V2CronjobsCronjobIdAppInstallationId {
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            cronjobId: string;
+          };
+
+          export interface RequestBody {
+            appInstallationId: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 

@@ -5414,45 +5414,6 @@ export const cronjobGetExecution: OpenAPIOperation<
   operationId: "cronjob-get-execution",
 };
 
-/** Update a Cronjob's app installation id. */
-export const cronjobUpdateCronjobAppId: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/cronjobs/{cronjobId}/app-installation-id",
-  method: "PATCH",
-  operationId: "cronjob-update-cronjob-app-id",
-};
-
 /** Accept a CustomerInvite. */
 export const customerAcceptCustomerInvite: OpenAPIOperation<
   RequestType<
@@ -9034,6 +8995,40 @@ export const extensionChangeContext: OpenAPIOperation<
   path: "/v2/contributors/{contributorId}/extensions/{extensionId}/context",
   method: "PUT",
   operationId: "extension-change-context",
+};
+
+/** Check if an Extension is unchargable for this specific context or if it must be charged. */
+export const extensionCheckExtensionIsChargable: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdContextsContextIdChargability.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdContextsContextIdChargability.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdContextsContextIdChargability.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdContextsContextIdChargability.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdContextsContextIdChargability.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdContextsContextIdChargability.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionsExtensionIdContextsContextIdChargability.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/extensions/{extensionId}/contexts/{contextId}/chargability",
+  method: "GET",
+  operationId: "extension-check-extension-is-chargable",
 };
 
 /** Consent to extension scopes. */
@@ -17548,4 +17543,43 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
+};
+
+/** Update a Cronjob's app installation id. */
+export const cronjobReplaceCronjobAppInstallationId: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Put.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/cronjobs/{cronjobId}/app-installation-id",
+  method: "PUT",
+  operationId: "cronjob-replace-cronjob-app-installation-id",
 };
