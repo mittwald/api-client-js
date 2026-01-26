@@ -448,6 +448,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionChangeContext: this.requestFunctionFactory(
       descriptors.extensionChangeContext,
     ),
+    /** Check if an Extension is unchargable for this specific context or if it must be charged. */
+    extensionCheckExtensionIsChargable: this.requestFunctionFactory(
+      descriptors.extensionCheckExtensionIsChargable,
+    ),
     /** Consent to extension scopes. */
     extensionConsentToExtensionScopes: this.requestFunctionFactory(
       descriptors.extensionConsentToExtensionScopes,
@@ -699,8 +703,8 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Get a CronjobExecution. */
     getExecution: this.requestFunctionFactory(descriptors.cronjobGetExecution),
     /** Update a Cronjob's app installation id. */
-    updateCronjobAppId: this.requestFunctionFactory(
-      descriptors.cronjobUpdateCronjobAppId,
+    replaceCronjobAppInstallationId: this.requestFunctionFactory(
+      descriptors.cronjobReplaceCronjobAppInstallationId,
     ),
   };
 
