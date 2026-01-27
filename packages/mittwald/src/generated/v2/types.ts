@@ -7176,25 +7176,6 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.IngressTlsCertificate;
       }
 
-      export interface IngressListIngressesCompatibleWithCertificateIDRequest {
-        /**
-         * The certificates UUID.
-         */
-        certificateId: string;
-      }
-
-      export interface IngressListIngressesCompatibleWithCertificateRequest {
-        /**
-         * PEM-encoded certificate. Linebreaks have to be escaped with
-         * .
-         */
-        certificate: string;
-        /**
-         * The projects UUID.
-         */
-        projectId: string;
-      }
-
       export interface IngressOwnership {
         txtRecord?: string;
         /**
@@ -8261,31 +8242,6 @@ export declare module MittwaldAPIV2 {
         unlockLimit: number;
       }
 
-      export type OrderLicenseOrderPreview = {
-        /**
-         * Describe for which typo3 instance the license will be used.
-         */
-        description?: string;
-        licenseType: "typo3";
-        /**
-         * The major version for which a license should be purchased.
-         */
-        majorVersion: number;
-      };
-
-      export type OrderLicenseOrder = {
-        /**
-         * Describe for which typo3 instance the license will be used.
-         */
-        description: string;
-        licenseType: "typo3";
-        /**
-         * The major version for which a license should be purchased.
-         */
-        majorVersion: number;
-        projectId: string;
-      };
-
       export interface OrderMachineTypeSpec {
         machineType?: string;
       }
@@ -8348,10 +8304,6 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface OrderLeadFyndrOrderPreviewResponse {
-        totalPrice: number;
-      }
-
-      export interface OrderLicenseOrderPreviewResponse {
         totalPrice: number;
       }
 
@@ -9296,6 +9248,54 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface IngressListIngressesCompatibleWithCertificateRequest {
+        /**
+         * PEM-encoded certificate. Linebreaks have to be escaped with
+         * .
+         */
+        certificate: string;
+        /**
+         * The projects UUID.
+         */
+        projectId: string;
+      }
+
+      export interface IngressListIngressesCompatibleWithCertificateIDRequest {
+        /**
+         * The certificates UUID.
+         */
+        certificateId: string;
+      }
+
+      export interface OrderLicenseOrderPreviewResponse {
+        totalPrice: number;
+      }
+
+      export type OrderLicenseOrder = {
+        /**
+         * Describe for which typo3 instance the license will be used.
+         */
+        description: string;
+        licenseType: "typo3";
+        /**
+         * The major version for which a license should be purchased.
+         */
+        majorVersion: number;
+        projectId: string;
+      };
+
+      export type OrderLicenseOrderPreview = {
+        /**
+         * Describe for which typo3 instance the license will be used.
+         */
+        description?: string;
+        licenseType: "typo3";
+        /**
+         * The major version for which a license should be purchased.
+         */
+        majorVersion: number;
+      };
 
       export interface CommonsAddress {
         street: string;
