@@ -9056,6 +9056,11 @@ export declare module MittwaldAPIV2 {
         phase: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestorePhase;
       }
 
+      export interface BackupProjectBackupRestoreDatabase {
+        databaseBackupDump: string;
+        targetDatabaseId: string;
+      }
+
       export interface BackupProjectBackupRestoreDatabaseRequest {
         /**
          * Database backup dump from the backup to restore from.
@@ -9064,11 +9069,6 @@ export declare module MittwaldAPIV2 {
         /**
          * ID of the target database to restore to.
          */
-        targetDatabaseId: string;
-      }
-
-      export interface BackupProjectBackupRestoreDatabase {
-        databaseBackupDump: string;
         targetDatabaseId: string;
       }
 
