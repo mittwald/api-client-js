@@ -156,10 +156,15 @@ const buildBackupApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.backupGetProjectBackup,
     baseClient.backup.getProjectBackup,
   ).getApiResource,
-  /** Get table of contents for a ProjectBackup. */
+  /** List paths for a ProjectBackup. */
   getProjectBackupDirectories: new ApiCallAsyncResourceFactory(
     descriptors.backupGetProjectBackupDirectories,
     baseClient.backup.getProjectBackupDirectories,
+  ).getApiResource,
+  /** List database dump's for a ProjectBackup. */
+  getProjectBackupDatabaseDumpsV2Experimental: new ApiCallAsyncResourceFactory(
+    descriptors.backupGetProjectBackupDatabaseDumpsV2Experimental,
+    baseClient.backup.getProjectBackupDatabaseDumpsV2Experimental,
   ).getApiResource,
 });
 
