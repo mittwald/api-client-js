@@ -9050,15 +9050,15 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
+      export interface BackupProjectBackupRestoreDatabase {
+        databaseBackupDump: string;
+        targetDatabaseId: string;
+      }
+
       export interface BackupProjectBackupRestore {
         databaseRestores?: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestoreDatabase[];
         pathRestore?: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestorePath;
         phase: MittwaldAPIV2.Components.Schemas.BackupProjectBackupRestorePhase;
-      }
-
-      export interface BackupProjectBackupRestoreDatabase {
-        databaseBackupDump: string;
-        targetDatabaseId: string;
       }
 
       export interface BackupProjectBackupRestoreDatabaseRequest {
