@@ -17736,8 +17736,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2CronjobsCronjobIdAppId {}
-
     namespace V2CustomerInvitesCustomerInviteIdActionsAccept {
       namespace Post {
         namespace Parameters {
