@@ -6077,6 +6077,7 @@ export declare module MittwaldAPIV2 {
         isAllowedToPlaceOrders?: boolean;
         isBanned?: boolean;
         isInDefaultOfPayment?: boolean;
+        isMailAddressInvalid?: boolean;
         levelOfUndeliverableDunningNotice?: "first" | "second";
         memberCount: number;
         name: string;
@@ -17734,6 +17735,8 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
+
+    namespace V2CronjobsCronjobIdAppId {}
 
     namespace V2CustomerInvitesCustomerInviteIdActionsAccept {
       namespace Post {
