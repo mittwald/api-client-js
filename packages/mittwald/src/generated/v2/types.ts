@@ -4755,6 +4755,10 @@ export declare module MittwaldAPIV2 {
         disabled: boolean;
         id: string;
         installationPath: string;
+        /**
+         * The last error that occurred during an update. Resets on success.
+         */
+        lastError?: string;
         linkedDatabases: MittwaldAPIV2.Components.Schemas.AppLinkedDatabase[];
         lockedBy?: {
           [k: string]: MittwaldAPIV2.Components.Schemas.AppLockPurpose;
@@ -8685,7 +8689,8 @@ export declare module MittwaldAPIV2 {
         | "pending"
         | "ready"
         | "unready"
-        | "suspended";
+        | "suspended"
+        | "migrating";
 
       export interface ProjectServer {
         clusterName: string;
@@ -9290,6 +9295,13 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
+      export interface IngressListIngressesCompatibleWithCertificateIDRequest {
+        /**
+         * The certificates UUID.
+         */
+        certificateId: string;
+      }
+
       export interface IngressListIngressesCompatibleWithCertificateRequest {
         /**
          * PEM-encoded certificate. Linebreaks have to be escaped with
@@ -9300,13 +9312,6 @@ export declare module MittwaldAPIV2 {
          * The projects UUID.
          */
         projectId: string;
-      }
-
-      export interface IngressListIngressesCompatibleWithCertificateIDRequest {
-        /**
-         * The certificates UUID.
-         */
-        certificateId: string;
       }
 
       export interface CommonsAddress {
