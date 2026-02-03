@@ -17994,3 +17994,42 @@ export const verificationVerifyCompany: OpenAPIOperation<
   method: "POST",
   operationId: "verification-verify-company",
 };
+
+/** Return the Contract for the given License. */
+export const contractGetDetailOfContractByLicense: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdContract.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdContract.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdContract.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdContract.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdContract.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdContract.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdContract.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdContract.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/licenses/{licenseId}/contract",
+  method: "GET",
+  operationId: "contract-get-detail-of-contract-by-license",
+};
