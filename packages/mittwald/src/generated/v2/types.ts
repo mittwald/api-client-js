@@ -20466,10 +20466,11 @@ export declare module MittwaldAPIV2 {
 
           export type Query = {
             projectId?: string;
-            page?: number;
-            limit?: number;
             domainSearchName?: string;
             contactHash?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
           };
         }
         namespace Responses {
