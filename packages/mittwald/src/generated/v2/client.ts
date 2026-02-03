@@ -1322,7 +1322,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** List all of your ApiTokens. */
     listApiTokens: this.requestFunctionFactory(descriptors.userListApiTokens),
-    /** Store a new ApiToken. */
+    /** Create a new ApiToken. */
     createApiToken: this.requestFunctionFactory(descriptors.userCreateApiToken),
     /** Submit your user feedback. */
     createFeedback: this.requestFunctionFactory(descriptors.userCreateFeedback),

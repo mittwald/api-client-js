@@ -16620,7 +16620,7 @@ export const userListApiTokens: OpenAPIOperation<
   operationId: "user-list-api-tokens",
 };
 
-/** Store a new ApiToken. */
+/** Create a new ApiToken. */
 export const userCreateApiToken: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2UsersSelfApiTokens.Post.Parameters.RequestBody>,
