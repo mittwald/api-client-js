@@ -7925,7 +7925,7 @@ export declare module MittwaldAPIV2 {
 
       export interface MembershipCustomerInvite {
         /**
-         * Reference to the Project's avatar.
+         * Reference to the Customer's avatar.
          */
         avatarRefId?: string;
         /**
@@ -8019,10 +8019,6 @@ export declare module MittwaldAPIV2 {
          * ID of the user that created the invite.
          */
         invitedBy: string;
-        /**
-         * ID of the user this invite is for.
-         */
-        userId?: string;
       }
 
       export interface MembershipProjectInvite {
