@@ -893,6 +893,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ContractGetDetailOfContractByLicense {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contractGetDetailOfContractByLicense
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contractGetDetailOfContractByLicense,
+          TStatus
+        >;
+    }
+
     namespace ContractGetDetailOfContractByMailAddress {
       type RequestData = InferredRequestData<
         typeof descriptors.contractGetDetailOfContractByMailAddress
@@ -4574,17 +4585,6 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
-
-    namespace ContractGetDetailOfContractByLicense {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contractGetDetailOfContractByLicense
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.contractGetDetailOfContractByLicense,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -7192,6 +7192,25 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.IngressTlsCertificate;
       }
 
+      export interface IngressListIngressesCompatibleWithCertificateIDRequest {
+        /**
+         * The certificates UUID.
+         */
+        certificateId: string;
+      }
+
+      export interface IngressListIngressesCompatibleWithCertificateRequest {
+        /**
+         * PEM-encoded certificate. Linebreaks have to be escaped with
+         * .
+         */
+        certificate: string;
+        /**
+         * The projects UUID.
+         */
+        projectId: string;
+      }
+
       export interface IngressOwnership {
         txtRecord?: string;
         /**
@@ -9290,25 +9309,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export interface IngressListIngressesCompatibleWithCertificateIDRequest {
-        /**
-         * The certificates UUID.
-         */
-        certificateId: string;
-      }
-
-      export interface IngressListIngressesCompatibleWithCertificateRequest {
-        /**
-         * PEM-encoded certificate. Linebreaks have to be escaped with
-         * .
-         */
-        certificate: string;
-        /**
-         * The projects UUID.
-         */
-        projectId: string;
-      }
 
       export interface CommonsAddress {
         street: string;
@@ -15023,6 +15023,61 @@ export declare module MittwaldAPIV2 {
         namespace Parameters {
           export type Path = {
             customerId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ContractContract;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2LicensesLicenseIdContract {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            licenseId: string;
           };
 
           export type Header =
@@ -36991,61 +37046,6 @@ export declare module MittwaldAPIV2 {
           namespace $500 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2LicensesLicenseIdContract {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            licenseId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.ContractContract;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
