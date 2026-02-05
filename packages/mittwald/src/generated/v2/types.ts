@@ -7092,6 +7092,25 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.IngressTlsCertificate;
       }
 
+      export interface IngressListIngressesCompatibleWithCertificateIDRequest {
+        /**
+         * The certificates UUID.
+         */
+        certificateId: string;
+      }
+
+      export interface IngressListIngressesCompatibleWithCertificateRequest {
+        /**
+         * PEM-encoded certificate. Linebreaks have to be escaped with
+         * .
+         */
+        certificate: string;
+        /**
+         * The projects UUID.
+         */
+        projectId: string;
+      }
+
       export interface IngressOwnership {
         txtRecord?: string;
         /**
@@ -8741,6 +8760,11 @@ export declare module MittwaldAPIV2 {
         projectId: string;
       }
 
+      export interface SslCertificateRequestCreateWithDNSRequest {
+        commonName: string;
+        projectId: string;
+      }
+
       export type SslCertificateType = 0 | 1 | 2 | 3;
 
       export interface SslCheckReplaceChanges {
@@ -8783,6 +8807,19 @@ export declare module MittwaldAPIV2 {
         organizationalUnit?: string;
         state?: string;
       }
+
+      export interface SslDNSCertStatus {
+        message?: string;
+        status: MittwaldAPIV2.Components.Schemas.SslProjectCertificateStatus;
+        updatedAt?: string;
+      }
+
+      export type SslProjectCertificateStatus =
+        | "issuing"
+        | "ready"
+        | "cnameError"
+        | "error"
+        | "unspecified";
 
       export type StoragespaceStatisticsCategoryKind =
         | "webspace"
@@ -9099,43 +9136,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export interface SslCertificateRequestCreateWithDNSRequest {
-        commonName: string;
-        projectId: string;
-      }
-
-      export type SslProjectCertificateStatus =
-        | "issuing"
-        | "ready"
-        | "cnameError"
-        | "error"
-        | "unspecified";
-
-      export interface SslDNSCertStatus {
-        message?: string;
-        status: MittwaldAPIV2.Components.Schemas.SslProjectCertificateStatus;
-        updatedAt?: string;
-      }
-
-      export interface IngressListIngressesCompatibleWithCertificateRequest {
-        /**
-         * PEM-encoded certificate. Linebreaks have to be escaped with
-         * .
-         */
-        certificate: string;
-        /**
-         * The projects UUID.
-         */
-        projectId: string;
-      }
-
-      export interface IngressListIngressesCompatibleWithCertificateIDRequest {
-        /**
-         * The certificates UUID.
-         */
-        certificateId: string;
-      }
 
       export interface CommonsAddress {
         street: string;
