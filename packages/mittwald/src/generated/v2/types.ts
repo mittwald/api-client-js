@@ -8655,20 +8655,24 @@ export declare module MittwaldAPIV2 {
 
       export interface SslCertificate {
         caBundle?: string;
-        certificate: string;
+        certificate?: string;
         certificateOrderId?: string;
         certificateRequestId: string;
         certificateType: MittwaldAPIV2.Components.Schemas.SslCertificateType;
         commonName?: string;
         contact?: MittwaldAPIV2.Components.Schemas.SslContact;
+        dnsCertSpec?: {
+          cnameTarget?: string;
+          status?: MittwaldAPIV2.Components.Schemas.SslDNSCertStatus;
+        };
         dnsNames?: string[];
         id: string;
-        isExpired: boolean;
+        isExpired?: boolean;
         issuer?: string;
-        lastExpirationThresholdHit: number;
+        lastExpirationThresholdHit?: number;
         projectId: string;
-        validFrom: string;
-        validTo: string;
+        validFrom?: string;
+        validTo?: string;
       }
 
       export interface SslCertificateData {
@@ -8722,7 +8726,7 @@ export declare module MittwaldAPIV2 {
 
       export interface SslCertificateRequestCreateResponse {
         commonName?: string;
-        contact: MittwaldAPIV2.Components.Schemas.SslContact;
+        contact?: MittwaldAPIV2.Components.Schemas.SslContact;
         dnsNames?: string[];
         id: string;
         issuer?: string;
@@ -8737,7 +8741,7 @@ export declare module MittwaldAPIV2 {
         projectId: string;
       }
 
-      export type SslCertificateType = 0 | 1 | 2;
+      export type SslCertificateType = 0 | 1 | 2 | 3;
 
       export interface SslCheckReplaceChanges {
         commonName?: MittwaldAPIV2.Components.Schemas.SslCheckReplaceFieldChange;
@@ -9095,6 +9099,43 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface SslCertificateRequestCreateWithDNSRequest {
+        commonName: string;
+        projectId: string;
+      }
+
+      export type SslProjectCertificateStatus =
+        | "issuing"
+        | "ready"
+        | "cnameError"
+        | "error"
+        | "unspecified";
+
+      export interface SslDNSCertStatus {
+        message?: string;
+        status: MittwaldAPIV2.Components.Schemas.SslProjectCertificateStatus;
+        updatedAt?: string;
+      }
+
+      export interface IngressListIngressesCompatibleWithCertificateRequest {
+        /**
+         * PEM-encoded certificate. Linebreaks have to be escaped with
+         * .
+         */
+        certificate: string;
+        /**
+         * The projects UUID.
+         */
+        projectId: string;
+      }
+
+      export interface IngressListIngressesCompatibleWithCertificateIDRequest {
+        /**
+         * The certificates UUID.
+         */
+        certificateId: string;
+      }
 
       export interface CommonsAddress {
         street: string;
@@ -26020,17 +26061,9 @@ export declare module MittwaldAPIV2 {
         namespace Parameters {
           export type Path = {};
 
-          export interface RequestBody {
-            /**
-             * PEM-encoded certificate. Linebreaks have to be escaped with
-             * .
-             */
-            certificate: string;
-            /**
-             * The projects UUID.
-             */
-            projectId: string;
-          }
+          export type RequestBody =
+            | MittwaldAPIV2.Components.Schemas.IngressListIngressesCompatibleWithCertificateRequest
+            | MittwaldAPIV2.Components.Schemas.IngressListIngressesCompatibleWithCertificateIDRequest;
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -32819,7 +32852,8 @@ export declare module MittwaldAPIV2 {
 
           export type RequestBody =
             | MittwaldAPIV2.Components.Schemas.SslCertificateRequestCreateRequest
-            | MittwaldAPIV2.Components.Schemas.SslCertificateRequestCreateWithCSRRequest;
+            | MittwaldAPIV2.Components.Schemas.SslCertificateRequestCreateWithCSRRequest
+            | MittwaldAPIV2.Components.Schemas.SslCertificateRequestCreateWithDNSRequest;
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -32843,6 +32877,22 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $409 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
