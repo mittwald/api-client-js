@@ -4337,6 +4337,11 @@ export const contributorGetLoginLink: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdDashboard.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdDashboard.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
@@ -8577,40 +8582,6 @@ export const domainDeleteDomain: OpenAPIOperation<
   path: "/v2/domains/{domainId}",
   method: "DELETE",
   operationId: "domain-delete-domain",
-};
-
-/** Get the latest screenshot's FileReference belonging to a Domain. */
-export const domainGetLatestScreenshot: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsLatestScreenshot.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsLatestScreenshot.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainsLatestScreenshot.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsLatestScreenshot.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsLatestScreenshot.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsLatestScreenshot.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainsLatestScreenshot.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domains/latest-screenshot",
-  method: "GET",
-  operationId: "domain-get-latest-screenshot",
 };
 
 /** List the contact schemas for a TLD. */
@@ -18032,4 +18003,38 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
+};
+
+/** Get the latest screenshot's FileReference belonging to a Domain. */
+export const domainGetLatestScreenshot: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsLatestScreenshot.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsLatestScreenshot.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsLatestScreenshot.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsLatestScreenshot.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsLatestScreenshot.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsLatestScreenshot.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsLatestScreenshot.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/latest-screenshot",
+  method: "GET",
+  operationId: "domain-get-latest-screenshot",
 };
