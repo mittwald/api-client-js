@@ -8532,7 +8532,8 @@ export declare module MittwaldAPIV2 {
         | "pending"
         | "ready"
         | "unready"
-        | "suspended";
+        | "suspended"
+        | "migrating";
 
       export interface ProjectServer {
         clusterName: string;
@@ -36383,6 +36384,7 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export interface ApplicationJson {
+                confidence: string;
                 exists: boolean;
               }
             }
