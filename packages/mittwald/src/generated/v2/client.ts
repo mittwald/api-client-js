@@ -215,6 +215,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateProjectBackupDescription: this.requestFunctionFactory(
       descriptors.backupUpdateProjectBackupDescription,
     ),
+    /** Change the expiry of a ProjectBackup. */
+    updateProjectBackupExpirationTime: this.requestFunctionFactory(
+      descriptors.backupUpdateProjectBackupExpirationTime,
+    ),
   };
 
   /** The container API allows you to manage your stacks, containers, volumes and registries. */
@@ -1036,6 +1040,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getDomain: this.requestFunctionFactory(descriptors.domainGetDomain),
     /** Delete a Domain. */
     deleteDomain: this.requestFunctionFactory(descriptors.domainDeleteDomain),
+    /** Get the latest screenshot's FileReference belonging to a Domain. */
+    getLatestScreenshot: this.requestFunctionFactory(
+      descriptors.domainGetLatestScreenshot,
+    ),
     /** List the contact schemas for a TLD. */
     listTldContactSchemas: this.requestFunctionFactory(
       descriptors.domainListTldContactSchemas,
@@ -1127,10 +1135,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update the certificate of a CertificateRequest. */
     sslSetCertificateRequestCertificate: this.requestFunctionFactory(
       descriptors.sslSetCertificateRequestCertificate,
-    ),
-    /** Get the latest screenshot's FileReference belonging to a Domain. */
-    getLatestScreenshot: this.requestFunctionFactory(
-      descriptors.domainGetLatestScreenshot,
     ),
   };
 

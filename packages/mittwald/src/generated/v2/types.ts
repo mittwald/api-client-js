@@ -2192,6 +2192,17 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.domainDeleteDomain, TStatus>;
     }
 
+    namespace DomainGetLatestScreenshot {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainGetLatestScreenshot
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainGetLatestScreenshot,
+          TStatus
+        >;
+    }
+
     namespace DomainListTldContactSchemas {
       type RequestData = InferredRequestData<
         typeof descriptors.domainListTldContactSchemas
@@ -4575,13 +4586,13 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace DomainGetLatestScreenshot {
+    namespace BackupUpdateProjectBackupExpirationTime {
       type RequestData = InferredRequestData<
-        typeof descriptors.domainGetLatestScreenshot
+        typeof descriptors.backupUpdateProjectBackupExpirationTime
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.domainGetLatestScreenshot,
+          typeof descriptors.backupUpdateProjectBackupExpirationTime,
           TStatus
         >;
     }
@@ -8750,6 +8761,34 @@ export declare module MittwaldAPIV2 {
         password: string;
       }
 
+      export interface ScreenshotTarget {
+        domain: string;
+        path?: string;
+        scheme: "http" | "https";
+      }
+
+      export interface ScreenshotTask {
+        executedAt?: string;
+        fileReference?: string;
+        id: string;
+        priority: number;
+        settings: MittwaldAPIV2.Components.Schemas.ScreenshotScreenshotSettings;
+        target: MittwaldAPIV2.Components.Schemas.ScreenshotTarget;
+        taskState?:
+          | MittwaldAPIV2.Components.Schemas.ScreenshotLifecycleState
+          | MittwaldAPIV2.Components.Schemas.CommonsError;
+      }
+
+      export type ScreenshotLifecycleState = string;
+
+      export interface ScreenshotScreenshotSettings {
+        dataType: "jpeg" | "png" | "webp";
+        delay: number;
+        height: number;
+        quality: number;
+        width: number;
+      }
+
       export type SshuserEntityTypes = "ssh" | "sftp";
 
       /**
@@ -9281,34 +9320,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export interface ScreenshotTarget {
-        domain: string;
-        path?: string;
-        scheme: "http" | "https";
-      }
-
-      export interface ScreenshotScreenshotSettings {
-        dataType: "jpeg" | "png" | "webp";
-        delay: number;
-        height: number;
-        quality: number;
-        width: number;
-      }
-
-      export type ScreenshotLifecycleState = string;
-
-      export interface ScreenshotTask {
-        executedAt?: string;
-        fileReference?: string;
-        id: string;
-        priority: number;
-        settings: MittwaldAPIV2.Components.Schemas.ScreenshotScreenshotSettings;
-        target: MittwaldAPIV2.Components.Schemas.ScreenshotTarget;
-        taskState?:
-          | MittwaldAPIV2.Components.Schemas.ScreenshotLifecycleState
-          | MittwaldAPIV2.Components.Schemas.CommonsError;
-      }
 
       export interface CommonsAddress {
         street: string;
@@ -20802,6 +20813,8 @@ export declare module MittwaldAPIV2 {
 
     namespace V2DomainsHandleSchemaDomainName {}
 
+    namespace V2DomainsDomainIdScreenshotsNewest {}
+
     namespace V2ProjectsProjectIdDomains {}
 
     namespace V2FileTokenRulesToken {}
@@ -22376,6 +22389,54 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DomainsLatestScreenshot {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            domainName: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                reference?: string;
+              }
+            }
+          }
+
+          namespace $404 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -37004,23 +37065,44 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2DomainsLatestScreenshot {
-      namespace Get {
+    namespace V2ProjectBackupsProjectBackupIdExpirationTime {
+      namespace Put {
         namespace Parameters {
-          export type Path = {};
+          export type Path = {
+            projectBackupId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * Time when to expire the Backup.
+             */
+            expirationTime?: string;
+          }
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
-          export type Query = {
-            domainName: string;
-          };
+          export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
             namespace Content {
               export interface ApplicationJson {
-                reference?: string;
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
               }
             }
           }
@@ -37051,7 +37133,5 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
-
-    namespace V2DomainsDomainIdScreenshotsNewest {}
   }
 }

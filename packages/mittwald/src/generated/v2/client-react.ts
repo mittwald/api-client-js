@@ -660,6 +660,11 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.domainGetDomain,
     baseClient.domain.getDomain,
   ).getApiResource,
+  /** Get the latest screenshot's FileReference belonging to a Domain. */
+  getLatestScreenshot: new ApiCallAsyncResourceFactory(
+    descriptors.domainGetLatestScreenshot,
+    baseClient.domain.getLatestScreenshot,
+  ).getApiResource,
   /** List the contact schemas for a TLD. */
   listTldContactSchemas: new ApiCallAsyncResourceFactory(
     descriptors.domainListTldContactSchemas,
@@ -704,11 +709,6 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   sslListCertificates: new ApiCallAsyncResourceFactory(
     descriptors.sslListCertificates,
     baseClient.domain.sslListCertificates,
-  ).getApiResource,
-  /** Get the latest screenshot's FileReference belonging to a Domain. */
-  getLatestScreenshot: new ApiCallAsyncResourceFactory(
-    descriptors.domainGetLatestScreenshot,
-    baseClient.domain.getLatestScreenshot,
   ).getApiResource,
 });
 
