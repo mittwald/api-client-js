@@ -555,6 +555,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace BackupUpdateProjectBackupExpirationTime {
+      type RequestData = InferredRequestData<
+        typeof descriptors.backupUpdateProjectBackupExpirationTime
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.backupUpdateProjectBackupExpirationTime,
+          TStatus
+        >;
+    }
+
     namespace ContainerListRegistries {
       type RequestData = InferredRequestData<
         typeof descriptors.containerListRegistries
@@ -4582,17 +4593,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.verificationVerifyCompany,
-          TStatus
-        >;
-    }
-
-    namespace BackupUpdateProjectBackupExpirationTime {
-      type RequestData = InferredRequestData<
-        typeof descriptors.backupUpdateProjectBackupExpirationTime
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.backupUpdateProjectBackupExpirationTime,
           TStatus
         >;
     }
@@ -12581,6 +12581,75 @@ export declare module MittwaldAPIV2 {
              * Description of the ProjectBackup.
              */
             description?: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectBackupsProjectBackupIdExpirationTime {
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            projectBackupId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * Time when to expire the Backup.
+             */
+            expirationTime?: string;
           }
 
           export type Header =
@@ -37039,75 +37108,6 @@ export declare module MittwaldAPIV2 {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectBackupsProjectBackupIdExpirationTime {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            projectBackupId: string;
-          };
-
-          export interface RequestBody {
-            /**
-             * Time when to expire the Backup.
-             */
-            expirationTime?: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 

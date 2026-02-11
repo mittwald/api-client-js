@@ -2108,6 +2108,50 @@ export const backupUpdateProjectBackupDescription: OpenAPIOperation<
   operationId: "backup-update-project-backup-description",
 };
 
+/** Change the expiry of a ProjectBackup. */
+export const backupUpdateProjectBackupExpirationTime: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/project-backups/{projectBackupId}/expiration-time",
+  method: "PUT",
+  operationId: "backup-update-project-backup-expiration-time",
+};
+
 /** List Registries belonging to a Project. */
 export const containerListRegistries: OpenAPIOperation<
   RequestType<
@@ -18032,48 +18076,4 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
-};
-
-/** Change the expiry of a ProjectBackup. */
-export const backupUpdateProjectBackupExpirationTime: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/project-backups/{projectBackupId}/expiration-time",
-  method: "PUT",
-  operationId: "backup-update-project-backup-expiration-time",
 };
