@@ -36986,7 +36986,7 @@ export declare module MittwaldAPIV2 {
             }
           }
 
-          namespace $429 {
+          namespace $400 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -36994,9 +36994,11 @@ export declare module MittwaldAPIV2 {
             }
           }
 
-          namespace $500 {
+          namespace $429 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -37045,12 +37047,6 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export type Empty = unknown;
             }
           }
 

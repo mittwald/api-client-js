@@ -17980,14 +17980,14 @@ export const verificationVerifyAddress: OpenAPIOperation<
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyAddress.Post.Responses.$429.Content.ApplicationJson>,
-      429,
+      Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyAddress.Post.Responses.$400.Content.ApplicationJson>,
+      400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyAddress.Post.Responses.$500.Content.Empty>,
-      500,
-      "empty"
+      Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyAddress.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyAddress.Post.Responses.Default.Content.ApplicationJson>,
@@ -18022,11 +18022,6 @@ export const verificationVerifyCompany: OpenAPIOperation<
       Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyCompany.Post.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyCompany.Post.Responses.$500.Content.Empty>,
-      500,
-      "empty"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ActionsVerifyCompany.Post.Responses.Default.Content.ApplicationJson>,
