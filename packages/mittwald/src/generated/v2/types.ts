@@ -9291,20 +9291,6 @@ export declare module MittwaldAPIV2 {
           };
       }
 
-      namespace SignupRemovingLastOwnerNotAllowedError {
-        export interface ApplicationJson {
-          /**
-           * A json object, given further information about the error
-           */
-          info?: {};
-          /**
-           * more information about the error
-           */
-          message: string;
-          name: "RemovingLastOwnerNotAllowedError";
-        }
-      }
-
       namespace SignupSecondFactorRequiredError {
         export type ApplicationJson =
           MittwaldAPIV2.Components.Schemas.SignupDomainError & {
@@ -36389,7 +36375,7 @@ export declare module MittwaldAPIV2 {
             }
           }
 
-          namespace $429 {
+          namespace $400 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -36397,9 +36383,11 @@ export declare module MittwaldAPIV2 {
             }
           }
 
-          namespace $500 {
+          namespace $429 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -36448,12 +36436,6 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export type Empty = unknown;
             }
           }
 
