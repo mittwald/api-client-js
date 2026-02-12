@@ -4659,6 +4659,10 @@ export declare module MittwaldAPIV2 {
         disabled: boolean;
         id: string;
         installationPath: string;
+        /**
+         * The last error that occurred during an update. Resets on success.
+         */
+        lastError?: string;
         linkedDatabases: MittwaldAPIV2.Components.Schemas.AppLinkedDatabase[];
         lockedBy?: {
           [k: string]: MittwaldAPIV2.Components.Schemas.AppLockPurpose;
