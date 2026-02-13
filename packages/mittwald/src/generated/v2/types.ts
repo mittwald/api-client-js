@@ -6008,23 +6008,58 @@ export declare module MittwaldAPIV2 {
 
       export interface DatabaseCreateMySqlDatabase {
         characterSettings?: MittwaldAPIV2.Components.Schemas.DatabaseCharacterSettings;
+        /**
+         * A description of the MySQLDatabase. This is for your own reference and has no effect on the database itself.
+         *
+         */
         description: string;
         projectId: string;
+        /**
+         * The MySQL version to use for this database, in `<major>.<minor>` format. Use the `GET /v2/mysql-versions` endpoint to query available versions.
+         *
+         */
         version: string;
       }
 
       export interface DatabaseCreateMySqlUser {
+        /**
+         * An IP range (in CIDR notation) for which access should be allowed.
+         */
         accessIpMask?: string;
+        /**
+         * The access level that this MySQLUser should have for the database. The `full` access level grants the user read/write privileges on the database.
+         *
+         */
         accessLevel: "full" | "readonly";
         databaseId: string;
         description: string;
+        /**
+         * Describes if users should be able to connection to this database from external
+         * sources. Defaults to `false` when not set.
+         *
+         * To find out how to connect to your database from external sources, refer to the `externalHostname` field of the `GET /v2/mysql-databases/{id}` endpoint.
+         *
+         */
         externalAccess?: boolean;
         password: string;
       }
 
       export interface DatabaseCreateMySqlUserWithDatabase {
         accessIpMask?: string;
+        /**
+         * The access level that this MySQLUser should have for the database. The `full` access level grants the user read/write privileges on the database.
+         *
+         * For MySQLUsers that are created in the same step as the database itself, `full` is the only available option.
+         *
+         */
         accessLevel: "full";
+        /**
+         * Describes if users should be able to connection to this database from external
+         * sources. Defaults to `false` when not set.
+         *
+         * To find out how to connect to your database from external sources, refer to the `externalHostname` field of the `GET /v2/mysql-databases/{id}` endpoint.
+         *
+         */
         externalAccess?: boolean;
         password: string;
       }
@@ -6050,21 +6085,47 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface DatabaseCharacterSettings {
+        /**
+         * A valid MySQL character set. Refer to https://dev.mysql.com/doc/refman/8.4/en/charset-mysql.html for more information and available character sets.
+         *
+         */
         characterSet: string;
+        /**
+         * A valid MySQL collation. Refer to https://dev.mysql.com/doc/refman/8.4/en/charset-mysql.html for more information and available collations.
+         *
+         */
         collation: string;
       }
 
       export interface DatabaseMySqlDatabase {
         characterSettings: MittwaldAPIV2.Components.Schemas.DatabaseCharacterSettings;
         createdAt: string;
+        /**
+         * A description of the MySQLDatabase. This is for your own reference and has no effect on the database itself.
+         *
+         */
         description: string;
+        /**
+         * The hostname that you can use to connect to this MySQLDatabase from external sources, like your local machine or services running outside the mittwald cloud platform.
+         *
+         * Note that you still need a database user with `externalAccess` enabled to connect via this hostname.
+         *
+         */
         externalHostname: string;
         finalizers?: string[];
+        /**
+         * The hostname that you can use to connect to this MySQLDatabase from _within_ the hosting environment.
+         *
+         */
         hostname: string;
         id: string;
         isReady: boolean;
         isShared: boolean;
         mainUser?: MittwaldAPIV2.Components.Schemas.DatabaseMySqlUser;
+        /**
+         * The name of the MySQLDatabase. This is also the name of the database that you can use when connecting to it. It is automatically generated and cannot be changed.
+         *
+         */
         name: string;
         projectId: string;
         status: MittwaldAPIV2.Components.Schemas.DatabaseDatabaseStatus;
@@ -6072,6 +6133,10 @@ export declare module MittwaldAPIV2 {
         storageUsageInBytes: number;
         storageUsageInBytesSetAt: string;
         updatedAt: string;
+        /**
+         * The MySQL version that this database is running, in `<major>.<minor>` format. Use the `GET /v2/mysql-versions` endpoint to query available versions.
+         *
+         */
         version: string;
       }
 
@@ -15757,6 +15822,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
