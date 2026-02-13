@@ -1360,10 +1360,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updatePersonalizedSettings: this.requestFunctionFactory(
       descriptors.userUpdatePersonalizedSettings,
     ),
-    /** Get poll settings for the specified user. */
-    getPollStatus: this.requestFunctionFactory(descriptors.userGetPollStatus),
-    /** Store new or update poll settings. */
-    postPollStatus: this.requestFunctionFactory(descriptors.userPostPollStatus),
     /** Get a specific session. */
     getSession: this.requestFunctionFactory(descriptors.userGetSession),
     /** Terminate a specific Session. */

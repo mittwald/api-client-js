@@ -939,11 +939,6 @@ const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.userGetPersonalizedSettings,
     baseClient.user.getPersonalizedSettings,
   ).getApiResource,
-  /** Get poll settings for the specified user. */
-  getPollStatus: new ApiCallAsyncResourceFactory(
-    descriptors.userGetPollStatus,
-    baseClient.user.getPollStatus,
-  ).getApiResource,
   /** Get a specific session. */
   getSession: new ApiCallAsyncResourceFactory(
     descriptors.userGetSession,
