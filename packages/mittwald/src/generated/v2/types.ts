@@ -6104,7 +6104,6 @@ export declare module MittwaldAPIV2 {
          *
          */
         description: string;
-        projectId: string;
         /**
          * The MySQL version to use for this database, in `<major>.<minor>` format. Use the `GET /v2/mysql-versions` endpoint to query available versions.
          *
