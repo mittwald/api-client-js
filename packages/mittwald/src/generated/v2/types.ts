@@ -7160,59 +7160,6 @@ export declare module MittwaldAPIV2 {
         id: string;
       }
 
-      export interface FileFileMeta {
-        /**
-         * @deprecated
-         * deprecated, see friendlyUrl
-         */
-        friendlyURL: string;
-        friendlyUrl: string;
-        id: string;
-        mimeType: string;
-        name: string;
-        sizeInBytes: number;
-        /**
-         * @deprecated
-         * deprecated, see mimeType
-         */
-        type: string;
-      }
-
-      export interface FileFileType {
-        extensions: string[];
-        mimeType: string;
-      }
-
-      export interface FileFileUploadRules {
-        extensions: string[];
-        fileTypes: MittwaldAPIV2.Components.Schemas.FileFileType[];
-        maxNameLength: number;
-        maxSizeInBytes: number;
-        /**
-         * @deprecated
-         * deprecated, see maxSizeInBytes
-         */
-        maxSizeInKB: number;
-        /**
-         * @deprecated
-         * deprecated, see maxSizeInBytes
-         */
-        maxSizeInKb: number;
-        mimeTypes: string[];
-        properties?: {
-          imageDimensions?: {
-            max?: {
-              height?: number;
-              width?: number;
-            };
-            min?: {
-              height?: number;
-              width?: number;
-            };
-          };
-        };
-      }
-
       export interface IngressIngress {
         /**
          * A list of errors that occurred while validating the ingress's dns before requesting a certificate.
@@ -8021,201 +7968,6 @@ export declare module MittwaldAPIV2 {
         parentCustomerId: string;
       }
 
-      export type MembershipCustomerInheritedRoles =
-        | "notset"
-        | "owner"
-        | "member"
-        | "accountant";
-
-      export interface MembershipCustomerInvite {
-        /**
-         * Reference to the Customer's avatar.
-         */
-        avatarRefId?: string;
-        /**
-         * ID of the Customer the invite is for.
-         */
-        customerId: string;
-        /**
-         * Name of the Customer the user is invited to.
-         */
-        customerName: string;
-        /**
-         * ID of the CustomerInvite.
-         */
-        id: string;
-        information: MittwaldAPIV2.Components.Schemas.MembershipInviteInformation;
-        /**
-         * Mail-address of the user the invite is for.
-         */
-        mailAddress: string;
-        /**
-         * Time the CustomerMembership should expire at.
-         */
-        membershipExpiresAt?: string;
-        /**
-         * Message contained in the CustomerInvite.
-         */
-        message?: string;
-        role: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
-      }
-
-      export interface MembershipCustomerMembership {
-        /**
-         * Avatar file reference id of the user.
-         */
-        avatarRef?: string;
-        /**
-         * ID of the Customer the CustomerMembership is for.
-         */
-        customerId: string;
-        /**
-         * Email used by the invited user.
-         */
-        email: string;
-        /**
-         * Time the CustomerMembership should expire at.
-         */
-        expiresAt?: string;
-        /**
-         * First name of the user.
-         */
-        firstName: string;
-        /**
-         * ID of the CustomerMembership.
-         */
-        id: string;
-        /**
-         * ID of the CustomerInvite the membership was created from.
-         */
-        inviteId?: string;
-        /**
-         * Last name of the user.
-         */
-        lastName: string;
-        /**
-         * Date the CustomerMembership was created at.
-         */
-        memberSince?: string;
-        /**
-         * MFA activated by the user.
-         */
-        mfa: boolean;
-        role: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
-        /**
-         * ID of the user the CustomerMembership is for.
-         */
-        userId: string;
-      }
-
-      export type MembershipCustomerRoles =
-        | "notset"
-        | "owner"
-        | "member"
-        | "accountant";
-
-      export interface MembershipInviteInformation {
-        /**
-         * Token for authentication purposes.
-         */
-        invitationToken?: string;
-        /**
-         * ID of the user that created the invite.
-         */
-        invitedBy: string;
-      }
-
-      export interface MembershipProjectInvite {
-        /**
-         * Reference to the Project's avatar.
-         */
-        avatarRefId?: string;
-        /**
-         * ID of the ProjectInvite.
-         */
-        id: string;
-        information: MittwaldAPIV2.Components.Schemas.MembershipInviteInformation;
-        /**
-         * Mail-address of the user the ProjectInvite is for.
-         */
-        mailAddress: string;
-        /**
-         * Time the ProjectMembership should expire at.
-         */
-        membershipExpiresAt?: string;
-        /**
-         * Message contained in the ProjectInvite.
-         */
-        message?: string;
-        /**
-         * Description of the Project the invite is created for.
-         */
-        projectDescription: string;
-        /**
-         * ID of the Project the invitation is for.
-         */
-        projectId: string;
-        role: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
-      }
-
-      export interface MembershipProjectMembership {
-        /**
-         * Avatar file reference id of the user.
-         */
-        avatarRef?: string;
-        /**
-         * Email used by the invited user.
-         */
-        email: string;
-        /**
-         * Time the ProjectMembership should expire at.
-         */
-        expiresAt?: string;
-        /**
-         * First name of the user.
-         */
-        firstName: string;
-        /**
-         * ID of the ProjectMembership.
-         */
-        id: string;
-        /**
-         * Whether the ProjectMembership was inherited from a CustomerMembership.
-         */
-        inherited: boolean;
-        /**
-         * ID of the ProjectInvite the membership was created from.
-         */
-        inviteId?: string;
-        /**
-         * Last name of the user.
-         */
-        lastName: string;
-        /**
-         * Date the projectMembership was created at.
-         */
-        memberSince?: string;
-        /**
-         * MFA activated by the user.
-         */
-        mfa: boolean;
-        /**
-         * ID of the Project the membership is for.
-         */
-        projectId: string;
-        role: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
-        /**
-         * ID of the user the ProjectMembership is for.
-         */
-        userId: string;
-      }
-
-      export type MembershipProjectRoles =
-        | "notset"
-        | "owner"
-        | "emailadmin"
-        | "external";
-
       export interface MessagingAggregateReference {
         aggregate: string;
         domain: string;
@@ -8358,31 +8110,6 @@ export declare module MittwaldAPIV2 {
         unlockLimit: number;
       }
 
-      export type OrderLicenseOrderPreview = {
-        /**
-         * Describe for which typo3 instance the license will be used.
-         */
-        description?: string;
-        licenseType: "typo3";
-        /**
-         * The major version for which a license should be purchased.
-         */
-        majorVersion: number;
-      };
-
-      export type OrderLicenseOrder = {
-        /**
-         * Describe for which typo3 instance the license will be used.
-         */
-        description: string;
-        licenseType: "typo3";
-        /**
-         * The major version for which a license should be purchased.
-         */
-        majorVersion: number;
-        projectId: string;
-      };
-
       export interface OrderMachineTypeSpec {
         machineType?: string;
       }
@@ -8445,10 +8172,6 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface OrderLeadFyndrOrderPreviewResponse {
-        totalPrice: number;
-      }
-
-      export interface OrderLicenseOrderPreviewResponse {
         totalPrice: number;
       }
 
@@ -9394,6 +9117,283 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface FileFileType {
+        extensions: string[];
+        mimeType: string;
+      }
+
+      export interface FileFileMeta {
+        /**
+         * @deprecated
+         * deprecated, see friendlyUrl
+         */
+        friendlyURL: string;
+        friendlyUrl: string;
+        id: string;
+        mimeType: string;
+        name: string;
+        sizeInBytes: number;
+        /**
+         * @deprecated
+         * deprecated, see mimeType
+         */
+        type: string;
+      }
+
+      export interface FileFileUploadRules {
+        extensions: string[];
+        fileTypes: MittwaldAPIV2.Components.Schemas.FileFileType[];
+        maxNameLength: number;
+        maxSizeInBytes: number;
+        /**
+         * @deprecated
+         * deprecated, see maxSizeInBytes
+         */
+        maxSizeInKB: number;
+        /**
+         * @deprecated
+         * deprecated, see maxSizeInBytes
+         */
+        maxSizeInKb: number;
+        mimeTypes: string[];
+        properties?: {
+          imageDimensions?: {
+            max?: {
+              height?: number;
+              width?: number;
+            };
+            min?: {
+              height?: number;
+              width?: number;
+            };
+          };
+        };
+      }
+
+      export interface MembershipCustomerInvite {
+        /**
+         * Reference to the Customer's avatar.
+         */
+        avatarRefId?: string;
+        /**
+         * ID of the Customer the invite is for.
+         */
+        customerId: string;
+        /**
+         * Name of the Customer the user is invited to.
+         */
+        customerName: string;
+        /**
+         * ID of the CustomerInvite.
+         */
+        id: string;
+        information: MittwaldAPIV2.Components.Schemas.MembershipInviteInformation;
+        /**
+         * Mail-address of the user the invite is for.
+         */
+        mailAddress: string;
+        /**
+         * Time the CustomerMembership should expire at.
+         */
+        membershipExpiresAt?: string;
+        /**
+         * Message contained in the CustomerInvite.
+         */
+        message?: string;
+        role: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
+      }
+
+      export interface MembershipInviteInformation {
+        /**
+         * Token for authentication purposes.
+         */
+        invitationToken?: string;
+        /**
+         * ID of the user that created the invite.
+         */
+        invitedBy: string;
+      }
+
+      export type MembershipCustomerInheritedRoles =
+        | "notset"
+        | "owner"
+        | "member"
+        | "accountant";
+
+      export interface MembershipProjectMembership {
+        /**
+         * Avatar file reference id of the user.
+         */
+        avatarRef?: string;
+        /**
+         * Email used by the invited user.
+         */
+        email: string;
+        /**
+         * Time the ProjectMembership should expire at.
+         */
+        expiresAt?: string;
+        /**
+         * First name of the user.
+         */
+        firstName: string;
+        /**
+         * ID of the ProjectMembership.
+         */
+        id: string;
+        /**
+         * Whether the ProjectMembership was inherited from a CustomerMembership.
+         */
+        inherited: boolean;
+        /**
+         * ID of the ProjectInvite the membership was created from.
+         */
+        inviteId?: string;
+        /**
+         * Last name of the user.
+         */
+        lastName: string;
+        /**
+         * Date the projectMembership was created at.
+         */
+        memberSince?: string;
+        /**
+         * MFA activated by the user.
+         */
+        mfa: boolean;
+        /**
+         * ID of the Project the membership is for.
+         */
+        projectId: string;
+        role: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
+        /**
+         * ID of the user the ProjectMembership is for.
+         */
+        userId: string;
+      }
+
+      export type MembershipProjectRoles =
+        | "notset"
+        | "owner"
+        | "emailadmin"
+        | "external";
+
+      export interface MembershipCustomerMembership {
+        /**
+         * Avatar file reference id of the user.
+         */
+        avatarRef?: string;
+        /**
+         * ID of the Customer the CustomerMembership is for.
+         */
+        customerId: string;
+        /**
+         * Email used by the invited user.
+         */
+        email: string;
+        /**
+         * Time the CustomerMembership should expire at.
+         */
+        expiresAt?: string;
+        /**
+         * First name of the user.
+         */
+        firstName: string;
+        /**
+         * ID of the CustomerMembership.
+         */
+        id: string;
+        /**
+         * ID of the CustomerInvite the membership was created from.
+         */
+        inviteId?: string;
+        /**
+         * Last name of the user.
+         */
+        lastName: string;
+        /**
+         * Date the CustomerMembership was created at.
+         */
+        memberSince?: string;
+        /**
+         * MFA activated by the user.
+         */
+        mfa: boolean;
+        role: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
+        /**
+         * ID of the user the CustomerMembership is for.
+         */
+        userId: string;
+      }
+
+      export type MembershipCustomerRoles =
+        | "notset"
+        | "owner"
+        | "member"
+        | "accountant";
+
+      export interface MembershipProjectInvite {
+        /**
+         * Reference to the Project's avatar.
+         */
+        avatarRefId?: string;
+        /**
+         * ID of the ProjectInvite.
+         */
+        id: string;
+        information: MittwaldAPIV2.Components.Schemas.MembershipInviteInformation;
+        /**
+         * Mail-address of the user the ProjectInvite is for.
+         */
+        mailAddress: string;
+        /**
+         * Time the ProjectMembership should expire at.
+         */
+        membershipExpiresAt?: string;
+        /**
+         * Message contained in the ProjectInvite.
+         */
+        message?: string;
+        /**
+         * Description of the Project the invite is created for.
+         */
+        projectDescription: string;
+        /**
+         * ID of the Project the invitation is for.
+         */
+        projectId: string;
+        role: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
+      }
+
+      export type OrderLicenseOrder = {
+        /**
+         * Describe for which typo3 instance the license will be used.
+         */
+        description: string;
+        licenseType: "typo3";
+        /**
+         * The major version for which a license should be purchased.
+         */
+        majorVersion: number;
+        projectId: string;
+      };
+
+      export type OrderLicenseOrderPreview = {
+        /**
+         * Describe for which typo3 instance the license will be used.
+         */
+        description?: string;
+        licenseType: "typo3";
+        /**
+         * The major version for which a license should be purchased.
+         */
+        majorVersion: number;
+      };
+
+      export interface OrderLicenseOrderPreviewResponse {
+        totalPrice: number;
+      }
 
       export interface CommonsAddress {
         street: string;
