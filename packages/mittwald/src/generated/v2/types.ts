@@ -6235,15 +6235,41 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface DatabaseMySqlUser {
+        /**
+         * An IP range (in CIDR notation) for which access should be allowed.
+         */
         accessIpMask?: string;
+        /**
+         * The access level that this MySQLUser should have for the database. The `full` access level grants
+         * the user read/write privileges on the database.
+         *
+         */
         accessLevel: "full" | "readonly";
         createdAt: string;
         databaseId: string;
         description?: string;
         disabled: boolean;
+        /**
+         * Describes if users should be able to connection to this database from external sources.
+         * Defaults to `false` when not set.
+         *
+         * To find out how to connect to your database from external sources, refer to the `externalHostname`
+         * field of the `GET /v2/mysql-databases/{id}` endpoint.
+         *
+         */
         externalAccess: boolean;
         id: string;
+        /**
+         * Indicates whether this MySQL user is the main user of the database. The main user is created by
+         * default when a new MySQL database is provisioned. It can neither be deleted nor disabled,
+         * but its password can be updated.
+         *
+         */
         mainUser: boolean;
+        /**
+         * The name of the MySQL user. This can be used as the username when connecting to the database.
+         *
+         */
         name: string;
         passwordUpdatedAt: string;
         status: MittwaldAPIV2.Components.Schemas.DatabaseDatabaseUserStatus;
@@ -10515,7 +10541,23 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
