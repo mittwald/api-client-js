@@ -653,8 +653,18 @@ export const appExecuteAction: OpenAPIOperation<
       "empty"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Responses.$412.Content.ApplicationJson>,
+      412,
       "application/json"
     >
   | Response<
