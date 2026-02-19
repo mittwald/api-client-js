@@ -9232,6 +9232,15 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
+      export interface VerificationVerifyAddressResponse {
+        exists: boolean;
+      }
+
+      export type VerificationVerifyAddressConfidence =
+        | "EXISTS"
+        | "UNSURE"
+        | "NON_EXISTENT";
+
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -36495,9 +36504,8 @@ export declare module MittwaldAPIV2 {
         namespace Responses {
           namespace $200 {
             namespace Content {
-              export interface ApplicationJson {
-                exists: boolean;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.VerificationVerifyAddressResponse;
             }
           }
 
