@@ -322,6 +322,11 @@ const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.orderListProjectOrders,
     baseClient.contract.orderListProjectOrders,
   ).getApiResource,
+  /** Return the Contract for the given License. */
+  getDetailOfContractByLicense: new ApiCallAsyncResourceFactory(
+    descriptors.contractGetDetailOfContractByLicense,
+    baseClient.contract.getDetailOfContractByLicense,
+  ).getApiResource,
 });
 
 const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
