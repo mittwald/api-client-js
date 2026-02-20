@@ -4581,13 +4581,13 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace ContractGetDetailOfContractByLicense {
+    namespace ContainerSetStackUpdateSchedule {
       type RequestData = InferredRequestData<
-        typeof descriptors.contractGetDetailOfContractByLicense
+        typeof descriptors.containerSetStackUpdateSchedule
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.contractGetDetailOfContractByLicense,
+          typeof descriptors.containerSetStackUpdateSchedule,
           TStatus
         >;
     }
@@ -8837,20 +8837,262 @@ export declare module MittwaldAPIV2 {
         | "IS_NOT_MITTWALD"
         | "COULD_BE_MITTWALD";
 
-      export type VerificationVerifyAddressConfidence =
-        | "EXISTS"
-        | "UNSURE"
-        | "NON_EXISTENT";
+      export interface FileFileType {
+        extensions: string[];
+        mimeType: string;
+      }
+
+      export interface FileFileMeta {
+        /**
+         * @deprecated
+         * deprecated, see friendlyUrl
+         */
+        friendlyURL: string;
+        friendlyUrl: string;
+        id: string;
+        mimeType: string;
+        name: string;
+        sizeInBytes: number;
+        /**
+         * @deprecated
+         * deprecated, see mimeType
+         */
+        type: string;
+      }
+
+      export interface FileFileUploadRules {
+        extensions: string[];
+        fileTypes: MittwaldAPIV2.Components.Schemas.FileFileType[];
+        maxNameLength: number;
+        maxSizeInBytes: number;
+        /**
+         * @deprecated
+         * deprecated, see maxSizeInBytes
+         */
+        maxSizeInKB: number;
+        /**
+         * @deprecated
+         * deprecated, see maxSizeInBytes
+         */
+        maxSizeInKb: number;
+        mimeTypes: string[];
+        properties?: {
+          imageDimensions?: {
+            max?: {
+              height?: number;
+              width?: number;
+            };
+            min?: {
+              height?: number;
+              width?: number;
+            };
+          };
+        };
+      }
+
+      export interface MembershipCustomerInvite {
+        /**
+         * Reference to the Customer's avatar.
+         */
+        avatarRefId?: string;
+        /**
+         * ID of the Customer the invite is for.
+         */
+        customerId: string;
+        /**
+         * Name of the Customer the user is invited to.
+         */
+        customerName: string;
+        /**
+         * ID of the CustomerInvite.
+         */
+        id: string;
+        information: MittwaldAPIV2.Components.Schemas.MembershipInviteInformation;
+        /**
+         * Mail-address of the user the invite is for.
+         */
+        mailAddress: string;
+        /**
+         * Time the CustomerMembership should expire at.
+         */
+        membershipExpiresAt?: string;
+        /**
+         * Message contained in the CustomerInvite.
+         */
+        message?: string;
+        role: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
+      }
+
+      export interface MembershipInviteInformation {
+        /**
+         * Token for authentication purposes.
+         */
+        invitationToken?: string;
+        /**
+         * ID of the user that created the invite.
+         */
+        invitedBy: string;
+      }
+
+      export type MembershipCustomerInheritedRoles =
+        | "notset"
+        | "owner"
+        | "member"
+        | "accountant";
+
+      export interface MembershipProjectMembership {
+        /**
+         * Avatar file reference id of the user.
+         */
+        avatarRef?: string;
+        /**
+         * Email used by the invited user.
+         */
+        email: string;
+        /**
+         * Time the ProjectMembership should expire at.
+         */
+        expiresAt?: string;
+        /**
+         * First name of the user.
+         */
+        firstName: string;
+        /**
+         * ID of the ProjectMembership.
+         */
+        id: string;
+        /**
+         * Whether the ProjectMembership was inherited from a CustomerMembership.
+         */
+        inherited: boolean;
+        /**
+         * ID of the ProjectInvite the membership was created from.
+         */
+        inviteId?: string;
+        /**
+         * Last name of the user.
+         */
+        lastName: string;
+        /**
+         * Date the projectMembership was created at.
+         */
+        memberSince?: string;
+        /**
+         * MFA activated by the user.
+         */
+        mfa: boolean;
+        /**
+         * ID of the Project the membership is for.
+         */
+        projectId: string;
+        role: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
+        /**
+         * ID of the user the ProjectMembership is for.
+         */
+        userId: string;
+      }
+
+      export type MembershipProjectRoles =
+        | "notset"
+        | "owner"
+        | "emailadmin"
+        | "external";
+
+      export interface MembershipCustomerMembership {
+        /**
+         * Avatar file reference id of the user.
+         */
+        avatarRef?: string;
+        /**
+         * ID of the Customer the CustomerMembership is for.
+         */
+        customerId: string;
+        /**
+         * Email used by the invited user.
+         */
+        email: string;
+        /**
+         * Time the CustomerMembership should expire at.
+         */
+        expiresAt?: string;
+        /**
+         * First name of the user.
+         */
+        firstName: string;
+        /**
+         * ID of the CustomerMembership.
+         */
+        id: string;
+        /**
+         * ID of the CustomerInvite the membership was created from.
+         */
+        inviteId?: string;
+        /**
+         * Last name of the user.
+         */
+        lastName: string;
+        /**
+         * Date the CustomerMembership was created at.
+         */
+        memberSince?: string;
+        /**
+         * MFA activated by the user.
+         */
+        mfa: boolean;
+        role: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
+        /**
+         * ID of the user the CustomerMembership is for.
+         */
+        userId: string;
+      }
+
+      export type MembershipCustomerRoles =
+        | "notset"
+        | "owner"
+        | "member"
+        | "accountant";
+
+      export interface MembershipProjectInvite {
+        /**
+         * Reference to the Project's avatar.
+         */
+        avatarRefId?: string;
+        /**
+         * ID of the ProjectInvite.
+         */
+        id: string;
+        information: MittwaldAPIV2.Components.Schemas.MembershipInviteInformation;
+        /**
+         * Mail-address of the user the ProjectInvite is for.
+         */
+        mailAddress: string;
+        /**
+         * Time the ProjectMembership should expire at.
+         */
+        membershipExpiresAt?: string;
+        /**
+         * Message contained in the ProjectInvite.
+         */
+        message?: string;
+        /**
+         * Description of the Project the invite is created for.
+         */
+        projectDescription: string;
+        /**
+         * ID of the Project the invitation is for.
+         */
+        projectId: string;
+        role: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
+      }
 
       export interface VerificationVerifyAddressResponse {
         exists: boolean;
       }
 
-      export type ContainerVolumeSortOrder =
-        | "nameAsc"
-        | "nameDesc"
-        | "storageAsc"
-        | "storageDesc";
+      export type VerificationVerifyAddressConfidence =
+        | "EXISTS"
+        | "UNSURE"
+        | "NON_EXISTENT";
 
       export type ContainerVolumeSortOrder =
         | "nameAsc"
@@ -9116,7 +9358,7 @@ export declare module MittwaldAPIV2 {
         projectId: string;
         services?: MittwaldAPIV2.Components.Schemas.ContainerServiceResponse[];
         updateSchedule?: {
-          schedule: string;
+          cron: string;
           timezone?: string;
         } | null;
         volumes?: MittwaldAPIV2.Components.Schemas.ContainerVolumeResponse[];
@@ -36864,12 +37106,22 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2LicensesLicenseIdContract {
-      namespace Get {
+    namespace V2StacksStackIdUpdateSchedule {
+      namespace Put {
         namespace Parameters {
           export type Path = {
-            licenseId: string;
+            stackId: string;
           };
+
+          export interface RequestBody {
+            updateSchedule?: {
+              cron: string;
+              /**
+               * Valid timezones can be retrieved via GET /v2/time-zones
+               */
+              timezone?: string;
+            };
+          }
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -36877,14 +37129,21 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.ContractContract;
+              export type Empty = unknown;
             }
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -36900,7 +37159,23 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
