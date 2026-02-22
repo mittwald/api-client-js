@@ -215,6 +215,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateProjectBackupDescription: this.requestFunctionFactory(
       descriptors.backupUpdateProjectBackupDescription,
     ),
+    /** Change the expiry of a ProjectBackup. */
+    updateProjectBackupExpirationTime: this.requestFunctionFactory(
+      descriptors.backupUpdateProjectBackupExpirationTime,
+    ),
   };
 
   /** The container API allows you to manage your stacks, containers, volumes and registries. */
@@ -285,10 +289,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     restartService: this.requestFunctionFactory(
       descriptors.containerRestartService,
     ),
-    /** Set an update schedule for a Stack. */
-    setStackUpdateSchedule: this.requestFunctionFactory(
-      descriptors.containerSetStackUpdateSchedule,
-    ),
     /** Start a stopped Service. */
     startService: this.requestFunctionFactory(
       descriptors.containerStartService,
@@ -302,6 +302,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Validate a Registries' credentials. */
     validateRegistryCredentials: this.requestFunctionFactory(
       descriptors.containerValidateRegistryCredentials,
+    ),
+    /** Set an update schedule for a Stack. */
+    setStackUpdateSchedule: this.requestFunctionFactory(
+      descriptors.containerSetStackUpdateSchedule,
     ),
   };
 
@@ -346,6 +350,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Return the Contract for the given LeadFyndrProfile. */
     getDetailOfContractByLeadFyndr: this.requestFunctionFactory(
       descriptors.contractGetDetailOfContractByLeadFyndr,
+    ),
+    /** Return the Contract for the given License. */
+    getDetailOfContractByLicense: this.requestFunctionFactory(
+      descriptors.contractGetDetailOfContractByLicense,
     ),
     /** Return the Contract for the given Mail Address. */
     getDetailOfContractByMailAddress: this.requestFunctionFactory(
@@ -414,10 +422,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Preview TariffChange. */
     orderPreviewTariffChange: this.requestFunctionFactory(
       descriptors.orderPreviewTariffChange,
-    ),
-    /** Return the Contract for the given License. */
-    getDetailOfContractByLicense: this.requestFunctionFactory(
-      descriptors.contractGetDetailOfContractByLicense,
     ),
   };
 

@@ -555,6 +555,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace BackupUpdateProjectBackupExpirationTime {
+      type RequestData = InferredRequestData<
+        typeof descriptors.backupUpdateProjectBackupExpirationTime
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.backupUpdateProjectBackupExpirationTime,
+          TStatus
+        >;
+    }
+
     namespace ContainerListRegistries {
       type RequestData = InferredRequestData<
         typeof descriptors.containerListRegistries
@@ -745,17 +756,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace ContainerSetStackUpdateSchedule {
-      type RequestData = InferredRequestData<
-        typeof descriptors.containerSetStackUpdateSchedule
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.containerSetStackUpdateSchedule,
-          TStatus
-        >;
-    }
-
     namespace ContainerStartService {
       type RequestData = InferredRequestData<
         typeof descriptors.containerStartService
@@ -900,6 +900,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.contractGetDetailOfContractByLeadFyndr,
+          TStatus
+        >;
+    }
+
+    namespace ContractGetDetailOfContractByLicense {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contractGetDetailOfContractByLicense
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contractGetDetailOfContractByLicense,
           TStatus
         >;
     }
@@ -4570,13 +4581,13 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace ContractGetDetailOfContractByLicense {
+    namespace ContainerSetStackUpdateSchedule {
       type RequestData = InferredRequestData<
-        typeof descriptors.contractGetDetailOfContractByLicense
+        typeof descriptors.containerSetStackUpdateSchedule
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.contractGetDetailOfContractByLicense,
+          typeof descriptors.containerSetStackUpdateSchedule,
           TStatus
         >;
     }
@@ -5201,296 +5212,6 @@ export declare module MittwaldAPIV2 {
          * Price in cents.
          */
         priceInCents: number;
-      }
-
-      export interface ContainerCreateRegistry {
-        credentials?: MittwaldAPIV2.Components.Schemas.ContainerSetRegistryCredentials;
-        description: string;
-        uri: string;
-      }
-
-      export interface ContainerContainerImageConfig {
-        /**
-         * Command of the container image.
-         */
-        command?: string[];
-        /**
-         * The image digest.
-         */
-        digest: string;
-        /**
-         * Entrypoint of the container image.
-         */
-        entrypoint?: string[];
-        /**
-         * List of environment variables the container image has.
-         */
-        env?: MittwaldAPIV2.Components.Schemas.ContainerContainerImageConfigEnv[];
-        /**
-         * List of exposed ports the container image has.
-         */
-        exposedPorts?: MittwaldAPIV2.Components.Schemas.ContainerContainerImageConfigExposedPort[];
-        /**
-         * Whether the image config has ai generated data.
-         */
-        hasAiGeneratedData: boolean;
-        /**
-         * Whether ai generation is available for the image reference.
-         */
-        isAiAvailable: boolean;
-        /**
-         * Whether the container user is root.
-         */
-        isUserRoot: boolean;
-        /**
-         * @deprecated
-         * Deprecated, user will never be overwritten.
-         */
-        overwritingUser?: number;
-        /**
-         * The user the container image is running with.
-         */
-        user: string;
-        /**
-         * The user id the container image is running with.
-         */
-        userId: number;
-        /**
-         * List of volumes the container image has.
-         */
-        volumes?: MittwaldAPIV2.Components.Schemas.ContainerContainerImageConfigVolume[];
-      }
-
-      export interface ContainerContainerImageConfigEnv {
-        /**
-         * The description of the env key.
-         */
-        description?: string;
-        /**
-         * Whether the env has been ai generated.
-         */
-        isAiGenerated: boolean;
-        /**
-         * Whether the env key is a sensitive field, e.g. password fields.
-         */
-        isSensitive?: boolean;
-        /**
-         * The env key.
-         */
-        key: string;
-        /**
-         * The env default value.
-         */
-        value?: string;
-      }
-
-      export interface ContainerContainerImageConfigExposedPort {
-        /**
-         * The description of the exposed port.
-         */
-        description?: string;
-        /**
-         * Whether the port has been ai generated.
-         */
-        isAiGenerated: boolean;
-        /**
-         * The exposed port.
-         */
-        port: string;
-      }
-
-      export interface ContainerContainerImageConfigVolume {
-        /**
-         * The description of the volume path.
-         */
-        description?: string;
-        /**
-         * Whether the volume has been ai generated.
-         */
-        isAiGenerated: boolean;
-        /**
-         * The volume path.
-         */
-        volume: string;
-      }
-
-      export interface ContainerRegistry {
-        credentials?: MittwaldAPIV2.Components.Schemas.ContainerRegistryCredentials;
-        description: string;
-        id: string;
-        projectId: string;
-        uri: string;
-      }
-
-      export interface ContainerRegistryCredentials {
-        /**
-         * Your registry username.
-         */
-        username: string;
-        /**
-         * Status of the credentials.
-         */
-        valid: boolean;
-      }
-
-      export interface ContainerServiceDeclareRequest {
-        /**
-         * Defaults to image config on empty
-         */
-        command?: string[];
-        deploy?: MittwaldAPIV2.Components.Schemas.ContainerDeploy;
-        description?: string;
-        /**
-         * Defaults to image config on empty
-         */
-        entrypoint?: string[];
-        environment?: {
-          [k: string]: string;
-        };
-        /**
-         * @deprecated
-         * DEPRECATED: Use 'environment' instead. This field will be removed in a future version.
-         */
-        envs?: {
-          [k: string]: string;
-        };
-        image: string;
-        ports?: string[];
-        volumes?: string[];
-      }
-
-      export interface ContainerDeploy {
-        resources?: MittwaldAPIV2.Components.Schemas.ContainerResources;
-      }
-
-      export interface ContainerServiceRequest {
-        /**
-         * Defaults to image config on empty
-         */
-        command?: string[];
-        deploy?: MittwaldAPIV2.Components.Schemas.ContainerDeploy;
-        description?: string;
-        /**
-         * Defaults to image config on empty
-         */
-        entrypoint?: string[];
-        environment?: {
-          [k: string]: string;
-        };
-        /**
-         * @deprecated
-         * Deprecated by 'environment'. This field will be removed in a future version.
-         */
-        envs?: {
-          [k: string]: string;
-        };
-        image?: string;
-        ports?: string[];
-        volumes?: string[];
-      }
-
-      export interface ContainerResourceSpec {
-        cpus?: string;
-        memory?: string;
-      }
-
-      export interface ContainerResources {
-        limits?: MittwaldAPIV2.Components.Schemas.ContainerResourceSpec;
-      }
-
-      export interface ContainerServiceResponse {
-        deploy?: MittwaldAPIV2.Components.Schemas.ContainerDeploy;
-        deployedState: MittwaldAPIV2.Components.Schemas.ContainerServiceState;
-        description: string;
-        id: string;
-        message?: string;
-        pendingState: MittwaldAPIV2.Components.Schemas.ContainerServiceState;
-        projectId: string;
-        requiresRecreate: boolean;
-        serviceName: string;
-        shortId: string;
-        stackId: string;
-        status: MittwaldAPIV2.Components.Schemas.ContainerServiceStatus;
-        statusSetAt: string;
-      }
-
-      export interface ContainerServiceState {
-        command?: string[];
-        entrypoint?: string[];
-        envs?: {
-          [k: string]: string;
-        };
-        image: string;
-        imageDigest?: string;
-        ports?: string[];
-        volumes?: string[];
-      }
-
-      export type ContainerServiceStatus =
-        | "running"
-        | "stopped"
-        | "restarting"
-        | "error"
-        | "creating"
-        | "starting";
-
-      export interface ContainerSetRegistryCredentials {
-        /**
-         * Your registry password or access token.
-         */
-        password: string;
-        /**
-         * Your registry username, use 'oauth2accesstoken' for access token authentication.
-         */
-        username: string;
-      }
-
-      export type ContainerServiceSortOrder =
-        | "descriptionAsc"
-        | "descriptionDesc";
-
-      export interface ContainerStackResponse {
-        description: string;
-        disabled: boolean;
-        id: string;
-        /**
-         * Prefix for all service-names in this stack.
-         */
-        prefix: string;
-        projectId: string;
-        services?: MittwaldAPIV2.Components.Schemas.ContainerServiceResponse[];
-        updateSchedule?: {
-          cron: string;
-          timezone?: string;
-        } | null;
-        volumes?: MittwaldAPIV2.Components.Schemas.ContainerVolumeResponse[];
-      }
-
-      export interface ContainerUpdateRegistry {
-        credentials?: MittwaldAPIV2.Components.Schemas.ContainerSetRegistryCredentials | null;
-        description?: string;
-        uri?: string;
-      }
-
-      export interface ContainerVolumeDeclareRequest {
-        name: string;
-      }
-
-      export interface ContainerVolumeRequest {
-        name?: string;
-      }
-
-      export interface ContainerVolumeResponse {
-        id: string;
-        linkedServices?: string[];
-        name: string;
-        /**
-         * Whether the Volume is attached to a Stack.
-         */
-        orphaned: boolean;
-        stackId: string;
-        storageUsageInBytes: number;
-        storageUsageInBytesSetAt: string;
       }
 
       export interface ContractAggregateReference {
@@ -7164,59 +6885,6 @@ export declare module MittwaldAPIV2 {
         id: string;
       }
 
-      export interface FileFileMeta {
-        /**
-         * @deprecated
-         * deprecated, see friendlyUrl
-         */
-        friendlyURL: string;
-        friendlyUrl: string;
-        id: string;
-        mimeType: string;
-        name: string;
-        sizeInBytes: number;
-        /**
-         * @deprecated
-         * deprecated, see mimeType
-         */
-        type: string;
-      }
-
-      export interface FileFileType {
-        extensions: string[];
-        mimeType: string;
-      }
-
-      export interface FileFileUploadRules {
-        extensions: string[];
-        fileTypes: MittwaldAPIV2.Components.Schemas.FileFileType[];
-        maxNameLength: number;
-        maxSizeInBytes: number;
-        /**
-         * @deprecated
-         * deprecated, see maxSizeInBytes
-         */
-        maxSizeInKB: number;
-        /**
-         * @deprecated
-         * deprecated, see maxSizeInBytes
-         */
-        maxSizeInKb: number;
-        mimeTypes: string[];
-        properties?: {
-          imageDimensions?: {
-            max?: {
-              height?: number;
-              width?: number;
-            };
-            min?: {
-              height?: number;
-              width?: number;
-            };
-          };
-        };
-      }
-
       export interface IngressIngress {
         /**
          * A list of errors that occurred while validating the ingress's dns before requesting a certificate.
@@ -8024,201 +7692,6 @@ export declare module MittwaldAPIV2 {
         extensionInstanceId: string;
         parentCustomerId: string;
       }
-
-      export type MembershipCustomerInheritedRoles =
-        | "notset"
-        | "owner"
-        | "member"
-        | "accountant";
-
-      export interface MembershipCustomerInvite {
-        /**
-         * Reference to the Customer's avatar.
-         */
-        avatarRefId?: string;
-        /**
-         * ID of the Customer the invite is for.
-         */
-        customerId: string;
-        /**
-         * Name of the Customer the user is invited to.
-         */
-        customerName: string;
-        /**
-         * ID of the CustomerInvite.
-         */
-        id: string;
-        information: MittwaldAPIV2.Components.Schemas.MembershipInviteInformation;
-        /**
-         * Mail-address of the user the invite is for.
-         */
-        mailAddress: string;
-        /**
-         * Time the CustomerMembership should expire at.
-         */
-        membershipExpiresAt?: string;
-        /**
-         * Message contained in the CustomerInvite.
-         */
-        message?: string;
-        role: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
-      }
-
-      export interface MembershipCustomerMembership {
-        /**
-         * Avatar file reference id of the user.
-         */
-        avatarRef?: string;
-        /**
-         * ID of the Customer the CustomerMembership is for.
-         */
-        customerId: string;
-        /**
-         * Email used by the invited user.
-         */
-        email: string;
-        /**
-         * Time the CustomerMembership should expire at.
-         */
-        expiresAt?: string;
-        /**
-         * First name of the user.
-         */
-        firstName: string;
-        /**
-         * ID of the CustomerMembership.
-         */
-        id: string;
-        /**
-         * ID of the CustomerInvite the membership was created from.
-         */
-        inviteId?: string;
-        /**
-         * Last name of the user.
-         */
-        lastName: string;
-        /**
-         * Date the CustomerMembership was created at.
-         */
-        memberSince?: string;
-        /**
-         * MFA activated by the user.
-         */
-        mfa: boolean;
-        role: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
-        /**
-         * ID of the user the CustomerMembership is for.
-         */
-        userId: string;
-      }
-
-      export type MembershipCustomerRoles =
-        | "notset"
-        | "owner"
-        | "member"
-        | "accountant";
-
-      export interface MembershipInviteInformation {
-        /**
-         * Token for authentication purposes.
-         */
-        invitationToken?: string;
-        /**
-         * ID of the user that created the invite.
-         */
-        invitedBy: string;
-      }
-
-      export interface MembershipProjectInvite {
-        /**
-         * Reference to the Project's avatar.
-         */
-        avatarRefId?: string;
-        /**
-         * ID of the ProjectInvite.
-         */
-        id: string;
-        information: MittwaldAPIV2.Components.Schemas.MembershipInviteInformation;
-        /**
-         * Mail-address of the user the ProjectInvite is for.
-         */
-        mailAddress: string;
-        /**
-         * Time the ProjectMembership should expire at.
-         */
-        membershipExpiresAt?: string;
-        /**
-         * Message contained in the ProjectInvite.
-         */
-        message?: string;
-        /**
-         * Description of the Project the invite is created for.
-         */
-        projectDescription: string;
-        /**
-         * ID of the Project the invitation is for.
-         */
-        projectId: string;
-        role: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
-      }
-
-      export interface MembershipProjectMembership {
-        /**
-         * Avatar file reference id of the user.
-         */
-        avatarRef?: string;
-        /**
-         * Email used by the invited user.
-         */
-        email: string;
-        /**
-         * Time the ProjectMembership should expire at.
-         */
-        expiresAt?: string;
-        /**
-         * First name of the user.
-         */
-        firstName: string;
-        /**
-         * ID of the ProjectMembership.
-         */
-        id: string;
-        /**
-         * Whether the ProjectMembership was inherited from a CustomerMembership.
-         */
-        inherited: boolean;
-        /**
-         * ID of the ProjectInvite the membership was created from.
-         */
-        inviteId?: string;
-        /**
-         * Last name of the user.
-         */
-        lastName: string;
-        /**
-         * Date the projectMembership was created at.
-         */
-        memberSince?: string;
-        /**
-         * MFA activated by the user.
-         */
-        mfa: boolean;
-        /**
-         * ID of the Project the membership is for.
-         */
-        projectId: string;
-        role: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
-        /**
-         * ID of the user the ProjectMembership is for.
-         */
-        userId: string;
-      }
-
-      export type MembershipProjectRoles =
-        | "notset"
-        | "owner"
-        | "emailadmin"
-        | "external";
 
       export interface MessagingAggregateReference {
         aggregate: string;
@@ -9364,20 +8837,558 @@ export declare module MittwaldAPIV2 {
         | "IS_NOT_MITTWALD"
         | "COULD_BE_MITTWALD";
 
-      export type VerificationVerifyAddressConfidence =
-        | "EXISTS"
-        | "UNSURE"
-        | "NON_EXISTENT";
+      export interface FileFileType {
+        extensions: string[];
+        mimeType: string;
+      }
+
+      export interface FileFileMeta {
+        /**
+         * @deprecated
+         * deprecated, see friendlyUrl
+         */
+        friendlyURL: string;
+        friendlyUrl: string;
+        id: string;
+        mimeType: string;
+        name: string;
+        sizeInBytes: number;
+        /**
+         * @deprecated
+         * deprecated, see mimeType
+         */
+        type: string;
+      }
+
+      export interface FileFileUploadRules {
+        extensions: string[];
+        fileTypes: MittwaldAPIV2.Components.Schemas.FileFileType[];
+        maxNameLength: number;
+        maxSizeInBytes: number;
+        /**
+         * @deprecated
+         * deprecated, see maxSizeInBytes
+         */
+        maxSizeInKB: number;
+        /**
+         * @deprecated
+         * deprecated, see maxSizeInBytes
+         */
+        maxSizeInKb: number;
+        mimeTypes: string[];
+        properties?: {
+          imageDimensions?: {
+            max?: {
+              height?: number;
+              width?: number;
+            };
+            min?: {
+              height?: number;
+              width?: number;
+            };
+          };
+        };
+      }
+
+      export interface MembershipCustomerInvite {
+        /**
+         * Reference to the Customer's avatar.
+         */
+        avatarRefId?: string;
+        /**
+         * ID of the Customer the invite is for.
+         */
+        customerId: string;
+        /**
+         * Name of the Customer the user is invited to.
+         */
+        customerName: string;
+        /**
+         * ID of the CustomerInvite.
+         */
+        id: string;
+        information: MittwaldAPIV2.Components.Schemas.MembershipInviteInformation;
+        /**
+         * Mail-address of the user the invite is for.
+         */
+        mailAddress: string;
+        /**
+         * Time the CustomerMembership should expire at.
+         */
+        membershipExpiresAt?: string;
+        /**
+         * Message contained in the CustomerInvite.
+         */
+        message?: string;
+        role: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
+      }
+
+      export interface MembershipInviteInformation {
+        /**
+         * Token for authentication purposes.
+         */
+        invitationToken?: string;
+        /**
+         * ID of the user that created the invite.
+         */
+        invitedBy: string;
+      }
+
+      export type MembershipCustomerInheritedRoles =
+        | "notset"
+        | "owner"
+        | "member"
+        | "accountant";
+
+      export interface MembershipProjectMembership {
+        /**
+         * Avatar file reference id of the user.
+         */
+        avatarRef?: string;
+        /**
+         * Email used by the invited user.
+         */
+        email: string;
+        /**
+         * Time the ProjectMembership should expire at.
+         */
+        expiresAt?: string;
+        /**
+         * First name of the user.
+         */
+        firstName: string;
+        /**
+         * ID of the ProjectMembership.
+         */
+        id: string;
+        /**
+         * Whether the ProjectMembership was inherited from a CustomerMembership.
+         */
+        inherited: boolean;
+        /**
+         * ID of the ProjectInvite the membership was created from.
+         */
+        inviteId?: string;
+        /**
+         * Last name of the user.
+         */
+        lastName: string;
+        /**
+         * Date the projectMembership was created at.
+         */
+        memberSince?: string;
+        /**
+         * MFA activated by the user.
+         */
+        mfa: boolean;
+        /**
+         * ID of the Project the membership is for.
+         */
+        projectId: string;
+        role: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
+        /**
+         * ID of the user the ProjectMembership is for.
+         */
+        userId: string;
+      }
+
+      export type MembershipProjectRoles =
+        | "notset"
+        | "owner"
+        | "emailadmin"
+        | "external";
+
+      export interface MembershipCustomerMembership {
+        /**
+         * Avatar file reference id of the user.
+         */
+        avatarRef?: string;
+        /**
+         * ID of the Customer the CustomerMembership is for.
+         */
+        customerId: string;
+        /**
+         * Email used by the invited user.
+         */
+        email: string;
+        /**
+         * Time the CustomerMembership should expire at.
+         */
+        expiresAt?: string;
+        /**
+         * First name of the user.
+         */
+        firstName: string;
+        /**
+         * ID of the CustomerMembership.
+         */
+        id: string;
+        /**
+         * ID of the CustomerInvite the membership was created from.
+         */
+        inviteId?: string;
+        /**
+         * Last name of the user.
+         */
+        lastName: string;
+        /**
+         * Date the CustomerMembership was created at.
+         */
+        memberSince?: string;
+        /**
+         * MFA activated by the user.
+         */
+        mfa: boolean;
+        role: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
+        /**
+         * ID of the user the CustomerMembership is for.
+         */
+        userId: string;
+      }
+
+      export type MembershipCustomerRoles =
+        | "notset"
+        | "owner"
+        | "member"
+        | "accountant";
+
+      export interface MembershipProjectInvite {
+        /**
+         * Reference to the Project's avatar.
+         */
+        avatarRefId?: string;
+        /**
+         * ID of the ProjectInvite.
+         */
+        id: string;
+        information: MittwaldAPIV2.Components.Schemas.MembershipInviteInformation;
+        /**
+         * Mail-address of the user the ProjectInvite is for.
+         */
+        mailAddress: string;
+        /**
+         * Time the ProjectMembership should expire at.
+         */
+        membershipExpiresAt?: string;
+        /**
+         * Message contained in the ProjectInvite.
+         */
+        message?: string;
+        /**
+         * Description of the Project the invite is created for.
+         */
+        projectDescription: string;
+        /**
+         * ID of the Project the invitation is for.
+         */
+        projectId: string;
+        role: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
+      }
 
       export interface VerificationVerifyAddressResponse {
         exists: boolean;
       }
+
+      export type VerificationVerifyAddressConfidence =
+        | "EXISTS"
+        | "UNSURE"
+        | "NON_EXISTENT";
 
       export type ContainerVolumeSortOrder =
         | "nameAsc"
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface ContainerContainerImageConfigExposedPort {
+        /**
+         * The description of the exposed port.
+         */
+        description?: string;
+        /**
+         * Whether the port has been ai generated.
+         */
+        isAiGenerated: boolean;
+        /**
+         * The exposed port.
+         */
+        port: string;
+      }
+
+      export interface ContainerRegistryCredentials {
+        /**
+         * Your registry username.
+         */
+        username: string;
+        /**
+         * Status of the credentials.
+         */
+        valid: boolean;
+      }
+
+      export interface ContainerResources {
+        limits?: MittwaldAPIV2.Components.Schemas.ContainerResourceSpec;
+      }
+
+      export interface ContainerSetRegistryCredentials {
+        /**
+         * Your registry password or access token.
+         */
+        password: string;
+        /**
+         * Your registry username, use 'oauth2accesstoken' for access token authentication.
+         */
+        username: string;
+      }
+
+      export interface ContainerContainerImageConfig {
+        /**
+         * Command of the container image.
+         */
+        command?: string[];
+        /**
+         * The image digest.
+         */
+        digest: string;
+        /**
+         * Entrypoint of the container image.
+         */
+        entrypoint?: string[];
+        /**
+         * List of environment variables the container image has.
+         */
+        env?: MittwaldAPIV2.Components.Schemas.ContainerContainerImageConfigEnv[];
+        /**
+         * List of exposed ports the container image has.
+         */
+        exposedPorts?: MittwaldAPIV2.Components.Schemas.ContainerContainerImageConfigExposedPort[];
+        /**
+         * Whether the image config has ai generated data.
+         */
+        hasAiGeneratedData: boolean;
+        /**
+         * Whether ai generation is available for the image reference.
+         */
+        isAiAvailable: boolean;
+        /**
+         * Whether the container user is root.
+         */
+        isUserRoot: boolean;
+        /**
+         * @deprecated
+         * Deprecated, user will never be overwritten.
+         */
+        overwritingUser?: number;
+        /**
+         * The user the container image is running with.
+         */
+        user: string;
+        /**
+         * The user id the container image is running with.
+         */
+        userId: number;
+        /**
+         * List of volumes the container image has.
+         */
+        volumes?: MittwaldAPIV2.Components.Schemas.ContainerContainerImageConfigVolume[];
+      }
+
+      export interface ContainerContainerImageConfigVolume {
+        /**
+         * The description of the volume path.
+         */
+        description?: string;
+        /**
+         * Whether the volume has been ai generated.
+         */
+        isAiGenerated: boolean;
+        /**
+         * The volume path.
+         */
+        volume: string;
+      }
+
+      export interface ContainerServiceState {
+        command?: string[];
+        entrypoint?: string[];
+        envs?: {
+          [k: string]: string;
+        };
+        image: string;
+        imageDigest?: string;
+        ports?: string[];
+        volumes?: string[];
+      }
+
+      export interface ContainerServiceDeclareRequest {
+        /**
+         * Defaults to image config on empty
+         */
+        command?: string[];
+        deploy?: MittwaldAPIV2.Components.Schemas.ContainerDeploy;
+        description?: string;
+        /**
+         * Defaults to image config on empty
+         */
+        entrypoint?: string[];
+        environment?: {
+          [k: string]: string;
+        };
+        /**
+         * @deprecated
+         * DEPRECATED: Use 'environment' instead. This field will be removed in a future version.
+         */
+        envs?: {
+          [k: string]: string;
+        };
+        image: string;
+        ports?: string[];
+        volumes?: string[];
+      }
+
+      export type ContainerServiceSortOrder =
+        | "descriptionAsc"
+        | "descriptionDesc";
+
+      export interface ContainerCreateRegistry {
+        credentials?: MittwaldAPIV2.Components.Schemas.ContainerSetRegistryCredentials;
+        description: string;
+        uri: string;
+      }
+
+      export type ContainerServiceStatus =
+        | "running"
+        | "stopped"
+        | "restarting"
+        | "error"
+        | "creating"
+        | "starting";
+
+      export interface ContainerUpdateRegistry {
+        credentials?: MittwaldAPIV2.Components.Schemas.ContainerSetRegistryCredentials | null;
+        description?: string;
+        uri?: string;
+      }
+
+      export interface ContainerVolumeDeclareRequest {
+        name: string;
+      }
+
+      export interface ContainerDeploy {
+        resources?: MittwaldAPIV2.Components.Schemas.ContainerResources;
+      }
+
+      export interface ContainerServiceResponse {
+        deploy?: MittwaldAPIV2.Components.Schemas.ContainerDeploy;
+        deployedState: MittwaldAPIV2.Components.Schemas.ContainerServiceState;
+        description: string;
+        id: string;
+        message?: string;
+        pendingState: MittwaldAPIV2.Components.Schemas.ContainerServiceState;
+        projectId: string;
+        requiresRecreate: boolean;
+        serviceName: string;
+        shortId: string;
+        stackId: string;
+        status: MittwaldAPIV2.Components.Schemas.ContainerServiceStatus;
+        statusSetAt: string;
+      }
+
+      export interface ContainerContainerImageConfigEnv {
+        /**
+         * The description of the env key.
+         */
+        description?: string;
+        /**
+         * Whether the env has been ai generated.
+         */
+        isAiGenerated: boolean;
+        /**
+         * Whether the env key is a sensitive field, e.g. password fields.
+         */
+        isSensitive?: boolean;
+        /**
+         * The env key.
+         */
+        key: string;
+        /**
+         * The env default value.
+         */
+        value?: string;
+      }
+
+      export interface ContainerRegistry {
+        credentials?: MittwaldAPIV2.Components.Schemas.ContainerRegistryCredentials;
+        description: string;
+        id: string;
+        projectId: string;
+        uri: string;
+      }
+
+      export interface ContainerVolumeRequest {
+        name?: string;
+      }
+
+      export interface ContainerResourceSpec {
+        cpus?: string;
+        memory?: string;
+      }
+
+      export interface ContainerVolumeResponse {
+        id: string;
+        linkedServices?: string[];
+        name: string;
+        /**
+         * Whether the Volume is attached to a Stack.
+         */
+        orphaned: boolean;
+        stackId: string;
+        storageUsageInBytes: number;
+        storageUsageInBytesSetAt: string;
+      }
+
+      export interface ContainerStackResponse {
+        description: string;
+        disabled: boolean;
+        id: string;
+        /**
+         * Prefix for all service-names in this stack.
+         */
+        prefix: string;
+        projectId: string;
+        services?: MittwaldAPIV2.Components.Schemas.ContainerServiceResponse[];
+        updateSchedule?: {
+          cron: string;
+          timezone?: string;
+        } | null;
+        volumes?: MittwaldAPIV2.Components.Schemas.ContainerVolumeResponse[];
+      }
+
+      export interface ContainerServiceRequest {
+        /**
+         * Defaults to image config on empty
+         */
+        command?: string[];
+        deploy?: MittwaldAPIV2.Components.Schemas.ContainerDeploy;
+        description?: string;
+        /**
+         * Defaults to image config on empty
+         */
+        entrypoint?: string[];
+        environment?: {
+          [k: string]: string;
+        };
+        /**
+         * @deprecated
+         * Deprecated by 'environment'. This field will be removed in a future version.
+         */
+        envs?: {
+          [k: string]: string;
+        };
+        image?: string;
+        ports?: string[];
+        volumes?: string[];
+      }
 
       export interface CommonsAddress {
         street: string;
@@ -12712,6 +12723,75 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2ProjectBackupsProjectBackupIdExpirationTime {
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            projectBackupId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * Time when to expire the Backup.
+             */
+            expirationTime?: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2ProjectsProjectIdRegistries {
       namespace Get {
         namespace Parameters {
@@ -14222,94 +14302,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2StacksStackIdUpdateSchedule {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            stackId: string;
-          };
-
-          export interface RequestBody {
-            updateSchedule?: {
-              cron: string;
-              /**
-               * Valid timezones can be retrieved via GET /v2/time-zones
-               */
-              timezone?: string;
-            };
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2StacksStackIdServicesServiceIdActionsStart {
       namespace Post {
         namespace Parameters {
@@ -15182,6 +15174,61 @@ export declare module MittwaldAPIV2 {
         namespace Parameters {
           export type Path = {
             customerId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ContractContract;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2LicensesLicenseIdContract {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            licenseId: string;
           };
 
           export type Header =
@@ -37059,12 +37106,22 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2LicensesLicenseIdContract {
-      namespace Get {
+    namespace V2StacksStackIdUpdateSchedule {
+      namespace Put {
         namespace Parameters {
           export type Path = {
-            licenseId: string;
+            stackId: string;
           };
+
+          export interface RequestBody {
+            updateSchedule?: {
+              cron: string;
+              /**
+               * Valid timezones can be retrieved via GET /v2/time-zones
+               */
+              timezone?: string;
+            };
+          }
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -37072,14 +37129,21 @@ export declare module MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.ContractContract;
+              export type Empty = unknown;
             }
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -37095,7 +37159,23 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
