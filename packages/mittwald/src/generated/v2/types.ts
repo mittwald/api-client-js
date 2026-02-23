@@ -4580,6 +4580,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace ContainerSetStackUpdateSchedule {
+      type RequestData = InferredRequestData<
+        typeof descriptors.containerSetStackUpdateSchedule
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.containerSetStackUpdateSchedule,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -9198,28 +9209,62 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface ContainerServiceState {
+        /**
+         * The container command (equivalent to the [Docker cmd](https://docs.docker.com/reference/dockerfile/#cmd)). When omitted, this defaults to the command defined in the image.
+         *
+         */
         command?: string[];
+        /**
+         * The container entrypoint (equivalent to the [Docker entrypoint](https://docs.docker.com/reference/dockerfile/#entrypoint)). When omitted, this defaults to the entrypoint defined in the image.
+         *
+         */
         entrypoint?: string[];
+        /**
+         * Key-value map of environment variables that should be passed into the container.
+         *
+         */
         envs?: {
           [k: string]: string;
         };
+        /**
+         * The image to run, in the usual format also used by `docker run` and `docker compose`. When the image is pulled from a private registry, make sure to create it first, using the `container-create-registry` endpoint. The appropriate registry is matched by hostname.
+         *
+         */
         image: string;
+        /**
+         * The digest of the image that is currently deployed.
+         *
+         */
         imageDigest?: string;
+        /**
+         * Exposed ports. Follows the format `<public-port>:<container-port>/<protocol>`. Exposed ports can be accessed from other containers (or managed apps) within the same project. To expose a port publicly, connect it with an ingress resource.
+         *
+         */
         ports?: string[];
+        /**
+         * Volume mounts for this container. These items always follow the format `<volume>:<mountpoint>`. The `<volume>` may either be a named volume, or a file path in the (always present) project file system (which is shared among containers and managed apps within a project).
+         *
+         */
         volumes?: string[];
       }
 
       export interface ContainerServiceDeclareRequest {
         /**
-         * Defaults to image config on empty
+         * The container command (equivalent to the [Docker cmd](https://docs.docker.com/reference/dockerfile/#cmd)). When omitted, this defaults to the command defined in the image.
+         *
          */
         command?: string[];
         deploy?: MittwaldAPIV2.Components.Schemas.ContainerDeploy;
         description?: string;
         /**
-         * Defaults to image config on empty
+         * The container entrypoint (equivalent to the [Docker entrypoint](https://docs.docker.com/reference/dockerfile/#entrypoint)). When omitted, this defaults to the entrypoint defined in the image.
+         *
          */
         entrypoint?: string[];
+        /**
+         * Key-value map of environment variables that should be passed into the container.
+         *
+         */
         environment?: {
           [k: string]: string;
         };
@@ -9230,8 +9275,20 @@ export declare module MittwaldAPIV2 {
         envs?: {
           [k: string]: string;
         };
+        /**
+         * The image to run, in the usual format also used by `docker run` and `docker compose`. When the image is pulled from a private registry, make sure to create it first, using the `container-create-registry` endpoint. The appropriate registry is matched by hostname.
+         *
+         */
         image: string;
+        /**
+         * Exposed ports. Follows the format `<public-port>:<container-port>/<protocol>`. Exposed ports can be accessed from other containers (or managed apps) within the same project. To expose a port publicly, connect it with an ingress resource.
+         *
+         */
         ports?: string[];
+        /**
+         * Volume mounts for this container. These items always follow the format `<volume>:<mountpoint>`. The `<volume>` may either be a named volume, or a file path in the (always present) project file system (which is shared among containers and managed apps within a project).
+         *
+         */
         volumes?: string[];
       }
 
@@ -9272,11 +9329,19 @@ export declare module MittwaldAPIV2 {
         deployedState: MittwaldAPIV2.Components.Schemas.ContainerServiceState;
         description: string;
         id: string;
+        /**
+         * Message explaining the current state of the container. This may contain information about the current state of the container, or errors that occurred during deployment.
+         *
+         */
         message?: string;
         pendingState: MittwaldAPIV2.Components.Schemas.ContainerServiceState;
         projectId: string;
         requiresRecreate: boolean;
         serviceName: string;
+        /**
+         * A short ID of the container. This is a unique identifier for the container within the project, and can be used to reference it in other API calls, or for SSH connections.
+         *
+         */
         shortId: string;
         stackId: string;
         status: MittwaldAPIV2.Components.Schemas.ContainerServiceStatus;
@@ -9319,7 +9384,22 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface ContainerResourceSpec {
+        /**
+         * CPU limit for the container. The value can be specified as a decimal number, where `1` corresponds to
+         * one full CPU core. For example, `0.5` means that the container is limited to using half of a CPU core.
+         *
+         */
         cpus?: string;
+        /**
+         * Memory limit for the container. The value can be specified in bytes or using a suffix to indicate
+         * the unit.
+         *
+         * The format matches the one [used by Docker Compose](https://docs.docker.com/reference/compose-file/extension/#specifying-byte-values):
+         *
+         * > Values express a byte value as a string in `{amount}{byte unit}` format: The supported units are
+         * `b` (bytes), `k` or `kb` (kilo bytes), `m` or `mb` (mega bytes) and `g` or `gb` (giga bytes).
+         *
+         */
         memory?: string;
       }
 
@@ -9355,15 +9435,21 @@ export declare module MittwaldAPIV2 {
 
       export interface ContainerServiceRequest {
         /**
-         * Defaults to image config on empty
+         * The container command (equivalent to the [Docker cmd](https://docs.docker.com/reference/dockerfile/#cmd)). When omitted, this defaults to the command defined in the image.
+         *
          */
         command?: string[];
         deploy?: MittwaldAPIV2.Components.Schemas.ContainerDeploy;
         description?: string;
         /**
-         * Defaults to image config on empty
+         * The container entrypoint (equivalent to the [Docker entrypoint](https://docs.docker.com/reference/dockerfile/#entrypoint)). When omitted, this defaults to the entrypoint defined in the image.
+         *
          */
         entrypoint?: string[];
+        /**
+         * Key-value map of environment variables that should be passed into the container.
+         *
+         */
         environment?: {
           [k: string]: string;
         };
@@ -9374,10 +9460,51 @@ export declare module MittwaldAPIV2 {
         envs?: {
           [k: string]: string;
         };
+        /**
+         * The image to run, in the usual format also used by `docker run` and `docker compose`. When the image is pulled from a private registry, make sure to create it first, using the `container-create-registry` endpoint. The appropriate registry is matched by hostname.
+         *
+         */
         image?: string;
+        /**
+         * Exposed ports. Follows the format `<public-port>:<container-port>/<protocol>`. Exposed ports can be accessed from other containers (or managed apps) within the same project. To expose a port publicly, connect it with an ingress resource.
+         *
+         */
         ports?: string[];
+        /**
+         * Volume mounts for this container. These items always follow the format `<volume>:<mountpoint>`. The `<volume>` may either be a named volume, or a file path in the (always present) project file system (which is shared among containers and managed apps within a project).
+         *
+         */
         volumes?: string[];
       }
+
+      export interface OrderLicenseOrderPreviewResponse {
+        totalPrice: number;
+      }
+
+      export type OrderLicenseOrder = {
+        /**
+         * Describe for which typo3 instance the license will be used.
+         */
+        description: string;
+        licenseType: "typo3";
+        /**
+         * The major version for which a license should be purchased.
+         */
+        majorVersion: number;
+        projectId: string;
+      };
+
+      export type OrderLicenseOrderPreview = {
+        /**
+         * Describe for which typo3 instance the license will be used.
+         */
+        description?: string;
+        licenseType: "typo3";
+        /**
+         * The major version for which a license should be purchased.
+         */
+        majorVersion: number;
+      };
 
       export interface CommonsAddress {
         street: string;
@@ -11276,6 +11403,7 @@ export declare module MittwaldAPIV2 {
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {
+            versionRange?: string;
             recommended?: boolean;
           };
         }
@@ -13006,13 +13134,26 @@ export declare module MittwaldAPIV2 {
           };
 
           export interface RequestBody {
+            /**
+             * A set of containers that should be started in this stack. The key is relevant for
+             * network connectivity between containers, because you can use it as DNS name to
+             * resolve this containers from other containers running in the same project (or from
+             * managed apps running in the same project).
+             *
+             * To **delete** an existing container from a stack using a `PUT` request, simply omit
+             * it from the request body. Using a `PATCH` request, set it to an empty object `{}`.
+             *
+             */
             services?: {
               [
                 k: string
               ]: MittwaldAPIV2.Components.Schemas.ContainerServiceDeclareRequest;
             };
             /**
-             * Volumes belonging to a Stack. Removing results in a detach, delete must be explicit.
+             * A set of named volumes that should be created for this stack. Removing a volume
+             * from this set will not delete the volume (for safety), but only detach it from the
+             * stack. To delete a volume, use the `DELETE /stacks/{stackId}/volumes/{volumeId}` endpoint.
+             *
              */
             volumes?: {
               [
@@ -20815,7 +20956,7 @@ export declare module MittwaldAPIV2 {
 
     namespace V2ContractsContractIdItemsContractItemIdNextTerminationDates {}
 
-    namespace V2CustomerCustomerIdActionsLeave {}
+    namespace V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort {}
 
     namespace V2CustomersCustomerIdActionsLeave {}
 
@@ -30166,7 +30307,8 @@ export declare module MittwaldAPIV2 {
               | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrder
               | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrder
               | MittwaldAPIV2.Components.Schemas.OrderMailArchiveOrder
-              | MittwaldAPIV2.Components.Schemas.OrderAIHostingOrder;
+              | MittwaldAPIV2.Components.Schemas.OrderAIHostingOrder
+              | MittwaldAPIV2.Components.Schemas.OrderLicenseOrder;
             orderType?:
               | "domain"
               | "projectHosting"
@@ -30174,7 +30316,8 @@ export declare module MittwaldAPIV2 {
               | "externalCertificate"
               | "leadFyndr"
               | "mailArchive"
-              | "aiHosting";
+              | "aiHosting"
+              | "license";
           }
 
           export type Header =
@@ -30429,7 +30572,8 @@ export declare module MittwaldAPIV2 {
               | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrderPreview
               | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrderPreview
               | MittwaldAPIV2.Components.Schemas.OrderMailArchiveOrderPreview
-              | MittwaldAPIV2.Components.Schemas.OrderAIHostingOrderPreview;
+              | MittwaldAPIV2.Components.Schemas.OrderAIHostingOrderPreview
+              | MittwaldAPIV2.Components.Schemas.OrderLicenseOrderPreview;
             orderType?:
               | "domain"
               | "projectHosting"
@@ -30437,7 +30581,8 @@ export declare module MittwaldAPIV2 {
               | "externalCertificate"
               | "leadFyndr"
               | "mailArchive"
-              | "aiHosting";
+              | "aiHosting"
+              | "license";
           }
 
           export type Header = {};
@@ -30453,7 +30598,8 @@ export declare module MittwaldAPIV2 {
                 | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrderPreviewResponse
                 | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrderPreviewResponse
                 | MittwaldAPIV2.Components.Schemas.OrderMailArchiveOrderPreviewResponse
-                | MittwaldAPIV2.Components.Schemas.OrderAIHostingOrderPreviewResponse;
+                | MittwaldAPIV2.Components.Schemas.OrderAIHostingOrderPreviewResponse
+                | MittwaldAPIV2.Components.Schemas.OrderLicenseOrderPreviewResponse;
             }
           }
 
@@ -37081,6 +37227,94 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2StacksStackIdUpdateSchedule {
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            stackId: string;
+          };
+
+          export interface RequestBody {
+            updateSchedule?: {
+              cron: string;
+              /**
+               * Valid timezones can be retrieved via GET /v2/time-zones
+               */
+              timezone?: string;
+            };
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
