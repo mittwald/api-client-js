@@ -4580,17 +4580,6 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
-
-    namespace ContainerSetStackUpdateSchedule {
-      type RequestData = InferredRequestData<
-        typeof descriptors.containerSetStackUpdateSchedule
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.containerSetStackUpdateSchedule,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -20826,7 +20815,7 @@ export declare module MittwaldAPIV2 {
 
     namespace V2ContractsContractIdItemsContractItemIdNextTerminationDates {}
 
-    namespace V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort {}
+    namespace V2CustomerCustomerIdActionsLeave {}
 
     namespace V2CustomersCustomerIdActionsLeave {}
 
@@ -22888,6 +22877,10 @@ export declare module MittwaldAPIV2 {
           };
 
           export interface RequestBody {
+            /**
+             * Whether to avoid the email confirmation if possible. If set to true, a transfer lock of 60 days might be applied to the domain.
+             */
+            avoidEmailConfirmation?: boolean;
             /**
              * @minItems 1
              */
@@ -37088,94 +37081,6 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2StacksStackIdUpdateSchedule {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            stackId: string;
-          };
-
-          export interface RequestBody {
-            updateSchedule?: {
-              cron: string;
-              /**
-               * Valid timezones can be retrieved via GET /v2/time-zones
-               */
-              timezone?: string;
-            };
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
