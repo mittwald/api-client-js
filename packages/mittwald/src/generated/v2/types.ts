@@ -893,6 +893,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ContractGetDetailOfContractByLicense {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contractGetDetailOfContractByLicense
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contractGetDetailOfContractByLicense,
+          TStatus
+        >;
+    }
+
     namespace ContractGetDetailOfContractByMailAddress {
       type RequestData = InferredRequestData<
         typeof descriptors.contractGetDetailOfContractByMailAddress
@@ -4486,17 +4497,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.verificationVerifyCompany,
-          TStatus
-        >;
-    }
-
-    namespace ContractGetDetailOfContractByLicense {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contractGetDetailOfContractByLicense
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.contractGetDetailOfContractByLicense,
           TStatus
         >;
     }
@@ -15043,6 +15043,61 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2LicensesLicenseIdContract {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            licenseId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ContractContract;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2MailAddressesMailAddressIdContract {
       namespace Get {
         namespace Parameters {
@@ -20594,8 +20649,6 @@ export declare module MittwaldAPIV2 {
 
     namespace V2ContractsContractIdItemsContractItemIdNextTerminationDates {}
 
-    namespace V2CronjobsCronjobIdExecutionsExecutionIdActionsAbort {}
-
     namespace V2CustomerCustomerIdActionsLeave {}
 
     namespace V2CustomersCustomerIdActionsLeave {}
@@ -22684,6 +22737,10 @@ export declare module MittwaldAPIV2 {
           };
 
           export interface RequestBody {
+            /**
+             * Whether to avoid the email confirmation if possible. If set to true, a transfer lock of 60 days might be applied to the domain.
+             */
+            avoidEmailConfirmation?: boolean;
             /**
              * @minItems 1
              */
@@ -36573,61 +36630,6 @@ export declare module MittwaldAPIV2 {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2LicensesLicenseIdContract {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            licenseId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.ContractContract;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
