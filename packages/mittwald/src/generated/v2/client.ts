@@ -1728,6 +1728,24 @@ export class MittwaldAPIV2Client extends ApiClientBase {
       descriptors.sshUserUpdateSshUser,
     ),
   };
+
+  /** The license API allows you to manage your paid licenses. */
+  public readonly license = {
+    /** Get a license. */
+    getLicense: this.requestFunctionFactory(descriptors.licenseGetLicense),
+    /** List Licenses belonging to a Project. */
+    listLicensesForProject: this.requestFunctionFactory(
+      descriptors.licenseListLicensesForProject,
+    ),
+    /** rotate a License's key, i.e. revoke the old and generate a new one. */
+    rotateLicenseKey: this.requestFunctionFactory(
+      descriptors.licenseRotateLicenseKey,
+    ),
+    /** Validate a License's key for a project. */
+    validateLicenseKeyForProject: this.requestFunctionFactory(
+      descriptors.licenseValidateLicenseKeyForProject,
+    ),
+  };
 }
 
 export default MittwaldAPIV2Client;
