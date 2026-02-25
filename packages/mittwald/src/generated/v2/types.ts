@@ -9252,6 +9252,63 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
+      export interface LicenseAppVersionMeta {
+        description: string;
+      }
+
+      export interface LicenseMeta {
+        appVersion?: MittwaldAPIV2.Components.Schemas.LicenseAppVersionMeta;
+      }
+
+      export interface LicenseKey {
+        key: string;
+      }
+
+      export interface LicenseReference {
+        aggregate: "project";
+        domain: "project";
+        id: string;
+      }
+
+      export interface LicenseKeyResponse {
+        keyReference?:
+          | MittwaldAPIV2.Components.Schemas.LicenseKey
+          | MittwaldAPIV2.Components.Schemas.LicenseExternalKey;
+      }
+
+      export interface LicenseExternalKey {
+        externalKey: string;
+      }
+
+      export type OrderLicenseOrder = {
+        /**
+         * Describe for which typo3 instance the license will be used.
+         */
+        description: string;
+        licenseType: "typo3";
+        /**
+         * The major version for which a license should be purchased.
+         */
+        majorVersion: number;
+        projectId: string;
+      };
+
+      export interface OrderLicenseOrderPreviewResponse {
+        totalPrice: number;
+      }
+
+      export type OrderLicenseOrderPreview = {
+        /**
+         * Describe for which typo3 instance the license will be used.
+         */
+        description?: string;
+        licenseType: "typo3";
+        /**
+         * The major version for which a license should be purchased.
+         */
+        majorVersion: number;
+      };
+
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -29575,7 +29632,8 @@ export declare module MittwaldAPIV2 {
               | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrder
               | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrder
               | MittwaldAPIV2.Components.Schemas.OrderMailArchiveOrder
-              | MittwaldAPIV2.Components.Schemas.OrderAIHostingOrder;
+              | MittwaldAPIV2.Components.Schemas.OrderAIHostingOrder
+              | MittwaldAPIV2.Components.Schemas.OrderLicenseOrder;
             orderType?:
               | "domain"
               | "projectHosting"
@@ -29583,7 +29641,8 @@ export declare module MittwaldAPIV2 {
               | "externalCertificate"
               | "leadFyndr"
               | "mailArchive"
-              | "aiHosting";
+              | "aiHosting"
+              | "license";
           }
 
           export type Header =
@@ -29838,7 +29897,8 @@ export declare module MittwaldAPIV2 {
               | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrderPreview
               | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrderPreview
               | MittwaldAPIV2.Components.Schemas.OrderMailArchiveOrderPreview
-              | MittwaldAPIV2.Components.Schemas.OrderAIHostingOrderPreview;
+              | MittwaldAPIV2.Components.Schemas.OrderAIHostingOrderPreview
+              | MittwaldAPIV2.Components.Schemas.OrderLicenseOrderPreview;
             orderType?:
               | "domain"
               | "projectHosting"
@@ -29846,7 +29906,8 @@ export declare module MittwaldAPIV2 {
               | "externalCertificate"
               | "leadFyndr"
               | "mailArchive"
-              | "aiHosting";
+              | "aiHosting"
+              | "license";
           }
 
           export type Header = {};
@@ -29862,7 +29923,8 @@ export declare module MittwaldAPIV2 {
                 | MittwaldAPIV2.Components.Schemas.OrderExternalCertificateOrderPreviewResponse
                 | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrOrderPreviewResponse
                 | MittwaldAPIV2.Components.Schemas.OrderMailArchiveOrderPreviewResponse
-                | MittwaldAPIV2.Components.Schemas.OrderAIHostingOrderPreviewResponse;
+                | MittwaldAPIV2.Components.Schemas.OrderAIHostingOrderPreviewResponse
+                | MittwaldAPIV2.Components.Schemas.OrderLicenseOrderPreviewResponse;
             }
           }
 
