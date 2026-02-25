@@ -9293,15 +9293,35 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export interface LicenseKey {
-        key: string;
+      export interface LicenseExternalKey {
+        externalKey: string;
       }
 
       export interface LicenseAppVersionMeta {
         description: string;
       }
 
+      export interface LicenseMeta {
+        appVersion?: MittwaldAPIV2.Components.Schemas.LicenseAppVersionMeta;
+      }
+
+      export interface LicenseReference {
+        aggregate: "project";
+        domain: "project";
+        id: string;
+      }
+
+      export interface LicenseKey {
+        key: string;
+      }
+
       export type LicenseKind = "typo3-elts";
+
+      export interface LicenseKeyResponse {
+        keyReference?:
+          | MittwaldAPIV2.Components.Schemas.LicenseKey
+          | MittwaldAPIV2.Components.Schemas.LicenseExternalKey;
+      }
 
       export interface LicenseLicense {
         description: string;
@@ -9314,26 +9334,6 @@ export declare module MittwaldAPIV2 {
         meta: MittwaldAPIV2.Components.Schemas.LicenseMeta;
         reference: MittwaldAPIV2.Components.Schemas.LicenseReference;
         volume?: number;
-      }
-
-      export interface LicenseReference {
-        aggregate: "project";
-        domain: "project";
-        id: string;
-      }
-
-      export interface LicenseMeta {
-        appVersion?: MittwaldAPIV2.Components.Schemas.LicenseAppVersionMeta;
-      }
-
-      export interface LicenseKeyResponse {
-        keyReference?:
-          | MittwaldAPIV2.Components.Schemas.LicenseKey
-          | MittwaldAPIV2.Components.Schemas.LicenseExternalKey;
-      }
-
-      export interface LicenseExternalKey {
-        externalKey: string;
       }
 
       export type OrderLicenseOrder = {
