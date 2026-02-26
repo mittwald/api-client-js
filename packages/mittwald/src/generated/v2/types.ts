@@ -4580,6 +4580,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace ContainerSetStackUpdateSchedule {
+      type RequestData = InferredRequestData<
+        typeof descriptors.containerSetStackUpdateSchedule
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.containerSetStackUpdateSchedule,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -5361,7 +5372,12 @@ export declare module MittwaldAPIV2 {
           [k: string]: string;
         };
         /**
-         * The image to run, in the usual format also used by `docker run` and `docker compose`. When the image is pulled from a private registry, make sure to create it first, using the `container-create-registry` endpoint. The appropriate registry is matched by hostname.
+         * The image to run, in the usual format also used by `docker run` and `docker compose`. When
+         * the image is pulled from a private registry, make sure to create the registry first
+         * using the `container-create-registry` endpoint (you can push the image later, although
+         * the container will remain in a pending state until the image is actually available).
+         *
+         * The appropriate registry is matched by hostname.
          *
          */
         image: string;
@@ -5409,7 +5425,12 @@ export declare module MittwaldAPIV2 {
           [k: string]: string;
         };
         /**
-         * The image to run, in the usual format also used by `docker run` and `docker compose`. When the image is pulled from a private registry, make sure to create it first, using the `container-create-registry` endpoint. The appropriate registry is matched by hostname.
+         * The image to run, in the usual format also used by `docker run` and `docker compose`. When
+         * the image is pulled from a private registry, make sure to create the registry first
+         * using the `container-create-registry` endpoint (you can push the image later, although
+         * the container will remain in a pending state until the image is actually available).
+         *
+         * The appropriate registry is matched by hostname.
          *
          */
         image?: string;
@@ -5492,7 +5513,12 @@ export declare module MittwaldAPIV2 {
           [k: string]: string;
         };
         /**
-         * The image to run, in the usual format also used by `docker run` and `docker compose`. When the image is pulled from a private registry, make sure to create it first, using the `container-create-registry` endpoint. The appropriate registry is matched by hostname.
+         * The image to run, in the usual format also used by `docker run` and `docker compose`. When
+         * the image is pulled from a private registry, make sure to create the registry first
+         * using the `container-create-registry` endpoint (you can push the image later, although
+         * the container will remain in a pending state until the image is actually available).
+         *
+         * The appropriate registry is matched by hostname.
          *
          */
         image: string;
@@ -9451,6 +9477,62 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface LicenseAppVersionMeta {
+        description: string;
+      }
+
+      export type LicenseKind = "typo3-elts";
+
+      export interface LicenseMeta {
+        appVersion?: MittwaldAPIV2.Components.Schemas.LicenseAppVersionMeta;
+      }
+
+      export interface LicenseReference {
+        aggregate: "project";
+        domain: "project";
+        id: string;
+      }
+
+      export interface LicenseLicense {
+        description: string;
+        expiryDate?: string;
+        id: string;
+        keyReference?:
+          | MittwaldAPIV2.Components.Schemas.LicenseKey
+          | MittwaldAPIV2.Components.Schemas.LicenseExternalKey;
+        kind: MittwaldAPIV2.Components.Schemas.LicenseKind;
+        meta: MittwaldAPIV2.Components.Schemas.LicenseMeta;
+        reference: MittwaldAPIV2.Components.Schemas.LicenseReference;
+        volume?: number;
+      }
+
+      export interface LicenseExternalKey {
+        externalKey: string;
+      }
+
+      export interface LicenseKey {
+        key: string;
+      }
+
+      export interface LicenseKeyResponse {
+        keyReference?:
+          | MittwaldAPIV2.Components.Schemas.LicenseKey
+          | MittwaldAPIV2.Components.Schemas.LicenseExternalKey;
+      }
+
+      export type OrderLicenseOrder = {
+        /**
+         * Describe for which typo3 instance the license will be used.
+         */
+        description: string;
+        licenseType: "typo3";
+        /**
+         * The major version for which a license should be purchased.
+         */
+        majorVersion: number;
+        projectId: string;
+      };
 
       export type OrderLicenseOrderPreview = {
         /**
@@ -37236,6 +37318,94 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2StacksStackIdUpdateSchedule {
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            stackId: string;
+          };
+
+          export interface RequestBody {
+            updateSchedule?: {
+              cron: string;
+              /**
+               * Valid timezones can be retrieved via GET /v2/time-zones
+               */
+              timezone?: string;
+            };
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;

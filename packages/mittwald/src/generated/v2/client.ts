@@ -303,6 +303,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     validateRegistryCredentials: this.requestFunctionFactory(
       descriptors.containerValidateRegistryCredentials,
     ),
+    /** Set an update schedule for a Stack. */
+    setStackUpdateSchedule: this.requestFunctionFactory(
+      descriptors.containerSetStackUpdateSchedule,
+    ),
   };
 
   /** The contract API allows you to manage your contracts and orders */
