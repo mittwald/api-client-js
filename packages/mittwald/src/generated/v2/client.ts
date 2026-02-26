@@ -273,7 +273,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listStacks: this.requestFunctionFactory(descriptors.containerListStacks),
     /** List Volumes belonging to a Project. */
     listVolumes: this.requestFunctionFactory(descriptors.containerListVolumes),
-    /** Pulls the latest version of the Service's image and optionally recreates the Service. */
+    /** Pull image and recreate */
     pullImageForService: this.requestFunctionFactory(
       descriptors.containerPullImageForService,
     ),
@@ -298,6 +298,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Validate a Registries' credentials. */
     validateRegistryCredentials: this.requestFunctionFactory(
       descriptors.containerValidateRegistryCredentials,
+    ),
+    /** Set an update schedule for a Stack. */
+    setStackUpdateSchedule: this.requestFunctionFactory(
+      descriptors.containerSetStackUpdateSchedule,
     ),
   };
 
