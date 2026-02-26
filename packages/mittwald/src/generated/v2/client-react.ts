@@ -252,6 +252,11 @@ const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.contractGetDetailOfContractByLeadFyndr,
     baseClient.contract.getDetailOfContractByLeadFyndr,
   ).getApiResource,
+  /** Return the Contract for the given License. */
+  getDetailOfContractByLicense: new ApiCallAsyncResourceFactory(
+    descriptors.contractGetDetailOfContractByLicense,
+    baseClient.contract.getDetailOfContractByLicense,
+  ).getApiResource,
   /** Return the Contract for the given Mail Address. */
   getDetailOfContractByMailAddress: new ApiCallAsyncResourceFactory(
     descriptors.contractGetDetailOfContractByMailAddress,
@@ -321,11 +326,6 @@ const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
   orderListProjectOrders: new ApiCallAsyncResourceFactory(
     descriptors.orderListProjectOrders,
     baseClient.contract.orderListProjectOrders,
-  ).getApiResource,
-  /** Return the Contract for the given License. */
-  getDetailOfContractByLicense: new ApiCallAsyncResourceFactory(
-    descriptors.contractGetDetailOfContractByLicense,
-    baseClient.contract.getDetailOfContractByLicense,
   ).getApiResource,
 });
 
@@ -938,6 +938,11 @@ const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
   getPersonalizedSettings: new ApiCallAsyncResourceFactory(
     descriptors.userGetPersonalizedSettings,
     baseClient.user.getPersonalizedSettings,
+  ).getApiResource,
+  /** Get poll settings for the specified user. */
+  getPollStatus: new ApiCallAsyncResourceFactory(
+    descriptors.userGetPollStatus,
+    baseClient.user.getPollStatus,
   ).getApiResource,
   /** Get a specific session. */
   getSession: new ApiCallAsyncResourceFactory(

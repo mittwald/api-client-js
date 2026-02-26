@@ -303,10 +303,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     validateRegistryCredentials: this.requestFunctionFactory(
       descriptors.containerValidateRegistryCredentials,
     ),
-    /** Set an update schedule for a Stack. */
-    setStackUpdateSchedule: this.requestFunctionFactory(
-      descriptors.containerSetStackUpdateSchedule,
-    ),
   };
 
   /** The contract API allows you to manage your contracts and orders */
@@ -350,6 +346,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Return the Contract for the given LeadFyndrProfile. */
     getDetailOfContractByLeadFyndr: this.requestFunctionFactory(
       descriptors.contractGetDetailOfContractByLeadFyndr,
+    ),
+    /** Return the Contract for the given License. */
+    getDetailOfContractByLicense: this.requestFunctionFactory(
+      descriptors.contractGetDetailOfContractByLicense,
     ),
     /** Return the Contract for the given Mail Address. */
     getDetailOfContractByMailAddress: this.requestFunctionFactory(
@@ -418,10 +418,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Preview TariffChange. */
     orderPreviewTariffChange: this.requestFunctionFactory(
       descriptors.orderPreviewTariffChange,
-    ),
-    /** Return the Contract for the given License. */
-    getDetailOfContractByLicense: this.requestFunctionFactory(
-      descriptors.contractGetDetailOfContractByLicense,
     ),
   };
 
@@ -1364,6 +1360,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updatePersonalizedSettings: this.requestFunctionFactory(
       descriptors.userUpdatePersonalizedSettings,
     ),
+    /** Get poll settings for the specified user. */
+    getPollStatus: this.requestFunctionFactory(descriptors.userGetPollStatus),
+    /** Store new or update poll settings. */
+    postPollStatus: this.requestFunctionFactory(descriptors.userPostPollStatus),
     /** Get a specific session. */
     getSession: this.requestFunctionFactory(descriptors.userGetSession),
     /** Terminate a specific Session. */

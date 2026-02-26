@@ -3778,6 +3778,45 @@ export const contractGetDetailOfContractByLeadFyndr: OpenAPIOperation<
   operationId: "contract-get-detail-of-contract-by-lead-fyndr",
 };
 
+/** Return the Contract for the given License. */
+export const contractGetDetailOfContractByLicense: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdContract.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdContract.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdContract.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdContract.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdContract.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdContract.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdContract.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdContract.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/licenses/{licenseId}/contract",
+  method: "GET",
+  operationId: "contract-get-detail-of-contract-by-license",
+};
+
 /** Return the Contract for the given Mail Address. */
 export const contractGetDetailOfContractByMailAddress: OpenAPIOperation<
   RequestType<
@@ -17165,6 +17204,84 @@ export const userUpdatePersonalizedSettings: OpenAPIOperation<
   operationId: "user-update-personalized-settings",
 };
 
+/** Get poll settings for the specified user. */
+export const userGetPollStatus: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/poll-settings/{userId}",
+  method: "GET",
+  operationId: "user-get-poll-status",
+};
+
+/** Store new or update poll settings. */
+export const userPostPollStatus: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PollSettingsUserId.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/poll-settings/{userId}",
+  method: "POST",
+  operationId: "user-post-poll-status",
+};
+
 /** Get a specific session. */
 export const userGetSession: OpenAPIOperation<
   RequestType<
@@ -17984,97 +18101,4 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
-};
-
-/** Return the Contract for the given License. */
-export const contractGetDetailOfContractByLicense: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdContract.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdContract.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdContract.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdContract.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdContract.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdContract.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdContract.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LicensesLicenseIdContract.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/licenses/{licenseId}/contract",
-  method: "GET",
-  operationId: "contract-get-detail-of-contract-by-license",
-};
-
-/** Set an update schedule for a Stack. */
-export const containerSetStackUpdateSchedule: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdUpdateSchedule.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdUpdateSchedule.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdUpdateSchedule.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdUpdateSchedule.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdUpdateSchedule.Put.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdUpdateSchedule.Put.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdUpdateSchedule.Put.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdUpdateSchedule.Put.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdUpdateSchedule.Put.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdUpdateSchedule.Put.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdUpdateSchedule.Put.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdUpdateSchedule.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/stacks/{stackId}/update-schedule",
-  method: "PUT",
-  operationId: "container-set-stack-update-schedule",
 };
