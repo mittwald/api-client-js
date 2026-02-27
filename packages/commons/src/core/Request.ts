@@ -33,6 +33,13 @@ export class Request<TOp extends OpenAPIOperation> {
       return response as unknown as ResponsePromise<TOp>;
     } catch (e) {
       const error = AxiosError.from(e);
+      /**
+       * Since Axios 1.13.3 the error object does not contain the response
+       * anymore, even if the error is an HTTP error. To maintain the previous
+       * behavior of returning the response even for HTTP errors, the
+       * validateStatus option is set to always return true, which means that
+       * HTTP errors will not throw an error.
+       */
       if (error.isAxiosError && error.response) {
         return error.response as unknown as ResponsePromise<TOp>;
       }
@@ -76,6 +83,12 @@ export class Request<TOp extends OpenAPIOperation> {
       // Must be a plain object or an URLSearchParams object
       params,
       data,
+      /**
+       * The API client is designed to return all responses, regardless of the
+       * status code. This allows the caller to handle error responses as
+       * needed.
+       */
+      validateStatus: () => true,
     };
   }
 
