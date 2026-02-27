@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.311.0](https://github.com/mittwald/api-client-js/compare/4.310.1...4.311.0) (2026-02-27)
+
+### Features
+
+* update generated client ([17b70dd](https://github.com/mittwald/api-client-js/commit/17b70dd12ec2c040f5393440d18c86887e1bfc97))
+
+## [4.310.1](https://github.com/mittwald/api-client-js/compare/4.310.0...4.310.1) (2026-02-27)
+
+### Bug Fixes
+
+* fix issue with Axios > 1.13.2 ([ea4fd7d](https://github.com/mittwald/api-client-js/commit/ea4fd7d4b4617e523599e9e1903561113642c10c))
+
 # [4.310.0](https://github.com/mittwald/api-client-js/compare/4.309.0...4.310.0) (2026-02-26)
 
 ### Features
