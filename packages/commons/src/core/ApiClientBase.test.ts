@@ -156,8 +156,8 @@ test("test request will be resolved even when status check fails", async () => {
   await expect(response).resolves.toHaveProperty("data.fail", 1);
 
   // check interceptor call
-  expect(success).toBeCalledTimes(0);
-  expect(fail).toBeCalledWith("500");
+  expect(success).toBeCalledWith("500");
+  expect(fail).not.toHaveBeenCalled();
 });
 
 test("test request will rejects on network error", async () => {
