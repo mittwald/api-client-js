@@ -5818,6 +5818,17 @@ export declare module MittwaldAPIV2 {
         type: string;
       }
 
+      export interface ConversationGenericStatusUpdate {
+        conversationId: string;
+        createdAt: string;
+        internal?: boolean;
+        messageContent: string;
+        meta?: {
+          user?: MittwaldAPIV2.Components.Schemas.ConversationUser;
+        };
+        type: "STATUS_UPDATE";
+      }
+
       export interface ConversationGroup {
         acronym?: string;
         id: string;
@@ -5880,6 +5891,23 @@ export declare module MittwaldAPIV2 {
             domain: "container";
             id: string;
           };
+
+      export interface ConversationResubmissionStatusUpdate {
+        conversationId: string;
+        createdAt: string;
+        internal?: boolean;
+        messageContent:
+          | "RESUBMISSION_CREATED"
+          | "RESUBMISSION_RESUBMIT_AT_CHANGED";
+        meta?: {
+          groupAcronym: string;
+          groupId: string;
+          groupName: string;
+          resubmitAt: string;
+          user?: MittwaldAPIV2.Components.Schemas.ConversationUser;
+        };
+        type: "STATUS_UPDATE";
+      }
 
       export interface ConversationServiceRequestRelocationPayload {
         contact: {
@@ -9518,78 +9546,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export interface LicenseAppVersionMeta {
-        description: string;
-      }
-
-      export type LicenseKind = "typo3-elts";
-
-      export interface LicenseMeta {
-        appVersion?: MittwaldAPIV2.Components.Schemas.LicenseAppVersionMeta;
-      }
-
-      export interface LicenseKey {
-        key: string;
-      }
-
-      export interface LicenseLicense {
-        description: string;
-        expiryDate?: string;
-        id: string;
-        keyReference?:
-          | MittwaldAPIV2.Components.Schemas.LicenseKey
-          | MittwaldAPIV2.Components.Schemas.LicenseExternalKey;
-        kind: MittwaldAPIV2.Components.Schemas.LicenseKind;
-        meta: MittwaldAPIV2.Components.Schemas.LicenseMeta;
-        reference: MittwaldAPIV2.Components.Schemas.LicenseReference;
-        volume?: number;
-      }
-
-      export interface LicenseReference {
-        aggregate: "project";
-        domain: "project";
-        id: string;
-      }
-
-      export interface LicenseKeyResponse {
-        keyReference?:
-          | MittwaldAPIV2.Components.Schemas.LicenseKey
-          | MittwaldAPIV2.Components.Schemas.LicenseExternalKey;
-      }
-
-      export interface LicenseExternalKey {
-        externalKey: string;
-      }
-
-      export type OrderLicenseOrder = {
-        /**
-         * Describe for which typo3 instance the license will be used.
-         */
-        description: string;
-        licenseType: "typo3";
-        /**
-         * The major version for which a license should be purchased.
-         */
-        majorVersion: number;
-        projectId: string;
-      };
-
-      export interface OrderLicenseOrderPreviewResponse {
-        totalPrice: number;
-      }
-
-      export type OrderLicenseOrderPreview = {
-        /**
-         * Describe for which typo3 instance the license will be used.
-         */
-        description?: string;
-        licenseType: "typo3";
-        /**
-         * The major version for which a license should be purchased.
-         */
-        majorVersion: number;
-      };
 
       export interface CommonsAddress {
         street: string;
