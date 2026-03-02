@@ -29776,6 +29776,7 @@ export declare module MittwaldAPIV2 {
             includesStatus?: MittwaldAPIV2.Components.Schemas.OrderOrderStatus[];
             excludesStatus?: MittwaldAPIV2.Components.Schemas.OrderOrderStatus[];
             templateNames?: string[];
+            types?: MittwaldAPIV2.Components.Schemas.OrderOrderType[];
             limit?: number;
             skip?: number;
             page?: number;
