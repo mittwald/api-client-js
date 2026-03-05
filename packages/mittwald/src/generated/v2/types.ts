@@ -3057,47 +3057,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace LicenseGetLicense {
-      type RequestData = InferredRequestData<
-        typeof descriptors.licenseGetLicense
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.licenseGetLicense, TStatus>;
-    }
-
-    namespace LicenseListLicensesForProject {
-      type RequestData = InferredRequestData<
-        typeof descriptors.licenseListLicensesForProject
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.licenseListLicensesForProject,
-          TStatus
-        >;
-    }
-
-    namespace LicenseRotateLicenseKey {
-      type RequestData = InferredRequestData<
-        typeof descriptors.licenseRotateLicenseKey
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.licenseRotateLicenseKey,
-          TStatus
-        >;
-    }
-
-    namespace LicenseValidateLicenseKeyForProject {
-      type RequestData = InferredRequestData<
-        typeof descriptors.licenseValidateLicenseKeyForProject
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.licenseValidateLicenseKeyForProject,
-          TStatus
-        >;
-    }
-
     namespace MailListDeliveryBoxes {
       type RequestData = InferredRequestData<
         typeof descriptors.mailListDeliveryBoxes
@@ -4538,6 +4497,47 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.verificationVerifyCompany,
+          TStatus
+        >;
+    }
+
+    namespace LicenseGetLicense {
+      type RequestData = InferredRequestData<
+        typeof descriptors.licenseGetLicense
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.licenseGetLicense, TStatus>;
+    }
+
+    namespace LicenseListLicensesForProject {
+      type RequestData = InferredRequestData<
+        typeof descriptors.licenseListLicensesForProject
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.licenseListLicensesForProject,
+          TStatus
+        >;
+    }
+
+    namespace LicenseRotateLicenseKey {
+      type RequestData = InferredRequestData<
+        typeof descriptors.licenseRotateLicenseKey
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.licenseRotateLicenseKey,
+          TStatus
+        >;
+    }
+
+    namespace LicenseValidateLicenseKeyForProject {
+      type RequestData = InferredRequestData<
+        typeof descriptors.licenseValidateLicenseKeyForProject
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.licenseValidateLicenseKeyForProject,
           TStatus
         >;
     }
@@ -7777,49 +7777,6 @@ export declare module MittwaldAPIV2 {
         userId: string;
       }
 
-      export interface LicenseAppVersionMeta {
-        description: string;
-      }
-
-      export interface LicenseExternalKey {
-        externalKey: string;
-      }
-
-      export interface LicenseKey {
-        key: string;
-      }
-
-      export interface LicenseKeyResponse {
-        keyReference?:
-          | MittwaldAPIV2.Components.Schemas.LicenseKey
-          | MittwaldAPIV2.Components.Schemas.LicenseExternalKey;
-      }
-
-      export type LicenseKind = "typo3-elts";
-
-      export interface LicenseLicense {
-        description: string;
-        expiryDate?: string;
-        id: string;
-        keyReference?:
-          | MittwaldAPIV2.Components.Schemas.LicenseKey
-          | MittwaldAPIV2.Components.Schemas.LicenseExternalKey;
-        kind: MittwaldAPIV2.Components.Schemas.LicenseKind;
-        meta: MittwaldAPIV2.Components.Schemas.LicenseMeta;
-        reference: MittwaldAPIV2.Components.Schemas.LicenseReference;
-        volume?: number;
-      }
-
-      export interface LicenseMeta {
-        appVersion?: MittwaldAPIV2.Components.Schemas.LicenseAppVersionMeta;
-      }
-
-      export interface LicenseReference {
-        aggregate: "project";
-        domain: "project";
-        id: string;
-      }
-
       export interface MailCreateMailAddress {
         address: string;
         forwardAddresses?: string[];
@@ -8436,31 +8393,6 @@ export declare module MittwaldAPIV2 {
         unlockLimit: number;
       }
 
-      export type OrderLicenseOrderPreview = {
-        /**
-         * Describe for which typo3 instance the license will be used.
-         */
-        description?: string;
-        licenseType: "typo3";
-        /**
-         * The major version for which a license should be purchased.
-         */
-        majorVersion: number;
-      };
-
-      export type OrderLicenseOrder = {
-        /**
-         * Describe for which typo3 instance the license will be used.
-         */
-        description: string;
-        licenseType: "typo3";
-        /**
-         * The major version for which a license should be purchased.
-         */
-        majorVersion: number;
-        projectId: string;
-      };
-
       export interface OrderMachineTypeSpec {
         machineType?: string;
       }
@@ -8523,10 +8455,6 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface OrderLeadFyndrOrderPreviewResponse {
-        totalPrice: number;
-      }
-
-      export interface OrderLicenseOrderPreviewResponse {
         totalPrice: number;
       }
 
@@ -9481,6 +9409,78 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface LicenseKey {
+        key: string;
+      }
+
+      export interface LicenseAppVersionMeta {
+        description: string;
+      }
+
+      export type LicenseKind = "typo3-elts";
+
+      export interface LicenseLicense {
+        description: string;
+        expiryDate?: string;
+        id: string;
+        keyReference?:
+          | MittwaldAPIV2.Components.Schemas.LicenseKey
+          | MittwaldAPIV2.Components.Schemas.LicenseExternalKey;
+        kind: MittwaldAPIV2.Components.Schemas.LicenseKind;
+        meta: MittwaldAPIV2.Components.Schemas.LicenseMeta;
+        reference: MittwaldAPIV2.Components.Schemas.LicenseReference;
+        volume?: number;
+      }
+
+      export interface LicenseReference {
+        aggregate: "project";
+        domain: "project";
+        id: string;
+      }
+
+      export interface LicenseMeta {
+        appVersion?: MittwaldAPIV2.Components.Schemas.LicenseAppVersionMeta;
+      }
+
+      export interface LicenseKeyResponse {
+        keyReference?:
+          | MittwaldAPIV2.Components.Schemas.LicenseKey
+          | MittwaldAPIV2.Components.Schemas.LicenseExternalKey;
+      }
+
+      export interface LicenseExternalKey {
+        externalKey: string;
+      }
+
+      export type OrderLicenseOrder = {
+        /**
+         * Describe for which typo3 instance the license will be used.
+         */
+        description: string;
+        licenseType: "typo3";
+        /**
+         * The major version for which a license should be purchased.
+         */
+        majorVersion: number;
+        projectId: string;
+      };
+
+      export type OrderLicenseOrderPreview = {
+        /**
+         * Describe for which typo3 instance the license will be used.
+         */
+        description?: string;
+        licenseType: "typo3";
+        /**
+         * The major version for which a license should be purchased.
+         */
+        majorVersion: number;
+      };
+
+      export interface OrderLicenseOrderPreviewResponse {
+        totalPrice: number;
+      }
 
       export interface CommonsAddress {
         street: string;
@@ -27957,310 +27957,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2LicensesLicenseId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            licenseId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LicenseLicense;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectsProjectIdLicenses {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            limit?: number;
-            skip?: number;
-            page?: number;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LicenseLicense[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2LicensesLicenseIdActionsRotateKey {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            licenseId: string;
-          };
-
-          /**
-           * Optional reference to a file containing the new key if it was not procured via mittwald.
-           */
-          export interface RequestBody {
-            externalKey?: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LicenseKeyResponse;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectsProjectIdActionsValidateLicenseKey {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          /**
-           * The License key to validate.
-           */
-          export interface RequestBody {
-            key: string;
-            kind: MittwaldAPIV2.Components.Schemas.LicenseKind;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                valid: boolean;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2ProjectsProjectIdDeliveryboxes {}
 
     namespace V2ProjectsProjectIdDeliveryBoxes {
@@ -34680,6 +34376,10 @@ export declare module MittwaldAPIV2 {
                  */
                 expires: string;
                 /**
+                 * Refresh token to refresh your access token even after it has expired.
+                 */
+                refreshToken: string;
+                /**
                  * Public token to identify yourself against the api gateway.
                  */
                 token: string;
@@ -37188,6 +36888,310 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2LicensesLicenseId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            licenseId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.LicenseLicense;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectsProjectIdLicenses {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.LicenseLicense[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2LicensesLicenseIdActionsRotateKey {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            licenseId: string;
+          };
+
+          /**
+           * Optional reference to a file containing the new key if it was not procured via mittwald.
+           */
+          export interface RequestBody {
+            externalKey?: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.LicenseKeyResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectsProjectIdActionsValidateLicenseKey {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          /**
+           * The License key to validate.
+           */
+          export interface RequestBody {
+            key: string;
+            kind: MittwaldAPIV2.Components.Schemas.LicenseKind;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                valid: boolean;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
