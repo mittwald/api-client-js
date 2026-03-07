@@ -9414,17 +9414,11 @@ export declare module MittwaldAPIV2 {
         description: string;
       }
 
+      export interface LicenseKey {
+        key: string;
+      }
+
       export type LicenseKind = "typo3-elts";
-
-      export interface LicenseMeta {
-        appVersion?: MittwaldAPIV2.Components.Schemas.LicenseAppVersionMeta;
-      }
-
-      export interface LicenseReference {
-        aggregate: "project";
-        domain: "project";
-        id: string;
-      }
 
       export interface LicenseLicense {
         description: string;
@@ -9439,12 +9433,18 @@ export declare module MittwaldAPIV2 {
         volume?: number;
       }
 
-      export interface LicenseExternalKey {
-        externalKey: string;
+      export interface LicenseReference {
+        aggregate: "project";
+        domain: "project";
+        id: string;
       }
 
-      export interface LicenseKey {
-        key: string;
+      export interface LicenseMeta {
+        appVersion?: MittwaldAPIV2.Components.Schemas.LicenseAppVersionMeta;
+      }
+
+      export interface LicenseExternalKey {
+        externalKey: string;
       }
 
       export interface LicenseKeyResponse {
