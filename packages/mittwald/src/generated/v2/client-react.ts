@@ -44,84 +44,6 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** Get an App. */
-  getApp: new ApiCallAsyncResourceFactory(
-    descriptors.appGetApp,
-    baseClient.app.getApp,
-  ).getApiResource,
-  /** Get an AppInstallation. */
-  getAppinstallation: new ApiCallAsyncResourceFactory(
-    descriptors.appGetAppinstallation,
-    baseClient.app.getAppinstallation,
-  ).getApiResource,
-  /** Get an AppVersion. */
-  getAppversion: new ApiCallAsyncResourceFactory(
-    descriptors.appGetAppversion,
-    baseClient.app.getAppversion,
-  ).getApiResource,
-  /** Get the installed `SystemSoftware' for a specific `AppInstallation`. */
-  getInstalledSystemsoftwareForAppinstallation: new ApiCallAsyncResourceFactory(
-    descriptors.appGetInstalledSystemsoftwareForAppinstallation,
-    baseClient.app.getInstalledSystemsoftwareForAppinstallation,
-  ).getApiResource,
-  /** Get the missing requirements of an appInstallation for a specific target AppVersion. */
-  getMissingDependenciesForAppinstallation: new ApiCallAsyncResourceFactory(
-    descriptors.appGetMissingDependenciesForAppinstallation,
-    baseClient.app.getMissingDependenciesForAppinstallation,
-  ).getApiResource,
-  /** Get a SystemSoftware. */
-  getSystemsoftware: new ApiCallAsyncResourceFactory(
-    descriptors.appGetSystemsoftware,
-    baseClient.app.getSystemsoftware,
-  ).getApiResource,
-  /** Get a SystemSoftwareVersion. */
-  getSystemsoftwareversion: new ApiCallAsyncResourceFactory(
-    descriptors.appGetSystemsoftwareversion,
-    baseClient.app.getSystemsoftwareversion,
-  ).getApiResource,
-  /** List AppInstallations that a user has access to. */
-  listAppinstallationsForUser: new ApiCallAsyncResourceFactory(
-    descriptors.appListAppinstallationsForUser,
-    baseClient.app.listAppinstallationsForUser,
-  ).getApiResource,
-  /** List AppInstallations belonging to a Project. */
-  listAppinstallations: new ApiCallAsyncResourceFactory(
-    descriptors.appListAppinstallations,
-    baseClient.app.listAppinstallations,
-  ).getApiResource,
-  /** List Apps. */
-  listApps: new ApiCallAsyncResourceFactory(
-    descriptors.appListApps,
-    baseClient.app.listApps,
-  ).getApiResource,
-  /** List AppVersions belonging to an App. */
-  listAppversions: new ApiCallAsyncResourceFactory(
-    descriptors.appListAppversions,
-    baseClient.app.listAppversions,
-  ).getApiResource,
-  /** List SystemSoftwares. */
-  listSystemsoftwares: new ApiCallAsyncResourceFactory(
-    descriptors.appListSystemsoftwares,
-    baseClient.app.listSystemsoftwares,
-  ).getApiResource,
-  /** List SystemSoftwareVersions belonging to a SystemSoftware. */
-  listSystemsoftwareversions: new ApiCallAsyncResourceFactory(
-    descriptors.appListSystemsoftwareversions,
-    baseClient.app.listSystemsoftwareversions,
-  ).getApiResource,
-  /** List update candidates belonging to an AppVersion. */
-  listUpdateCandidatesForAppversion: new ApiCallAsyncResourceFactory(
-    descriptors.appListUpdateCandidatesForAppversion,
-    baseClient.app.listUpdateCandidatesForAppversion,
-  ).getApiResource,
-  /** Get runtime status belonging to an AppInstallation. */
-  retrieveStatus: new ApiCallAsyncResourceFactory(
-    descriptors.appRetrieveStatus,
-    baseClient.app.retrieveStatus,
-  ).getApiResource,
-});
-
 const buildArticleApi = (baseClient: MittwaldAPIV2Client) => ({
   /** Get an Article. */
   getArticle: new ApiCallAsyncResourceFactory(
@@ -1100,12 +1022,87 @@ const buildSshsftpUserApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
+const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get an App. */
+  getApp: new ApiCallAsyncResourceFactory(
+    descriptors.appGetApp,
+    baseClient.app.getApp,
+  ).getApiResource,
+  /** Get the installed `SystemSoftware' for a specific `AppInstallation`. */
+  getInstalledSystemsoftwareForAppinstallation: new ApiCallAsyncResourceFactory(
+    descriptors.appGetInstalledSystemsoftwareForAppinstallation,
+    baseClient.app.getInstalledSystemsoftwareForAppinstallation,
+  ).getApiResource,
+  /** Get an AppInstallation. */
+  getAppinstallation: new ApiCallAsyncResourceFactory(
+    descriptors.appGetAppinstallation,
+    baseClient.app.getAppinstallation,
+  ).getApiResource,
+  /** List SystemSoftwareVersions belonging to a SystemSoftware. */
+  listSystemsoftwareversions: new ApiCallAsyncResourceFactory(
+    descriptors.appListSystemsoftwareversions,
+    baseClient.app.listSystemsoftwareversions,
+  ).getApiResource,
+  /** Get runtime status belonging to an AppInstallation. */
+  retrieveStatus: new ApiCallAsyncResourceFactory(
+    descriptors.appRetrieveStatus,
+    baseClient.app.retrieveStatus,
+  ).getApiResource,
+  /** List AppInstallations belonging to a Project. */
+  listAppinstallations: new ApiCallAsyncResourceFactory(
+    descriptors.appListAppinstallations,
+    baseClient.app.listAppinstallations,
+  ).getApiResource,
+  /** List Apps. */
+  listApps: new ApiCallAsyncResourceFactory(
+    descriptors.appListApps,
+    baseClient.app.listApps,
+  ).getApiResource,
+  /** List AppInstallations that a user has access to. */
+  listAppinstallationsForUser: new ApiCallAsyncResourceFactory(
+    descriptors.appListAppinstallationsForUser,
+    baseClient.app.listAppinstallationsForUser,
+  ).getApiResource,
+  /** Get a SystemSoftwareVersion. */
+  getSystemsoftwareversion: new ApiCallAsyncResourceFactory(
+    descriptors.appGetSystemsoftwareversion,
+    baseClient.app.getSystemsoftwareversion,
+  ).getApiResource,
+  /** Get a SystemSoftware. */
+  getSystemsoftware: new ApiCallAsyncResourceFactory(
+    descriptors.appGetSystemsoftware,
+    baseClient.app.getSystemsoftware,
+  ).getApiResource,
+  /** Get the missing requirements of an appInstallation for a specific target AppVersion. */
+  getMissingDependenciesForAppinstallation: new ApiCallAsyncResourceFactory(
+    descriptors.appGetMissingDependenciesForAppinstallation,
+    baseClient.app.getMissingDependenciesForAppinstallation,
+  ).getApiResource,
+  /** List SystemSoftwares. */
+  listSystemsoftwares: new ApiCallAsyncResourceFactory(
+    descriptors.appListSystemsoftwares,
+    baseClient.app.listSystemsoftwares,
+  ).getApiResource,
+  /** Get an AppVersion. */
+  getAppversion: new ApiCallAsyncResourceFactory(
+    descriptors.appGetAppversion,
+    baseClient.app.getAppversion,
+  ).getApiResource,
+  /** List AppVersions belonging to an App. */
+  listAppversions: new ApiCallAsyncResourceFactory(
+    descriptors.appListAppversions,
+    baseClient.app.listAppversions,
+  ).getApiResource,
+  /** List update candidates belonging to an AppVersion. */
+  listUpdateCandidatesForAppversion: new ApiCallAsyncResourceFactory(
+    descriptors.appListUpdateCandidatesForAppversion,
+    baseClient.app.listUpdateCandidatesForAppversion,
+  ).getApiResource,
+});
+
 export class MittwaldAPIV2ClientReact {
   /** The AI hosting provides access to multiple large language and embedding models – GDPR compliant and hosted in Germany. */
   public readonly aiHosting: ReturnType<typeof buildAiHostingApi>;
-
-  /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
-  public readonly app: ReturnType<typeof buildAppApi>;
 
   /** The article API allows you to read article information. */
   public readonly article: ReturnType<typeof buildArticleApi>;
@@ -1172,10 +1169,11 @@ export class MittwaldAPIV2ClientReact {
   /** The SSH/SFTP User API allows you to manage your SSH/SFTP users within a project. */
   public readonly sshsftpUser: ReturnType<typeof buildSshsftpUserApi>;
 
+  /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
+  public readonly app: ReturnType<typeof buildAppApi>;
+
   private constructor(baseClient: MittwaldAPIV2Client) {
     this.aiHosting = buildAiHostingApi(baseClient);
-
-    this.app = buildAppApi(baseClient);
 
     this.article = buildArticleApi(baseClient);
 
@@ -1218,6 +1216,8 @@ export class MittwaldAPIV2ClientReact {
     this.projectFileSystem = buildProjectFileSystemApi(baseClient);
 
     this.sshsftpUser = buildSshsftpUserApi(baseClient);
+
+    this.app = buildAppApi(baseClient);
   }
 
   public static fromBaseClient(

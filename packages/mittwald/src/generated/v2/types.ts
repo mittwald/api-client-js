@@ -150,230 +150,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace AppExecuteAction {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appExecuteAction
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appExecuteAction, TStatus>;
-    }
-
-    namespace AppGetApp {
-      type RequestData = InferredRequestData<typeof descriptors.appGetApp>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appGetApp, TStatus>;
-    }
-
-    namespace AppGetAppinstallation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appGetAppinstallation
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appGetAppinstallation, TStatus>;
-    }
-
-    namespace AppUninstallAppinstallation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appUninstallAppinstallation
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.appUninstallAppinstallation,
-          TStatus
-        >;
-    }
-
-    namespace AppPatchAppinstallation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appPatchAppinstallation
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.appPatchAppinstallation,
-          TStatus
-        >;
-    }
-
-    namespace AppGetAppversion {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appGetAppversion
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appGetAppversion, TStatus>;
-    }
-
-    namespace AppGetInstalledSystemsoftwareForAppinstallation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appGetInstalledSystemsoftwareForAppinstallation
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.appGetInstalledSystemsoftwareForAppinstallation,
-          TStatus
-        >;
-    }
-
-    namespace AppGetMissingDependenciesForAppinstallation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appGetMissingDependenciesForAppinstallation
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.appGetMissingDependenciesForAppinstallation,
-          TStatus
-        >;
-    }
-
-    namespace AppGetSystemsoftware {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appGetSystemsoftware
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appGetSystemsoftware, TStatus>;
-    }
-
-    namespace AppGetSystemsoftwareversion {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appGetSystemsoftwareversion
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.appGetSystemsoftwareversion,
-          TStatus
-        >;
-    }
-
-    namespace AppLinkDatabase {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appLinkDatabase
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appLinkDatabase, TStatus>;
-    }
-
-    namespace AppListAppinstallationsForUser {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appListAppinstallationsForUser
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.appListAppinstallationsForUser,
-          TStatus
-        >;
-    }
-
-    namespace AppListAppinstallations {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appListAppinstallations
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.appListAppinstallations,
-          TStatus
-        >;
-    }
-
-    namespace AppRequestAppinstallation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appRequestAppinstallation
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.appRequestAppinstallation,
-          TStatus
-        >;
-    }
-
-    namespace AppListApps {
-      type RequestData = InferredRequestData<typeof descriptors.appListApps>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appListApps, TStatus>;
-    }
-
-    namespace AppListAppversions {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appListAppversions
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appListAppversions, TStatus>;
-    }
-
-    namespace AppListSystemsoftwares {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appListSystemsoftwares
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.appListSystemsoftwares,
-          TStatus
-        >;
-    }
-
-    namespace AppListSystemsoftwareversions {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appListSystemsoftwareversions
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.appListSystemsoftwareversions,
-          TStatus
-        >;
-    }
-
-    namespace AppListUpdateCandidatesForAppversion {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appListUpdateCandidatesForAppversion
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.appListUpdateCandidatesForAppversion,
-          TStatus
-        >;
-    }
-
-    namespace AppReplaceDatabase {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appReplaceDatabase
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appReplaceDatabase, TStatus>;
-    }
-
-    namespace AppRequestAppinstallationCopy {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appRequestAppinstallationCopy
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.appRequestAppinstallationCopy,
-          TStatus
-        >;
-    }
-
-    namespace AppRetrieveStatus {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appRetrieveStatus
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appRetrieveStatus, TStatus>;
-    }
-
-    namespace AppSetDatabaseUsers {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appSetDatabaseUsers
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appSetDatabaseUsers, TStatus>;
-    }
-
-    namespace AppUnlinkDatabase {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appUnlinkDatabase
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appUnlinkDatabase, TStatus>;
-    }
-
     namespace ArticleGetArticle {
       type RequestData = InferredRequestData<
         typeof descriptors.articleGetArticle
@@ -4596,6 +4372,230 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace AppLinkDatabase {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appLinkDatabase
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appLinkDatabase, TStatus>;
+    }
+
+    namespace AppGetApp {
+      type RequestData = InferredRequestData<typeof descriptors.appGetApp>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appGetApp, TStatus>;
+    }
+
+    namespace AppUnlinkDatabase {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appUnlinkDatabase
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appUnlinkDatabase, TStatus>;
+    }
+
+    namespace AppGetInstalledSystemsoftwareForAppinstallation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appGetInstalledSystemsoftwareForAppinstallation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appGetInstalledSystemsoftwareForAppinstallation,
+          TStatus
+        >;
+    }
+
+    namespace AppGetAppinstallation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appGetAppinstallation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appGetAppinstallation, TStatus>;
+    }
+
+    namespace AppUninstallAppinstallation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appUninstallAppinstallation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appUninstallAppinstallation,
+          TStatus
+        >;
+    }
+
+    namespace AppPatchAppinstallation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appPatchAppinstallation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appPatchAppinstallation,
+          TStatus
+        >;
+    }
+
+    namespace AppListSystemsoftwareversions {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appListSystemsoftwareversions
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appListSystemsoftwareversions,
+          TStatus
+        >;
+    }
+
+    namespace AppRetrieveStatus {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appRetrieveStatus
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appRetrieveStatus, TStatus>;
+    }
+
+    namespace AppListAppinstallations {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appListAppinstallations
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appListAppinstallations,
+          TStatus
+        >;
+    }
+
+    namespace AppRequestAppinstallation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appRequestAppinstallation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appRequestAppinstallation,
+          TStatus
+        >;
+    }
+
+    namespace AppSetDatabaseUsers {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appSetDatabaseUsers
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appSetDatabaseUsers, TStatus>;
+    }
+
+    namespace AppListApps {
+      type RequestData = InferredRequestData<typeof descriptors.appListApps>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appListApps, TStatus>;
+    }
+
+    namespace AppReplaceDatabase {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appReplaceDatabase
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appReplaceDatabase, TStatus>;
+    }
+
+    namespace AppListAppinstallationsForUser {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appListAppinstallationsForUser
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appListAppinstallationsForUser,
+          TStatus
+        >;
+    }
+
+    namespace AppGetSystemsoftwareversion {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appGetSystemsoftwareversion
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appGetSystemsoftwareversion,
+          TStatus
+        >;
+    }
+
+    namespace AppExecuteAction {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appExecuteAction
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appExecuteAction, TStatus>;
+    }
+
+    namespace AppGetSystemsoftware {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appGetSystemsoftware
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appGetSystemsoftware, TStatus>;
+    }
+
+    namespace AppGetMissingDependenciesForAppinstallation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appGetMissingDependenciesForAppinstallation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appGetMissingDependenciesForAppinstallation,
+          TStatus
+        >;
+    }
+
+    namespace AppListSystemsoftwares {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appListSystemsoftwares
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appListSystemsoftwares,
+          TStatus
+        >;
+    }
+
+    namespace AppRequestAppinstallationCopy {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appRequestAppinstallationCopy
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appRequestAppinstallationCopy,
+          TStatus
+        >;
+    }
+
+    namespace AppGetAppversion {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appGetAppversion
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appGetAppversion, TStatus>;
+    }
+
+    namespace AppListAppversions {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appListAppversions
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appListAppversions, TStatus>;
+    }
+
+    namespace AppListUpdateCandidatesForAppversion {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appListUpdateCandidatesForAppversion
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appListUpdateCandidatesForAppversion,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -4678,312 +4678,6 @@ export declare module MittwaldAPIV2 {
       export interface AihostingTokenUsage {
         planLimit: number;
         used: number;
-      }
-
-      /**
-       * An Action is a string that describes a runtime concerning action which can be executed on an AppInstallation or an  App  can be capable of.
-       */
-      export type AppAction = "start" | "stop" | "restart";
-
-      export type AppActionCapabilities =
-        MittwaldAPIV2.Components.Schemas.AppAction[];
-
-      /**
-       * AdditionalValidationSchema is a stringified custom validation schema, e.g password rules.
-       */
-      export interface AppAdditionalValidationSchema {
-        kind?: MittwaldAPIV2.Components.Schemas.AppAdditionalValidationSchemaKind;
-        schema?: string;
-      }
-
-      /**
-       * AdditionalValidationSchemaKind is an enum, describing the possible types of an additional validation schema.
-       */
-      export type AppAdditionalValidationSchemaKind = "password-rule";
-
-      /**
-       * An App is to be understood as a manifest for AppInstallations. E.g. 'WordPress' only exists inside our ecosystem, because there is an  App -Manifest for it.
-       */
-      export interface AppApp {
-        actionCapabilities?: MittwaldAPIV2.Components.Schemas.AppActionCapabilities;
-        id: string;
-        name: string;
-        tags: string[];
-      }
-
-      /**
-       * AppInstallationStatus describes the overall runtime status of an AppInstallation.
-       */
-      export interface AppAppInstallationStatus {
-        lastExitCode?: number;
-        logFileLocation: string;
-        state: "running" | "stopped" | "exited";
-        uptimeSeconds?: number;
-      }
-
-      export interface AppAppJobImage {
-        imageTemplate: string;
-      }
-
-      export interface AppAppJobImages {
-        reconfigureImage: MittwaldAPIV2.Components.Schemas.AppAppJobImage;
-        setupImage: MittwaldAPIV2.Components.Schemas.AppAppJobImage;
-        uninstallImage: MittwaldAPIV2.Components.Schemas.AppAppJobImage;
-        upgradeImage: MittwaldAPIV2.Components.Schemas.AppAppJobImage;
-      }
-
-      /**
-       * LockPurpose describes why a given AppInstallation is locked from deletion.
-       */
-      export type AppLockPurpose = "unspecified" | "copy";
-
-      /**
-       * Phase describes the current phase/state of an AppInstallation in its lifecycle.
-       */
-      export type AppPhase =
-        | "pending"
-        | "installing"
-        | "upgrading"
-        | "ready"
-        | "disabled"
-        | "reconfiguring";
-
-      /**
-       * AppUpdatePolicy describes which updates should be applied automatically by our systems.
-       */
-      export type AppAppUpdatePolicy = "none" | "patchLevel" | "all";
-
-      /**
-       * An AppInstallation is a concrete manifestation of an App in a specific AppVersion.
-       */
-      export interface AppAppInstallation {
-        appId: string;
-        appVersion: MittwaldAPIV2.Components.Schemas.AppVersionStatus;
-        createdAt: string;
-        customDocumentRoot?: string;
-        deletionRequested?: boolean;
-        description: string;
-        disabled: boolean;
-        id: string;
-        installationPath: string;
-        /**
-         * The last error that occurred during an update. Resets on success.
-         */
-        lastError?: string;
-        linkedDatabases: MittwaldAPIV2.Components.Schemas.AppLinkedDatabase[];
-        lockedBy?: {
-          [k: string]: MittwaldAPIV2.Components.Schemas.AppLockPurpose;
-        };
-        phase: MittwaldAPIV2.Components.Schemas.AppPhase;
-        projectId: string;
-        screenshotId?: string;
-        screenshotRef?: string;
-        shortId: string;
-        systemSoftware: MittwaldAPIV2.Components.Schemas.AppInstalledSystemSoftware[];
-        updatePolicy: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
-        userInputs: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
-      }
-
-      /**
-       * The AppInstallationLifecycle can be used to express a specific point in the AppInstallation Lifecycle, e.g. while installing a new AppInstallation.
-       */
-      export type AppAppInstallationLifecycle =
-        | "installation"
-        | "update"
-        | "reconfigure";
-
-      /**
-       * An AppVersion is an officially supported version of an App, containing the necessary and recommended configuration und dependencies.
-       */
-      export interface AppAppVersion {
-        appId: string;
-        backendPathTemplate?: string;
-        breakingNote?: MittwaldAPIV2.Components.Schemas.AppBreakingNote;
-        databases?: MittwaldAPIV2.Components.Schemas.AppDatabaseDependency[];
-        defaultCronjobs?: MittwaldAPIV2.Components.Schemas.AppDefaultCronjob[];
-        docRoot: string;
-        docRootUserEditable: boolean;
-        externalVersion: string;
-        id: string;
-        internalVersion: string;
-        recommended?: boolean;
-        requestHandler?: MittwaldAPIV2.Components.Schemas.AppRequestHandlerRequirement;
-        systemSoftwareDependencies?: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareDependency[];
-        userInputs?: MittwaldAPIV2.Components.Schemas.AppUserInput[];
-      }
-
-      /**
-       * A BreakingNote is a hint that something serious has changed in the AppVersion containing it, so an automatic update is not possible.
-       */
-      export interface AppBreakingNote {
-        faqLink: string;
-      }
-
-      export interface AppCronjobCommand {
-        interpreterTemplate: string;
-        parametersTemplate?: string;
-        pathTemplate: string;
-      }
-
-      /**
-       * A DatabaseDependency is a generic description of need for a database, used by AppVersions.
-       */
-      export interface AppDatabaseDependency {
-        description: string;
-        kind: "mysql";
-        parameters?: {
-          [k: string]: string;
-        };
-        version: string;
-      }
-
-      export interface AppDefaultCronjob {
-        active: boolean;
-        command?: MittwaldAPIV2.Components.Schemas.AppCronjobCommand;
-        description: string;
-        interval: string;
-        timeout: number;
-        urlTemplate?: string;
-      }
-
-      export interface AppError {
-        message: string;
-        type: string;
-      }
-
-      /**
-       * InstalledSystemSoftware describes the currently configured and installed SystemSoftwareVersion of a SystemSoftware besides the desired SystemSoftwareUpdatePolicy inside an AppInstallation.
-       */
-      export interface AppInstalledSystemSoftware {
-        systemSoftwareId: string;
-        systemSoftwareVersion: MittwaldAPIV2.Components.Schemas.AppVersionStatus;
-        updatePolicy: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareUpdatePolicy;
-      }
-
-      /**
-       * LinkedDatabase is a reference to a concrete Database and DatabaseUsers.
-       */
-      export interface AppLinkedDatabase {
-        databaseId: string;
-        databaseUserIds?: {
-          [k: string]: string;
-        };
-        kind: "mysql" | "redis";
-        purpose: "primary" | "cache" | "custom";
-      }
-
-      /**
-       * RequestHandlerRequirement describes the necessary properties to internally resolve the request handler or process to start.
-       */
-      export interface AppRequestHandlerRequirement {
-        exampleValues?: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
-        name: string;
-        namespace: string;
-        parametersTemplate: string;
-      }
-
-      /**
-       * A SavedUserInput is an entered value for a desired UserInput of an AppVersion or SystemSoftwareVersion.
-       */
-      export interface AppSavedUserInput {
-        name: string;
-        value: string;
-      }
-
-      /**
-       * A SystemSoftwareDependency is a description of a need for a specific SystemSoftware in a semver versionRange.
-       */
-      export interface AppSystemSoftwareDependency {
-        systemSoftwareId: string;
-        versionRange: string;
-      }
-
-      /**
-       * SystemSoftwareUpdatePolicy describes which updates should be applied automatically by our systems.
-       */
-      export type AppSystemSoftwareUpdatePolicy =
-        | "none"
-        | "inheritedFromApp"
-        | "patchLevel"
-        | "all";
-
-      /**
-       * A SystemSoftware is a software that can be installed for an AppInstallation but mostly is not itself externally reachable and/or deliverable.
-       */
-      export interface AppSystemSoftware {
-        id: string;
-        meta?: {
-          [k: string]: string;
-        };
-        name: string;
-        tags: string[];
-      }
-
-      /**
-       * A SystemSoftwareVersion is an officially  supported version of a SystemSoftware, containing the necessary and recommended configuration und dependencies.
-       */
-      export interface AppSystemSoftwareVersion {
-        expiryDate?: string;
-        externalVersion: string;
-        fee?: MittwaldAPIV2.Components.Schemas.FeeFeeStrategy;
-        id: string;
-        internalVersion: string;
-        recommended?: boolean;
-        systemSoftwareDependencies?: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareDependency[];
-        userInputs?: MittwaldAPIV2.Components.Schemas.AppUserInput[];
-      }
-
-      /**
-       * A UserInput is a description of an information which cannot be determined or estimated by mittwald, but has to be given by the person who is requesting an AppInstallation or SystemSoftware.
-       */
-      export interface AppUserInput {
-        additionalValidationSchema?: MittwaldAPIV2.Components.Schemas.AppAdditionalValidationSchema;
-        /**
-         * Optional field to tell the frontend, which data to put into the select.
-         */
-        dataSource?: string;
-        dataType: MittwaldAPIV2.Components.Schemas.AppUserInputDataType;
-        defaultValue?: string;
-        format?: MittwaldAPIV2.Components.Schemas.AppUserInputFormat;
-        lifecycleConstraint: MittwaldAPIV2.Components.Schemas.AppAppInstallationLifecycle;
-        name: string;
-        positionMeta?: MittwaldAPIV2.Components.Schemas.AppUserInputPositionMeta;
-        required: boolean;
-        /**
-         * JSON Schema formatted (https://json-schema.org/).
-         */
-        validationSchema: string;
-      }
-
-      /**
-       * UserInputDataType is an enum, describing the possible data types of a UserInput.
-       */
-      export type AppUserInputDataType =
-        | "text"
-        | "number"
-        | "boolean"
-        | "select";
-
-      /**
-       * UserInputFormat is an enum, describing the possible data formats of a UserInput, the given values can be validated against.
-       */
-      export type AppUserInputFormat = "email" | "password" | "url" | "uri";
-
-      /**
-       * UserInputPositionMeta is a utility information, helping to position the UserInput properly on the frontend.
-       */
-      export interface AppUserInputPositionMeta {
-        index?: number;
-        section?: string;
-        step?: string;
-      }
-
-      /**
-       * VersionStatus describes the current and desired version of something like the AppVersion of an AppInstallation. If diverging, an internal process is going to assert, the current value will be aligned.
-       */
-      export interface AppVersionStatus {
-        current?: string;
-        desired: string;
       }
 
       export type BackupBackupSortOrder = "oldestFirst" | "newestFirst";
@@ -9547,76 +9241,310 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export interface LicenseAppVersionMeta {
-        description: string;
+      export interface AppError {
+        message: string;
+        type: string;
       }
 
-      export interface LicenseKey {
-        key: string;
+      export type AppActionCapabilities =
+        MittwaldAPIV2.Components.Schemas.AppAction[];
+
+      /**
+       * AdditionalValidationSchema is a stringified custom validation schema, e.g password rules.
+       */
+      export interface AppAdditionalValidationSchema {
+        kind?: MittwaldAPIV2.Components.Schemas.AppAdditionalValidationSchemaKind;
+        schema?: string;
       }
 
-      export type LicenseKind = "typo3-elts";
+      /**
+       * InstalledSystemSoftware describes the currently configured and installed SystemSoftwareVersion of a SystemSoftware besides the desired SystemSoftwareUpdatePolicy inside an AppInstallation.
+       */
+      export interface AppInstalledSystemSoftware {
+        systemSoftwareId: string;
+        systemSoftwareVersion: MittwaldAPIV2.Components.Schemas.AppVersionStatus;
+        updatePolicy: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareUpdatePolicy;
+      }
 
-      export interface LicenseLicense {
-        description: string;
+      export interface AppAppJobImages {
+        reconfigureImage: MittwaldAPIV2.Components.Schemas.AppAppJobImage;
+        setupImage: MittwaldAPIV2.Components.Schemas.AppAppJobImage;
+        uninstallImage: MittwaldAPIV2.Components.Schemas.AppAppJobImage;
+        upgradeImage: MittwaldAPIV2.Components.Schemas.AppAppJobImage;
+      }
+
+      export interface AppCronjobCommand {
+        interpreterTemplate: string;
+        parametersTemplate?: string;
+        pathTemplate: string;
+      }
+
+      /**
+       * A SystemSoftwareVersion is an officially  supported version of a SystemSoftware, containing the necessary and recommended configuration und dependencies.
+       */
+      export interface AppSystemSoftwareVersion {
         expiryDate?: string;
+        externalVersion: string;
+        fee?: MittwaldAPIV2.Components.Schemas.FeeFeeStrategy;
         id: string;
-        keyReference?:
-          | MittwaldAPIV2.Components.Schemas.LicenseKey
-          | MittwaldAPIV2.Components.Schemas.LicenseExternalKey;
-        kind: MittwaldAPIV2.Components.Schemas.LicenseKind;
-        meta: MittwaldAPIV2.Components.Schemas.LicenseMeta;
-        reference: MittwaldAPIV2.Components.Schemas.LicenseReference;
-        volume?: number;
+        internalVersion: string;
+        recommended?: boolean;
+        systemSoftwareDependencies?: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareDependency[];
+        userInputs?: MittwaldAPIV2.Components.Schemas.AppUserInput[];
       }
 
-      export interface LicenseReference {
-        aggregate: "project";
-        domain: "project";
-        id: string;
+      /**
+       * A BreakingNote is a hint that something serious has changed in the AppVersion containing it, so an automatic update is not possible.
+       */
+      export interface AppBreakingNote {
+        faqLink: string;
       }
 
-      export interface LicenseMeta {
-        appVersion?: MittwaldAPIV2.Components.Schemas.LicenseAppVersionMeta;
-      }
-
-      export interface LicenseExternalKey {
-        externalKey: string;
-      }
-
-      export interface LicenseKeyResponse {
-        keyReference?:
-          | MittwaldAPIV2.Components.Schemas.LicenseKey
-          | MittwaldAPIV2.Components.Schemas.LicenseExternalKey;
-      }
-
-      export type OrderLicenseOrder = {
-        /**
-         * Describe for which typo3 instance the license will be used.
-         */
+      /**
+       * A DatabaseDependency is a generic description of need for a database, used by AppVersions.
+       */
+      export interface AppDatabaseDependency {
         description: string;
-        licenseType: "typo3";
+        kind: "mysql";
+        parameters?: {
+          [k: string]: string;
+        };
+        version: string;
+      }
+
+      /**
+       * UserInputFormat is an enum, describing the possible data formats of a UserInput, the given values can be validated against.
+       */
+      export type AppUserInputFormat = "email" | "password" | "url" | "uri";
+
+      /**
+       * An AppVersion is an officially supported version of an App, containing the necessary and recommended configuration und dependencies.
+       */
+      export interface AppAppVersion {
+        appId: string;
+        backendPathTemplate?: string;
+        breakingNote?: MittwaldAPIV2.Components.Schemas.AppBreakingNote;
+        databases?: MittwaldAPIV2.Components.Schemas.AppDatabaseDependency[];
+        defaultCronjobs?: MittwaldAPIV2.Components.Schemas.AppDefaultCronjob[];
+        docRoot: string;
+        docRootUserEditable: boolean;
+        externalVersion: string;
+        id: string;
+        internalVersion: string;
+        recommended?: boolean;
+        requestHandler?: MittwaldAPIV2.Components.Schemas.AppRequestHandlerRequirement;
+        systemSoftwareDependencies?: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareDependency[];
+        userInputs?: MittwaldAPIV2.Components.Schemas.AppUserInput[];
+      }
+
+      export interface AppAppJobImage {
+        imageTemplate: string;
+      }
+
+      /**
+       * An App is to be understood as a manifest for AppInstallations. E.g. 'WordPress' only exists inside our ecosystem, because there is an  App -Manifest for it.
+       */
+      export interface AppApp {
+        actionCapabilities?: MittwaldAPIV2.Components.Schemas.AppActionCapabilities;
+        id: string;
+        name: string;
+        tags: string[];
+      }
+
+      /**
+       * AppInstallationStatus describes the overall runtime status of an AppInstallation.
+       */
+      export interface AppAppInstallationStatus {
+        lastExitCode?: number;
+        logFileLocation: string;
+        state: "running" | "stopped" | "exited";
+        uptimeSeconds?: number;
+      }
+
+      /**
+       * UserInputDataType is an enum, describing the possible data types of a UserInput.
+       */
+      export type AppUserInputDataType =
+        | "text"
+        | "number"
+        | "boolean"
+        | "select";
+
+      /**
+       * SystemSoftwareUpdatePolicy describes which updates should be applied automatically by our systems.
+       */
+      export type AppSystemSoftwareUpdatePolicy =
+        | "none"
+        | "inheritedFromApp"
+        | "patchLevel"
+        | "all";
+
+      /**
+       * Phase describes the current phase/state of an AppInstallation in its lifecycle.
+       */
+      export type AppPhase =
+        | "pending"
+        | "installing"
+        | "upgrading"
+        | "ready"
+        | "disabled"
+        | "reconfiguring";
+
+      /**
+       * An Action is a string that describes a runtime concerning action which can be executed on an AppInstallation or an  App  can be capable of.
+       */
+      export type AppAction = "start" | "stop" | "restart";
+
+      /**
+       * A UserInput is a description of an information which cannot be determined or estimated by mittwald, but has to be given by the person who is requesting an AppInstallation or SystemSoftware.
+       */
+      export interface AppUserInput {
+        additionalValidationSchema?: MittwaldAPIV2.Components.Schemas.AppAdditionalValidationSchema;
         /**
-         * The major version for which a license should be purchased.
+         * Optional field to tell the frontend, which data to put into the select.
          */
-        majorVersion: number;
+        dataSource?: string;
+        dataType: MittwaldAPIV2.Components.Schemas.AppUserInputDataType;
+        defaultValue?: string;
+        format?: MittwaldAPIV2.Components.Schemas.AppUserInputFormat;
+        lifecycleConstraint: MittwaldAPIV2.Components.Schemas.AppAppInstallationLifecycle;
+        name: string;
+        positionMeta?: MittwaldAPIV2.Components.Schemas.AppUserInputPositionMeta;
+        required: boolean;
+        /**
+         * JSON Schema formatted (https://json-schema.org/).
+         */
+        validationSchema: string;
+      }
+
+      /**
+       * UserInputPositionMeta is a utility information, helping to position the UserInput properly on the frontend.
+       */
+      export interface AppUserInputPositionMeta {
+        index?: number;
+        section?: string;
+        step?: string;
+      }
+
+      /**
+       * AppUpdatePolicy describes which updates should be applied automatically by our systems.
+       */
+      export type AppAppUpdatePolicy = "none" | "patchLevel" | "all";
+
+      /**
+       * RequestHandlerRequirement describes the necessary properties to internally resolve the request handler or process to start.
+       */
+      export interface AppRequestHandlerRequirement {
+        exampleValues?: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
+        name: string;
+        namespace: string;
+        parametersTemplate: string;
+      }
+
+      /**
+       * A SavedUserInput is an entered value for a desired UserInput of an AppVersion or SystemSoftwareVersion.
+       */
+      export interface AppSavedUserInput {
+        name: string;
+        value: string;
+      }
+
+      export interface AppDefaultCronjob {
+        active: boolean;
+        command?: MittwaldAPIV2.Components.Schemas.AppCronjobCommand;
+        description: string;
+        interval: string;
+        timeout: number;
+        urlTemplate?: string;
+      }
+
+      /**
+       * A SystemSoftware is a software that can be installed for an AppInstallation but mostly is not itself externally reachable and/or deliverable.
+       */
+      export interface AppSystemSoftware {
+        id: string;
+        meta?: {
+          [k: string]: string;
+        };
+        name: string;
+        tags: string[];
+      }
+
+      /**
+       * LockPurpose describes why a given AppInstallation is locked from deletion.
+       */
+      export type AppLockPurpose = "unspecified" | "copy";
+
+      /**
+       * AdditionalValidationSchemaKind is an enum, describing the possible types of an additional validation schema.
+       */
+      export type AppAdditionalValidationSchemaKind = "password-rule";
+
+      /**
+       * The AppInstallationLifecycle can be used to express a specific point in the AppInstallation Lifecycle, e.g. while installing a new AppInstallation.
+       */
+      export type AppAppInstallationLifecycle =
+        | "installation"
+        | "update"
+        | "reconfigure";
+
+      /**
+       * A SystemSoftwareDependency is a description of a need for a specific SystemSoftware in a semver versionRange.
+       */
+      export interface AppSystemSoftwareDependency {
+        systemSoftwareId: string;
+        versionRange: string;
+      }
+
+      /**
+       * LinkedDatabase is a reference to a concrete Database and DatabaseUsers.
+       */
+      export interface AppLinkedDatabase {
+        databaseId: string;
+        databaseUserIds?: {
+          [k: string]: string;
+        };
+        kind: "mysql" | "redis";
+        purpose: "primary" | "cache" | "custom";
+      }
+
+      /**
+       * VersionStatus describes the current and desired version of something like the AppVersion of an AppInstallation. If diverging, an internal process is going to assert, the current value will be aligned.
+       */
+      export interface AppVersionStatus {
+        current?: string;
+        desired: string;
+      }
+
+      /**
+       * An AppInstallation is a concrete manifestation of an App in a specific AppVersion.
+       */
+      export interface AppAppInstallation {
+        appId: string;
+        appVersion: MittwaldAPIV2.Components.Schemas.AppVersionStatus;
+        createdAt: string;
+        customDocumentRoot?: string;
+        deletionRequested?: boolean;
+        description: string;
+        disabled: boolean;
+        id: string;
+        installationPath: string;
+        /**
+         * The last error that occurred during an update. Resets on success.
+         */
+        lastError?: string;
+        linkedDatabases: MittwaldAPIV2.Components.Schemas.AppLinkedDatabase[];
+        lockedBy?: {
+          [k: string]: MittwaldAPIV2.Components.Schemas.AppLockPurpose;
+        };
+        phase: MittwaldAPIV2.Components.Schemas.AppPhase;
         projectId: string;
-      };
-
-      export type OrderLicenseOrderPreview = {
-        /**
-         * Describe for which typo3 instance the license will be used.
-         */
-        description?: string;
-        licenseType: "typo3";
-        /**
-         * The major version for which a license should be purchased.
-         */
-        majorVersion: number;
-      };
-
-      export interface OrderLicenseOrderPreviewResponse {
-        totalPrice: number;
+        screenshotId?: string;
+        screenshotRef?: string;
+        shortId: string;
+        systemSoftware: MittwaldAPIV2.Components.Schemas.AppInstalledSystemSoftware[];
+        updatePolicy: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
+        userInputs: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
       }
 
       export interface CommonsAddress {
@@ -9701,10 +9629,6 @@ export declare module MittwaldAPIV2 {
     namespace RequestBodies {}
 
     namespace Responses {
-      namespace AppGenericResponse {
-        export interface ApplicationJson {}
-      }
-
       namespace CustomerGenericResponse {
         export interface ApplicationJson {}
       }
@@ -9777,6 +9701,10 @@ export declare module MittwaldAPIV2 {
           MittwaldAPIV2.Components.Schemas.SignupDomainError & {
             name: "SecondFactorRequired";
           };
+      }
+
+      namespace AppGenericResponse {
+        export interface ApplicationJson {}
       }
 
       namespace CommonsDefaultError {
@@ -10716,1200 +10644,6 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2AppInstallationsAppInstallationIdActionsAction {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-            action: MittwaldAPIV2.Components.Schemas.AppAction;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2AppsAppId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            appId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AppApp;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2AppInstallationsAppInstallationId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AppAppInstallation;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Delete {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-          };
-
-          export interface RequestBody {
-            appVersionId?: string;
-            customDocumentRoot?: string;
-            description?: string;
-            systemSoftware?: {
-              [k: string]: {
-                systemSoftwareVersion?: string;
-                updatePolicy?: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareUpdatePolicy;
-              };
-            };
-            updatePolicy?: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
-            userInputs?: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2AppsAppIdVersionsAppVersionId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            appId: string;
-            appVersionId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AppAppVersion;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2AppInstallationsAppInstallationIdSystemSoftware {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            tagFilter?: string;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AppSystemSoftware[];
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2AppInstallationsAppInstallationIdMissingDependencies {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            targetAppVersionID: string;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                missingSystemSoftwareDependencies?: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareDependency[];
-                missingUserInputs?: MittwaldAPIV2.Components.Schemas.AppUserInput[];
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2SystemSoftwaresSystemSoftwareId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            systemSoftwareId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AppSystemSoftware;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2SystemSoftwaresSystemSoftwareIdVersionsSystemSoftwareVersionId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            systemSoftwareId: string;
-            systemSoftwareVersionId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AppSystemSoftwareVersion;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2AppInstallationsAppInstallationIdDatabase {
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-          };
-
-          export interface RequestBody {
-            databaseId: string;
-            databaseUserIds?: {
-              [k: string]: string;
-            };
-            purpose: "primary" | "cache" | "custom";
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2AppInstallations {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            appIds?: string[];
-            searchTerm?: string;
-            limit?: number;
-            skip?: number;
-            page?: number;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AppAppInstallation[];
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectsProjectIdAppInstallations {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            appIds?: string[];
-            searchTerm?: string;
-            limit?: number;
-            skip?: number;
-            page?: number;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AppAppInstallation[];
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export interface RequestBody {
-            appVersionId: string;
-            description: string;
-            installationPath?: string;
-            updatePolicy: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
-            userInputs: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                id: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2Apps {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header = {};
-
-          export type Query = {
-            limit?: number;
-            skip?: number;
-            page?: number;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AppApp[];
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2AppsAppIdVersions {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            appId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            versionRange?: string;
-            recommended?: boolean;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AppAppVersion[];
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2SystemSoftwares {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            limit?: number;
-            skip?: number;
-            page?: number;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AppSystemSoftware[];
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2SystemSoftwaresSystemSoftwareIdVersions {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            systemSoftwareId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            versionRange?: string;
-            recommended?: boolean;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AppSystemSoftwareVersion[];
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2AppsAppIdVersionsBaseAppVersionIdUpdateCandidates {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            appId: string;
-            baseAppVersionId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AppAppVersion[];
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2AppInstallationsAppInstallationIdDatabaseReplace {
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-          };
-
-          export interface RequestBody {
-            /**
-             * The IDs of the users of the database you want the old database to be replaced with.
-             */
-            databaseUserIds?: {
-              [k: string]: string;
-            };
-            /**
-             * The ID of the database you want the old database to be replaced with.
-             */
-            newDatabaseId: string;
-            /**
-             * The ID of the database you want to be replaced.
-             */
-            oldDatabaseId: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2AppInstallationsAppInstallationIdActionsCopy {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-          };
-
-          export interface RequestBody {
-            description: string;
-            installationPath?: string;
-            targetProjectId?: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                id: string;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2AppInstallationsAppInstallationIdStatus {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AppAppInstallationStatus;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2AppInstallationsAppInstallationIdDatabasesDatabaseIdUsers {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-            databaseId: string;
-          };
-
-          export interface RequestBody {
-            databaseUserIds: {
-              [k: string]: string;
-            };
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2AppInstallationsAppInstallationIdDatabasesDatabaseId {
-      namespace Delete {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-            databaseId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
             }
           }
 
@@ -21083,8 +19817,6 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
-
-    namespace V2AppinstallationsAppInstallationIdDatabases {}
 
     namespace V2ContractsContractIdItemsContractItemIdNextTerminationDates {}
 
@@ -37469,6 +36201,1202 @@ export declare module MittwaldAPIV2 {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppInstallationsAppInstallationIdDatabase {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export interface RequestBody {
+            databaseId: string;
+            databaseUserIds?: {
+              [k: string]: string;
+            };
+            purpose: "primary" | "cache" | "custom";
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppsAppId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            appId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AppApp;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppinstallationsAppInstallationIdDatabases {}
+
+    namespace V2AppInstallationsAppInstallationIdDatabasesDatabaseId {
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+            databaseId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppInstallationsAppInstallationIdSystemSoftware {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            tagFilter?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AppSystemSoftware[];
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppInstallationsAppInstallationId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AppAppInstallation;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export interface RequestBody {
+            appVersionId?: string;
+            customDocumentRoot?: string;
+            description?: string;
+            systemSoftware?: {
+              [k: string]: {
+                systemSoftwareVersion?: string;
+                updatePolicy?: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareUpdatePolicy;
+              };
+            };
+            updatePolicy?: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
+            userInputs?: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2SystemSoftwaresSystemSoftwareIdVersions {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            systemSoftwareId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            versionRange?: string;
+            recommended?: boolean;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AppSystemSoftwareVersion[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppInstallationsAppInstallationIdStatus {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AppAppInstallationStatus;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectsProjectIdAppInstallations {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            appIds?: string[];
+            searchTerm?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AppAppInstallation[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export interface RequestBody {
+            appVersionId: string;
+            description: string;
+            installationPath?: string;
+            updatePolicy: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
+            userInputs: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                id: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppInstallationsAppInstallationIdDatabasesDatabaseIdUsers {
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+            databaseId: string;
+          };
+
+          export interface RequestBody {
+            databaseUserIds: {
+              [k: string]: string;
+            };
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2Apps {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AppApp[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppInstallationsAppInstallationIdDatabaseReplace {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * The IDs of the users of the database you want the old database to be replaced with.
+             */
+            databaseUserIds?: {
+              [k: string]: string;
+            };
+            /**
+             * The ID of the database you want the old database to be replaced with.
+             */
+            newDatabaseId: string;
+            /**
+             * The ID of the database you want to be replaced.
+             */
+            oldDatabaseId: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppInstallations {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            appIds?: string[];
+            searchTerm?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AppAppInstallation[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2SystemSoftwaresSystemSoftwareIdVersionsSystemSoftwareVersionId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            systemSoftwareId: string;
+            systemSoftwareVersionId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AppSystemSoftwareVersion;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppInstallationsAppInstallationIdActionsAction {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+            action: MittwaldAPIV2.Components.Schemas.AppAction;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2SystemSoftwaresSystemSoftwareId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            systemSoftwareId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AppSystemSoftware;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppInstallationsAppInstallationIdMissingDependencies {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            targetAppVersionID: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                missingSystemSoftwareDependencies?: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareDependency[];
+                missingUserInputs?: MittwaldAPIV2.Components.Schemas.AppUserInput[];
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2SystemSoftwares {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AppSystemSoftware[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppInstallationsAppInstallationIdActionsCopy {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export interface RequestBody {
+            description: string;
+            installationPath?: string;
+            targetProjectId?: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                id: string;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppsAppIdVersionsAppVersionId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            appId: string;
+            appVersionId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AppAppVersion;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppsAppIdVersions {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            appId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            versionRange?: string;
+            recommended?: boolean;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AppAppVersion[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppsAppIdVersionsBaseAppVersionIdUpdateCandidates {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            appId: string;
+            baseAppVersionId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AppAppVersion[];
             }
           }
 
