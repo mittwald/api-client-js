@@ -9395,15 +9395,6 @@ export declare module MittwaldAPIV2 {
         | "IS_NOT_MITTWALD"
         | "COULD_BE_MITTWALD";
 
-      export type VerificationVerifyAddressConfidence =
-        | "EXISTS"
-        | "UNSURE"
-        | "NON_EXISTENT";
-
-      export interface VerificationVerifyAddressResponse {
-        exists: boolean;
-      }
-
       export type ContainerVolumeSortOrder =
         | "nameAsc"
         | "nameDesc"
@@ -36809,7 +36800,7 @@ export declare module MittwaldAPIV2 {
           export interface RequestBody {
             city: string;
             /**
-             * Accepts the whole english or german name as well as the ISO 3166-2 country codes.
+             * The country format should be ISO 3166-2 Alpha 2 Country Code.
              */
             country: string;
             /**
@@ -36826,8 +36817,9 @@ export declare module MittwaldAPIV2 {
         namespace Responses {
           namespace $200 {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.VerificationVerifyAddressResponse;
+              export interface ApplicationJson {
+                exists: boolean;
+              }
             }
           }
 
