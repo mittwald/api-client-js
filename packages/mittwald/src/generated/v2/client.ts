@@ -215,6 +215,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updateProjectBackupDescription: this.requestFunctionFactory(
       descriptors.backupUpdateProjectBackupDescription,
     ),
+    /** Update a Backup's expiration time. */
+    replaceProjectBackupExpirationTime: this.requestFunctionFactory(
+      descriptors.backupReplaceProjectBackupExpirationTime,
+    ),
   };
 
   /** The container API allows you to manage your stacks, containers, volumes and registries. */
@@ -302,6 +306,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Set an update schedule for a Stack. */
     setStackUpdateSchedule: this.requestFunctionFactory(
       descriptors.containerSetStackUpdateSchedule,
+    ),
+    /** List Stacks belonging to the executing user. */
+    listSelfStacks: this.requestFunctionFactory(
+      descriptors.containerListSelfStacks,
     ),
   };
 

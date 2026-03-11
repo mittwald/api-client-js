@@ -4552,6 +4552,28 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace ContainerListSelfStacks {
+      type RequestData = InferredRequestData<
+        typeof descriptors.containerListSelfStacks
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.containerListSelfStacks,
+          TStatus
+        >;
+    }
+
+    namespace BackupReplaceProjectBackupExpirationTime {
+      type RequestData = InferredRequestData<
+        typeof descriptors.backupReplaceProjectBackupExpirationTime
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.backupReplaceProjectBackupExpirationTime,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -9408,12 +9430,18 @@ export declare module MittwaldAPIV2 {
 
       export type LicenseKind = "typo3-elts";
 
+      export interface LicenseKey {
+        key: string;
+      }
+
       export interface LicenseMeta {
         appVersion?: MittwaldAPIV2.Components.Schemas.LicenseAppVersionMeta;
       }
 
-      export interface LicenseKey {
-        key: string;
+      export interface LicenseReference {
+        aggregate: "project";
+        domain: "project";
+        id: string;
       }
 
       export interface LicenseLicense {
@@ -9427,12 +9455,6 @@ export declare module MittwaldAPIV2 {
         meta: MittwaldAPIV2.Components.Schemas.LicenseMeta;
         reference: MittwaldAPIV2.Components.Schemas.LicenseReference;
         volume?: number;
-      }
-
-      export interface LicenseReference {
-        aggregate: "project";
-        domain: "project";
-        id: string;
       }
 
       export interface LicenseKeyResponse {
@@ -9458,10 +9480,6 @@ export declare module MittwaldAPIV2 {
         projectId: string;
       };
 
-      export interface OrderLicenseOrderPreviewResponse {
-        totalPrice: number;
-      }
-
       export type OrderLicenseOrderPreview = {
         /**
          * Describe for which typo3 instance the license will be used.
@@ -9473,6 +9491,10 @@ export declare module MittwaldAPIV2 {
          */
         majorVersion: number;
       };
+
+      export interface OrderLicenseOrderPreviewResponse {
+        totalPrice: number;
+      }
 
       export interface CommonsAddress {
         street: string;
@@ -37281,6 +37303,140 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2Stacks {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ContainerStackResponse[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectBackupsProjectBackupIdExpirationTime {
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            projectBackupId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * Time when to expire the Backup.
+             */
+            expirationTime?: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
