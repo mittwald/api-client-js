@@ -8457,6 +8457,11 @@ export const domainCheckDomainTransferability: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainTransferable.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2DomainTransferable.Post.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"

@@ -4580,7 +4580,8 @@ export declare module MittwaldAPIV2 {
          */
         keyId: string;
         /**
-         * An array of LLM model identifiers enabled for this key.
+         * @deprecated
+         * This Field is deprecated. You can find the allowed models in the /ai-hosting route.
          */
         models: string[];
         name: string;
@@ -9407,18 +9408,12 @@ export declare module MittwaldAPIV2 {
 
       export type LicenseKind = "typo3-elts";
 
-      export interface LicenseKey {
-        key: string;
-      }
-
       export interface LicenseMeta {
         appVersion?: MittwaldAPIV2.Components.Schemas.LicenseAppVersionMeta;
       }
 
-      export interface LicenseReference {
-        aggregate: "project";
-        domain: "project";
-        id: string;
+      export interface LicenseKey {
+        key: string;
       }
 
       export interface LicenseLicense {
@@ -9432,6 +9427,12 @@ export declare module MittwaldAPIV2 {
         meta: MittwaldAPIV2.Components.Schemas.LicenseMeta;
         reference: MittwaldAPIV2.Components.Schemas.LicenseReference;
         volume?: number;
+      }
+
+      export interface LicenseReference {
+        aggregate: "project";
+        domain: "project";
+        id: string;
       }
 
       export interface LicenseKeyResponse {
@@ -9457,6 +9458,10 @@ export declare module MittwaldAPIV2 {
         projectId: string;
       };
 
+      export interface OrderLicenseOrderPreviewResponse {
+        totalPrice: number;
+      }
+
       export type OrderLicenseOrderPreview = {
         /**
          * Describe for which typo3 instance the license will be used.
@@ -9468,10 +9473,6 @@ export declare module MittwaldAPIV2 {
          */
         majorVersion: number;
       };
-
-      export interface OrderLicenseOrderPreviewResponse {
-        totalPrice: number;
-      }
 
       export interface CommonsAddress {
         street: string;
@@ -22444,6 +22445,14 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
