@@ -793,6 +793,19 @@ const buildLeadFyndrApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
+const buildLicenseApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get a license. */
+  getLicense: new ApiCallAsyncResourceFactory(
+    descriptors.licenseGetLicense,
+    baseClient.license.getLicense,
+  ).getApiResource,
+  /** List Licenses belonging to a Project. */
+  listLicensesForProject: new ApiCallAsyncResourceFactory(
+    descriptors.licenseListLicensesForProject,
+    baseClient.license.listLicensesForProject,
+  ).getApiResource,
+});
+
 const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
   /** List DeliveryBoxes belonging to a Project. */
   listDeliveryBoxes: new ApiCallAsyncResourceFactory(
@@ -1082,19 +1095,6 @@ const buildSshsftpUserApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildLicenseApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** Get a license. */
-  getLicense: new ApiCallAsyncResourceFactory(
-    descriptors.licenseGetLicense,
-    baseClient.license.getLicense,
-  ).getApiResource,
-  /** List Licenses belonging to a Project. */
-  listLicensesForProject: new ApiCallAsyncResourceFactory(
-    descriptors.licenseListLicensesForProject,
-    baseClient.license.listLicensesForProject,
-  ).getApiResource,
-});
-
 export class MittwaldAPIV2ClientReact {
   /** The AI hosting provides access to multiple large language and embedding models – GDPR compliant and hosted in Germany. */
   public readonly aiHosting: ReturnType<typeof buildAiHostingApi>;
@@ -1138,6 +1138,9 @@ export class MittwaldAPIV2ClientReact {
   /** The lead fyndr api allow you to manage you leads and your fyndr profile. */
   public readonly leadFyndr: ReturnType<typeof buildLeadFyndrApi>;
 
+  /** The license API allows you to manage your paid licenses. */
+  public readonly license: ReturnType<typeof buildLicenseApi>;
+
   /** The mail API allows you to manage your mail accounts. */
   public readonly mail: ReturnType<typeof buildMailApi>;
 
@@ -1163,9 +1166,6 @@ export class MittwaldAPIV2ClientReact {
 
   /** The SSH/SFTP User API allows you to manage your SSH/SFTP users within a project. */
   public readonly sshsftpUser: ReturnType<typeof buildSshsftpUserApi>;
-
-  /** The license API allows you to manage your paid licenses. */
-  public readonly license: ReturnType<typeof buildLicenseApi>;
 
   private constructor(baseClient: MittwaldAPIV2Client) {
     this.aiHosting = buildAiHostingApi(baseClient);
@@ -1196,6 +1196,8 @@ export class MittwaldAPIV2ClientReact {
 
     this.leadFyndr = buildLeadFyndrApi(baseClient);
 
+    this.license = buildLicenseApi(baseClient);
+
     this.mail = buildMailApi(baseClient);
 
     this.misc = buildMiscApi(baseClient);
@@ -1211,8 +1213,6 @@ export class MittwaldAPIV2ClientReact {
     this.projectFileSystem = buildProjectFileSystemApi(baseClient);
 
     this.sshsftpUser = buildSshsftpUserApi(baseClient);
-
-    this.license = buildLicenseApi(baseClient);
   }
 
   public static fromBaseClient(
