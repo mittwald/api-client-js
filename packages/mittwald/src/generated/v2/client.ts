@@ -207,6 +207,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getProjectBackupDirectories: this.requestFunctionFactory(
       descriptors.backupGetProjectBackupDirectories,
     ),
+    /** Update a Backup's expiration time. */
+    replaceProjectBackupExpirationTime: this.requestFunctionFactory(
+      descriptors.backupReplaceProjectBackupExpirationTime,
+    ),
     /** Restore a ProjectBackup. */
     requestProjectBackupRestoreV2Experimental: this.requestFunctionFactory(
       descriptors.backupRequestProjectBackupRestoreV2Experimental,
@@ -214,10 +218,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Change the description of a ProjectBackup. */
     updateProjectBackupDescription: this.requestFunctionFactory(
       descriptors.backupUpdateProjectBackupDescription,
-    ),
-    /** Update a Backup's expiration time. */
-    replaceProjectBackupExpirationTime: this.requestFunctionFactory(
-      descriptors.backupReplaceProjectBackupExpirationTime,
     ),
   };
 
@@ -265,6 +265,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get a Service belonging to a Stack. */
     getService: this.requestFunctionFactory(descriptors.containerGetService),
+    /** List Stacks belonging to the executing user. */
+    listSelfStacks: this.requestFunctionFactory(
+      descriptors.containerListSelfStacks,
+    ),
     /** List Services belonging to a Project. */
     listServices: this.requestFunctionFactory(
       descriptors.containerListServices,
@@ -289,6 +293,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     restartService: this.requestFunctionFactory(
       descriptors.containerRestartService,
     ),
+    /** Set an update schedule for a Stack. */
+    setStackUpdateSchedule: this.requestFunctionFactory(
+      descriptors.containerSetStackUpdateSchedule,
+    ),
     /** Start a stopped Service. */
     startService: this.requestFunctionFactory(
       descriptors.containerStartService,
@@ -302,14 +310,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Validate a Registries' credentials. */
     validateRegistryCredentials: this.requestFunctionFactory(
       descriptors.containerValidateRegistryCredentials,
-    ),
-    /** Set an update schedule for a Stack. */
-    setStackUpdateSchedule: this.requestFunctionFactory(
-      descriptors.containerSetStackUpdateSchedule,
-    ),
-    /** List Stacks belonging to the executing user. */
-    listSelfStacks: this.requestFunctionFactory(
-      descriptors.containerListSelfStacks,
     ),
   };
 
@@ -1498,6 +1498,24 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
+  /** The license API allows you to manage your paid licenses. */
+  public readonly license = {
+    /** Get a license. */
+    getLicense: this.requestFunctionFactory(descriptors.licenseGetLicense),
+    /** List Licenses belonging to a Project. */
+    listLicensesForProject: this.requestFunctionFactory(
+      descriptors.licenseListLicensesForProject,
+    ),
+    /** rotate a License's key, i.e. revoke the old and generate a new one. */
+    rotateLicenseKey: this.requestFunctionFactory(
+      descriptors.licenseRotateLicenseKey,
+    ),
+    /** Validate a License's key for a project. */
+    validateLicenseKeyForProject: this.requestFunctionFactory(
+      descriptors.licenseValidateLicenseKeyForProject,
+    ),
+  };
+
   /** API endpoints that are not related to any specific API domain */
   public readonly misc = {
     /** List valid time zones. */
@@ -1738,24 +1756,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update an SSHUser. */
     sshUserUpdateSshUser: this.requestFunctionFactory(
       descriptors.sshUserUpdateSshUser,
-    ),
-  };
-
-  /** The license API allows you to manage your paid licenses. */
-  public readonly license = {
-    /** Get a license. */
-    getLicense: this.requestFunctionFactory(descriptors.licenseGetLicense),
-    /** List Licenses belonging to a Project. */
-    listLicensesForProject: this.requestFunctionFactory(
-      descriptors.licenseListLicensesForProject,
-    ),
-    /** rotate a License's key, i.e. revoke the old and generate a new one. */
-    rotateLicenseKey: this.requestFunctionFactory(
-      descriptors.licenseRotateLicenseKey,
-    ),
-    /** Validate a License's key for a project. */
-    validateLicenseKeyForProject: this.requestFunctionFactory(
-      descriptors.licenseValidateLicenseKeyForProject,
     ),
   };
 }
