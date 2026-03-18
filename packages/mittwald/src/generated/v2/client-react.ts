@@ -529,11 +529,6 @@ const buildCronjobApi = (baseClient: MittwaldAPIV2Client) => ({
 });
 
 const buildCustomerApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** List Invites belonging to a Customer. */
-  listInvitesForCustomer: new ApiCallAsyncResourceFactory(
-    descriptors.customerListInvitesForCustomer,
-    baseClient.customer.listInvitesForCustomer,
-  ).getApiResource,
   /** Get all customer profiles the authenticated user has access to. */
   listCustomers: new ApiCallAsyncResourceFactory(
     descriptors.customerListCustomers,
@@ -543,6 +538,16 @@ const buildCustomerApi = (baseClient: MittwaldAPIV2Client) => ({
   getWallet: new ApiCallAsyncResourceFactory(
     descriptors.customerGetWallet,
     baseClient.customer.getWallet,
+  ).getApiResource,
+  /** Get a customer profile. */
+  getCustomer: new ApiCallAsyncResourceFactory(
+    descriptors.customerGetCustomer,
+    baseClient.customer.getCustomer,
+  ).getApiResource,
+  /** Check if the customer profile has a valid contract partner configured. */
+  isCustomerLegallyCompetent: new ApiCallAsyncResourceFactory(
+    descriptors.customerIsCustomerLegallyCompetent,
+    baseClient.customer.isCustomerLegallyCompetent,
   ).getApiResource,
   /** Get a CustomerInvite. */
   getCustomerInvite: new ApiCallAsyncResourceFactory(
@@ -554,25 +559,15 @@ const buildCustomerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.customerGetCustomerMembership,
     baseClient.customer.getCustomerMembership,
   ).getApiResource,
-  /** Get a customer profile. */
-  getCustomer: new ApiCallAsyncResourceFactory(
-    descriptors.customerGetCustomer,
-    baseClient.customer.getCustomer,
+  /** List Invites belonging to a Customer. */
+  listInvitesForCustomer: new ApiCallAsyncResourceFactory(
+    descriptors.customerListInvitesForCustomer,
+    baseClient.customer.listInvitesForCustomer,
   ).getApiResource,
   /** Get a CustomerInvite by token. */
   getCustomerTokenInvite: new ApiCallAsyncResourceFactory(
     descriptors.customerGetCustomerTokenInvite,
     baseClient.customer.getCustomerTokenInvite,
-  ).getApiResource,
-  /** Check if the customer profile has a valid contract partner configured. */
-  isCustomerLegallyCompetent: new ApiCallAsyncResourceFactory(
-    descriptors.customerIsCustomerLegallyCompetent,
-    baseClient.customer.isCustomerLegallyCompetent,
-  ).getApiResource,
-  /** List CustomerInvites belonging to the executing user. */
-  listCustomerInvites: new ApiCallAsyncResourceFactory(
-    descriptors.customerListCustomerInvites,
-    baseClient.customer.listCustomerInvites,
   ).getApiResource,
   /** List CustomerMemberships belonging to the executing user. */
   listCustomerMemberships: new ApiCallAsyncResourceFactory(
@@ -583,6 +578,11 @@ const buildCustomerApi = (baseClient: MittwaldAPIV2Client) => ({
   listMembershipsForCustomer: new ApiCallAsyncResourceFactory(
     descriptors.customerListMembershipsForCustomer,
     baseClient.customer.listMembershipsForCustomer,
+  ).getApiResource,
+  /** List CustomerInvites belonging to the executing user. */
+  listCustomerInvites: new ApiCallAsyncResourceFactory(
+    descriptors.customerListCustomerInvites,
+    baseClient.customer.listCustomerInvites,
   ).getApiResource,
 });
 
@@ -972,55 +972,15 @@ const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
 });
 
 const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** List Invites belonging to a Project. */
-  listInvitesForProject: new ApiCallAsyncResourceFactory(
-    descriptors.projectListInvitesForProject,
-    baseClient.project.listInvitesForProject,
-  ).getApiResource,
-  /** Get a ProjectInvite. */
-  getProjectInvite: new ApiCallAsyncResourceFactory(
-    descriptors.projectGetProjectInvite,
-    baseClient.project.getProjectInvite,
-  ).getApiResource,
-  /** Get a ProjectMembership */
-  getProjectMembership: new ApiCallAsyncResourceFactory(
-    descriptors.projectGetProjectMembership,
-    baseClient.project.getProjectMembership,
-  ).getApiResource,
   /** Get a Project. */
   getProject: new ApiCallAsyncResourceFactory(
     descriptors.projectGetProject,
     baseClient.project.getProject,
   ).getApiResource,
-  /** Get a ProjectInvite by token. */
-  getProjectTokenInvite: new ApiCallAsyncResourceFactory(
-    descriptors.projectGetProjectTokenInvite,
-    baseClient.project.getProjectTokenInvite,
-  ).getApiResource,
-  /** Get the executing user's membership in a Project. */
-  getSelfMembershipForProject: new ApiCallAsyncResourceFactory(
-    descriptors.projectGetSelfMembershipForProject,
-    baseClient.project.getSelfMembershipForProject,
-  ).getApiResource,
   /** Get a Server. */
   getServer: new ApiCallAsyncResourceFactory(
     descriptors.projectGetServer,
     baseClient.project.getServer,
-  ).getApiResource,
-  /** List Memberships belonging to a Project. */
-  listMembershipsForProject: new ApiCallAsyncResourceFactory(
-    descriptors.projectListMembershipsForProject,
-    baseClient.project.listMembershipsForProject,
-  ).getApiResource,
-  /** List ProjectInvites belonging to the executing user. */
-  listProjectInvites: new ApiCallAsyncResourceFactory(
-    descriptors.projectListProjectInvites,
-    baseClient.project.listProjectInvites,
-  ).getApiResource,
-  /** List ProjectMemberships belonging to the executing user. */
-  listProjectMemberships: new ApiCallAsyncResourceFactory(
-    descriptors.projectListProjectMemberships,
-    baseClient.project.listProjectMemberships,
   ).getApiResource,
   /** List Projects belonging to the executing user. */
   listProjects: new ApiCallAsyncResourceFactory(
@@ -1041,6 +1001,46 @@ const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
   storagespaceGetServerStatistics: new ApiCallAsyncResourceFactory(
     descriptors.storagespaceGetServerStatistics,
     baseClient.project.storagespaceGetServerStatistics,
+  ).getApiResource,
+  /** Get a ProjectInvite. */
+  getProjectInvite: new ApiCallAsyncResourceFactory(
+    descriptors.projectGetProjectInvite,
+    baseClient.project.getProjectInvite,
+  ).getApiResource,
+  /** Get the executing user's membership in a Project. */
+  getSelfMembershipForProject: new ApiCallAsyncResourceFactory(
+    descriptors.projectGetSelfMembershipForProject,
+    baseClient.project.getSelfMembershipForProject,
+  ).getApiResource,
+  /** Get a ProjectMembership */
+  getProjectMembership: new ApiCallAsyncResourceFactory(
+    descriptors.projectGetProjectMembership,
+    baseClient.project.getProjectMembership,
+  ).getApiResource,
+  /** List Invites belonging to a Project. */
+  listInvitesForProject: new ApiCallAsyncResourceFactory(
+    descriptors.projectListInvitesForProject,
+    baseClient.project.listInvitesForProject,
+  ).getApiResource,
+  /** Get a ProjectInvite by token. */
+  getProjectTokenInvite: new ApiCallAsyncResourceFactory(
+    descriptors.projectGetProjectTokenInvite,
+    baseClient.project.getProjectTokenInvite,
+  ).getApiResource,
+  /** List ProjectMemberships belonging to the executing user. */
+  listProjectMemberships: new ApiCallAsyncResourceFactory(
+    descriptors.projectListProjectMemberships,
+    baseClient.project.listProjectMemberships,
+  ).getApiResource,
+  /** List ProjectInvites belonging to the executing user. */
+  listProjectInvites: new ApiCallAsyncResourceFactory(
+    descriptors.projectListProjectInvites,
+    baseClient.project.listProjectInvites,
+  ).getApiResource,
+  /** List Memberships belonging to a Project. */
+  listMembershipsForProject: new ApiCallAsyncResourceFactory(
+    descriptors.projectListMembershipsForProject,
+    baseClient.project.listMembershipsForProject,
   ).getApiResource,
 });
 
