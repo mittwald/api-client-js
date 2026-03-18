@@ -57,6 +57,104 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     projectGetUsage: this.requestFunctionFactory(
       descriptors.aiHostingProjectGetUsage,
     ),
+    /** Get a list of currently active models. */
+    customerGetDetailedModels: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetDetailedModels,
+    ),
+    /** Get a list of currently active models. */
+    projectGetDetailedModels: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetDetailedModels,
+    ),
+    /** Accepts the model terms for a customer. */
+    customerAcceptModelTerms: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerAcceptModelTerms,
+    ),
+  };
+
+  /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
+  public readonly app = {
+    /** Trigger a runtime action belonging to an AppInstallation. */
+    executeAction: this.requestFunctionFactory(descriptors.appExecuteAction),
+    /** Get an App. */
+    getApp: this.requestFunctionFactory(descriptors.appGetApp),
+    /** Get an AppInstallation. */
+    getAppinstallation: this.requestFunctionFactory(
+      descriptors.appGetAppinstallation,
+    ),
+    /** Trigger an uninstallation process for an AppInstallation. */
+    uninstallAppinstallation: this.requestFunctionFactory(
+      descriptors.appUninstallAppinstallation,
+    ),
+    /** Update properties belonging to an AppInstallation. */
+    patchAppinstallation: this.requestFunctionFactory(
+      descriptors.appPatchAppinstallation,
+    ),
+    /** Get an AppVersion. */
+    getAppversion: this.requestFunctionFactory(descriptors.appGetAppversion),
+    /** Get the installed `SystemSoftware' for a specific `AppInstallation`. */
+    getInstalledSystemsoftwareForAppinstallation: this.requestFunctionFactory(
+      descriptors.appGetInstalledSystemsoftwareForAppinstallation,
+    ),
+    /** Get the missing requirements of an appInstallation for a specific target AppVersion. */
+    getMissingDependenciesForAppinstallation: this.requestFunctionFactory(
+      descriptors.appGetMissingDependenciesForAppinstallation,
+    ),
+    /** Get a SystemSoftware. */
+    getSystemsoftware: this.requestFunctionFactory(
+      descriptors.appGetSystemsoftware,
+    ),
+    /** Get a SystemSoftwareVersion. */
+    getSystemsoftwareversion: this.requestFunctionFactory(
+      descriptors.appGetSystemsoftwareversion,
+    ),
+    /** Create linkage between an AppInstallation and a MySQLDatabase. */
+    linkDatabase: this.requestFunctionFactory(descriptors.appLinkDatabase),
+    /** List AppInstallations that a user has access to. */
+    listAppinstallationsForUser: this.requestFunctionFactory(
+      descriptors.appListAppinstallationsForUser,
+    ),
+    /** List AppInstallations belonging to a Project. */
+    listAppinstallations: this.requestFunctionFactory(
+      descriptors.appListAppinstallations,
+    ),
+    /** Request an AppInstallation. */
+    requestAppinstallation: this.requestFunctionFactory(
+      descriptors.appRequestAppinstallation,
+    ),
+    /** List Apps. */
+    listApps: this.requestFunctionFactory(descriptors.appListApps),
+    /** List AppVersions belonging to an App. */
+    listAppversions: this.requestFunctionFactory(
+      descriptors.appListAppversions,
+    ),
+    /** List SystemSoftwares. */
+    listSystemsoftwares: this.requestFunctionFactory(
+      descriptors.appListSystemsoftwares,
+    ),
+    /** List SystemSoftwareVersions belonging to a SystemSoftware. */
+    listSystemsoftwareversions: this.requestFunctionFactory(
+      descriptors.appListSystemsoftwareversions,
+    ),
+    /** List update candidates belonging to an AppVersion. */
+    listUpdateCandidatesForAppversion: this.requestFunctionFactory(
+      descriptors.appListUpdateCandidatesForAppversion,
+    ),
+    /** Replace a MySQL Database with another MySQL Database. */
+    replaceDatabase: this.requestFunctionFactory(
+      descriptors.appReplaceDatabase,
+    ),
+    /** Request a copy of an AppInstallation. */
+    requestAppinstallationCopy: this.requestFunctionFactory(
+      descriptors.appRequestAppinstallationCopy,
+    ),
+    /** Get runtime status belonging to an AppInstallation. */
+    retrieveStatus: this.requestFunctionFactory(descriptors.appRetrieveStatus),
+    /** Create linkage between an AppInstallation and DatabaseUsers. */
+    setDatabaseUsers: this.requestFunctionFactory(
+      descriptors.appSetDatabaseUsers,
+    ),
+    /** Remove linkage between an AppInstallation and a Database. */
+    unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
   };
 
   /** The article API allows you to read article information. */
