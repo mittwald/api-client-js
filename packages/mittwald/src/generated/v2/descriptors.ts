@@ -5698,128 +5698,6 @@ export const cronjobReplaceCronjobAppInstallationId: OpenAPIOperation<
   operationId: "cronjob-replace-cronjob-app-installation-id",
 };
 
-/** Accept a CustomerInvite. */
-export const customerAcceptCustomerInvite: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsAccept.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsAccept.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsAccept.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsAccept.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsAccept.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsAccept.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsAccept.Post.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsAccept.Post.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsAccept.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsAccept.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customer-invites/{customerInviteId}/actions/accept",
-  method: "POST",
-  operationId: "customer-accept-customer-invite",
-};
-
-/** List Invites belonging to a Customer. */
-export const customerListInvitesForCustomer: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/invites",
-  method: "GET",
-  operationId: "customer-list-invites-for-customer",
-};
-
-/** Create a CustomerInvite. */
-export const customerCreateCustomerInvite: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Post.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Post.Responses.$409.Content.ApplicationJson>,
-      409,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/invites",
-  method: "POST",
-  operationId: "customer-create-customer-invite",
-};
-
 /** Get all customer profiles the authenticated user has access to. */
 export const customerListCustomers: OpenAPIOperation<
   RequestType<
@@ -6035,190 +5913,6 @@ export const customerCreateWallet: OpenAPIOperation<
   operationId: "customer-create-wallet",
 };
 
-/** Decline a CustomerInvite. */
-export const customerDeclineCustomerInvite: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsDecline.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsDecline.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsDecline.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsDecline.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsDecline.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsDecline.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customer-invites/{customerInviteId}/actions/decline",
-  method: "POST",
-  operationId: "customer-decline-customer-invite",
-};
-
-/** Get a CustomerInvite. */
-export const customerGetCustomerInvite: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customer-invites/{customerInviteId}",
-  method: "GET",
-  operationId: "customer-get-customer-invite",
-};
-
-/** Delete a CustomerInvite. */
-export const customerDeleteCustomerInvite: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Delete.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Delete.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Delete.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Delete.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Delete.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customer-invites/{customerInviteId}",
-  method: "DELETE",
-  operationId: "customer-delete-customer-invite",
-};
-
-/** Get a CustomerMembership. */
-export const customerGetCustomerMembership: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customer-memberships/{customerMembershipId}",
-  method: "GET",
-  operationId: "customer-get-customer-membership",
-};
-
-/** Delete a CustomerMembership. */
-export const customerDeleteCustomerMembership: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Delete.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Delete.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Delete.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Delete.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Delete.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customer-memberships/{customerMembershipId}",
-  method: "DELETE",
-  operationId: "customer-delete-customer-membership",
-};
-
-/** Update a CustomerMembership. */
-export const customerUpdateCustomerMembership: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customer-memberships/{customerMembershipId}",
-  method: "PATCH",
-  operationId: "customer-update-customer-membership",
-};
-
 /** Get a customer profile. */
 export const customerGetCustomer: OpenAPIOperation<
   RequestType<
@@ -6341,40 +6035,6 @@ export const customerDeleteCustomer: OpenAPIOperation<
   operationId: "customer-delete-customer",
 };
 
-/** Get a CustomerInvite by token. */
-export const customerGetCustomerTokenInvite: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerTokenInvite.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerTokenInvite.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerTokenInvite.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerTokenInvite.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerTokenInvite.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerTokenInvite.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerTokenInvite.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customer-token-invite",
-  method: "GET",
-  operationId: "customer-get-customer-token-invite",
-};
-
 /** Check if the customer profile has a valid contract partner configured. */
 export const customerIsCustomerLegallyCompetent: OpenAPIOperation<
   RequestType<
@@ -6412,118 +6072,6 @@ export const customerIsCustomerLegallyCompetent: OpenAPIOperation<
   path: "/v2/customers/{customerId}/legally-competent",
   method: "GET",
   operationId: "customer-is-customer-legally-competent",
-};
-
-/** List CustomerInvites belonging to the executing user. */
-export const customerListCustomerInvites: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerInvites.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerInvites.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerInvites.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvites.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvites.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvites.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvites.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvites.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customer-invites",
-  method: "GET",
-  operationId: "customer-list-customer-invites",
-};
-
-/** List CustomerMemberships belonging to the executing user. */
-export const customerListCustomerMemberships: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerMemberships.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerMemberships.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerMemberships.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerMemberships.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerMemberships.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerMemberships.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerMemberships.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerMemberships.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customer-memberships",
-  method: "GET",
-  operationId: "customer-list-customer-memberships",
-};
-
-/** List Memberships belonging to a Customer. */
-export const customerListMembershipsForCustomer: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdMemberships.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdMemberships.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdMemberships.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdMemberships.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdMemberships.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdMemberships.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdMemberships.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/memberships",
-  method: "GET",
-  operationId: "customer-list-memberships-for-customer",
 };
 
 /** Request a new avatar upload for the customer profile. */
@@ -6602,40 +6150,6 @@ export const customerRemoveAvatar: OpenAPIOperation<
   path: "/v2/customers/{customerId}/avatar",
   method: "DELETE",
   operationId: "customer-remove-avatar",
-};
-
-/** Resend the mail for a CustomerInvite. */
-export const customerResendCustomerInviteMail: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsResend.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsResend.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsResend.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsResend.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsResend.Post.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsResend.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsResend.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customer-invites/{customerInviteId}/actions/resend",
-  method: "POST",
-  operationId: "customer-resend-customer-invite-mail",
 };
 
 /** Copy a MySQLDatabase with a MySQLUser. */
@@ -14074,123 +13588,6 @@ export const passwordValidationGetPasswordPolicy: OpenAPIOperation<
   operationId: "password-validation-get-password-policy",
 };
 
-/** Accept a ProjectInvite. */
-export const projectAcceptProjectInvite: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsAccept.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsAccept.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsAccept.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsAccept.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsAccept.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsAccept.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsAccept.Post.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsAccept.Post.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsAccept.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsAccept.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/project-invites/{projectInviteId}/actions/accept",
-  method: "POST",
-  operationId: "project-accept-project-invite",
-};
-
-/** List Invites belonging to a Project. */
-export const projectListInvitesForProject: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/{projectId}/invites",
-  method: "GET",
-  operationId: "project-list-invites-for-project",
-};
-
-/** Create a ProjectInvite. */
-export const projectCreateProjectInvite: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Post.Responses.$409.Content.ApplicationJson>,
-      409,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/{projectId}/invites",
-  method: "POST",
-  operationId: "project-create-project-invite",
-};
-
 /** Create a Project belonging to a Server. */
 export const projectCreateProject: OpenAPIOperation<
   RequestType<
@@ -14233,35 +13630,6 @@ export const projectCreateProject: OpenAPIOperation<
   path: "/v2/servers/{serverId}/projects",
   method: "POST",
   operationId: "project-create-project",
-};
-
-/** Decline a ProjectInvite. */
-export const projectDeclineProjectInvite: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsDecline.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsDecline.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsDecline.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsDecline.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsDecline.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsDecline.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/project-invites/{projectInviteId}/actions/decline",
-  method: "POST",
-  operationId: "project-decline-project-invite",
 };
 
 /** Request a Project avatar upload. */
@@ -14340,161 +13708,6 @@ export const projectDeleteProjectAvatar: OpenAPIOperation<
   path: "/v2/projects/{projectId}/avatar",
   method: "DELETE",
   operationId: "project-delete-project-avatar",
-};
-
-/** Get a ProjectInvite. */
-export const projectGetProjectInvite: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/project-invites/{projectInviteId}",
-  method: "GET",
-  operationId: "project-get-project-invite",
-};
-
-/** Delete a ProjectInvite. */
-export const projectDeleteProjectInvite: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Delete.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Delete.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Delete.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Delete.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Delete.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/project-invites/{projectInviteId}",
-  method: "DELETE",
-  operationId: "project-delete-project-invite",
-};
-
-/** Get a ProjectMembership */
-export const projectGetProjectMembership: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/project-memberships/{projectMembershipId}",
-  method: "GET",
-  operationId: "project-get-project-membership",
-};
-
-/** Delete a ProjectMembership. */
-export const projectDeleteProjectMembership: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Delete.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Delete.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Delete.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Delete.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Delete.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/project-memberships/{projectMembershipId}",
-  method: "DELETE",
-  operationId: "project-delete-project-membership",
-};
-
-/** Update a ProjectMembership. */
-export const projectUpdateProjectMembership: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/project-memberships/{projectMembershipId}",
-  method: "PATCH",
-  operationId: "project-update-project-membership",
 };
 
 /** Get a Project. */
@@ -14903,79 +14116,6 @@ export const projectFileSystemListFiles: OpenAPIOperation<
   operationId: "project-file-system-list-files",
 };
 
-/** Get a ProjectInvite by token. */
-export const projectGetProjectTokenInvite: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectTokenInvite.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectTokenInvite.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectTokenInvite.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectTokenInvite.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectTokenInvite.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectTokenInvite.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectTokenInvite.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/project-token-invite",
-  method: "GET",
-  operationId: "project-get-project-token-invite",
-};
-
-/** Get the executing user's membership in a Project. */
-export const projectGetSelfMembershipForProject: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMembershipsSelf.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMembershipsSelf.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMembershipsSelf.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMembershipsSelf.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMembershipsSelf.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMembershipsSelf.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMembershipsSelf.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMembershipsSelf.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/{projectId}/memberships/self",
-  method: "GET",
-  operationId: "project-get-self-membership-for-project",
-};
-
 /** Get a Server. */
 export const projectGetServer: OpenAPIOperation<
   RequestType<
@@ -15013,118 +14153,6 @@ export const projectGetServer: OpenAPIOperation<
   path: "/v2/servers/{serverId}",
   method: "GET",
   operationId: "project-get-server",
-};
-
-/** List Memberships belonging to a Project. */
-export const projectListMembershipsForProject: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMemberships.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMemberships.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMemberships.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMemberships.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMemberships.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMemberships.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMemberships.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/{projectId}/memberships",
-  method: "GET",
-  operationId: "project-list-memberships-for-project",
-};
-
-/** List ProjectInvites belonging to the executing user. */
-export const projectListProjectInvites: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectInvites.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectInvites.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectInvites.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvites.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvites.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvites.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvites.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvites.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/project-invites",
-  method: "GET",
-  operationId: "project-list-project-invites",
-};
-
-/** List ProjectMemberships belonging to the executing user. */
-export const projectListProjectMemberships: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectMemberships.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectMemberships.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectMemberships.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectMemberships.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectMemberships.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectMemberships.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectMemberships.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectMemberships.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/project-memberships",
-  method: "GET",
-  operationId: "project-list-project-memberships",
 };
 
 /** List Projects belonging to the executing user. */
@@ -15198,40 +14226,6 @@ export const projectListServers: OpenAPIOperation<
   path: "/v2/servers",
   method: "GET",
   operationId: "project-list-servers",
-};
-
-/** Resend the mail for a ProjectInvite. */
-export const projectResendProjectInviteMail: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsResend.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsResend.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsResend.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsResend.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsResend.Post.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsResend.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsResend.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/project-invites/{projectInviteId}/actions/resend",
-  method: "POST",
-  operationId: "project-resend-project-invite-mail",
 };
 
 /** Update a Project's description. */
@@ -18191,134 +17185,1008 @@ export const verificationVerifyCompany: OpenAPIOperation<
   operationId: "verification-verify-company",
 };
 
-/** Get a list of currently active models. */
-export const aiHostingCustomerGetDetailedModels: OpenAPIOperation<
+/** Get a CustomerInvite. */
+export const customerGetCustomerInvite: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingModels.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingModels.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingModels.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingModels.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingModels.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingModels.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingModels.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingModels.Get.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingModels.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/customers/{customerId}/ai-hosting-models",
+  path: "/v2/customer-invites/{customerInviteId}",
   method: "GET",
-  operationId: "ai-hosting-customer-get-detailed-models",
+  operationId: "customer-get-customer-invite",
 };
 
-/** Get a list of currently active models. */
-export const aiHostingProjectGetDetailedModels: OpenAPIOperation<
+/** Delete a CustomerInvite. */
+export const customerDeleteCustomerInvite: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingModels.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingModels.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingModels.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Delete.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingModels.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingModels.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingModels.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingModels.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingModels.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingModels.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/{projectId}/ai-hosting-models",
-  method: "GET",
-  operationId: "ai-hosting-project-get-detailed-models",
-};
-
-/** Accepts the model terms for a customer. */
-export const aiHostingCustomerAcceptModelTerms: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingModelsActionsAcceptTerms.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingModelsActionsAcceptTerms.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingModelsActionsAcceptTerms.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingModelsActionsAcceptTerms.Post.Responses.$204.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Delete.Responses.$204.Content.Empty>,
       204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingModelsActionsAcceptTerms.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingModelsActionsAcceptTerms.Post.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingModelsActionsAcceptTerms.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingModelsActionsAcceptTerms.Post.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Delete.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingModelsActionsAcceptTerms.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Delete.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/customers/{customerId}/ai-hosting-models/actions/accept-terms",
+  path: "/v2/customer-invites/{customerInviteId}",
+  method: "DELETE",
+  operationId: "customer-delete-customer-invite",
+};
+
+/** Get a CustomerMembership. */
+export const customerGetCustomerMembership: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customer-memberships/{customerMembershipId}",
+  method: "GET",
+  operationId: "customer-get-customer-membership",
+};
+
+/** Delete a CustomerMembership. */
+export const customerDeleteCustomerMembership: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customer-memberships/{customerMembershipId}",
+  method: "DELETE",
+  operationId: "customer-delete-customer-membership",
+};
+
+/** Update a CustomerMembership. */
+export const customerUpdateCustomerMembership: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerMembershipsCustomerMembershipId.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customer-memberships/{customerMembershipId}",
+  method: "PATCH",
+  operationId: "customer-update-customer-membership",
+};
+
+/** Resend the mail for a ProjectInvite. */
+export const projectResendProjectInviteMail: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsResend.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsResend.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsResend.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsResend.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsResend.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsResend.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsResend.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/project-invites/{projectInviteId}/actions/resend",
   method: "POST",
-  operationId: "ai-hosting-customer-accept-model-terms",
+  operationId: "project-resend-project-invite-mail",
+};
+
+/** Get a ProjectInvite. */
+export const projectGetProjectInvite: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/project-invites/{projectInviteId}",
+  method: "GET",
+  operationId: "project-get-project-invite",
+};
+
+/** Delete a ProjectInvite. */
+export const projectDeleteProjectInvite: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/project-invites/{projectInviteId}",
+  method: "DELETE",
+  operationId: "project-delete-project-invite",
+};
+
+/** List Invites belonging to a Customer. */
+export const customerListInvitesForCustomer: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/invites",
+  method: "GET",
+  operationId: "customer-list-invites-for-customer",
+};
+
+/** Create a CustomerInvite. */
+export const customerCreateCustomerInvite: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Post.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvites.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/invites",
+  method: "POST",
+  operationId: "customer-create-customer-invite",
+};
+
+/** Accept a CustomerInvite. */
+export const customerAcceptCustomerInvite: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsAccept.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsAccept.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsAccept.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsAccept.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsAccept.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsAccept.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsAccept.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsAccept.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsAccept.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsAccept.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customer-invites/{customerInviteId}/actions/accept",
+  method: "POST",
+  operationId: "customer-accept-customer-invite",
+};
+
+/** Get a CustomerInvite by token. */
+export const customerGetCustomerTokenInvite: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerTokenInvite.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerTokenInvite.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerTokenInvite.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerTokenInvite.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerTokenInvite.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerTokenInvite.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerTokenInvite.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customer-token-invite",
+  method: "GET",
+  operationId: "customer-get-customer-token-invite",
+};
+
+/** Decline a CustomerInvite. */
+export const customerDeclineCustomerInvite: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsDecline.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsDecline.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsDecline.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsDecline.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsDecline.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsDecline.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customer-invites/{customerInviteId}/actions/decline",
+  method: "POST",
+  operationId: "customer-decline-customer-invite",
+};
+
+/** Decline a ProjectInvite. */
+export const projectDeclineProjectInvite: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsDecline.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsDecline.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsDecline.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsDecline.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsDecline.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsDecline.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/project-invites/{projectInviteId}/actions/decline",
+  method: "POST",
+  operationId: "project-decline-project-invite",
+};
+
+/** List CustomerMemberships belonging to the executing user. */
+export const customerListCustomerMemberships: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerMemberships.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerMemberships.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerMemberships.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerMemberships.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerMemberships.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerMemberships.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerMemberships.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerMemberships.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customer-memberships",
+  method: "GET",
+  operationId: "customer-list-customer-memberships",
+};
+
+/** Get the executing user's membership in a Project. */
+export const projectGetSelfMembershipForProject: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMembershipsSelf.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMembershipsSelf.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMembershipsSelf.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMembershipsSelf.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMembershipsSelf.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMembershipsSelf.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMembershipsSelf.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMembershipsSelf.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/memberships/self",
+  method: "GET",
+  operationId: "project-get-self-membership-for-project",
+};
+
+/** Accept a ProjectInvite. */
+export const projectAcceptProjectInvite: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsAccept.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsAccept.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsAccept.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsAccept.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsAccept.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsAccept.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsAccept.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsAccept.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsAccept.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteIdActionsAccept.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/project-invites/{projectInviteId}/actions/accept",
+  method: "POST",
+  operationId: "project-accept-project-invite",
+};
+
+/** Get a ProjectMembership */
+export const projectGetProjectMembership: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/project-memberships/{projectMembershipId}",
+  method: "GET",
+  operationId: "project-get-project-membership",
+};
+
+/** Delete a ProjectMembership. */
+export const projectDeleteProjectMembership: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/project-memberships/{projectMembershipId}",
+  method: "DELETE",
+  operationId: "project-delete-project-membership",
+};
+
+/** Update a ProjectMembership. */
+export const projectUpdateProjectMembership: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectMembershipsProjectMembershipId.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/project-memberships/{projectMembershipId}",
+  method: "PATCH",
+  operationId: "project-update-project-membership",
+};
+
+/** List Memberships belonging to a Customer. */
+export const customerListMembershipsForCustomer: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdMemberships.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdMemberships.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdMemberships.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdMemberships.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdMemberships.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdMemberships.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdMemberships.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/memberships",
+  method: "GET",
+  operationId: "customer-list-memberships-for-customer",
+};
+
+/** List CustomerInvites belonging to the executing user. */
+export const customerListCustomerInvites: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvites.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvites.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvites.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvites.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvites.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvites.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvites.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvites.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customer-invites",
+  method: "GET",
+  operationId: "customer-list-customer-invites",
+};
+
+/** List Invites belonging to a Project. */
+export const projectListInvitesForProject: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/invites",
+  method: "GET",
+  operationId: "project-list-invites-for-project",
+};
+
+/** Create a ProjectInvite. */
+export const projectCreateProjectInvite: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Post.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdInvites.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/invites",
+  method: "POST",
+  operationId: "project-create-project-invite",
+};
+
+/** Get a ProjectInvite by token. */
+export const projectGetProjectTokenInvite: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectTokenInvite.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectTokenInvite.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectTokenInvite.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectTokenInvite.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectTokenInvite.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectTokenInvite.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectTokenInvite.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/project-token-invite",
+  method: "GET",
+  operationId: "project-get-project-token-invite",
+};
+
+/** List ProjectMemberships belonging to the executing user. */
+export const projectListProjectMemberships: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectMemberships.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectMemberships.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectMemberships.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectMemberships.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectMemberships.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectMemberships.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectMemberships.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectMemberships.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/project-memberships",
+  method: "GET",
+  operationId: "project-list-project-memberships",
+};
+
+/** List ProjectInvites belonging to the executing user. */
+export const projectListProjectInvites: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvites.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvites.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectInvites.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvites.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvites.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvites.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvites.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvites.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/project-invites",
+  method: "GET",
+  operationId: "project-list-project-invites",
+};
+
+/** List Memberships belonging to a Project. */
+export const projectListMembershipsForProject: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMemberships.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMemberships.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMemberships.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMemberships.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMemberships.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMemberships.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMemberships.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/memberships",
+  method: "GET",
+  operationId: "project-list-memberships-for-project",
+};
+
+/** Resend the mail for a CustomerInvite. */
+export const customerResendCustomerInviteMail: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsResend.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsResend.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsResend.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsResend.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsResend.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsResend.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteIdActionsResend.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customer-invites/{customerInviteId}/actions/resend",
+  method: "POST",
+  operationId: "customer-resend-customer-invite-mail",
 };
