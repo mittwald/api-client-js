@@ -5941,16 +5941,9 @@ export declare module MittwaldAPIV2 {
         | "inProgress"
         | "waiting";
 
-      export interface ConversationStatusUpdate {
-        conversationId: string;
-        createdAt: string;
-        internal?: boolean;
-        messageContent: string;
-        meta?: {
-          user?: MittwaldAPIV2.Components.Schemas.ConversationUser;
-        };
-        type: "STATUS_UPDATE";
-      }
+      export type ConversationStatusUpdate =
+        | MittwaldAPIV2.Components.Schemas.ConversationResubmissionStatusUpdate
+        | MittwaldAPIV2.Components.Schemas.ConversationGenericStatusUpdate;
 
       export interface ConversationUser {
         active?: boolean;
@@ -9301,6 +9294,12 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
+      export type MembershipProjectRoles =
+        | "notset"
+        | "owner"
+        | "emailadmin"
+        | "external";
+
       export interface MembershipInviteInformation {
         /**
          * Token for authentication purposes.
@@ -9311,6 +9310,12 @@ export declare module MittwaldAPIV2 {
          */
         invitedBy: string;
       }
+
+      export type MembershipCustomerInheritedRoles =
+        | "notset"
+        | "owner"
+        | "member"
+        | "accountant";
 
       export type MembershipCustomerRoles =
         | "notset"
@@ -9370,11 +9375,38 @@ export declare module MittwaldAPIV2 {
         userId: string;
       }
 
-      export type MembershipProjectRoles =
-        | "notset"
-        | "owner"
-        | "emailadmin"
-        | "external";
+      export interface MembershipProjectInvite {
+        /**
+         * Reference to the Project's avatar.
+         */
+        avatarRefId?: string;
+        /**
+         * ID of the ProjectInvite.
+         */
+        id: string;
+        information: MittwaldAPIV2.Components.Schemas.MembershipInviteInformation;
+        /**
+         * Mail-address of the user the ProjectInvite is for.
+         */
+        mailAddress: string;
+        /**
+         * Time the ProjectMembership should expire at.
+         */
+        membershipExpiresAt?: string;
+        /**
+         * Message contained in the ProjectInvite.
+         */
+        message?: string;
+        /**
+         * Description of the Project the invite is created for.
+         */
+        projectDescription: string;
+        /**
+         * ID of the Project the invitation is for.
+         */
+        projectId: string;
+        role: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
+      }
 
       export interface MembershipCustomerInvite {
         /**
@@ -9408,12 +9440,6 @@ export declare module MittwaldAPIV2 {
         message?: string;
         role: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
       }
-
-      export type MembershipCustomerInheritedRoles =
-        | "notset"
-        | "owner"
-        | "member"
-        | "accountant";
 
       export interface MembershipCustomerMembership {
         /**
@@ -9463,37 +9489,32 @@ export declare module MittwaldAPIV2 {
         userId: string;
       }
 
-      export interface MembershipProjectInvite {
-        /**
-         * Reference to the Project's avatar.
-         */
-        avatarRefId?: string;
-        /**
-         * ID of the ProjectInvite.
-         */
-        id: string;
-        information: MittwaldAPIV2.Components.Schemas.MembershipInviteInformation;
-        /**
-         * Mail-address of the user the ProjectInvite is for.
-         */
-        mailAddress: string;
-        /**
-         * Time the ProjectMembership should expire at.
-         */
-        membershipExpiresAt?: string;
-        /**
-         * Message contained in the ProjectInvite.
-         */
-        message?: string;
-        /**
-         * Description of the Project the invite is created for.
-         */
-        projectDescription: string;
-        /**
-         * ID of the Project the invitation is for.
-         */
-        projectId: string;
-        role: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
+      export interface ConversationGenericStatusUpdate {
+        conversationId: string;
+        createdAt: string;
+        internal?: boolean;
+        messageContent: string;
+        meta?: {
+          user?: MittwaldAPIV2.Components.Schemas.ConversationUser;
+        };
+        type: "STATUS_UPDATE";
+      }
+
+      export interface ConversationResubmissionStatusUpdate {
+        conversationId: string;
+        createdAt: string;
+        internal?: boolean;
+        messageContent:
+          | "RESUBMISSION_CREATED"
+          | "RESUBMISSION_RESUBMIT_AT_CHANGED";
+        meta?: {
+          groupAcronym: string;
+          groupId: string;
+          groupName: string;
+          resubmitAt: string;
+          user?: MittwaldAPIV2.Components.Schemas.ConversationUser;
+        };
+        type: "STATUS_UPDATE";
       }
 
       export interface CommonsAddress {
