@@ -9657,31 +9657,227 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export interface AihostingCustomerDetailedModel {
-        activeAt: string;
-        displayName: string;
-        docLink: string;
-        name: string;
-        removalAt?: string;
-        replacesModelName?: string;
-        status: MittwaldAPIV2.Components.Schemas.AihostingDetailedModelStatus;
-        termsOfServiceLink: string;
+      export interface MembershipProjectMembership {
+        /**
+         * Avatar file reference id of the user.
+         */
+        avatarRef?: string;
+        /**
+         * Email used by the invited user.
+         */
+        email: string;
+        /**
+         * Time the ProjectMembership should expire at.
+         */
+        expiresAt?: string;
+        /**
+         * First name of the user.
+         */
+        firstName: string;
+        /**
+         * ID of the ProjectMembership.
+         */
+        id: string;
+        /**
+         * Whether the ProjectMembership was inherited from a CustomerMembership.
+         */
+        inherited: boolean;
+        /**
+         * ID of the ProjectInvite the membership was created from.
+         */
+        inviteId?: string;
+        /**
+         * Last name of the user.
+         */
+        lastName: string;
+        /**
+         * Date the projectMembership was created at.
+         */
+        memberSince?: string;
+        /**
+         * MFA activated by the user.
+         */
+        mfa: boolean;
+        /**
+         * ID of the Project the membership is for.
+         */
+        projectId: string;
+        role: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
+        /**
+         * ID of the user the ProjectMembership is for.
+         */
+        userId: string;
       }
 
-      export type AihostingDetailedModelStatus =
-        | "active"
-        | "needApproval"
-        | "deprecated";
+      export interface MembershipInviteInformation {
+        /**
+         * Token for authentication purposes.
+         */
+        invitationToken?: string;
+        /**
+         * ID of the user that created the invite.
+         */
+        invitedBy: string;
+      }
 
-      export interface AihostingProjectDetailedModel {
-        activeAt: string;
-        displayName: string;
-        docLink: string;
-        name: string;
-        removalAt?: string;
-        replacesModelName?: string;
-        status: MittwaldAPIV2.Components.Schemas.AihostingDetailedModelStatus;
-        termsOfServiceLink: string;
+      export type MembershipProjectRoles =
+        | "notset"
+        | "owner"
+        | "emailadmin"
+        | "external";
+
+      export interface MembershipCustomerInvite {
+        /**
+         * Reference to the Customer's avatar.
+         */
+        avatarRefId?: string;
+        /**
+         * ID of the Customer the invite is for.
+         */
+        customerId: string;
+        /**
+         * Name of the Customer the user is invited to.
+         */
+        customerName: string;
+        /**
+         * ID of the CustomerInvite.
+         */
+        id: string;
+        information: MittwaldAPIV2.Components.Schemas.MembershipInviteInformation;
+        /**
+         * Mail-address of the user the invite is for.
+         */
+        mailAddress: string;
+        /**
+         * Time the CustomerMembership should expire at.
+         */
+        membershipExpiresAt?: string;
+        /**
+         * Message contained in the CustomerInvite.
+         */
+        message?: string;
+        role: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
+      }
+
+      export interface MembershipCustomerMembership {
+        /**
+         * Avatar file reference id of the user.
+         */
+        avatarRef?: string;
+        /**
+         * ID of the Customer the CustomerMembership is for.
+         */
+        customerId: string;
+        /**
+         * Email used by the invited user.
+         */
+        email: string;
+        /**
+         * Time the CustomerMembership should expire at.
+         */
+        expiresAt?: string;
+        /**
+         * First name of the user.
+         */
+        firstName: string;
+        /**
+         * ID of the CustomerMembership.
+         */
+        id: string;
+        /**
+         * ID of the CustomerInvite the membership was created from.
+         */
+        inviteId?: string;
+        /**
+         * Last name of the user.
+         */
+        lastName: string;
+        /**
+         * Date the CustomerMembership was created at.
+         */
+        memberSince?: string;
+        /**
+         * MFA activated by the user.
+         */
+        mfa: boolean;
+        role: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
+        /**
+         * ID of the user the CustomerMembership is for.
+         */
+        userId: string;
+      }
+
+      export interface MembershipProjectInvite {
+        /**
+         * Reference to the Project's avatar.
+         */
+        avatarRefId?: string;
+        /**
+         * ID of the ProjectInvite.
+         */
+        id: string;
+        information: MittwaldAPIV2.Components.Schemas.MembershipInviteInformation;
+        /**
+         * Mail-address of the user the ProjectInvite is for.
+         */
+        mailAddress: string;
+        /**
+         * Time the ProjectMembership should expire at.
+         */
+        membershipExpiresAt?: string;
+        /**
+         * Message contained in the ProjectInvite.
+         */
+        message?: string;
+        /**
+         * Description of the Project the invite is created for.
+         */
+        projectDescription: string;
+        /**
+         * ID of the Project the invitation is for.
+         */
+        projectId: string;
+        role: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
+      }
+
+      export type MembershipCustomerInheritedRoles =
+        | "notset"
+        | "owner"
+        | "member"
+        | "accountant";
+
+      export type MembershipCustomerRoles =
+        | "notset"
+        | "owner"
+        | "member"
+        | "accountant";
+
+      export interface ConversationGenericStatusUpdate {
+        conversationId: string;
+        createdAt: string;
+        internal?: boolean;
+        messageContent: string;
+        meta?: {
+          user?: MittwaldAPIV2.Components.Schemas.ConversationUser;
+        };
+        type: "STATUS_UPDATE";
+      }
+
+      export interface ConversationResubmissionStatusUpdate {
+        conversationId: string;
+        createdAt: string;
+        internal?: boolean;
+        messageContent:
+          | "RESUBMISSION_CREATED"
+          | "RESUBMISSION_RESUBMIT_AT_CHANGED";
+        meta?: {
+          groupAcronym: string;
+          groupId: string;
+          groupName: string;
+          resubmitAt: string;
+          user?: MittwaldAPIV2.Components.Schemas.ConversationUser;
+        };
+        type: "STATUS_UPDATE";
       }
 
       export interface CommonsAddress {
