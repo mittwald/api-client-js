@@ -239,6 +239,11 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.containerListVolumes,
     baseClient.container.listVolumes,
   ).getApiResource,
+  /** Call pull-image webhook */
+  callPullImageWebhookForService: new ApiCallAsyncResourceFactory(
+    descriptors.containerCallPullImageWebhookForService,
+    baseClient.container.callPullImageWebhookForService,
+  ).getApiResource,
 });
 
 const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({

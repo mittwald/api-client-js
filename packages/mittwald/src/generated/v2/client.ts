@@ -323,6 +323,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     validateRegistryCredentials: this.requestFunctionFactory(
       descriptors.containerValidateRegistryCredentials,
     ),
+    /** Call pull-image webhook */
+    callPullImageWebhookForService: this.requestFunctionFactory(
+      descriptors.containerCallPullImageWebhookForService,
+    ),
+    /** Create or rotate pull-image webhook token */
+    rotatePullImageWebhookForService: this.requestFunctionFactory(
+      descriptors.containerRotatePullImageWebhookForService,
+    ),
   };
 
   /** The contract API allows you to manage your contracts and orders */
