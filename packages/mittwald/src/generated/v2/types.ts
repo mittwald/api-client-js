@@ -9294,35 +9294,6 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export type MembershipProjectRoles =
-        | "notset"
-        | "owner"
-        | "emailadmin"
-        | "external";
-
-      export interface MembershipInviteInformation {
-        /**
-         * Token for authentication purposes.
-         */
-        invitationToken?: string;
-        /**
-         * ID of the user that created the invite.
-         */
-        invitedBy: string;
-      }
-
-      export type MembershipCustomerInheritedRoles =
-        | "notset"
-        | "owner"
-        | "member"
-        | "accountant";
-
-      export type MembershipCustomerRoles =
-        | "notset"
-        | "owner"
-        | "member"
-        | "accountant";
-
       export interface MembershipProjectMembership {
         /**
          * Avatar file reference id of the user.
@@ -9375,38 +9346,22 @@ export declare module MittwaldAPIV2 {
         userId: string;
       }
 
-      export interface MembershipProjectInvite {
+      export interface MembershipInviteInformation {
         /**
-         * Reference to the Project's avatar.
+         * Token for authentication purposes.
          */
-        avatarRefId?: string;
+        invitationToken?: string;
         /**
-         * ID of the ProjectInvite.
+         * ID of the user that created the invite.
          */
-        id: string;
-        information: MittwaldAPIV2.Components.Schemas.MembershipInviteInformation;
-        /**
-         * Mail-address of the user the ProjectInvite is for.
-         */
-        mailAddress: string;
-        /**
-         * Time the ProjectMembership should expire at.
-         */
-        membershipExpiresAt?: string;
-        /**
-         * Message contained in the ProjectInvite.
-         */
-        message?: string;
-        /**
-         * Description of the Project the invite is created for.
-         */
-        projectDescription: string;
-        /**
-         * ID of the Project the invitation is for.
-         */
-        projectId: string;
-        role: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
+        invitedBy: string;
       }
+
+      export type MembershipProjectRoles =
+        | "notset"
+        | "owner"
+        | "emailadmin"
+        | "external";
 
       export interface MembershipCustomerInvite {
         /**
@@ -9488,6 +9443,51 @@ export declare module MittwaldAPIV2 {
          */
         userId: string;
       }
+
+      export interface MembershipProjectInvite {
+        /**
+         * Reference to the Project's avatar.
+         */
+        avatarRefId?: string;
+        /**
+         * ID of the ProjectInvite.
+         */
+        id: string;
+        information: MittwaldAPIV2.Components.Schemas.MembershipInviteInformation;
+        /**
+         * Mail-address of the user the ProjectInvite is for.
+         */
+        mailAddress: string;
+        /**
+         * Time the ProjectMembership should expire at.
+         */
+        membershipExpiresAt?: string;
+        /**
+         * Message contained in the ProjectInvite.
+         */
+        message?: string;
+        /**
+         * Description of the Project the invite is created for.
+         */
+        projectDescription: string;
+        /**
+         * ID of the Project the invitation is for.
+         */
+        projectId: string;
+        role: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
+      }
+
+      export type MembershipCustomerInheritedRoles =
+        | "notset"
+        | "owner"
+        | "member"
+        | "accountant";
+
+      export type MembershipCustomerRoles =
+        | "notset"
+        | "owner"
+        | "member"
+        | "accountant";
 
       export interface ConversationGenericStatusUpdate {
         conversationId: string;
