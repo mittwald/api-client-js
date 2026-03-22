@@ -9294,17 +9294,28 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
+      export type MembershipCustomerRoles =
+        | "notset"
+        | "owner"
+        | "member"
+        | "accountant";
+
       export type MembershipProjectRoles =
         | "notset"
         | "owner"
         | "emailadmin"
         | "external";
 
-      export type MembershipCustomerRoles =
-        | "notset"
-        | "owner"
-        | "member"
-        | "accountant";
+      export interface MembershipInviteInformation {
+        /**
+         * Token for authentication purposes.
+         */
+        invitationToken?: string;
+        /**
+         * ID of the user that created the invite.
+         */
+        invitedBy: string;
+      }
 
       export interface MembershipCustomerInvite {
         /**
@@ -9337,6 +9348,60 @@ export declare module MittwaldAPIV2 {
          */
         message?: string;
         role: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
+      }
+
+      export type MembershipCustomerInheritedRoles =
+        | "notset"
+        | "owner"
+        | "member"
+        | "accountant";
+
+      export interface MembershipCustomerMembership {
+        /**
+         * Avatar file reference id of the user.
+         */
+        avatarRef?: string;
+        /**
+         * ID of the Customer the CustomerMembership is for.
+         */
+        customerId: string;
+        /**
+         * Email used by the invited user.
+         */
+        email: string;
+        /**
+         * Time the CustomerMembership should expire at.
+         */
+        expiresAt?: string;
+        /**
+         * First name of the user.
+         */
+        firstName: string;
+        /**
+         * ID of the CustomerMembership.
+         */
+        id: string;
+        /**
+         * ID of the CustomerInvite the membership was created from.
+         */
+        inviteId?: string;
+        /**
+         * Last name of the user.
+         */
+        lastName: string;
+        /**
+         * Date the CustomerMembership was created at.
+         */
+        memberSince?: string;
+        /**
+         * MFA activated by the user.
+         */
+        mfa: boolean;
+        role: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
+        /**
+         * ID of the user the CustomerMembership is for.
+         */
+        userId: string;
       }
 
       export interface MembershipProjectMembership {
@@ -9391,23 +9456,6 @@ export declare module MittwaldAPIV2 {
         userId: string;
       }
 
-      export interface MembershipInviteInformation {
-        /**
-         * Token for authentication purposes.
-         */
-        invitationToken?: string;
-        /**
-         * ID of the user that created the invite.
-         */
-        invitedBy: string;
-      }
-
-      export type MembershipCustomerInheritedRoles =
-        | "notset"
-        | "owner"
-        | "member"
-        | "accountant";
-
       export interface MembershipProjectInvite {
         /**
          * Reference to the Project's avatar.
@@ -9441,52 +9489,15 @@ export declare module MittwaldAPIV2 {
         role: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
       }
 
-      export interface MembershipCustomerMembership {
-        /**
-         * Avatar file reference id of the user.
-         */
-        avatarRef?: string;
-        /**
-         * ID of the Customer the CustomerMembership is for.
-         */
-        customerId: string;
-        /**
-         * Email used by the invited user.
-         */
-        email: string;
-        /**
-         * Time the CustomerMembership should expire at.
-         */
-        expiresAt?: string;
-        /**
-         * First name of the user.
-         */
-        firstName: string;
-        /**
-         * ID of the CustomerMembership.
-         */
-        id: string;
-        /**
-         * ID of the CustomerInvite the membership was created from.
-         */
-        inviteId?: string;
-        /**
-         * Last name of the user.
-         */
-        lastName: string;
-        /**
-         * Date the CustomerMembership was created at.
-         */
-        memberSince?: string;
-        /**
-         * MFA activated by the user.
-         */
-        mfa: boolean;
-        role: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
-        /**
-         * ID of the user the CustomerMembership is for.
-         */
-        userId: string;
+      export interface ConversationGenericStatusUpdate {
+        conversationId: string;
+        createdAt: string;
+        internal?: boolean;
+        messageContent: string;
+        meta?: {
+          user?: MittwaldAPIV2.Components.Schemas.ConversationUser;
+        };
+        type: "STATUS_UPDATE";
       }
 
       export interface ConversationResubmissionStatusUpdate {
@@ -9501,17 +9512,6 @@ export declare module MittwaldAPIV2 {
           groupId: string;
           groupName: string;
           resubmitAt: string;
-          user?: MittwaldAPIV2.Components.Schemas.ConversationUser;
-        };
-        type: "STATUS_UPDATE";
-      }
-
-      export interface ConversationGenericStatusUpdate {
-        conversationId: string;
-        createdAt: string;
-        internal?: boolean;
-        messageContent: string;
-        meta?: {
           user?: MittwaldAPIV2.Components.Schemas.ConversationUser;
         };
         type: "STATUS_UPDATE";
