@@ -17,6 +17,11 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.aiHostingCustomerGetKey,
     baseClient.aiHosting.customerGetKey,
   ).getApiResource,
+  /** Get a list of currently active models. */
+  customerGetDetailedModels: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingCustomerGetDetailedModels,
+    baseClient.aiHosting.customerGetDetailedModels,
+  ).getApiResource,
   /** Get ai hosting plan and usages of a customer. */
   customerGetUsage: new ApiCallAsyncResourceFactory(
     descriptors.aiHostingCustomerGetUsage,
@@ -37,20 +42,15 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.aiHostingProjectGetKey,
     baseClient.aiHosting.projectGetKey,
   ).getApiResource,
-  /** Get ai hosting plan and usages of a project. Same as the customer route, but less details. */
-  projectGetUsage: new ApiCallAsyncResourceFactory(
-    descriptors.aiHostingProjectGetUsage,
-    baseClient.aiHosting.projectGetUsage,
-  ).getApiResource,
-  /** Get a list of currently active models. */
-  customerGetDetailedModels: new ApiCallAsyncResourceFactory(
-    descriptors.aiHostingCustomerGetDetailedModels,
-    baseClient.aiHosting.customerGetDetailedModels,
-  ).getApiResource,
   /** Get a list of currently active models. */
   projectGetDetailedModels: new ApiCallAsyncResourceFactory(
     descriptors.aiHostingProjectGetDetailedModels,
     baseClient.aiHosting.projectGetDetailedModels,
+  ).getApiResource,
+  /** Get ai hosting plan and usages of a project. Same as the customer route, but less details. */
+  projectGetUsage: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingProjectGetUsage,
+    baseClient.aiHosting.projectGetUsage,
   ).getApiResource,
 });
 
@@ -243,11 +243,6 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
   listVolumes: new ApiCallAsyncResourceFactory(
     descriptors.containerListVolumes,
     baseClient.container.listVolumes,
-  ).getApiResource,
-  /** Call pull-image webhook */
-  callPullImageWebhookForService: new ApiCallAsyncResourceFactory(
-    descriptors.containerCallPullImageWebhookForService,
-    baseClient.container.callPullImageWebhookForService,
   ).getApiResource,
 });
 
