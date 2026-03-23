@@ -73,8 +73,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app = {
-    /** Trigger a runtime action belonging to an AppInstallation. */
-    executeAction: this.requestFunctionFactory(descriptors.appExecuteAction),
     /** Get an App. */
     getApp: this.requestFunctionFactory(descriptors.appGetApp),
     /** Get an AppInstallation. */
@@ -235,6 +233,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The container API allows you to manage your stacks, containers, volumes and registries. */
   public readonly container = {
+    /** Call pull-image webhook */
+    callPullImageWebhookForService: this.requestFunctionFactory(
+      descriptors.containerCallPullImageWebhookForService,
+    ),
     /** List Registries belonging to a Project. */
     listRegistries: this.requestFunctionFactory(
       descriptors.containerListRegistries,
@@ -304,6 +306,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Restart a started Service. */
     restartService: this.requestFunctionFactory(
       descriptors.containerRestartService,
+    ),
+    /** Create or rotate pull-image webhook token */
+    rotatePullImageWebhookForService: this.requestFunctionFactory(
+      descriptors.containerRotatePullImageWebhookForService,
     ),
     /** Set an update schedule for a Stack. */
     setStackUpdateSchedule: this.requestFunctionFactory(
