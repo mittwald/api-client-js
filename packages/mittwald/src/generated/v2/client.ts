@@ -7,10 +7,6 @@ import { ApiClientBase } from "@mittwald/api-client-commons";
 export class MittwaldAPIV2Client extends ApiClientBase {
   /** The AI hosting provides access to multiple large language and embedding models – GDPR compliant and hosted in Germany. */
   public readonly aiHosting = {
-    /** Accepts the model terms for a customer. */
-    customerAcceptModelTerms: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerAcceptModelTerms,
-    ),
     /** Get a list of already created keys. */
     customerGetKeys: this.requestFunctionFactory(
       descriptors.aiHostingCustomerGetKeys,
@@ -30,10 +26,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Delete a key for a customer. */
     customerDeleteKey: this.requestFunctionFactory(
       descriptors.aiHostingCustomerDeleteKey,
-    ),
-    /** Get a list of currently active models. */
-    customerGetDetailedModels: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetDetailedModels,
     ),
     /** Get ai hosting plan and usages of a customer. */
     customerGetUsage: this.requestFunctionFactory(
@@ -61,20 +53,26 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     projectDeleteKey: this.requestFunctionFactory(
       descriptors.aiHostingProjectDeleteKey,
     ),
+    /** Get ai hosting plan and usages of a project. Same as the customer route, but less details. */
+    projectGetUsage: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetUsage,
+    ),
+    /** Get a list of currently active models. */
+    customerGetDetailedModels: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetDetailedModels,
+    ),
     /** Get a list of currently active models. */
     projectGetDetailedModels: this.requestFunctionFactory(
       descriptors.aiHostingProjectGetDetailedModels,
     ),
-    /** Get ai hosting plan and usages of a project. Same as the customer route, but less details. */
-    projectGetUsage: this.requestFunctionFactory(
-      descriptors.aiHostingProjectGetUsage,
+    /** Accepts the model terms for a customer. */
+    customerAcceptModelTerms: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerAcceptModelTerms,
     ),
   };
 
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app = {
-    /** Trigger a runtime action belonging to an AppInstallation. */
-    executeAction: this.requestFunctionFactory(descriptors.appExecuteAction),
     /** Get an App. */
     getApp: this.requestFunctionFactory(descriptors.appGetApp),
     /** Get an AppInstallation. */
@@ -767,44 +765,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update the content of the message */
     updateMessage: this.requestFunctionFactory(
       descriptors.conversationUpdateMessage,
-    ),
-  };
-
-  /** The cronjob API allows you to manage cronjobs within a project. */
-  public readonly cronjob = {
-    /** List Cronjobs belonging to a Project. */
-    listCronjobs: this.requestFunctionFactory(descriptors.cronjobListCronjobs),
-    /** Create a Cronjob. */
-    createCronjob: this.requestFunctionFactory(
-      descriptors.cronjobCreateCronjob,
-    ),
-    /** List CronjobExecutions belonging to a Cronjob. */
-    listExecutions: this.requestFunctionFactory(
-      descriptors.cronjobListExecutions,
-    ),
-    /** Trigger a Cronjob. */
-    createExecution: this.requestFunctionFactory(
-      descriptors.cronjobCreateExecution,
-    ),
-    /** Get a Cronjob. */
-    getCronjob: this.requestFunctionFactory(descriptors.cronjobGetCronjob),
-    /** Delete a Cronjob. */
-    deleteCronjob: this.requestFunctionFactory(
-      descriptors.cronjobDeleteCronjob,
-    ),
-    /** Update a Cronjob. */
-    updateCronjob: this.requestFunctionFactory(
-      descriptors.cronjobUpdateCronjob,
-    ),
-    /** Get a CronjobExecution analysis for failed executions. */
-    getExecutionAnalysis: this.requestFunctionFactory(
-      descriptors.cronjobGetExecutionAnalysis,
-    ),
-    /** Get a CronjobExecution. */
-    getExecution: this.requestFunctionFactory(descriptors.cronjobGetExecution),
-    /** Update a Cronjob's app installation id. */
-    replaceCronjobAppInstallationId: this.requestFunctionFactory(
-      descriptors.cronjobReplaceCronjobAppInstallationId,
     ),
   };
 
@@ -1556,26 +1516,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
-  /** API endpoints that are not related to any specific API domain */
-  public readonly misc = {
-    /** List valid time zones. */
-    ellaneousListTimeZones: this.requestFunctionFactory(
-      descriptors.miscellaneousListTimeZones,
-    ),
-    /** Check if an email is from mittwald. */
-    verificationDetectPhishingEmail: this.requestFunctionFactory(
-      descriptors.verificationDetectPhishingEmail,
-    ),
-    /** Check if an address exists. */
-    verificationVerifyAddress: this.requestFunctionFactory(
-      descriptors.verificationVerifyAddress,
-    ),
-    /** Check if a company exists. */
-    verificationVerifyCompany: this.requestFunctionFactory(
-      descriptors.verificationVerifyCompany,
-    ),
-  };
-
   /** The page insights API allows you to get page insights information. */
   public readonly pageInsights = {
     /** Get detailed performance data for a given domain and path. */
@@ -1793,6 +1733,64 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     sshUserUpdateSshUser: this.requestFunctionFactory(
       descriptors.sshUserUpdateSshUser,
     ),
+  };
+
+  /** API endpoints that are not related to any specific API domain */
+  public readonly misc = {
+    /** Check if an email is from mittwald. */
+    verificationDetectPhishingEmail: this.requestFunctionFactory(
+      descriptors.verificationDetectPhishingEmail,
+    ),
+    /** Check if an address exists. */
+    verificationVerifyAddress: this.requestFunctionFactory(
+      descriptors.verificationVerifyAddress,
+    ),
+    /** Check if a company exists. */
+    verificationVerifyCompany: this.requestFunctionFactory(
+      descriptors.verificationVerifyCompany,
+    ),
+    /** List valid time zones. */
+    ellaneousListTimeZones: this.requestFunctionFactory(
+      descriptors.miscellaneousListTimeZones,
+    ),
+  };
+
+  /** The cronjob API allows you to manage cronjobs within a project. */
+  public readonly cronjob = {
+    /** Get a Cronjob. */
+    getCronjob: this.requestFunctionFactory(descriptors.cronjobGetCronjob),
+    /** Delete a Cronjob. */
+    deleteCronjob: this.requestFunctionFactory(
+      descriptors.cronjobDeleteCronjob,
+    ),
+    /** Update a Cronjob. */
+    updateCronjob: this.requestFunctionFactory(
+      descriptors.cronjobUpdateCronjob,
+    ),
+    /** Update a Cronjob's app installation id. */
+    replaceCronjobAppInstallationId: this.requestFunctionFactory(
+      descriptors.cronjobReplaceCronjobAppInstallationId,
+    ),
+    /** List CronjobExecutions belonging to a Cronjob. */
+    listExecutions: this.requestFunctionFactory(
+      descriptors.cronjobListExecutions,
+    ),
+    /** Trigger a Cronjob. */
+    createExecution: this.requestFunctionFactory(
+      descriptors.cronjobCreateExecution,
+    ),
+    /** Get a CronjobExecution analysis for failed executions. */
+    getExecutionAnalysis: this.requestFunctionFactory(
+      descriptors.cronjobGetExecutionAnalysis,
+    ),
+    /** List Cronjobs belonging to a Project. */
+    listCronjobs: this.requestFunctionFactory(descriptors.cronjobListCronjobs),
+    /** Create a Cronjob. */
+    createCronjob: this.requestFunctionFactory(
+      descriptors.cronjobCreateCronjob,
+    ),
+    /** Get a CronjobExecution. */
+    getExecution: this.requestFunctionFactory(descriptors.cronjobGetExecution),
   };
 }
 
