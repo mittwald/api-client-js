@@ -9576,11 +9576,6 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export type AihostingDetailedModelStatus =
-        | "active"
-        | "needApproval"
-        | "deprecated";
-
       export interface AihostingCustomerDetailedModel {
         activeAt: string;
         displayName: string;
@@ -9591,6 +9586,11 @@ export declare module MittwaldAPIV2 {
         status: MittwaldAPIV2.Components.Schemas.AihostingDetailedModelStatus;
         termsOfServiceLink: string;
       }
+
+      export type AihostingDetailedModelStatus =
+        | "active"
+        | "needApproval"
+        | "deprecated";
 
       export interface AihostingProjectDetailedModel {
         activeAt: string;
