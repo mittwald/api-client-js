@@ -42,6 +42,16 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.aiHostingProjectGetUsage,
     baseClient.aiHosting.projectGetUsage,
   ).getApiResource,
+  /** Get a list of currently active models. */
+  customerGetDetailedModels: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingCustomerGetDetailedModels,
+    baseClient.aiHosting.customerGetDetailedModels,
+  ).getApiResource,
+  /** Get a list of currently active models. */
+  projectGetDetailedModels: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingProjectGetDetailedModels,
+    baseClient.aiHosting.projectGetDetailedModels,
+  ).getApiResource,
 });
 
 const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({

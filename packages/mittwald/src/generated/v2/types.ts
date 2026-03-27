@@ -4588,6 +4588,39 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace AiHostingCustomerGetDetailedModels {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingCustomerGetDetailedModels
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.aiHostingCustomerGetDetailedModels,
+          TStatus
+        >;
+    }
+
+    namespace AiHostingProjectGetDetailedModels {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingProjectGetDetailedModels
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.aiHostingProjectGetDetailedModels,
+          TStatus
+        >;
+    }
+
+    namespace AiHostingCustomerAcceptModelTerms {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingCustomerAcceptModelTerms
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.aiHostingCustomerAcceptModelTerms,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -4637,6 +4670,7 @@ export declare module MittwaldAPIV2 {
         customerId: string;
         deletedAt?: string;
         keys: MittwaldAPIV2.Components.Schemas.AihostingPlanUsage;
+        modelTermsApprovalRequired: boolean;
         nextTokenReset: string;
         rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
         tokens: MittwaldAPIV2.Components.Schemas.AihostingPlanUsageBig;
@@ -9542,6 +9576,33 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
+      export type AihostingDetailedModelStatus =
+        | "active"
+        | "needApproval"
+        | "deprecated";
+
+      export interface AihostingCustomerDetailedModel {
+        activeAt: string;
+        displayName: string;
+        docLink: string;
+        name: string;
+        removalAt?: string;
+        replacesModelName?: string;
+        status: MittwaldAPIV2.Components.Schemas.AihostingDetailedModelStatus;
+        termsOfServiceLink: string;
+      }
+
+      export interface AihostingProjectDetailedModel {
+        activeAt: string;
+        displayName: string;
+        docLink: string;
+        name: string;
+        removalAt?: string;
+        replacesModelName?: string;
+        status: MittwaldAPIV2.Components.Schemas.AihostingDetailedModelStatus;
+        termsOfServiceLink: string;
+      }
+
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -10620,6 +10681,7 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export interface ApplicationJson {
                 keys: MittwaldAPIV2.Components.Schemas.AihostingPlanUsage;
+                modelTermsApprovalRequired: boolean;
                 nextTokenReset?: string;
                 projectId: string;
               }
@@ -11520,7 +11582,9 @@ export declare module MittwaldAPIV2 {
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
-          export type Query = {};
+          export type Query = {
+            onlyRecommended?: boolean;
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -13220,6 +13284,8 @@ export declare module MittwaldAPIV2 {
              * To **delete** an existing container from a stack using a `PUT` request, simply omit
              * it from the request body. Using a `PATCH` request, set it to an empty object `{}`.
              *
+             * Keys must be strings of max 63 characters.
+             *
              */
             services?: {
               [
@@ -13309,13 +13375,28 @@ export declare module MittwaldAPIV2 {
           };
 
           export interface RequestBody {
+            /**
+             * A set of containers that should be started in this stack. The key is relevant for
+             * network connectivity between containers, because you can use it as DNS name to
+             * resolve this containers from other containers running in the same project (or from
+             * managed apps running in the same project).
+             *
+             * To **delete** an existing container from a stack using a `PUT` request, simply omit
+             * it from the request body. Using a `PATCH` request, set it to an empty object `{}`.
+             *
+             * Keys must be strings of max 63 characters.
+             *
+             */
             services?: {
               [
                 k: string
               ]: MittwaldAPIV2.Components.Schemas.ContainerServiceRequest;
             };
             /**
-             * Volumes belonging to a Stack. Removing results in a detach, delete must be explicit.
+             * A set of named volumes that should be created for this stack. Removing a volume
+             * from this set will not delete the volume (for safety), but only detach it from the
+             * stack. To delete a volume, use the `DELETE /stacks/{stackId}/volumes/{volumeId}` endpoint.
+             *
              */
             volumes?: {
               [
@@ -37591,5 +37672,190 @@ export declare module MittwaldAPIV2 {
     namespace V2AppinstallationsAppInstallationIdActionsAction {}
 
     namespace V2AppInstallationsAppInstallationIdActionsAction {}
+
+    namespace V2CustomersCustomerIdAiHostingModels {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AihostingCustomerDetailedModel[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectsProjectIdAiHostingModels {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AihostingProjectDetailedModel[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CustomersCustomerIdAiHostingModelsActionsAcceptTerms {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

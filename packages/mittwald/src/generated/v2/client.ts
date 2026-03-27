@@ -57,6 +57,18 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     projectGetUsage: this.requestFunctionFactory(
       descriptors.aiHostingProjectGetUsage,
     ),
+    /** Get a list of currently active models. */
+    customerGetDetailedModels: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetDetailedModels,
+    ),
+    /** Get a list of currently active models. */
+    projectGetDetailedModels: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetDetailedModels,
+    ),
+    /** Accepts the model terms for a customer. */
+    customerAcceptModelTerms: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerAcceptModelTerms,
+    ),
   };
 
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
