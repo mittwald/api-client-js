@@ -9576,6 +9576,17 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
+      export interface AihostingProjectDetailedModel {
+        activeAt: string;
+        displayName: string;
+        docLink: string;
+        name: string;
+        removalAt?: string;
+        replacesModelName?: string;
+        status: MittwaldAPIV2.Components.Schemas.AihostingDetailedModelStatus;
+        termsOfServiceLink: string;
+      }
+
       export interface AihostingCustomerDetailedModel {
         activeAt: string;
         displayName: string;
@@ -9591,17 +9602,6 @@ export declare module MittwaldAPIV2 {
         | "active"
         | "needApproval"
         | "deprecated";
-
-      export interface AihostingProjectDetailedModel {
-        activeAt: string;
-        displayName: string;
-        docLink: string;
-        name: string;
-        removalAt?: string;
-        replacesModelName?: string;
-        status: MittwaldAPIV2.Components.Schemas.AihostingDetailedModelStatus;
-        termsOfServiceLink: string;
-      }
 
       export interface CommonsAddress {
         street: string;
