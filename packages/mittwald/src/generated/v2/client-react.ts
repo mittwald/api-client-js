@@ -17,11 +17,6 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.aiHostingCustomerGetKey,
     baseClient.aiHosting.customerGetKey,
   ).getApiResource,
-  /** Get a list of currently active models. */
-  customerGetDetailedModels: new ApiCallAsyncResourceFactory(
-    descriptors.aiHostingCustomerGetDetailedModels,
-    baseClient.aiHosting.customerGetDetailedModels,
-  ).getApiResource,
   /** Get ai hosting plan and usages of a customer. */
   customerGetUsage: new ApiCallAsyncResourceFactory(
     descriptors.aiHostingCustomerGetUsage,
@@ -42,15 +37,20 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.aiHostingProjectGetKey,
     baseClient.aiHosting.projectGetKey,
   ).getApiResource,
-  /** Get a list of currently active models. */
-  projectGetDetailedModels: new ApiCallAsyncResourceFactory(
-    descriptors.aiHostingProjectGetDetailedModels,
-    baseClient.aiHosting.projectGetDetailedModels,
-  ).getApiResource,
   /** Get ai hosting plan and usages of a project. Same as the customer route, but less details. */
   projectGetUsage: new ApiCallAsyncResourceFactory(
     descriptors.aiHostingProjectGetUsage,
     baseClient.aiHosting.projectGetUsage,
+  ).getApiResource,
+  /** Get a list of currently active models. */
+  customerGetDetailedModels: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingCustomerGetDetailedModels,
+    baseClient.aiHosting.customerGetDetailedModels,
+  ).getApiResource,
+  /** Get a list of currently active models. */
+  projectGetDetailedModels: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingProjectGetDetailedModels,
+    baseClient.aiHosting.projectGetDetailedModels,
   ).getApiResource,
 });
 
@@ -515,34 +515,6 @@ const buildConversationApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildCronjobApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** List Cronjobs belonging to a Project. */
-  listCronjobs: new ApiCallAsyncResourceFactory(
-    descriptors.cronjobListCronjobs,
-    baseClient.cronjob.listCronjobs,
-  ).getApiResource,
-  /** List CronjobExecutions belonging to a Cronjob. */
-  listExecutions: new ApiCallAsyncResourceFactory(
-    descriptors.cronjobListExecutions,
-    baseClient.cronjob.listExecutions,
-  ).getApiResource,
-  /** Get a Cronjob. */
-  getCronjob: new ApiCallAsyncResourceFactory(
-    descriptors.cronjobGetCronjob,
-    baseClient.cronjob.getCronjob,
-  ).getApiResource,
-  /** Get a CronjobExecution analysis for failed executions. */
-  getExecutionAnalysis: new ApiCallAsyncResourceFactory(
-    descriptors.cronjobGetExecutionAnalysis,
-    baseClient.cronjob.getExecutionAnalysis,
-  ).getApiResource,
-  /** Get a CronjobExecution. */
-  getExecution: new ApiCallAsyncResourceFactory(
-    descriptors.cronjobGetExecution,
-    baseClient.cronjob.getExecution,
-  ).getApiResource,
-});
-
 const buildCustomerApi = (baseClient: MittwaldAPIV2Client) => ({
   /** List Invites belonging to a Customer. */
   listInvitesForCustomer: new ApiCallAsyncResourceFactory(
@@ -869,14 +841,6 @@ const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildMiscApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** List valid time zones. */
-  ellaneousListTimeZones: new ApiCallAsyncResourceFactory(
-    descriptors.miscellaneousListTimeZones,
-    baseClient.misc.ellaneousListTimeZones,
-  ).getApiResource,
-});
-
 const buildNotificationApi = (baseClient: MittwaldAPIV2Client) => ({
   /** Getting the subscription status of the subscription. */
   newsletterGetInfo: new ApiCallAsyncResourceFactory(
@@ -1120,6 +1084,42 @@ const buildSshsftpUserApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
+const buildCronjobApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get a Cronjob. */
+  getCronjob: new ApiCallAsyncResourceFactory(
+    descriptors.cronjobGetCronjob,
+    baseClient.cronjob.getCronjob,
+  ).getApiResource,
+  /** List CronjobExecutions belonging to a Cronjob. */
+  listExecutions: new ApiCallAsyncResourceFactory(
+    descriptors.cronjobListExecutions,
+    baseClient.cronjob.listExecutions,
+  ).getApiResource,
+  /** Get a CronjobExecution analysis for failed executions. */
+  getExecutionAnalysis: new ApiCallAsyncResourceFactory(
+    descriptors.cronjobGetExecutionAnalysis,
+    baseClient.cronjob.getExecutionAnalysis,
+  ).getApiResource,
+  /** List Cronjobs belonging to a Project. */
+  listCronjobs: new ApiCallAsyncResourceFactory(
+    descriptors.cronjobListCronjobs,
+    baseClient.cronjob.listCronjobs,
+  ).getApiResource,
+  /** Get a CronjobExecution. */
+  getExecution: new ApiCallAsyncResourceFactory(
+    descriptors.cronjobGetExecution,
+    baseClient.cronjob.getExecution,
+  ).getApiResource,
+});
+
+const buildMiscApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** List valid time zones. */
+  ellaneousListTimeZones: new ApiCallAsyncResourceFactory(
+    descriptors.miscellaneousListTimeZones,
+    baseClient.misc.ellaneousListTimeZones,
+  ).getApiResource,
+});
+
 export class MittwaldAPIV2ClientReact {
   /** The AI hosting provides access to multiple large language and embedding models – GDPR compliant and hosted in Germany. */
   public readonly aiHosting: ReturnType<typeof buildAiHostingApi>;
@@ -1145,9 +1145,6 @@ export class MittwaldAPIV2ClientReact {
   /** The conversation API allows you to manage your support conversations. */
   public readonly conversation: ReturnType<typeof buildConversationApi>;
 
-  /** The cronjob API allows you to manage cronjobs within a project. */
-  public readonly cronjob: ReturnType<typeof buildCronjobApi>;
-
   /** The customer API allows you to manage your own organizations and users. */
   public readonly customer: ReturnType<typeof buildCustomerApi>;
 
@@ -1169,9 +1166,6 @@ export class MittwaldAPIV2ClientReact {
   /** The mail API allows you to manage your mail accounts. */
   public readonly mail: ReturnType<typeof buildMailApi>;
 
-  /** API endpoints that are not related to any specific API domain */
-  public readonly misc: ReturnType<typeof buildMiscApi>;
-
   /** The notification API allows you to manage your notifications. */
   public readonly notification: ReturnType<typeof buildNotificationApi>;
 
@@ -1192,6 +1186,12 @@ export class MittwaldAPIV2ClientReact {
   /** The SSH/SFTP User API allows you to manage your SSH/SFTP users within a project. */
   public readonly sshsftpUser: ReturnType<typeof buildSshsftpUserApi>;
 
+  /** The cronjob API allows you to manage cronjobs within a project. */
+  public readonly cronjob: ReturnType<typeof buildCronjobApi>;
+
+  /** API endpoints that are not related to any specific API domain */
+  public readonly misc: ReturnType<typeof buildMiscApi>;
+
   private constructor(baseClient: MittwaldAPIV2Client) {
     this.aiHosting = buildAiHostingApi(baseClient);
 
@@ -1209,8 +1209,6 @@ export class MittwaldAPIV2ClientReact {
 
     this.conversation = buildConversationApi(baseClient);
 
-    this.cronjob = buildCronjobApi(baseClient);
-
     this.customer = buildCustomerApi(baseClient);
 
     this.database = buildDatabaseApi(baseClient);
@@ -1225,8 +1223,6 @@ export class MittwaldAPIV2ClientReact {
 
     this.mail = buildMailApi(baseClient);
 
-    this.misc = buildMiscApi(baseClient);
-
     this.notification = buildNotificationApi(baseClient);
 
     this.pageInsights = buildPageInsightsApi(baseClient);
@@ -1238,6 +1234,10 @@ export class MittwaldAPIV2ClientReact {
     this.projectFileSystem = buildProjectFileSystemApi(baseClient);
 
     this.sshsftpUser = buildSshsftpUserApi(baseClient);
+
+    this.cronjob = buildCronjobApi(baseClient);
+
+    this.misc = buildMiscApi(baseClient);
   }
 
   public static fromBaseClient(
