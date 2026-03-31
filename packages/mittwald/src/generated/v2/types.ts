@@ -9511,139 +9511,10 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export type CronjobCronjobExecutionSortOrder =
-        | "oldestFirst"
-        | "newestFirst"
-        | "slowestFirst"
-        | "fastestFirst";
-
-      export interface CronjobAppInstallationTarget {
-        appInstallationId: string;
-        destination:
-          | MittwaldAPIV2.Components.Schemas.CronjobCronjobUrl
-          | MittwaldAPIV2.Components.Schemas.CronjobCronjobCommand;
-      }
-
-      export type CronjobConcurrencyPolicy = "allow" | "forbid" | "replace";
-
-      export interface CronjobAppInstallationPatchTarget {
-        appInstallationId?: string;
-        destination?:
-          | MittwaldAPIV2.Components.Schemas.CronjobCronjobUrl
-          | MittwaldAPIV2.Components.Schemas.CronjobCronjobCommand;
-      }
-
-      export interface CronjobCronjob {
-        active: boolean;
-        /**
-         * @deprecated
-         * DEPRECATED: Use 'appInstallationId' instead. This field will be removed in a future version.
-         */
-        appId: string;
-        /**
-         * DEPRECATED: Use 'target.appCronjob' instead. This field will be removed in a future version.
-         */
-        appInstallationId?: string;
-        concurrencyPolicy?: MittwaldAPIV2.Components.Schemas.CronjobConcurrencyPolicy;
-        createdAt: string;
-        description: string;
-        /**
-         * DEPRECATED: Use 'target.' instead. This field will be removed in a future version.
-         */
-        destination?:
-          | MittwaldAPIV2.Components.Schemas.CronjobCronjobUrl
-          | MittwaldAPIV2.Components.Schemas.CronjobCronjobCommand;
-        email?: string;
-        failedExecutionAlertThreshold: number;
-        id: string;
-        interval: string;
-        latestExecution?: MittwaldAPIV2.Components.Schemas.CronjobCronjobExecution;
-        nextExecutionTime?: string;
-        projectId?: string;
-        shortId: string;
-        target?:
-          | MittwaldAPIV2.Components.Schemas.CronjobAppInstallationTarget
-          | MittwaldAPIV2.Components.Schemas.CronjobServiceTargetResponse;
-        timeZone?: string;
-        timeout: number;
-        updatedAt: string;
-      }
-
-      export interface CronjobCronjobExecutionAnalysis {
-        message: string;
-      }
-
-      export interface CronjobCronjobUrl {
-        url: string;
-      }
-
-      export interface CronjobCronjobCommand {
-        interpreter: string;
-        parameters?: string;
-        path: string;
-      }
-
-      export interface CronjobCronjobRequest {
-        active: boolean;
-        /**
-         * @deprecated
-         * DEPRECATED: Use 'target.AppInstallationTarget' instead. This field will be removed in a future version.
-         */
-        appId?: string;
-        /**
-         * DEPRECATED: Use 'target.AppInstallationTarget' instead. This field will be removed in a future version.
-         */
-        appInstallationId?: string;
-        concurrencyPolicy?: MittwaldAPIV2.Components.Schemas.CronjobConcurrencyPolicy;
-        description: string;
-        /**
-         * DEPRECATED: Use 'target.AppInstallationTarget' instead. This field will be removed in a future version.
-         */
-        destination?:
-          | MittwaldAPIV2.Components.Schemas.CronjobCronjobUrl
-          | MittwaldAPIV2.Components.Schemas.CronjobCronjobCommand;
-        email?: string;
-        failedExecutionAlertThreshold?: number;
-        interval: string;
-        target?:
-          | MittwaldAPIV2.Components.Schemas.CronjobAppInstallationTarget
-          | MittwaldAPIV2.Components.Schemas.CronjobServiceTarget;
-        timeZone?: string;
-        timeout: number;
-      }
-
-      export interface CronjobCronjobExecution {
-        abortedBy?: {
-          id?: string;
-        };
-        cronjobId: string;
-        durationInMilliseconds?: number;
-        end?: string;
-        /**
-         * @deprecated
-         */
-        executionEnd?: string;
-        /**
-         * @deprecated
-         */
-        executionStart?: string;
-        exitCode?: number;
-        id: string;
-        logPath?: string;
-        start?: string;
-        status:
-          | "Complete"
-          | "Failed"
-          | "AbortedBySystem"
-          | "Pending"
-          | "Running"
-          | "AbortedByUser"
-          | "TimedOut";
-        successful: boolean;
-        triggeredBy?: {
-          id?: string;
-        };
-      }
+      export type AihostingDetailedModelStatus =
+        | "active"
+        | "needApproval"
+        | "deprecated";
 
       export interface AihostingCustomerDetailedModel {
         activeAt: string;
@@ -9655,11 +9526,6 @@ export declare module MittwaldAPIV2 {
         status: MittwaldAPIV2.Components.Schemas.AihostingDetailedModelStatus;
         termsOfServiceLink: string;
       }
-
-      export type AihostingDetailedModelStatus =
-        | "active"
-        | "needApproval"
-        | "deprecated";
 
       export interface AihostingProjectDetailedModel {
         activeAt: string;
