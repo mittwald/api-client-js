@@ -6136,11 +6136,17 @@ export declare module MittwaldAPIV2 {
          * DEPRECATED: Use 'appInstallationId' instead. This field will be removed in a future version.
          */
         appId: string;
+        /**
+         * DEPRECATED: Use 'target.appCronjob' instead. This field will be removed in a future version.
+         */
         appInstallationId?: string;
         concurrencyPolicy?: MittwaldAPIV2.Components.Schemas.CronjobConcurrencyPolicy;
         createdAt: string;
         description: string;
-        destination:
+        /**
+         * DEPRECATED: Use 'target.' instead. This field will be removed in a future version.
+         */
+        destination?:
           | MittwaldAPIV2.Components.Schemas.CronjobCronjobUrl
           | MittwaldAPIV2.Components.Schemas.CronjobCronjobCommand;
         email?: string;
@@ -6151,6 +6157,9 @@ export declare module MittwaldAPIV2 {
         nextExecutionTime?: string;
         projectId?: string;
         shortId: string;
+        target?:
+          | MittwaldAPIV2.Components.Schemas.CronjobAppInstallationTarget
+          | MittwaldAPIV2.Components.Schemas.CronjobServiceTargetResponse;
         timeZone?: string;
         timeout: number;
         updatedAt: string;
@@ -6203,18 +6212,27 @@ export declare module MittwaldAPIV2 {
         active: boolean;
         /**
          * @deprecated
-         * DEPRECATED: Use 'appInstallationId' instead. This field will be removed in a future version.
+         * DEPRECATED: Use 'target.AppInstallationTarget' instead. This field will be removed in a future version.
          */
-        appId: string;
+        appId?: string;
+        /**
+         * DEPRECATED: Use 'target.AppInstallationTarget' instead. This field will be removed in a future version.
+         */
         appInstallationId?: string;
         concurrencyPolicy?: MittwaldAPIV2.Components.Schemas.CronjobConcurrencyPolicy;
         description: string;
-        destination:
+        /**
+         * DEPRECATED: Use 'target.AppInstallationTarget' instead. This field will be removed in a future version.
+         */
+        destination?:
           | MittwaldAPIV2.Components.Schemas.CronjobCronjobUrl
           | MittwaldAPIV2.Components.Schemas.CronjobCronjobCommand;
         email?: string;
         failedExecutionAlertThreshold?: number;
         interval: string;
+        target?:
+          | MittwaldAPIV2.Components.Schemas.CronjobAppInstallationTarget
+          | MittwaldAPIV2.Components.Schemas.CronjobServiceTarget;
         timeZone?: string;
         timeout: number;
       }
@@ -9576,11 +9594,6 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export type AihostingDetailedModelStatus =
-        | "active"
-        | "needApproval"
-        | "deprecated";
-
       export interface AihostingCustomerDetailedModel {
         activeAt: string;
         displayName: string;
@@ -9592,6 +9605,11 @@ export declare module MittwaldAPIV2 {
         termsOfServiceLink: string;
       }
 
+      export type AihostingDetailedModelStatus =
+        | "active"
+        | "needApproval"
+        | "deprecated";
+
       export interface AihostingProjectDetailedModel {
         activeAt: string;
         displayName: string;
@@ -9601,6 +9619,50 @@ export declare module MittwaldAPIV2 {
         replacesModelName?: string;
         status: MittwaldAPIV2.Components.Schemas.AihostingDetailedModelStatus;
         termsOfServiceLink: string;
+      }
+
+      export interface CronjobAppInstallationTarget {
+        appInstallationId: string;
+        destination:
+          | MittwaldAPIV2.Components.Schemas.CronjobCronjobUrl
+          | MittwaldAPIV2.Components.Schemas.CronjobCronjobCommand;
+      }
+
+      export interface CronjobAppInstallationPatchTarget {
+        appInstallationId?: string;
+        destination?:
+          | MittwaldAPIV2.Components.Schemas.CronjobCronjobUrl
+          | MittwaldAPIV2.Components.Schemas.CronjobCronjobCommand;
+      }
+
+      export interface CronjobServicePatchTarget {
+        command?: string;
+        serviceIdentifier?: string;
+        stackId?: string;
+      }
+
+      export interface CronjobServiceCronjobRequest {
+        active: boolean;
+        concurrencyPolicy?: MittwaldAPIV2.Components.Schemas.CronjobConcurrencyPolicy;
+        description: string;
+        email?: string;
+        failedExecutionAlertThreshold?: number;
+        interval: string;
+        target?: MittwaldAPIV2.Components.Schemas.CronjobServiceTarget;
+        timeZone?: string;
+        timeout: number;
+      }
+
+      export interface CronjobServiceTarget {
+        command: string;
+        serviceIdentifier: string;
+        stackId: string;
+      }
+
+      export interface CronjobServiceTargetResponse {
+        command: string;
+        serviceShortId: string;
+        stackId: string;
       }
 
       export interface CommonsAddress {
@@ -17949,6 +18011,7 @@ export declare module MittwaldAPIV2 {
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {
+            includeServiceCronjobs?: boolean;
             limit?: number;
             skip?: number;
             page?: number;
@@ -18251,12 +18314,18 @@ export declare module MittwaldAPIV2 {
             active?: boolean;
             concurrencyPolicy?: MittwaldAPIV2.Components.Schemas.CronjobConcurrencyPolicy;
             description?: string;
+            /**
+             * deprecated, use target instead
+             */
             destination?:
               | MittwaldAPIV2.Components.Schemas.CronjobCronjobUrl
               | MittwaldAPIV2.Components.Schemas.CronjobCronjobCommand;
             email?: string;
             failedExecutionAlertThreshold?: number;
             interval?: string;
+            target?:
+              | MittwaldAPIV2.Components.Schemas.CronjobAppInstallationTarget
+              | MittwaldAPIV2.Components.Schemas.CronjobServiceTarget;
             timeZone?: string;
             timeout?: number;
           }
