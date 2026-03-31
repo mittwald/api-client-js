@@ -9511,29 +9511,11 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export interface CronjobContainerTarget {
-        command: string;
-        containerIdentifier: string;
-        stackId: string;
-      }
-
       export type CronjobCronjobExecutionSortOrder =
         | "oldestFirst"
         | "newestFirst"
         | "slowestFirst"
         | "fastestFirst";
-
-      export interface CronjobContainerCronjobRequest {
-        active: boolean;
-        concurrencyPolicy?: MittwaldAPIV2.Components.Schemas.CronjobConcurrencyPolicy;
-        description: string;
-        email?: string;
-        failedExecutionAlertThreshold?: number;
-        interval: string;
-        target?: MittwaldAPIV2.Components.Schemas.CronjobContainerTarget;
-        timeZone?: string;
-        timeout: number;
-      }
 
       export interface CronjobAppInstallationTarget {
         appInstallationId: string;
@@ -9581,7 +9563,7 @@ export declare module MittwaldAPIV2 {
         shortId: string;
         target?:
           | MittwaldAPIV2.Components.Schemas.CronjobAppInstallationTarget
-          | MittwaldAPIV2.Components.Schemas.CronjobContainerTargetResponse;
+          | MittwaldAPIV2.Components.Schemas.CronjobServiceTargetResponse;
         timeZone?: string;
         timeout: number;
         updatedAt: string;
@@ -9591,20 +9573,8 @@ export declare module MittwaldAPIV2 {
         message: string;
       }
 
-      export interface CronjobContainerTargetResponse {
-        command: string;
-        containerShortId: string;
-        stackId: string;
-      }
-
       export interface CronjobCronjobUrl {
         url: string;
-      }
-
-      export interface CronjobContainerPatchTarget {
-        command?: string;
-        containerIdentifier?: string;
-        stackId?: string;
       }
 
       export interface CronjobCronjobCommand {
@@ -9637,7 +9607,7 @@ export declare module MittwaldAPIV2 {
         interval: string;
         target?:
           | MittwaldAPIV2.Components.Schemas.CronjobAppInstallationTarget
-          | MittwaldAPIV2.Components.Schemas.CronjobContainerTarget;
+          | MittwaldAPIV2.Components.Schemas.CronjobServiceTarget;
         timeZone?: string;
         timeout: number;
       }
@@ -9711,6 +9681,36 @@ export declare module MittwaldAPIV2 {
         files?: [];
         messageId: string;
         type: "SERVICE_REQUEST";
+      }
+
+      export interface CronjobServicePatchTarget {
+        command?: string;
+        serviceIdentifier?: string;
+        stackId?: string;
+      }
+
+      export interface CronjobServiceCronjobRequest {
+        active: boolean;
+        concurrencyPolicy?: MittwaldAPIV2.Components.Schemas.CronjobConcurrencyPolicy;
+        description: string;
+        email?: string;
+        failedExecutionAlertThreshold?: number;
+        interval: string;
+        target?: MittwaldAPIV2.Components.Schemas.CronjobServiceTarget;
+        timeZone?: string;
+        timeout: number;
+      }
+
+      export interface CronjobServiceTarget {
+        command: string;
+        serviceIdentifier: string;
+        stackId: string;
+      }
+
+      export interface CronjobServiceTargetResponse {
+        command: string;
+        serviceShortId: string;
+        stackId: string;
       }
 
       export interface CommonsAddress {
@@ -37358,7 +37358,7 @@ export declare module MittwaldAPIV2 {
             interval?: string;
             target?:
               | MittwaldAPIV2.Components.Schemas.CronjobAppInstallationTarget
-              | MittwaldAPIV2.Components.Schemas.CronjobContainerTarget;
+              | MittwaldAPIV2.Components.Schemas.CronjobServiceTarget;
             timeZone?: string;
             timeout?: number;
           }
@@ -37708,7 +37708,7 @@ export declare module MittwaldAPIV2 {
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {
-            includeContainerCronjobs?: boolean;
+            includeServiceCronjobs?: boolean;
             limit?: number;
             skip?: number;
             page?: number;
