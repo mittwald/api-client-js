@@ -8968,6 +8968,7 @@ export declare module MittwaldAPIV2 {
         isReady: boolean;
         projectHostingId?: string;
         readiness: MittwaldAPIV2.Components.Schemas.ProjectDeprecatedProjectReadinessStatus;
+        serverGroupId: string;
         serverId?: string;
         serverShortId?: string;
         shortId: string;
@@ -8997,6 +8998,7 @@ export declare module MittwaldAPIV2 {
         customerId: string;
         description: string;
         disabledReason?: MittwaldAPIV2.Components.Schemas.ProjectServerDisableReason;
+        groupId: string;
         id: string;
         imageRefId?: string;
         /**
@@ -32964,6 +32966,7 @@ export declare module MittwaldAPIV2 {
                 isReady: boolean;
                 projectHostingId?: string;
                 readiness: MittwaldAPIV2.Components.Schemas.ProjectDeprecatedProjectReadinessStatus;
+                serverGroupId: string;
                 serverId?: string;
                 shortId: string;
                 status: MittwaldAPIV2.Components.Schemas.ProjectProjectStatus;
