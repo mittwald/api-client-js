@@ -9674,45 +9674,15 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export interface AihostingCustomerDetailedModel {
-        activeAt: string;
-        displayName: string;
-        docLink: string;
-        name: string;
-        removalAt?: string;
-        replacesModelName?: string;
-        status: MittwaldAPIV2.Components.Schemas.AihostingDetailedModelStatus;
-        termsOfServiceLink: string;
-      }
-
-      export type AihostingDetailedModelStatus =
-        | "active"
-        | "needApproval"
-        | "deprecated";
-
-      export interface AihostingProjectDetailedModel {
-        activeAt: string;
-        displayName: string;
-        docLink: string;
-        name: string;
-        removalAt?: string;
-        replacesModelName?: string;
-        status: MittwaldAPIV2.Components.Schemas.AihostingDetailedModelStatus;
-        termsOfServiceLink: string;
-      }
-
-      export interface CronjobAppInstallationTarget {
-        appInstallationId: string;
-        destination:
-          | MittwaldAPIV2.Components.Schemas.CronjobCronjobUrl
-          | MittwaldAPIV2.Components.Schemas.CronjobCronjobCommand;
-      }
-
-      export interface CronjobAppInstallationPatchTarget {
-        appInstallationId?: string;
-        destination?:
-          | MittwaldAPIV2.Components.Schemas.CronjobCronjobUrl
-          | MittwaldAPIV2.Components.Schemas.CronjobCronjobCommand;
+      export interface ConversationGenericServiceRequest {
+        conversationId: string;
+        createdAt: string;
+        /**
+         * @maxItems 0
+         */
+        files?: [];
+        messageId: string;
+        type: "SERVICE_REQUEST";
       }
 
       export interface CronjobServicePatchTarget {
@@ -25719,10 +25689,12 @@ export declare module MittwaldAPIV2 {
             context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
             searchTerm?: string;
             includeDeprecated?: boolean;
+            includeFree?: boolean;
+            includeChargeable?: boolean;
             limit?: number;
             skip?: number;
             page?: number;
-            sort?: "name";
+            sort?: "name" | "pricing.priceInCents";
             order?: "asc" | "desc";
           };
         }
