@@ -7,6 +7,10 @@ import { ApiClientBase } from "@mittwald/api-client-commons";
 export class MittwaldAPIV2Client extends ApiClientBase {
   /** The AI hosting provides access to multiple large language and embedding models – GDPR compliant and hosted in Germany. */
   public readonly aiHosting = {
+    /** Accepts the model terms for a customer. */
+    customerAcceptModelTerms: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerAcceptModelTerms,
+    ),
     /** Get a list of already created keys. */
     customerGetKeys: this.requestFunctionFactory(
       descriptors.aiHostingCustomerGetKeys,
@@ -26,6 +30,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Delete a key for a customer. */
     customerDeleteKey: this.requestFunctionFactory(
       descriptors.aiHostingCustomerDeleteKey,
+    ),
+    /** Get a list of currently active models. */
+    customerGetDetailedModels: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetDetailedModels,
     ),
     /** Get ai hosting plan and usages of a customer. */
     customerGetUsage: this.requestFunctionFactory(
@@ -53,21 +61,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     projectDeleteKey: this.requestFunctionFactory(
       descriptors.aiHostingProjectDeleteKey,
     ),
-    /** Get ai hosting plan and usages of a project. Same as the customer route, but less details. */
-    projectGetUsage: this.requestFunctionFactory(
-      descriptors.aiHostingProjectGetUsage,
-    ),
-    /** Get a list of currently active models. */
-    customerGetDetailedModels: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetDetailedModels,
-    ),
     /** Get a list of currently active models. */
     projectGetDetailedModels: this.requestFunctionFactory(
       descriptors.aiHostingProjectGetDetailedModels,
     ),
-    /** Accepts the model terms for a customer. */
-    customerAcceptModelTerms: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerAcceptModelTerms,
+    /** Get ai hosting plan and usages of a project. Same as the customer route, but less details. */
+    projectGetUsage: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetUsage,
     ),
   };
 

@@ -10,6 +10,17 @@ import {
 
 export declare module MittwaldAPIV2 {
   namespace Operations {
+    namespace AiHostingCustomerAcceptModelTerms {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingCustomerAcceptModelTerms
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.aiHostingCustomerAcceptModelTerms,
+          TStatus
+        >;
+    }
+
     namespace AiHostingCustomerGetKeys {
       type RequestData = InferredRequestData<
         typeof descriptors.aiHostingCustomerGetKeys
@@ -61,6 +72,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.aiHostingCustomerDeleteKey,
+          TStatus
+        >;
+    }
+
+    namespace AiHostingCustomerGetDetailedModels {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingCustomerGetDetailedModels
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.aiHostingCustomerGetDetailedModels,
           TStatus
         >;
     }
@@ -135,6 +157,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.aiHostingProjectDeleteKey,
+          TStatus
+        >;
+    }
+
+    namespace AiHostingProjectGetDetailedModels {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingProjectGetDetailedModels
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.aiHostingProjectGetDetailedModels,
           TStatus
         >;
     }
@@ -4588,39 +4621,6 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
-
-    namespace AiHostingCustomerGetDetailedModels {
-      type RequestData = InferredRequestData<
-        typeof descriptors.aiHostingCustomerGetDetailedModels
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.aiHostingCustomerGetDetailedModels,
-          TStatus
-        >;
-    }
-
-    namespace AiHostingProjectGetDetailedModels {
-      type RequestData = InferredRequestData<
-        typeof descriptors.aiHostingProjectGetDetailedModels
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.aiHostingProjectGetDetailedModels,
-          TStatus
-        >;
-    }
-
-    namespace AiHostingCustomerAcceptModelTerms {
-      type RequestData = InferredRequestData<
-        typeof descriptors.aiHostingCustomerAcceptModelTerms
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.aiHostingCustomerAcceptModelTerms,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -4632,6 +4632,22 @@ export declare module MittwaldAPIV2 {
         stackId?: string;
         status: "created" | "requested" | "failed";
       }
+
+      export interface AihostingCustomerDetailedModel {
+        activeAt: string;
+        displayName: string;
+        docLink: string;
+        name: string;
+        removalAt?: string;
+        replacesModelName?: string;
+        status: MittwaldAPIV2.Components.Schemas.AihostingDetailedModelStatus;
+        termsOfServiceLink: string;
+      }
+
+      export type AihostingDetailedModelStatus =
+        | "active"
+        | "needApproval"
+        | "deprecated";
 
       export interface AihostingKey {
         containerMeta?: MittwaldAPIV2.Components.Schemas.AihostingContainerMeta;
@@ -4692,6 +4708,17 @@ export declare module MittwaldAPIV2 {
         available: number;
         planLimit: number;
         used: number;
+      }
+
+      export interface AihostingProjectDetailedModel {
+        activeAt: string;
+        displayName: string;
+        docLink: string;
+        name: string;
+        removalAt?: string;
+        replacesModelName?: string;
+        status: MittwaldAPIV2.Components.Schemas.AihostingDetailedModelStatus;
+        termsOfServiceLink: string;
       }
 
       /**
@@ -6121,6 +6148,13 @@ export declare module MittwaldAPIV2 {
         userspaceMs: number;
       }
 
+      export interface CronjobAppInstallationTarget {
+        appInstallationId: string;
+        destination:
+          | MittwaldAPIV2.Components.Schemas.CronjobCronjobUrl
+          | MittwaldAPIV2.Components.Schemas.CronjobCronjobCommand;
+      }
+
       export interface CronjobCronjobCommand {
         interpreter: string;
         parameters?: string;
@@ -6208,6 +6242,19 @@ export declare module MittwaldAPIV2 {
         | "slowestFirst"
         | "fastestFirst";
 
+      export interface CronjobAppInstallationPatchTarget {
+        appInstallationId?: string;
+        destination?:
+          | MittwaldAPIV2.Components.Schemas.CronjobCronjobUrl
+          | MittwaldAPIV2.Components.Schemas.CronjobCronjobCommand;
+      }
+
+      export interface CronjobServicePatchTarget {
+        command?: string;
+        serviceIdentifier?: string;
+        stackId?: string;
+      }
+
       export interface CronjobCronjobRequest {
         active: boolean;
         /**
@@ -6235,6 +6282,30 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.CronjobServiceTarget;
         timeZone?: string;
         timeout: number;
+      }
+
+      export interface CronjobServiceCronjobRequest {
+        active: boolean;
+        concurrencyPolicy?: MittwaldAPIV2.Components.Schemas.CronjobConcurrencyPolicy;
+        description: string;
+        email?: string;
+        failedExecutionAlertThreshold?: number;
+        interval: string;
+        target?: MittwaldAPIV2.Components.Schemas.CronjobServiceTarget;
+        timeZone?: string;
+        timeout: number;
+      }
+
+      export interface CronjobServiceTarget {
+        command: string;
+        serviceIdentifier: string;
+        stackId: string;
+      }
+
+      export interface CronjobServiceTargetResponse {
+        command: string;
+        serviceShortId: string;
+        stackId: string;
       }
 
       export interface CronjobCronjobUrl {
@@ -9596,77 +9667,6 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export interface AihostingCustomerDetailedModel {
-        activeAt: string;
-        displayName: string;
-        docLink: string;
-        name: string;
-        removalAt?: string;
-        replacesModelName?: string;
-        status: MittwaldAPIV2.Components.Schemas.AihostingDetailedModelStatus;
-        termsOfServiceLink: string;
-      }
-
-      export type AihostingDetailedModelStatus =
-        | "active"
-        | "needApproval"
-        | "deprecated";
-
-      export interface AihostingProjectDetailedModel {
-        activeAt: string;
-        displayName: string;
-        docLink: string;
-        name: string;
-        removalAt?: string;
-        replacesModelName?: string;
-        status: MittwaldAPIV2.Components.Schemas.AihostingDetailedModelStatus;
-        termsOfServiceLink: string;
-      }
-
-      export interface CronjobAppInstallationTarget {
-        appInstallationId: string;
-        destination:
-          | MittwaldAPIV2.Components.Schemas.CronjobCronjobUrl
-          | MittwaldAPIV2.Components.Schemas.CronjobCronjobCommand;
-      }
-
-      export interface CronjobAppInstallationPatchTarget {
-        appInstallationId?: string;
-        destination?:
-          | MittwaldAPIV2.Components.Schemas.CronjobCronjobUrl
-          | MittwaldAPIV2.Components.Schemas.CronjobCronjobCommand;
-      }
-
-      export interface CronjobServicePatchTarget {
-        command?: string;
-        serviceIdentifier?: string;
-        stackId?: string;
-      }
-
-      export interface CronjobServiceCronjobRequest {
-        active: boolean;
-        concurrencyPolicy?: MittwaldAPIV2.Components.Schemas.CronjobConcurrencyPolicy;
-        description: string;
-        email?: string;
-        failedExecutionAlertThreshold?: number;
-        interval: string;
-        target?: MittwaldAPIV2.Components.Schemas.CronjobServiceTarget;
-        timeZone?: string;
-        timeout: number;
-      }
-
-      export interface CronjobServiceTarget {
-        command: string;
-        serviceIdentifier: string;
-        stackId: string;
-      }
-
-      export interface CronjobServiceTargetResponse {
-        command: string;
-        serviceShortId: string;
-        stackId: string;
-      }
-
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -9875,6 +9875,67 @@ export declare module MittwaldAPIV2 {
   }
 
   namespace Paths {
+    namespace V2CustomersCustomerIdAiHostingModelsActionsAcceptTerms {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2CustomersCustomerIdAiHostingKeys {
       namespace Get {
         namespace Parameters {
@@ -10215,6 +10276,68 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CustomersCustomerIdAiHostingModels {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AihostingCustomerDetailedModel[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -10703,6 +10826,68 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectsProjectIdAiHostingModels {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AihostingProjectDetailedModel[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -21417,6 +21602,10 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
+
+    namespace V2AppinstallationsAppInstallationIdActionsAction {}
+
+    namespace V2AppInstallationsAppInstallationIdActionsAction {}
 
     namespace V2AppinstallationsAppInstallationIdDatabases {}
 
@@ -37719,195 +37908,6 @@ export declare module MittwaldAPIV2 {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2AppinstallationsAppInstallationIdActionsAction {}
-
-    namespace V2AppInstallationsAppInstallationIdActionsAction {}
-
-    namespace V2CustomersCustomerIdAiHostingModels {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AihostingCustomerDetailedModel[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectsProjectIdAiHostingModels {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AihostingProjectDetailedModel[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomersCustomerIdAiHostingModelsActionsAcceptTerms {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
