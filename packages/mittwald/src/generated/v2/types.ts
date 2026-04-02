@@ -6018,6 +6018,17 @@ export declare module MittwaldAPIV2 {
         type: "STATUS_UPDATE";
       }
 
+      export interface ConversationGenericServiceRequest {
+        conversationId: string;
+        createdAt: string;
+        /**
+         * @maxItems 0
+         */
+        files?: [];
+        messageId: string;
+        type: "SERVICE_REQUEST";
+      }
+
       export interface ConversationServiceRequestRelocationPayload {
         contact: {
           email: string;
@@ -21612,8 +21623,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2AppinstallationsAppInstallationIdActionsAction {}
-
     namespace V2AppInstallationsAppInstallationIdActionsAction {}
 
     namespace V2AppinstallationsAppInstallationIdDatabases {}
@@ -25680,12 +25689,10 @@ export declare module MittwaldAPIV2 {
             context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
             searchTerm?: string;
             includeDeprecated?: boolean;
-            includeFree?: boolean;
-            includeChargeable?: boolean;
             limit?: number;
             skip?: number;
             page?: number;
-            sort?: "name" | "pricing.priceInCents";
+            sort?: "name";
             order?: "asc" | "desc";
           };
         }
