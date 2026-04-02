@@ -6286,6 +6286,12 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.CronjobCronjobCommand;
       }
 
+      export interface CronjobServicePatchTarget {
+        command?: string;
+        serviceIdentifier?: string;
+        stackId?: string;
+      }
+
       export interface CronjobCronjobRequest {
         active: boolean;
         /**
@@ -6313,6 +6319,30 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.CronjobServiceTarget;
         timeZone?: string;
         timeout: number;
+      }
+
+      export interface CronjobServiceCronjobRequest {
+        active: boolean;
+        concurrencyPolicy?: MittwaldAPIV2.Components.Schemas.CronjobConcurrencyPolicy;
+        description: string;
+        email?: string;
+        failedExecutionAlertThreshold?: number;
+        interval: string;
+        target?: MittwaldAPIV2.Components.Schemas.CronjobServiceTarget;
+        timeZone?: string;
+        timeout: number;
+      }
+
+      export interface CronjobServiceTarget {
+        command: string;
+        serviceIdentifier: string;
+        stackId: string;
+      }
+
+      export interface CronjobServiceTargetResponse {
+        command: string;
+        serviceShortId: string;
+        stackId: string;
       }
 
       export interface CronjobCronjobUrl {
@@ -9673,47 +9703,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export interface ConversationGenericServiceRequest {
-        conversationId: string;
-        createdAt: string;
-        /**
-         * @maxItems 0
-         */
-        files?: [];
-        messageId: string;
-        type: "SERVICE_REQUEST";
-      }
-
-      export interface CronjobServicePatchTarget {
-        command?: string;
-        serviceIdentifier?: string;
-        stackId?: string;
-      }
-
-      export interface CronjobServiceCronjobRequest {
-        active: boolean;
-        concurrencyPolicy?: MittwaldAPIV2.Components.Schemas.CronjobConcurrencyPolicy;
-        description: string;
-        email?: string;
-        failedExecutionAlertThreshold?: number;
-        interval: string;
-        target?: MittwaldAPIV2.Components.Schemas.CronjobServiceTarget;
-        timeZone?: string;
-        timeout: number;
-      }
-
-      export interface CronjobServiceTarget {
-        command: string;
-        serviceIdentifier: string;
-        stackId: string;
-      }
-
-      export interface CronjobServiceTargetResponse {
-        command: string;
-        serviceShortId: string;
-        stackId: string;
-      }
 
       export interface CommonsAddress {
         street: string;
@@ -21622,6 +21611,8 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
+
+    namespace V2AppinstallationsAppInstallationIdActionsAction {}
 
     namespace V2AppInstallationsAppInstallationIdActionsAction {}
 
