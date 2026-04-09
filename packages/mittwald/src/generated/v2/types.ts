@@ -4915,7 +4915,6 @@ export declare module MittwaldAPIV2 {
         systemSoftware: MittwaldAPIV2.Components.Schemas.AppInstalledSystemSoftware[];
         updateAvailable: boolean;
         updatePolicy: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
-        updatesAvailable?: boolean;
         userInputs: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
       }
 
@@ -6942,7 +6941,8 @@ export declare module MittwaldAPIV2 {
         | "UPDATE"
         | "TRANSFER_OUT"
         | "OWNER_CHANGE"
-        | "DECLARE_REQUESTED";
+        | "DECLARE_REQUESTED"
+        | "CONTACT_VERIFICATION";
 
       export type DomainRegistrar = "INTERNETX" | "DENIC" | "HEXONET";
 
