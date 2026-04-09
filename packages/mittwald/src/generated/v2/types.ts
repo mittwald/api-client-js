@@ -4811,7 +4811,9 @@ export declare module MittwaldAPIV2 {
        * An AppInstallation is a concrete manifestation of an App in a specific AppVersion.
        */
       export interface AppAppInstallation {
+        appExternalVersion: string;
         appId: string;
+        appName: string;
         appVersion: MittwaldAPIV2.Components.Schemas.AppVersionStatus;
         createdAt: string;
         customDocumentRoot?: string;
@@ -4834,6 +4836,7 @@ export declare module MittwaldAPIV2 {
         screenshotRef?: string;
         shortId: string;
         systemSoftware: MittwaldAPIV2.Components.Schemas.AppInstalledSystemSoftware[];
+        updateAvailable: boolean;
         updatePolicy: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
         userInputs: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
       }
@@ -4909,8 +4912,11 @@ export declare module MittwaldAPIV2 {
        * InstalledSystemSoftware describes the currently configured and installed SystemSoftwareVersion of a SystemSoftware besides the desired SystemSoftwareUpdatePolicy inside an AppInstallation.
        */
       export interface AppInstalledSystemSoftware {
+        externalVersion: string;
+        name: string;
         systemSoftwareId: string;
         systemSoftwareVersion: MittwaldAPIV2.Components.Schemas.AppVersionStatus;
+        updateAvailable: boolean;
         updatePolicy: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareUpdatePolicy;
       }
 
@@ -9295,6 +9301,16 @@ export declare module MittwaldAPIV2 {
         projectId: string;
       }
 
+      /**
+       * Specifies the type of certificate.
+       *
+       * Possible values:
+       * - `0` – `UNSPECIFIED`: The certificate type is not specified.
+       * - `1` – `INTERNAL`: A certificate issued and managed internally by the system.
+       * - `2` – `EXTERNAL`: A certificate provided by an external source and imported into the system.
+       * - `3` – `DNS`: A certificate validated using DNS-based verification.
+       *
+       */
       export type SslCertificateType = 0 | 1 | 2 | 3;
 
       export interface SslCheckReplaceChanges {
