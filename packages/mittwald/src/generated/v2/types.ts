@@ -6019,18 +6019,11 @@ export declare module MittwaldAPIV2 {
         userId: string;
       }
 
-      export interface ConversationServiceRequest {
-        conversationId: string;
-        createdAt: string;
-        /**
-         * @maxItems 0
-         */
-        files?: [];
-        messageContent: "relocation" | "call";
-        messageId: string;
-        meta: MittwaldAPIV2.Components.Schemas.ConversationServiceRequestRelocationPayload;
-        type: "SERVICE_REQUEST";
-      }
+      export type ConversationServiceRequest =
+        MittwaldAPIV2.Components.Schemas.ConversationGenericServiceRequest & {
+          messageContent: "relocation" | "call";
+          meta: MittwaldAPIV2.Components.Schemas.ConversationServiceRequestRelocationPayload;
+        };
 
       export type ConversationShareableAggregateReference =
         | {
@@ -9682,6 +9675,17 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface ConversationGenericServiceRequest {
+        conversationId: string;
+        createdAt: string;
+        /**
+         * @maxItems 0
+         */
+        files?: [];
+        messageId: string;
+        type: "SERVICE_REQUEST";
+      }
 
       export interface CommonsAddress {
         street: string;
