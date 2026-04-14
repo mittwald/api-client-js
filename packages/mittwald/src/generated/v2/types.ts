@@ -4908,6 +4908,7 @@ export declare module MittwaldAPIV2 {
           [k: string]: MittwaldAPIV2.Components.Schemas.AppLockPurpose;
         };
         phase: MittwaldAPIV2.Components.Schemas.AppPhase;
+        projectDescription: string;
         projectId: string;
         screenshotId?: string;
         screenshotRef?: string;
