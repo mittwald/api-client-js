@@ -5980,6 +5980,17 @@ export declare module MittwaldAPIV2 {
         type: "STATUS_UPDATE";
       }
 
+      export interface ConversationGenericServiceRequest {
+        conversationId: string;
+        createdAt: string;
+        /**
+         * @maxItems 0
+         */
+        files?: [];
+        messageId: string;
+        type: "SERVICE_REQUEST";
+      }
+
       export interface ConversationServiceRequestRelocationPayload {
         contact: {
           email: string;
@@ -6820,7 +6831,8 @@ export declare module MittwaldAPIV2 {
         | "UPDATE"
         | "TRANSFER_OUT"
         | "OWNER_CHANGE"
-        | "DECLARE_REQUESTED";
+        | "DECLARE_REQUESTED"
+        | "CONTACT_VERIFICATION";
 
       export type DomainRegistrar = "INTERNETX" | "DENIC" | "HEXONET";
 
@@ -9675,17 +9687,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export interface ConversationGenericServiceRequest {
-        conversationId: string;
-        createdAt: string;
-        /**
-         * @maxItems 0
-         */
-        files?: [];
-        messageId: string;
-        type: "SERVICE_REQUEST";
-      }
 
       export interface CommonsAddress {
         street: string;
