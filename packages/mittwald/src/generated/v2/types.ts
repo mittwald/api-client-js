@@ -6896,12 +6896,12 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface DomainmigrationDomainNotMigratableReasons {
-        alreadyExists: boolean;
-        insufficientLegacyData: boolean;
+        doesNotExist: boolean;
+        internalError: boolean;
+        invalidOwnerFields: MittwaldAPIV2.Components.Schemas.CommonsValidationErrorSchema[];
+        premium: boolean;
+        registrarNotSupported: boolean;
         tldNotSupported: boolean;
-        transferLock: boolean;
-        validationErrors: MittwaldAPIV2.Components.Schemas.CommonsValidationErrorSchema[];
-        wrongAuthCode: boolean;
       }
 
       export interface DomainmigrationMigrationNotPossibleReasons {
