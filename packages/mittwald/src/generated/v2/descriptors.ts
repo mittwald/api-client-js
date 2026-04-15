@@ -3559,60 +3559,6 @@ export const containerStopService: OpenAPIOperation<
   operationId: "container-stop-service",
 };
 
-/** Validate a Registries' URI. */
-export const containerValidateContainerRegistryUri: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ActionsValidateContainerRegistryUri.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ActionsValidateContainerRegistryUri.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ActionsValidateContainerRegistryUri.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ActionsValidateContainerRegistryUri.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ActionsValidateContainerRegistryUri.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ActionsValidateContainerRegistryUri.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ActionsValidateContainerRegistryUri.Post.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ActionsValidateContainerRegistryUri.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ActionsValidateContainerRegistryUri.Post.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ActionsValidateContainerRegistryUri.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ActionsValidateContainerRegistryUri.Post.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ActionsValidateContainerRegistryUri.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/actions/validate-container-registry-uri",
-  method: "POST",
-  operationId: "container-validate-container-registry-uri",
-};
-
 /** Validate a Registries' credentials. */
 export const containerValidateRegistryCredentials: OpenAPIOperation<
   RequestType<
