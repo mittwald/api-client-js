@@ -321,10 +321,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Stop a started Service. */
     stopService: this.requestFunctionFactory(descriptors.containerStopService),
-    /** Validate a Registries' URI. */
-    validateContainerRegistryUri: this.requestFunctionFactory(
-      descriptors.containerValidateContainerRegistryUri,
-    ),
     /** Validate a Registries' credentials. */
     validateRegistryCredentials: this.requestFunctionFactory(
       descriptors.containerValidateRegistryCredentials,
