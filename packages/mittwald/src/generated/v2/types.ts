@@ -4708,6 +4708,7 @@ export declare module MittwaldAPIV2 {
         replacesModelName?: string;
         status: MittwaldAPIV2.Components.Schemas.AihostingDetailedModelStatus;
         termsOfServiceLink: string;
+        tokenFactor: number;
       }
 
       export type AihostingDetailedModelStatus =
@@ -4746,6 +4747,7 @@ export declare module MittwaldAPIV2 {
         docLink: string;
         name: string;
         termsOfServiceLink: string;
+        tokenFactor?: number;
       }
 
       export interface AihostingPlanOptions {
@@ -4785,6 +4787,7 @@ export declare module MittwaldAPIV2 {
         replacesModelName?: string;
         status: MittwaldAPIV2.Components.Schemas.AihostingDetailedModelStatus;
         termsOfServiceLink: string;
+        tokenFactor: number;
       }
 
       /**
