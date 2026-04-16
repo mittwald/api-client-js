@@ -325,6 +325,12 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     validateRegistryCredentials: this.requestFunctionFactory(
       descriptors.containerValidateRegistryCredentials,
     ),
+    /** Get a Template by ID. */
+    getTemplate: this.requestFunctionFactory(descriptors.containerGetTemplate),
+    /** List Templates by category. */
+    listTemplates: this.requestFunctionFactory(
+      descriptors.containerListTemplates,
+    ),
   };
 
   /** The contract API allows you to manage your contracts and orders */
