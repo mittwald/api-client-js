@@ -21534,6 +21534,8 @@ export declare module MittwaldAPIV2 {
 
     namespace V2AppinstallationsAppInstallationIdDatabases {}
 
+    namespace V2ActionsValidateContainerRegistryUri {}
+
     namespace V2ContractsContractIdItemsContractItemIdNextTerminationDates {}
 
     namespace V2CustomerCustomerIdActionsLeave {}
@@ -25626,10 +25628,12 @@ export declare module MittwaldAPIV2 {
             context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
             searchTerm?: string;
             includeDeprecated?: boolean;
+            includeFree?: boolean;
+            includeChargeable?: boolean;
             limit?: number;
             skip?: number;
             page?: number;
-            sort?: "name";
+            sort?: "name" | "pricing.priceInCents";
             order?: "asc" | "desc";
           };
         }
