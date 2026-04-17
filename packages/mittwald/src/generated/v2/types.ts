@@ -5707,7 +5707,6 @@ export declare module MittwaldAPIV2 {
       export type ContainerServiceStatus =
         | "running"
         | "stopped"
-        | "restarting"
         | "error"
         | "creating"
         | "starting";
