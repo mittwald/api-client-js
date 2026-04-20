@@ -321,10 +321,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Stop a started Service. */
     stopService: this.requestFunctionFactory(descriptors.containerStopService),
-    /** Validate a Registries' credentials. */
-    validateRegistryCredentials: this.requestFunctionFactory(
-      descriptors.containerValidateRegistryCredentials,
-    ),
   };
 
   /** The contract API allows you to manage your contracts and orders */

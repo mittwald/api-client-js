@@ -841,17 +841,6 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.containerStopService, TStatus>;
     }
 
-    namespace ContainerValidateRegistryCredentials {
-      type RequestData = InferredRequestData<
-        typeof descriptors.containerValidateRegistryCredentials
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.containerValidateRegistryCredentials,
-          TStatus
-        >;
-    }
-
     namespace ContractTerminateContractItem {
       type RequestData = InferredRequestData<
         typeof descriptors.contractTerminateContractItem
@@ -15178,86 +15167,6 @@ export declare module MittwaldAPIV2 {
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2RegistriesRegistryIdActionsValidateCredentials {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            registryId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                valid: boolean;
-              }
             }
           }
 
