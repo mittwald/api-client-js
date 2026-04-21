@@ -38091,5 +38091,7 @@ export declare module MittwaldAPIV2 {
     }
 
     namespace V2RegistriesRegistryIdActionsValidateCredentials {}
+
+    namespace V2ActionsValidateContainerRegistryUri {}
   }
 }
