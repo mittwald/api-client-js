@@ -4676,6 +4676,25 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace ContainerGetTemplate {
+      type RequestData = InferredRequestData<
+        typeof descriptors.containerGetTemplate
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.containerGetTemplate, TStatus>;
+    }
+
+    namespace ContainerListTemplates {
+      type RequestData = InferredRequestData<
+        typeof descriptors.containerListTemplates
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.containerListTemplates,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -4736,7 +4755,7 @@ export declare module MittwaldAPIV2 {
         docLink: string;
         name: string;
         termsOfServiceLink: string;
-        tokenFactor?: number;
+        tokenFactor: number;
       }
 
       export interface AihostingPlanOptions {
@@ -9777,6 +9796,44 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface ContainerTemplate {
+        categories: string[];
+        description: {
+          de: string;
+          en: string;
+        };
+        developer: string;
+        domains?: {
+          port: string;
+          service: string;
+          userInput: string;
+        }[];
+        icon: string;
+        id: string;
+        license?: string;
+        /**
+         * Version of the manifest for this template, e.g. '1.0'
+         */
+        manifestVersion: string;
+        name: string;
+        repository?: string;
+        tagline: {
+          de: string;
+          en: string;
+        };
+        userInputs?: {
+          dataSource?: string;
+          name: string;
+          required: boolean;
+          validationSchema?: string;
+        }[];
+        /**
+         * Version of the application described by this template, e.g. 'latest'
+         */
+        version: string;
+        website?: string;
+      }
 
       export interface CommonsAddress {
         street: string;
@@ -38093,5 +38150,125 @@ export declare module MittwaldAPIV2 {
     namespace V2RegistriesRegistryIdActionsValidateCredentials {}
 
     namespace V2ActionsValidateContainerRegistryUri {}
+
+    namespace V2ContainerTemplatesTemplateId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            templateId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ContainerTemplate;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContainerTemplates {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {
+            category?: string;
+            searchTerm?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ContainerTemplate[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
