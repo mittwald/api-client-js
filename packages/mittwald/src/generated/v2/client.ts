@@ -251,6 +251,8 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     declareStack: this.requestFunctionFactory(
       descriptors.containerDeclareStack,
     ),
+    /** Delete a Stack. */
+    deleteStack: this.requestFunctionFactory(descriptors.containerDeleteStack),
     /** Create, update or delete Services or Volumes belonging to a Stack. */
     updateStack: this.requestFunctionFactory(descriptors.containerUpdateStack),
     /** Get a Registry. */
@@ -293,6 +295,8 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** List Stacks belonging to a Project. */
     listStacks: this.requestFunctionFactory(descriptors.containerListStacks),
+    /** Create a Stack. */
+    createStack: this.requestFunctionFactory(descriptors.containerCreateStack),
     /** List Volumes belonging to a Project. */
     listVolumes: this.requestFunctionFactory(descriptors.containerListVolumes),
     /** Pull image and recreate */
@@ -326,6 +330,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** List Container Templates. */
     listTemplates: this.requestFunctionFactory(
       descriptors.containerListTemplates,
+    ),
+    /** Replace the description of a Stack. */
+    setStackDescription: this.requestFunctionFactory(
+      descriptors.containerSetStackDescription,
     ),
   };
 
