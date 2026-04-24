@@ -189,6 +189,11 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.containerListRegistries,
     baseClient.container.listRegistries,
   ).getApiResource,
+  /** List Stacks belonging to a Project. */
+  listStacks: new ApiCallAsyncResourceFactory(
+    descriptors.containerListStacks,
+    baseClient.container.listStacks,
+  ).getApiResource,
   /** Get a Stack. */
   getStack: new ApiCallAsyncResourceFactory(
     descriptors.containerGetStack,
@@ -219,6 +224,11 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.containerGetService,
     baseClient.container.getService,
   ).getApiResource,
+  /** Get a Container Template by ID. */
+  getTemplate: new ApiCallAsyncResourceFactory(
+    descriptors.containerGetTemplate,
+    baseClient.container.getTemplate,
+  ).getApiResource,
   /** List Stacks belonging to the executing user. */
   listSelfStacks: new ApiCallAsyncResourceFactory(
     descriptors.containerListSelfStacks,
@@ -234,25 +244,15 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.containerListStackVolumes,
     baseClient.container.listStackVolumes,
   ).getApiResource,
-  /** List Stacks belonging to a Project. */
-  listStacks: new ApiCallAsyncResourceFactory(
-    descriptors.containerListStacks,
-    baseClient.container.listStacks,
+  /** List Container Templates. */
+  listTemplates: new ApiCallAsyncResourceFactory(
+    descriptors.containerListTemplates,
+    baseClient.container.listTemplates,
   ).getApiResource,
   /** List Volumes belonging to a Project. */
   listVolumes: new ApiCallAsyncResourceFactory(
     descriptors.containerListVolumes,
     baseClient.container.listVolumes,
-  ).getApiResource,
-  /** Get a Container Template by ID. */
-  getTemplate: new ApiCallAsyncResourceFactory(
-    descriptors.containerGetTemplate,
-    baseClient.container.getTemplate,
-  ).getApiResource,
-  /** List Container Templates. */
-  listTemplates: new ApiCallAsyncResourceFactory(
-    descriptors.containerListTemplates,
-    baseClient.container.listTemplates,
   ).getApiResource,
 });
 

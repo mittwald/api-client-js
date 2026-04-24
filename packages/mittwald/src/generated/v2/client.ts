@@ -245,6 +245,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     createRegistry: this.requestFunctionFactory(
       descriptors.containerCreateRegistry,
     ),
+    /** List Stacks belonging to a Project. */
+    listStacks: this.requestFunctionFactory(descriptors.containerListStacks),
+    /** Create a Stack. */
+    createStack: this.requestFunctionFactory(descriptors.containerCreateStack),
     /** Get a Stack. */
     getStack: this.requestFunctionFactory(descriptors.containerGetStack),
     /** Declaratively create, update or delete Services or Volumes belonging to a Stack. */
@@ -281,6 +285,8 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get a Service belonging to a Stack. */
     getService: this.requestFunctionFactory(descriptors.containerGetService),
+    /** Get a Container Template by ID. */
+    getTemplate: this.requestFunctionFactory(descriptors.containerGetTemplate),
     /** List Stacks belonging to the executing user. */
     listSelfStacks: this.requestFunctionFactory(
       descriptors.containerListSelfStacks,
@@ -293,10 +299,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listStackVolumes: this.requestFunctionFactory(
       descriptors.containerListStackVolumes,
     ),
-    /** List Stacks belonging to a Project. */
-    listStacks: this.requestFunctionFactory(descriptors.containerListStacks),
-    /** Create a Stack. */
-    createStack: this.requestFunctionFactory(descriptors.containerCreateStack),
+    /** List Container Templates. */
+    listTemplates: this.requestFunctionFactory(
+      descriptors.containerListTemplates,
+    ),
     /** List Volumes belonging to a Project. */
     listVolumes: this.requestFunctionFactory(descriptors.containerListVolumes),
     /** Pull image and recreate */
@@ -315,6 +321,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     rotatePullImageWebhookForService: this.requestFunctionFactory(
       descriptors.containerRotatePullImageWebhookForService,
     ),
+    /** Replace the description of a Stack. */
+    setStackDescription: this.requestFunctionFactory(
+      descriptors.containerSetStackDescription,
+    ),
     /** Set an update schedule for a Stack. */
     setStackUpdateSchedule: this.requestFunctionFactory(
       descriptors.containerSetStackUpdateSchedule,
@@ -325,15 +335,9 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Stop a started Service. */
     stopService: this.requestFunctionFactory(descriptors.containerStopService),
-    /** Get a Container Template by ID. */
-    getTemplate: this.requestFunctionFactory(descriptors.containerGetTemplate),
-    /** List Container Templates. */
-    listTemplates: this.requestFunctionFactory(
-      descriptors.containerListTemplates,
-    ),
-    /** Replace the description of a Stack. */
-    setStackDescription: this.requestFunctionFactory(
-      descriptors.containerSetStackDescription,
+    /** Create a Stack from a Template. */
+    createStackFromTemplate: this.requestFunctionFactory(
+      descriptors.containerCreateStackFromTemplate,
     ),
   };
 
