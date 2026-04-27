@@ -5264,6 +5264,11 @@ export declare module MittwaldAPIV2 {
         uri: string;
       }
 
+      export interface ContainerCreateStack {
+        description: string;
+        prefix?: string;
+      }
+
       export interface ContainerContainerImageConfig {
         /**
          * Command of the container image.
@@ -5981,6 +5986,12 @@ export declare module MittwaldAPIV2 {
           domains?: {
             authCode?: string;
             domainName?: string;
+          }[];
+        };
+        email?: {
+          emailInboxes?: {
+            email: string;
+            password: string;
           }[];
         };
         notes?: string;
@@ -14322,6 +14333,7 @@ export declare module MittwaldAPIV2 {
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {
+            searchTerm?: string;
             limit?: number;
             skip?: number;
             page?: number;
