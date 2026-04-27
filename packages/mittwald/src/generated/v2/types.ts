@@ -4722,17 +4722,6 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
-
-    namespace ContainerCreateStackFromTemplate {
-      type RequestData = InferredRequestData<
-        typeof descriptors.containerCreateStackFromTemplate
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.containerCreateStackFromTemplate,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -5404,6 +5393,16 @@ export declare module MittwaldAPIV2 {
       export interface ContainerCreateStack {
         description: string;
         prefix?: string;
+        templateConfig?: {
+          templateId: string;
+          /**
+           * Values for template user inputs. Missing optional values are filled from template defaults.
+           */
+          userInputs?: {
+            name: string;
+            value: string;
+          }[];
+        };
       }
 
       export interface ContainerContainerImageConfig {
@@ -6988,10 +6987,27 @@ export declare module MittwaldAPIV2 {
           hostname: string;
           issues?: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainNotMigratableReasons;
           migratable: boolean;
+          migrationData?: MittwaldAPIV2.Components.Schemas.DomainmigrationMigrationData;
         }[];
         generalIssues?: MittwaldAPIV2.Components.Schemas.DomainmigrationMigrationNotPossibleReasons;
         generallyPossible: boolean;
       }
+
+      export interface DomainmigrationDNSRecord {
+        ttl: number;
+        type: MittwaldAPIV2.Components.Schemas.DomainmigrationDNSRecordType;
+        value: string;
+      }
+
+      export type DomainmigrationDNSRecordType =
+        | "A"
+        | "AAAA"
+        | "TXT"
+        | "MX"
+        | "CNAME"
+        | "SRV"
+        | "CAA"
+        | "NS";
 
       export interface DomainmigrationDomainNotMigratableReasons {
         insufficientState: boolean;
@@ -7000,10 +7016,21 @@ export declare module MittwaldAPIV2 {
         tldNotSupported: boolean;
       }
 
+      export interface DomainmigrationMigrationData {
+        dnsRecords: MittwaldAPIV2.Components.Schemas.DomainmigrationDNSRecord[];
+        subdomains: MittwaldAPIV2.Components.Schemas.DomainmigrationSubdomain[];
+      }
+
       export interface DomainmigrationMigrationNotPossibleReasons {
         customerIsNotAllowedToOrder: boolean;
         legacyTokenNotAuthorized: boolean;
         noDomainsInSource: boolean;
+      }
+
+      export interface DomainmigrationSubdomain {
+        dnsRecords: MittwaldAPIV2.Components.Schemas.DomainmigrationDNSRecord[];
+        hostname: string;
+        target?: string;
       }
 
       export interface DomainProcess {
@@ -9884,18 +9911,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export interface ContainerCreateStackFromTemplate {
-        prefix?: string;
-        templateId: string;
-        /**
-         * Values for template user inputs. Missing optional values are filled from template defaults.
-         */
-        userInputs?: {
-          name: string;
-          value: string;
-        }[];
-      }
 
       export interface CommonsAddress {
         street: string;
@@ -38554,96 +38569,6 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectsProjectIdStacksFromTemplate {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export type RequestBody =
-            MittwaldAPIV2.Components.Schemas.ContainerCreateStackFromTemplate;
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.ContainerStackResponse;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $409 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
