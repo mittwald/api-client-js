@@ -6983,12 +6983,10 @@ export declare module MittwaldAPIV2 {
 
       export interface DomainmigrationCheckMigrationResponse {
         allDomainsMigratable: boolean;
-        domains: {
-          hostname: string;
-          issues?: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainNotMigratableReasons;
-          migratable: boolean;
-          migrationData?: MittwaldAPIV2.Components.Schemas.DomainmigrationMigrationData;
-        }[];
+        domains: (
+          | MittwaldAPIV2.Components.Schemas.DomainmigrationMigratableDomain
+          | MittwaldAPIV2.Components.Schemas.DomainmigrationNonMigratableDomain
+        )[];
         generalIssues?: MittwaldAPIV2.Components.Schemas.DomainmigrationMigrationNotPossibleReasons;
         generallyPossible: boolean;
       }
@@ -7016,8 +7014,18 @@ export declare module MittwaldAPIV2 {
         tldNotSupported: boolean;
       }
 
+      export interface DomainmigrationMigratableDomain {
+        hostname: string;
+        migratable: true;
+        migrationData: MittwaldAPIV2.Components.Schemas.DomainmigrationMigrationData;
+      }
+
       export interface DomainmigrationMigrationData {
         dnsRecords: MittwaldAPIV2.Components.Schemas.DomainmigrationDNSRecord[];
+        /**
+         * Monthly net domain price in EUR cents.
+         */
+        monthlyPriceCents: number;
         subdomains: MittwaldAPIV2.Components.Schemas.DomainmigrationSubdomain[];
       }
 
@@ -7025,6 +7033,12 @@ export declare module MittwaldAPIV2 {
         customerIsNotAllowedToOrder: boolean;
         legacyTokenNotAuthorized: boolean;
         noDomainsInSource: boolean;
+      }
+
+      export interface DomainmigrationNonMigratableDomain {
+        hostname: string;
+        issues: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainNotMigratableReasons;
+        migratable: false;
       }
 
       export interface DomainmigrationSubdomain {
