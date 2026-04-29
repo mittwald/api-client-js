@@ -5269,7 +5269,16 @@ export declare module MittwaldAPIV2 {
 
       export interface ContainerCreateStack {
         description: string;
-        prefix?: string;
+        templateConfig?: {
+          templateId: string;
+          /**
+           * Values for template user inputs. Missing optional values are filled from template defaults.
+           */
+          userInputs?: {
+            name: string;
+            value: string;
+          }[];
+        };
       }
 
       export interface ContainerContainerImageConfig {
@@ -5634,6 +5643,10 @@ export declare module MittwaldAPIV2 {
         prefix: string;
         projectId: string;
         services?: MittwaldAPIV2.Components.Schemas.ContainerServiceResponse[];
+        /**
+         * Id of the Template used to create this stack, if one was used.
+         */
+        templateId?: string;
         updateSchedule?: {
           cron: string;
           timezone?: string;
