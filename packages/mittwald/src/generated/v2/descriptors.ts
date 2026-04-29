@@ -17625,8 +17625,8 @@ export const userDeleteUser: OpenAPIOperation<
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelf.Delete.Responses.$409.Content.ApplicationJson>,
-      409,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelf.Delete.Responses.$412.Content.ApplicationJson>,
+      412,
       "application/json"
     >
   | Response<
