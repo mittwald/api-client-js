@@ -16819,45 +16819,6 @@ export const userRemovePhoneNumber: OpenAPIOperation<
   operationId: "user-remove-phone-number",
 };
 
-/** Validate your second factor. */
-export const userAuthenticateMfa: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Responses.$408.Content.ApplicationJson>,
-      408,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/authenticate-mfa",
-  method: "POST",
-  operationId: "user-authenticate-mfa",
-};
-
 /** Authenticate yourself to get an access token. */
 export const userAuthenticate: OpenAPIOperation<
   RequestType<
@@ -18145,40 +18106,6 @@ export const userTerminateAllSessions: OpenAPIOperation<
   operationId: "user-terminate-all-sessions",
 };
 
-/** Terminate session and invalidate access token. */
-export const userLogout: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2Logout.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2Logout.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2Logout.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2Logout.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Logout.Put.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Logout.Put.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Logout.Put.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Logout.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/logout",
-  method: "PUT",
-  operationId: "user-logout",
-};
-
 /** Obtain authorization from the resource owner. */
 export const userOauthGetAuthorization: OpenAPIOperation<
   RequestType<
@@ -18629,4 +18556,77 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
+};
+
+/** Validate your second factor. */
+export const userAuthenticateMfa: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Responses.$408.Content.ApplicationJson>,
+      408,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/authenticate-mfa",
+  method: "POST",
+  operationId: "user-authenticate-mfa",
+};
+
+/** Terminate session and invalidate access token. */
+export const userLogout: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2Logout.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2Logout.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2Logout.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2Logout.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Logout.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Logout.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Logout.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Logout.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/logout",
+  method: "PUT",
+  operationId: "user-logout",
 };

@@ -4270,14 +4270,6 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.userRemovePhoneNumber, TStatus>;
     }
 
-    namespace UserAuthenticateMfa {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userAuthenticateMfa
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userAuthenticateMfa, TStatus>;
-    }
-
     namespace UserAuthenticate {
       type RequestData = InferredRequestData<
         typeof descriptors.userAuthenticate
@@ -4588,12 +4580,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace UserLogout {
-      type RequestData = InferredRequestData<typeof descriptors.userLogout>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userLogout, TStatus>;
-    }
-
     namespace UserOauthGetAuthorization {
       type RequestData = InferredRequestData<
         typeof descriptors.userOauthGetAuthorization
@@ -4721,6 +4707,20 @@ export declare module MittwaldAPIV2 {
           typeof descriptors.verificationVerifyCompany,
           TStatus
         >;
+    }
+
+    namespace UserAuthenticateMfa {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userAuthenticateMfa
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userAuthenticateMfa, TStatus>;
+    }
+
+    namespace UserLogout {
+      type RequestData = InferredRequestData<typeof descriptors.userLogout>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userLogout, TStatus>;
     }
   }
 
@@ -35756,85 +35756,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2AuthenticateMfa {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            /**
-             * The email of the user.
-             */
-            email: string;
-            /**
-             * The second factor - otp code or recovery code.
-             */
-            multiFactorCode: string;
-            /**
-             * The password of the user.
-             */
-            password: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                /**
-                 * The expiration date of the token.
-                 */
-                expires: string;
-                /**
-                 * Refresh token to refresh your access token even after it has expired.
-                 */
-                refreshToken: string;
-                /**
-                 * Public token to identify yourself against the api gateway.
-                 */
-                token: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
-            }
-          }
-
-          namespace $408 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.SignupDomainError & {
-                  name?: "FirstAuthenticationFactorExpired";
-                };
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2Authenticate {
       namespace Post {
         namespace Parameters {
@@ -35853,7 +35774,9 @@ export declare module MittwaldAPIV2 {
 
           export type Header = {};
 
-          export type Query = {};
+          export type Query = {
+            cookieOnly?: boolean;
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -35862,15 +35785,15 @@ export declare module MittwaldAPIV2 {
                 /**
                  * The expiration date of the token.
                  */
-                expires: string;
+                expires?: string;
                 /**
                  * Refresh token to refresh your access token even after it has expired.
                  */
-                refreshToken: string;
+                refreshToken?: string;
                 /**
                  * Public token to identify yourself against the api gateway.
                  */
-                token: string;
+                token?: string;
               }
             }
           }
@@ -37805,51 +37728,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2Logout {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {}
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2Oauth2Authorize {
       namespace Get {
         namespace Parameters {
@@ -38589,6 +38467,130 @@ export declare module MittwaldAPIV2 {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AuthenticateMfa {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            /**
+             * The email of the user.
+             */
+            email: string;
+            /**
+             * The second factor - otp code or recovery code.
+             */
+            multiFactorCode: string;
+            /**
+             * The password of the user.
+             */
+            password: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * The expiration date of the token.
+                 */
+                expires: string;
+                /**
+                 * Refresh token to refresh your access token even after it has expired.
+                 */
+                refreshToken: string;
+                /**
+                 * Public token to identify yourself against the api gateway.
+                 */
+                token: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+            }
+          }
+
+          namespace $408 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.SignupDomainError & {
+                  name?: "FirstAuthenticationFactorExpired";
+                };
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2Logout {
+      namespace Put {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {}
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
             }
           }
 

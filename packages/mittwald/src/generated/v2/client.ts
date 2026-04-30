@@ -1336,10 +1336,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     removePhoneNumber: this.requestFunctionFactory(
       descriptors.userRemovePhoneNumber,
     ),
-    /** Validate your second factor. */
-    authenticateMfa: this.requestFunctionFactory(
-      descriptors.userAuthenticateMfa,
-    ),
     /** Authenticate yourself to get an access token. */
     authenticate: this.requestFunctionFactory(descriptors.userAuthenticate),
     /** Authenticate an user with an access token retrieval key. */
@@ -1436,8 +1432,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     terminateAllSessions: this.requestFunctionFactory(
       descriptors.userTerminateAllSessions,
     ),
-    /** Terminate session and invalidate access token. */
-    logout: this.requestFunctionFactory(descriptors.userLogout),
     /** Obtain authorization from the resource owner. */
     oauthGetAuthorization: this.requestFunctionFactory(
       descriptors.userOauthGetAuthorization,
@@ -1472,6 +1466,12 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     verifyRegistration: this.requestFunctionFactory(
       descriptors.userVerifyRegistration,
     ),
+    /** Validate your second factor. */
+    authenticateMfa: this.requestFunctionFactory(
+      descriptors.userAuthenticateMfa,
+    ),
+    /** Terminate session and invalidate access token. */
+    logout: this.requestFunctionFactory(descriptors.userLogout),
   };
 
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
