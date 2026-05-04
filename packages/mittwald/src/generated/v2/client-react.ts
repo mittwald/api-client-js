@@ -745,6 +745,16 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.sslListCertificates,
     baseClient.domain.sslListCertificates,
   ).getApiResource,
+  /** Get a Contact-Verification. */
+  getContactVerification: new ApiCallAsyncResourceFactory(
+    descriptors.domainGetContactVerification,
+    baseClient.domain.getContactVerification,
+  ).getApiResource,
+  /** List Contact-Verifications belonging to the executing user. */
+  listContactVerifications: new ApiCallAsyncResourceFactory(
+    descriptors.domainListContactVerifications,
+    baseClient.domain.listContactVerifications,
+  ).getApiResource,
 });
 
 const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({

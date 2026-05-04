@@ -1180,6 +1180,18 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     sslSetCertificateRequestCertificate: this.requestFunctionFactory(
       descriptors.sslSetCertificateRequestCertificate,
     ),
+    /** Get a Contact-Verification. */
+    getContactVerification: this.requestFunctionFactory(
+      descriptors.domainGetContactVerification,
+    ),
+    /** List Contact-Verifications belonging to the executing user. */
+    listContactVerifications: this.requestFunctionFactory(
+      descriptors.domainListContactVerifications,
+    ),
+    /** Resends a Contact-Verification email. */
+    resendContactVerificationEmail: this.requestFunctionFactory(
+      descriptors.domainResendContactVerificationEmail,
+    ),
   };
 
   /** The mail API allows you to manage your mail accounts. */
