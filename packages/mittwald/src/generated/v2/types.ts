@@ -3900,17 +3900,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace ServicetokenAuthenticateService {
-      type RequestData = InferredRequestData<
-        typeof descriptors.servicetokenAuthenticateService
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.servicetokenAuthenticateService,
-          TStatus
-        >;
-    }
-
     namespace SftpUserListSftpUsers {
       type RequestData = InferredRequestData<
         typeof descriptors.sftpUserListSftpUsers
@@ -33464,61 +33453,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ServiceAccessKeyIdActionsAuthenticate {}
-
-    namespace V2ServicesAccessKeyIdActionsAuthenticate {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            accessKeyId: string;
-          };
-
-          export interface RequestBody {
-            secretAccessKey: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                accessToken: {
-                  id: string;
-                  jwtClaims: {
-                    exp: string;
-                    iat: string;
-                    iss: string;
-                    sub: string;
-                  };
-                  publicToken: string;
-                };
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2ProjectsProjectIdSftpUsers {
       namespace Get {
         namespace Parameters {
@@ -36238,7 +36172,7 @@ export declare module MittwaldAPIV2 {
             }
           }
 
-          namespace $409 {
+          namespace $412 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;

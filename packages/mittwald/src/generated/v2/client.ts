@@ -1532,10 +1532,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ellaneousListTimeZones: this.requestFunctionFactory(
       descriptors.miscellaneousListTimeZones,
     ),
-    /** Obtain a service token. */
-    servicetokenAuthenticateService: this.requestFunctionFactory(
-      descriptors.servicetokenAuthenticateService,
-    ),
     /** Check if an email is from mittwald. */
     verificationDetectPhishingEmail: this.requestFunctionFactory(
       descriptors.verificationDetectPhishingEmail,

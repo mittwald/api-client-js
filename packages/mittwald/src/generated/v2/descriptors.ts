@@ -15322,35 +15322,6 @@ export const relocationCreateRelocation: OpenAPIOperation<
   operationId: "relocation-create-relocation",
 };
 
-/** Obtain a service token. */
-export const servicetokenAuthenticateService: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ServicesAccessKeyIdActionsAuthenticate.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ServicesAccessKeyIdActionsAuthenticate.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ServicesAccessKeyIdActionsAuthenticate.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ServicesAccessKeyIdActionsAuthenticate.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ServicesAccessKeyIdActionsAuthenticate.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ServicesAccessKeyIdActionsAuthenticate.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ServicesAccessKeyIdActionsAuthenticate.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/services/{accessKeyId}/actions/authenticate",
-  method: "POST",
-  operationId: "servicetoken-authenticate-service",
-};
-
 /** Get all SFTPUsers for a Project. */
 export const sftpUserListSftpUsers: OpenAPIOperation<
   RequestType<
@@ -17117,8 +17088,8 @@ export const userDeleteUser: OpenAPIOperation<
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelf.Delete.Responses.$409.Content.ApplicationJson>,
-      409,
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelf.Delete.Responses.$412.Content.ApplicationJson>,
+      412,
       "application/json"
     >
   | Response<
