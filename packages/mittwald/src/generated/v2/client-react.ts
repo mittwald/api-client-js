@@ -690,10 +690,20 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.domainGetDomain,
     baseClient.domain.getDomain,
   ).getApiResource,
+  /** Get a Contact-Verification. */
+  getContactVerification: new ApiCallAsyncResourceFactory(
+    descriptors.domainGetContactVerification,
+    baseClient.domain.getContactVerification,
+  ).getApiResource,
   /** Get the latest screenshot's FileReference belonging to a Domain. */
   getLatestScreenshot: new ApiCallAsyncResourceFactory(
     descriptors.domainGetLatestScreenshot,
     baseClient.domain.getLatestScreenshot,
+  ).getApiResource,
+  /** List Contact-Verifications belonging to the executing user. */
+  listContactVerifications: new ApiCallAsyncResourceFactory(
+    descriptors.domainListContactVerifications,
+    baseClient.domain.listContactVerifications,
   ).getApiResource,
   /** List the contact schemas for a TLD. */
   listTldContactSchemas: new ApiCallAsyncResourceFactory(
@@ -744,16 +754,6 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   sslListCertificates: new ApiCallAsyncResourceFactory(
     descriptors.sslListCertificates,
     baseClient.domain.sslListCertificates,
-  ).getApiResource,
-  /** Get a Contact-Verification. */
-  getContactVerification: new ApiCallAsyncResourceFactory(
-    descriptors.domainGetContactVerification,
-    baseClient.domain.getContactVerification,
-  ).getApiResource,
-  /** List Contact-Verifications belonging to the executing user. */
-  listContactVerifications: new ApiCallAsyncResourceFactory(
-    descriptors.domainListContactVerifications,
-    baseClient.domain.listContactVerifications,
   ).getApiResource,
 });
 
