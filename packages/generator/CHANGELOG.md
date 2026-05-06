@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.356.1](https://github.com/mittwald/api-client-js/compare/4.356.0...4.356.1) (2026-05-06)
+
+### Bug Fixes
+
+* **CVE:** CVE-2026-42033, CVE-2026-42035, CVE-2026-42043, CVE-2026-42264 ([3a9fdd0](https://github.com/mittwald/api-client-js/commit/3a9fdd00393d91d1835b26e6ff63b1c9aeb09821))
+
 # [4.356.0](https://github.com/mittwald/api-client-js/compare/4.355.0...4.356.0) (2026-05-05)
 
 **Note:** Version bump only for package @mittwald/api-code-generator
