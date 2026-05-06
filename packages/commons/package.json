@@ -1,6 +1,6 @@
 {
   "name": "@mittwald/api-client-commons",
-  "version": "4.356.0",
+  "version": "4.357.0",
   "author": "Mittwald CM Service GmbH & Co. KG <opensource@mittwald.de>",
   "type": "module",
   "description": "Common types and utilities for mittwald API clients",
@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@types/parse-path": "^7.0.3",
-    "axios": "^1.13.5",
+    "axios": "^1.15.2",
     "parse-path": "^7.1.0",
     "path-to-regexp": "^8.3.0",
     "type-fest": "^4.30.0"
