@@ -12500,6 +12500,7 @@ export declare module MittwaldAPIV2 {
             withExportsOnly?: boolean;
             sortOrder?: MittwaldAPIV2.Components.Schemas.BackupBackupSortOrder;
             runningRestoresOnly?: boolean;
+            runningBackupsOnly?: boolean;
             limit?: number;
             skip?: number;
             page?: number;
@@ -17266,6 +17267,7 @@ export declare module MittwaldAPIV2 {
           export interface RequestBody {
             categoryId?: string;
             mainUserId?: string;
+            messageContent?: string;
             notificationRoles?: MittwaldAPIV2.Components.Schemas.ConversationNotificationRole[];
             relatedTo?: MittwaldAPIV2.Components.Schemas.ConversationRelatedAggregateReference;
             sharedWith?: MittwaldAPIV2.Components.Schemas.ConversationShareableAggregateReference;
