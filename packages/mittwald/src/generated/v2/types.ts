@@ -9682,6 +9682,12 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
+      export type AppAppInstallationSortOrder =
+        | "newestFirst"
+        | "oldestFirst"
+        | "sortByPhpVersionAsc"
+        | "sortByPhpVersionDesc";
+
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -11524,6 +11530,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             appIds?: string[];
             searchTerm?: string;
+            sortOrder?: MittwaldAPIV2.Components.Schemas.AppAppInstallationSortOrder;
             limit?: number;
             skip?: number;
             page?: number;
@@ -11571,6 +11578,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             appIds?: string[];
             searchTerm?: string;
+            sortOrder?: MittwaldAPIV2.Components.Schemas.AppAppInstallationSortOrder;
             limit?: number;
             skip?: number;
             page?: number;
