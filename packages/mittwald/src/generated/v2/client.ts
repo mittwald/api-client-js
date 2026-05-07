@@ -209,10 +209,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteProjectBackup: this.requestFunctionFactory(
       descriptors.backupDeleteProjectBackup,
     ),
-    /** List database dump's for a ProjectBackup. */
-    getProjectBackupDatabaseDumpsV2Experimental: this.requestFunctionFactory(
-      descriptors.backupGetProjectBackupDatabaseDumpsV2Experimental,
-    ),
     /** List paths for a ProjectBackup. */
     getProjectBackupDirectories: this.requestFunctionFactory(
       descriptors.backupGetProjectBackupDirectories,
@@ -220,10 +216,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update a Backup's expiration time. */
     replaceProjectBackupExpirationTime: this.requestFunctionFactory(
       descriptors.backupReplaceProjectBackupExpirationTime,
-    ),
-    /** Restore a ProjectBackup. */
-    requestProjectBackupRestoreV2Experimental: this.requestFunctionFactory(
-      descriptors.backupRequestProjectBackupRestoreV2Experimental,
     ),
     /** Change the description of a ProjectBackup. */
     updateProjectBackupDescription: this.requestFunctionFactory(
