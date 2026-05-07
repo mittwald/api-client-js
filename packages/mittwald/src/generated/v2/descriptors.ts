@@ -10169,7 +10169,7 @@ export const extensionGetOwnExtension: OpenAPIOperation<
   operationId: "extension-get-own-extension",
 };
 
-/** Delete an extension. */
+/** Delete an Extension. */
 export const extensionDeleteExtension: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Delete.Parameters.RequestBody>,
@@ -17155,35 +17155,6 @@ export const userChangePassword: OpenAPIOperation<
   operationId: "user-change-password",
 };
 
-/** Check token for validity. */
-export const userCheckToken: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsToken.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsToken.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsToken.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsToken.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsToken.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsToken.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsToken.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/users/self/credentials/token",
-  method: "POST",
-  operationId: "user-check-token",
-};
-
 /** Get your current multi factor auth status. */
 export const userGetMfaStatus: OpenAPIOperation<
   RequestType<
@@ -17755,6 +17726,35 @@ export const userDeleteUser: OpenAPIOperation<
   path: "/v2/users/self",
   method: "DELETE",
   operationId: "user-delete-user",
+};
+
+/** Check status of the current session. */
+export const userGetCurrentSessionStatus: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsCurrentStatus.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsCurrentStatus.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsCurrentStatus.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsCurrentStatus.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsCurrentStatus.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsCurrentStatus.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/sessions/current/status",
+  method: "GET",
+  operationId: "user-get-current-session-status",
 };
 
 /** The timestamp of your latest password change. */

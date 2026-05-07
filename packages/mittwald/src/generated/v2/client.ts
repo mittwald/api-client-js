@@ -588,7 +588,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionGetOwnExtension: this.requestFunctionFactory(
       descriptors.extensionGetOwnExtension,
     ),
-    /** Delete an extension. */
+    /** Delete an Extension. */
     extensionDeleteExtension: this.requestFunctionFactory(
       descriptors.extensionDeleteExtension,
     ),
@@ -1364,8 +1364,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     changeEmail: this.requestFunctionFactory(descriptors.userChangeEmail),
     /** Change your password. */
     changePassword: this.requestFunctionFactory(descriptors.userChangePassword),
-    /** Check token for validity. */
-    checkToken: this.requestFunctionFactory(descriptors.userCheckToken),
     /** Get your current multi factor auth status. */
     getMfaStatus: this.requestFunctionFactory(descriptors.userGetMfaStatus),
     /** Reset RecoveryCodes for MFA. */
@@ -1404,6 +1402,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteSshKey: this.requestFunctionFactory(descriptors.userDeleteSshKey),
     /** Delete your account and all your personal data. */
     deleteUser: this.requestFunctionFactory(descriptors.userDeleteUser),
+    /** Check status of the current session. */
+    getCurrentSessionStatus: this.requestFunctionFactory(
+      descriptors.userGetCurrentSessionStatus,
+    ),
     /** The timestamp of your latest password change. */
     getPasswordUpdatedAt: this.requestFunctionFactory(
       descriptors.userGetPasswordUpdatedAt,

@@ -4354,12 +4354,6 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.userChangePassword, TStatus>;
     }
 
-    namespace UserCheckToken {
-      type RequestData = InferredRequestData<typeof descriptors.userCheckToken>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userCheckToken, TStatus>;
-    }
-
     namespace UserGetMfaStatus {
       type RequestData = InferredRequestData<
         typeof descriptors.userGetMfaStatus
@@ -4490,6 +4484,17 @@ export declare module MittwaldAPIV2 {
       type RequestData = InferredRequestData<typeof descriptors.userDeleteUser>;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<typeof descriptors.userDeleteUser, TStatus>;
+    }
+
+    namespace UserGetCurrentSessionStatus {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userGetCurrentSessionStatus
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userGetCurrentSessionStatus,
+          TStatus
+        >;
     }
 
     namespace UserGetPasswordUpdatedAt {
@@ -22985,6 +22990,8 @@ export declare module MittwaldAPIV2 {
 
     namespace V2SignupEmail {}
 
+    namespace V2UsersSelfCredentialsToken {}
+
     namespace V2SignupPasswordResetConfirm {}
 
     namespace V2UsersSelfIssues {}
@@ -36014,7 +36021,9 @@ export declare module MittwaldAPIV2 {
 
           export type Header = {};
 
-          export type Query = {};
+          export type Query = {
+            cookieOnly?: boolean;
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -36023,15 +36032,15 @@ export declare module MittwaldAPIV2 {
                 /**
                  * The expiration date of the token.
                  */
-                expires: string;
+                expires?: string;
                 /**
                  * Refresh token to refresh your access token even after it has expired.
                  */
-                refreshToken: string;
+                refreshToken?: string;
                 /**
                  * Public token to identify yourself against the api gateway.
                  */
-                token: string;
+                token?: string;
               }
             }
           }
@@ -36369,47 +36378,6 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2UsersSelfCredentialsToken {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {}
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                id: string;
-                publicToken: string;
-              }
             }
           }
 
@@ -37306,6 +37274,55 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2UsersSelfSessionsCurrentStatus {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * Whether the executing user is an employee.
+                 */
+                isEmployee: boolean;
+                /**
+                 * Whether the current session is an impersonation.
+                 */
+                isImpersonated: boolean;
+                /**
+                 * ID of the executing user.
+                 */
+                userId: string;
               }
             }
           }
