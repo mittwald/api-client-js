@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.360.0](https://github.com/mittwald/api-client-js/compare/4.359.0...4.360.0) (2026-05-07)
+
+**Note:** Version bump only for package @mittwald/api-code-generator
+
+# [4.359.0](https://github.com/mittwald/api-client-js/compare/4.358.0...4.359.0) (2026-05-07)
+
+**Note:** Version bump only for package @mittwald/api-code-generator
+
+# [4.358.0](https://github.com/mittwald/api-client-js/compare/4.357.0...4.358.0) (2026-05-07)
+
+**Note:** Version bump only for package @mittwald/api-code-generator
+
 # [4.357.0](https://github.com/mittwald/api-client-js/compare/4.356.1...4.357.0) (2026-05-06)
 
 **Note:** Version bump only for package @mittwald/api-code-generator

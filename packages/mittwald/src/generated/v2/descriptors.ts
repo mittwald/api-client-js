@@ -2021,7 +2021,7 @@ export const backupDeleteProjectBackup: OpenAPIOperation<
 };
 
 /** List database dump's for a ProjectBackup. */
-export const backupGetProjectBackupDatabaseDumpsV2Experimental: OpenAPIOperation<
+export const backupGetProjectBackupDatabaseDumps: OpenAPIOperation<
   RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDatabaseDumps.Get.Parameters.Path>,
@@ -2066,7 +2066,7 @@ export const backupGetProjectBackupDatabaseDumpsV2Experimental: OpenAPIOperation
 > = {
   path: "/v2/project-backups/{projectBackupId}/database-dumps",
   method: "GET",
-  operationId: "backup-get-project-backup-database-dumps-v2-experimental",
+  operationId: "backup-get-project-backup-database-dumps",
 };
 
 /** List paths for a ProjectBackup. */
@@ -2163,7 +2163,7 @@ export const backupReplaceProjectBackupExpirationTime: OpenAPIOperation<
 };
 
 /** Restore a ProjectBackup. */
-export const backupRequestProjectBackupRestoreV2Experimental: OpenAPIOperation<
+export const backupRequestProjectBackupRestore: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestore.Post.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestore.Post.Parameters.Path>,
@@ -2203,7 +2203,7 @@ export const backupRequestProjectBackupRestoreV2Experimental: OpenAPIOperation<
 > = {
   path: "/v2/project-backups/{projectBackupId}/restore",
   method: "POST",
-  operationId: "backup-request-project-backup-restore-v2-experimental",
+  operationId: "backup-request-project-backup-restore",
 };
 
 /** Change the description of a ProjectBackup. */

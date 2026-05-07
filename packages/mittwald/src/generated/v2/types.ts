@@ -536,13 +536,13 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace BackupGetProjectBackupDatabaseDumpsV2Experimental {
+    namespace BackupGetProjectBackupDatabaseDumps {
       type RequestData = InferredRequestData<
-        typeof descriptors.backupGetProjectBackupDatabaseDumpsV2Experimental
+        typeof descriptors.backupGetProjectBackupDatabaseDumps
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.backupGetProjectBackupDatabaseDumpsV2Experimental,
+          typeof descriptors.backupGetProjectBackupDatabaseDumps,
           TStatus
         >;
     }
@@ -569,13 +569,13 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace BackupRequestProjectBackupRestoreV2Experimental {
+    namespace BackupRequestProjectBackupRestore {
       type RequestData = InferredRequestData<
-        typeof descriptors.backupRequestProjectBackupRestoreV2Experimental
+        typeof descriptors.backupRequestProjectBackupRestore
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.backupRequestProjectBackupRestoreV2Experimental,
+          typeof descriptors.backupRequestProjectBackupRestore,
           TStatus
         >;
     }
@@ -10003,6 +10003,12 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
+      export type AppAppInstallationSortOrder =
+        | "newestFirst"
+        | "oldestFirst"
+        | "sortByPhpVersionAsc"
+        | "sortByPhpVersionDesc";
+
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -11835,6 +11841,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             appIds?: string[];
             searchTerm?: string;
+            sortOrder?: MittwaldAPIV2.Components.Schemas.AppAppInstallationSortOrder;
             limit?: number;
             skip?: number;
             page?: number;
@@ -11880,6 +11887,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             appIds?: string[];
             searchTerm?: string;
+            sortOrder?: MittwaldAPIV2.Components.Schemas.AppAppInstallationSortOrder;
             limit?: number;
             skip?: number;
             page?: number;
