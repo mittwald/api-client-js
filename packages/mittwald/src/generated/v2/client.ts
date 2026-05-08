@@ -1306,8 +1306,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     changeEmail: this.requestFunctionFactory(descriptors.userChangeEmail),
     /** Change your password. */
     changePassword: this.requestFunctionFactory(descriptors.userChangePassword),
-    /** Check token for validity. */
-    checkToken: this.requestFunctionFactory(descriptors.userCheckToken),
     /** Get your current multi factor auth status. */
     getMfaStatus: this.requestFunctionFactory(descriptors.userGetMfaStatus),
     /** Reset RecoveryCodes for MFA. */
@@ -1426,6 +1424,8 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     verifyRegistration: this.requestFunctionFactory(
       descriptors.userVerifyRegistration,
     ),
+    /** Check token for validity. */
+    checkToken: this.requestFunctionFactory(descriptors.userCheckToken),
   };
 
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */

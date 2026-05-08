@@ -4187,12 +4187,6 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.userChangePassword, TStatus>;
     }
 
-    namespace UserCheckToken {
-      type RequestData = InferredRequestData<typeof descriptors.userCheckToken>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userCheckToken, TStatus>;
-    }
-
     namespace UserGetMfaStatus {
       type RequestData = InferredRequestData<
         typeof descriptors.userGetMfaStatus
@@ -4587,6 +4581,12 @@ export declare module MittwaldAPIV2 {
           typeof descriptors.verificationVerifyCompany,
           TStatus
         >;
+    }
+
+    namespace UserCheckToken {
+      type RequestData = InferredRequestData<typeof descriptors.userCheckToken>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userCheckToken, TStatus>;
     }
   }
 
@@ -35263,49 +35263,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2SignupTokenCheck {}
-
-    namespace V2UsersSelfCredentialsToken {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {}
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                id: string;
-                publicToken: string;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2SignupMfaConfirm {}
 
     namespace V2UsersSelfCredentialsMfa {
@@ -37719,6 +37676,49 @@ export declare module MittwaldAPIV2 {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2SignupTokenCheck {}
+
+    namespace V2UsersSelfCredentialsToken {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {}
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                id: string;
+                publicToken: string;
+              }
             }
           }
 
