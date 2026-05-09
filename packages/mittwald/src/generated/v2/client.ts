@@ -1072,17 +1072,9 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getDomain: this.requestFunctionFactory(descriptors.domainGetDomain),
     /** Delete a Domain. */
     deleteDomain: this.requestFunctionFactory(descriptors.domainDeleteDomain),
-    /** Get a Contact-Verification. */
-    getContactVerification: this.requestFunctionFactory(
-      descriptors.domainGetContactVerification,
-    ),
     /** Get the latest screenshot's FileReference belonging to a Domain. */
     getLatestScreenshot: this.requestFunctionFactory(
       descriptors.domainGetLatestScreenshot,
-    ),
-    /** List Contact-Verifications belonging to the executing user. */
-    listContactVerifications: this.requestFunctionFactory(
-      descriptors.domainListContactVerifications,
     ),
     /** List the contact schemas for a TLD. */
     listTldContactSchemas: this.requestFunctionFactory(
@@ -1101,10 +1093,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Create a Domain-Migration from a pAccount into a Project. */
     migrationRequestDomainMigration: this.requestFunctionFactory(
       descriptors.domainMigrationRequestDomainMigration,
-    ),
-    /** Resends a Contact-Verification email. */
-    resendContactVerificationEmail: this.requestFunctionFactory(
-      descriptors.domainResendContactVerificationEmail,
     ),
     /** Resend a Domain email. */
     resendDomainEmail: this.requestFunctionFactory(
@@ -1486,8 +1474,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     verifyRegistration: this.requestFunctionFactory(
       descriptors.userVerifyRegistration,
     ),
-    /** Check token for validity. */
-    checkToken: this.requestFunctionFactory(descriptors.userCheckToken),
   };
 
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
