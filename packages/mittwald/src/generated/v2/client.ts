@@ -1486,6 +1486,8 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     verifyRegistration: this.requestFunctionFactory(
       descriptors.userVerifyRegistration,
     ),
+    /** Check token for validity. */
+    checkToken: this.requestFunctionFactory(descriptors.userCheckToken),
   };
 
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
