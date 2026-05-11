@@ -574,7 +574,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionGetOwnExtension: this.requestFunctionFactory(
       descriptors.extensionGetOwnExtension,
     ),
-    /** Delete an extension. */
+    /** Delete an Extension. */
     extensionDeleteExtension: this.requestFunctionFactory(
       descriptors.extensionDeleteExtension,
     ),

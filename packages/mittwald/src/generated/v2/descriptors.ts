@@ -4348,9 +4348,9 @@ export const contributorDeleteContributor: OpenAPIOperation<
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorId.Delete.Responses.$412.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorId.Delete.Responses.$412.Content.ApplicationJson>,
       412,
-      "empty"
+      "application/json"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorId.Delete.Responses.$429.Content.ApplicationJson>,
@@ -9705,7 +9705,7 @@ export const extensionGetOwnExtension: OpenAPIOperation<
   operationId: "extension-get-own-extension",
 };
 
-/** Delete an extension. */
+/** Delete an Extension. */
 export const extensionDeleteExtension: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionId.Delete.Parameters.RequestBody>,

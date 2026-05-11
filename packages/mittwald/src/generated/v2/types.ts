@@ -6941,9 +6941,10 @@ export declare module MittwaldAPIV2 {
         context: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
         contributorId: string;
         createdAt: string;
+        deletionDeadline?: string;
         deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
         /**
-         * A short description of the capabilites of the Extension.
+         * A short description of the capabilities of the Extension.
          */
         description: string;
         detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
@@ -6962,6 +6963,7 @@ export declare module MittwaldAPIV2 {
           ]: MittwaldAPIV2.Components.Schemas.MarketplaceFrontendFragment;
         };
         id: string;
+        isDeletionScheduled?: boolean;
         /**
          * This is the FileId of the Logo. Retrieve the file with this id on `/v2/files/{logoRefId}`.
          */
@@ -7080,6 +7082,7 @@ export declare module MittwaldAPIV2 {
         contributorName: string;
         createdAt?: string;
         disabled: boolean;
+        extensionDeletionDeadline?: string;
         extensionId: string;
         extensionName: string;
         extensionSubTitle?: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
@@ -7203,6 +7206,7 @@ export declare module MittwaldAPIV2 {
         blocked?: boolean;
         context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
         contributorId: string;
+        deletionDeadline?: string;
         deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
         description?: string;
         detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
@@ -7222,6 +7226,7 @@ export declare module MittwaldAPIV2 {
         };
         functional: boolean;
         id: string;
+        isDeletionScheduled?: boolean;
         /**
          * This is the FileId of the Logo. Retrieve the file with this id on `/v2/files/{logoRefId}`.
          */
@@ -7337,9 +7342,10 @@ export declare module MittwaldAPIV2 {
         blocked: boolean;
         context: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
         contributorId: string;
+        deletionDeadline?: string;
         deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
         /**
-         * A short description of the capabilites of the Extension.
+         * A short description of the capabilities of the Extension.
          */
         description?: string;
         detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
@@ -7355,6 +7361,7 @@ export declare module MittwaldAPIV2 {
           ]: MittwaldAPIV2.Components.Schemas.MarketplaceFrontendFragment;
         };
         id: string;
+        isDeletionScheduled?: boolean;
         /**
          * This is the FileId of the Logo. Retrieve the file with this id on `/v2/files/{logoRefId}`.
          */
@@ -16407,7 +16414,9 @@ export declare module MittwaldAPIV2 {
 
           namespace $412 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
