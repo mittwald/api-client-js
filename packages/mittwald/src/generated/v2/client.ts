@@ -1150,6 +1150,18 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     sslListCertificates: this.requestFunctionFactory(
       descriptors.sslListCertificates,
     ),
+    /** Get a Contact-Verification. */
+    getContactVerification: this.requestFunctionFactory(
+      descriptors.domainGetContactVerification,
+    ),
+    /** List Contact-Verifications belonging to the executing user. */
+    listContactVerifications: this.requestFunctionFactory(
+      descriptors.domainListContactVerifications,
+    ),
+    /** Resends a Contact-Verification email. */
+    resendContactVerificationEmail: this.requestFunctionFactory(
+      descriptors.domainResendContactVerificationEmail,
+    ),
   };
 
   /** The mail API allows you to manage your mail accounts. */
@@ -1424,8 +1436,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     verifyRegistration: this.requestFunctionFactory(
       descriptors.userVerifyRegistration,
     ),
-    /** Check token for validity. */
-    checkToken: this.requestFunctionFactory(descriptors.userCheckToken),
+    /** Check status of the current session. */
+    getCurrentSessionStatus: this.requestFunctionFactory(
+      descriptors.userGetCurrentSessionStatus,
+    ),
   };
 
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */

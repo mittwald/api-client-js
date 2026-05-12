@@ -730,6 +730,16 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.sslListCertificates,
     baseClient.domain.sslListCertificates,
   ).getApiResource,
+  /** Get a Contact-Verification. */
+  getContactVerification: new ApiCallAsyncResourceFactory(
+    descriptors.domainGetContactVerification,
+    baseClient.domain.getContactVerification,
+  ).getApiResource,
+  /** List Contact-Verifications belonging to the executing user. */
+  listContactVerifications: new ApiCallAsyncResourceFactory(
+    descriptors.domainListContactVerifications,
+    baseClient.domain.listContactVerifications,
+  ).getApiResource,
 });
 
 const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({
@@ -983,6 +993,11 @@ const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
   supportCodeRequest: new ApiCallAsyncResourceFactory(
     descriptors.userSupportCodeRequest,
     baseClient.user.supportCodeRequest,
+  ).getApiResource,
+  /** Check status of the current session. */
+  getCurrentSessionStatus: new ApiCallAsyncResourceFactory(
+    descriptors.userGetCurrentSessionStatus,
+    baseClient.user.getCurrentSessionStatus,
   ).getApiResource,
 });
 
