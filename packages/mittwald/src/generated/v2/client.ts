@@ -1188,9 +1188,17 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     sslListCertificates: this.requestFunctionFactory(
       descriptors.sslListCertificates,
     ),
-    /** Update the certificate of a CertificateRequest. */
-    sslSetCertificateRequestCertificate: this.requestFunctionFactory(
-      descriptors.sslSetCertificateRequestCertificate,
+    /** Get a Contact-Verification. */
+    getContactVerification: this.requestFunctionFactory(
+      descriptors.domainGetContactVerification,
+    ),
+    /** List Contact-Verifications belonging to the executing user. */
+    listContactVerifications: this.requestFunctionFactory(
+      descriptors.domainListContactVerifications,
+    ),
+    /** Resends a Contact-Verification email. */
+    resendContactVerificationEmail: this.requestFunctionFactory(
+      descriptors.domainResendContactVerificationEmail,
     ),
   };
 
@@ -1485,6 +1493,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Verify your registration. */
     verifyRegistration: this.requestFunctionFactory(
       descriptors.userVerifyRegistration,
+    ),
+    /** Check status of the current session. */
+    getCurrentSessionStatus: this.requestFunctionFactory(
+      descriptors.userGetCurrentSessionStatus,
     ),
   };
 

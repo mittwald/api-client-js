@@ -16945,6 +16945,11 @@ export const userAuthenticateMfa: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
@@ -16987,6 +16992,11 @@ export const userAuthenticate: OpenAPIOperation<
       Simplify<MittwaldAPIV2.Paths.V2Authenticate.Post.Responses.$202.Content.ApplicationJson>,
       202,
       "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Authenticate.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2Authenticate.Post.Responses.$400.Content.ApplicationJson>,
@@ -18741,4 +18751,145 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
+};
+
+/** Check status of the current session. */
+export const userGetCurrentSessionStatus: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsCurrentStatus.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsCurrentStatus.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsCurrentStatus.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsCurrentStatus.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsCurrentStatus.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSessionsCurrentStatus.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/sessions/current/status",
+  method: "GET",
+  operationId: "user-get-current-session-status",
+};
+
+/** Get a Contact-Verification. */
+export const domainGetContactVerification: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContactVerificationsContactVerificationId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContactVerificationsContactVerificationId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContactVerificationsContactVerificationId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContactVerificationsContactVerificationId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContactVerificationsContactVerificationId.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContactVerificationsContactVerificationId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContactVerificationsContactVerificationId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContactVerificationsContactVerificationId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/contact-verifications/{contactVerificationId}",
+  method: "GET",
+  operationId: "domain-get-contact-verification",
+};
+
+/** List Contact-Verifications belonging to the executing user. */
+export const domainListContactVerifications: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContactVerifications.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContactVerifications.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContactVerifications.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContactVerifications.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContactVerifications.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContactVerifications.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContactVerifications.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/contact-verifications",
+  method: "GET",
+  operationId: "domain-list-contact-verifications",
+};
+
+/** Resends a Contact-Verification email. */
+export const domainResendContactVerificationEmail: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/contact-verifications/{contactVerificationId}/actions/resend-contact-verification-email",
+  method: "POST",
+  operationId: "domain-resend-contact-verification-email",
 };
