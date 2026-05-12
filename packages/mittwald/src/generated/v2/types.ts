@@ -34976,16 +34976,22 @@ export declare module MittwaldAPIV2 {
                 /**
                  * The expiration date of the token.
                  */
-                expires?: string;
+                expires: string;
                 /**
                  * Refresh token to refresh your access token even after it has expired.
                  */
-                refreshToken?: string;
+                refreshToken: string;
                 /**
                  * Public token to identify yourself against the api gateway.
                  */
-                token?: string;
+                token: string;
               }
+            }
+          }
+
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
             }
           }
 
@@ -35055,15 +35061,15 @@ export declare module MittwaldAPIV2 {
                 /**
                  * The expiration date of the token.
                  */
-                expires?: string;
+                expires: string;
                 /**
                  * Refresh token to refresh your access token even after it has expired.
                  */
-                refreshToken?: string;
+                refreshToken: string;
                 /**
                  * Public token to identify yourself against the api gateway.
                  */
-                token?: string;
+                token: string;
               }
             }
           }
@@ -35073,6 +35079,12 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 name?: "SecondFactorRequired";
               }
+            }
+          }
+
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
             }
           }
 

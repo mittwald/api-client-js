@@ -16296,6 +16296,11 @@ export const userAuthenticateMfa: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2AuthenticateMfa.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
@@ -16338,6 +16343,11 @@ export const userAuthenticate: OpenAPIOperation<
       Simplify<MittwaldAPIV2.Paths.V2Authenticate.Post.Responses.$202.Content.ApplicationJson>,
       202,
       "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Authenticate.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2Authenticate.Post.Responses.$400.Content.ApplicationJson>,
