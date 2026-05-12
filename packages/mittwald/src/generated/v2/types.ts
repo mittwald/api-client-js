@@ -4760,50 +4760,6 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
-
-    namespace UserGetCurrentSessionStatus {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userGetCurrentSessionStatus
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userGetCurrentSessionStatus,
-          TStatus
-        >;
-    }
-
-    namespace DomainGetContactVerification {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainGetContactVerification
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainGetContactVerification,
-          TStatus
-        >;
-    }
-
-    namespace DomainListContactVerifications {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainListContactVerifications
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainListContactVerifications,
-          TStatus
-        >;
-    }
-
-    namespace DomainResendContactVerificationEmail {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainResendContactVerificationEmail
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainResendContactVerificationEmail,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -5237,8 +5193,8 @@ export declare module MittwaldAPIV2 {
       export interface AppVersionStatus {
         current?: string;
         desired: string;
-        last?: string;
-        last_by?: string;
+        lastChangeBy?: string;
+        previous?: string;
       }
 
       export type BackupBackupSortOrder = "oldestFirst" | "newestFirst";
@@ -10059,40 +10015,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export interface DomainContactVerification {
-        id: string;
-        status: MittwaldAPIV2.Components.Schemas.DomainContactVerificationStatus;
-        typeData:
-          | MittwaldAPIV2.Components.Schemas.DomainContactVerificationAddressData
-          | MittwaldAPIV2.Components.Schemas.DomainContactVerificationEmailData
-          | MittwaldAPIV2.Components.Schemas.DomainContactVerificationNameData;
-      }
-
-      export interface DomainContactVerificationAddressData {
-        type: "address";
-        value: string;
-      }
-
-      export interface DomainContactVerificationEmailData {
-        emailVerificationDeadline?: string;
-        lastEmailSentDate?: string;
-        type: "email";
-        value: string;
-      }
-
-      export interface DomainContactVerificationNameData {
-        type: "name";
-        value: string;
-      }
-
-      export type DomainContactVerificationStatus =
-        | "created"
-        | "pending"
-        | "completed"
-        | "failed";
-
-      export type DomainContactVerificationType = "name" | "address" | "email";
 
       export interface CommonsAddress {
         street: string;
@@ -36112,15 +36034,15 @@ export declare module MittwaldAPIV2 {
                 /**
                  * The expiration date of the token.
                  */
-                expires?: string;
+                expires: string;
                 /**
                  * Refresh token to refresh your access token even after it has expired.
                  */
-                refreshToken?: string;
+                refreshToken: string;
                 /**
                  * Public token to identify yourself against the api gateway.
                  */
-                token?: string;
+                token: string;
               }
             }
           }
@@ -36195,15 +36117,15 @@ export declare module MittwaldAPIV2 {
                 /**
                  * The expiration date of the token.
                  */
-                expires?: string;
+                expires: string;
                 /**
                  * Refresh token to refresh your access token even after it has expired.
                  */
-                refreshToken?: string;
+                refreshToken: string;
                 /**
                  * Public token to identify yourself against the api gateway.
                  */
-                token?: string;
+                token: string;
               }
             }
           }
@@ -38937,216 +38859,6 @@ export declare module MittwaldAPIV2 {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2UsersSelfSessionsCurrentStatus {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                /**
-                 * Whether the executing user is an employee.
-                 */
-                isEmployee: boolean;
-                /**
-                 * Whether the current session is an impersonation.
-                 */
-                isImpersonated: boolean;
-                /**
-                 * ID of the executing user.
-                 */
-                userId: string;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2SignupTokenCheck {}
-
-    namespace V2UsersSelfCredentialsToken {}
-
-    namespace V2ContactVerificationsContactVerificationId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            contactVerificationId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DomainContactVerification;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ContactVerifications {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            value?: string;
-            type?: MittwaldAPIV2.Components.Schemas.DomainContactVerificationType;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DomainContactVerification[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            contactVerificationId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
