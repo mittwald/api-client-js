@@ -5059,6 +5059,8 @@ export declare module MittwaldAPIV2 {
       export interface AppVersionStatus {
         current?: string;
         desired: string;
+        lastChangeBy?: string;
+        previous?: string;
       }
 
       export type BackupBackupSortOrder = "oldestFirst" | "newestFirst";
