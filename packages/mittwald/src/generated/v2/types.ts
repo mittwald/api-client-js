@@ -19364,6 +19364,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             limit?: number;
             skip?: number;
+            searchTerm?: string;
           };
         }
         namespace Responses {
@@ -20465,6 +20466,7 @@ export declare module MittwaldAPIV2 {
             skip?: number;
             hasExpiry?: boolean;
             role?: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
+            searchTerm?: string;
           };
         }
         namespace Responses {
@@ -32599,6 +32601,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             limit?: number;
             skip?: number;
+            searchTerm?: string;
           };
         }
         namespace Responses {
@@ -33898,6 +33901,7 @@ export declare module MittwaldAPIV2 {
             isInherited?: boolean;
             role?: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
             hasMfa?: boolean;
+            searchTerm?: string;
           };
         }
         namespace Responses {
