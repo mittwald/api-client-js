@@ -9756,16 +9756,16 @@ export declare module MittwaldAPIV2 {
         value: string;
       }
 
-      export interface DomainContactVerificationNameData {
-        type: "name";
-        value: string;
-      }
-
       export type DomainContactVerificationStatus =
         | "created"
         | "pending"
         | "completed"
         | "failed";
+
+      export interface DomainContactVerificationNameData {
+        type: "name";
+        value: string;
+      }
 
       export type DomainContactVerificationType = "name" | "address" | "email";
 
