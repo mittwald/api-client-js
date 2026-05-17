@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.367.0](https://github.com/mittwald/api-client-js/compare/4.366.0...4.367.0) (2026-05-17)
+
+### Features
+
+* update generated client ([52ee8d6](https://github.com/mittwald/api-client-js/commit/52ee8d6bbf51de49cc270fdf41bdaac414f231c3))
+
 # [4.366.0](https://github.com/mittwald/api-client-js/compare/4.365.0...4.366.0) (2026-05-15)
 
 ### Features
