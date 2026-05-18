@@ -2250,6 +2250,17 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.domainDeleteDomain, TStatus>;
     }
 
+    namespace DomainGetContactVerification {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainGetContactVerification
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainGetContactVerification,
+          TStatus
+        >;
+    }
+
     namespace DomainGetLatestScreenshot {
       type RequestData = InferredRequestData<
         typeof descriptors.domainGetLatestScreenshot
@@ -2257,6 +2268,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.domainGetLatestScreenshot,
+          TStatus
+        >;
+    }
+
+    namespace DomainListContactVerifications {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainListContactVerifications
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainListContactVerifications,
           TStatus
         >;
     }
@@ -2276,6 +2298,17 @@ export declare module MittwaldAPIV2 {
       type RequestData = InferredRequestData<typeof descriptors.domainListTlds>;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<typeof descriptors.domainListTlds, TStatus>;
+    }
+
+    namespace DomainResendContactVerificationEmail {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainResendContactVerificationEmail
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainResendContactVerificationEmail,
+          TStatus
+        >;
     }
 
     namespace DomainResendDomainEmail {
@@ -4319,6 +4352,17 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.userDeleteUser, TStatus>;
     }
 
+    namespace UserGetCurrentSessionStatus {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userGetCurrentSessionStatus
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userGetCurrentSessionStatus,
+          TStatus
+        >;
+    }
+
     namespace UserGetPasswordUpdatedAt {
       type RequestData = InferredRequestData<
         typeof descriptors.userGetPasswordUpdatedAt
@@ -4579,50 +4623,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.verificationVerifyCompany,
-          TStatus
-        >;
-    }
-
-    namespace UserGetCurrentSessionStatus {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userGetCurrentSessionStatus
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userGetCurrentSessionStatus,
-          TStatus
-        >;
-    }
-
-    namespace DomainGetContactVerification {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainGetContactVerification
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainGetContactVerification,
-          TStatus
-        >;
-    }
-
-    namespace DomainListContactVerifications {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainListContactVerifications
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainListContactVerifications,
-          TStatus
-        >;
-    }
-
-    namespace DomainResendContactVerificationEmail {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainResendContactVerificationEmail
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainResendContactVerificationEmail,
           TStatus
         >;
     }
@@ -6809,6 +6809,32 @@ export declare module MittwaldAPIV2 {
         expires: string;
       }
 
+      export interface DomainContactVerificationAddressData {
+        type: "address";
+        value: string;
+      }
+
+      export interface DomainContactVerificationEmailData {
+        emailVerificationDeadline?: string;
+        lastEmailSentDate?: string;
+        type: "email";
+        value: string;
+      }
+
+      export interface DomainContactVerificationNameData {
+        type: "name";
+        value: string;
+      }
+
+      export interface DomainContactVerification {
+        id: string;
+        status: MittwaldAPIV2.Components.Schemas.DomainContactVerificationStatus;
+        typeData:
+          | MittwaldAPIV2.Components.Schemas.DomainContactVerificationAddressData
+          | MittwaldAPIV2.Components.Schemas.DomainContactVerificationEmailData
+          | MittwaldAPIV2.Components.Schemas.DomainContactVerificationNameData;
+      }
+
       export interface DomainCreateDomainHandleData {
         adminC?: MittwaldAPIV2.Components.Schemas.DomainHandleField[];
         ownerC: MittwaldAPIV2.Components.Schemas.DomainHandleField[];
@@ -6896,6 +6922,14 @@ export declare module MittwaldAPIV2 {
         | "code"
         | "email"
         | "push";
+
+      export type DomainContactVerificationStatus =
+        | "created"
+        | "pending"
+        | "completed"
+        | "failed";
+
+      export type DomainContactVerificationType = "name" | "address" | "email";
 
       export interface MarketplaceAggregateReference {
         aggregate: "project" | "customer";
@@ -9735,40 +9769,6 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export interface DomainContactVerification {
-        id: string;
-        status: MittwaldAPIV2.Components.Schemas.DomainContactVerificationStatus;
-        typeData:
-          | MittwaldAPIV2.Components.Schemas.DomainContactVerificationAddressData
-          | MittwaldAPIV2.Components.Schemas.DomainContactVerificationEmailData
-          | MittwaldAPIV2.Components.Schemas.DomainContactVerificationNameData;
-      }
-
-      export interface DomainContactVerificationAddressData {
-        type: "address";
-        value: string;
-      }
-
-      export interface DomainContactVerificationEmailData {
-        emailVerificationDeadline?: string;
-        lastEmailSentDate?: string;
-        type: "email";
-        value: string;
-      }
-
-      export interface DomainContactVerificationNameData {
-        type: "name";
-        value: string;
-      }
-
-      export type DomainContactVerificationStatus =
-        | "created"
-        | "pending"
-        | "completed"
-        | "failed";
-
-      export type DomainContactVerificationType = "name" | "address" | "email";
-
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -12048,6 +12048,7 @@ export declare module MittwaldAPIV2 {
 
           export interface RequestBody {
             description: string;
+            domain?: string;
             installationPath?: string;
             targetProjectId?: string;
           }
@@ -22431,6 +22432,10 @@ export declare module MittwaldAPIV2 {
 
     namespace V2SignupEmail {}
 
+    namespace V2SignupTokenCheck {}
+
+    namespace V2UsersSelfCredentialsToken {}
+
     namespace V2SignupPasswordResetConfirm {}
 
     namespace V2UsersSelfIssues {}
@@ -23339,6 +23344,61 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2ContactVerificationsContactVerificationId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            contactVerificationId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DomainContactVerification;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2DomainsLatestScreenshot {
       namespace Get {
         namespace Parameters {
@@ -23361,6 +23421,54 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContactVerifications {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            value?: string;
+            type?: MittwaldAPIV2.Components.Schemas.DomainContactVerificationType;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DomainContactVerification[];
+            }
+          }
+
+          namespace $400 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -23443,6 +23551,60 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.DomainTopLevel[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            contactVerificationId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -36266,6 +36428,55 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2UsersSelfSessionsCurrentStatus {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * Whether the executing user is an employee.
+                 */
+                isEmployee: boolean;
+                /**
+                 * Whether the current session is an impersonation.
+                 */
+                isImpersonated: boolean;
+                /**
+                 * ID of the executing user.
+                 */
+                userId: string;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2UsersSelfCredentialsPasswordUpdatedAt {
       namespace Get {
         namespace Parameters {
@@ -37776,216 +37987,6 @@ export declare module MittwaldAPIV2 {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2UsersSelfSessionsCurrentStatus {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                /**
-                 * Whether the executing user is an employee.
-                 */
-                isEmployee: boolean;
-                /**
-                 * Whether the current session is an impersonation.
-                 */
-                isImpersonated: boolean;
-                /**
-                 * ID of the executing user.
-                 */
-                userId: string;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2SignupTokenCheck {}
-
-    namespace V2UsersSelfCredentialsToken {}
-
-    namespace V2ContactVerificationsContactVerificationId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            contactVerificationId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DomainContactVerification;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ContactVerifications {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            value?: string;
-            type?: MittwaldAPIV2.Components.Schemas.DomainContactVerificationType;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DomainContactVerification[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            contactVerificationId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 

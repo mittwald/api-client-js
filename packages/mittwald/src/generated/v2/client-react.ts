@@ -680,10 +680,20 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.domainGetDomain,
     baseClient.domain.getDomain,
   ).getApiResource,
+  /** Get a Contact-Verification. */
+  getContactVerification: new ApiCallAsyncResourceFactory(
+    descriptors.domainGetContactVerification,
+    baseClient.domain.getContactVerification,
+  ).getApiResource,
   /** Get the latest screenshot's FileReference belonging to a Domain. */
   getLatestScreenshot: new ApiCallAsyncResourceFactory(
     descriptors.domainGetLatestScreenshot,
     baseClient.domain.getLatestScreenshot,
+  ).getApiResource,
+  /** List Contact-Verifications belonging to the executing user. */
+  listContactVerifications: new ApiCallAsyncResourceFactory(
+    descriptors.domainListContactVerifications,
+    baseClient.domain.listContactVerifications,
   ).getApiResource,
   /** List the contact schemas for a TLD. */
   listTldContactSchemas: new ApiCallAsyncResourceFactory(
@@ -729,16 +739,6 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   sslListCertificates: new ApiCallAsyncResourceFactory(
     descriptors.sslListCertificates,
     baseClient.domain.sslListCertificates,
-  ).getApiResource,
-  /** Get a Contact-Verification. */
-  getContactVerification: new ApiCallAsyncResourceFactory(
-    descriptors.domainGetContactVerification,
-    baseClient.domain.getContactVerification,
-  ).getApiResource,
-  /** List Contact-Verifications belonging to the executing user. */
-  listContactVerifications: new ApiCallAsyncResourceFactory(
-    descriptors.domainListContactVerifications,
-    baseClient.domain.listContactVerifications,
   ).getApiResource,
 });
 
@@ -949,6 +949,11 @@ const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.userGetSshKey,
     baseClient.user.getSshKey,
   ).getApiResource,
+  /** Check status of the current session. */
+  getCurrentSessionStatus: new ApiCallAsyncResourceFactory(
+    descriptors.userGetCurrentSessionStatus,
+    baseClient.user.getCurrentSessionStatus,
+  ).getApiResource,
   /** The timestamp of your latest password change. */
   getPasswordUpdatedAt: new ApiCallAsyncResourceFactory(
     descriptors.userGetPasswordUpdatedAt,
@@ -993,11 +998,6 @@ const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
   supportCodeRequest: new ApiCallAsyncResourceFactory(
     descriptors.userSupportCodeRequest,
     baseClient.user.supportCodeRequest,
-  ).getApiResource,
-  /** Check status of the current session. */
-  getCurrentSessionStatus: new ApiCallAsyncResourceFactory(
-    descriptors.userGetCurrentSessionStatus,
-    baseClient.user.getCurrentSessionStatus,
   ).getApiResource,
 });
 

@@ -1058,9 +1058,17 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getDomain: this.requestFunctionFactory(descriptors.domainGetDomain),
     /** Delete a Domain. */
     deleteDomain: this.requestFunctionFactory(descriptors.domainDeleteDomain),
+    /** Get a Contact-Verification. */
+    getContactVerification: this.requestFunctionFactory(
+      descriptors.domainGetContactVerification,
+    ),
     /** Get the latest screenshot's FileReference belonging to a Domain. */
     getLatestScreenshot: this.requestFunctionFactory(
       descriptors.domainGetLatestScreenshot,
+    ),
+    /** List Contact-Verifications belonging to the executing user. */
+    listContactVerifications: this.requestFunctionFactory(
+      descriptors.domainListContactVerifications,
     ),
     /** List the contact schemas for a TLD. */
     listTldContactSchemas: this.requestFunctionFactory(
@@ -1068,6 +1076,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** List TLDs. */
     listTlds: this.requestFunctionFactory(descriptors.domainListTlds),
+    /** Resends a Contact-Verification email. */
+    resendContactVerificationEmail: this.requestFunctionFactory(
+      descriptors.domainResendContactVerificationEmail,
+    ),
     /** Resend a Domain email. */
     resendDomainEmail: this.requestFunctionFactory(
       descriptors.domainResendDomainEmail,
@@ -1149,18 +1161,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** List Certificates belonging to a Project or an Ingress. */
     sslListCertificates: this.requestFunctionFactory(
       descriptors.sslListCertificates,
-    ),
-    /** Get a Contact-Verification. */
-    getContactVerification: this.requestFunctionFactory(
-      descriptors.domainGetContactVerification,
-    ),
-    /** List Contact-Verifications belonging to the executing user. */
-    listContactVerifications: this.requestFunctionFactory(
-      descriptors.domainListContactVerifications,
-    ),
-    /** Resends a Contact-Verification email. */
-    resendContactVerificationEmail: this.requestFunctionFactory(
-      descriptors.domainResendContactVerificationEmail,
     ),
   };
 
@@ -1356,6 +1356,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteSshKey: this.requestFunctionFactory(descriptors.userDeleteSshKey),
     /** Delete your account and all your personal data. */
     deleteUser: this.requestFunctionFactory(descriptors.userDeleteUser),
+    /** Check status of the current session. */
+    getCurrentSessionStatus: this.requestFunctionFactory(
+      descriptors.userGetCurrentSessionStatus,
+    ),
     /** The timestamp of your latest password change. */
     getPasswordUpdatedAt: this.requestFunctionFactory(
       descriptors.userGetPasswordUpdatedAt,
@@ -1435,10 +1439,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Verify your registration. */
     verifyRegistration: this.requestFunctionFactory(
       descriptors.userVerifyRegistration,
-    ),
-    /** Check status of the current session. */
-    getCurrentSessionStatus: this.requestFunctionFactory(
-      descriptors.userGetCurrentSessionStatus,
     ),
   };
 
