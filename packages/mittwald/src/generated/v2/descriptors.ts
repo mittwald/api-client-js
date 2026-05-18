@@ -9244,6 +9244,113 @@ export const domainListTlds: OpenAPIOperation<
   operationId: "domain-list-tlds",
 };
 
+/** Check if a Domain-Migration from a pAccount into a Project is possible. */
+export const domainMigrationCheckMigrationIsPossible: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsPossibilityCheck.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsPossibilityCheck.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsPossibilityCheck.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsPossibilityCheck.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsPossibilityCheck.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsPossibilityCheck.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsPossibilityCheck.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsPossibilityCheck.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domain-migrations/actions/possibility-check",
+  method: "POST",
+  operationId: "domain-migration-check-migration-is-possible",
+};
+
+/** List Domain-Migrations belonging to a p-Account. */
+export const domainMigrationListMigrations: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domain-migrations",
+  method: "GET",
+  operationId: "domain-migration-list-migrations",
+};
+
+/** Create a Domain-Migration from a pAccount into a Project. */
+export const domainMigrationRequestDomainMigration: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsRequest.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsRequest.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsRequest.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsRequest.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsRequest.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsRequest.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsRequest.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsRequest.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsRequest.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domain-migrations/actions/request",
+  method: "POST",
+  operationId: "domain-migration-request-domain-migration",
+};
+
 /** Resends a Contact-Verification email. */
 export const domainResendContactVerificationEmail: OpenAPIOperation<
   RequestType<
