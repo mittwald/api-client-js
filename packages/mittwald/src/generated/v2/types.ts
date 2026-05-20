@@ -5978,6 +5978,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface ContractTariffChange {
+        isForced?: boolean;
         newArticles: MittwaldAPIV2.Components.Schemas.ContractArticle[];
         scheduledAtDate: string;
         scheduledByUserId?: string;
@@ -10016,6 +10017,26 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface OrderInternalProjectHostingOrder {
+        articleId: string;
+        customerId: string;
+        description: string;
+        diskspaceInGiB: number;
+        promotionCode?: string;
+        recommendationCode?: string;
+        useFreeTrial?: boolean;
+      }
+
+      export interface OrderInternalServerOrder {
+        articleId: string;
+        customerId: string;
+        description: string;
+        diskspaceInGiB: number;
+        promotionCode?: string;
+        recommendationCode?: string;
+        useFreeTrial?: boolean;
+      }
 
       export interface CommonsAddress {
         street: string;
