@@ -5804,6 +5804,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface ContractTariffChange {
+        isForced?: boolean;
         newArticles: MittwaldAPIV2.Components.Schemas.ContractArticle[];
         scheduledAtDate: string;
         scheduledByUserId?: string;
@@ -9768,6 +9769,26 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface OrderInternalServerOrder {
+        articleId: string;
+        customerId: string;
+        description: string;
+        diskspaceInGiB: number;
+        promotionCode?: string;
+        recommendationCode?: string;
+        useFreeTrial?: boolean;
+      }
+
+      export interface OrderInternalProjectHostingOrder {
+        articleId: string;
+        customerId: string;
+        description: string;
+        diskspaceInGiB: number;
+        promotionCode?: string;
+        recommendationCode?: string;
+        useFreeTrial?: boolean;
+      }
 
       export interface CommonsAddress {
         street: string;
@@ -18788,6 +18809,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             limit?: number;
             skip?: number;
+            searchTerm?: string;
           };
         }
         namespace Responses {
@@ -19889,6 +19911,7 @@ export declare module MittwaldAPIV2 {
             skip?: number;
             hasExpiry?: boolean;
             role?: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
+            searchTerm?: string;
           };
         }
         namespace Responses {
@@ -31757,6 +31780,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             limit?: number;
             skip?: number;
+            searchTerm?: string;
           };
         }
         namespace Responses {
@@ -33064,6 +33088,7 @@ export declare module MittwaldAPIV2 {
             isInherited?: boolean;
             role?: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
             hasMfa?: boolean;
+            searchTerm?: string;
           };
         }
         namespace Responses {
