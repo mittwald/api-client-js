@@ -946,6 +946,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteMysqlDatabase: this.requestFunctionFactory(
       descriptors.databaseDeleteMysqlDatabase,
     ),
+    /** Update a MySqlDatabase. */
+    patchMysqlDatabase: this.requestFunctionFactory(
+      descriptors.databasePatchMysqlDatabase,
+    ),
     /** Get a MySQLUser. */
     getMysqlUser: this.requestFunctionFactory(descriptors.databaseGetMysqlUser),
     /** Update a MySQLUser. */
@@ -963,6 +967,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Delete a RedisDatabase. */
     deleteRedisDatabase: this.requestFunctionFactory(
       descriptors.databaseDeleteRedisDatabase,
+    ),
+    /** Update a RedisDatabase. */
+    patchRedisDatabase: this.requestFunctionFactory(
+      descriptors.databasePatchRedisDatabase,
     ),
     /** Disable a MySQLUser. */
     disableMysqlUser: this.requestFunctionFactory(

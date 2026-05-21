@@ -7337,6 +7337,45 @@ export const databaseDeleteMysqlDatabase: OpenAPIOperation<
   operationId: "database-delete-mysql-database",
 };
 
+/** Update a MySqlDatabase. */
+export const databasePatchMysqlDatabase: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mysql-databases/{mysqlDatabaseId}",
+  method: "PATCH",
+  operationId: "database-patch-mysql-database",
+};
+
 /** Get a MySQLUser. */
 export const databaseGetMysqlUser: OpenAPIOperation<
   RequestType<
@@ -7545,6 +7584,45 @@ export const databaseDeleteRedisDatabase: OpenAPIOperation<
   path: "/v2/redis-databases/{redisDatabaseId}",
   method: "DELETE",
   operationId: "database-delete-redis-database",
+};
+
+/** Update a RedisDatabase. */
+export const databasePatchRedisDatabase: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/redis-databases/{redisDatabaseId}",
+  method: "PATCH",
+  operationId: "database-patch-redis-database",
 };
 
 /** Disable a MySQLUser. */
