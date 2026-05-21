@@ -1814,6 +1814,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace DatabasePatchMysqlDatabase {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databasePatchMysqlDatabase
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databasePatchMysqlDatabase,
+          TStatus
+        >;
+    }
+
     namespace DatabaseGetMysqlUser {
       type RequestData = InferredRequestData<
         typeof descriptors.databaseGetMysqlUser
@@ -1862,6 +1873,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.databaseDeleteRedisDatabase,
+          TStatus
+        >;
+    }
+
+    namespace DatabasePatchRedisDatabase {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databasePatchRedisDatabase
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databasePatchRedisDatabase,
           TStatus
         >;
     }
@@ -20655,6 +20677,64 @@ export declare module MittwaldAPIV2 {
           }
         }
       }
+
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            mysqlDatabaseId: string;
+          };
+
+          export interface RequestBody {
+            characterSettings?: MittwaldAPIV2.Components.Schemas.DatabaseCharacterSettings;
+            description?: string;
+            version?: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
     }
 
     namespace V2MysqlUsersMysqlUserId {
@@ -20936,6 +21016,64 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            redisDatabaseId: string;
+          };
+
+          export interface RequestBody {
+            configuration?: MittwaldAPIV2.Components.Schemas.DatabaseRedisDatabaseConfiguration;
+            description?: string;
+            version?: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
