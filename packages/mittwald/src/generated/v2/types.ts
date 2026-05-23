@@ -9793,7 +9793,7 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export interface OrderInternalServerOrder {
+      export interface OrderInternalProjectHostingOrder {
         articleId: string;
         customerId: string;
         description: string;
@@ -9803,7 +9803,7 @@ export declare module MittwaldAPIV2 {
         useFreeTrial?: boolean;
       }
 
-      export interface OrderInternalProjectHostingOrder {
+      export interface OrderInternalServerOrder {
         articleId: string;
         customerId: string;
         description: string;
