@@ -29,7 +29,7 @@ type RequestWithHeaders<THeaders> = THeaders extends EmptyRequestComponent
 type RequestWithQueryParameters<TQuery> = TQuery extends EmptyRequestComponent
   ? RequestWithOptionalHeaders
   : {
-      queryParameters: TQuery & HttpHeaders;
+      queryParameters: TQuery & QueryParameters;
     };
 
 export type RequestType<
