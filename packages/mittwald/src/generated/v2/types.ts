@@ -5808,7 +5808,8 @@ export declare module MittwaldAPIV2 {
         | "stopped"
         | "error"
         | "creating"
-        | "starting";
+        | "starting"
+        | "stopping";
 
       export interface ContainerSetRegistryCredentials {
         /**
