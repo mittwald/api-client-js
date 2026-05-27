@@ -153,6 +153,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Remove linkage between an AppInstallation and a Database. */
     unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
+    /** Request a staging for an AppInstallation. */
+    requestAppinstallationStaging: this.requestFunctionFactory(
+      descriptors.appRequestAppinstallationStaging,
+    ),
   };
 
   /** The article API allows you to read article information. */
