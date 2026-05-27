@@ -10061,6 +10061,26 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
+      export interface OrderInternalServerOrder {
+        articleId: string;
+        customerId: string;
+        description: string;
+        diskspaceInGiB: number;
+        promotionCode?: string;
+        recommendationCode?: string;
+        useFreeTrial?: boolean;
+      }
+
+      export interface OrderInternalProjectHostingOrder {
+        articleId: string;
+        customerId: string;
+        description: string;
+        diskspaceInGiB: number;
+        promotionCode?: string;
+        recommendationCode?: string;
+        useFreeTrial?: boolean;
+      }
+
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
