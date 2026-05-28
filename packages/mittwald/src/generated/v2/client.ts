@@ -69,6 +69,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     projectGetUsage: this.requestFunctionFactory(
       descriptors.aiHostingProjectGetUsage,
     ),
+    /** Links a container with a project licence. */
+    projectLinkContainer: this.requestFunctionFactory(
+      descriptors.aiHostingProjectLinkContainer,
+    ),
   };
 
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
@@ -145,6 +149,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     requestAppinstallationCopy: this.requestFunctionFactory(
       descriptors.appRequestAppinstallationCopy,
     ),
+    /** Request a staging for an AppInstallation. */
+    requestAppinstallationStaging: this.requestFunctionFactory(
+      descriptors.appRequestAppinstallationStaging,
+    ),
     /** Get runtime status belonging to an AppInstallation. */
     retrieveStatus: this.requestFunctionFactory(descriptors.appRetrieveStatus),
     /** Create linkage between an AppInstallation and DatabaseUsers. */
@@ -153,10 +161,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Remove linkage between an AppInstallation and a Database. */
     unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
-    /** Request a staging for an AppInstallation. */
-    requestAppinstallationStaging: this.requestFunctionFactory(
-      descriptors.appRequestAppinstallationStaging,
-    ),
   };
 
   /** The article API allows you to read article information. */

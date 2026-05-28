@@ -1436,6 +1436,40 @@ export const appRequestAppinstallationCopy: OpenAPIOperation<
   operationId: "app-request-appinstallation-copy",
 };
 
+/** Request a staging for an AppInstallation. */
+export const appRequestAppinstallationStaging: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsStaging.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsStaging.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsStaging.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsStaging.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsStaging.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsStaging.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsStaging.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsStaging.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/app-installations/{appInstallationId}/actions/staging",
+  method: "POST",
+  operationId: "app-request-appinstallation-staging",
+};
+
 /** Get runtime status belonging to an AppInstallation. */
 export const appRetrieveStatus: OpenAPIOperation<
   RequestType<
@@ -18831,36 +18865,51 @@ export const verificationVerifyCompany: OpenAPIOperation<
   operationId: "verification-verify-company",
 };
 
-/** Request a staging for an AppInstallation. */
-export const appRequestAppinstallationStaging: OpenAPIOperation<
+/** Links a container with a project licence. */
+export const aiHostingProjectLinkContainer: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsStaging.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsStaging.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsStaging.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsStaging.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsStaging.Post.Responses.$201.Content.ApplicationJson>,
-      201,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Responses.$400.Content.ApplicationJson>,
+      400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsStaging.Post.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsStaging.Post.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsStaging.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/app-installations/{appInstallationId}/actions/staging",
+  path: "/v2/projects/{projectId}/ai-hosting-keys/{keyId}/actions/link-container",
   method: "POST",
-  operationId: "app-request-appinstallation-staging",
+  operationId: "ai-hosting-project-link-container",
 };
