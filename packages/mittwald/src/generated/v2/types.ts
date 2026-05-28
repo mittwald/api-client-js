@@ -4648,6 +4648,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace AiHostingProjectLinkContainer {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingProjectLinkContainer
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.aiHostingProjectLinkContainer,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -4856,6 +4867,7 @@ export declare module MittwaldAPIV2 {
         deletionRequested?: boolean;
         description: string;
         disabled: boolean;
+        hostname?: string;
         id: string;
         installationPath: string;
         /**
@@ -4867,6 +4879,10 @@ export declare module MittwaldAPIV2 {
           [k: string]: MittwaldAPIV2.Components.Schemas.AppLockPurpose;
         };
         phase: MittwaldAPIV2.Components.Schemas.AppPhase;
+        ports?: {
+          name?: string;
+          port?: number;
+        }[];
         projectDescription: string;
         projectId: string;
         screenshotId?: string;
@@ -8727,6 +8743,26 @@ export declare module MittwaldAPIV2 {
         vcpu?: number;
       }
 
+      export interface OrderInternalProjectHostingOrder {
+        articleId: string;
+        customerId: string;
+        description: string;
+        diskspaceInGiB: number;
+        promotionCode?: string;
+        recommendationCode?: string;
+        useFreeTrial?: boolean;
+      }
+
+      export interface OrderInternalServerOrder {
+        articleId: string;
+        customerId: string;
+        description: string;
+        diskspaceInGiB: number;
+        promotionCode?: string;
+        recommendationCode?: string;
+        useFreeTrial?: boolean;
+      }
+
       export interface OrderLeadFyndrOrderPreview {
         reservationLimit: number;
         unlockLimit: number;
@@ -9792,26 +9828,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export interface OrderInternalServerOrder {
-        articleId: string;
-        customerId: string;
-        description: string;
-        diskspaceInGiB: number;
-        promotionCode?: string;
-        recommendationCode?: string;
-        useFreeTrial?: boolean;
-      }
-
-      export interface OrderInternalProjectHostingOrder {
-        articleId: string;
-        customerId: string;
-        description: string;
-        diskspaceInGiB: number;
-        promotionCode?: string;
-        recommendationCode?: string;
-        useFreeTrial?: boolean;
-      }
 
       export interface CommonsAddress {
         street: string;
@@ -38151,6 +38167,82 @@ export declare module MittwaldAPIV2 {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+            keyId: string;
+          };
+
+          export interface RequestBody {
+            containerId: string;
+            ingressId: string;
+            stackId: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
