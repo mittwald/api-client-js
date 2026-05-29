@@ -715,11 +715,6 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.domainListTlds,
     baseClient.domain.listTlds,
   ).getApiResource,
-  /** List Domain-Migrations belonging to a p-Account. */
-  migrationListMigrations: new ApiCallAsyncResourceFactory(
-    descriptors.domainMigrationListMigrations,
-    baseClient.domain.migrationListMigrations,
-  ).getApiResource,
   /** Suggest a list of domains based on a prompt using AI. */
   suggest: new ApiCallAsyncResourceFactory(
     descriptors.domainSuggest,
@@ -754,6 +749,16 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   sslListCertificates: new ApiCallAsyncResourceFactory(
     descriptors.sslListCertificates,
     baseClient.domain.sslListCertificates,
+  ).getApiResource,
+  /** List Domain-Migrations belonging to a Project. */
+  migrationListMigrationsByProjectId: new ApiCallAsyncResourceFactory(
+    descriptors.domainMigrationListMigrationsByProjectId,
+    baseClient.domain.migrationListMigrationsByProjectId,
+  ).getApiResource,
+  /** List Domain-Migrations belonging to a pAccount. */
+  migrationListMigrationsByPaccount: new ApiCallAsyncResourceFactory(
+    descriptors.domainMigrationListMigrationsByPaccount,
+    baseClient.domain.migrationListMigrationsByPaccount,
   ).getApiResource,
 });
 

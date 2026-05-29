@@ -9439,79 +9439,6 @@ export const domainMigrationCheckMigrationIsPossible: OpenAPIOperation<
   operationId: "domain-migration-check-migration-is-possible",
 };
 
-/** List Domain-Migrations belonging to a p-Account. */
-export const domainMigrationListMigrations: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domain-migrations",
-  method: "GET",
-  operationId: "domain-migration-list-migrations",
-};
-
-/** Create a Domain-Migration from a pAccount into a Project. */
-export const domainMigrationRequestDomainMigration: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsRequest.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsRequest.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsRequest.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsRequest.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsRequest.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsRequest.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsRequest.Post.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsRequest.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsRequest.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/domain-migrations/actions/request",
-  method: "POST",
-  operationId: "domain-migration-request-domain-migration",
-};
-
 /** Resends a Contact-Verification email. */
 export const domainResendContactVerificationEmail: OpenAPIOperation<
   RequestType<
@@ -18914,51 +18841,109 @@ export const verificationVerifyCompany: OpenAPIOperation<
   operationId: "verification-verify-company",
 };
 
-/** Links a container with a project licence. */
-export const aiHostingProjectLinkContainer: OpenAPIOperation<
+/** List Domain-Migrations belonging to a Project. */
+export const domainMigrationListMigrationsByProjectId: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Parameters.Header>
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomainMigrations.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomainMigrations.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomainMigrations.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomainMigrations.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomainMigrations.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomainMigrations.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomainMigrations.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/projects/{projectId}/ai-hosting-keys/{keyId}/actions/link-container",
+  path: "/v2/projects/{projectId}/domain-migrations",
+  method: "GET",
+  operationId: "domain-migration-list-migrations-by-project-id",
+};
+
+/** List Domain-Migrations belonging to a pAccount. */
+export const domainMigrationListMigrationsByPaccount: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2PAccountsPAccountDomainMigrations.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2PAccountsPAccountDomainMigrations.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2PAccountsPAccountDomainMigrations.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PAccountsPAccountDomainMigrations.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PAccountsPAccountDomainMigrations.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PAccountsPAccountDomainMigrations.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PAccountsPAccountDomainMigrations.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/p-accounts/{pAccount}/domain-migrations",
+  method: "GET",
+  operationId: "domain-migration-list-migrations-by-p-account",
+};
+
+/** Order a Domain-Migration from a pAccount into a Project. */
+export const domainMigrationOrderDomainMigration: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsOrder.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsOrder.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsOrder.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsOrder.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsOrder.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsOrder.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsOrder.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsOrder.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainMigrationsActionsOrder.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domain-migrations/actions/order",
   method: "POST",
-  operationId: "ai-hosting-project-link-container",
+  operationId: "domain-migration-order-domain-migration",
 };

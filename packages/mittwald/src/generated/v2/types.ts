@@ -2401,28 +2401,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace DomainMigrationListMigrations {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainMigrationListMigrations
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainMigrationListMigrations,
-          TStatus
-        >;
-    }
-
-    namespace DomainMigrationRequestDomainMigration {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainMigrationRequestDomainMigration
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainMigrationRequestDomainMigration,
-          TStatus
-        >;
-    }
-
     namespace DomainResendContactVerificationEmail {
       type RequestData = InferredRequestData<
         typeof descriptors.domainResendContactVerificationEmail
@@ -4805,13 +4783,35 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace AiHostingProjectLinkContainer {
+    namespace DomainMigrationListMigrationsByProjectId {
       type RequestData = InferredRequestData<
-        typeof descriptors.aiHostingProjectLinkContainer
+        typeof descriptors.domainMigrationListMigrationsByProjectId
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.aiHostingProjectLinkContainer,
+          typeof descriptors.domainMigrationListMigrationsByProjectId,
+          TStatus
+        >;
+    }
+
+    namespace DomainMigrationListMigrationsByPAccount {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainMigrationListMigrationsByPaccount
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainMigrationListMigrationsByPaccount,
+          TStatus
+        >;
+    }
+
+    namespace DomainMigrationOrderDomainMigration {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainMigrationOrderDomainMigration
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainMigrationOrderDomainMigration,
           TStatus
         >;
     }
@@ -5678,6 +5678,7 @@ export declare module MittwaldAPIV2 {
          *
          */
         ports?: string[];
+        restartPolicy?: string;
         /**
          * Volume mounts for this container. These items always follow the format `<volume>:<mountpoint>`. The `<volume>` may either be a named volume, or a file path in the (always present) project file system (which is shared among containers and managed apps within a project).
          *
@@ -5742,6 +5743,7 @@ export declare module MittwaldAPIV2 {
          *
          */
         ports?: string[];
+        restartPolicy?: string;
         /**
          * Volume mounts for this container. These items always follow the format `<volume>:<mountpoint>`. The `<volume>` may either be a named volume, or a file path in the (always present) project file system (which is shared among containers and managed apps within a project).
          *
@@ -5786,6 +5788,7 @@ export declare module MittwaldAPIV2 {
         pendingState: MittwaldAPIV2.Components.Schemas.ContainerServiceState;
         projectId: string;
         requiresRecreate: boolean;
+        restartPolicy?: string;
         serviceName: string;
         /**
          * A short ID of the container. This is a unique identifier for the container within the project, and can be used to reference it in other API calls, or for SSH connections.
@@ -7113,11 +7116,29 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface DomainmigrationMigration {
-        domains: string[];
-        finished: boolean;
+        createdAt?: string;
+        domains: {
+          coabData?: {
+            dnsRecords?: MittwaldAPIV2.Components.Schemas.DomainmigrationDNSRecord[];
+            handleData?: {
+              handleFields?: {
+                name: string;
+                value: string;
+              }[];
+              handleRef?: string;
+            };
+            nameservers?: string[];
+            subdomains?: MittwaldAPIV2.Components.Schemas.DomainmigrationSubdomain[];
+          };
+          domain: string;
+          domainId: string;
+          state: "pending" | "succeeded" | "failed";
+        }[];
+        finishedAt?: string;
         id: string;
-        sourceCoabProjectId: string;
-        targetNexusProjectId: string;
+        orderId: string;
+        pAccount: string;
+        projectId: string;
       }
 
       export interface DomainmigrationCheckMigrationResponse {
@@ -7131,6 +7152,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface DomainmigrationDNSRecord {
+        name?: string;
         ttl: number;
         type: MittwaldAPIV2.Components.Schemas.DomainmigrationDNSRecordType;
         value: string;
@@ -24769,8 +24791,14 @@ export declare module MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            sourceLegacyProjectId: string;
-            targetProjectId: string;
+            /**
+             * Name of the pAccount in customer center to migrate domains from.
+             */
+            pAccount: string;
+            /**
+             * ID of the Project to migrate the domains into.
+             */
+            projectId: string;
           }
 
           export type Header =
@@ -24788,112 +24816,6 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DomainMigrations {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsLegacyBearerAuthentication;
-
-          export type Query = {
-            pAccountName: string;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DomainmigrationMigration[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DomainMigrationsActionsRequest {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            domains: string[];
-            sourceLegacyProjectId: string;
-            targetProjectId: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken &
-              MittwaldAPIV2.Components.SecuritySchemes.CommonsLegacyBearerAuthentication;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -39531,28 +39453,23 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer {
-      namespace Post {
+    namespace V2ProjectsProjectIdDomainMigrations {
+      namespace Get {
         namespace Parameters {
           export type Path = {
             projectId: string;
-            keyId: string;
           };
 
-          export interface RequestBody {
-            containerId: string;
-            ingressId: string;
-            stackId: string;
-          }
-
-          export type Header = {};
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {};
         }
         namespace Responses {
-          namespace $204 {
+          namespace $200 {
             namespace Content {
-              export type Empty = unknown;
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DomainmigrationMigration[];
             }
           }
 
@@ -39564,7 +39481,7 @@ export declare module MittwaldAPIV2 {
             }
           }
 
-          namespace $403 {
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -39572,7 +39489,95 @@ export declare module MittwaldAPIV2 {
             }
           }
 
-          namespace $404 {
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2PAccountsPAccountDomainMigrations {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            pAccount: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsLegacyBearerAuthentication;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DomainmigrationMigration[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DomainMigrationsActionsOrder {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            domains: string[];
+            /**
+             * Name of the pAccount in customer center to migrate domains from.
+             */
+            pAccount: string;
+            /**
+             * ID of the Project to migrate the domains into.
+             */
+            projectId: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken &
+              MittwaldAPIV2.Components.SecuritySchemes.CommonsLegacyBearerAuthentication;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;

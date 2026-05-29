@@ -1110,14 +1110,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     migrationCheckMigrationIsPossible: this.requestFunctionFactory(
       descriptors.domainMigrationCheckMigrationIsPossible,
     ),
-    /** List Domain-Migrations belonging to a p-Account. */
-    migrationListMigrations: this.requestFunctionFactory(
-      descriptors.domainMigrationListMigrations,
-    ),
-    /** Create a Domain-Migration from a pAccount into a Project. */
-    migrationRequestDomainMigration: this.requestFunctionFactory(
-      descriptors.domainMigrationRequestDomainMigration,
-    ),
     /** Resends a Contact-Verification email. */
     resendContactVerificationEmail: this.requestFunctionFactory(
       descriptors.domainResendContactVerificationEmail,
@@ -1207,6 +1199,18 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update the certificate of a CertificateRequest. */
     sslSetCertificateRequestCertificate: this.requestFunctionFactory(
       descriptors.sslSetCertificateRequestCertificate,
+    ),
+    /** List Domain-Migrations belonging to a Project. */
+    migrationListMigrationsByProjectId: this.requestFunctionFactory(
+      descriptors.domainMigrationListMigrationsByProjectId,
+    ),
+    /** List Domain-Migrations belonging to a pAccount. */
+    migrationListMigrationsByPaccount: this.requestFunctionFactory(
+      descriptors.domainMigrationListMigrationsByPaccount,
+    ),
+    /** Order a Domain-Migration from a pAccount into a Project. */
+    migrationOrderDomainMigration: this.requestFunctionFactory(
+      descriptors.domainMigrationOrderDomainMigration,
     ),
   };
 
