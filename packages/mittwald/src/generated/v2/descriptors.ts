@@ -771,6 +771,55 @@ export const aiHostingProjectGetUsage: OpenAPIOperation<
   operationId: "ai-hosting-project-get-usage",
 };
 
+/** Links a container with a project licence. */
+export const aiHostingProjectLinkContainer: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/ai-hosting-keys/{keyId}/actions/link-container",
+  method: "POST",
+  operationId: "ai-hosting-project-link-container",
+};
+
 /** Get an App. */
 export const appGetApp: OpenAPIOperation<
   RequestType<
