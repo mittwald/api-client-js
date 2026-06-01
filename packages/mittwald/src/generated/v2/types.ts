@@ -4675,6 +4675,7 @@ export declare module MittwaldAPIV2 {
         activeAt: string;
         displayName: string;
         docLink: string;
+        label?: "lts" | "stable" | "experimental" | "legacy stable" | "preview";
         name: string;
         removalAt?: string;
         replacesModelName?: string;
@@ -4717,6 +4718,7 @@ export declare module MittwaldAPIV2 {
       export interface AihostingModel {
         displayName: string;
         docLink: string;
+        label?: "lts" | "stable" | "experimental" | "legacy stable" | "preview";
         name: string;
         termsOfServiceLink: string;
         tokenFactor: number;
@@ -4754,6 +4756,7 @@ export declare module MittwaldAPIV2 {
         activeAt: string;
         displayName: string;
         docLink: string;
+        label?: "lts" | "stable" | "experimental" | "legacy stable" | "preview";
         name: string;
         removalAt?: string;
         replacesModelName?: string;
