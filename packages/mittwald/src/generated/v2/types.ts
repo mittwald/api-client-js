@@ -2401,6 +2401,39 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace DomainMigrationListMigrationsByPAccount {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainMigrationListMigrationsByPaccount
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainMigrationListMigrationsByPaccount,
+          TStatus
+        >;
+    }
+
+    namespace DomainMigrationListMigrationsByProjectId {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainMigrationListMigrationsByProjectId
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainMigrationListMigrationsByProjectId,
+          TStatus
+        >;
+    }
+
+    namespace DomainMigrationOrderDomainMigration {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainMigrationOrderDomainMigration
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainMigrationOrderDomainMigration,
+          TStatus
+        >;
+    }
+
     namespace DomainResendContactVerificationEmail {
       type RequestData = InferredRequestData<
         typeof descriptors.domainResendContactVerificationEmail
@@ -2804,6 +2837,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.extensionInvalidateExtensionSecret,
+          TStatus
+        >;
+    }
+
+    namespace ExtensionListAllExtensionInstanceWebhookExecutions {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionListAllExtensionInstanceWebhookExecutions
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionListAllExtensionInstanceWebhookExecutions,
           TStatus
         >;
     }
@@ -4779,39 +4823,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.verificationVerifyCompany,
-          TStatus
-        >;
-    }
-
-    namespace DomainMigrationListMigrationsByProjectId {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainMigrationListMigrationsByProjectId
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainMigrationListMigrationsByProjectId,
-          TStatus
-        >;
-    }
-
-    namespace DomainMigrationListMigrationsByPAccount {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainMigrationListMigrationsByPaccount
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainMigrationListMigrationsByPaccount,
-          TStatus
-        >;
-    }
-
-    namespace DomainMigrationOrderDomainMigration {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainMigrationOrderDomainMigration
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainMigrationOrderDomainMigration,
           TStatus
         >;
     }
@@ -7139,7 +7150,6 @@ export declare module MittwaldAPIV2 {
         }[];
         finishedAt?: string;
         id: string;
-        orderId: string;
         pAccount: string;
         projectId: string;
       }
@@ -7508,9 +7518,11 @@ export declare module MittwaldAPIV2 {
           ]: MittwaldAPIV2.Components.Schemas.MarketplaceFrontendFragment;
         };
         id: string;
+        nextScheduledWebhookExecution?: string;
         pendingInstallation: boolean;
         pendingRemoval: boolean;
         variantKey?: string;
+        webhookExecutionHalted: boolean;
       }
 
       export interface MarketplaceExtensionInstanceChargeability {
@@ -7532,6 +7544,21 @@ export declare module MittwaldAPIV2 {
         pendingWebhooksCount: number;
         removalIsPending: boolean;
         webhooksAreHalted: boolean;
+      }
+
+      export interface MarketplaceExtensionInstanceWebhookExecution {
+        attempts: number;
+        contributorId: string;
+        extensionId: string;
+        extensionInstanceId: string;
+        id: string;
+        kind:
+          | "extensionAddedToContext"
+          | "instanceUpdated"
+          | "secretRotated"
+          | "instanceRemovedFromContext";
+        nextScheduledExecution?: string;
+        state: "running" | "halted" | "failed" | "successful";
       }
 
       export interface MarketplaceExtensionSecret {
@@ -24845,6 +24872,165 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2PAccountsPAccountDomainMigrations {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            pAccount: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsLegacyBearerAuthentication;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DomainmigrationMigration[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectsProjectIdDomainMigrations {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DomainmigrationMigration[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DomainMigrations {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            domains: string[];
+            /**
+             * Name of the pAccount in customer center to migrate domains from.
+             */
+            pAccount: string;
+            /**
+             * ID of the Project to migrate the domains into.
+             */
+            projectId: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken &
+              MittwaldAPIV2.Components.SecuritySchemes.CommonsLegacyBearerAuthentication;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail {
       namespace Post {
         namespace Parameters {
@@ -27003,6 +27189,53 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdWebhookExecutions {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            extensionId?: string;
+            extensionInstanceId?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
+            sort?: ("attempts" | "nextScheduledExecution")[];
+            order?: ("asc" | "desc")[];
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstanceWebhookExecution[];
             }
           }
 
@@ -39050,6 +39283,12 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $412 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
           namespace $429 {
             namespace Content {
               export interface ApplicationJson {
@@ -39434,165 +39673,6 @@ export declare module MittwaldAPIV2 {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectsProjectIdDomainMigrations {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DomainmigrationMigration[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2PAccountsPAccountDomainMigrations {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            pAccount: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsLegacyBearerAuthentication;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DomainmigrationMigration[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DomainMigrationsActionsOrder {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            domains: string[];
-            /**
-             * Name of the pAccount in customer center to migrate domains from.
-             */
-            pAccount: string;
-            /**
-             * ID of the Project to migrate the domains into.
-             */
-            projectId: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken &
-              MittwaldAPIV2.Components.SecuritySchemes.CommonsLegacyBearerAuthentication;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
