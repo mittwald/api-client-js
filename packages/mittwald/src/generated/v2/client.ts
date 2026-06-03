@@ -149,10 +149,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     requestAppinstallationCopy: this.requestFunctionFactory(
       descriptors.appRequestAppinstallationCopy,
     ),
-    /** Request a staging for an AppInstallation. */
-    requestAppinstallationStaging: this.requestFunctionFactory(
-      descriptors.appRequestAppinstallationStaging,
-    ),
     /** Get runtime status belonging to an AppInstallation. */
     retrieveStatus: this.requestFunctionFactory(descriptors.appRetrieveStatus),
     /** Create linkage between an AppInstallation and DatabaseUsers. */

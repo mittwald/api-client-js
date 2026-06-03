@@ -1485,40 +1485,6 @@ export const appRequestAppinstallationCopy: OpenAPIOperation<
   operationId: "app-request-appinstallation-copy",
 };
 
-/** Request a staging for an AppInstallation. */
-export const appRequestAppinstallationStaging: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsStaging.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsStaging.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsStaging.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsStaging.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsStaging.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsStaging.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsStaging.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsStaging.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/app-installations/{appInstallationId}/actions/staging",
-  method: "POST",
-  operationId: "app-request-appinstallation-staging",
-};
-
 /** Get runtime status belonging to an AppInstallation. */
 export const appRetrieveStatus: OpenAPIOperation<
   RequestType<

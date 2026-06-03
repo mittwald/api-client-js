@@ -386,17 +386,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace AppRequestAppinstallationStaging {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appRequestAppinstallationStaging
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.appRequestAppinstallationStaging,
-          TStatus
-        >;
-    }
-
     namespace AppRetrieveStatus {
       type RequestData = InferredRequestData<
         typeof descriptors.appRetrieveStatus
@@ -5058,7 +5047,6 @@ export declare module MittwaldAPIV2 {
         screenshotId?: string;
         screenshotRef?: string;
         shortId: string;
-        staging?: boolean;
         systemSoftware: MittwaldAPIV2.Components.Schemas.AppInstalledSystemSoftware[];
         updateAvailable: boolean;
         updatePolicy: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
@@ -5692,7 +5680,6 @@ export declare module MittwaldAPIV2 {
          *
          */
         ports?: string[];
-        restartPolicy?: string;
         /**
          * Volume mounts for this container. These items always follow the format `<volume>:<mountpoint>`. The `<volume>` may either be a named volume, or a file path in the (always present) project file system (which is shared among containers and managed apps within a project).
          *
@@ -5757,7 +5744,6 @@ export declare module MittwaldAPIV2 {
          *
          */
         ports?: string[];
-        restartPolicy?: string;
         /**
          * Volume mounts for this container. These items always follow the format `<volume>:<mountpoint>`. The `<volume>` may either be a named volume, or a file path in the (always present) project file system (which is shared among containers and managed apps within a project).
          *
@@ -5802,7 +5788,6 @@ export declare module MittwaldAPIV2 {
         pendingState: MittwaldAPIV2.Components.Schemas.ContainerServiceState;
         projectId: string;
         requiresRecreate: boolean;
-        restartPolicy?: string;
         serviceName: string;
         /**
          * A short ID of the container. This is a unique identifier for the container within the project, and can be used to reference it in other API calls, or for SSH connections.
@@ -7558,7 +7543,7 @@ export declare module MittwaldAPIV2 {
           | "secretRotated"
           | "instanceRemovedFromContext";
         nextScheduledExecution?: string;
-        state: "running" | "halted" | "failed" | "successful";
+        state: "running" | "queued" | "halted" | "failed" | "successful";
       }
 
       export interface MarketplaceExtensionSecret {
@@ -12790,60 +12775,6 @@ export declare module MittwaldAPIV2 {
     }
 
     namespace V2AppInstallationsAppInstallationIdActionsCopy {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-          };
-
-          export interface RequestBody {
-            description: string;
-            domain?: string;
-            installationPath?: string;
-            targetProjectId?: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                id: string;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2AppInstallationsAppInstallationIdActionsStaging {
       namespace Post {
         namespace Parameters {
           export type Path = {
