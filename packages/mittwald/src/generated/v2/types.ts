@@ -5693,7 +5693,8 @@ export declare module MittwaldAPIV2 {
         | "stopped"
         | "error"
         | "creating"
-        | "starting";
+        | "starting"
+        | "stopping";
 
       export interface ContainerSetRegistryCredentials {
         /**
@@ -12657,11 +12658,11 @@ export declare module MittwaldAPIV2 {
              */
             description?: string;
             /**
-             * Execution schedule in crontab notation.
+             * Execution schedule in crontab notation. The backup interval must not be more frequent than hourly.
              */
             schedule: string;
             /**
-             * TTL of the BackupSchedule as time string.
+             * TTL of the BackupSchedule as a duration string. Must be at least 7d and no more than 365d.
              */
             ttl: string;
           }
@@ -12773,7 +12774,7 @@ export declare module MittwaldAPIV2 {
              */
             description?: string;
             /**
-             * Time when to expire the Backup.
+             * Time when to expire the Backup. Must be at least 7 days and no more than one year in the future.
              */
             expirationTime: string;
           }
@@ -12944,11 +12945,11 @@ export declare module MittwaldAPIV2 {
              */
             description?: string;
             /**
-             * Execution schedule in crontab notation. Note that the schedule of isSystemBackup true items must be daily once.
+             * Execution schedule in crontab notation. Note that the schedule of isSystemBackup true items must be daily once. For all other schedules the interval must not be more frequent than hourly.
              */
             schedule?: string;
             /**
-             * TTL of the ProjectBackupSchedule as time string.
+             * TTL of the BackupSchedule as a duration string. Must be at least 7d and no more than 365d.
              */
             ttl?: string;
           }
@@ -13269,7 +13270,7 @@ export declare module MittwaldAPIV2 {
 
           export interface RequestBody {
             /**
-             * Time when to expire the Backup.
+             * Time when to expire the Backup. Must be no more than one year in the future.
              */
             expirationTime?: string;
           }
