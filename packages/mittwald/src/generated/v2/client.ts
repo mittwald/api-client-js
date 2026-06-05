@@ -702,6 +702,11 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     customerUpdatePaymentMethod: this.requestFunctionFactory(
       descriptors.marketplaceCustomerUpdatePaymentMethod,
     ),
+    /** List all Webhook Executions. */
+    extensionListAllExtensionInstanceWebhookExecutions:
+      this.requestFunctionFactory(
+        descriptors.extensionListAllExtensionInstanceWebhookExecutions,
+      ),
   };
 
   /** The conversation API allows you to manage your support conversations. */
