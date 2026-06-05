@@ -4815,6 +4815,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace ExtensionListAllExtensionInstanceWebhookExecutions {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionListAllExtensionInstanceWebhookExecutions
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionListAllExtensionInstanceWebhookExecutions,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -10447,6 +10458,21 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface MarketplaceExtensionInstanceWebhookExecution {
+        attempts: number;
+        contributorId: string;
+        extensionId: string;
+        extensionInstanceId: string;
+        id: string;
+        kind:
+          | "extensionAddedToContext"
+          | "instanceUpdated"
+          | "secretRotated"
+          | "instanceRemovedFromContext";
+        nextScheduledExecution?: string;
+        state: "running" | "queued" | "halted" | "failed" | "successful";
+      }
 
       export interface CommonsAddress {
         street: string;
@@ -39604,6 +39630,53 @@ export declare module MittwaldAPIV2 {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdWebhookExecutions {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            extensionId?: string;
+            extensionInstanceId?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
+            sort?: ("attempts" | "nextScheduledExecution")[];
+            order?: ("asc" | "desc")[];
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstanceWebhookExecution[];
             }
           }
 

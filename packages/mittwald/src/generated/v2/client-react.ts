@@ -486,6 +486,12 @@ const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.marketplaceCustomerGetPaymentMethod,
     baseClient.marketplace.customerGetPaymentMethod,
   ).getApiResource,
+  /** List all Webhook Executions. */
+  extensionListAllExtensionInstanceWebhookExecutions:
+    new ApiCallAsyncResourceFactory(
+      descriptors.extensionListAllExtensionInstanceWebhookExecutions,
+      baseClient.marketplace.extensionListAllExtensionInstanceWebhookExecutions,
+    ).getApiResource,
 });
 
 const buildConversationApi = (baseClient: MittwaldAPIV2Client) => ({
