@@ -6264,6 +6264,11 @@ export declare module MittwaldAPIV2 {
         type: "SERVICE_REQUEST";
       }
 
+      export interface ConversationServiceRequestMailSendLimitIncreasePayload {
+        mailAddressId: string;
+        rateLimitId: string;
+      }
+
       export interface ConversationServiceRequestRelocationPayload {
         contact: {
           email: string;
@@ -9379,6 +9384,34 @@ export declare module MittwaldAPIV2 {
 
       export type PolicyPolicy = string;
 
+      export interface ActivitylogAppInstallationCopyRequested {
+        changes: {
+          after?: {
+            appId: string;
+            sourceAppInstallationId: string;
+          };
+          before?: {
+            appId?: string | null;
+            sourceAppInstallationId?: string | null;
+          };
+        };
+        name: "app.copy-requested";
+      }
+
+      export interface ActivitylogAppInstallationAppVersionSet {
+        changes: {
+          after?: {
+            appId: string;
+            appVersionId: string;
+          };
+          before?: {
+            appId?: string | null;
+            appVersionId?: string | null;
+          };
+        };
+        name: "app.version-set";
+      }
+
       export interface ActivitylogDatabaseCreated {
         changes: {
           after?: {
@@ -9738,6 +9771,8 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlUserCreated
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlUserUpdated
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlUserDeleted
+          | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationCopyRequested
+          | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationAppVersionSet
           | MittwaldAPIV2.Components.Schemas.ActivitylogGenericAction;
         aggregate: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
         dateTime: string;
@@ -39215,12 +39250,6 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export type Empty = unknown;
             }
           }
 
