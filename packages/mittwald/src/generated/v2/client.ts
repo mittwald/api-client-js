@@ -642,6 +642,11 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionInvalidateExtensionSecret: this.requestFunctionFactory(
       descriptors.extensionInvalidateExtensionSecret,
     ),
+    /** List all Webhook Executions. */
+    extensionListAllExtensionInstanceWebhookExecutions:
+      this.requestFunctionFactory(
+        descriptors.extensionListAllExtensionInstanceWebhookExecutions,
+      ),
     /** List Contributors. */
     extensionListContributors: this.requestFunctionFactory(
       descriptors.extensionListContributors,
@@ -702,11 +707,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     customerUpdatePaymentMethod: this.requestFunctionFactory(
       descriptors.marketplaceCustomerUpdatePaymentMethod,
     ),
-    /** List all Webhook Executions. */
-    extensionListAllExtensionInstanceWebhookExecutions:
-      this.requestFunctionFactory(
-        descriptors.extensionListAllExtensionInstanceWebhookExecutions,
-      ),
   };
 
   /** The conversation API allows you to manage your support conversations. */
