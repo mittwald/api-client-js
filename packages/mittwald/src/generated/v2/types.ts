@@ -10284,6 +10284,7 @@ export declare module MittwaldAPIV2 {
 
       export interface UserCustomerMembership {
         expiresAt?: string;
+        id: string;
         memberSince: string;
         role: "owner" | "member" | "accountant";
       }
@@ -10298,9 +10299,10 @@ export declare module MittwaldAPIV2 {
 
       export interface UserProjectMembership {
         expiresAt?: string;
+        id?: string;
         inherited: boolean;
         memberSince: string;
-        role: "owner" | "emailadmin" | "external";
+        role: "owner" | "emailadmin" | "external" | "id";
       }
 
       export interface UserUser {
@@ -10449,11 +10451,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export interface ConversationServiceRequestMailSendLimitIncreasePayload {
-        mailAddressId: string;
-        rateLimitId: string;
-      }
 
       export interface CommonsAddress {
         street: string;
