@@ -4834,7 +4834,19 @@ export declare module MittwaldAPIV2 {
         label?: "lts" | "stable" | "experimental" | "legacy stable" | "preview";
         name: string;
         removalAt?: string;
+        /**
+         * This model was replaced by this value.
+         */
+        replacedBy?: string;
+        /**
+         * @deprecated
+         * This Field is deprecated. You can use replacesModelNames.
+         */
         replacesModelName?: string;
+        /**
+         * List of models which were replaced by this model.
+         */
+        replacesModelNames: string[];
         status: MittwaldAPIV2.Components.Schemas.AihostingDetailedModelStatus;
         termsOfServiceLink: string;
         tokenFactor: number;
@@ -4915,7 +4927,19 @@ export declare module MittwaldAPIV2 {
         label?: "lts" | "stable" | "experimental" | "legacy stable" | "preview";
         name: string;
         removalAt?: string;
+        /**
+         * This model was replaced by this value.
+         */
+        replacedBy?: string;
+        /**
+         * @deprecated
+         * This Field is deprecated. You can use replacesModelNames.
+         */
         replacesModelName?: string;
+        /**
+         * List of models which were replaced by this model.
+         */
+        replacesModelNames: string[];
         status: MittwaldAPIV2.Components.Schemas.AihostingDetailedModelStatus;
         termsOfServiceLink: string;
         tokenFactor: number;
@@ -10486,6 +10510,11 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface ConversationServiceRequestMailSendLimitIncreasePayload {
+        mailAddressId: string;
+        rateLimitId: string;
+      }
 
       export interface CommonsAddress {
         street: string;
