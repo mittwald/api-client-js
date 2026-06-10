@@ -6104,6 +6104,11 @@ export declare module MittwaldAPIV2 {
         type: "SERVICE_REQUEST";
       }
 
+      export interface ConversationServiceRequestMailSendLimitIncreasePayload {
+        mailAddressId: string;
+        rateLimitId: string;
+      }
+
       export interface ConversationServiceRequestRelocationPayload {
         contact: {
           email: string;
@@ -9888,11 +9893,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export interface ConversationServiceRequestMailSendLimitIncreasePayload {
-        mailAddressId: string;
-        rateLimitId: string;
-      }
 
       export interface CommonsAddress {
         street: string;
