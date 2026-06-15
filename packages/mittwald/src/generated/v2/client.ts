@@ -1273,6 +1273,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     disableMailArchive: this.requestFunctionFactory(
       descriptors.mailDisableMailArchive,
     ),
+    /** Get a Mail RateLimit. */
+    getMailRateLimit: this.requestFunctionFactory(
+      descriptors.mailGetMailRateLimit,
+    ),
     /** List backups belonging to a MailAddress. */
     listBackupsForMailAddress: this.requestFunctionFactory(
       descriptors.mailListBackupsForMailAddress,
@@ -1280,6 +1284,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** List MailAddresses. */
     listMailAddressesForUser: this.requestFunctionFactory(
       descriptors.mailListMailAddressesForUser,
+    ),
+    /** List Mail RateLimits. */
+    listMailRateLimits: this.requestFunctionFactory(
+      descriptors.mailListMailRateLimits,
     ),
     /** List mail settings of a Project. */
     listProjectMailSettings: this.requestFunctionFactory(

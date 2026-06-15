@@ -878,6 +878,11 @@ const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.mailGetMailAddress,
     baseClient.mail.getMailAddress,
   ).getApiResource,
+  /** Get a Mail RateLimit. */
+  getMailRateLimit: new ApiCallAsyncResourceFactory(
+    descriptors.mailGetMailRateLimit,
+    baseClient.mail.getMailRateLimit,
+  ).getApiResource,
   /** List backups belonging to a MailAddress. */
   listBackupsForMailAddress: new ApiCallAsyncResourceFactory(
     descriptors.mailListBackupsForMailAddress,
@@ -887,6 +892,11 @@ const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
   listMailAddressesForUser: new ApiCallAsyncResourceFactory(
     descriptors.mailListMailAddressesForUser,
     baseClient.mail.listMailAddressesForUser,
+  ).getApiResource,
+  /** List Mail RateLimits. */
+  listMailRateLimits: new ApiCallAsyncResourceFactory(
+    descriptors.mailListMailRateLimits,
+    baseClient.mail.listMailRateLimits,
   ).getApiResource,
   /** List mail settings of a Project. */
   listProjectMailSettings: new ApiCallAsyncResourceFactory(

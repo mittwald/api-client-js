@@ -13515,6 +13515,40 @@ export const mailDisableMailArchive: OpenAPIOperation<
   operationId: "mail-disable-mail-archive",
 };
 
+/** Get a Mail RateLimit. */
+export const mailGetMailRateLimit: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mail-rate-limits/{mailRateLimitId}",
+  method: "GET",
+  operationId: "mail-get-mail-rate-limit",
+};
+
 /** List backups belonging to a MailAddress. */
 export const mailListBackupsForMailAddress: OpenAPIOperation<
   RequestType<
@@ -13616,6 +13650,35 @@ export const mailListMailAddressesForUser: OpenAPIOperation<
   path: "/v2/mail-addresses/",
   method: "GET",
   operationId: "mail-list-mail-addresses-for-user",
+};
+
+/** List Mail RateLimits. */
+export const mailListMailRateLimits: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mail-rate-limits",
+  method: "GET",
+  operationId: "mail-list-mail-rate-limits",
 };
 
 /** List mail settings of a Project. */

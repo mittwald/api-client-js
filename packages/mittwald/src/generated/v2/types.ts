@@ -3398,6 +3398,14 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace MailGetMailRateLimit {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailGetMailRateLimit
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.mailGetMailRateLimit, TStatus>;
+    }
+
     namespace MailListBackupsForMailAddress {
       type RequestData = InferredRequestData<
         typeof descriptors.mailListBackupsForMailAddress
@@ -3416,6 +3424,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.mailListMailAddressesForUser,
+          TStatus
+        >;
+    }
+
+    namespace MailListMailRateLimits {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailListMailRateLimits
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailListMailRateLimits,
           TStatus
         >;
     }
@@ -7968,6 +7987,7 @@ export declare module MittwaldAPIV2 {
         id: string;
         ips: {
           v4: string[];
+          v6: string[];
         };
         /**
          * Whether this ingress is the default ingress or not. A default ingress is automatically created, it cannot be deleted. There can be only one default ingress per project.
@@ -8746,6 +8766,11 @@ export declare module MittwaldAPIV2 {
         folder: 0 | 1;
         keepDays: number;
         relocateSensitivity?: number;
+      }
+
+      export interface MailsystemRateLimit {
+        id: string;
+        rateLimit: number;
       }
 
       export interface MarketplaceContractPartner {
@@ -31316,6 +31341,52 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2MailRateLimitsMailRateLimitId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            mailRateLimitId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MailsystemRateLimit;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2MailAddressesMailAddressIdBackups {
       namespace Get {
         namespace Parameters {
@@ -31467,6 +31538,42 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2MailRateLimits {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MailsystemRateLimit[];
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
