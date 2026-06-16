@@ -9482,9 +9482,9 @@ export const domainMigrationOrderDomainMigration: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
+      Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Post.Responses.$400.Content.ApplicationJson>,
