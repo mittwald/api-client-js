@@ -4670,6 +4670,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace ProjectListProjectActivities {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectListProjectActivities
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectListProjectActivities,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -10044,6 +10055,21 @@ export declare module MittwaldAPIV2 {
         };
       }
 
+      export interface ActivitylogDnsTxtRecordSet {
+        changes: {
+          after?: {
+            txt: string[];
+          };
+          before?: {
+            txt: string[];
+          };
+        };
+        name: "dns.txt-record-set";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
       export interface ActivitylogDnsARecordSet {
         changes: {
           after?: {
@@ -10056,21 +10082,6 @@ export declare module MittwaldAPIV2 {
           };
         };
         name: "dns.a-record-set";
-        parameters: {
-          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogDnsTxtRecordSet {
-        changes: {
-          after?: {
-            txt: string[];
-          };
-          before?: {
-            txt: string[];
-          };
-        };
-        name: "dns.txt-record-set";
         parameters: {
           domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
@@ -10158,18 +10169,19 @@ export declare module MittwaldAPIV2 {
         };
       }
 
-      export interface ActivitylogDnsCnameRecordSet {
+      export interface ActivitylogDatabaseVersionSet {
         changes: {
           after?: {
-            cname: string;
+            version: string;
           };
           before?: {
-            cname: string;
+            version: string;
           };
         };
-        name: "dns.cname-record-set";
+        name: "database.mysql-version-set" | "database.redis-version-set";
         parameters: {
-          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
 
@@ -10193,19 +10205,18 @@ export declare module MittwaldAPIV2 {
         };
       }
 
-      export interface ActivitylogDatabaseVersionSet {
+      export interface ActivitylogDnsCnameRecordSet {
         changes: {
           after?: {
-            version: string;
+            cname: string;
           };
           before?: {
-            version: string;
+            cname: string;
           };
         };
-        name: "database.mysql-version-set" | "database.redis-version-set";
+        name: "dns.cname-record-set";
         parameters: {
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
 
@@ -10215,6 +10226,21 @@ export declare module MittwaldAPIV2 {
         parameters: {
           databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDnsZoneCreated {
+        changes: {
+          after?: {
+            domain: string;
+          };
+          before?: {
+            domain: string | null;
+          };
+        };
+        name: "dns.zone-created";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
 
@@ -10250,21 +10276,6 @@ export declare module MittwaldAPIV2 {
           };
         };
         name: "dns.caa-record-set";
-        parameters: {
-          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogDnsZoneCreated {
-        changes: {
-          after?: {
-            domain: string;
-          };
-          before?: {
-            domain: string | null;
-          };
-        };
-        name: "dns.zone-created";
         parameters: {
           domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
@@ -38742,6 +38753,80 @@ export declare module MittwaldAPIV2 {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectsProjectIdActivities {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {
+            aggregateName?: string;
+            aggregateDomain?: string;
+            aggregateId?: string;
+            startTime?: string;
+            endTime?: string;
+            fulltextSearch?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
+            sort?: "dateTime";
+            order?: "asc" | "desc";
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ActivitylogLogEntry[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
