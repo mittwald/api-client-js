@@ -209,11 +209,6 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.containerGetVolume,
     baseClient.container.getVolume,
   ).getApiResource,
-  /** Get a ContainerImageConfig. */
-  getContainerImageConfig: new ApiCallAsyncResourceFactory(
-    descriptors.containerGetContainerImageConfig,
-    baseClient.container.getContainerImageConfig,
-  ).getApiResource,
   /** Get logs belonging to a Service. */
   getServiceLogs: new ApiCallAsyncResourceFactory(
     descriptors.containerGetServiceLogs,
@@ -253,6 +248,11 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
   listVolumes: new ApiCallAsyncResourceFactory(
     descriptors.containerListVolumes,
     baseClient.container.listVolumes,
+  ).getApiResource,
+  /** Get a ContainerImageConfig. */
+  getContainerImageConfig: new ApiCallAsyncResourceFactory(
+    descriptors.containerGetContainerImageConfig,
+    baseClient.container.getContainerImageConfig,
   ).getApiResource,
 });
 
@@ -1088,6 +1088,11 @@ const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.projectListMembershipsForProject,
     baseClient.project.listMembershipsForProject,
   ).getApiResource,
+  /** Get the activities of a project. */
+  listProjectActivities: new ApiCallAsyncResourceFactory(
+    descriptors.projectListProjectActivities,
+    baseClient.project.listProjectActivities,
+  ).getApiResource,
   /** List ProjectInvites belonging to the executing user. */
   listProjectInvites: new ApiCallAsyncResourceFactory(
     descriptors.projectListProjectInvites,
@@ -1117,11 +1122,6 @@ const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
   storagespaceGetServerStatistics: new ApiCallAsyncResourceFactory(
     descriptors.storagespaceGetServerStatistics,
     baseClient.project.storagespaceGetServerStatistics,
-  ).getApiResource,
-  /** Get the activities of a project. */
-  listProjectActivities: new ApiCallAsyncResourceFactory(
-    descriptors.projectListProjectActivities,
-    baseClient.project.listProjectActivities,
   ).getApiResource,
 });
 
