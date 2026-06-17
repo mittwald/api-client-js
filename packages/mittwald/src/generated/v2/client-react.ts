@@ -1118,6 +1118,11 @@ const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.storagespaceGetServerStatistics,
     baseClient.project.storagespaceGetServerStatistics,
   ).getApiResource,
+  /** Get the activities of a project. */
+  listProjectActivities: new ApiCallAsyncResourceFactory(
+    descriptors.projectListProjectActivities,
+    baseClient.project.listProjectActivities,
+  ).getApiResource,
 });
 
 const buildProjectFileSystemApi = (baseClient: MittwaldAPIV2Client) => ({

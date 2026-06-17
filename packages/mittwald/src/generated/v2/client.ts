@@ -1774,6 +1774,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     storagespaceReplaceServerNotificationThreshold: this.requestFunctionFactory(
       descriptors.storagespaceReplaceServerNotificationThreshold,
     ),
+    /** Get the activities of a project. */
+    listProjectActivities: this.requestFunctionFactory(
+      descriptors.projectListProjectActivities,
+    ),
   };
 
   /** The filesystem API allows you to directly access the filesystem of your project. */
