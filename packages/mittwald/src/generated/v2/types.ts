@@ -9042,20 +9042,50 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface ArticleArticleAddons {
+        /**
+         * Defines if the Addon should not be shown.
+         */
         hidden?: boolean;
+        /**
+         * Unique key of the Addon.
+         */
         key: string;
+        /**
+         * The type/category of the addon.
+         */
         type?: string;
+        /**
+         * Value of the Addon, e.g. configuration details, status, or modifier properties.
+         */
         value: string;
+        /**
+         * Used if Articles are ordered as a batch.
+         */
         valueMergeType?: "add" | "set";
       }
 
       export interface ArticleArticleAttributes {
+        /**
+         * Used if there are custom configurations needed for an Order like a Server name.
+         */
         customerEditable?: boolean;
         key: string;
+        /**
+         * Used if Articles are ordered as a batch.
+         */
         mergeType?: "add" | "set";
+        /**
+         * Used if not need for an Order.
+         */
         readonly?: boolean;
         required?: boolean;
+        /**
+         * Used if Articles are ordered as a batch.
+         */
         unit?: string;
+        /**
+         * Will be ignored if customerEditable is set.
+         */
         value?: string;
       }
 
@@ -9117,14 +9147,32 @@ export declare module MittwaldAPIV2 {
         addons?: MittwaldAPIV2.Components.Schemas.ArticleArticleAddons[];
         articleId: string;
         attributes?: MittwaldAPIV2.Components.Schemas.ArticleArticleAttributes[];
+        /**
+         * @deprecated
+         */
         balanceAddonKey?: string;
         contractDurationInMonth: number;
         description?: string;
+        /**
+         * If set, the Article will always be invoiced for the given months.
+         */
         forcedInvoicingPeriodInMonth?: number;
+        /**
+         * Article has a contract period which is not dependent on the Contract Base Item.
+         */
         hasIndependentContractPeriod?: boolean;
+        /**
+         * Free Article that is not showing on Invoices.
+         */
         hideOnInvoice?: boolean;
+        /**
+         * Resources for hosting Articles.
+         */
         machineType?: {
           cpu: string;
+          /**
+           * Memory in GiB
+           */
           memory: string;
           name: string;
         };
@@ -9140,6 +9188,9 @@ export declare module MittwaldAPIV2 {
           | "beta_testing"
           | "deprecated";
         possibleArticleChanges?: MittwaldAPIV2.Components.Schemas.ArticleReadableChangeArticleOptions[];
+        /**
+         * Monthly price in Eurocent
+         */
         price?: number;
         tags?: MittwaldAPIV2.Components.Schemas.ArticleArticleTag[];
         template: MittwaldAPIV2.Components.Schemas.ArticleArticleTemplate;
@@ -10055,21 +10106,6 @@ export declare module MittwaldAPIV2 {
         };
       }
 
-      export interface ActivitylogDnsTxtRecordSet {
-        changes: {
-          after?: {
-            txt: string[];
-          };
-          before?: {
-            txt: string[];
-          };
-        };
-        name: "dns.txt-record-set";
-        parameters: {
-          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
       export interface ActivitylogDnsARecordSet {
         changes: {
           after?: {
@@ -10082,6 +10118,21 @@ export declare module MittwaldAPIV2 {
           };
         };
         name: "dns.a-record-set";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDnsTxtRecordSet {
+        changes: {
+          after?: {
+            txt: string[];
+          };
+          before?: {
+            txt: string[];
+          };
+        };
+        name: "dns.txt-record-set";
         parameters: {
           domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
@@ -10169,19 +10220,18 @@ export declare module MittwaldAPIV2 {
         };
       }
 
-      export interface ActivitylogDatabaseVersionSet {
+      export interface ActivitylogDnsCnameRecordSet {
         changes: {
           after?: {
-            version: string;
+            cname: string;
           };
           before?: {
-            version: string;
+            cname: string;
           };
         };
-        name: "database.mysql-version-set" | "database.redis-version-set";
+        name: "dns.cname-record-set";
         parameters: {
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
 
@@ -10205,18 +10255,19 @@ export declare module MittwaldAPIV2 {
         };
       }
 
-      export interface ActivitylogDnsCnameRecordSet {
+      export interface ActivitylogDatabaseVersionSet {
         changes: {
           after?: {
-            cname: string;
+            version: string;
           };
           before?: {
-            cname: string;
+            version: string;
           };
         };
-        name: "dns.cname-record-set";
+        name: "database.mysql-version-set" | "database.redis-version-set";
         parameters: {
-          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
 
@@ -10226,21 +10277,6 @@ export declare module MittwaldAPIV2 {
         parameters: {
           databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogDnsZoneCreated {
-        changes: {
-          after?: {
-            domain: string;
-          };
-          before?: {
-            domain: string | null;
-          };
-        };
-        name: "dns.zone-created";
-        parameters: {
-          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
 
@@ -10276,6 +10312,21 @@ export declare module MittwaldAPIV2 {
           };
         };
         name: "dns.caa-record-set";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDnsZoneCreated {
+        changes: {
+          after?: {
+            domain: string;
+          };
+          before?: {
+            domain: string | null;
+          };
+        };
+        name: "dns.zone-created";
         parameters: {
           domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
@@ -19112,8 +19163,9 @@ export declare module MittwaldAPIV2 {
             cronjobId: string;
           };
 
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+          export type Header = {
+            "Accept-Language"?: "de" | "en";
+          } & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {};
         }
