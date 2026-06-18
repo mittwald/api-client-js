@@ -3000,6 +3000,60 @@ export const containerDeleteVolume: OpenAPIOperation<
   operationId: "container-delete-volume",
 };
 
+/** Get a ContainerImageConfig. */
+export const containerGetContainerImageConfig: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContainerImageConfig.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContainerImageConfig.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContainerImageConfig.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerImageConfig.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerImageConfig.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerImageConfig.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerImageConfig.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerImageConfig.Get.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerImageConfig.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerImageConfig.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerImageConfig.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/container-image-config",
+  method: "GET",
+  operationId: "container-get-container-image-config",
+};
+
 /** Get logs belonging to a Service. */
 export const containerGetServiceLogs: OpenAPIOperation<
   RequestType<
@@ -19001,56 +19055,56 @@ export const verificationVerifyCompany: OpenAPIOperation<
   operationId: "verification-verify-company",
 };
 
-/** Get a ContainerImageConfig. */
-export const containerGetContainerImageConfig: OpenAPIOperation<
+/** Request a rate limit change for a MailAddress. */
+export const mailRequestMailAddressRateLimitChange: OpenAPIOperation<
   RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ContainerImageConfig.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ContainerImageConfig.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ContainerImageConfig.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdRequestRateLimitChange.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdRequestRateLimitChange.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdRequestRateLimitChange.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdRequestRateLimitChange.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerImageConfig.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdRequestRateLimitChange.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerImageConfig.Get.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdRequestRateLimitChange.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerImageConfig.Get.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdRequestRateLimitChange.Post.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerImageConfig.Get.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdRequestRateLimitChange.Post.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerImageConfig.Get.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerImageConfig.Get.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdRequestRateLimitChange.Post.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerImageConfig.Get.Responses.$500.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdRequestRateLimitChange.Post.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerImageConfig.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdRequestRateLimitChange.Post.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdRequestRateLimitChange.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/container-image-config",
-  method: "GET",
-  operationId: "container-get-container-image-config",
+  path: "/v2/mail-addresses/{mailAddressId}/request-rate-limit-change",
+  method: "POST",
+  operationId: "mail-request-mail-address-rate-limit-change",
 };

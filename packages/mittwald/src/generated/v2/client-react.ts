@@ -209,6 +209,11 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.containerGetVolume,
     baseClient.container.getVolume,
   ).getApiResource,
+  /** Get a ContainerImageConfig. */
+  getContainerImageConfig: new ApiCallAsyncResourceFactory(
+    descriptors.containerGetContainerImageConfig,
+    baseClient.container.getContainerImageConfig,
+  ).getApiResource,
   /** Get logs belonging to a Service. */
   getServiceLogs: new ApiCallAsyncResourceFactory(
     descriptors.containerGetServiceLogs,
@@ -248,11 +253,6 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
   listVolumes: new ApiCallAsyncResourceFactory(
     descriptors.containerListVolumes,
     baseClient.container.listVolumes,
-  ).getApiResource,
-  /** Get a ContainerImageConfig. */
-  getContainerImageConfig: new ApiCallAsyncResourceFactory(
-    descriptors.containerGetContainerImageConfig,
-    baseClient.container.getContainerImageConfig,
   ).getApiResource,
 });
 
