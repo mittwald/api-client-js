@@ -1737,10 +1737,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listMembershipsForProject: this.requestFunctionFactory(
       descriptors.projectListMembershipsForProject,
     ),
-    /** Get the activities of a project. */
-    listProjectActivities: this.requestFunctionFactory(
-      descriptors.projectListProjectActivities,
-    ),
     /** List ProjectInvites belonging to the executing user. */
     listProjectInvites: this.requestFunctionFactory(
       descriptors.projectListProjectInvites,
@@ -1781,6 +1777,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update a Server's storage space notification threshold. */
     storagespaceReplaceServerNotificationThreshold: this.requestFunctionFactory(
       descriptors.storagespaceReplaceServerNotificationThreshold,
+    ),
+    /** Get the activities of a project. */
+    listProjectActivities: this.requestFunctionFactory(
+      descriptors.projectListProjectActivities,
     ),
   };
 
