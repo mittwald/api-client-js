@@ -9960,19 +9960,9 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export interface ActivitylogDatabaseMysqlNameSet {
-        changes: {
-          after?: {
-            name: string;
-          };
-          before?: {
-            name: string | null;
-          };
-        };
-        name: "database.mysql-name-set";
-        parameters: {
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-        };
+      export interface ActivitylogParameterProperty {
+        aggregate?: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
+        name: string;
       }
 
       export interface ActivitylogAppInstallationDesiredSystemSoftwareSet {
@@ -10005,20 +9995,6 @@ export declare module MittwaldAPIV2 {
         };
       }
 
-      export interface ActivitylogAppInstallationAppVersionSet {
-        changes: {
-          after?: {
-            appId: string;
-            appVersionId: string;
-          };
-          before?: {
-            appId?: string | null;
-            appVersionId?: string | null;
-          };
-        };
-        name: "app.version-set";
-      }
-
       export interface ActivitylogAppInstallationCopyRequested {
         changes: {
           after?: {
@@ -10033,9 +10009,129 @@ export declare module MittwaldAPIV2 {
         name: "app.copy-requested";
       }
 
-      export interface ActivitylogParameterProperty {
-        aggregate?: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
+      export interface ActivitylogDnsCnameRecordSet {
+        changes: {
+          after?: {
+            cname: string;
+          };
+          before?: {
+            cname: string;
+          };
+        };
+        name: "dns.cname-record-set";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogAppInstallationAppVersionSet {
+        changes: {
+          after?: {
+            appId: string;
+            appVersionId: string;
+          };
+          before?: {
+            appId?: string | null;
+            appVersionId?: string | null;
+          };
+        };
+        name: "app.version-set";
+      }
+
+      export interface ActivitylogDnsZoneDeleted {
+        changes: {};
+        name: "dns.zone-deleted";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDatabaseVersionSet {
+        changes: {
+          after?: {
+            version: string;
+          };
+          before?: {
+            version: string;
+          };
+        };
+        name: "database.mysql-version-set" | "database.redis-version-set";
+        parameters: {
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDatabaseDescriptionSet {
+        changes: {
+          after?: {
+            description: string;
+          };
+          before?: {
+            description: string | null;
+          };
+        };
+        name:
+          | "database.mysql-description-set"
+          | "database.redis-description-set";
+        parameters: {
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogLinkedParameterProperty {
+        aggregate: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
         name: string;
+      }
+
+      export interface ActivitylogDatabaseDeleted {
+        changes: {};
+        name: "database.mysql-deleted" | "database.redis-deleted";
+        parameters: {
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDatabaseCreated {
+        changes: {
+          after?: {
+            description: string;
+            name: string;
+            version: string;
+          };
+          before?: {
+            description?: string | null;
+            name?: string | null;
+            version?: string | null;
+          };
+        };
+        name: "database.mysql-created" | "database.redis-created";
+        parameters: {
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDatabaseMysqlUserCreated {
+        changes: {
+          after?: {
+            description: string;
+            externalAccess: boolean;
+            name: string;
+            permissions: {};
+          };
+          before?: {
+            description?: string | null;
+            externalAccess?: boolean | null;
+            name?: string | null;
+            permissions?: {} | null;
+          };
+        };
+        name: "database.mysql-user-created";
+        parameters: {
+          databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
       }
 
       export interface ActivitylogAggregateReference {
@@ -10044,9 +10140,96 @@ export declare module MittwaldAPIV2 {
         id: string;
       }
 
-      export interface ActivitylogLinkedParameterProperty {
-        aggregate: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
-        name: string;
+      export interface ActivitylogDnsTxtRecordSet {
+        changes: {
+          after?: {
+            txt: string[];
+          };
+          before?: {
+            txt: string[];
+          };
+        };
+        name: "dns.txt-record-set";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDnsZoneCreated {
+        changes: {
+          after?: {
+            domain: string;
+          };
+          before?: {
+            domain: string | null;
+          };
+        };
+        name: "dns.zone-created";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDnsMxRecordSet {
+        changes: {
+          after?: {
+            mx: {}[];
+          };
+          before?: {
+            mx: {}[];
+          };
+        };
+        name: "dns.mx-record-set";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDnsARecordSet {
+        changes: {
+          after?: {
+            aRecords: string[];
+            aaaaRecords: string[];
+          };
+          before?: {
+            aRecords: string[];
+            aaaaRecords: string[];
+          };
+        };
+        name: "dns.a-record-set";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDatabaseMysqlNameSet {
+        changes: {
+          after?: {
+            name: string;
+          };
+          before?: {
+            name: string | null;
+          };
+        };
+        name: "database.mysql-name-set";
+        parameters: {
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDnsSrvRecordSet {
+        changes: {
+          after?: {
+            srv: {}[];
+          };
+          before?: {
+            srv: {}[];
+          };
+        };
+        name: "dns.srv-record-set";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
       }
 
       export interface ActivitylogLogEntry {
@@ -10083,56 +10266,25 @@ export declare module MittwaldAPIV2 {
         };
       }
 
-      export interface ActivitylogDnsMxRecordSet {
-        changes: {
-          after?: {
-            mx: {}[];
-          };
-          before?: {
-            mx: {}[];
-          };
-        };
-        name: "dns.mx-record-set";
-        parameters: {
-          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogDnsZoneDeleted {
+      export interface ActivitylogDatabaseMysqlUserDeleted {
         changes: {};
-        name: "dns.zone-deleted";
+        name: "database.mysql-user-deleted";
         parameters: {
-          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
 
-      export interface ActivitylogDnsARecordSet {
+      export interface ActivitylogDnsCaaRecordSet {
         changes: {
           after?: {
-            aRecords: string[];
-            aaaaRecords: string[];
+            caa: {}[];
           };
           before?: {
-            aRecords: string[];
-            aaaaRecords: string[];
+            caa: {}[];
           };
         };
-        name: "dns.a-record-set";
-        parameters: {
-          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogDnsTxtRecordSet {
-        changes: {
-          after?: {
-            txt: string[];
-          };
-          before?: {
-            txt: string[];
-          };
-        };
-        name: "dns.txt-record-set";
+        name: "dns.caa-record-set";
         parameters: {
           domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
@@ -10160,46 +10312,6 @@ export declare module MittwaldAPIV2 {
         };
       }
 
-      export interface ActivitylogDatabaseDeleted {
-        changes: {};
-        name: "database.mysql-deleted" | "database.redis-deleted";
-        parameters: {
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogDatabaseDescriptionSet {
-        changes: {
-          after?: {
-            description: string;
-          };
-          before?: {
-            description: string | null;
-          };
-        };
-        name:
-          | "database.mysql-description-set"
-          | "database.redis-description-set";
-        parameters: {
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogDnsSrvRecordSet {
-        changes: {
-          after?: {
-            srv: {}[];
-          };
-          before?: {
-            srv: {}[];
-          };
-        };
-        name: "dns.srv-record-set";
-        parameters: {
-          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
       export interface ActivitylogDatabaseMysqlUserUpdated {
         changes: {
           after?: {
@@ -10217,118 +10329,6 @@ export declare module MittwaldAPIV2 {
         parameters: {
           databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogDnsCnameRecordSet {
-        changes: {
-          after?: {
-            cname: string;
-          };
-          before?: {
-            cname: string;
-          };
-        };
-        name: "dns.cname-record-set";
-        parameters: {
-          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogDatabaseCreated {
-        changes: {
-          after?: {
-            description: string;
-            name: string;
-            version: string;
-          };
-          before?: {
-            description?: string | null;
-            name?: string | null;
-            version?: string | null;
-          };
-        };
-        name: "database.mysql-created" | "database.redis-created";
-        parameters: {
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogDatabaseVersionSet {
-        changes: {
-          after?: {
-            version: string;
-          };
-          before?: {
-            version: string;
-          };
-        };
-        name: "database.mysql-version-set" | "database.redis-version-set";
-        parameters: {
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogDatabaseMysqlUserDeleted {
-        changes: {};
-        name: "database.mysql-user-deleted";
-        parameters: {
-          databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogDatabaseMysqlUserCreated {
-        changes: {
-          after?: {
-            description: string;
-            externalAccess: boolean;
-            name: string;
-            permissions: {};
-          };
-          before?: {
-            description?: string | null;
-            externalAccess?: boolean | null;
-            name?: string | null;
-            permissions?: {} | null;
-          };
-        };
-        name: "database.mysql-user-created";
-        parameters: {
-          databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogDnsCaaRecordSet {
-        changes: {
-          after?: {
-            caa: {}[];
-          };
-          before?: {
-            caa: {}[];
-          };
-        };
-        name: "dns.caa-record-set";
-        parameters: {
-          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogDnsZoneCreated {
-        changes: {
-          after?: {
-            domain: string;
-          };
-          before?: {
-            domain: string | null;
-          };
-        };
-        name: "dns.zone-created";
-        parameters: {
-          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
 
