@@ -2456,6 +2456,109 @@ export const containerCreateRegistry: OpenAPIOperation<
   operationId: "container-create-registry",
 };
 
+/** List Stacks belonging to a Project. */
+export const containerListStacks: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/stacks",
+  method: "GET",
+  operationId: "container-list-stacks",
+};
+
+/** Create a Stack. */
+export const containerCreateStack: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Post.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Post.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/stacks",
+  method: "POST",
+  operationId: "container-create-stack",
+};
+
 /** Get a Stack. */
 export const containerGetStack: OpenAPIOperation<
   RequestType<
@@ -2547,6 +2650,55 @@ export const containerDeclareStack: OpenAPIOperation<
   path: "/v2/stacks/{stackId}",
   method: "PUT",
   operationId: "container-declare-stack",
+};
+
+/** Delete a Stack. */
+export const containerDeleteStack: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2StacksStackId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2StacksStackId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2StacksStackId.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackId.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackId.Delete.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackId.Delete.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackId.Delete.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackId.Delete.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackId.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/stacks/{stackId}",
+  method: "DELETE",
+  operationId: "container-delete-stack",
 };
 
 /** Create, update or delete Services or Volumes belonging to a Stack. */
@@ -3140,50 +3292,6 @@ export const containerListStackVolumes: OpenAPIOperation<
   path: "/v2/stacks/{stackId}/volumes",
   method: "GET",
   operationId: "container-list-stack-volumes",
-};
-
-/** List Stacks belonging to a Project. */
-export const containerListStacks: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Get.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStacks.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/{projectId}/stacks",
-  method: "GET",
-  operationId: "container-list-stacks",
 };
 
 /** List Volumes belonging to a Project. */

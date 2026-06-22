@@ -635,6 +635,22 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ContainerListStacks {
+      type RequestData = InferredRequestData<
+        typeof descriptors.containerListStacks
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.containerListStacks, TStatus>;
+    }
+
+    namespace ContainerCreateStack {
+      type RequestData = InferredRequestData<
+        typeof descriptors.containerCreateStack
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.containerCreateStack, TStatus>;
+    }
+
     namespace ContainerGetStack {
       type RequestData = InferredRequestData<
         typeof descriptors.containerGetStack
@@ -649,6 +665,14 @@ export declare module MittwaldAPIV2 {
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<typeof descriptors.containerDeclareStack, TStatus>;
+    }
+
+    namespace ContainerDeleteStack {
+      type RequestData = InferredRequestData<
+        typeof descriptors.containerDeleteStack
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.containerDeleteStack, TStatus>;
     }
 
     namespace ContainerUpdateStack {
@@ -763,14 +787,6 @@ export declare module MittwaldAPIV2 {
           typeof descriptors.containerListStackVolumes,
           TStatus
         >;
-    }
-
-    namespace ContainerListStacks {
-      type RequestData = InferredRequestData<
-        typeof descriptors.containerListStacks
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.containerListStacks, TStatus>;
     }
 
     namespace ContainerListVolumes {
@@ -5961,15 +5977,27 @@ export declare module MittwaldAPIV2 {
         };
       }
 
-      export type ConversationConversation =
-        MittwaldAPIV2.Components.Schemas.ConversationBasicConversation & {
+      export interface ConversationConversation {
+        category?: MittwaldAPIV2.Components.Schemas.ConversationCategory;
+        conversationId: string;
+        createdAt: string;
+        createdBy?: MittwaldAPIV2.Components.Schemas.ConversationUser;
+        lastMessage?: {
+          createdAt: string;
           createdBy?: MittwaldAPIV2.Components.Schemas.ConversationUser;
-          lastMessage?: {
-            createdAt: string;
-            createdBy?: MittwaldAPIV2.Components.Schemas.ConversationUser;
-          };
-          lastMessageBy?: MittwaldAPIV2.Components.Schemas.ConversationUser;
         };
+        lastMessageAt?: string;
+        lastMessageBy?: MittwaldAPIV2.Components.Schemas.ConversationUser;
+        mainUser: MittwaldAPIV2.Components.Schemas.ConversationUser;
+        notificationRoles?: MittwaldAPIV2.Components.Schemas.ConversationNotificationRole[];
+        relatedTo?: MittwaldAPIV2.Components.Schemas.ConversationRelatedAggregateReference;
+        relations?: MittwaldAPIV2.Components.Schemas.ConversationAggregateReference[];
+        sharedWith?: MittwaldAPIV2.Components.Schemas.ConversationShareableAggregateReference;
+        shortId: string;
+        status: MittwaldAPIV2.Components.Schemas.ConversationStatus;
+        title: string;
+        visibility: "shared" | "private";
+      }
 
       export interface ConversationGetConversationIdResponse {
         conversationId: string;
@@ -6194,9 +6222,11 @@ export declare module MittwaldAPIV2 {
 
       export interface ConversationUser {
         active?: boolean;
+        atlasGroup?: MittwaldAPIV2.Components.Schemas.ConversationGroup;
         avatarRefId?: string;
         clearName?: string;
-        isEmployee?: boolean;
+        department?: MittwaldAPIV2.Components.Schemas.ConversationDepartment;
+        group?: MittwaldAPIV2.Components.Schemas.ConversationGroup;
         userId: string;
       }
 
@@ -9941,6 +9971,55 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
+      export interface ActivitylogParameterProperty {
+        aggregate?: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
+        name: string;
+      }
+
+      export interface ActivitylogAppInstallationDesiredSystemSoftwareSet {
+        changes: {
+          after?: {
+            software: string;
+            softwareVersion: string;
+            updatePolicy:
+              | "UPDATE_POLICY_UNSPECIFIED"
+              | "UPDATE_POLICY_NONE"
+              | "UPDATE_POLICY_INHERITED_FROM_APP"
+              | "UPDATE_POLICY_PATCH_LEVEL"
+              | "UPDATE_POLICY_ALL";
+          };
+          before?: {
+            software?: string;
+            softwareVersion?: string;
+            updatePolicy?:
+              | "UPDATE_POLICY_UNSPECIFIED"
+              | "UPDATE_POLICY_NONE"
+              | "UPDATE_POLICY_INHERITED_FROM_APP"
+              | "UPDATE_POLICY_PATCH_LEVEL"
+              | "UPDATE_POLICY_ALL";
+          };
+        };
+        name: "app.systemsoftware-set" | "app.systemsoftware-deleted";
+        parameters?: {
+          software: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogAppInstallationCopyRequested {
+        changes: {
+          after?: {
+            appId: string;
+            sourceAppInstallationId: string;
+          };
+          before?: {
+            appId?: string | null;
+            sourceAppInstallationId?: string | null;
+          };
+        };
+        name: "app.copy-requested";
+      }
+
       export interface ActivitylogDnsCnameRecordSet {
         changes: {
           after?: {
@@ -9994,6 +10073,11 @@ export declare module MittwaldAPIV2 {
         };
       }
 
+      export interface ActivitylogLinkedParameterProperty {
+        aggregate: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
+        name: string;
+      }
+
       export interface ActivitylogDatabaseDescriptionSet {
         changes: {
           after?: {
@@ -10011,128 +10095,11 @@ export declare module MittwaldAPIV2 {
         };
       }
 
-      export interface ActivitylogLinkedParameterProperty {
-        aggregate: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
-        name: string;
-      }
-
       export interface ActivitylogDatabaseDeleted {
         changes: {};
         name: "database.mysql-deleted" | "database.redis-deleted";
         parameters: {
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogParameterProperty {
-        aggregate?: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
-        name: string;
-      }
-
-      export interface ActivitylogAppInstallationDesiredSystemSoftwareSet {
-        changes: {
-          after?: {
-            software: string;
-            softwareVersion: string;
-            updatePolicy:
-              | "UPDATE_POLICY_UNSPECIFIED"
-              | "UPDATE_POLICY_NONE"
-              | "UPDATE_POLICY_INHERITED_FROM_APP"
-              | "UPDATE_POLICY_PATCH_LEVEL"
-              | "UPDATE_POLICY_ALL";
-          };
-          before?: {
-            software?: string;
-            softwareVersion?: string;
-            updatePolicy?:
-              | "UPDATE_POLICY_UNSPECIFIED"
-              | "UPDATE_POLICY_NONE"
-              | "UPDATE_POLICY_INHERITED_FROM_APP"
-              | "UPDATE_POLICY_PATCH_LEVEL"
-              | "UPDATE_POLICY_ALL";
-          };
-        };
-        name: "app.systemsoftware-set" | "app.systemsoftware-deleted";
-        parameters?: {
-          software: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogAppInstallationCopyRequested {
-        changes: {
-          after?: {
-            appId: string;
-            sourceAppInstallationId: string;
-          };
-          before?: {
-            appId?: string | null;
-            sourceAppInstallationId?: string | null;
-          };
-        };
-        name: "app.copy-requested";
-      }
-
-      export interface ActivitylogDatabaseCreated {
-        changes: {
-          after?: {
-            description: string;
-            name: string;
-            version: string;
-          };
-          before?: {
-            description?: string | null;
-            name?: string | null;
-            version?: string | null;
-          };
-        };
-        name: "database.mysql-created" | "database.redis-created";
-        parameters: {
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogDatabaseMysqlUserCreated {
-        changes: {
-          after?: {
-            description: string;
-            externalAccess: boolean;
-            name: string;
-            permissions: {};
-          };
-          before?: {
-            description?: string | null;
-            externalAccess?: boolean | null;
-            name?: string | null;
-            permissions?: {} | null;
-          };
-        };
-        name: "database.mysql-user-created";
-        parameters: {
-          databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogAggregateReference {
-        aggregate: string;
-        domain: string;
-        id: string;
-      }
-
-      export interface ActivitylogDnsSrvRecordSet {
-        changes: {
-          after?: {
-            srv: {}[];
-          };
-          before?: {
-            srv: {}[];
-          };
-        };
-        name: "dns.srv-record-set";
-        parameters: {
-          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
 
@@ -10213,32 +10180,66 @@ export declare module MittwaldAPIV2 {
         };
       }
 
-      export interface ActivitylogDatabaseMysqlUserUpdated {
+      export interface ActivitylogDatabaseCreated {
+        changes: {
+          after?: {
+            description: string;
+            name: string;
+            version: string;
+          };
+          before?: {
+            description?: string | null;
+            name?: string | null;
+            version?: string | null;
+          };
+        };
+        name: "database.mysql-created" | "database.redis-created";
+        parameters: {
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDatabaseMysqlUserCreated {
         changes: {
           after?: {
             description: string;
             externalAccess: boolean;
+            name: string;
             permissions: {};
           };
           before?: {
-            description: string | null;
-            externalAccess: boolean | null;
-            permissions: {};
+            description?: string | null;
+            externalAccess?: boolean | null;
+            name?: string | null;
+            permissions?: {} | null;
           };
         };
-        name: "database.mysql-user-updated";
+        name: "database.mysql-user-created";
         parameters: {
           databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
 
-      export interface ActivitylogDatabaseMysqlUserDeleted {
-        changes: {};
-        name: "database.mysql-user-deleted";
+      export interface ActivitylogAggregateReference {
+        aggregate: string;
+        domain: string;
+        id: string;
+      }
+
+      export interface ActivitylogDnsSrvRecordSet {
+        changes: {
+          after?: {
+            srv: {}[];
+          };
+          before?: {
+            srv: {}[];
+          };
+        };
+        name: "dns.srv-record-set";
         parameters: {
-          databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
 
@@ -10273,6 +10274,15 @@ export declare module MittwaldAPIV2 {
         user?: {
           id: string;
           type: "user" | "extension";
+        };
+      }
+
+      export interface ActivitylogDatabaseMysqlUserDeleted {
+        changes: {};
+        name: "database.mysql-user-deleted";
+        parameters: {
+          databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
 
@@ -10313,6 +10323,26 @@ export declare module MittwaldAPIV2 {
         };
       }
 
+      export interface ActivitylogDatabaseMysqlUserUpdated {
+        changes: {
+          after?: {
+            description: string;
+            externalAccess: boolean;
+            permissions: {};
+          };
+          before?: {
+            description: string | null;
+            externalAccess: boolean | null;
+            permissions: {};
+          };
+        };
+        name: "database.mysql-user-updated";
+        parameters: {
+          databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
       export interface ProjectProjectListItem {
         backupStorageUsageInBytes: number;
         backupStorageUsageInBytesSetAt: string;
@@ -10349,20 +10379,20 @@ export declare module MittwaldAPIV2 {
         webStorageUsageInBytesSetAt: string;
       }
 
-      export interface ConversationBasicConversation {
-        category?: MittwaldAPIV2.Components.Schemas.ConversationCategory;
-        conversationId: string;
-        createdAt: string;
-        lastMessageAt?: string;
-        mainUser: MittwaldAPIV2.Components.Schemas.ConversationUser;
-        notificationRoles?: MittwaldAPIV2.Components.Schemas.ConversationNotificationRole[];
-        relatedTo?: MittwaldAPIV2.Components.Schemas.ConversationRelatedAggregateReference;
-        relations?: MittwaldAPIV2.Components.Schemas.ConversationAggregateReference[];
-        sharedWith?: MittwaldAPIV2.Components.Schemas.ConversationShareableAggregateReference;
-        shortId: string;
-        status: MittwaldAPIV2.Components.Schemas.ConversationStatus;
-        title: string;
-        visibility: "shared" | "private";
+      export type ConversationDepartment =
+        | "development"
+        | "mail"
+        | "accounting"
+        | "cloudHosting"
+        | "customerService"
+        | "productManagement"
+        | "generic";
+
+      export interface ConversationGroup {
+        acronym?: string;
+        id: string;
+        isDefaultGroup?: boolean;
+        name: string;
       }
 
       export interface CommonsAddress {
@@ -14233,6 +14263,161 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2ProjectsProjectIdStacks {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ContainerStackResponse[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type RequestBody =
+            MittwaldAPIV2.Components.Schemas.ContainerCreateStack;
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ContainerStackResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $409 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2StacksStackId {
       namespace Get {
         namespace Parameters {
@@ -14395,6 +14580,74 @@ export declare module MittwaldAPIV2 {
         }
       }
 
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            stackId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
       namespace Patch {
         namespace Parameters {
           export type Path = {
@@ -14402,6 +14655,7 @@ export declare module MittwaldAPIV2 {
           };
 
           export interface RequestBody {
+            description?: string;
             /**
              * A set of containers that should be started in this stack. The key is relevant for
              * network connectivity between containers, because you can use it as DNS name to
@@ -15261,73 +15515,6 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.ContainerVolumeResponse[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectsProjectIdStacks {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            limit?: number;
-            skip?: number;
-            page?: number;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.ContainerStackResponse[];
             }
           }
 
