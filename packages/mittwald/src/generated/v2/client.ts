@@ -279,6 +279,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteVolume: this.requestFunctionFactory(
       descriptors.containerDeleteVolume,
     ),
+    /** Get a ContainerImageConfig. */
+    getContainerImageConfig: this.requestFunctionFactory(
+      descriptors.containerGetContainerImageConfig,
+    ),
     /** Get logs belonging to a Service. */
     getServiceLogs: this.requestFunctionFactory(
       descriptors.containerGetServiceLogs,
@@ -299,6 +303,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listStackVolumes: this.requestFunctionFactory(
       descriptors.containerListStackVolumes,
     ),
+    /** List Container Templates. */
+    listTemplates: this.requestFunctionFactory(
+      descriptors.containerListTemplates,
+    ),
     /** List Volumes belonging to a Project. */
     listVolumes: this.requestFunctionFactory(descriptors.containerListVolumes),
     /** Pull image and recreate */
@@ -317,10 +325,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     rotatePullImageWebhookForService: this.requestFunctionFactory(
       descriptors.containerRotatePullImageWebhookForService,
     ),
-    /** Replace the description of a Stack. */
-    setStackDescription: this.requestFunctionFactory(
-      descriptors.containerSetStackDescription,
-    ),
     /** Set an update schedule for a Stack. */
     setStackUpdateSchedule: this.requestFunctionFactory(
       descriptors.containerSetStackUpdateSchedule,
@@ -331,10 +335,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Stop a started Service. */
     stopService: this.requestFunctionFactory(descriptors.containerStopService),
-    /** Get a ContainerImageConfig. */
-    getContainerImageConfig: this.requestFunctionFactory(
-      descriptors.containerGetContainerImageConfig,
-    ),
   };
 
   /** The contract API allows you to manage your contracts and orders */
@@ -1309,6 +1309,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     recoverMailAddressEmails: this.requestFunctionFactory(
       descriptors.mailRecoverMailAddressEmails,
     ),
+    /** Request a rate limit change for a MailAddress. */
+    requestMailAddressRateLimitChange: this.requestFunctionFactory(
+      descriptors.mailRequestMailAddressRateLimitChange,
+    ),
     /** Update the description of a DeliveryBox. */
     updateDeliveryBoxDescription: this.requestFunctionFactory(
       descriptors.mailUpdateDeliveryBoxDescription,
@@ -1324,10 +1328,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update the catch-all of a MailAddress. */
     updateMailAddressCatchAll: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressCatchAll,
-    ),
-    /** Request a rate limit change for a MailAddress. */
-    requestMailAddressRateLimitChange: this.requestFunctionFactory(
-      descriptors.mailRequestMailAddressRateLimitChange,
     ),
   };
 
@@ -1729,9 +1729,17 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get a Server. */
     getServer: this.requestFunctionFactory(descriptors.projectGetServer),
+    /** List Projects belonging to a Customer. */
+    listCustomerProjects: this.requestFunctionFactory(
+      descriptors.projectListCustomerProjects,
+    ),
     /** List Memberships belonging to a Project. */
     listMembershipsForProject: this.requestFunctionFactory(
       descriptors.projectListMembershipsForProject,
+    ),
+    /** Get the activities of a project. */
+    listProjectActivities: this.requestFunctionFactory(
+      descriptors.projectListProjectActivities,
     ),
     /** List ProjectInvites belonging to the executing user. */
     listProjectInvites: this.requestFunctionFactory(
@@ -1773,14 +1781,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update a Server's storage space notification threshold. */
     storagespaceReplaceServerNotificationThreshold: this.requestFunctionFactory(
       descriptors.storagespaceReplaceServerNotificationThreshold,
-    ),
-    /** Get the activities of a project. */
-    listProjectActivities: this.requestFunctionFactory(
-      descriptors.projectListProjectActivities,
-    ),
-    /** List Projects belonging to a Customer. */
-    listCustomerProjects: this.requestFunctionFactory(
-      descriptors.projectListCustomerProjects,
     ),
   };
 
