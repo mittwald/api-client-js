@@ -279,10 +279,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteVolume: this.requestFunctionFactory(
       descriptors.containerDeleteVolume,
     ),
-    /** Get a ContainerImageConfig. */
-    getContainerImageConfig: this.requestFunctionFactory(
-      descriptors.containerGetContainerImageConfig,
-    ),
     /** Get logs belonging to a Service. */
     getServiceLogs: this.requestFunctionFactory(
       descriptors.containerGetServiceLogs,
@@ -339,6 +335,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Stop a started Service. */
     stopService: this.requestFunctionFactory(descriptors.containerStopService),
+    /** Get a ContainerImageConfig. */
+    getContainerImageConfig: this.requestFunctionFactory(
+      descriptors.containerGetContainerImageConfig,
+    ),
   };
 
   /** The contract API allows you to manage your contracts and orders */

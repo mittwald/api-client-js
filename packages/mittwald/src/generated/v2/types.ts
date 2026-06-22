@@ -729,17 +729,6 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.containerDeleteVolume, TStatus>;
     }
 
-    namespace ContainerGetContainerImageConfig {
-      type RequestData = InferredRequestData<
-        typeof descriptors.containerGetContainerImageConfig
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.containerGetContainerImageConfig,
-          TStatus
-        >;
-    }
-
     namespace ContainerGetServiceLogs {
       type RequestData = InferredRequestData<
         typeof descriptors.containerGetServiceLogs
@@ -4835,6 +4824,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ContainerGetContainerImageConfig {
+      type RequestData = InferredRequestData<
+        typeof descriptors.containerGetContainerImageConfig
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.containerGetContainerImageConfig,
+          TStatus
+        >;
+    }
+
     namespace MailRequestMailAddressRateLimitChange {
       type RequestData = InferredRequestData<
         typeof descriptors.mailRequestMailAddressRateLimitChange
@@ -8603,6 +8603,7 @@ export declare module MittwaldAPIV2 {
         isBackupInProgress: boolean;
         isCatchAll: boolean;
         mailbox?: {
+          mailsystemSettings: MittwaldAPIV2.Components.Schemas.MailMailsystemSettings;
           name: string;
           passwordUpdatedAt: string;
           sendingEnabled: boolean;
@@ -8632,8 +8633,6 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface MailMailsystemSettings {
-        imapClusterId: string;
-        mailDirectory: string;
         rateLimitId: string;
       }
 
@@ -10349,6 +10348,26 @@ export declare module MittwaldAPIV2 {
         };
       }
 
+      export interface ActivitylogDatabaseMysqlUserUpdated {
+        changes: {
+          after?: {
+            description: string;
+            externalAccess: boolean;
+            permissions: {};
+          };
+          before?: {
+            description: string | null;
+            externalAccess: boolean | null;
+            permissions: {};
+          };
+        };
+        name: "database.mysql-user-updated";
+        parameters: {
+          databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
       export interface ActivitylogDnsCnameRecordSet {
         changes: {
           after?: {
@@ -10368,26 +10387,6 @@ export declare module MittwaldAPIV2 {
         aggregate: string;
         domain: string;
         id: string;
-      }
-
-      export interface ActivitylogDatabaseMysqlUserUpdated {
-        changes: {
-          after?: {
-            description: string;
-            externalAccess: boolean;
-            permissions: {};
-          };
-          before?: {
-            description: string | null;
-            externalAccess: boolean | null;
-            permissions: {};
-          };
-        };
-        name: "database.mysql-user-updated";
-        parameters: {
-          databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
       }
 
       export interface ActivitylogDatabaseDescriptionSet {
@@ -10541,6 +10540,21 @@ export declare module MittwaldAPIV2 {
         };
       }
 
+      export interface ActivitylogDnsTxtRecordSet {
+        changes: {
+          after?: {
+            txt: string[];
+          };
+          before?: {
+            txt: string[];
+          };
+        };
+        name: "dns.txt-record-set";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
       export interface ActivitylogDatabaseDeleted {
         changes: {};
         name: "database.mysql-deleted" | "database.redis-deleted";
@@ -10559,21 +10573,6 @@ export declare module MittwaldAPIV2 {
           };
         };
         name: "dns.caa-record-set";
-        parameters: {
-          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogDnsTxtRecordSet {
-        changes: {
-          after?: {
-            txt: string[];
-          };
-          before?: {
-            txt: string[];
-          };
-        };
-        name: "dns.txt-record-set";
         parameters: {
           domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
@@ -15372,89 +15371,6 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ContainerImageConfig {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header = {
-            "Accept-Language"?: "de" | "en";
-          } & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            imageReference: string;
-            useCredentialsForProjectId?: string;
-            useCredentialsForRegistryId?: string;
-            generateAiData?: boolean;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.ContainerContainerImageConfig;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -39961,6 +39877,89 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContainerImageConfig {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {
+            "Accept-Language"?: "de" | "en";
+          } & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            imageReference: string;
+            useCredentialsForProjectId?: string;
+            useCredentialsForRegistryId?: string;
+            generateAiData?: boolean;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ContainerContainerImageConfig;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
