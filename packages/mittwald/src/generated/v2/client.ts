@@ -1720,6 +1720,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listProjectActivities: this.requestFunctionFactory(
       descriptors.projectListProjectActivities,
     ),
+    /** List Projects belonging to a Customer. */
+    listCustomerProjects: this.requestFunctionFactory(
+      descriptors.projectListCustomerProjects,
+    ),
   };
 
   /** The filesystem API allows you to directly access the filesystem of your project. */

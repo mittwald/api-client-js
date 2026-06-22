@@ -1083,6 +1083,11 @@ const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.projectListProjectActivities,
     baseClient.project.listProjectActivities,
   ).getApiResource,
+  /** List Projects belonging to a Customer. */
+  listCustomerProjects: new ApiCallAsyncResourceFactory(
+    descriptors.projectListCustomerProjects,
+    baseClient.project.listCustomerProjects,
+  ).getApiResource,
 });
 
 const buildProjectFileSystemApi = (baseClient: MittwaldAPIV2Client) => ({
