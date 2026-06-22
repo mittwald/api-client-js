@@ -299,10 +299,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listStackVolumes: this.requestFunctionFactory(
       descriptors.containerListStackVolumes,
     ),
-    /** List Container Templates. */
-    listTemplates: this.requestFunctionFactory(
-      descriptors.containerListTemplates,
-    ),
     /** List Volumes belonging to a Project. */
     listVolumes: this.requestFunctionFactory(descriptors.containerListVolumes),
     /** Pull image and recreate */

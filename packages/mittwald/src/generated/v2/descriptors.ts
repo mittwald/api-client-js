@@ -3284,45 +3284,6 @@ export const containerListStackVolumes: OpenAPIOperation<
   operationId: "container-list-stack-volumes",
 };
 
-/** List Container Templates. */
-export const containerListTemplates: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplates.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplates.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplates.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplates.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplates.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplates.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplates.Get.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplates.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/container-templates",
-  method: "GET",
-  operationId: "container-list-templates",
-};
-
 /** List Volumes belonging to a Project. */
 export const containerListVolumes: OpenAPIOperation<
   RequestType<
