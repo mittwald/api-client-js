@@ -10117,6 +10117,11 @@ export declare module MittwaldAPIV2 {
         };
       }
 
+      export interface ActivitylogLinkedParameterProperty {
+        aggregate: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
+        name: string;
+      }
+
       export interface ActivitylogDatabaseDescriptionSet {
         changes: {
           after?: {
@@ -10132,11 +10137,6 @@ export declare module MittwaldAPIV2 {
         parameters: {
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
-      }
-
-      export interface ActivitylogLinkedParameterProperty {
-        aggregate: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
-        name: string;
       }
 
       export interface ActivitylogDatabaseDeleted {
@@ -10330,6 +10330,21 @@ export declare module MittwaldAPIV2 {
         };
       }
 
+      export interface ActivitylogDnsCaaRecordSet {
+        changes: {
+          after?: {
+            caa: {}[];
+          };
+          before?: {
+            caa: {}[];
+          };
+        };
+        name: "dns.caa-record-set";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
       /**
        * Fallback when no matching action is found
        */
@@ -10349,21 +10364,6 @@ export declare module MittwaldAPIV2 {
           [
             k: string
           ]: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogDnsCaaRecordSet {
-        changes: {
-          after?: {
-            caa: {}[];
-          };
-          before?: {
-            caa: {}[];
-          };
-        };
-        name: "dns.caa-record-set";
-        parameters: {
-          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
 
@@ -10433,6 +10433,18 @@ export declare module MittwaldAPIV2 {
         | "CAA"
         | "NS";
 
+      /**
+       * Typed reason a domain cannot be migrated.
+       */
+      export type DomainmigrationDomainNotMigratableReason =
+        | "DOMAIN_NOT_MIGRATABLE_REASON_NEED_EPP"
+        | "DOMAIN_NOT_MIGRATABLE_REASON_TLD_NOT_SUPPORTED"
+        | "DOMAIN_NOT_MIGRATABLE_REASON_PREMIUM_DOMAIN"
+        | "DOMAIN_NOT_MIGRATABLE_REASON_REGISTRAR_NOT_SUPPORTED"
+        | "DOMAIN_NOT_MIGRATABLE_REASON_NOT_ORDERABLE"
+        | "DOMAIN_NOT_MIGRATABLE_REASON_INSUFFICIENT_STATE"
+        | "DOMAIN_NOT_MIGRATABLE_REASON_CONTRACT_DATE_OUT_OF_RANGE";
+
       export interface DomainmigrationNonMigratableDomain {
         hostname: string;
         issues: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainNotMigratableReasons;
@@ -10462,24 +10474,6 @@ export declare module MittwaldAPIV2 {
         reasonCodes: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainNotMigratableReason[];
       }
 
-      /**
-       * Typed reason a domain cannot be migrated.
-       */
-      export type DomainmigrationDomainNotMigratableReason =
-        | "DOMAIN_NOT_MIGRATABLE_REASON_NEED_EPP"
-        | "DOMAIN_NOT_MIGRATABLE_REASON_TLD_NOT_SUPPORTED"
-        | "DOMAIN_NOT_MIGRATABLE_REASON_PREMIUM_DOMAIN"
-        | "DOMAIN_NOT_MIGRATABLE_REASON_REGISTRAR_NOT_SUPPORTED"
-        | "DOMAIN_NOT_MIGRATABLE_REASON_NOT_ORDERABLE"
-        | "DOMAIN_NOT_MIGRATABLE_REASON_INSUFFICIENT_STATE"
-        | "DOMAIN_NOT_MIGRATABLE_REASON_CONTRACT_DATE_OUT_OF_RANGE";
-
-      export interface DomainmigrationMigratableDomain {
-        hostname: string;
-        migratable: true;
-        migrationData: MittwaldAPIV2.Components.Schemas.DomainmigrationMigrationData;
-      }
-
       export interface DomainmigrationCheckMigrationResponse {
         allDomainsMigratable: boolean;
         domains: (
@@ -10490,32 +10484,16 @@ export declare module MittwaldAPIV2 {
         generallyPossible: boolean;
       }
 
+      export interface DomainmigrationMigratableDomain {
+        hostname: string;
+        migratable: true;
+        migrationData: MittwaldAPIV2.Components.Schemas.DomainmigrationMigrationData;
+      }
+
       export interface DomainmigrationSubdomain {
         dnsRecords: MittwaldAPIV2.Components.Schemas.DomainmigrationDNSRecord[];
         hostname: string;
         target?: string;
-      }
-
-      export interface DomainmigrationDNSRecord {
-        name?: string;
-        ttl: number;
-        type: MittwaldAPIV2.Components.Schemas.DomainmigrationDNSRecordType;
-        value: string;
-      }
-
-      export interface DomainmigrationMigrationData {
-        dnsRecords: MittwaldAPIV2.Components.Schemas.DomainmigrationDNSRecord[];
-        /**
-         * Monthly net domain price in EUR cents.
-         */
-        monthlyPriceCents: number;
-        subdomains: MittwaldAPIV2.Components.Schemas.DomainmigrationSubdomain[];
-      }
-
-      export interface DomainmigrationMigrationNotPossibleReasons {
-        customerIsNotAllowedToOrder: boolean;
-        legacyTokenNotAuthorized: boolean;
-        noDomainsInSource: boolean;
       }
 
       export interface DomainmigrationMigration {
@@ -10541,6 +10519,28 @@ export declare module MittwaldAPIV2 {
         id: string;
         pAccount: string;
         projectId: string;
+      }
+
+      export interface DomainmigrationMigrationNotPossibleReasons {
+        customerIsNotAllowedToOrder: boolean;
+        legacyTokenNotAuthorized: boolean;
+        noDomainsInSource: boolean;
+      }
+
+      export interface DomainmigrationDNSRecord {
+        name?: string;
+        ttl: number;
+        type: MittwaldAPIV2.Components.Schemas.DomainmigrationDNSRecordType;
+        value: string;
+      }
+
+      export interface DomainmigrationMigrationData {
+        dnsRecords: MittwaldAPIV2.Components.Schemas.DomainmigrationDNSRecord[];
+        /**
+         * Monthly net domain price in EUR cents.
+         */
+        monthlyPriceCents: number;
+        subdomains: MittwaldAPIV2.Components.Schemas.DomainmigrationSubdomain[];
       }
 
       export interface ConversationBasicConversation {
