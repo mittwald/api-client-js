@@ -10697,6 +10697,550 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
+      export interface ActivitylogDnsCnameRecordSet {
+        changes: {
+          after?: {
+            cname: string;
+          };
+          before?: {
+            cname: string;
+          };
+        };
+        name: "dns.cname-record-set";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogAppInstallationAppVersionSet {
+        changes: {
+          after?: {
+            appId: string;
+            appVersionId: string;
+          };
+          before?: {
+            appId?: string | null;
+            appVersionId?: string | null;
+          };
+        };
+        name: "app.version-set";
+      }
+
+      export interface ActivitylogDnsZoneDeleted {
+        changes: {};
+        name: "dns.zone-deleted";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDatabaseVersionSet {
+        changes: {
+          after?: {
+            version: string;
+          };
+          before?: {
+            version: string;
+          };
+        };
+        name: "database.mysql-version-set" | "database.redis-version-set";
+        parameters: {
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDatabaseDescriptionSet {
+        changes: {
+          after?: {
+            description: string;
+          };
+          before?: {
+            description: string | null;
+          };
+        };
+        name:
+          | "database.mysql-description-set"
+          | "database.redis-description-set";
+        parameters: {
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogLinkedParameterProperty {
+        aggregate: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
+        name: string;
+      }
+
+      export interface ActivitylogDatabaseDeleted {
+        changes: {};
+        name: "database.mysql-deleted" | "database.redis-deleted";
+        parameters: {
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogParameterProperty {
+        aggregate?: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
+        name: string;
+      }
+
+      export interface ActivitylogAppInstallationDesiredSystemSoftwareSet {
+        changes: {
+          after?: {
+            software: string;
+            softwareVersion: string;
+            updatePolicy:
+              | "UPDATE_POLICY_UNSPECIFIED"
+              | "UPDATE_POLICY_NONE"
+              | "UPDATE_POLICY_INHERITED_FROM_APP"
+              | "UPDATE_POLICY_PATCH_LEVEL"
+              | "UPDATE_POLICY_ALL";
+          };
+          before?: {
+            software?: string;
+            softwareVersion?: string;
+            updatePolicy?:
+              | "UPDATE_POLICY_UNSPECIFIED"
+              | "UPDATE_POLICY_NONE"
+              | "UPDATE_POLICY_INHERITED_FROM_APP"
+              | "UPDATE_POLICY_PATCH_LEVEL"
+              | "UPDATE_POLICY_ALL";
+          };
+        };
+        name: "app.systemsoftware-set" | "app.systemsoftware-deleted";
+        parameters?: {
+          software: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogAppInstallationCopyRequested {
+        changes: {
+          after?: {
+            appId: string;
+            sourceAppInstallationId: string;
+          };
+          before?: {
+            appId?: string | null;
+            sourceAppInstallationId?: string | null;
+          };
+        };
+        name: "app.copy-requested";
+      }
+
+      export interface ActivitylogDatabaseCreated {
+        changes: {
+          after?: {
+            description: string;
+            name: string;
+            version: string;
+          };
+          before?: {
+            description?: string | null;
+            name?: string | null;
+            version?: string | null;
+          };
+        };
+        name: "database.mysql-created" | "database.redis-created";
+        parameters: {
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDatabaseMysqlUserCreated {
+        changes: {
+          after?: {
+            description: string;
+            externalAccess: boolean;
+            name: string;
+            permissions: {};
+          };
+          before?: {
+            description?: string | null;
+            externalAccess?: boolean | null;
+            name?: string | null;
+            permissions?: {} | null;
+          };
+        };
+        name: "database.mysql-user-created";
+        parameters: {
+          databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogAggregateReference {
+        aggregate: string;
+        domain: string;
+        id: string;
+      }
+
+      export interface ActivitylogDnsSrvRecordSet {
+        changes: {
+          after?: {
+            srv: {}[];
+          };
+          before?: {
+            srv: {}[];
+          };
+        };
+        name: "dns.srv-record-set";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDnsMxRecordSet {
+        changes: {
+          after?: {
+            mx: {}[];
+          };
+          before?: {
+            mx: {}[];
+          };
+        };
+        name: "dns.mx-record-set";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDnsTxtRecordSet {
+        changes: {
+          after?: {
+            txt: string[];
+          };
+          before?: {
+            txt: string[];
+          };
+        };
+        name: "dns.txt-record-set";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDnsZoneCreated {
+        changes: {
+          after?: {
+            domain: string;
+          };
+          before?: {
+            domain: string | null;
+          };
+        };
+        name: "dns.zone-created";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDatabaseMysqlNameSet {
+        changes: {
+          after?: {
+            name: string;
+          };
+          before?: {
+            name: string | null;
+          };
+        };
+        name: "database.mysql-name-set";
+        parameters: {
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDnsARecordSet {
+        changes: {
+          after?: {
+            aRecords: string[];
+            aaaaRecords: string[];
+          };
+          before?: {
+            aRecords: string[];
+            aaaaRecords: string[];
+          };
+        };
+        name: "dns.a-record-set";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDatabaseMysqlUserUpdated {
+        changes: {
+          after?: {
+            description: string;
+            externalAccess: boolean;
+            permissions: {};
+          };
+          before?: {
+            description: string | null;
+            externalAccess: boolean | null;
+            permissions: {};
+          };
+        };
+        name: "database.mysql-user-updated";
+        parameters: {
+          databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDatabaseMysqlUserDeleted {
+        changes: {};
+        name: "database.mysql-user-deleted";
+        parameters: {
+          databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogLogEntry {
+        action:
+          | MittwaldAPIV2.Components.Schemas.ActivitylogDnsZoneCreated
+          | MittwaldAPIV2.Components.Schemas.ActivitylogDnsZoneDeleted
+          | MittwaldAPIV2.Components.Schemas.ActivitylogDnsCnameRecordSet
+          | MittwaldAPIV2.Components.Schemas.ActivitylogDnsSrvRecordSet
+          | MittwaldAPIV2.Components.Schemas.ActivitylogDnsCaaRecordSet
+          | MittwaldAPIV2.Components.Schemas.ActivitylogDnsTxtRecordSet
+          | MittwaldAPIV2.Components.Schemas.ActivitylogDnsARecordSet
+          | MittwaldAPIV2.Components.Schemas.ActivitylogDnsMxRecordSet
+          | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseCreated
+          | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseDeleted
+          | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseDescriptionSet
+          | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseVersionSet
+          | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlNameSet
+          | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlUserCreated
+          | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlUserUpdated
+          | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlUserDeleted
+          | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationCopyRequested
+          | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationAppVersionSet
+          | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDesiredSystemSoftwareSet
+          | MittwaldAPIV2.Components.Schemas.ActivitylogGenericAction;
+        aggregate: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
+        dateTime: string;
+        /**
+         * Null or empty object. If set, the action was executed by an mittwald employee.
+         */
+        impersonator?: {};
+        user?: {
+          id: string;
+          type: "user" | "extension";
+        };
+      }
+
+      export interface ActivitylogDnsCaaRecordSet {
+        changes: {
+          after?: {
+            caa: {}[];
+          };
+          before?: {
+            caa: {}[];
+          };
+        };
+        name: "dns.caa-record-set";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      /**
+       * Fallback when no matching action is found
+       */
+      export interface ActivitylogGenericAction {
+        changes: {
+          [k: string]: {
+            after?: {
+              [k: string]: unknown;
+            };
+            before?: {
+              [k: string]: unknown;
+            };
+          };
+        };
+        name: string;
+        parameters: {
+          [
+            k: string
+          ]: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ProjectProjectListItem {
+        backupStorageUsageInBytes: number;
+        backupStorageUsageInBytesSetAt: string;
+        createdAt: string;
+        customerId: string;
+        customerMeta: {
+          id: string;
+        };
+        description: string;
+        disableReason?: MittwaldAPIV2.Components.Schemas.ProjectDisableReason;
+        disabledAt?: string;
+        enabled: boolean;
+        /**
+         * @deprecated
+         * Deprecated by 'supportedFeatures'.
+         */
+        features?: MittwaldAPIV2.Components.Schemas.ProjectProjectFeature[];
+        id: string;
+        imageRefId?: string;
+        /**
+         * @deprecated
+         * deprecated
+         */
+        isReady: boolean;
+        projectHostingId?: string;
+        readiness: MittwaldAPIV2.Components.Schemas.ProjectDeprecatedProjectReadinessStatus;
+        serverGroupId: string;
+        serverId?: string;
+        shortId: string;
+        status: MittwaldAPIV2.Components.Schemas.ProjectProjectStatus;
+        statusSetAt: string;
+        supportedFeatures: MittwaldAPIV2.Components.Schemas.ProjectProjectFeature[];
+        webStorageUsageInBytes: number;
+        webStorageUsageInBytesSetAt: string;
+      }
+
+      export type ConversationDepartment =
+        | "development"
+        | "mail"
+        | "accounting"
+        | "cloudHosting"
+        | "customerService"
+        | "productManagement"
+        | "generic";
+
+      export interface ConversationGroup {
+        acronym?: string;
+        id: string;
+        isDefaultGroup?: boolean;
+        name: string;
+      }
+
+      export type DomainmigrationDNSRecordType =
+        | "A"
+        | "AAAA"
+        | "TXT"
+        | "MX"
+        | "CNAME"
+        | "SRV"
+        | "CAA"
+        | "NS";
+
+      /**
+       * Typed reason a domain cannot be migrated.
+       */
+      export type DomainmigrationDomainNotMigratableReason =
+        | "DOMAIN_NOT_MIGRATABLE_REASON_NEED_EPP"
+        | "DOMAIN_NOT_MIGRATABLE_REASON_TLD_NOT_SUPPORTED"
+        | "DOMAIN_NOT_MIGRATABLE_REASON_PREMIUM_DOMAIN"
+        | "DOMAIN_NOT_MIGRATABLE_REASON_REGISTRAR_NOT_SUPPORTED"
+        | "DOMAIN_NOT_MIGRATABLE_REASON_NOT_ORDERABLE"
+        | "DOMAIN_NOT_MIGRATABLE_REASON_INSUFFICIENT_STATE"
+        | "DOMAIN_NOT_MIGRATABLE_REASON_CONTRACT_DATE_OUT_OF_RANGE";
+
+      export interface DomainmigrationNonMigratableDomain {
+        hostname: string;
+        issues: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainNotMigratableReasons;
+        migratable: false;
+      }
+
+      /**
+       * A non-migratable-domain failure: one selected domain cannot be migrated. type is always DOMAIN_NOT_MIGRATABLE, path is the affected domain, and context.reason carries the typed reason code.
+       */
+      export interface DomainmigrationDomainNotMigratableValidationError {
+        context: {
+          reason: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainNotMigratableReason;
+          [k: string]: string;
+        };
+        message: string;
+        /**
+         * The affected domain.
+         */
+        path: string;
+        /**
+         * Discriminator for this branch; always DOMAIN_NOT_MIGRATABLE.
+         */
+        type: "DOMAIN_NOT_MIGRATABLE";
+      }
+
+      export interface DomainmigrationDomainNotMigratableReasons {
+        reasonCodes: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainNotMigratableReason[];
+      }
+
+      export interface DomainmigrationMigratableDomain {
+        hostname: string;
+        migratable: true;
+        migrationData: MittwaldAPIV2.Components.Schemas.DomainmigrationMigrationData;
+      }
+
+      export interface DomainmigrationCheckMigrationResponse {
+        allDomainsMigratable: boolean;
+        domains: (
+          | MittwaldAPIV2.Components.Schemas.DomainmigrationMigratableDomain
+          | MittwaldAPIV2.Components.Schemas.DomainmigrationNonMigratableDomain
+        )[];
+        generalIssues?: MittwaldAPIV2.Components.Schemas.DomainmigrationMigrationNotPossibleReasons;
+        generallyPossible: boolean;
+      }
+
+      export interface DomainmigrationSubdomain {
+        dnsRecords: MittwaldAPIV2.Components.Schemas.DomainmigrationDNSRecord[];
+        hostname: string;
+        target?: string;
+      }
+
+      export interface DomainmigrationDNSRecord {
+        name?: string;
+        ttl: number;
+        type: MittwaldAPIV2.Components.Schemas.DomainmigrationDNSRecordType;
+        value: string;
+      }
+
+      export interface DomainmigrationMigrationNotPossibleReasons {
+        customerIsNotAllowedToOrder: boolean;
+        legacyTokenNotAuthorized: boolean;
+        noDomainsInSource: boolean;
+      }
+
+      export interface DomainmigrationMigration {
+        createdAt?: string;
+        domains: {
+          coabData?: {
+            dnsRecords?: MittwaldAPIV2.Components.Schemas.DomainmigrationDNSRecord[];
+            handleData?: {
+              handleFields?: {
+                name: string;
+                value: string;
+              }[];
+              handleRef?: string;
+            };
+            nameservers?: string[];
+            subdomains?: MittwaldAPIV2.Components.Schemas.DomainmigrationSubdomain[];
+          };
+          domain: string;
+          domainId: string;
+          state: "pending" | "succeeded" | "failed";
+        }[];
+        finishedAt?: string;
+        id: string;
+        pAccount: string;
+        projectId: string;
+      }
+
+      export interface DomainmigrationMigrationData {
+        dnsRecords: MittwaldAPIV2.Components.Schemas.DomainmigrationDNSRecord[];
+        /**
+         * Monthly net domain price in EUR cents.
+         */
+        monthlyPriceCents: number;
+        subdomains: MittwaldAPIV2.Components.Schemas.DomainmigrationSubdomain[];
+      }
+
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
