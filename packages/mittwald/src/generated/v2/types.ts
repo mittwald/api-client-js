@@ -9971,11 +9971,6 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export interface ActivitylogParameterProperty {
-        aggregate?: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
-        name: string;
-      }
-
       export interface ActivitylogAppInstallationDesiredSystemSoftwareSet {
         changes: {
           after?: {
@@ -10004,6 +9999,11 @@ export declare module MittwaldAPIV2 {
           software: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
+      }
+
+      export interface ActivitylogParameterProperty {
+        aggregate?: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
+        name: string;
       }
 
       export interface ActivitylogAppInstallationCopyRequested {
@@ -10073,11 +10073,6 @@ export declare module MittwaldAPIV2 {
         };
       }
 
-      export interface ActivitylogLinkedParameterProperty {
-        aggregate: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
-        name: string;
-      }
-
       export interface ActivitylogDatabaseDescriptionSet {
         changes: {
           after?: {
@@ -10093,6 +10088,11 @@ export declare module MittwaldAPIV2 {
         parameters: {
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
+      }
+
+      export interface ActivitylogLinkedParameterProperty {
+        aggregate: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
+        name: string;
       }
 
       export interface ActivitylogDatabaseDeleted {
@@ -10277,15 +10277,6 @@ export declare module MittwaldAPIV2 {
         };
       }
 
-      export interface ActivitylogDatabaseMysqlUserDeleted {
-        changes: {};
-        name: "database.mysql-user-deleted";
-        parameters: {
-          databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
       export interface ActivitylogDnsCaaRecordSet {
         changes: {
           after?: {
@@ -10298,6 +10289,15 @@ export declare module MittwaldAPIV2 {
         name: "dns.caa-record-set";
         parameters: {
           domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDatabaseMysqlUserDeleted {
+        changes: {};
+        name: "database.mysql-user-deleted";
+        parameters: {
+          databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
 
