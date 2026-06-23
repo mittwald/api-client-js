@@ -289,6 +289,8 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get a Service belonging to a Stack. */
     getService: this.requestFunctionFactory(descriptors.containerGetService),
+    /** Get a Container Template by ID. */
+    getTemplate: this.requestFunctionFactory(descriptors.containerGetTemplate),
     /** List Stacks belonging to the executing user. */
     listSelfStacks: this.requestFunctionFactory(
       descriptors.containerListSelfStacks,
@@ -300,6 +302,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** List Volumes belonging to a Stack. */
     listStackVolumes: this.requestFunctionFactory(
       descriptors.containerListStackVolumes,
+    ),
+    /** List Container Templates. */
+    listTemplates: this.requestFunctionFactory(
+      descriptors.containerListTemplates,
     ),
     /** List Volumes belonging to a Project. */
     listVolumes: this.requestFunctionFactory(descriptors.containerListVolumes),

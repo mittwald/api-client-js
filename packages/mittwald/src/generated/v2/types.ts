@@ -759,6 +759,14 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.containerGetService, TStatus>;
     }
 
+    namespace ContainerGetTemplate {
+      type RequestData = InferredRequestData<
+        typeof descriptors.containerGetTemplate
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.containerGetTemplate, TStatus>;
+    }
+
     namespace ContainerListSelfStacks {
       type RequestData = InferredRequestData<
         typeof descriptors.containerListSelfStacks
@@ -785,6 +793,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.containerListStackVolumes,
+          TStatus
+        >;
+    }
+
+    namespace ContainerListTemplates {
+      type RequestData = InferredRequestData<
+        typeof descriptors.containerListTemplates
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.containerListTemplates,
           TStatus
         >;
     }
@@ -5808,6 +5827,45 @@ export declare module MittwaldAPIV2 {
         volumes?: MittwaldAPIV2.Components.Schemas.ContainerVolumeResponse[];
       }
 
+      export interface ContainerTemplate {
+        categories: string[];
+        description: {
+          de: string;
+          en: string;
+        };
+        developer: string;
+        domains?: {
+          port: string;
+          service: string;
+          userInput: string;
+        }[];
+        icon: string;
+        id: string;
+        license?: string;
+        /**
+         * Version of the manifest for this template, e.g. '1.0'
+         */
+        manifestVersion: string;
+        name: string;
+        repository?: string;
+        tagline: {
+          de: string;
+          en: string;
+        };
+        userInputs?: {
+          dataSource?: string;
+          defaultValue?: string;
+          name: string;
+          required: boolean;
+          validationSchema?: string;
+        }[];
+        /**
+         * Version of the application described by this template, e.g. 'latest'
+         */
+        version: string;
+        website?: string;
+      }
+
       export interface ContainerUpdateRegistry {
         credentials?: MittwaldAPIV2.Components.Schemas.ContainerSetRegistryCredentials | null;
         description?: string;
@@ -9971,6 +10029,11 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
+      export interface ActivitylogParameterProperty {
+        aggregate?: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
+        name: string;
+      }
+
       export interface ActivitylogAppInstallationDesiredSystemSoftwareSet {
         changes: {
           after?: {
@@ -9999,11 +10062,6 @@ export declare module MittwaldAPIV2 {
           software: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
-      }
-
-      export interface ActivitylogParameterProperty {
-        aggregate?: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
-        name: string;
       }
 
       export interface ActivitylogAppInstallationCopyRequested {
@@ -10277,21 +10335,6 @@ export declare module MittwaldAPIV2 {
         };
       }
 
-      export interface ActivitylogDnsCaaRecordSet {
-        changes: {
-          after?: {
-            caa: {}[];
-          };
-          before?: {
-            caa: {}[];
-          };
-        };
-        name: "dns.caa-record-set";
-        parameters: {
-          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
       export interface ActivitylogDatabaseMysqlUserDeleted {
         changes: {};
         name: "database.mysql-user-deleted";
@@ -10320,6 +10363,21 @@ export declare module MittwaldAPIV2 {
           [
             k: string
           ]: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDnsCaaRecordSet {
+        changes: {
+          after?: {
+            caa: {}[];
+          };
+          before?: {
+            caa: {}[];
+          };
+        };
+        name: "dns.caa-record-set";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
 
@@ -10393,6 +10451,126 @@ export declare module MittwaldAPIV2 {
         id: string;
         isDefaultGroup?: boolean;
         name: string;
+      }
+
+      export type DomainmigrationDNSRecordType =
+        | "A"
+        | "AAAA"
+        | "TXT"
+        | "MX"
+        | "CNAME"
+        | "SRV"
+        | "CAA"
+        | "NS";
+
+      export interface DomainmigrationNonMigratableDomain {
+        hostname: string;
+        issues: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainNotMigratableReasons;
+        migratable: false;
+      }
+
+      /**
+       * A non-migratable-domain failure: one selected domain cannot be migrated. type is always DOMAIN_NOT_MIGRATABLE, path is the affected domain, and context.reason carries the typed reason code.
+       */
+      export interface DomainmigrationDomainNotMigratableValidationError {
+        context: {
+          reason: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainNotMigratableReason;
+          [k: string]: string;
+        };
+        message: string;
+        /**
+         * The affected domain.
+         */
+        path: string;
+        /**
+         * Discriminator for this branch; always DOMAIN_NOT_MIGRATABLE.
+         */
+        type: "DOMAIN_NOT_MIGRATABLE";
+      }
+
+      export interface DomainmigrationDomainNotMigratableReasons {
+        reasonCodes: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainNotMigratableReason[];
+      }
+
+      /**
+       * Typed reason a domain cannot be migrated.
+       */
+      export type DomainmigrationDomainNotMigratableReason =
+        | "DOMAIN_NOT_MIGRATABLE_REASON_NEED_EPP"
+        | "DOMAIN_NOT_MIGRATABLE_REASON_TLD_NOT_SUPPORTED"
+        | "DOMAIN_NOT_MIGRATABLE_REASON_PREMIUM_DOMAIN"
+        | "DOMAIN_NOT_MIGRATABLE_REASON_REGISTRAR_NOT_SUPPORTED"
+        | "DOMAIN_NOT_MIGRATABLE_REASON_NOT_ORDERABLE"
+        | "DOMAIN_NOT_MIGRATABLE_REASON_INSUFFICIENT_STATE"
+        | "DOMAIN_NOT_MIGRATABLE_REASON_CONTRACT_DATE_OUT_OF_RANGE";
+
+      export interface DomainmigrationMigratableDomain {
+        hostname: string;
+        migratable: true;
+        migrationData: MittwaldAPIV2.Components.Schemas.DomainmigrationMigrationData;
+      }
+
+      export interface DomainmigrationCheckMigrationResponse {
+        allDomainsMigratable: boolean;
+        domains: (
+          | MittwaldAPIV2.Components.Schemas.DomainmigrationMigratableDomain
+          | MittwaldAPIV2.Components.Schemas.DomainmigrationNonMigratableDomain
+        )[];
+        generalIssues?: MittwaldAPIV2.Components.Schemas.DomainmigrationMigrationNotPossibleReasons;
+        generallyPossible: boolean;
+      }
+
+      export interface DomainmigrationSubdomain {
+        dnsRecords: MittwaldAPIV2.Components.Schemas.DomainmigrationDNSRecord[];
+        hostname: string;
+        target?: string;
+      }
+
+      export interface DomainmigrationDNSRecord {
+        name?: string;
+        ttl: number;
+        type: MittwaldAPIV2.Components.Schemas.DomainmigrationDNSRecordType;
+        value: string;
+      }
+
+      export interface DomainmigrationMigrationData {
+        dnsRecords: MittwaldAPIV2.Components.Schemas.DomainmigrationDNSRecord[];
+        /**
+         * Monthly net domain price in EUR cents.
+         */
+        monthlyPriceCents: number;
+        subdomains: MittwaldAPIV2.Components.Schemas.DomainmigrationSubdomain[];
+      }
+
+      export interface DomainmigrationMigrationNotPossibleReasons {
+        customerIsNotAllowedToOrder: boolean;
+        legacyTokenNotAuthorized: boolean;
+        noDomainsInSource: boolean;
+      }
+
+      export interface DomainmigrationMigration {
+        createdAt?: string;
+        domains: {
+          coabData?: {
+            dnsRecords?: MittwaldAPIV2.Components.Schemas.DomainmigrationDNSRecord[];
+            handleData?: {
+              handleFields?: {
+                name: string;
+                value: string;
+              }[];
+              handleRef?: string;
+            };
+            nameservers?: string[];
+            subdomains?: MittwaldAPIV2.Components.Schemas.DomainmigrationSubdomain[];
+          };
+          domain: string;
+          domainId: string;
+          state: "pending" | "succeeded" | "failed";
+        }[];
+        finishedAt?: string;
+        id: string;
+        pAccount: string;
+        projectId: string;
       }
 
       export interface CommonsAddress {
@@ -15346,6 +15524,68 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2ContainerTemplatesTemplateId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            templateId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ContainerTemplate;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2Stacks {
       namespace Get {
         namespace Parameters {
@@ -15527,6 +15767,64 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContainerTemplates {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {
+            category?: string;
+            searchTerm?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ContainerTemplate[];
+            }
+          }
+
+          namespace $400 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
