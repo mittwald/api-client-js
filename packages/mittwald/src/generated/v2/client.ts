@@ -1309,6 +1309,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     recoverMailAddressEmails: this.requestFunctionFactory(
       descriptors.mailRecoverMailAddressEmails,
     ),
+    /** Request a rate limit change for a MailAddress. */
+    requestMailAddressRateLimitChange: this.requestFunctionFactory(
+      descriptors.mailRequestMailAddressRateLimitChange,
+    ),
     /** Update the description of a DeliveryBox. */
     updateDeliveryBoxDescription: this.requestFunctionFactory(
       descriptors.mailUpdateDeliveryBoxDescription,

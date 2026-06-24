@@ -3494,6 +3494,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace MailRequestMailAddressRateLimitChange {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailRequestMailAddressRateLimitChange
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailRequestMailAddressRateLimitChange,
+          TStatus
+        >;
+    }
+
     namespace MailUpdateDeliveryBoxDescription {
       type RequestData = InferredRequestData<
         typeof descriptors.mailUpdateDeliveryBoxDescription
@@ -7217,23 +7228,54 @@ export declare module MittwaldAPIV2 {
         | "NS";
 
       /**
-       * Typed reason a domain cannot be migrated.
+       * A non-blocking finding on an otherwise migratable domain: the domain migrates, but the named subject is skipped.
        */
-      export type DomainmigrationDomainNotMigratableReason =
-        | "DOMAIN_NOT_MIGRATABLE_REASON_NEED_EPP"
-        | "DOMAIN_NOT_MIGRATABLE_REASON_TLD_NOT_SUPPORTED"
-        | "DOMAIN_NOT_MIGRATABLE_REASON_PREMIUM_DOMAIN"
-        | "DOMAIN_NOT_MIGRATABLE_REASON_REGISTRAR_NOT_SUPPORTED"
-        | "DOMAIN_NOT_MIGRATABLE_REASON_NOT_ORDERABLE"
-        | "DOMAIN_NOT_MIGRATABLE_REASON_INSUFFICIENT_STATE"
-        | "DOMAIN_NOT_MIGRATABLE_REASON_CONTRACT_DATE_OUT_OF_RANGE";
-
-      export interface DomainmigrationDomainNotMigratableReasons {
-        reasonCodes: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainNotMigratableReason[];
+      export interface DomainmigrationDomainMigrationWarning {
+        reason: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainMigrationWarningReason;
+        /**
+         * The affected COAB entity, e.g. the skipped wildcard subdomain hostname.
+         */
+        subject: string;
       }
 
       /**
-       * A non-migratable-domain failure: one selected domain cannot be migrated. type is always DOMAIN_NOT_MIGRATABLE, path is the affected domain, and context.reason carries the typed reason code.
+       * Typed non-blocking migration warning: the domain migrates, but the named subject (`warnings[].subject`, the affected subdomain hostname) cannot be carried over as-is.
+       *
+       * * `subdomainInvalidIngressHostname`: a non-CNAME subdomain (provisioned as an ingress) does not match the `idn-hostname` format (e.g. a wildcard `*.example.de`); it is skipped and the rest of the domain migrates.
+       * * `subdomainInvalidDnsName`: a CNAME subdomain (provisioned as a DNS subzone) does not match the `idn-dnsname` format; it is skipped and the rest of the domain migrates.
+       * * `subdomainNsRecordsOverridden`: a subdomain carries its own NS records that differ from the domain's nameservers; per-subdomain delegation is not supported, so those NS records are dropped and the subdomain is served from the domain's nameservers (the rest of the subdomain still migrates).
+       */
+      export type DomainmigrationDomainMigrationWarningReason =
+        | "subdomainInvalidIngressHostname"
+        | "subdomainInvalidDnsName"
+        | "subdomainNsRecordsOverridden";
+
+      /**
+       * Typed reason a domain cannot be migrated:
+       *
+       * * `needEpp`: the domain owner's phone number is not EPP/RFC 5733 conformant at the registry and cannot be reformatted, so the migration is rejected.
+       * * `tldNotSupported`: the domain's TLD is not supported for migration (also used when the registry article for the domain was not found).
+       * * `tldNotMigratable`: the domain's TLD is supported in general, but migration is not currently possible for this TLD.
+       * * `premiumDomain`: the domain is a premium domain, which is not supported yet.
+       * * `registrarNotSupported`: COAB names a registrar we do not support for migration.
+       * * `notOrderable`: the order service rejected the domain for a reason other than an unsupported TLD or a still-reserved domain.
+       * * `insufficientState`: the COAB data is incomplete (e.g. missing registrar, price or owner) or the domain is still reserved at the registry.
+       * * `contractDateOutOfRange`: the COAB contract's next-period date is in the past or more than two years in the future.
+       * * `invalidDomainName`: the COAB domain name does not match the `idn-naked-domain` format we accept.
+       */
+      export type DomainmigrationDomainNotMigratableReason =
+        | "needEpp"
+        | "tldNotSupported"
+        | "tldNotMigratable"
+        | "premiumDomain"
+        | "registrarNotSupported"
+        | "notOrderable"
+        | "insufficientState"
+        | "contractDateOutOfRange"
+        | "invalidDomainName";
+
+      /**
+       * A non-migratable-domain failure: one selected domain cannot be migrated. type is always domainNotMigratable, path is the affected domain, and context.reason carries the typed reason code.
        */
       export interface DomainmigrationDomainNotMigratableValidationError {
         context: {
@@ -7246,15 +7288,16 @@ export declare module MittwaldAPIV2 {
          */
         path: string;
         /**
-         * Discriminator for this branch; always DOMAIN_NOT_MIGRATABLE.
+         * Discriminator for this branch; always domainNotMigratable.
          */
-        type: "DOMAIN_NOT_MIGRATABLE";
+        type: "domainNotMigratable";
       }
 
       export interface DomainmigrationMigratableDomain {
         hostname: string;
         migratable: true;
         migrationData: MittwaldAPIV2.Components.Schemas.DomainmigrationMigrationData;
+        warnings?: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainMigrationWarning[];
       }
 
       export interface DomainmigrationMigrationData {
@@ -7274,8 +7317,9 @@ export declare module MittwaldAPIV2 {
 
       export interface DomainmigrationNonMigratableDomain {
         hostname: string;
-        issues: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainNotMigratableReasons;
+        issues: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainNotMigratableReason[];
         migratable: false;
+        warnings?: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainMigrationWarning[];
       }
 
       export interface DomainmigrationSubdomain {
@@ -7621,7 +7665,7 @@ export declare module MittwaldAPIV2 {
           | "secretRotated"
           | "instanceRemovedFromContext";
         nextScheduledExecution?: string;
-        state: "running" | "queued" | "halted" | "failed" | "successful";
+        state: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstanceWebhookExecutionState;
       }
 
       export interface MarketplaceExtensionSecret {
@@ -8598,6 +8642,7 @@ export declare module MittwaldAPIV2 {
         isBackupInProgress: boolean;
         isCatchAll: boolean;
         mailbox?: {
+          mailsystemSettings: MittwaldAPIV2.Components.Schemas.MailMailsystemSettings;
           name: string;
           passwordUpdatedAt: string;
           sendingEnabled: boolean;
@@ -8616,13 +8661,17 @@ export declare module MittwaldAPIV2 {
           };
         };
         projectId: string;
+        rateLimitChangeRequest?: {
+          /**
+           * id of the rate limit requested
+           */
+          rateLimitId: string;
+        };
         receivingDisabled: boolean;
         updatedAt: string;
       }
 
       export interface MailMailsystemSettings {
-        imapClusterId: string;
-        mailDirectory: string;
         rateLimitId: string;
       }
 
@@ -9516,11 +9565,15 @@ export declare module MittwaldAPIV2 {
         changes: {
           after?: {
             appId: string;
+            appName: string;
             sourceAppInstallationId: string;
+            sourceAppName: string;
           };
           before?: {
             appId?: string | null;
+            appName?: string | null;
             sourceAppInstallationId?: string | null;
+            sourceAppName?: string | null;
           };
         };
         name: "app.copy-requested";
@@ -9568,6 +9621,9 @@ export declare module MittwaldAPIV2 {
           };
         };
         name: "app.version-set";
+        parameters: {
+          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+        };
       }
 
       export interface ActivitylogDatabaseCreated {
@@ -9585,6 +9641,7 @@ export declare module MittwaldAPIV2 {
         };
         name: "database.mysql-created" | "database.redis-created";
         parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
@@ -9636,13 +9693,15 @@ export declare module MittwaldAPIV2 {
             description: string;
             externalAccess: boolean;
             name: string;
-            permissions: {};
+            permissionsRead: boolean;
+            permissionsWrite: boolean;
           };
           before?: {
             description?: string | null;
             externalAccess?: boolean | null;
             name?: string | null;
-            permissions?: {} | null;
+            permissionsRead?: boolean | null;
+            permissionsWrite?: boolean | null;
           };
         };
         name: "database.mysql-user-created";
@@ -9666,12 +9725,14 @@ export declare module MittwaldAPIV2 {
           after?: {
             description: string;
             externalAccess: boolean;
-            permissions: {};
+            permissionsRead: boolean;
+            permissionsWrite: boolean;
           };
           before?: {
             description: string | null;
             externalAccess: boolean | null;
-            permissions: {};
+            permissionsRead: boolean;
+            permissionsWrite: boolean;
           };
         };
         name: "database.mysql-user-updated";
@@ -10681,6 +10742,13 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export type MarketplaceExtensionInstanceWebhookExecutionState =
+        | "running"
+        | "queued"
+        | "halted"
+        | "failed"
+        | "successful";
 
       export interface CommonsAddress {
         street: string;
@@ -25093,7 +25161,7 @@ export declare module MittwaldAPIV2 {
                 };
                 type: string;
                 /**
-                 * One entry per problem. Each entry is a oneOf, mutually exclusive on type: a DomainNotMigratableValidationError (type DOMAIN_NOT_MIGRATABLE, path = the affected domain, context.reason = the typed reason code), or a generic service-base validation error (type = the JSON-schema keyword such as required/pattern/format, path = the request field).
+                 * One entry per problem. Each entry is a oneOf, mutually exclusive on type: a DomainNotMigratableValidationError (type domainNotMigratable, path = the affected domain, context.reason = the typed reason code), or a generic service-base validation error (type = the JSON-schema keyword such as required/pattern/format, path = the request field).
                  */
                 validationErrors: (
                   | MittwaldAPIV2.Components.Schemas.DomainmigrationDomainNotMigratableValidationError
@@ -27336,6 +27404,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             extensionId?: string;
             extensionInstanceId?: string;
+            state?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstanceWebhookExecutionState[];
             limit?: number;
             skip?: number;
             page?: number;
@@ -31978,6 +32047,88 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2MailAddressesMailAddressIdRequestRateLimitChange {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            mailAddressId: string;
+          };
+
+          export interface RequestBody {
+            rateLimitId: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
